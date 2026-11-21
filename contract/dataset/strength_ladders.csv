@@ -1,0 +1,43 @@
+ladder_id,name,kind,bw_fraction,anchor_m,anchor_f,ref_bw_m,ref_bw_f,muscles,source,notes
+back_squat,Barbell back squat,barbell,0,2.83,2.26,80,60,quads:1.0;glutes:0.8;adductors:0.6;quads_lower:0.7;hamstrings:0.4;lower_back:0.3,published,"Published 90th percentile ages 18-35 (van den Hoek 2024, J Sci Med Sport 27(10); values match the paper abstract record)"
+bench_press,Barbell bench press,barbell,0,1.95,1.35,80,60,chest:1.0;upper_chest:0.7;lower_chest:0.8;front_delts:0.6;triceps:0.7,published,Published; incline/decline/dumbbell/smith presses map here with a factor
+deadlift,Barbell deadlift,barbell,0,3.25,2.66,80,60,hamstrings:0.8;glutes:0.9;lower_back:0.8;back:0.6;traps:0.6;upper_traps:0.5;forearms:0.5;quads:0.5,published,Published; sumo/rack/trap-bar style pulls map here with a factor
+overhead_press,Standing barbell overhead press,barbell,0,1.27,0.88,80,60,shoulders:1.0;front_delts:1.0;side_delts:0.6;triceps:0.5;upper_chest:0.3,derived,0.65 x bench_press
+barbell_row,Barbell bent-over row,barbell,0,1.66,1.15,80,60,back:1.0;lats:0.8;rhomboids_teres:0.9;mid_lower_traps:0.7;rear_delts:0.5;biceps:0.5;lower_back:0.3;forearms:0.3,derived,0.85 x bench_press
+close_grip_bench,Close-grip bench press,barbell,0,1.75,1.22,80,60,triceps:0.8;chest:0.5;lower_chest:0.5;front_delts:0.4,derived,0.90 x bench_press
+romanian_deadlift,Romanian deadlift,barbell,0,2.76,2.26,80,60,hamstrings:1.0;glutes:0.8;lower_back:0.6;forearms:0.3;traps:0.3,derived,0.85 x deadlift
+good_morning,Barbell good morning,barbell,0,1.3,1.06,80,60,lower_back:0.9;hamstrings:0.8;glutes:0.5,derived,0.40 x deadlift (low confidence)
+hip_thrust,Barbell hip thrust,barbell,0,2.99,2.45,80,60,glutes:1.0;hamstrings:0.4;abductors:0.4;adductors:0.3,derived,0.92 x deadlift
+pull_up,Pull-up (bodyweight plus added load),bodyweight,1.0,1.9,1.45,80,60,lats:1.0;back:0.8;rhomboids_teres:0.6;biceps:0.7;mid_lower_traps:0.5;forearms:0.4;rear_delts:0.3,estimate,e1RM = bodyweight + added; elite about +90% of bodyweight (M)
+chin_up,Chin-up (bodyweight plus added load),bodyweight,1.0,2.0,1.5,80,60,biceps:0.8;lats:0.8;back:0.6;rhomboids_teres:0.5;forearms:0.4,estimate,"Underhand grip, a little stronger than a pull-up"
+dip,Parallel-bar dip (bodyweight plus added load),bodyweight,0.95,2.1,1.4,80,60,triceps:1.0;lower_chest:0.7;chest:0.7;front_delts:0.5,estimate,Counts 0.95 x bodyweight as load
+push_up,Push-up (bodyweight plus added load),bodyweight,0.65,1.4,1.0,80,60,chest:0.7;lower_chest:0.6;triceps:0.6;front_delts:0.5,estimate,Counts 0.65 x bodyweight as load; sets of 1-12 reps only
+back_extension,"Back extension (45 degree, plate held)",bodyweight,0.6,1.3,1.0,80,60,lower_back:1.0;glutes:0.5;hamstrings:0.4,estimate,Counts 0.6 x bodyweight as load plus the plate
+leg_press,Leg press (plate or selectorised),machine,0,5.4,4.3,80,60,quads:0.9;glutes:0.6;adductors:0.4;hamstrings:0.3,estimate,"About 1.9 x back squat; machines differ a lot, so loose"
+hack_squat,Hack squat machine,machine,0,2.4,1.9,80,60,quads:1.0;quads_lower:0.8;glutes:0.6,estimate,About 0.85 x back squat; machines differ
+leg_extension,Leg extension machine,machine,0,1.6,1.2,80,60,quads:1.0;quads_lower:0.9,estimate,Isolation; machines differ
+leg_curl,Leg curl machine (lying or seated),machine,0,1.0,0.75,80,60,hamstrings:1.0,estimate,Isolation; machines differ
+hip_abduction_machine,Hip abduction machine,machine,0,1.8,1.6,80,60,abductors:1.0;glutes:0.6,estimate,Isolation; machines differ
+hip_adduction_machine,Hip adduction machine,machine,0,1.8,1.5,80,60,adductors:1.0;quads:0.3,estimate,Isolation; machines differ
+cable_pull_through,Cable pull-through,cable,0,1.3,1.1,80,60,glutes:0.8;hamstrings:0.6;lower_back:0.3,estimate,Cable stacks differ between brands
+standing_calf_raise,Standing calf raise (machine or bar),machine,0,2.4,1.7,80,60,calves:1.0;soleus:0.5,estimate,Includes smith and leg-press calf raise via factor
+seated_calf_raise,Seated calf raise,machine,0,1.4,1.0,80,60,soleus:1.0;calves:0.7,estimate,"Knee bent, so soleus-led"
+lat_pulldown,Lat pulldown,cable,0,1.8,1.3,80,60,lats:1.0;back:0.7;biceps:0.5;rhomboids_teres:0.4,estimate,Cable and plate-loaded pulldowns share this ladder
+seated_cable_row,Seated cable row,cable,0,1.7,1.25,80,60,back:1.0;rhomboids_teres:0.9;mid_lower_traps:0.7;lats:0.6;rear_delts:0.4;biceps:0.4,estimate,Chest-supported and machine rows map here
+barbell_shrug,Barbell shrug,barbell,0,2.6,1.9,80,60,traps:1.0;upper_traps:1.0;forearms:0.4,estimate,Heavy; grip may limit
+face_pull,Cable face pull,cable,0,0.9,0.6,80,60,rear_delts:0.8;mid_lower_traps:0.6;rotator_cuff:0.5;rhomboids_teres:0.5,estimate,Low-load lift; sets near the top rank are rare
+machine_shoulder_press,Machine shoulder press,machine,0,1.2,0.85,80,60,shoulders:1.0;front_delts:1.0;side_delts:0.5;triceps:0.5,estimate,About 0.95 x overhead press; machines differ
+lateral_raise,Lateral raise (both hands total),dumbbell,0,0.65,0.45,80,60,side_delts:1.0;shoulders:0.9;front_delts:0.3,estimate,Total of both hands; reps 1-12 only
+rear_delt_fly,Rear-delt fly (machine or cable),machine,0,0.9,0.6,80,60,rear_delts:1.0;shoulders:0.7;rhomboids_teres:0.5;mid_lower_traps:0.4,estimate,Isolation; machines differ
+machine_chest_press,Machine chest press,machine,0,1.6,1.1,80,60,chest:1.0;upper_chest:0.6;lower_chest:0.6;triceps:0.5;front_delts:0.5,estimate,About 0.8 x bench; incline/decline/vertical machines map here
+pec_fly,Pec deck or cable fly,machine,0,1.0,0.7,80,60,chest:1.0;upper_chest:0.6;lower_chest:0.6;front_delts:0.3,estimate,Isolation; machines and cables differ
+barbell_curl,Barbell or EZ-bar curl,barbell,0,1.15,0.75,80,60,biceps:1.0;forearms:0.4,estimate,"Dumbbell, cable and band curls map here with a factor"
+machine_biceps_curl,Machine or preacher curl,machine,0,1.2,0.8,80,60,biceps:1.0;forearms:0.3,estimate,Machines differ
+triceps_pushdown,Cable triceps pushdown,cable,0,1.3,0.9,80,60,triceps:1.0,estimate,Cable stacks differ between brands
+lying_triceps_extension,Lying triceps extension (skull crusher),barbell,0,0.95,0.6,80,60,triceps:1.0,estimate,Overhead and EZ variations map here with a factor
+wrist_curl,Barbell wrist curl,barbell,0,1.0,0.65,80,60,forearms:1.0,estimate,Forearm flexors
+reverse_curl,Reverse curl (overhand),barbell,0,0.8,0.5,80,60,forearms:0.9;biceps:0.4,estimate,Brachioradialis and extensors
+reverse_wrist_curl,Reverse wrist curl,dumbbell,0,0.45,0.3,80,60,forearms:0.8,estimate,Both hands total; low load
+cable_crunch,Kneeling cable crunch,cable,0,1.3,0.9,80,60,abs:1.0;hip_flexors:0.3;obliques:0.3,estimate,Cable stacks differ
+cable_woodchop,Cable woodchop / rotation,cable,0,0.8,0.55,80,60,obliques:1.0;abs:0.4,estimate,Cable stacks differ; per-side load
+side_bend,Weighted side bend,dumbbell,0,1.0,0.7,80,60,obliques:1.0;lower_back:0.3,estimate,Load in one hand; or cable

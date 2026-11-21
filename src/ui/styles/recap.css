@@ -1,0 +1,17 @@
+/* Phase 61: year-in-review cards, muscle of the week, routine image sheet. Tokens only; text wraps, never truncates; nothing bleeds at 360 px. */
+.sf-rcp { min-width: 0; max-width: 100%; }
+.sf-rcp__dates { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: var(--sp-3); min-width: 0; }
+.sf-rcp__track { display: flex; gap: var(--sp-3); overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; min-width: 0; max-width: 100%; scrollbar-width: none; }
+.sf-rcp__track::-webkit-scrollbar { display: none; }
+.sf-rcp__track:focus-visible { outline: 2px solid var(--gold-300); outline-offset: 2px; }
+.sf-rcp__card { box-sizing: border-box; flex: 0 0 100%; min-width: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: var(--sp-4); min-height: 320px; justify-content: center; }
+.sf-rcp__h { margin: 0; font: inherit; font-weight: 600; color: var(--gold-300); overflow-wrap: anywhere; }
+.sf-rcp__big { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-rcp__num { font-family: var(--font-display); font-size: 40px; line-height: 1.1; font-weight: 700; color: var(--text); overflow-wrap: anywhere; }
+.sf-rcp__lbl { color: var(--text-2); overflow-wrap: anywhere; }
+.sf-rcp__nav { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; }
+.sf-mw { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-mw__name { margin: 0; font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--gold-200); overflow-wrap: anywhere; }
+.sf-ri { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-ri__canvas { display: block; box-sizing: border-box; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1080 / 1350; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg-void); }
+@media (prefers-reduced-motion: reduce) { .sf-rcp__track { scroll-behavior: auto; } }

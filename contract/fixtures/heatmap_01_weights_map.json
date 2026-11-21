@@ -1,0 +1,44 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "muscleWeights",
+ "describes": "role x emphasis: primary/secondary as is, stabiliser x0.5, mobility 0",
+ "input": {
+  "ex": {
+   "map": [
+    [
+     "a",
+     "primary",
+     "high"
+    ],
+    [
+     "b",
+     "secondary",
+     "medium"
+    ],
+    [
+     "c",
+     "stabiliser",
+     "low"
+    ],
+    [
+     "d",
+     "stabiliser",
+     "high"
+    ],
+    [
+     "e",
+     "mobility",
+     "high"
+    ]
+   ]
+  },
+  "children": {}
+ },
+ "expect": {
+  "a": 1,
+  "b": 0.6,
+  "c": 0.15,
+  "d": 0.5
+ }
+}

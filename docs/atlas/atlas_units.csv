@@ -1,0 +1,40 @@
+muscleId,name,group,region_chip,shape,mesh_keys,taxonomy_ids,note
+sternocleidomastoid,Sternocleidomastoid,Neck,Neck,model,Sternocleidomastoid,neck,
+pectoralis_major,Pectoralis major (chest),Chest,Chest,model,Clavicular part of pectoralis major|Sternocostal part of pectoralis major|Abdominal part of pectoralis major,upper_chest|lower_chest,
+pectoralis_minor,Pectoralis minor,Chest,Chest,model,Pectoralis minor,,No detailed taxonomy id; sits under the chest parent only.
+serratus_anterior,Serratus anterior,Core,Core,model,Serratus anterior,serratus_anterior,"Prototype group is Core, taxonomy parent is back. The atlas list uses Core (the prototype group)."
+external_oblique,External oblique,Core,Core,model,External oblique,obliques,
+internal_oblique,Internal oblique,Core,Core,fitted,Internal oblique,obliques,"Fitted approximation, not BodyParts3D data."
+rectus_abdominis,Rectus abdominis (abs),Core,Core,fitted,Rectus abdominis,abs,"Fitted approximation, not BodyParts3D data."
+transversus_abdominis,Transversus abdominis,Core,Core,fitted,Transversus abdominis,abs,"Fitted approximation, not BodyParts3D data."
+latissimus_dorsi,Latissimus dorsi (lats),Back,Back,fitted,Latissimus dorsi,lats,"Fitted approximation, not BodyParts3D data."
+multifidus,Multifidus,Back,Back,fitted,Multifidus,lower_back,"Fitted approximation, not BodyParts3D data. Deep spine muscle; taxonomy lower_back."
+erector_spinae,Erector spinae (back extensors),Back,Back,model,Iliocostalis lumborum|Iliocostalis thoracis|Longissimus thoracis|Spinalis thoracis,lower_back,
+trapezius_upper,"Trapezius, upper",Back,Back,model,Descending part of trapezius,upper_traps,
+trapezius_mid_lower,"Trapezius, middle and lower",Back,Back,model,Transverse part of trapezius|Ascending part of trapezius,mid_lower_traps,
+rhomboids,Rhomboids,Back,Back,model,Rhomboid major|Rhomboid minor,rhomboids_teres,
+levator_scapulae,Levator scapulae,Back,Back,model,Levator scapulae,upper_traps,No taxonomy id of its own; mapped to upper_traps as the nearest.
+deltoid,Deltoid (shoulder cap),Shoulders,Shoulders,model,Clavicular part of deltoid|Acromial part of deltoid|Spinal part of deltoid,front_delts|side_delts|rear_delts,
+rotator_cuff,Rotator cuff,Shoulders,Shoulders,model,Supraspinatus|Infraspinatus|Teres minor|Subscapularis,rotator_cuff,
+teres_major,Teres major,Shoulders,Shoulders,model,Teres major,rhomboids_teres,"Prototype group is Shoulders, taxonomy puts it with rhomboids_teres (back). The atlas list uses Shoulders."
+biceps_brachii,Biceps brachii,Arms,Arms,model,Long head of biceps brachii|Short head of biceps brachii,biceps,
+brachialis,Brachialis,Arms,Arms,model,Brachialis,biceps,
+coracobrachialis,Coracobrachialis,Arms,Arms,model,Coracobrachialis,biceps,No taxonomy id of its own; mapped to biceps as the nearest.
+triceps_brachii,Triceps brachii,Arms,Arms,model,Long head of triceps brachii|Lateral head of triceps brachii|Medial head of triceps brachii,triceps,
+brachioradialis,Brachioradialis,Forearms,Arms,model,Brachioradialis,forearms,
+forearm_extensors,Forearm extensors (back of forearm),Forearms,Arms,model,Extensor carpi radialis longus|Extensor carpi radialis brevis|Extensor digitorum|Extensor carpi ulnaris,forearms,
+forearm_flexors,Forearm flexors (front of forearm),Forearms,Arms,model,Flexor carpi radialis|Humeral head of flexor carpi ulnaris|Ulnar head of flexor carpi ulnaris,forearms,
+pronator_teres,Pronator teres,Forearms,Arms,model,Humeral head of pronator teres|Ulnar head of pronator teres,forearms,
+gluteus_maximus,Gluteus maximus,Glutes,Hips,model,Gluteus maximus,glutes,
+gluteus_medius_minimus,Gluteus medius and minimus,Glutes,Hips,model,Gluteus medius|Gluteus minimus,abductors,Taxonomy id is abductors (a glutes child).
+tensor_fasciae_latae,Tensor fasciae latae,Hip flexors,Hips,model,Tensor fasciae latae,abductors,"Prototype group is Hip flexors, taxonomy is abductors. The atlas list uses Hip flexors."
+iliopsoas,Iliopsoas (deep hip flexor),Hip flexors,Hips,model,Iliacus|Psoas major,hip_flexors,"Iliacus and psoas major are two meshes, one text."
+sartorius,Sartorius,Hip flexors,Hips,model,Sartorius,hip_flexors,
+adductors,Adductors (inner thigh),Adductors,Hips,model,Adductor brevis|Adductor longus|Adductor magnus|Adductor minimus|Pectineus|Gracilis,adductors,
+rectus_femoris,Rectus femoris,Quadriceps,Legs,model,Rectus femoris,quads,Also a hip flexor; text says so. Taxonomy quads.
+vasti,Vastus muscles (front thigh),Quadriceps,Legs,model,Vastus lateralis|Vastus intermedius|Vastus medialis,quads|quads_lower,
+hamstrings,Hamstrings,Hamstrings,Legs,model,Long head of biceps femoris|Short head of biceps femoris|Semimembranosus|Semitendinosus,hamstrings,
+gastrocnemius,Gastrocnemius (calf),Calves & shins,Legs,model,Medial head of gastrocnemius|Lateral head of gastrocnemius,calves,
+soleus,Soleus,Calves & shins,Legs,model,Soleus,soleus,
+tibialis_anterior,Tibialis anterior (shin),Calves & shins,Legs,model,Tibialis anterior,tibialis_anterior,
+fibularis,Fibularis (outer lower leg),Calves & shins,Legs,model,Fibularis longus|Fibularis brevis,calves,No taxonomy id of its own; mapped to the calves parent.

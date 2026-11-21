@@ -1,0 +1,135 @@
+{
+ "_note": "HAND-WORKED by the author of contract 1.1.0 (Admin Phase 49), not run by any program in either app and not reviewed by anyone else. Every expected value follows engines.md section 27 by reading. If a fixture and the spec disagree, the spec wins and the fixture is a patch release.",
+ "spec": "engines.md 27.3-27.5",
+ "uuid_to_id22": {
+  "uuid": "11111111-2222-4333-8444-555555555555",
+  "id22": "ERERESIiQzOERFVVVVVVVQ",
+  "rule": "16 bytes -> base64url without padding (22 chars)"
+ },
+ "ist_month_key": [
+  {
+   "utc": "2026-11-05T01:00:00Z",
+   "key": "sessions:2026-11"
+  },
+  {
+   "utc": "2026-10-31T19:00:00Z",
+   "key": "sessions:2026-11",
+   "why": "IST is 2026-11-01 00:30"
+  },
+  {
+   "utc": "2026-11-30T18:30:00Z",
+   "key": "sessions:2026-12",
+   "why": "IST is 2026-12-01 00:00 exactly"
+  }
+ ],
+ "chunk_logical": {
+  "app": "shield-fitness",
+  "schema": 1,
+  "key": "sessions:2026-11",
+  "rows": 3,
+  "made_at": 1793844360,
+  "t": {
+   "workout_sessions": {
+    "c": [
+     "client_id",
+     "started_at",
+     "ended_at",
+     "status",
+     "program_id",
+     "day_id",
+     "routine_id",
+     "note",
+     "u",
+     "deleted_at"
+    ],
+    "r": [
+     [
+      "ERERESIiQzOERFVVVVVVVQ",
+      1793840400,
+      1793844300,
+      "done",
+      null,
+      null,
+      null,
+      null,
+      1793844300000,
+      null
+     ]
+    ]
+   },
+   "workout_sets": {
+    "c": [
+     "client_id",
+     "session_id",
+     "exercise_ref",
+     "exercise_name",
+     "set_no",
+     "weight_kg",
+     "reps",
+     "u",
+     "deleted_at"
+    ],
+    "r": [
+     [
+      "qqqqqru7TMyN3e7u7u7u7g",
+      "ERERESIiQzOERFVVVVVVVQ",
+      "barbell-bench-press",
+      "Barbell Bench Press",
+      1,
+      62.5,
+      8,
+      1793844300000,
+      null
+     ],
+     [
+      "_____wAAQRGCIjMzMzMzMw",
+      "ERERESIiQzOERFVVVVVVVQ",
+      "barbell-bench-press",
+      "Barbell Bench Press",
+      2,
+      62.5,
+      7,
+      1793844300000,
+      null
+     ]
+    ]
+   }
+  }
+ },
+ "canonical_json": "{\"app\":\"shield-fitness\",\"schema\":1,\"key\":\"sessions:2026-11\",\"rows\":3,\"made_at\":1793844360,\"t\":{\"workout_sessions\":{\"c\":[\"client_id\",\"started_at\",\"ended_at\",\"status\",\"program_id\",\"day_id\",\"routine_id\",\"note\",\"u\",\"deleted_at\"],\"r\":[[\"ERERESIiQzOERFVVVVVVVQ\",1793840400,1793844300,\"done\",null,null,null,null,1793844300000,null]]},\"workout_sets\":{\"c\":[\"client_id\",\"session_id\",\"exercise_ref\",\"exercise_name\",\"set_no\",\"weight_kg\",\"reps\",\"u\",\"deleted_at\"],\"r\":[[\"qqqqqru7TMyN3e7u7u7u7g\",\"ERERESIiQzOERFVVVVVVVQ\",\"barbell-bench-press\",\"Barbell Bench Press\",1,62.5,8,1793844300000,null],[\"_____wAAQRGCIjMzMzMzMw\",\"ERERESIiQzOERFVVVVVVVQ\",\"barbell-bench-press\",\"Barbell Bench Press\",2,62.5,7,1793844300000,null]]}}}",
+ "stored_bytes_raw_form": {
+  "first_byte_hex": "00",
+  "total_bytes": 707,
+  "sha256": "8c1b0f6888806c68494d156c329ed2fbc922292f9f0828e82643ea96726a9e0d",
+  "note": "sha256 is over the stored bytes INCLUDING the marker byte; content_sha256 is over the canonical JSON alone and is the fingerprint L/B/S. gzip output differs between implementations, so only the raw form (0x00) has a fixed sha256 here; a gzip form (0x01) must gunzip to the same canonical JSON and therefore the same content_sha256.",
+  "content_sha256": "9014451ea2fd5eb30c2a384082ae48525033821d7c982523f8668a48940d2d85"
+ },
+ "object_path": "<owner_uid>/sessions_2026-11/8c1b0f6888806c68494d156c329ed2fbc922292f9f0828e82643ea96726a9e0d.bin",
+ "tamper_cases": [
+  {
+   "id": "t1",
+   "what": "first byte 0x02",
+   "expect": "REJECT (unknown marker), fall back to previous revision (S4)"
+  },
+  {
+   "id": "t2",
+   "what": "bytes start with '<' (an HTML login page)",
+   "expect": "network error, not data (S4)"
+  },
+  {
+   "id": "t3",
+   "what": "sha256 differs from the manifest",
+   "expect": "REJECT, previous revision (S4)"
+  },
+  {
+   "id": "t4",
+   "what": "header schema 2 when the app knows 1",
+   "expect": "REFUSE, say 'update the app' (S7)"
+  },
+  {
+   "id": "t5",
+   "what": "header key does not equal the requested key",
+   "expect": "REJECT"
+  }
+ ]
+}

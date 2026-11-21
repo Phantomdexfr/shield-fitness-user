@@ -1,0 +1,208 @@
+{
+ "spec": "engines.md 13b",
+ "cases": [
+  {
+   "id": "stack_less_less",
+   "description": "wide + pronated pulldown: biceps 0.6 x0.75 x0.75; lats 0.4 x1.25 x1.25 = 0.625 (no cap hit)",
+   "base": {
+    "biceps": 0.6,
+    "lats": 0.4,
+    "mid_lower_traps": 0.6
+   },
+   "pattern": "pulldown",
+   "setup": {
+    "grip": "pronated",
+    "width": "wide"
+   },
+   "table": {
+    "width": {
+     "wide": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ],
+       [
+        "mid_lower_traps",
+        "m"
+       ]
+      ]
+     }
+    },
+    "grip": {
+     "pronated": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "biceps": 0.3375,
+    "lats": 0.625,
+    "mid_lower_traps": 0.75
+   }
+  },
+  {
+   "id": "cap_after_stack",
+   "description": "lats 1 x1.25 x1.25 = 1.5625 is capped at 1 once, at the end",
+   "base": {
+    "lats": 1
+   },
+   "pattern": "pulldown",
+   "setup": {
+    "grip": "pronated",
+    "width": "wide"
+   },
+   "table": {
+    "width": {
+     "wide": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ],
+       [
+        "mid_lower_traps",
+        "m"
+       ]
+      ]
+     }
+    },
+    "grip": {
+     "pronated": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "lats": 1,
+    "mid_lower_traps": 0.3
+   }
+  },
+  {
+   "id": "absent_more_adds_03",
+   "description": "a more muscle absent from the base starts at 0.3 (mid_lower_traps); a less muscle absent stays absent (biceps)",
+   "base": {
+    "lats": 0.6
+   },
+   "pattern": "pulldown",
+   "setup": {
+    "grip": "pronated",
+    "width": "wide"
+   },
+   "table": {
+    "width": {
+     "wide": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ],
+       [
+        "mid_lower_traps",
+        "m"
+       ]
+      ]
+     }
+    },
+    "grip": {
+     "pronated": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "lats": 0.9375,
+    "mid_lower_traps": 0.3
+   }
+  },
+  {
+   "id": "no_setup_no_change",
+   "description": "no setup or no matching pattern leaves the weights unchanged",
+   "base": {
+    "lats": 0.6,
+    "biceps": 0.6
+   },
+   "pattern": "curl",
+   "setup": {
+    "width": "wide"
+   },
+   "table": {
+    "width": {
+     "wide": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ],
+       [
+        "mid_lower_traps",
+        "m"
+       ]
+      ]
+     }
+    },
+    "grip": {
+     "pronated": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "lats": 0.6,
+    "biceps": 0.6
+   }
+  }
+ ]
+}

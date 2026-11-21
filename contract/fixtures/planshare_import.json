@@ -1,0 +1,315 @@
+{
+ "_doc": "importPlan fixtures (User Phase 41). makeId returns \"id1\", \"id2\"... in call order: custom exercises first (envelope order), then each day, then the routine.",
+ "cases": [
+  {
+   "name": "library slugs, one hidden, one unknown, one custom, name taken",
+   "ctx": {
+    "librarySlugs": [
+     "barbell-bench-press",
+     "lat-pulldown",
+     "barbell-squat"
+    ],
+    "hiddenSlugs": [
+     "lat-pulldown"
+    ],
+    "takenCustomSlugs": [
+     "my-landmine-press"
+    ],
+    "takenRoutineNames": [
+     "push pull legs"
+    ]
+   },
+   "envelope": {
+    "schema": "SFPLAN1",
+    "contractMajor": 1,
+    "createdAt": "2026-11-20T00:00:00.000Z",
+    "from": "Asha",
+    "note": "Try this for 6 weeks",
+    "routine": {
+     "name": "Push Pull Legs",
+     "splitStyle": "ppl",
+     "daysPerWeek": 3,
+     "weekdays": [
+      0,
+      2,
+      4
+     ],
+     "days": [
+      {
+       "name": "Push",
+       "targetMuscles": [
+        "chest",
+        "triceps"
+       ],
+       "items": [
+        {
+         "ref": {
+          "kind": "lib",
+          "slug": "barbell-bench-press"
+         },
+         "sets": 4,
+         "repMin": 6,
+         "repMax": 8,
+         "restSec": 150
+        },
+        {
+         "ref": {
+          "kind": "custom",
+          "id": "my-landmine-press"
+         },
+         "sets": 3,
+         "repMin": 8,
+         "repMax": 12,
+         "restSec": 90,
+         "note": "Slow lowering"
+        }
+       ]
+      },
+      {
+       "name": "Pull",
+       "targetMuscles": [
+        "lats"
+       ],
+       "items": [
+        {
+         "ref": {
+          "kind": "lib",
+          "slug": "lat-pulldown"
+         },
+         "sets": 3,
+         "repMin": 8,
+         "repMax": 12,
+         "restSec": 90
+        }
+       ]
+      },
+      {
+       "name": "Legs",
+       "targetMuscles": [
+        "quadriceps"
+       ],
+       "items": [
+        {
+         "ref": {
+          "kind": "lib",
+          "slug": "barbell-squat"
+         },
+         "sets": 4,
+         "repMin": 5,
+         "repMax": 8,
+         "restSec": 180
+        }
+       ]
+      }
+     ],
+     "schedule": {
+      "mode": "weekdays",
+      "weekdays": [
+       0,
+       2,
+       4
+      ]
+     }
+    },
+    "customExercises": [
+     {
+      "name": "Landmine Press",
+      "slug": "my-landmine-press",
+      "kind": "strength",
+      "machineSlug": null,
+      "muscles": [
+       {
+        "id": "chest_upper",
+        "role": "primary",
+        "emphasis": "high"
+       },
+       {
+        "id": "deltoid_front",
+        "role": "secondary",
+        "emphasis": "medium"
+       }
+      ],
+      "repMin": 8,
+      "repMax": 12
+     }
+    ]
+   },
+   "expected": {
+    "routineName": "Push Pull Legs 2",
+    "active": false,
+    "source": "mine",
+    "routineId": "id5",
+    "dayIds": [
+     "id2",
+     "id3",
+     "id4"
+    ],
+    "customs": [
+     {
+      "id": "id1",
+      "slug": "my-landmine-press-2"
+     }
+    ],
+    "customRefId": "id1",
+    "flags": {
+     "unavailable": [],
+     "hidden": [
+      "lat-pulldown"
+     ],
+     "customAdded": 1
+    }
+   }
+  },
+  {
+   "name": "nothing in the library",
+   "ctx": {
+    "librarySlugs": [],
+    "hiddenSlugs": [],
+    "takenCustomSlugs": [],
+    "takenRoutineNames": []
+   },
+   "envelope": {
+    "schema": "SFPLAN1",
+    "contractMajor": 1,
+    "createdAt": "2026-11-20T00:00:00.000Z",
+    "from": "Asha",
+    "note": "Try this for 6 weeks",
+    "routine": {
+     "name": "Push Pull Legs",
+     "splitStyle": "ppl",
+     "daysPerWeek": 3,
+     "weekdays": [
+      0,
+      2,
+      4
+     ],
+     "days": [
+      {
+       "name": "Push",
+       "targetMuscles": [
+        "chest",
+        "triceps"
+       ],
+       "items": [
+        {
+         "ref": {
+          "kind": "lib",
+          "slug": "barbell-bench-press"
+         },
+         "sets": 4,
+         "repMin": 6,
+         "repMax": 8,
+         "restSec": 150
+        },
+        {
+         "ref": {
+          "kind": "custom",
+          "id": "my-landmine-press"
+         },
+         "sets": 3,
+         "repMin": 8,
+         "repMax": 12,
+         "restSec": 90,
+         "note": "Slow lowering"
+        }
+       ]
+      },
+      {
+       "name": "Pull",
+       "targetMuscles": [
+        "lats"
+       ],
+       "items": [
+        {
+         "ref": {
+          "kind": "lib",
+          "slug": "lat-pulldown"
+         },
+         "sets": 3,
+         "repMin": 8,
+         "repMax": 12,
+         "restSec": 90
+        }
+       ]
+      },
+      {
+       "name": "Legs",
+       "targetMuscles": [
+        "quadriceps"
+       ],
+       "items": [
+        {
+         "ref": {
+          "kind": "lib",
+          "slug": "barbell-squat"
+         },
+         "sets": 4,
+         "repMin": 5,
+         "repMax": 8,
+         "restSec": 180
+        }
+       ]
+      }
+     ],
+     "schedule": {
+      "mode": "weekdays",
+      "weekdays": [
+       0,
+       2,
+       4
+      ]
+     }
+    },
+    "customExercises": [
+     {
+      "name": "Landmine Press",
+      "slug": "my-landmine-press",
+      "kind": "strength",
+      "machineSlug": null,
+      "muscles": [
+       {
+        "id": "chest_upper",
+        "role": "primary",
+        "emphasis": "high"
+       },
+       {
+        "id": "deltoid_front",
+        "role": "secondary",
+        "emphasis": "medium"
+       }
+      ],
+      "repMin": 8,
+      "repMax": 12
+     }
+    ]
+   },
+   "expected": {
+    "routineName": "Push Pull Legs",
+    "active": false,
+    "source": "mine",
+    "routineId": "id5",
+    "dayIds": [
+     "id2",
+     "id3",
+     "id4"
+    ],
+    "customs": [
+     {
+      "id": "id1",
+      "slug": "my-landmine-press"
+     }
+    ],
+    "customRefId": "id1",
+    "flags": {
+     "unavailable": [
+      "barbell-bench-press",
+      "lat-pulldown",
+      "barbell-squat"
+     ],
+     "hidden": [],
+     "customAdded": 1
+    }
+   }
+  }
+ ]
+}

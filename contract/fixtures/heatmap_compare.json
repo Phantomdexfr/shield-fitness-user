@@ -1,0 +1,28 @@
+{
+  "_note": "Phase 43. Compare two weeks (base = week of 9 Nov, current = week of 16 Nov). Worked by hand. Weekly upper_chest [6,3] p90 = 6, triceps [1.8,0.9] p90 1.8, lats [2] -> all bases 6 (floor). Base week: upper 6/6 = 1 (band 5), triceps 1.8/6 = 0.3 (band 2), lats 0. Current week: upper 3/6 = 0.5 (band 3), triceps 0.9/6 = 0.15 (band 1), lats 2/6 = 0.333333333 (band 2). Delta = current - base.",
+  "taxonomy": [
+    {"id": "chest", "parent": "chest"}, {"id": "upper_chest", "parent": "chest"}, {"id": "lower_chest", "parent": "chest"},
+    {"id": "triceps", "parent": "triceps"}, {"id": "back", "parent": "back"}, {"id": "lats", "parent": "back"}
+  ],
+  "base": {"kind": "week", "anchor": "2026-11-10"},
+  "current": {"kind": "week", "anchor": "2026-11-17"},
+  "entries": [
+    {"day": "2026-11-10", "sets": 6, "weights": {"upper_chest": 1, "triceps": 0.3}},
+    {"day": "2026-11-17", "sets": 3, "weights": {"upper_chest": 1, "triceps": 0.3}},
+    {"day": "2026-11-19", "sets": 2, "weights": {"lats": 1}}
+  ],
+  "expect": {
+    "detail": {
+      "upper_chest": {"base": 1, "current": 0.5, "delta": -0.5, "trend": "loss"},
+      "triceps": {"base": 0.3, "current": 0.15, "delta": -0.15, "trend": "loss"},
+      "lats": {"base": 0, "current": 0.333333333, "delta": 0.333333333, "trend": "gain"}
+    },
+    "rolled": {
+      "chest": {"base": 1, "current": 0.5, "delta": -0.5, "trend": "loss"},
+      "triceps": {"base": 0.3, "current": 0.15, "delta": -0.15, "trend": "loss"},
+      "back": {"base": 0, "current": 0.333333333, "delta": 0.333333333, "trend": "gain"}
+    },
+    "bands": {"base": {"upper_chest": 5, "triceps": 2}, "current": {"upper_chest": 3, "triceps": 1, "lats": 2}},
+    "same_when_equal": {"periodA": {"kind": "week", "anchor": "2026-11-17"}, "periodB": {"kind": "week", "anchor": "2026-11-17"}, "trendAll": "same"}
+  }
+}

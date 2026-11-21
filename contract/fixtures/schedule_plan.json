@@ -1,0 +1,539 @@
+{
+ "note": "schedule_plan: weekCells expectations. 'T:Name' = training date with that Day; R rest; A active recovery; M mobility; open = floating; none = no schedule. Hand-worked from docs/SCHEDULER.md (Phase 29). Created in User Phase 32.",
+ "cases": [
+  {
+   "id": "ex1-weekdays",
+   "example": 1,
+   "note": "PPL on Mon/Wed/Fri; rotation wraps on Mon 23",
+   "today": "2026-11-16",
+   "count": 8,
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "T:Push",
+    "R",
+    "T:Pull",
+    "R",
+    "T:Legs",
+    "R",
+    "R",
+    "T:Push"
+   ]
+  },
+  {
+   "id": "ex2-more-days-than-weekdays",
+   "example": 2,
+   "note": "4 days on 3 weekdays take turns",
+   "today": "2026-11-16",
+   "count": 14,
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "pointer": 0,
+   "expect": [
+    "T:A",
+    "R",
+    "T:B",
+    "R",
+    "T:C",
+    "R",
+    "R",
+    "T:D",
+    "R",
+    "T:A",
+    "R",
+    "T:B",
+    "R",
+    "R"
+   ]
+  },
+  {
+   "id": "ex3-cycle-ttr",
+   "example": 3,
+   "note": "Cycle TTR from Mon 16",
+   "today": "2026-11-16",
+   "count": 7,
+   "schedule": {
+    "mode": "cycle",
+    "pattern": [
+     "T",
+     "T",
+     "R"
+    ],
+    "startDate": "2026-11-16"
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "T:Push",
+    "T:Pull",
+    "R",
+    "T:Legs",
+    "T:Push",
+    "R",
+    "T:Pull"
+   ]
+  },
+  {
+   "id": "ex3b-cycle-thu",
+   "example": 3,
+   "note": "Asked on Thu 19 after two sessions: Legs",
+   "today": "2026-11-19",
+   "count": 3,
+   "schedule": {
+    "mode": "cycle",
+    "pattern": [
+     "T",
+     "T",
+     "R"
+    ],
+    "startDate": "2026-11-16"
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 2,
+   "expect": [
+    "T:Legs",
+    "T:Push",
+    "R"
+   ]
+  },
+  {
+   "id": "ex4-cycle-7",
+   "example": 4,
+   "note": "TTTRTTR with 4 days",
+   "today": "2026-11-16",
+   "count": 8,
+   "schedule": {
+    "mode": "cycle",
+    "pattern": [
+     "T",
+     "T",
+     "T",
+     "R",
+     "T",
+     "T",
+     "R"
+    ],
+    "startDate": "2026-11-16"
+   },
+   "days": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "pointer": 0,
+   "expect": [
+    "T:A",
+    "T:B",
+    "T:C",
+    "R",
+    "T:D",
+    "T:A",
+    "R",
+    "T:B"
+   ]
+  },
+  {
+   "id": "ex5-every2-wed",
+   "example": 5,
+   "note": "Every 2 days, Pull on Tue 17: Wed not due, Legs due Thu",
+   "today": "2026-11-18",
+   "count": 4,
+   "schedule": {
+    "mode": "every_n",
+    "n": 2
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 2,
+   "expect": [
+    "R",
+    "T:Legs",
+    "R",
+    "T:Push"
+   ],
+   "sessionDates": [
+    "2026-11-17"
+   ]
+  },
+  {
+   "id": "ex5b-every2-thu",
+   "example": 5,
+   "note": "Thu 19: due, Legs; next due Sat 21",
+   "today": "2026-11-19",
+   "count": 4,
+   "schedule": {
+    "mode": "every_n",
+    "n": 2
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 2,
+   "expect": [
+    "T:Legs",
+    "R",
+    "T:Push",
+    "R"
+   ],
+   "sessionDates": [
+    "2026-11-17"
+   ]
+  },
+  {
+   "id": "ex5c-every2-missed",
+   "example": 5,
+   "note": "Thu missed: Fri 20 is still due (n or more days)",
+   "today": "2026-11-20",
+   "count": 3,
+   "schedule": {
+    "mode": "every_n",
+    "n": 2
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 2,
+   "expect": [
+    "T:Legs",
+    "R",
+    "T:Push"
+   ],
+   "sessionDates": [
+    "2026-11-17"
+   ]
+  },
+  {
+   "id": "ex5d-every2-none",
+   "example": 5,
+   "note": "No session yet: today is a training date",
+   "today": "2026-11-16",
+   "count": 3,
+   "schedule": {
+    "mode": "every_n",
+    "n": 2
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "T:Push",
+    "R",
+    "T:Pull"
+   ],
+   "sessionDates": []
+  },
+  {
+   "id": "ex7-ab-weeks",
+   "example": 7,
+   "note": "A week of 16 (Mon/Wed/Fri), B week of 23 (Tue/Thu), A again 30",
+   "today": "2026-11-16",
+   "count": 15,
+   "schedule": {
+    "mode": "ab_weeks",
+    "weekA": {
+     "mode": "weekdays",
+     "weekdays": [
+      0,
+      2,
+      4
+     ]
+    },
+    "weekB": {
+     "mode": "weekdays",
+     "weekdays": [
+      1,
+      3
+     ]
+    }
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "T:Push",
+    "R",
+    "T:Pull",
+    "R",
+    "T:Legs",
+    "R",
+    "R",
+    "R",
+    "T:Push",
+    "R",
+    "T:Pull",
+    "R",
+    "R",
+    "R",
+    "T:Legs"
+   ],
+   "meta": {
+    "anchorDate": "2026-11-16",
+    "deloadWeeks": []
+   }
+  },
+  {
+   "id": "ex7b-ab-week-start-monday",
+   "example": 7,
+   "note": "Sun 22 belongs to the A week when weeks start on Monday",
+   "today": "2026-11-22",
+   "count": 1,
+   "schedule": {
+    "mode": "ab_weeks",
+    "weekA": {
+     "mode": "weekdays",
+     "weekdays": [
+      6
+     ]
+    },
+    "weekB": {
+     "mode": "weekdays",
+     "weekdays": [
+      1
+     ]
+    }
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "T:Push"
+   ],
+   "meta": {
+    "anchorDate": "2026-11-16",
+    "deloadWeeks": []
+   },
+   "weekStart": "mon"
+  },
+  {
+   "id": "ex7c-ab-week-start-sunday",
+   "example": 7,
+   "note": "With Sunday weeks, A begins Sun 15 and the flip is Sun 22 (B: only Tue)",
+   "today": "2026-11-22",
+   "count": 3,
+   "schedule": {
+    "mode": "ab_weeks",
+    "weekA": {
+     "mode": "weekdays",
+     "weekdays": [
+      6
+     ]
+    },
+    "weekB": {
+     "mode": "weekdays",
+     "weekdays": [
+      1
+     ]
+    }
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "R",
+    "R",
+    "T:Push"
+   ],
+   "meta": {
+    "anchorDate": "2026-11-16",
+    "deloadWeeks": []
+   },
+   "weekStart": "sun"
+  },
+  {
+   "id": "ex7d-ab-no-anchor",
+   "example": 7,
+   "note": "No anchor: the day the schedule was saved (Wed 18 = A week), so Mon 23 is B: only Tue 24 trains",
+   "today": "2026-11-23",
+   "count": 2,
+   "schedule": {
+    "mode": "ab_weeks",
+    "weekA": {
+     "mode": "weekdays",
+     "weekdays": [
+      0,
+      2,
+      4
+     ]
+    },
+    "weekB": {
+     "mode": "weekdays",
+     "weekdays": [
+      1,
+      3
+     ]
+    }
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "R",
+    "T:Push"
+   ],
+   "meta": {
+    "savedOn": "2026-11-18",
+    "deloadWeeks": []
+   }
+  },
+  {
+   "id": "ex12-active-mobility",
+   "example": 12,
+   "note": "T T A T M R",
+   "today": "2026-11-16",
+   "count": 6,
+   "schedule": {
+    "mode": "cycle",
+    "pattern": [
+     "T",
+     "T",
+     "A",
+     "T",
+     "M",
+     "R"
+    ],
+    "startDate": "2026-11-16"
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "T:Push",
+    "T:Pull",
+    "A",
+    "T:Legs",
+    "M",
+    "R"
+   ]
+  },
+  {
+   "id": "ex11-rest-override",
+   "example": 11,
+   "note": "Rest chosen on Wed 18 moves nothing: Fri still Pull",
+   "today": "2026-11-16",
+   "count": 5,
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 1,
+   "expect": [
+    "T:Pull",
+    "R",
+    "R",
+    "R",
+    "T:Legs"
+   ],
+   "overrides": {
+    "2026-11-18": "rest"
+   }
+  },
+  {
+   "id": "ex13-no-schedule",
+   "example": 13,
+   "note": "No schedule: nothing planned",
+   "today": "2026-11-16",
+   "count": 3,
+   "schedule": null,
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "none",
+    "none",
+    "none"
+   ]
+  },
+  {
+   "id": "ex6-floating-open",
+   "example": 6,
+   "note": "Floating mode shows Open dates",
+   "today": "2026-11-16",
+   "count": 2,
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    "Push",
+    "Pull",
+    "Legs"
+   ],
+   "pointer": 0,
+   "expect": [
+    "open",
+    "open"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+preset_id,label,machine_names,machine_categories,includes_no_machine,note
+gym,Gym,*,*,yes,Every machine and every exercise.
+bodyweight,Bodyweight,Yoga Mat,bodyweight,yes,"Exercises that need no equipment, plus the yoga mat."
+dumbbells,Dumbbells,Dumbbells and Rack;Yoga Mat,bodyweight;free_weight,yes,Bodyweight plus dumbbells and rack.
+bands,Bands,Resistance Tubes;Yoga Mat,bodyweight;other,yes,Bodyweight plus resistance tubes.
+home,Home,Dumbbells and Rack;Resistance Tubes;Adjustable Bench;Flat Bench;Utility Bench;Flat Incline Combo Bench;Yoga Mat,bodyweight;free_weight;other,yes,"Bodyweight plus dumbbells, resistance tubes and the four plain benches."

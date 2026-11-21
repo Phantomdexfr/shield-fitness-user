@@ -1,0 +1,33 @@
+{
+  "_note": "Phase 48. Worked by hand. `raw` = raw heat per muscle (weighted sets) over the window. Axes: pushPull (a push, b pull), upperLower (a upper, b lower), frontBack (a front, b back). Under 6 weighted sets on an axis = no_data. ratio = smaller / bigger side; >= 0.75 is balanced; percent = round(ratio x 100) (87.5 -> 88). Side tables are in src/shared/recovery.ts [A-P48.2]; muscles not on an axis (abs on push/pull, legs on push/pull) are not counted there.",
+  "cases": [
+    {"name": "push heavy, upper heavy, front heavy", "raw": {"upper_chest": 6, "lats": 3, "triceps": 2, "biceps": 1, "quads": 5, "hamstrings": 3},
+     "pushPull": {"a": 8, "b": 4, "verdict": "a_leads", "percent": 50},
+     "upperLower": {"a": 12, "b": 8, "verdict": "a_leads", "percent": 67},
+     "frontBack": {"a": 12, "b": 8, "verdict": "a_leads", "percent": 67}},
+    {"name": "balanced", "raw": {"upper_chest": 4, "lats": 4, "quads": 4, "hamstrings": 3},
+     "pushPull": {"a": 4, "b": 4, "verdict": "balanced", "percent": 100},
+     "upperLower": {"a": 8, "b": 7, "verdict": "balanced", "percent": 88},
+     "frontBack": {"a": 8, "b": 7, "verdict": "balanced", "percent": 88}},
+    {"name": "exactly 75 percent is balanced; no lower work leads upper", "raw": {"upper_chest": 6, "lats": 4.5},
+     "pushPull": {"a": 6, "b": 4.5, "verdict": "balanced", "percent": 75},
+     "upperLower": {"a": 10.5, "b": 0, "verdict": "a_leads", "percent": 0},
+     "frontBack": {"a": 6, "b": 4.5, "verdict": "balanced", "percent": 75}},
+    {"name": "under 6 sets on an axis is no data", "raw": {"upper_chest": 2, "lats": 3},
+     "pushPull": {"a": 2, "b": 3, "verdict": "no_data", "percent": null},
+     "upperLower": {"a": 5, "b": 0, "verdict": "no_data", "percent": null},
+     "frontBack": {"a": 2, "b": 3, "verdict": "no_data", "percent": null}},
+    {"name": "pull leads; abs counts on front/back only", "raw": {"lats": 8, "rear_delts": 2, "upper_chest": 4, "abs": 5},
+     "pushPull": {"a": 4, "b": 10, "verdict": "b_leads", "percent": 40},
+     "upperLower": {"a": 14, "b": 0, "verdict": "a_leads", "percent": 0},
+     "frontBack": {"a": 9, "b": 10, "verdict": "balanced", "percent": 90}},
+    {"name": "core ids named by a custom exercise", "raw": {"chest": 6, "back": 3},
+     "pushPull": {"a": 6, "b": 3, "verdict": "a_leads", "percent": 50},
+     "upperLower": {"a": 9, "b": 0, "verdict": "a_leads", "percent": 0},
+     "frontBack": {"a": 6, "b": 3, "verdict": "a_leads", "percent": 50}},
+    {"name": "no work", "raw": {},
+     "pushPull": {"a": 0, "b": 0, "verdict": "no_data", "percent": null},
+     "upperLower": {"a": 0, "b": 0, "verdict": "no_data", "percent": null},
+     "frontBack": {"a": 0, "b": 0, "verdict": "no_data", "percent": null}}
+  ]
+}

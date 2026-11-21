@@ -1,0 +1,12 @@
+{
+  "_note": "Phase 43. Set units of one exercise's sets (engines.md section 4): warm-ups never count; a normal / drop / superset row with reps = 1; a row with time and no reps = seconds / 300; a row with neither = 0.",
+  "cases": [
+    {"why": "warm-up skipped; normal, drop and superset count 1 each", "sets": [{"tag": "warmup", "reps": 10}, {"tag": "normal", "reps": 8}, {"tag": "drop", "reps": 6}, {"tag": "superset", "reps": 12}], "units": 3},
+    {"why": "cardio 15 min = 3 units, 2.5 min = 0.5", "sets": [{"tag": "normal", "reps": null, "seconds": 900}, {"tag": "normal", "seconds": 150}], "units": 3.5},
+    {"why": "a plank of 60 s = 0.2", "sets": [{"tag": "normal", "reps": null, "seconds": 60}], "units": 0.2},
+    {"why": "reps and time on one row: it is a reps row, 1", "sets": [{"tag": "normal", "reps": 5, "seconds": 400}], "units": 1},
+    {"why": "a row with no reps and no time did nothing", "sets": [{"tag": "normal", "reps": null}, {"tag": "normal", "reps": 0}], "units": 0},
+    {"why": "a warm-up cardio row does not count either", "sets": [{"tag": "warmup", "reps": null, "seconds": 600}], "units": 0},
+    {"why": "no sets", "sets": [], "units": 0}
+  ]
+}

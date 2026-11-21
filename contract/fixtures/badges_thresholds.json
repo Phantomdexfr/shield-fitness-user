@@ -1,0 +1,465 @@
+{
+ "note": "Allometric thresholds (engines.md 26.3) for the three published ladders, worked by an independent script from contract/dataset. exponent 0.67.",
+ "exponent": 0.67,
+ "cases": [
+  {
+   "ladderId": "bench_press",
+   "sex": "m",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    32.1629,
+    51.4607,
+    70.7585,
+    87.4832,
+    102.9214,
+    115.7866,
+    122.2191,
+    128.6517
+   ],
+   "olympianRatio": 2.1442
+  },
+  {
+   "ladderId": "bench_press",
+   "sex": "m",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    39.0,
+    62.4,
+    85.8,
+    106.08,
+    124.8,
+    140.4,
+    148.2,
+    156.0
+   ],
+   "olympianRatio": 1.95
+  },
+  {
+   "ladderId": "bench_press",
+   "sex": "m",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    45.2892,
+    72.4627,
+    99.6362,
+    123.1865,
+    144.9253,
+    163.041,
+    172.0988,
+    181.1567
+   ],
+   "olympianRatio": 1.8116
+  },
+  {
+   "ladderId": "bench_press",
+   "sex": "f",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    20.25,
+    32.4,
+    44.55,
+    55.08,
+    64.8,
+    72.9,
+    76.95,
+    81.0
+   ],
+   "olympianRatio": 1.35
+  },
+  {
+   "ladderId": "bench_press",
+   "sex": "f",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    24.5547,
+    39.2875,
+    54.0203,
+    66.7887,
+    78.5749,
+    88.3968,
+    93.3077,
+    98.2187
+   ],
+   "olympianRatio": 1.2277
+  },
+  {
+   "ladderId": "bench_press",
+   "sex": "f",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    28.5144,
+    45.623,
+    62.7316,
+    77.5591,
+    91.246,
+    102.6517,
+    108.3546,
+    114.0575
+   ],
+   "olympianRatio": 1.1406
+  },
+  {
+   "ladderId": "bench_press",
+   "sex": "unspecified",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    26.0416,
+    41.6666,
+    57.2915,
+    70.8331,
+    83.3331,
+    93.7498,
+    98.9581,
+    104.1664
+   ],
+   "olympianRatio": 1.7361
+  },
+  {
+   "ladderId": "bench_press",
+   "sex": "unspecified",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    31.5774,
+    50.5239,
+    69.4703,
+    85.8906,
+    101.0477,
+    113.6787,
+    119.9942,
+    126.3097
+   ],
+   "olympianRatio": 1.5789
+  },
+  {
+   "ladderId": "bench_press",
+   "sex": "unspecified",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    36.6696,
+    58.6714,
+    80.6731,
+    99.7413,
+    117.3428,
+    132.0106,
+    139.3445,
+    146.6784
+   ],
+   "olympianRatio": 1.4668
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "m",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    46.6775,
+    74.684,
+    102.6905,
+    126.9628,
+    149.368,
+    168.039,
+    177.3745,
+    186.71
+   ],
+   "olympianRatio": 3.1118
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "m",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    56.6,
+    90.56,
+    124.52,
+    153.952,
+    181.12,
+    203.76,
+    215.08,
+    226.4
+   ],
+   "olympianRatio": 2.83
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "m",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    65.7274,
+    105.1638,
+    144.6002,
+    178.7784,
+    210.3275,
+    236.6185,
+    249.7639,
+    262.9094
+   ],
+   "olympianRatio": 2.6291
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "f",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    33.9,
+    54.24,
+    74.58,
+    92.208,
+    108.48,
+    122.04,
+    128.82,
+    135.6
+   ],
+   "olympianRatio": 2.26
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "f",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    41.1063,
+    65.7701,
+    90.4339,
+    111.8092,
+    131.5402,
+    147.9828,
+    156.204,
+    164.4253
+   ],
+   "olympianRatio": 2.0553
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "f",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    47.7352,
+    76.3763,
+    105.0173,
+    129.8396,
+    152.7525,
+    171.8466,
+    181.3936,
+    190.9406
+   ],
+   "olympianRatio": 1.9094
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "unspecified",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    40.1672,
+    64.2675,
+    88.3678,
+    109.2548,
+    128.535,
+    144.6019,
+    152.6353,
+    160.6688
+   ],
+   "olympianRatio": 2.6778
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "unspecified",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    48.7058,
+    77.9292,
+    107.1527,
+    132.4797,
+    155.8585,
+    175.3408,
+    185.0819,
+    194.8231
+   ],
+   "olympianRatio": 2.4353
+  },
+  {
+   "ladderId": "back_squat",
+   "sex": "unspecified",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    56.5601,
+    90.4962,
+    124.4322,
+    153.8435,
+    180.9923,
+    203.6164,
+    214.9284,
+    226.2404
+   ],
+   "olympianRatio": 2.2624
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "m",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    53.6049,
+    85.7678,
+    117.9308,
+    145.8053,
+    171.5356,
+    192.9776,
+    203.6986,
+    214.4196
+   ],
+   "olympianRatio": 3.5737
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "m",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    65.0,
+    104.0,
+    143.0,
+    176.8,
+    208.0,
+    234.0,
+    247.0,
+    260.0
+   ],
+   "olympianRatio": 3.25
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "m",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    75.4819,
+    120.7711,
+    166.0603,
+    205.3109,
+    241.5422,
+    271.735,
+    286.8314,
+    301.9278
+   ],
+   "olympianRatio": 3.0193
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "f",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    39.9,
+    63.84,
+    87.78,
+    108.528,
+    127.68,
+    143.64,
+    151.62,
+    159.6
+   ],
+   "olympianRatio": 2.66
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "f",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    48.3818,
+    77.4108,
+    106.4399,
+    131.5984,
+    154.8217,
+    174.1744,
+    183.8508,
+    193.5271
+   ],
+   "olympianRatio": 2.4191
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "f",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    56.1839,
+    89.8942,
+    123.6045,
+    152.8201,
+    179.7883,
+    202.2619,
+    213.4987,
+    224.7354
+   ],
+   "olympianRatio": 2.2474
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "unspecified",
+   "bw": 60,
+   "thresholdsKg": [
+    0.0,
+    46.6381,
+    74.621,
+    102.6039,
+    126.8557,
+    149.242,
+    167.8973,
+    177.2249,
+    186.5525
+   ],
+   "olympianRatio": 3.1092
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "unspecified",
+   "bw": 80,
+   "thresholdsKg": [
+    0.0,
+    56.5523,
+    90.4837,
+    124.415,
+    153.8222,
+    180.9673,
+    203.5882,
+    214.8987,
+    226.2091
+   ],
+   "olympianRatio": 2.8276
+  },
+  {
+   "ladderId": "deadlift",
+   "sex": "unspecified",
+   "bw": 100,
+   "thresholdsKg": [
+    0.0,
+    65.6719,
+    105.0751,
+    144.4783,
+    178.6277,
+    210.1502,
+    236.419,
+    249.5534,
+    262.6878
+   ],
+   "olympianRatio": 2.6269
+  }
+ ]
+}

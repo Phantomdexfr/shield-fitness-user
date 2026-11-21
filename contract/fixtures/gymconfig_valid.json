@@ -1,0 +1,69 @@
+{
+ "note": "FAKE keys: every anon value is a made-up JWT (role anon) with signature FAKESIGNATURE. Not a real project. The Admin app generates real ones.",
+ "spec": "contract/gym-config.md + docs/GYM_CONNECTION.md section 2 (User app)",
+ "appContractMajor": 1,
+ "cases": [
+  {
+   "name": "bare code",
+   "input": "SFCFG1.eyJ2IjoxLCJuYW1lIjoiU2hpZWxkIEZpdG5lc3MiLCJjb250cmFjdCI6IjEuMCIsImNvcmUiOnsidXJsIjoiaHR0cHM6Ly9hYmNkZWZnaC5zdXBhYmFzZS5jbyIsImFub24iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcGMzTWlPaUp6ZFhCaFltRnpaU0lzSW5KbFppSTZJbVpoYTJVaUxDSnliMnhsSWpvaVlXNXZiaUo5LkZBS0VTSUdOQVRVUkUifSwidHJhaW4iOlt7ImlkIjoiQiIsInVybCI6Imh0dHBzOi8vaWprbG1ub3Auc3VwYWJhc2UuY28iLCJhbm9uIjoiZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1aaGEyVWlMQ0p5YjJ4bElqb2lZVzV2YmlKOS5GQUtFU0lHTkFUVVJFIn1dLCJmdW5jdGlvbnMiOiJodHRwczovL2FiY2RlZmdoLnN1cGFiYXNlLmNvL2Z1bmN0aW9ucy92MSIsImlzc3VlZCI6IjIwMjYtMTEtMTcifQ",
+   "ok": true,
+   "host": "abcdefgh.supabase.co",
+   "gymName": "Shield Fitness",
+   "trainIds": [
+    "B"
+   ]
+  },
+  {
+   "name": "link with fragment",
+   "input": "https://app.example.com/connect#SFCFG1.eyJ2IjoxLCJuYW1lIjoiU2hpZWxkIEZpdG5lc3MiLCJjb250cmFjdCI6IjEuMCIsImNvcmUiOnsidXJsIjoiaHR0cHM6Ly9hYmNkZWZnaC5zdXBhYmFzZS5jbyIsImFub24iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcGMzTWlPaUp6ZFhCaFltRnpaU0lzSW5KbFppSTZJbVpoYTJVaUxDSnliMnhsSWpvaVlXNXZiaUo5LkZBS0VTSUdOQVRVUkUifSwidHJhaW4iOlt7ImlkIjoiQiIsInVybCI6Imh0dHBzOi8vaWprbG1ub3Auc3VwYWJhc2UuY28iLCJhbm9uIjoiZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1aaGEyVWlMQ0p5YjJ4bElqb2lZVzV2YmlKOS5GQUtFU0lHTkFUVVJFIn1dLCJmdW5jdGlvbnMiOiJodHRwczovL2FiY2RlZmdoLnN1cGFiYXNlLmNvL2Z1bmN0aW9ucy92MSIsImlzc3VlZCI6IjIwMjYtMTEtMTcifQ",
+   "ok": true,
+   "host": "abcdefgh.supabase.co"
+  },
+  {
+   "name": "spaces and line breaks around and inside",
+   "input": "  SFCFG1.eyJ2IjoxLCJuY\nW1lIjoiU2hpZWxkIEZpd\nG5lc3MiLCJjb250cmFjd\nCI6IjEuMCIsImNvcmUiO\nnsidXJsIjoiaHR0cHM6L\ny9hYmNkZWZnaC5zdXBhY\nmFzZS5jbyIsImFub24iO\niJleUpoYkdjaU9pSklVe\nkkxTmlJc0luUjVjQ0k2S\nWtwWFZDSjkuZXlKcGMzT\nWlPaUp6ZFhCaFltRnpaU\n0lzSW5KbFppSTZJbVpoY\nTJVaUxDSnliMnhsSWpva\nVlXNXZiaUo5LkZBS0VTS\nUdOQVRVUkUifSwidHJha\nW4iOlt7ImlkIjoiQiIsI\nnVybCI6Imh0dHBzOi8va\nWprbG1ub3Auc3VwYWJhc\n2UuY28iLCJhbm9uIjoiZ\nXlKaGJHY2lPaUpJVXpJM\nU5pSXNJblI1Y0NJNklrc\nFhWQ0o5LmV5SnBjM01pT\n2lKemRYQmhZbUZ6WlNJc\n0luSmxaaUk2SW1aaGEyV\nWlMQ0p5YjJ4bElqb2lZV\nzV2YmlKOS5GQUtFU0lHT\nkFUVVJFIn1dLCJmdW5jd\nGlvbnMiOiJodHRwczovL\n2FiY2RlZmdoLnN1cGFiY\nXNlLmNvL2Z1bmN0aW9uc\ny92MSIsImlzc3VlZCI6I\njIwMjYtMTEtMTcifQ  \n",
+   "ok": true,
+   "host": "abcdefgh.supabase.co"
+  },
+  {
+   "name": "trailing slashes are removed",
+   "input": "SFCFG1.eyJ2IjoxLCJuYW1lIjoiU2hpZWxkIEZpdG5lc3MiLCJjb250cmFjdCI6IjEuMCIsImNvcmUiOnsidXJsIjoiaHR0cHM6Ly9hYmNkZWZnaC5zdXBhYmFzZS5jby8iLCJhbm9uIjoiZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1aaGEyVWlMQ0p5YjJ4bElqb2lZVzV2YmlKOS5GQUtFU0lHTkFUVVJFIn0sInRyYWluIjpbeyJpZCI6IkIiLCJ1cmwiOiJodHRwczovL2lqa2xtbm9wLnN1cGFiYXNlLmNvIiwiYW5vbiI6ImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSnpkWEJoWW1GelpTSXNJbkpsWmlJNkltWmhhMlVpTENKeWIyeGxJam9pWVc1dmJpSjkuRkFLRVNJR05BVFVSRSJ9XSwiZnVuY3Rpb25zIjoiaHR0cHM6Ly9hYmNkZWZnaC5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEvIiwiaXNzdWVkIjoiMjAyNi0xMS0xNyJ9",
+   "ok": true,
+   "host": "abcdefgh.supabase.co",
+   "coreUrl": "https://abcdefgh.supabase.co",
+   "functions": "https://abcdefgh.supabase.co/functions/v1"
+  },
+  {
+   "name": "publishable key accepted",
+   "input": "SFCFG1.eyJ2IjoxLCJuYW1lIjoiU2hpZWxkIEZpdG5lc3MiLCJjb250cmFjdCI6IjEuMCIsImNvcmUiOnsidXJsIjoiaHR0cHM6Ly9hYmNkZWZnaC5zdXBhYmFzZS5jbyIsImFub24iOiJzYl9wdWJsaXNoYWJsZV9GQUtFRkFLRUZBS0UifSwidHJhaW4iOlt7ImlkIjoiQiIsInVybCI6Imh0dHBzOi8vaWprbG1ub3Auc3VwYWJhc2UuY28iLCJhbm9uIjoiZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1aaGEyVWlMQ0p5YjJ4bElqb2lZVzV2YmlKOS5GQUtFU0lHTkFUVVJFIn1dLCJmdW5jdGlvbnMiOiJodHRwczovL2FiY2RlZmdoLnN1cGFiYXNlLmNvL2Z1bmN0aW9ucy92MSIsImlzc3VlZCI6IjIwMjYtMTEtMTcifQ",
+   "ok": true,
+   "host": "abcdefgh.supabase.co"
+  },
+  {
+   "name": "contract 1.7.2 same major",
+   "input": "SFCFG1.eyJ2IjoxLCJuYW1lIjoiU2hpZWxkIEZpdG5lc3MiLCJjb250cmFjdCI6IjEuNy4yIiwiY29yZSI6eyJ1cmwiOiJodHRwczovL2FiY2RlZmdoLnN1cGFiYXNlLmNvIiwiYW5vbiI6ImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSnpkWEJoWW1GelpTSXNJbkpsWmlJNkltWmhhMlVpTENKeWIyeGxJam9pWVc1dmJpSjkuRkFLRVNJR05BVFVSRSJ9LCJ0cmFpbiI6W3siaWQiOiJCIiwidXJsIjoiaHR0cHM6Ly9pamtsbW5vcC5zdXBhYmFzZS5jbyIsImFub24iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcGMzTWlPaUp6ZFhCaFltRnpaU0lzSW5KbFppSTZJbVpoYTJVaUxDSnliMnhsSWpvaVlXNXZiaUo5LkZBS0VTSUdOQVRVUkUifV0sImZ1bmN0aW9ucyI6Imh0dHBzOi8vYWJjZGVmZ2guc3VwYWJhc2UuY28vZnVuY3Rpb25zL3YxIiwiaXNzdWVkIjoiMjAyNi0xMS0xNyJ9",
+   "ok": true,
+   "host": "abcdefgh.supabase.co"
+  },
+  {
+   "name": "allow-list contains every host",
+   "input": "SFCFG1.eyJ2IjoxLCJuYW1lIjoiU2hpZWxkIEZpdG5lc3MiLCJjb250cmFjdCI6IjEuMCIsImNvcmUiOnsidXJsIjoiaHR0cHM6Ly9hYmNkZWZnaC5zdXBhYmFzZS5jbyIsImFub24iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcGMzTWlPaUp6ZFhCaFltRnpaU0lzSW5KbFppSTZJbVpoYTJVaUxDSnliMnhsSWpvaVlXNXZiaUo5LkZBS0VTSUdOQVRVUkUifSwidHJhaW4iOlt7ImlkIjoiQiIsInVybCI6Imh0dHBzOi8vaWprbG1ub3Auc3VwYWJhc2UuY28iLCJhbm9uIjoiZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1aaGEyVWlMQ0p5YjJ4bElqb2lZVzV2YmlKOS5GQUtFU0lHTkFUVVJFIn1dLCJmdW5jdGlvbnMiOiJodHRwczovL2FiY2RlZmdoLnN1cGFiYXNlLmNvL2Z1bmN0aW9ucy92MSIsImlzc3VlZCI6IjIwMjYtMTEtMTcifQ",
+   "ok": true,
+   "host": "abcdefgh.supabase.co",
+   "allowedHosts": [
+    "abcdefgh.supabase.co",
+    "ijklmnop.supabase.co"
+   ]
+  },
+  {
+   "name": "two train shards",
+   "input": "SFCFG1.eyJ2IjoxLCJuYW1lIjoiU2hpZWxkIEZpdG5lc3MiLCJjb250cmFjdCI6IjEuMCIsImNvcmUiOnsidXJsIjoiaHR0cHM6Ly9hYmNkZWZnaC5zdXBhYmFzZS5jbyIsImFub24iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcGMzTWlPaUp6ZFhCaFltRnpaU0lzSW5KbFppSTZJbVpoYTJVaUxDSnliMnhsSWpvaVlXNXZiaUo5LkZBS0VTSUdOQVRVUkUifSwidHJhaW4iOlt7ImlkIjoiQiIsInVybCI6Imh0dHBzOi8vaWprbG1ub3Auc3VwYWJhc2UuY28iLCJhbm9uIjoiZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBjM01pT2lKemRYQmhZbUZ6WlNJc0luSmxaaUk2SW1aaGEyVWlMQ0p5YjJ4bElqb2lZVzV2YmlKOS5GQUtFU0lHTkFUVVJFIn0seyJpZCI6IkMiLCJ1cmwiOiJodHRwczovL3Fyc3R1dnd4LnN1cGFiYXNlLmNvIiwiYW5vbiI6ImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSnpkWEJoWW1GelpTSXNJbkpsWmlJNkltWmhhMlVpTENKeWIyeGxJam9pWVc1dmJpSjkuRkFLRVNJR05BVFVSRSJ9XSwiZnVuY3Rpb25zIjoiaHR0cHM6Ly9hYmNkZWZnaC5zdXBhYmFzZS5jby9mdW5jdGlvbnMvdjEiLCJpc3N1ZWQiOiIyMDI2LTExLTE3In0",
+   "ok": true,
+   "host": "abcdefgh.supabase.co",
+   "trainIds": [
+    "B",
+    "C"
+   ]
+  }
+ ]
+}

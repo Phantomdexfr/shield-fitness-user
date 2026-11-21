@@ -1,0 +1,147 @@
+{
+ "_note": "HAND-WORKED by the author of contract 1.1.0 (Admin Phase 49), not run by any program in either app and not reviewed by anyone else. Every expected value follows engines.md section 27 by reading. If a fixture and the spec disagree, the spec wins and the fixture is a patch release.",
+ "spec": "engines.md 27.7 (decision order) and 27.8 (S1)",
+ "how_to_read": "L, B, S are chunk fingerprints (`content_sha256`; here shortened names). EMPTY = the chunk has zero rows locally (tombstones count as rows). MISSING = no such chunk (local: never written; server: no manifest row). rowsL / rowsB = row counts including tombstones, used only by S1. A case with no rowsL is not subject to S1.",
+ "decision_order": [
+  "1 L==S and both exist -> NOOP",
+  "2 L EMPTY or MISSING and S exists -> RESTORE",
+  "3 S MISSING and L has rows -> PUSH_ALL (then S1)",
+  "4 B absent and both have data -> MERGE_NEVER_OVERWRITE (then S1 on the push half)",
+  "5 matrix: L!=B & S==B -> PUSH; L==B & S!=B -> PULL_MERGE; both changed -> MERGE_THEN_PUSH",
+  "S1 applies to every outcome that ends in a push: if rows to be pushed < 0.7 x rowsB (strictly) -> STOP_OFFER_RESTORE"
+ ],
+ "cases": [
+  {
+   "id": "d01",
+   "why": "L, B, S all equal",
+   "L": "h1",
+   "B": "h1",
+   "S": "h1",
+   "expect": "NOOP"
+  },
+  {
+   "id": "d02",
+   "why": "local changed, server same as base",
+   "L": "h2",
+   "B": "h1",
+   "S": "h1",
+   "expect": "PUSH",
+   "rowsL": 12,
+   "rowsB": 10
+  },
+  {
+   "id": "d03",
+   "why": "server changed, local same as base",
+   "L": "h1",
+   "B": "h1",
+   "S": "h2",
+   "expect": "PULL_MERGE",
+   "rowsL": 10,
+   "rowsB": 10
+  },
+  {
+   "id": "d04",
+   "why": "both changed",
+   "L": "h2",
+   "B": "h1",
+   "S": "h3",
+   "expect": "MERGE_THEN_PUSH",
+   "rowsL": 12,
+   "rowsB": 10
+  },
+  {
+   "id": "d05",
+   "why": "local empty (rows 0), server has data",
+   "L": "EMPTY",
+   "B": "h1",
+   "S": "h1",
+   "expect": "RESTORE",
+   "rowsL": 0,
+   "rowsB": 10
+  },
+  {
+   "id": "d06",
+   "why": "local missing, never synced (no base), server has data",
+   "L": "MISSING",
+   "B": null,
+   "S": "h1",
+   "expect": "RESTORE"
+  },
+  {
+   "id": "d07",
+   "why": "local has data, server missing",
+   "L": "h2",
+   "B": "h1",
+   "S": "MISSING",
+   "expect": "PUSH_ALL",
+   "rowsL": 12,
+   "rowsB": 10
+  },
+  {
+   "id": "d08",
+   "why": "no base (never synced), both have data, different bytes",
+   "L": "h2",
+   "B": null,
+   "S": "h3",
+   "expect": "MERGE_NEVER_OVERWRITE"
+  },
+  {
+   "id": "d09",
+   "why": "no base, both have data, same bytes",
+   "L": "h2",
+   "B": null,
+   "S": "h2",
+   "expect": "NOOP"
+  },
+  {
+   "id": "d10",
+   "why": "S1: local lost 40% of base rows, server equals base, local changed",
+   "L": "h2",
+   "B": "h1",
+   "S": "h1",
+   "expect": "STOP_OFFER_RESTORE",
+   "rowsL": 6,
+   "rowsB": 10
+  },
+  {
+   "id": "d11",
+   "why": "S1 boundary: local lost exactly 30% (7 of 10) is NOT more than 30%",
+   "L": "h2",
+   "B": "h1",
+   "S": "h1",
+   "expect": "PUSH",
+   "rowsL": 7,
+   "rowsB": 10
+  },
+  {
+   "id": "d12",
+   "why": "deleting is not shrinking: 10 of 10 rows still present, 4 of them now tombstones (tombstones count as rows), so S1 does not fire",
+   "L": "h2",
+   "B": "h1",
+   "S": "h1",
+   "expect": "PUSH",
+   "rowsL": 10,
+   "rowsB": 10
+  },
+  {
+   "id": "d13",
+   "why": "S1 also guards the push half of MERGE_THEN_PUSH: merged result has 6 of base 10",
+   "L": "h2",
+   "B": "h1",
+   "S": "h3",
+   "expect": "STOP_OFFER_RESTORE",
+   "rowsL": 6,
+   "rowsB": 10
+  },
+  {
+   "id": "d14",
+   "why": "local empty, server missing, base had data: nothing to push, nothing to restore",
+   "L": "EMPTY",
+   "B": "h1",
+   "S": "MISSING",
+   "expect": "NOOP_REPORT_BOTH_GONE",
+   "rowsL": 0,
+   "rowsB": 10
+  }
+ ]
+}

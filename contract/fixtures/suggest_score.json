@@ -1,0 +1,1097 @@
+{
+ "spec": "API_CONTRACTS.md P14.2-P14.4 (scoreExercise)",
+ "muscles": [
+  {
+   "id": "chest",
+   "parent": "chest"
+  },
+  {
+   "id": "back",
+   "parent": "back"
+  },
+  {
+   "id": "lats",
+   "parent": "lats"
+  },
+  {
+   "id": "shoulders",
+   "parent": "shoulders"
+  },
+  {
+   "id": "biceps",
+   "parent": "biceps"
+  },
+  {
+   "id": "triceps",
+   "parent": "triceps"
+  },
+  {
+   "id": "forearms",
+   "parent": "forearms"
+  },
+  {
+   "id": "abs",
+   "parent": "abs"
+  },
+  {
+   "id": "obliques",
+   "parent": "obliques"
+  },
+  {
+   "id": "glutes",
+   "parent": "glutes"
+  },
+  {
+   "id": "quads",
+   "parent": "quads"
+  },
+  {
+   "id": "hamstrings",
+   "parent": "hamstrings"
+  },
+  {
+   "id": "calves",
+   "parent": "calves"
+  },
+  {
+   "id": "lower_back",
+   "parent": "lower_back"
+  },
+  {
+   "id": "traps",
+   "parent": "traps"
+  },
+  {
+   "id": "full_body",
+   "parent": "full_body"
+  },
+  {
+   "id": "cardio",
+   "parent": "cardio"
+  },
+  {
+   "id": "upper_chest",
+   "parent": "chest"
+  },
+  {
+   "id": "lower_chest",
+   "parent": "chest"
+  },
+  {
+   "id": "front_delts",
+   "parent": "shoulders"
+  },
+  {
+   "id": "side_delts",
+   "parent": "shoulders"
+  },
+  {
+   "id": "rear_delts",
+   "parent": "shoulders"
+  },
+  {
+   "id": "adductors",
+   "parent": "quads"
+  },
+  {
+   "id": "abductors",
+   "parent": "glutes"
+  },
+  {
+   "id": "hip_flexors",
+   "parent": "abs"
+  },
+  {
+   "id": "neck",
+   "parent": "neck"
+  },
+  {
+   "id": "upper_traps",
+   "parent": "traps"
+  },
+  {
+   "id": "mid_lower_traps",
+   "parent": "traps"
+  },
+  {
+   "id": "rhomboids_teres",
+   "parent": "back"
+  },
+  {
+   "id": "quads_lower",
+   "parent": "quads"
+  },
+  {
+   "id": "serratus_anterior",
+   "parent": "back"
+  },
+  {
+   "id": "rotator_cuff",
+   "parent": "shoulders"
+  },
+  {
+   "id": "soleus",
+   "parent": "calves"
+  },
+  {
+   "id": "tibialis_anterior",
+   "parent": "calves"
+  }
+ ],
+ "cases": [
+  {
+   "id": "s1",
+   "description": "bench, chest, main, intermediate, muscle_gain",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "track": "muscle_gain"
+   },
+   "expected": {
+    "score": 6.1883
+   }
+  },
+  {
+   "id": "s2",
+   "description": "dumbbell bench, beginner",
+   "candidate": {
+    "slug": "dumbbell-bench-press",
+    "name": "Dumbbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 1,
+    "unilateral": 0,
+    "beginner": 1,
+    "tracks": 31,
+    "machine": "adjustable-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "beginner",
+    "track": "beginner"
+   },
+   "expected": {
+    "score": 7.15
+   }
+  },
+  {
+   "id": "s3",
+   "description": "pec deck isolation",
+   "candidate": {
+    "slug": "pec-deck-fly",
+    "name": "Pec Deck Fly",
+    "category": "isolation",
+    "kind": "strength",
+    "difficulty": 1,
+    "unilateral": 0,
+    "beginner": 1,
+    "tracks": 7,
+    "machine": "pec-fly-rear-delt-machine",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "front_delts",
+      "s",
+      "l"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "isolation",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "beginner",
+    "track": "muscle_gain"
+   },
+   "expected": {
+    "score": 6.3995
+   }
+  },
+  {
+   "id": "s4",
+   "description": "bench for triceps (secondary high)",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "triceps",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "track": "cardio"
+   },
+   "expected": {
+    "score": 3.1883
+   }
+  },
+  {
+   "id": "s5",
+   "description": "incline dumbbell press",
+   "candidate": {
+    "slug": "incline-dumbbell-press",
+    "name": "Incline Dumbbell Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 1,
+    "unilateral": 0,
+    "beginner": 1,
+    "tracks": 31,
+    "machine": "adjustable-bench",
+    "rows": [
+     [
+      "upper_chest",
+      "p",
+      "h"
+     ],
+     [
+      "lower_chest",
+      "p",
+      "m"
+     ],
+     [
+      "front_delts",
+      "s",
+      "h"
+     ],
+     [
+      "triceps",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "track": "strength"
+   },
+   "expected": {
+    "score": 5.1241
+   }
+  },
+  {
+   "id": "s6",
+   "description": "favourite + previous session",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "track": "muscle_gain",
+    "favourites": [
+     "barbell-bench-press"
+    ],
+    "previousSlugs": [
+     "barbell-bench-press"
+    ]
+   },
+   "expected": {
+    "score": 6.6883
+   }
+  },
+  {
+   "id": "s7",
+   "description": "sore chest + skipped often",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "track": "muscle_gain",
+    "sore": [
+     "chest"
+    ],
+    "skipStats": {
+     "barbell-bench-press": {
+      "appeared": 5,
+      "skipped": 3
+     }
+    }
+   },
+   "expected": {
+    "score": 2.6883
+   }
+  },
+  {
+   "id": "s8",
+   "description": "next day jitter",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-20",
+    "level": "intermediate",
+    "track": "muscle_gain"
+   },
+   "expected": {
+    "score": 6.0892
+   }
+  },
+  {
+   "id": "s9",
+   "description": "difficulty 3 for a beginner",
+   "candidate": {
+    "slug": "wide-grip-pull-up",
+    "name": "Wide-Grip Pull-Up",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 3,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 30,
+    "machine": "assisted-pull-up-dip-machine",
+    "rows": [
+     [
+      "lats",
+      "p",
+      "m"
+     ],
+     [
+      "rhomboids_teres",
+      "s",
+      "l"
+     ],
+     [
+      "serratus_anterior",
+      "s",
+      "l"
+     ],
+     [
+      "biceps",
+      "s",
+      "l"
+     ],
+     [
+      "forearms",
+      "s",
+      "l"
+     ]
+    ]
+   },
+   "target": "lats",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "beginner",
+    "track": "beginner"
+   },
+   "expected": {
+    "score": 2.8091
+   }
+  },
+  {
+   "id": "s10",
+   "description": "lat pulldown beginner",
+   "candidate": {
+    "slug": "lat-pulldown",
+    "name": "Lat Pulldown",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 1,
+    "unilateral": 0,
+    "beginner": 1,
+    "tracks": 31,
+    "machine": "lat-pulldown",
+    "rows": [
+     [
+      "lats",
+      "p",
+      "h"
+     ],
+     [
+      "rhomboids_teres",
+      "p",
+      "m"
+     ],
+     [
+      "biceps",
+      "s",
+      "m"
+     ],
+     [
+      "mid_lower_traps",
+      "s",
+      "m"
+     ],
+     [
+      "forearms",
+      "s",
+      "l"
+     ],
+     [
+      "rear_delts",
+      "s",
+      "l"
+     ]
+    ]
+   },
+   "target": "lats",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "beginner",
+    "track": "beginner"
+   },
+   "expected": {
+    "score": 6.6106
+   }
+  },
+  {
+   "id": "s11",
+   "description": "skipped 2 of 5 is no penalty",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "track": "muscle_gain",
+    "skipStats": {
+     "barbell-bench-press": {
+      "appeared": 5,
+      "skipped": 2
+     }
+    }
+   },
+   "expected": {
+    "score": 6.1883
+   }
+  },
+  {
+   "id": "s12",
+   "description": "sore on biceps does not touch lat pulldown (secondary medium)",
+   "candidate": {
+    "slug": "lat-pulldown",
+    "name": "Lat Pulldown",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 1,
+    "unilateral": 0,
+    "beginner": 1,
+    "tracks": 31,
+    "machine": "lat-pulldown",
+    "rows": [
+     [
+      "lats",
+      "p",
+      "h"
+     ],
+     [
+      "rhomboids_teres",
+      "p",
+      "m"
+     ],
+     [
+      "biceps",
+      "s",
+      "m"
+     ],
+     [
+      "mid_lower_traps",
+      "s",
+      "m"
+     ],
+     [
+      "forearms",
+      "s",
+      "l"
+     ],
+     [
+      "rear_delts",
+      "s",
+      "l"
+     ]
+    ]
+   },
+   "target": "lats",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "beginner",
+    "track": "beginner",
+    "sore": [
+     "biceps"
+    ]
+   },
+   "expected": {
+    "score": 6.6106
+   }
+  },
+  {
+   "id": "x1",
+   "description": "avoid lower_chest excludes bench",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "avoid": [
+     "lower_chest"
+    ]
+   },
+   "expected": {
+    "excluded": "avoid"
+   }
+  },
+  {
+   "id": "x2",
+   "description": "avoid chest (core id) excludes bench",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "avoid": [
+     "chest"
+    ]
+   },
+   "expected": {
+    "excluded": "avoid"
+   }
+  },
+  {
+   "id": "x3",
+   "description": "avoid triceps excludes bench (secondary high)",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "avoid": [
+     "triceps"
+    ]
+   },
+   "expected": {
+    "excluded": "avoid"
+   }
+  },
+  {
+   "id": "x4",
+   "description": "avoid triceps keeps incline dumbbell press (secondary medium)",
+   "candidate": {
+    "slug": "incline-dumbbell-press",
+    "name": "Incline Dumbbell Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 1,
+    "unilateral": 0,
+    "beginner": 1,
+    "tracks": 31,
+    "machine": "adjustable-bench",
+    "rows": [
+     [
+      "upper_chest",
+      "p",
+      "h"
+     ],
+     [
+      "lower_chest",
+      "p",
+      "m"
+     ],
+     [
+      "front_delts",
+      "s",
+      "h"
+     ],
+     [
+      "triceps",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "track": "strength",
+    "avoid": [
+     "triceps"
+    ]
+   },
+   "expected": {
+    "score": 5.1241
+   }
+  },
+  {
+   "id": "x5",
+   "description": "hidden excludes",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "hidden": [
+     "barbell-bench-press"
+    ]
+   },
+   "expected": {
+    "excluded": "hidden"
+   }
+  },
+  {
+   "id": "x6",
+   "description": "machine in maintenance excludes",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "machineStatus": {
+     "olympic-flat-bench": "maintenance"
+    }
+   },
+   "expected": {
+    "excluded": "unavailable"
+   }
+  },
+  {
+   "id": "x7",
+   "description": "machine out of order with showAll is kept and flagged",
+   "candidate": {
+    "slug": "barbell-bench-press",
+    "name": "Barbell Bench Press",
+    "category": "compound",
+    "kind": "strength",
+    "difficulty": 2,
+    "unilateral": 0,
+    "beginner": 0,
+    "tracks": 62,
+    "machine": "olympic-flat-bench",
+    "rows": [
+     [
+      "lower_chest",
+      "p",
+      "h"
+     ],
+     [
+      "upper_chest",
+      "p",
+      "m"
+     ],
+     [
+      "triceps",
+      "s",
+      "h"
+     ],
+     [
+      "front_delts",
+      "s",
+      "m"
+     ]
+    ]
+   },
+   "target": "chest",
+   "slot": "main",
+   "context": {
+    "dayKey": "2026-11-19",
+    "level": "intermediate",
+    "machineStatus": {
+     "olympic-flat-bench": "out_of_order"
+    },
+    "showAll": true
+   },
+   "expected": {
+    "score": 5.1883,
+    "unavailable": true
+   }
+  }
+ ]
+}

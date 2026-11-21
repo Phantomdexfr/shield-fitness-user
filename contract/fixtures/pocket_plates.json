@@ -1,0 +1,16 @@
+{
+ "note": "pocket_plates: platesFor(target, bar, inventory) (contract/engines.md section 20), worked by hand. Greedy per side from the largest plate; total = bar + 2 x plates used; remainder = target - total; nextUp = total + 2 x the smallest plate; below the bar nothing is loaded. Created in User Phase 38.",
+ "cases": [
+  {"id": "kg_100", "target": 100, "bar": 20, "plates": [25,20,15,10,5,2.5,1.25], "perSide": [[25,1],[15,1]], "total": 100, "remainder": 0, "nextUp": 102.5, "belowBar": false},
+  {"id": "kg_60", "target": 60, "bar": 20, "plates": [25,20,15,10,5,2.5,1.25], "perSide": [[20,1]], "total": 60, "remainder": 0, "nextUp": 62.5, "belowBar": false},
+  {"id": "just_the_bar", "target": 20, "bar": 20, "plates": [25,20,15,10,5,2.5,1.25], "perSide": [], "total": 20, "remainder": 0, "nextUp": 22.5, "belowBar": false},
+  {"id": "below_bar", "target": 15, "bar": 20, "plates": [25,20,15,10,5,2.5,1.25], "perSide": [], "total": 20, "remainder": 0, "nextUp": 22.5, "belowBar": true},
+  {"id": "small_plates", "target": 62.5, "bar": 20, "plates": [25,20,15,10,5,2.5,1.25], "perSide": [[20,1],[1.25,1]], "total": 62.5, "remainder": 0, "nextUp": 65, "belowBar": false},
+  {"id": "not_exact", "target": 61, "bar": 20, "plates": [25,20,15,10,5,2.5,1.25], "perSide": [[20,1]], "total": 60, "remainder": 1, "nextUp": 62.5, "belowBar": false},
+  {"id": "two_big_plates", "target": 140, "bar": 20, "plates": [25,20,15,10,5,2.5,1.25], "perSide": [[25,2],[10,1]], "total": 140, "remainder": 0, "nextUp": 142.5, "belowBar": false},
+  {"id": "lb_225", "target": 225, "bar": 45, "plates": [45,35,25,10,5,2.5], "perSide": [[45,2]], "total": 225, "remainder": 0, "nextUp": 230, "belowBar": false},
+  {"id": "poor_rack", "target": 75, "bar": 20, "plates": [20,10], "perSide": [[20,1]], "total": 60, "remainder": 15, "nextUp": 80, "belowBar": false},
+  {"id": "duplicates_ignored", "target": 60, "bar": 20, "plates": [20,20,10,0,-5], "perSide": [[20,1]], "total": 60, "remainder": 0, "nextUp": 80, "belowBar": false},
+  {"id": "no_plates", "target": 60, "bar": 20, "plates": [], "perSide": [], "total": 20, "remainder": 40, "nextUp": null, "belowBar": false}
+ ]
+}

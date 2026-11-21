@@ -1,0 +1,27 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "displayHeat",
+ "describes": "a parent region shows the max of itself and its children",
+ "input": {
+  "heat": {
+   "upper_chest": 0.5,
+   "lower_chest": 0.25,
+   "chest": 0.1,
+   "triceps": 0.7
+  },
+  "children": {
+   "chest": [
+    "upper_chest",
+    "lower_chest"
+   ]
+  }
+ },
+ "expect": {
+  "chest": 0.5,
+  "upper_chest": 0.5,
+  "lower_chest": 0.25,
+  "triceps": 0.7,
+  "biceps": 0
+ }
+}

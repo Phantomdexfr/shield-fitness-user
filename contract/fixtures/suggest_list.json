@@ -1,0 +1,4036 @@
+{
+"spec": "API_CONTRACTS.md P14.5 (muscleExerciseList)",
+"muscles": [
+{
+"id": "chest",
+"parent": "chest"
+},
+{
+"id": "back",
+"parent": "back"
+},
+{
+"id": "lats",
+"parent": "lats"
+},
+{
+"id": "shoulders",
+"parent": "shoulders"
+},
+{
+"id": "biceps",
+"parent": "biceps"
+},
+{
+"id": "triceps",
+"parent": "triceps"
+},
+{
+"id": "forearms",
+"parent": "forearms"
+},
+{
+"id": "abs",
+"parent": "abs"
+},
+{
+"id": "obliques",
+"parent": "obliques"
+},
+{
+"id": "glutes",
+"parent": "glutes"
+},
+{
+"id": "quads",
+"parent": "quads"
+},
+{
+"id": "hamstrings",
+"parent": "hamstrings"
+},
+{
+"id": "calves",
+"parent": "calves"
+},
+{
+"id": "lower_back",
+"parent": "lower_back"
+},
+{
+"id": "traps",
+"parent": "traps"
+},
+{
+"id": "full_body",
+"parent": "full_body"
+},
+{
+"id": "cardio",
+"parent": "cardio"
+},
+{
+"id": "upper_chest",
+"parent": "chest"
+},
+{
+"id": "lower_chest",
+"parent": "chest"
+},
+{
+"id": "front_delts",
+"parent": "shoulders"
+},
+{
+"id": "side_delts",
+"parent": "shoulders"
+},
+{
+"id": "rear_delts",
+"parent": "shoulders"
+},
+{
+"id": "adductors",
+"parent": "quads"
+},
+{
+"id": "abductors",
+"parent": "glutes"
+},
+{
+"id": "hip_flexors",
+"parent": "abs"
+},
+{
+"id": "neck",
+"parent": "neck"
+},
+{
+"id": "upper_traps",
+"parent": "traps"
+},
+{
+"id": "mid_lower_traps",
+"parent": "traps"
+},
+{
+"id": "rhomboids_teres",
+"parent": "back"
+},
+{
+"id": "quads_lower",
+"parent": "quads"
+},
+{
+"id": "serratus_anterior",
+"parent": "back"
+},
+{
+"id": "rotator_cuff",
+"parent": "shoulders"
+},
+{
+"id": "soleus",
+"parent": "calves"
+},
+{
+"id": "tibialis_anterior",
+"parent": "calves"
+}
+],
+"target": "chest",
+"context": {
+"dayKey": "2026-11-19",
+"level": "beginner",
+"track": "beginner",
+"favourites": [
+"barbell-bench-press"
+]
+},
+"builtSlugs": [
+"barbell-bench-press",
+"dumbbell-bench-press",
+"incline-dumbbell-press"
+],
+"candidates": [
+{
+"slug": "archer-push-up",
+"name": "Archer Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 1,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "assisted-dip",
+"name": "Assisted Dip",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 62,
+"machine": "assisted-pull-up-dip-machine",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "balance-trainer-push-up",
+"name": "Balance Trainer Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "half-stability-ball",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"h"
+]
+]
+},
+{
+"slug": "barbell-bench-press",
+"name": "Barbell Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 62,
+"machine": "olympic-flat-bench",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "barbell-floor-press",
+"name": "Barbell Floor Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "olympic-barbell",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "barbell-incline-bench-press",
+"name": "Barbell Incline Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 62,
+"machine": "olympic-incline-bench",
+"rows": [
+[
+"upper_chest",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"h"
+],
+[
+"triceps",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "barbell-jm-press",
+"name": "Barbell JM Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 46,
+"machine": "olympic-flat-bench",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "barbell-overhead-press",
+"name": "Barbell Overhead Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 62,
+"machine": "power-cage",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "barbell-push-jerk",
+"name": "Barbell Push Jerk",
+"category": "compound",
+"kind": "strength",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 46,
+"machine": "power-cage",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"quads",
+"s",
+"m"
+],
+[
+"glutes",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"h"
+]
+]
+},
+{
+"slug": "barbell-reverse-grip-bench-press",
+"name": "Barbell Reverse-Grip Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 46,
+"machine": "olympic-flat-bench",
+"rows": [
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"biceps",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "barbell-z-press",
+"name": "Barbell Z Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 46,
+"machine": "olympic-barbell",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"h"
+],
+[
+"lower_back",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "bench-dip",
+"name": "Bench Dip",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "flat-bench",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "bench-triceps-push-up",
+"name": "Bench Triceps Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "flat-bench",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "burpee",
+"name": "Burpee",
+"category": "other",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "",
+"rows": [
+[
+"quads",
+"p",
+"m"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"glutes",
+"s",
+"m"
+],
+[
+"calves",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "burpee-broad-jump",
+"name": "Burpee Broad Jump",
+"category": "other",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "",
+"rows": [
+[
+"quads",
+"p",
+"m"
+],
+[
+"glutes",
+"p",
+"m"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"calves",
+"s",
+"l"
+],
+[
+"hamstrings",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "cable-bench-fly",
+"name": "Cable Bench Fly",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "cable-crossover",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"biceps",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "cable-bench-press",
+"name": "Cable Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "cable-crossover",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "cable-close-grip-bench-press",
+"name": "Cable Close-Grip Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "cable-crossover",
+"rows": [
+[
+"triceps",
+"p",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"lower_chest",
+"s",
+"l"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"rear_delts",
+"s",
+"l"
+],
+[
+"rotator_cuff",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "cable-fly-high-to-low",
+"name": "Cable Fly (High to Low)",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "cable-crossover",
+"rows": [
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"upper_chest",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"biceps",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "cable-fly-low-to-high",
+"name": "Cable Fly (Low to High)",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "cable-crossover",
+"rows": [
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"biceps",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "cable-fly-mid-height",
+"name": "Cable Fly (Mid Height)",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "cable-crossover",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"biceps",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "cable-front-raise",
+"name": "Cable Front Raise",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 1,
+"beginner": 1,
+"tracks": 7,
+"machine": "cable-crossover",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"upper_chest",
+"s",
+"m"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"upper_traps",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "cable-internal-rotation",
+"name": "Cable Internal Rotation",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 1,
+"beginner": 1,
+"tracks": 7,
+"machine": "cable-crossover",
+"rows": [
+[
+"rotator_cuff",
+"p",
+"h"
+],
+[
+"lower_chest",
+"s",
+"l"
+],
+[
+"lats",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "cable-squeeze-press",
+"name": "Cable Squeeze Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "cable-crossover",
+"rows": [
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"l"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"rear_delts",
+"s",
+"l"
+],
+[
+"rotator_cuff",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "close-grip-barbell-bench-press",
+"name": "Close-Grip Barbell Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 62,
+"machine": "olympic-flat-bench",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "close-grip-push-up",
+"name": "Close-Grip Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "decline-chest-press-machine",
+"name": "Decline Chest Press (Machine)",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "decline-chest-press-plate-loaded",
+"rows": [
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"upper_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "decline-push-up",
+"name": "Decline Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"h"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"abs",
+"t",
+"h"
+]
+]
+},
+{
+"slug": "diamond-push-up",
+"name": "Diamond Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "dumbbell-bench-press",
+"name": "Dumbbell Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "adjustable-bench",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "dumbbell-devil-press",
+"name": "Dumbbell Devil Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "dumbbells-and-rack",
+"rows": [
+[
+"glutes",
+"p",
+"h"
+],
+[
+"front_delts",
+"p",
+"m"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"hamstrings",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"quads",
+"s",
+"m"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "dumbbell-floor-press",
+"name": "Dumbbell Floor Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "dumbbells-and-rack",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "dumbbell-fly",
+"name": "Dumbbell Fly",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "adjustable-bench",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"biceps",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "dumbbell-front-raise",
+"name": "Dumbbell Front Raise",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "dumbbells-and-rack",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"upper_chest",
+"s",
+"m"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"upper_traps",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "dumbbell-jm-press",
+"name": "Dumbbell JM Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "flat-bench",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "dumbbell-man-maker",
+"name": "Dumbbell Man Maker",
+"category": "compound",
+"kind": "strength",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "dumbbells-and-rack",
+"rows": [
+[
+"quads",
+"p",
+"m"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"p",
+"m"
+],
+[
+"lats",
+"s",
+"m"
+],
+[
+"rhomboids_teres",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"glutes",
+"s",
+"m"
+],
+[
+"forearms",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "dumbbell-pullover",
+"name": "Dumbbell Pullover",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "adjustable-bench",
+"rows": [
+[
+"lats",
+"p",
+"m"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"rhomboids_teres",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "dumbbell-pullover-crunch",
+"name": "Dumbbell Pullover Crunch",
+"category": "other",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "flat-bench",
+"rows": [
+[
+"abs",
+"p",
+"h"
+],
+[
+"lats",
+"s",
+"m"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"hip_flexors",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "dumbbell-push-press",
+"name": "Dumbbell Push Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "dumbbells-and-rack",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"quads",
+"s",
+"m"
+],
+[
+"glutes",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "dumbbell-squeeze-press",
+"name": "Dumbbell Squeeze Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "flat-bench",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "ez-bar-close-grip-bench-press",
+"name": "EZ-Bar Close-Grip Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "olympic-flat-bench",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "ez-bar-pullover-extension",
+"name": "EZ-Bar Pullover Extension",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "olympic-ez-bar",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lats",
+"s",
+"m"
+],
+[
+"lower_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "half-kneeling-dumbbell-press",
+"name": "Half-Kneeling Dumbbell Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 1,
+"beginner": 0,
+"tracks": 14,
+"machine": "dumbbells-and-rack",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"h"
+],
+[
+"glutes",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "hindu-push-up",
+"name": "Hindu Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"lower_back",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "incline-chest-press-machine",
+"name": "Incline Chest Press (Machine)",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "incline-chest-press-plate-loaded",
+"rows": [
+[
+"upper_chest",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"h"
+],
+[
+"triceps",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "incline-dumbbell-press",
+"name": "Incline Dumbbell Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "adjustable-bench",
+"rows": [
+[
+"upper_chest",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"h"
+],
+[
+"triceps",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "incline-push-up",
+"name": "Incline Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "jumping-jacks",
+"name": "Jumping Jacks",
+"category": "warmup",
+"kind": "cardio",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 83,
+"machine": "",
+"rows": [
+[
+"calves",
+"p",
+"m"
+],
+[
+"abductors",
+"p",
+"l"
+],
+[
+"side_delts",
+"p",
+"l"
+],
+[
+"adductors",
+"s",
+"l"
+],
+[
+"quads",
+"s",
+"l"
+],
+[
+"abs",
+"s",
+"l"
+],
+[
+"lower_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "kettlebell-hip-bridge-press",
+"name": "Kettlebell Hip Bridge Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "kettlebells",
+"rows": [
+[
+"glutes",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"hamstrings",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+],
+[
+"abductors",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "kettlebell-overhead-press",
+"name": "Kettlebell Overhead Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 1,
+"beginner": 0,
+"tracks": 14,
+"machine": "kettlebells",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "kettlebell-push-press",
+"name": "Kettlebell Push Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 1,
+"beginner": 0,
+"tracks": 14,
+"machine": "kettlebells",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"quads",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "knee-push-up",
+"name": "Knee Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "lying-cable-pullover",
+"name": "Lying Cable Pullover",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "cable-crossover",
+"rows": [
+[
+"lats",
+"p",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"lower_chest",
+"s",
+"l"
+],
+[
+"triceps",
+"s",
+"l"
+],
+[
+"hip_flexors",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "machine-shoulder-press",
+"name": "Machine Shoulder Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "shoulder-press-machine-plate-loaded",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "medicine-ball-chest-pass",
+"name": "Medicine Ball Chest Pass",
+"category": "other",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "medicine-ball",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "medicine-ball-single-hand-push-up",
+"name": "Medicine Ball Single-Hand Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 1,
+"beginner": 0,
+"tracks": 14,
+"machine": "medicine-ball",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"h"
+],
+[
+"obliques",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "medicine-ball-sit-up-throw",
+"name": "Medicine Ball Sit-Up Throw",
+"category": "other",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "medicine-ball",
+"rows": [
+[
+"abs",
+"p",
+"h"
+],
+[
+"hip_flexors",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"lower_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "pallof-press",
+"name": "Pallof Press",
+"category": "other",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 1,
+"beginner": 1,
+"tracks": 23,
+"machine": "cable-crossover",
+"rows": [
+[
+"obliques",
+"p",
+"h"
+],
+[
+"abs",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"lower_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "parallel-bar-dip",
+"name": "Parallel-Bar Dip",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "assisted-pull-up-dip-machine",
+"rows": [
+[
+"triceps",
+"p",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"lower_chest",
+"s",
+"l"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"rear_delts",
+"s",
+"l"
+],
+[
+"rotator_cuff",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "pec-deck-fly",
+"name": "Pec Deck Fly",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "pec-fly-rear-delt-machine",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "pike-push-up",
+"name": "Pike Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 62,
+"machine": "",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_chest",
+"s",
+"m"
+],
+[
+"upper_traps",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "plank-up-down",
+"name": "Plank Up-Down",
+"category": "other",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "",
+"rows": [
+[
+"triceps",
+"p",
+"m"
+],
+[
+"front_delts",
+"p",
+"m"
+],
+[
+"lower_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"h"
+],
+[
+"obliques",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "plate-front-raise",
+"name": "Plate Front Raise",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "olympic-barbell",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"upper_chest",
+"s",
+"m"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"upper_traps",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "plate-overhead-press",
+"name": "Plate Overhead Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "olympic-barbell",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "plate-pullover",
+"name": "Plate Pullover",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "olympic-barbell",
+"rows": [
+[
+"lats",
+"p",
+"m"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"rhomboids_teres",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "plate-squeeze-press-svend-press",
+"name": "Plate Squeeze Press (Svend Press)",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "olympic-barbell",
+"rows": [
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "plyometric-push-up",
+"name": "Plyometric Push-Up",
+"category": "other",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "pseudo-planche-push-up",
+"name": "Pseudo Planche Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"h"
+]
+]
+},
+{
+"slug": "push-up",
+"name": "Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "push-up-hold-bottom-position",
+"name": "Push-Up Hold (Bottom Position)",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"h"
+]
+]
+},
+{
+"slug": "resistance-band-bench-press",
+"name": "Resistance Band Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "resistance-tubes",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "resistance-band-chest-fly",
+"name": "Resistance Band Chest Fly",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "resistance-tubes",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"biceps",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "resistance-band-chest-press",
+"name": "Resistance Band Chest Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "resistance-tubes",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "resistance-band-front-raise",
+"name": "Resistance Band Front Raise",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "resistance-tubes",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"upper_chest",
+"s",
+"m"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"upper_traps",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "resistance-band-overhead-press",
+"name": "Resistance Band Overhead Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "resistance-tubes",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "scapular-push-up",
+"name": "Scapular Push-Up",
+"category": "warmup",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "",
+"rows": [
+[
+"serratus_anterior",
+"p",
+"h"
+],
+[
+"lower_chest",
+"s",
+"l"
+],
+[
+"mid_lower_traps",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "seal-jacks",
+"name": "Seal Jacks",
+"category": "warmup",
+"kind": "cardio",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 83,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"l"
+],
+[
+"rear_delts",
+"p",
+"l"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"calves",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "seated-chest-press-vertical-handles",
+"name": "Seated Chest Press (Vertical Handles)",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "vertical-chest-press",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+]
+]
+},
+{
+"slug": "seated-dumbbell-shoulder-press",
+"name": "Seated Dumbbell Shoulder Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "utility-bench",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "single-arm-dumbbell-bench-press",
+"name": "Single-Arm Dumbbell Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 1,
+"beginner": 0,
+"tracks": 14,
+"machine": "adjustable-bench",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+],
+[
+"obliques",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "smith-machine-bench-press",
+"name": "Smith Machine Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 63,
+"machine": "smith-machine",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "smith-machine-close-grip-bench-press",
+"name": "Smith Machine Close-Grip Bench Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "smith-machine",
+"rows": [
+[
+"triceps",
+"p",
+"h"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "smith-machine-incline-push-up",
+"name": "Smith Machine Incline Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "smith-machine",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "smith-machine-shoulder-press",
+"name": "Smith Machine Shoulder Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 62,
+"machine": "smith-machine",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "spider-climb",
+"name": "Spider Climb",
+"category": "other",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "",
+"rows": [
+[
+"abs",
+"p",
+"m"
+],
+[
+"hip_flexors",
+"p",
+"m"
+],
+[
+"obliques",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"lower_chest",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "spiderman-push-up",
+"name": "Spiderman Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"obliques",
+"s",
+"m"
+],
+[
+"hip_flexors",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "squat-thrust",
+"name": "Squat Thrust",
+"category": "other",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "",
+"rows": [
+[
+"quads",
+"p",
+"m"
+],
+[
+"abs",
+"p",
+"m"
+],
+[
+"hip_flexors",
+"s",
+"m"
+],
+[
+"lower_chest",
+"s",
+"l"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "stability-ball-cable-chest-fly",
+"name": "Stability Ball Cable Chest Fly",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 30,
+"machine": "cable-crossover",
+"rows": [
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"lower_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"rear_delts",
+"s",
+"l"
+],
+[
+"rotator_cuff",
+"s",
+"l"
+],
+[
+"hip_flexors",
+"s",
+"l"
+]
+]
+},
+{
+"slug": "stability-ball-dumbbell-chest-press",
+"name": "Stability Ball Dumbbell Chest Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "stability-ball",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "stability-ball-dumbbell-fly",
+"name": "Stability Ball Dumbbell Fly",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "stability-ball",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"biceps",
+"t",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "stability-ball-dumbbell-pullover",
+"name": "Stability Ball Dumbbell Pullover",
+"category": "isolation",
+"kind": "strength",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "stability-ball",
+"rows": [
+[
+"lats",
+"p",
+"m"
+],
+[
+"lower_chest",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "stability-ball-push-up",
+"name": "Stability Ball Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "stability-ball",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"h"
+]
+]
+},
+{
+"slug": "staggered-hand-push-up",
+"name": "Staggered-Hand Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 1,
+"beginner": 1,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "standing-cable-chest-press",
+"name": "Standing Cable Chest Press",
+"category": "compound",
+"kind": "strength",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "cable-crossover",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+],
+[
+"obliques",
+"t",
+"l"
+]
+]
+},
+{
+"slug": "suspension-chest-fly",
+"name": "Suspension Chest Fly",
+"category": "isolation",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "suspension-trainer",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"l"
+],
+[
+"biceps",
+"t",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "suspension-chest-press",
+"name": "Suspension Chest Press",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 31,
+"machine": "suspension-trainer",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "suspension-push-up",
+"name": "Suspension Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "suspension-trainer",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"h"
+]
+]
+},
+{
+"slug": "t-push-up",
+"name": "T Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 2,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"obliques",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"side_delts",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "typewriter-push-up",
+"name": "Typewriter Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "wall-handstand-push-up",
+"name": "Wall Handstand Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 3,
+"unilateral": 0,
+"beginner": 0,
+"tracks": 14,
+"machine": "",
+"rows": [
+[
+"front_delts",
+"p",
+"h"
+],
+[
+"side_delts",
+"p",
+"m"
+],
+[
+"triceps",
+"s",
+"h"
+],
+[
+"upper_traps",
+"s",
+"m"
+],
+[
+"upper_chest",
+"s",
+"l"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+},
+{
+"slug": "wide-push-up",
+"name": "Wide Push-Up",
+"category": "compound",
+"kind": "bodyweight",
+"difficulty": 1,
+"unilateral": 0,
+"beginner": 1,
+"tracks": 7,
+"machine": "",
+"rows": [
+[
+"lower_chest",
+"p",
+"h"
+],
+[
+"upper_chest",
+"p",
+"m"
+],
+[
+"front_delts",
+"s",
+"m"
+],
+[
+"triceps",
+"s",
+"m"
+],
+[
+"abs",
+"t",
+"m"
+]
+]
+}
+],
+"expected": {
+"count": 101,
+"suggested": [
+[
+"standing-cable-chest-press",
+5.401
+],
+[
+"pec-deck-fly",
+5.3995
+],
+[
+"smith-machine-bench-press",
+5.3875
+],
+[
+"resistance-band-chest-press",
+5.3793
+],
+[
+"suspension-chest-press",
+5.3286
+],
+[
+"incline-chest-press-machine",
+5.2896
+]
+],
+"built": [
+[
+"barbell-bench-press",
+5.1883
+],
+[
+"dumbbell-bench-press",
+5.15
+],
+[
+"incline-dumbbell-press",
+5.1241
+]
+],
+"moreCount": 92,
+"moreFirst": {
+"2026-11-19": [
+"cable-front-raise",
+"stability-ball-dumbbell-chest-press",
+"cable-bench-fly",
+"close-grip-barbell-bench-press"
+],
+"2026-11-20": [
+"resistance-band-overhead-press",
+"cable-close-grip-bench-press",
+"barbell-push-jerk"
+]
+},
+"surprise": {
+"0": "push-up",
+"1": "resistance-band-chest-press"
+}
+}
+}

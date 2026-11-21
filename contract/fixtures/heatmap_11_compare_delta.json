@@ -1,0 +1,21 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "compare",
+ "describes": "per-muscle delta of heat01, current minus previous; unchanged muscles left out",
+ "input": {
+  "cur": {
+   "m1": 0.5,
+   "m2": 0.2
+  },
+  "prev": {
+   "m1": 0.3,
+   "m2": 0.2,
+   "m3": 0.1
+  }
+ },
+ "expect": {
+  "m1": 0.2,
+  "m3": -0.1
+ }
+}

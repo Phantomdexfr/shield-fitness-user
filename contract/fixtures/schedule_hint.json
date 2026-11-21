@@ -1,0 +1,108 @@
+{
+ "note": "schedule_hint: ex. 10 rest-day hint threshold (>= 60% of the Day's target muscles fatigued; hidden with no data, no targets, or when off). Created in User Phase 32.",
+ "cases": [
+  {
+   "id": "ex10-50pct",
+   "example": 10,
+   "note": "2 of 4 fatigued = 50%: no hint",
+   "targets": [
+    "chest",
+    "front_delts",
+    "side_delts",
+    "triceps"
+   ],
+   "recovery": {
+    "chest": "fatigued",
+    "triceps": "fatigued",
+    "front_delts": "recovering",
+    "side_delts": "ready"
+   },
+   "enabled": true,
+   "expect": null
+  },
+  {
+   "id": "ex10-75pct",
+   "example": 10,
+   "note": "3 of 4 = 75%: hint",
+   "targets": [
+    "chest",
+    "front_delts",
+    "side_delts",
+    "triceps"
+   ],
+   "recovery": {
+    "chest": "fatigued",
+    "triceps": "fatigued",
+    "front_delts": "fatigued",
+    "side_delts": "ready"
+   },
+   "enabled": true,
+   "expect": [
+    "chest",
+    "front_delts",
+    "triceps"
+   ]
+  },
+  {
+   "id": "ex10-60pct",
+   "example": 10,
+   "note": "3 of 5 = 60%: hint (the rule is >=)",
+   "targets": [
+    "chest",
+    "front_delts",
+    "side_delts",
+    "triceps",
+    "abs"
+   ],
+   "recovery": {
+    "chest": "fatigued",
+    "triceps": "fatigued",
+    "front_delts": "fatigued"
+   },
+   "enabled": true,
+   "expect": [
+    "chest",
+    "front_delts",
+    "triceps"
+   ]
+  },
+  {
+   "id": "ex10-no-targets",
+   "example": 10,
+   "note": "A Day with no targets never hints",
+   "targets": [],
+   "recovery": {
+    "chest": "fatigued"
+   },
+   "enabled": true,
+   "expect": null
+  },
+  {
+   "id": "ex10-no-data",
+   "example": 10,
+   "note": "Recovery data absent: hidden",
+   "targets": [
+    "chest",
+    "triceps"
+   ],
+   "recovery": {},
+   "enabled": true,
+   "expect": null
+  },
+  {
+   "id": "ex10-off",
+   "example": 10,
+   "note": "Setting or gym switch off: hidden",
+   "targets": [
+    "chest",
+    "triceps"
+   ],
+   "recovery": {
+    "chest": "fatigued",
+    "triceps": "fatigued"
+   },
+   "enabled": false,
+   "expect": null
+  }
+ ]
+}

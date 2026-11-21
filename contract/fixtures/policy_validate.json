@@ -1,0 +1,518 @@
+{
+ "spec": "contract/policy.md \"Validation\": an invalid policy is ignored, the last good one stays. A lower version than the cached one is stale.",
+ "valid": [
+  {
+   "name": "full example from policy.md",
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     }
+    },
+    "defaults": {
+     "units": "kg",
+     "rest_seconds": 90,
+     "intensity": "moderate",
+     "simple_mode": true
+    },
+    "library": {
+     "hidden_exercise_slugs": [
+      "bench-press",
+      "my-secret"
+     ],
+     "youtube_overrides": {
+      "lat-pulldown": "https://www.youtube.com/watch?v=abc123",
+      "squat": "https://youtu.be/xyz",
+      "deadlift": "https://evil.example.com/watch?v=1",
+      "row": "http://www.youtube.com/watch?v=1",
+      "curl": "javascript:alert(1)",
+      "press": "https://user:pw@www.youtube.com/x"
+     },
+     "machine_status": {
+      "leg-press-plate-loaded": {
+       "status": "maintenance",
+       "note": "Back in 2 days"
+      },
+      "cable-crossover": {
+       "status": "out_of_order"
+      },
+      "smith-machine": {
+       "status": "broken-weird"
+      },
+      "lat-pulldown-machine": {
+       "status": "active",
+       "note": "ignored note"
+      }
+     },
+     "extra_exercise_slugs": [
+      "gym-special-1"
+     ],
+     "hidden_setup_values": {
+      "lat-pulldown": [
+       "grip:wide",
+       "bad",
+       ":x",
+       "axis:",
+       "stance:narrow",
+       "grip:close"
+      ]
+     }
+    },
+    "programs_published": [
+     "fat-burn-8-weeks"
+    ],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   }
+  },
+  {
+   "name": "minimal: only the required keys",
+   "policy": {
+    "contract": "1.0.0",
+    "version": 1,
+    "gym": {
+     "name": "G",
+     "slug": "g"
+    }
+   }
+  },
+  {
+   "name": "unknown top-level and feature keys are tolerated",
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "brand_new_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    },
+    "future_thing": 1
+   }
+  },
+  {
+   "name": "locked missing means not locked",
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "heatmap": {
+      "enabled": false
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   }
+  }
+ ],
+ "invalid": [
+  {
+   "name": "not an object",
+   "policy": "nope"
+  },
+  {
+   "name": "null",
+   "policy": null
+  },
+  {
+   "name": "version missing",
+   "policy": {
+    "contract": "1.0.0",
+    "gym": {
+     "name": "G",
+     "slug": "g"
+    }
+   }
+  },
+  {
+   "name": "version is a string",
+   "policy": {
+    "contract": "1.0.0",
+    "version": "12",
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   }
+  },
+  {
+   "name": "gym missing",
+   "policy": {
+    "contract": "1.0.0",
+    "version": 1
+   }
+  },
+  {
+   "name": "contract malformed",
+   "policy": {
+    "contract": "v1",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   }
+  },
+  {
+   "name": "feature enabled is a string",
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "heatmap": {
+      "enabled": "yes",
+      "locked": false
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   }
+  },
+  {
+   "name": "hidden slugs not an array",
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": "bench-press"
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   }
+  }
+ ],
+ "choose": [
+  {
+   "name": "first policy accepted",
+   "current": null,
+   "incoming": {
+    "contract": "1.0.0",
+    "version": 3,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "accepted": true,
+   "reason": "ok",
+   "version": 3
+  },
+  {
+   "name": "higher version replaces",
+   "current": {
+    "contract": "1.0.0",
+    "version": 3,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "incoming": {
+    "contract": "1.0.0",
+    "version": 4,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "accepted": true,
+   "reason": "ok",
+   "version": 4
+  },
+  {
+   "name": "same version is accepted (idempotent refresh)",
+   "current": {
+    "contract": "1.0.0",
+    "version": 4,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "incoming": {
+    "contract": "1.0.0",
+    "version": 4,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "accepted": true,
+   "reason": "ok",
+   "version": 4
+  },
+  {
+   "name": "lower version is stale and ignored",
+   "current": {
+    "contract": "1.0.0",
+    "version": 4,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "incoming": {
+    "contract": "1.0.0",
+    "version": 3,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "accepted": false,
+   "reason": "stale",
+   "version": 4
+  },
+  {
+   "name": "invalid never replaces a good one",
+   "current": {
+    "contract": "1.0.0",
+    "version": 4,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "incoming": {
+    "nonsense": true
+   },
+   "accepted": false,
+   "reason": "invalid",
+   "version": 4
+  },
+  {
+   "name": "invalid with nothing cached",
+   "current": null,
+   "incoming": 5,
+   "accepted": false,
+   "reason": "invalid",
+   "version": null
+  }
+ ]
+}

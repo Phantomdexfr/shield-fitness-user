@@ -1,0 +1,50 @@
+/* Settings (Phase 62): the group list and the rows inside a group. Tokens only; text wraps, nothing is cut. */
+.sf-st { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; max-width: 100%; }
+.sf-st__list { display: flex; flex-direction: column; gap: var(--sp-2); margin: 0; padding: 0; list-style: none; }
+.sf-st__group {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: var(--touch-min);
+  padding: var(--sp-3);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  color: var(--text);
+  text-align: left;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.sf-st__icon { flex: none; color: var(--gold-400); }
+.sf-st__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
+.sf-st__name { font-weight: 600; }
+.sf-st__sum { color: var(--text-muted); font-size: var(--text-sm); }
+.sf-st__caret { flex: none; color: var(--text-muted); }
+.sf-st__row { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-3); background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--r-md); min-width: 0; }
+.sf-st__label { font-weight: 600; overflow-wrap: anywhere; }
+.sf-st__hint { color: var(--text-muted); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-st__lock { color: var(--gold-300); font-size: var(--text-sm); font-weight: 600; }
+.sf-st__row--locked { opacity: 0.7; }
+.sf-st__err { color: var(--text); font-size: var(--text-sm); }
+
+/* Me tab */
+.sf-st__title { margin: 0; font-size: var(--text-xl, 1.5rem); color: var(--text); }
+
+/* Phase 63: data, reminders, gym, about, credits. Tokens only; text wraps, nothing is cut. */
+.sf-st__ok { margin: 0; color: var(--gold-300); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-st__value { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+.sf-st__para { margin: 0; color: var(--text); font-size: var(--text-md); overflow-wrap: anywhere; min-width: 0; }
+.sf-st__link { color: var(--gold-300); font-size: var(--text-sm); overflow-wrap: anywhere; min-height: var(--touch-min); display: flex; align-items: center; }
+.sf-st__chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); min-width: 0; }
+.sf-st__row--fill { border-style: dashed; border-color: var(--gold-400); }
+h2.sf-st__label { margin: 0; font-size: var(--text-md); }
+.sf-st__steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--sp-1); color: var(--text-2); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-syncchip { display: inline-flex; align-items: center; align-self: flex-start; min-height: var(--touch-min); padding: 0 var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); color: var(--text-muted); font-size: var(--text-sm); max-width: 100%; overflow-wrap: anywhere; }
+.sf-syncchip--attention { border-color: var(--warn); color: var(--warn); background: var(--warn-wash); }
+.sf-syncchip--syncing, .sf-syncchip--backing_up { color: var(--gold-300); }
+
+/* Phase 68: attendance month grid. Tokens only; seven equal columns, nothing overflows. */
+.sf-gdcal { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--sp-1); min-width: 0; }
+.sf-gdcal__day { display: flex; align-items: center; justify-content: center; min-height: var(--touch-min); border-radius: var(--r-md); color: var(--text-muted); font-size: var(--text-sm); }
+.sf-gdcal__day--on { background: var(--gold-400); color: var(--bg); font-weight: 600; }

@@ -1,0 +1,52 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "refFor",
+ "describes": "max(p90, 6) for a week; x4 month; /3 day; x days/7 custom",
+ "cases": [
+  {
+   "period": "week",
+   "p90": 4,
+   "ref": 6
+  },
+  {
+   "period": "week",
+   "p90": 10,
+   "ref": 10
+  },
+  {
+   "period": "month",
+   "p90": 4,
+   "ref": 24
+  },
+  {
+   "period": "month",
+   "p90": 10,
+   "ref": 40
+  },
+  {
+   "period": "day",
+   "p90": 4,
+   "ref": 2
+  },
+  {
+   "period": "day",
+   "p90": 10,
+   "ref": 3.3333333333
+  },
+  {
+   "period": {
+    "days": 14
+   },
+   "p90": 4,
+   "ref": 12
+  },
+  {
+   "period": {
+    "days": 3
+   },
+   "p90": 10,
+   "ref": 4.2857142857
+  }
+ ]
+}

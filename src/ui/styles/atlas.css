@@ -1,0 +1,20 @@
+/* Phase 60: /atlas (Body Holo Lab). Tokens only; nothing bleeds at 360 px; text wraps, never truncates. */
+.sf-atlas { display: flex; flex-direction: column; gap: var(--sp-4); min-width: 0; max-width: 100%; }
+.sf-atlas__note { margin: 0; color: var(--text-muted); overflow-wrap: anywhere; }
+.sf-atlas__h { margin: 0; font: inherit; font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
+.sf-atlas__row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.sf-atlas__ask, .sf-atlas__fb { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-atlas__stage { position: relative; box-sizing: border-box; width: 100%; height: clamp(320px, 56vh, 560px); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-void); overflow: hidden; min-width: 0; }
+.sf-atlas__stage--off { display: none; }
+.sf-atlas__host { position: absolute; inset: 0; }
+.sf-atlas__loading { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: var(--sp-3); padding: var(--sp-4); background: var(--bg-void); }
+.sf-atlas__list, .sf-atlas__group { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-atlas__chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.sf-atlas__units { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: var(--sp-2); }
+.sf-atlas__unit { box-sizing: border-box; width: 100%; min-height: 44px; padding: var(--sp-2) var(--sp-3); text-align: left; font: inherit; color: var(--text); background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--r-sm); cursor: pointer; overflow-wrap: anywhere; }
+.sf-atlas__unit:hover { background: var(--bg-hover); }
+.sf-atlas__unit:focus-visible { outline: 2px solid var(--gold-300); outline-offset: 1px; }
+.sf-atlas__unit--on { border-color: var(--gold-400); color: var(--gold-200); }
+.sf-atlas__panel { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-atlas__bul { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: var(--sp-1); overflow-wrap: anywhere; }
+.sf-atlas__fitted { margin: 0; padding: var(--sp-2) var(--sp-3); border: 1px solid var(--gold-600); border-radius: var(--r-sm); color: var(--gold-200); overflow-wrap: anywhere; }

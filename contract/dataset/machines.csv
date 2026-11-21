@@ -1,0 +1,56 @@
+name,brand,category,zone,muscle_groups,quantity,weight_step_kg,setup_cues,status,image_slug
+Incline Chest Press (Plate Loaded),Jerai Fitness,strength_machine,,chest;shoulders;triceps,1,,Adjust seat so handles line up with upper chest;Load plates on both sides evenly,active,incline-chest-press-plate-loaded
+Decline Chest Press (Plate Loaded),Jerai Fitness,strength_machine,,chest;triceps;shoulders,1,,Seat yourself so handles line up with lower chest;Load plates on both sides evenly,active,decline-chest-press-plate-loaded
+Vertical Chest Press,Jerai Fitness,strength_machine,,chest;triceps;shoulders,1,,Adjust seat so handles are at mid-chest;Back flat against the pad,active,vertical-chest-press
+Pec Fly / Rear Delt Machine,Jerai Fitness,strength_machine,,chest;shoulders;traps,1,,Set handle position for front (fly) or rear (reverse fly) use;Adjust seat so arms are level with shoulders,active,pec-fly-rear-delt-machine
+Lat Pulldown,Jerai Fitness,strength_machine,,lats;back;biceps,1,,Set thigh pad snug over thighs;Reach up and grip the bar slightly wider than shoulders,active,lat-pulldown
+Seated Cable Row,Jerai Fitness,strength_machine,,back;lats;biceps;shoulders,1,,"Chest against the pad, feet on the plate;Start with arms fully extended and shoulders relaxed",active,seated-cable-row
+Assisted Pull-Up / Dip Machine,Jerai Fitness,strength_machine,,lats;back;biceps;chest;triceps,1,,Pin sets the assistance: more weight on the stack means easier;Kneel on the pad for pull-ups or dips,active,assisted-pull-up-dip-machine
+Standing Multi Flight,Jerai Fitness,strength_machine,,shoulders,1,,Function to be confirmed by owner,active,standing-multi-flight
+Cable Crossover,Jerai Fitness,cable,,chest;shoulders;triceps;biceps;abs;obliques;back,1,,Set both pulleys to the same height;Stand centred between the stacks with a staggered stance,active,cable-crossover
+Olympic Incline Bench,Jerai Fitness,free_weight,,chest;shoulders;triceps,1,,"Eyes under the bar, feet flat on the floor;Use a spotter or safety catches for heavy sets",active,olympic-incline-bench
+Olympic Flat Bench,Jerai Fitness,free_weight,,chest;triceps;shoulders,1,,"Eyes under the bar, shoulder blades pinched together;Feet flat, use a spotter for heavy sets",active,olympic-flat-bench
+Preacher Curl Bench,Jerai Fitness,free_weight,,biceps;forearms,1,,Armpits snug on top of the pad;Seat height so upper arms rest fully on the pad,active,preacher-curl-bench
+Shoulder Press Machine (Plate Loaded),Jerai Fitness,strength_machine,,shoulders;triceps,1,,Seat height so handles start at shoulder level;Back flat against the pad,active,shoulder-press-machine-plate-loaded
+Biceps Curl Machine,Jerai Fitness,strength_machine,,biceps;forearms,1,,Adjust seat so elbows line up with the machine pivot;Upper arms flat on the pad,active,biceps-curl-machine
+Front Lat Pulldown (Plate Loaded),Jerai Fitness,strength_machine,,lats;back;biceps,1,,Adjust seat and chest pad so arms hang fully stretched at the start;Load plates evenly,active,front-lat-pulldown-plate-loaded
+Seated Calf Raise,Jerai Fitness,strength_machine,,calves,1,,"Balls of feet on the platform, knee pad snug on lower thighs;Release the safety, then lower heels fully",active,seated-calf-raise
+Prone Leg Curl,Jerai Fitness,strength_machine,,hamstrings,1,,Roller sits just above the heels;Hips stay pressed into the pad,active,prone-leg-curl
+Hip Adductor / Abductor,Jerai Fitness,strength_machine,,glutes;quads,1,,Set the start position pads for a comfortable stretch;Sit tall with back against the pad,active,hip-adductor-abductor
+45 Degree Leg Press,,strength_machine,,quads;glutes;hamstrings;calves,1,,"Feet shoulder-width on the platform, lower back stays on the pad;Release the safety handles before pressing",active,leg-press-45
+Hip Thrust Machine,,strength_machine,,glutes;hamstrings,1,,"Upper back on the pad, belt or pad across the hips;Feet flat, shins vertical at the top",active,hip-thrust-machine
+Hack Squat,,strength_machine,,quads;glutes,1,,"Back and shoulders flat on the pad;Feet shoulder-width, lower under control",active,hack-squat
+Leg Extension,Jerai Fitness,strength_machine,,quads,1,,Knees line up with the machine pivot;Pad sits on the lower shin just above the ankles,active,leg-extension
+Smith Machine,Jerai Fitness,strength_machine,,quads;glutes;chest;shoulders;hamstrings;back;calves;traps,1,,Set safety stops at the right height before starting;Twist the bar to unrack and twist back to rack,active,smith-machine
+Back Extension,Jerai Fitness,strength_machine,,lower_back;glutes;hamstrings,1,,Pad sits just below the hip bones so you can hinge freely;Keep a straight line from head to heels at the top,active,back-extension
+Adjustable Bench,Jerai Fitness,free_weight,,chest;shoulders;triceps;biceps;back,2,,Lock the backrest pin firmly at the chosen angle;Feet flat on the floor,active,adjustable-bench
+Flat Incline Combo Bench,Jerai Fitness,free_weight,,chest;shoulders;triceps,1,,Check the seat/back adjustment pins are locked;Use a spotter or safety catches for heavy sets,active,flat-incline-combo-bench
+Utility Bench,Jerai Fitness,free_weight,,shoulders;triceps;biceps,1,,Back fully supported against the pad;Feet flat on the floor,active,utility-bench
+Flat Bench,Jerai Fitness,free_weight,,back;quads;glutes;triceps,1,,Check the bench is stable before loading;Keep feet planted and core braced,active,flat-bench
+Dumbbells and Rack,Jerai Fitness,free_weight,,full_body;shoulders;back;quads;hamstrings;glutes;biceps;forearms;traps;calves,1,,Pick up and re-rack dumbbells with a flat back;Start light to learn the movement,active,dumbbells-and-rack
+Cable Attachments,,cable,,,1,,"V tricep handle, curved lat bar, straight bars, EZ curl bar, strap handles, square and D handles, MAG rowing handles (small/medium/large) are available;Clip the attachment securely before every set",active,cable-attachments
+Olympic Barbell,,free_weight,,back;hamstrings;glutes;biceps;traps,1,,Load plates evenly and fit collars;Use the power cage safety arms for squats and presses,active,olympic-barbell
+Olympic EZ Bar,,free_weight,,biceps;triceps;forearms,1,,Grip on the angled sections;Load plates evenly and fit collars,active,olympic-ez-bar
+Power Cage,Jerai Fitness,free_weight,,quads;glutes;shoulders;lower_back;hamstrings,1,,Set the bar hooks just below shoulder height;Set the safety arms just below your lowest squat depth,active,power-cage
+Lifting Platform,Jerai Fitness,free_weight,,hamstrings;glutes;lower_back;back;quads,1,,"Bar over mid-foot, shins close to the bar;Brace before pulling",active,lifting-platform
+Treadmill,Jerai Fitness,cardio,,cardio;calves;quads;glutes,1,,Clip the safety key to your clothing;Start at a slow speed and build up,active,treadmill
+Curve Treadmill,Jerai Fitness,cardio,,cardio;hamstrings;glutes;calves,1,,Self-powered belt: you set the pace with your stride;Hold the handles on first use,active,curve-treadmill
+Elliptical Cross Trainer,,cardio,,cardio;quads;glutes,1,,Hold the moving handles for an upper-body workout;Keep your weight through the whole foot,active,elliptical-cross-trainer
+Rowing Machine,Jerai Fitness,cardio,,cardio;back;quads;lats,1,,"Strap feet in snug across the balls of the feet;Drive with legs first, then lean back, then pull",active,rowing-machine
+Ski Erg,Jerai Fitness,cardio,,cardio;lats;triceps;abs,1,,Stand tall with a slight forward lean;Pull the handles down with arms and a hip hinge,active,ski-erg
+Spin Bike,Jerai Fitness,cardio,,cardio;quads;glutes;hamstrings,1,,Saddle height at hip level when standing next to the bike;Tighten the shoe cages or clips,active,spin-bike
+Upright Bike,Jerai Fitness,cardio,,cardio;quads;glutes,1,,Set saddle so knee is slightly bent at the bottom of the stroke;Sit tall,active,upright-bike
+Recumbent Bike,Jerai Fitness,cardio,,cardio;quads;glutes,1,,Adjust the seat so your legs are almost straight at full pedal extension;Back supported against the seat,active,recumbent-bike
+Battle Rope,,other,,cardio;shoulders;abs;back,1,,Anchor the rope at its middle;Stand in a quarter squat with a braced core,active,battle-rope
+Kettlebells,,free_weight,,glutes;hamstrings;quads;full_body,1,,Hold the handle with both hands for swings;Keep a flat back,active,kettlebells
+Medicine Ball,Jerai Fitness,other,,abs;obliques;full_body;chest,1,,Pick a ball weight you can control;Keep your core braced,active,medicine-ball
+Wall Ball,,other,,full_body;quads;shoulders,1,,Stand about an arm's length from a solid wall;Catch the ball and go straight into the next squat,active,wall-ball
+Stability Ball,,other,,abs;hamstrings;lower_back,1,,Pick a ball size where your knees are level with your hips when seated;Keep the ball on a non-slip floor,active,stability-ball
+Half Stability Ball,,other,,chest;quads;glutes;abs,1,,"Place on a flat, non-slip surface;Step on or hold the edges with control",active,half-stability-ball
+Resistance Tubes,,other,,shoulders;biceps;chest;back,1,,Check the tube for cracks before each use;Hold the handles and keep tension through the full movement,active,resistance-tubes
+Suspension Trainer,,other,,back;chest;biceps;triceps;hamstrings;abs,1,,Anchor strap to a secure high point and test it first;Adjust strap length before each exercise,active,suspension-trainer
+Foam Roller,,other,,,1,,Roll slowly over the muscle and pause on tender spots;Do not roll directly over joints,active,foam-roller
+Jump Rope,,cardio,,cardio;calves,1,,"Rope should reach your armpits when you stand on the middle;Jump low, land softly on the balls of the feet",active,jump-rope
+Ab Wheel,,other,,abs;shoulders;lats,1,,Kneel on a mat;Keep your hips from sagging,active,ab-wheel
+Yoga Mat,,bodyweight,,,1,,Use for floor exercises;Keep the mat on a non-slip floor,active,yoga-mat
+Soft Plyo Box,Jerai Fitness,other,,quads;glutes;calves;full_body,1,,"Place the box on a flat, non-slip floor;Land softly with whole foot on the box",active,soft-plyo-box

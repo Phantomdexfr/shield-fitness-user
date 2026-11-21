@@ -1,0 +1,129 @@
+machine_slug,file,variant,order,is_primary,width,height,bytes,alt,source_folder
+incline-chest-press-plate-loaded,incline-chest-press-plate-loaded-1.thumb.webp,thumb,1,yes,360,360,6098,"Incline Chest Press (Plate Loaded), three-quarter view",01 Dual axis incline bench
+incline-chest-press-plate-loaded,incline-chest-press-plate-loaded-1.detail.webp,detail,1,yes,960,960,20898,"Incline Chest Press (Plate Loaded), three-quarter view",01 Dual axis incline bench
+decline-chest-press-plate-loaded,decline-chest-press-plate-loaded-1.thumb.webp,thumb,1,yes,360,360,6186,"Decline Chest Press (Plate Loaded), three-quarter view",02 Dual axis decline bench
+decline-chest-press-plate-loaded,decline-chest-press-plate-loaded-1.detail.webp,detail,1,yes,960,959,21276,"Decline Chest Press (Plate Loaded), three-quarter view",02 Dual axis decline bench
+vertical-chest-press,vertical-chest-press-1.thumb.webp,thumb,1,yes,360,360,6016,"Vertical Chest Press, three-quarter view",03 Vertical chest press
+vertical-chest-press,vertical-chest-press-1.detail.webp,detail,1,yes,960,960,23420,"Vertical Chest Press, three-quarter view",03 Vertical chest press
+pec-fly-rear-delt-machine,pec-fly-rear-delt-machine-1.thumb.webp,thumb,1,yes,360,360,5070,"Pec Fly / Rear Delt Machine, three-quarter view",04 Pec deck
+pec-fly-rear-delt-machine,pec-fly-rear-delt-machine-1.detail.webp,detail,1,yes,960,960,20620,"Pec Fly / Rear Delt Machine, three-quarter view",04 Pec deck
+lat-pulldown,lat-pulldown-1.thumb.webp,thumb,1,yes,360,360,4068,"Lat Pulldown, three-quarter view",05 Lateral pulldown dual pulley
+lat-pulldown,lat-pulldown-1.detail.webp,detail,1,yes,960,960,17354,"Lat Pulldown, three-quarter view",05 Lateral pulldown dual pulley
+seated-cable-row,seated-cable-row-1.thumb.webp,thumb,1,yes,360,360,4786,"Seated Cable Row, three-quarter view",06 Long pull row single pulley
+seated-cable-row,seated-cable-row-1.detail.webp,detail,1,yes,960,960,21140,"Seated Cable Row, three-quarter view",06 Long pull row single pulley
+assisted-pull-up-dip-machine,assisted-pull-up-dip-machine-1.thumb.webp,thumb,1,yes,360,360,5254,"Assisted Pull-Up / Dip Machine, three-quarter view",07 Assisted pull up and dips
+assisted-pull-up-dip-machine,assisted-pull-up-dip-machine-1.detail.webp,detail,1,yes,960,960,21086,"Assisted Pull-Up / Dip Machine, three-quarter view",07 Assisted pull up and dips
+standing-multi-flight,standing-multi-flight-1.thumb.webp,thumb,1,yes,360,360,5716,"Standing Multi Flight, three-quarter view",08 Standing fly and deltoids
+standing-multi-flight,standing-multi-flight-1.detail.webp,detail,1,yes,960,960,25722,"Standing Multi Flight, three-quarter view",08 Standing fly and deltoids
+cable-crossover,cable-crossover-1.thumb.webp,thumb,1,yes,360,360,4154,"Cable Crossover, three-quarter view",09 Cable cross over
+cable-crossover,cable-crossover-1.detail.webp,detail,1,yes,960,960,16058,"Cable Crossover, three-quarter view",09 Cable cross over
+olympic-incline-bench,olympic-incline-bench-1.thumb.webp,thumb,1,yes,360,360,5606,"Olympic Incline Bench, three-quarter view",10 Olympic incline bench
+olympic-incline-bench,olympic-incline-bench-1.detail.webp,detail,1,yes,960,960,20060,"Olympic Incline Bench, three-quarter view",10 Olympic incline bench
+olympic-flat-bench,olympic-flat-bench-1.thumb.webp,thumb,1,yes,360,360,5770,"Olympic Flat Bench, three-quarter view",11 Olympic flat bench
+olympic-flat-bench,olympic-flat-bench-1.detail.webp,detail,1,yes,960,960,20504,"Olympic Flat Bench, three-quarter view",11 Olympic flat bench
+preacher-curl-bench,preacher-curl-bench-1.thumb.webp,thumb,1,yes,360,366,7282,"Preacher Curl Bench, three-quarter view",12 Preacher curl bench
+preacher-curl-bench,preacher-curl-bench-1.detail.webp,detail,1,yes,960,976,27416,"Preacher Curl Bench, three-quarter view",12 Preacher curl bench
+shoulder-press-machine-plate-loaded,shoulder-press-machine-plate-loaded-1.thumb.webp,thumb,1,yes,360,360,6932,"Shoulder Press Machine (Plate Loaded), three-quarter view",13 Shoulder press
+shoulder-press-machine-plate-loaded,shoulder-press-machine-plate-loaded-1.detail.webp,detail,1,yes,960,960,24592,"Shoulder Press Machine (Plate Loaded), three-quarter view",13 Shoulder press
+biceps-curl-machine,biceps-curl-machine-1.thumb.webp,thumb,1,yes,360,360,4916,"Biceps Curl Machine, three-quarter view",14 Biceps curl
+biceps-curl-machine,biceps-curl-machine-1.detail.webp,detail,1,yes,960,960,20966,"Biceps Curl Machine, three-quarter view",14 Biceps curl
+front-lat-pulldown-plate-loaded,front-lat-pulldown-plate-loaded-1.thumb.webp,thumb,1,yes,360,371,8288,"Front Lat Pulldown (Plate Loaded), three-quarter view",15 Reverse front lat pulldown
+front-lat-pulldown-plate-loaded,front-lat-pulldown-plate-loaded-1.detail.webp,detail,1,yes,960,990,29340,"Front Lat Pulldown (Plate Loaded), three-quarter view",15 Reverse front lat pulldown
+seated-calf-raise,seated-calf-raise-1.thumb.webp,thumb,1,yes,360,355,5506,"Seated Calf Raise, three-quarter view",16 Seated calf
+seated-calf-raise,seated-calf-raise-1.detail.webp,detail,1,yes,960,947,18840,"Seated Calf Raise, three-quarter view",16 Seated calf
+prone-leg-curl,prone-leg-curl-1.thumb.webp,thumb,1,yes,360,360,5918,"Prone Leg Curl, three-quarter view",17 Prone leg curl
+prone-leg-curl,prone-leg-curl-1.detail.webp,detail,1,yes,960,960,22276,"Prone Leg Curl, three-quarter view",17 Prone leg curl
+hip-adductor-abductor,hip-adductor-abductor-1.thumb.webp,thumb,1,yes,360,360,7502,"Hip Adductor / Abductor, three-quarter view",18 Adductor abductor combo
+hip-adductor-abductor,hip-adductor-abductor-1.detail.webp,detail,1,yes,960,960,30490,"Hip Adductor / Abductor, three-quarter view",18 Adductor abductor combo
+leg-press-45,leg-press-45-1.thumb.webp,thumb,1,yes,360,360,7310,"45 Degree Leg Press, three-quarter view",19 45 degree leg press
+leg-press-45,leg-press-45-1.detail.webp,detail,1,yes,960,960,29318,"45 Degree Leg Press, three-quarter view",19 45 degree leg press
+hip-thrust-machine,hip-thrust-machine-1.thumb.webp,thumb,1,yes,360,360,6408,"Hip Thrust Machine, three-quarter view",20 Hip thrust
+hip-thrust-machine,hip-thrust-machine-1.detail.webp,detail,1,yes,960,960,21158,"Hip Thrust Machine, three-quarter view",20 Hip thrust
+hack-squat,hack-squat-1.thumb.webp,thumb,1,yes,360,357,5984,"Hack Squat, three-quarter view",21 Hack squat
+hack-squat,hack-squat-1.detail.webp,detail,1,yes,960,953,21886,"Hack Squat, three-quarter view",21 Hack squat
+leg-extension,leg-extension-1.thumb.webp,thumb,1,yes,360,360,7070,"Leg Extension, three-quarter view",22 Leg extension
+leg-extension,leg-extension-1.detail.webp,detail,1,yes,960,960,29532,"Leg Extension, three-quarter view",22 Leg extension
+smith-machine,smith-machine-1.thumb.webp,thumb,1,yes,360,360,6078,"Smith Machine, three-quarter view",23 Smith machine
+smith-machine,smith-machine-1.detail.webp,detail,1,yes,960,960,21262,"Smith Machine, three-quarter view",23 Smith machine
+back-extension,back-extension-1.thumb.webp,thumb,1,yes,360,360,4802,"Back Extension, three-quarter view",25 Back extension
+back-extension,back-extension-1.detail.webp,detail,1,yes,960,960,16922,"Back Extension, three-quarter view",25 Back extension
+adjustable-bench,adjustable-bench-1.thumb.webp,thumb,1,yes,360,360,4530,"Adjustable bench, side view",28 Adjustable benches (2)
+adjustable-bench,adjustable-bench-1.detail.webp,detail,1,yes,960,960,15576,"Adjustable bench, side view",28 Adjustable benches (2)
+adjustable-bench,adjustable-bench-2.thumb.webp,thumb,2,no,360,360,4346,"Adjustable bench with leg roller, side view",28 Adjustable benches (2)
+adjustable-bench,adjustable-bench-2.detail.webp,detail,2,no,960,960,15832,"Adjustable bench with leg roller, side view",28 Adjustable benches (2)
+flat-incline-combo-bench,flat-incline-combo-bench-1.thumb.webp,thumb,1,yes,360,360,4774,"Flat Incline Combo Bench, three-quarter view",29 Flat bench
+flat-incline-combo-bench,flat-incline-combo-bench-1.detail.webp,detail,1,yes,960,960,17398,"Flat Incline Combo Bench, three-quarter view",29 Flat bench
+utility-bench,utility-bench-1.thumb.webp,thumb,1,yes,360,360,3528,"Utility Bench, three-quarter view",30 Sitting bench
+utility-bench,utility-bench-1.detail.webp,detail,1,yes,960,960,12540,"Utility Bench, three-quarter view",30 Sitting bench
+flat-bench,flat-bench-1.thumb.webp,thumb,1,yes,360,360,2932,"Flat Bench, three-quarter view",30 Sitting bench
+flat-bench,flat-bench-1.detail.webp,detail,1,yes,960,960,10830,"Flat Bench, three-quarter view",30 Sitting bench
+dumbbells-and-rack,dumbbells-and-rack-1.thumb.webp,thumb,1,yes,360,360,5084,Two-tier dumbbell rack,31 Dumbbell racks
+dumbbells-and-rack,dumbbells-and-rack-1.detail.webp,detail,1,yes,960,960,17230,Two-tier dumbbell rack,31 Dumbbell racks
+cable-attachments,cable-attachments-1.thumb.webp,thumb,1,yes,360,360,2864,V-shaped cable handle for triceps pushdowns,32 Grips and bars
+cable-attachments,cable-attachments-1.detail.webp,detail,1,yes,960,960,25912,V-shaped cable handle for triceps pushdowns,32 Grips and bars
+cable-attachments,cable-attachments-2.thumb.webp,thumb,2,no,360,360,1262,Curved cable lat bar with D handles,32 Grips and bars
+cable-attachments,cable-attachments-2.detail.webp,detail,2,no,960,960,5522,Curved cable lat bar with D handles,32 Grips and bars
+cable-attachments,cable-attachments-3.thumb.webp,thumb,3,no,360,360,2606,Pair of cable strap handles,32 Grips and bars
+cable-attachments,cable-attachments-3.detail.webp,detail,3,no,960,960,11114,Pair of cable strap handles,32 Grips and bars
+cable-attachments,cable-attachments-4.thumb.webp,thumb,4,no,360,360,2010,MAG rowing handle for cable machines,32 Grips and bars
+cable-attachments,cable-attachments-4.detail.webp,detail,4,no,960,960,6680,MAG rowing handle for cable machines,32 Grips and bars
+olympic-barbell,olympic-barbell-1.thumb.webp,thumb,1,yes,360,67,1870,Olympic barbell,32 Grips and bars
+olympic-barbell,olympic-barbell-1.detail.webp,detail,1,yes,960,179,6910,Olympic barbell,32 Grips and bars
+olympic-barbell,olympic-barbell-2.thumb.webp,thumb,2,no,360,360,4262,Olympic barbell collars,32 Grips and bars
+olympic-barbell,olympic-barbell-2.detail.webp,detail,2,no,960,960,17216,Olympic barbell collars,32 Grips and bars
+olympic-ez-bar,olympic-ez-bar-1.thumb.webp,thumb,1,yes,360,77,1430,Olympic EZ curl bar,32 Grips and bars
+olympic-ez-bar,olympic-ez-bar-1.detail.webp,detail,1,yes,960,205,5402,Olympic EZ curl bar,32 Grips and bars
+power-cage,power-cage-1.thumb.webp,thumb,1,yes,360,360,6578,Power cage with barbell loaded,35 Squat and deadlift equipment
+power-cage,power-cage-1.detail.webp,detail,1,yes,960,960,21494,Power cage with barbell loaded,35 Squat and deadlift equipment
+lifting-platform,lifting-platform-1.thumb.webp,thumb,1,yes,360,360,3864,Weightlifting platform with wooden centre,35 Squat and deadlift equipment
+lifting-platform,lifting-platform-1.detail.webp,detail,1,yes,960,959,31392,Weightlifting platform with wooden centre,35 Squat and deadlift equipment
+treadmill,treadmill-1.thumb.webp,thumb,1,yes,360,361,5992,"Treadmill, three-quarter view",26 Reclineable treadmill
+treadmill,treadmill-1.detail.webp,detail,1,yes,960,962,25022,"Treadmill, three-quarter view",26 Reclineable treadmill
+curve-treadmill,curve-treadmill-1.thumb.webp,thumb,1,yes,360,322,6796,"Curve self-powered treadmill, three-quarter view",27 Manual treadmill
+curve-treadmill,curve-treadmill-1.detail.webp,detail,1,yes,960,860,27686,"Curve self-powered treadmill, three-quarter view",27 Manual treadmill
+elliptical-cross-trainer,elliptical-cross-trainer-1.thumb.webp,thumb,1,yes,360,360,5396,"Elliptical cross trainer, side view",36 Elliptical cross trainer
+elliptical-cross-trainer,elliptical-cross-trainer-1.detail.webp,detail,1,yes,960,960,16642,"Elliptical cross trainer, side view",36 Elliptical cross trainer
+rowing-machine,rowing-machine-1.thumb.webp,thumb,1,yes,360,360,2606,"Air rowing machine, side view",37 Rowing machine
+rowing-machine,rowing-machine-1.detail.webp,detail,1,yes,960,960,9848,"Air rowing machine, side view",37 Rowing machine
+ski-erg,ski-erg-1.thumb.webp,thumb,1,yes,360,359,3970,"Ski erg machine, front view",38 Ski trainer (ski erg)
+ski-erg,ski-erg-1.detail.webp,detail,1,yes,960,959,15312,"Ski erg machine, front view",38 Ski trainer (ski erg)
+spin-bike,spin-bike-1.thumb.webp,thumb,1,yes,360,360,4738,"Spin bike, side view",40 Cycle machine
+spin-bike,spin-bike-1.detail.webp,detail,1,yes,960,960,16168,"Spin bike, side view",40 Cycle machine
+upright-bike,upright-bike-1.thumb.webp,thumb,1,yes,360,360,4628,"Upright exercise bike, side view",40 Cycle machine
+upright-bike,upright-bike-1.detail.webp,detail,1,yes,960,960,16942,"Upright exercise bike, side view",40 Cycle machine
+recumbent-bike,recumbent-bike-1.thumb.webp,thumb,1,yes,360,360,5516,"Recumbent exercise bike, side view",40 Cycle machine
+recumbent-bike,recumbent-bike-1.detail.webp,detail,1,yes,960,960,20070,"Recumbent exercise bike, side view",40 Cycle machine
+battle-rope,battle-rope-1.thumb.webp,thumb,1,yes,360,360,7830,"Battle rope coiled, 50 mm",39 Battle ropes
+battle-rope,battle-rope-1.detail.webp,detail,1,yes,960,960,64598,"Battle rope coiled, 50 mm",39 Battle ropes
+battle-rope,battle-rope-2.thumb.webp,thumb,2,no,360,360,6052,"Battle rope coiled, 38 mm",39 Battle ropes
+battle-rope,battle-rope-2.detail.webp,detail,2,no,960,960,53662,"Battle rope coiled, 38 mm",39 Battle ropes
+kettlebells,kettlebells-1.thumb.webp,thumb,1,yes,360,360,4450,Set of vinyl kettlebells in different weights,33 Recovery and accessories
+kettlebells,kettlebells-1.detail.webp,detail,1,yes,960,960,16580,Set of vinyl kettlebells in different weights,33 Recovery and accessories
+kettlebells,kettlebells-2.thumb.webp,thumb,2,no,360,360,6062,Set of soft-shell kettlebells,33 Recovery and accessories
+kettlebells,kettlebells-2.detail.webp,detail,2,no,960,960,24276,Set of soft-shell kettlebells,33 Recovery and accessories
+medicine-ball,medicine-ball-1.thumb.webp,thumb,1,yes,360,360,4272,Set of medicine balls with weights marked,33 Recovery and accessories
+medicine-ball,medicine-ball-1.detail.webp,detail,1,yes,960,960,35158,Set of medicine balls with weights marked,33 Recovery and accessories
+medicine-ball,medicine-ball-2.thumb.webp,thumb,2,no,360,360,5728,Set of black medicine balls with weights marked,33 Recovery and accessories
+medicine-ball,medicine-ball-2.detail.webp,detail,2,no,960,960,27048,Set of black medicine balls with weights marked,33 Recovery and accessories
+wall-ball,wall-ball-1.thumb.webp,thumb,1,yes,360,360,4064,"Set of three wall balls in purple, orange and green",33 Recovery and accessories
+wall-ball,wall-ball-1.detail.webp,detail,1,yes,960,960,16098,"Set of three wall balls in purple, orange and green",33 Recovery and accessories
+stability-ball,stability-ball-1.thumb.webp,thumb,1,yes,360,360,2854,"Two stability balls, 65 cm",33 Recovery and accessories
+stability-ball,stability-ball-1.detail.webp,detail,1,yes,960,960,12884,"Two stability balls, 65 cm",33 Recovery and accessories
+stability-ball,stability-ball-2.thumb.webp,thumb,2,no,360,360,2770,"Stability balls, 75 cm",33 Recovery and accessories
+stability-ball,stability-ball-2.detail.webp,detail,2,no,960,960,11640,"Stability balls, 75 cm",33 Recovery and accessories
+half-stability-ball,half-stability-ball-1.thumb.webp,thumb,1,yes,360,360,3364,Half stability ball with resistance tubes,33 Recovery and accessories
+half-stability-ball,half-stability-ball-1.detail.webp,detail,1,yes,960,960,13492,Half stability ball with resistance tubes,33 Recovery and accessories
+resistance-tubes,resistance-tubes-1.thumb.webp,thumb,1,yes,360,360,5560,Set of resistance tubes with handles,33 Recovery and accessories
+resistance-tubes,resistance-tubes-1.detail.webp,detail,1,yes,960,960,20172,Set of resistance tubes with handles,33 Recovery and accessories
+suspension-trainer,suspension-trainer-1.thumb.webp,thumb,1,yes,360,360,8038,Suspension trainer straps and handles,33 Recovery and accessories
+suspension-trainer,suspension-trainer-1.detail.webp,detail,1,yes,960,960,26352,Suspension trainer straps and handles,33 Recovery and accessories
+foam-roller,foam-roller-1.thumb.webp,thumb,1,yes,360,360,3838,Black foam roller,33 Recovery and accessories
+foam-roller,foam-roller-1.detail.webp,detail,1,yes,960,960,13228,Black foam roller,33 Recovery and accessories
+jump-rope,jump-rope-1.thumb.webp,thumb,1,yes,360,307,7768,Jump rope with black handles,33 Recovery and accessories
+jump-rope,jump-rope-1.detail.webp,detail,1,yes,960,819,28358,Jump rope with black handles,33 Recovery and accessories
+ab-wheel,ab-wheel-1.thumb.webp,thumb,1,yes,360,360,4780,Dual ab exercise wheel,33 Recovery and accessories
+ab-wheel,ab-wheel-1.detail.webp,detail,1,yes,960,960,16788,Dual ab exercise wheel,33 Recovery and accessories
+yoga-mat,yoga-mat-1.thumb.webp,thumb,1,yes,360,360,3264,"Yoga mat rolled out, illustration",34 Yoga mats
+yoga-mat,yoga-mat-1.detail.webp,detail,1,yes,960,960,10924,"Yoga mat rolled out, illustration",34 Yoga mats
+soft-plyo-box,soft-plyo-box-1.thumb.webp,thumb,1,yes,360,360,5942,"Set of three soft plyo boxes in yellow, blue and red",41 Soft plyo box
+soft-plyo-box,soft-plyo-box-1.detail.webp,detail,1,yes,960,960,24422,"Set of three soft plyo boxes in yellow, blue and red",41 Soft plyo box

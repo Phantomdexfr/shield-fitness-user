@@ -1,0 +1,30 @@
+{
+  "note": "Phase 73. Worked by hand from RECOVERY_PLAN 4.5 S1 and section 6. Kept outside contract/ (Phase 73 may not change it).",
+  "cases": [
+    {"name": "empty phone, server has data", "in": {"localRows": 0, "baseRows": 0, "serverHasData": true, "stampedOwner": null, "currentOwner": "member:M1"}, "out": "restore_offer"},
+    {"name": "rows gone, base remembers them, server unknown", "in": {"localRows": 0, "baseRows": 120, "serverHasData": null, "stampedOwner": "member:M1", "currentOwner": "member:M1"}, "out": "restore_offer"},
+    {"name": "brand-new member, nothing anywhere", "in": {"localRows": 0, "baseRows": 0, "serverHasData": false, "stampedOwner": null, "currentOwner": "member:M1"}, "out": "ok"},
+    {"name": "empty phone, server not asked yet", "in": {"localRows": 0, "baseRows": 0, "serverHasData": null, "stampedOwner": null, "currentOwner": "member:M1"}, "out": "ok"},
+    {"name": "shrunk by 31 percent", "in": {"localRows": 69, "baseRows": 100, "serverHasData": true, "stampedOwner": "member:M1", "currentOwner": "member:M1"}, "out": "block_push"},
+    {"name": "shrunk by exactly 30 percent is allowed", "in": {"localRows": 70, "baseRows": 100, "serverHasData": true, "stampedOwner": "member:M1", "currentOwner": "member:M1"}, "out": "ok"},
+    {"name": "grew", "in": {"localRows": 150, "baseRows": 100, "serverHasData": true, "stampedOwner": "member:M1", "currentOwner": "member:M1"}, "out": "ok"},
+    {"name": "different member on this phone", "in": {"localRows": 40, "baseRows": 40, "serverHasData": true, "stampedOwner": "member:M1", "currentOwner": "member:M2"}, "out": "different_owner"},
+    {"name": "different member beats an empty phone", "in": {"localRows": 0, "baseRows": 0, "serverHasData": true, "stampedOwner": "member:M1", "currentOwner": "member:M2"}, "out": "different_owner"},
+    {"name": "never stamped, has rows (logged before connecting)", "in": {"localRows": 12, "baseRows": 0, "serverHasData": true, "stampedOwner": null, "currentOwner": "member:M1"}, "out": "ok"},
+    {"name": "signed out, stamp present, empty", "in": {"localRows": 0, "baseRows": 30, "serverHasData": null, "stampedOwner": "member:M1", "currentOwner": null}, "out": "restore_offer"}
+  ],
+  "cursors": [
+    {"localRows": 0, "cursorCount": 3, "reset": true},
+    {"localRows": 0, "cursorCount": 0, "reset": false},
+    {"localRows": 5, "cursorCount": 3, "reset": false}
+  ],
+  "merge": [
+    {"name": "no local row", "local": null, "incoming": {"updated_at": 5}, "out": "add"},
+    {"name": "incoming newer", "local": {"updated_at": 5}, "incoming": {"updated_at": 9}, "out": "replace"},
+    {"name": "incoming older", "local": {"updated_at": 9}, "incoming": {"updated_at": 5}, "out": "skip"},
+    {"name": "tie keeps the phone", "local": {"updated_at": 5}, "incoming": {"updated_at": 5}, "out": "skip"},
+    {"name": "local tombstone is final against a newer live copy", "local": {"updated_at": 5, "deleted_at": 5}, "incoming": {"updated_at": 99}, "out": "skip"},
+    {"name": "incoming tombstone newer replaces", "local": {"updated_at": 5}, "incoming": {"updated_at": 9, "deleted_at": 9}, "out": "replace"},
+    {"name": "both tombstones, incoming newer", "local": {"updated_at": 5, "deleted_at": 5}, "incoming": {"updated_at": 9, "deleted_at": 9}, "out": "replace"}
+  ]
+}

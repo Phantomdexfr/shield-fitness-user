@@ -1,0 +1,18 @@
+{
+  "_about": "Which routine day takes a weak group's exercise (User Phase 44, [A-P44.4]): the first day that targets the group (a target that belongs to the group counts), else the day with the fewest exercises (first on a tie), null with no days.",
+  "muscles": [
+    {"id": "chest", "parent": "chest"}, {"id": "upper_chest", "parent": "chest"},
+    {"id": "back", "parent": "back"}, {"id": "lats", "parent": "back"}, {"id": "rhomboids", "parent": "back"},
+    {"id": "shoulders", "parent": "shoulders"}, {"id": "front_delts", "parent": "shoulders"},
+    {"id": "triceps", "parent": "triceps"}, {"id": "quads", "parent": "quads"}, {"id": "calves", "parent": "calves"}
+  ],
+  "cases": [
+    {"name": "a day targets the group", "group": "chest", "days": [{"id": "d1", "targetMuscles": ["chest", "triceps"], "items": 5}, {"id": "d2", "targetMuscles": ["back"], "items": 4}, {"id": "d3", "targetMuscles": ["quads"], "items": 6}], "expected": "d1"},
+    {"name": "a child target counts", "group": "shoulders", "days": [{"id": "d1", "targetMuscles": ["upper_chest", "front_delts"], "items": 5}, {"id": "d2", "targetMuscles": ["lats"], "items": 4}], "expected": "d1"},
+    {"name": "no day targets it: fewest exercises", "group": "calves", "days": [{"id": "d1", "targetMuscles": ["chest"], "items": 5}, {"id": "d2", "targetMuscles": ["back"], "items": 4}, {"id": "d3", "targetMuscles": ["quads"], "items": 6}], "expected": "d2"},
+    {"name": "fewest tie: the first", "group": "calves", "days": [{"id": "d1", "targetMuscles": ["chest"], "items": 3}, {"id": "d2", "targetMuscles": ["back"], "items": 3}, {"id": "d3", "targetMuscles": ["quads"], "items": 4}], "expected": "d1"},
+    {"name": "two days match: the first", "group": "back", "days": [{"id": "d1", "targetMuscles": ["chest"], "items": 2}, {"id": "d2", "targetMuscles": ["lats"], "items": 9}, {"id": "d3", "targetMuscles": ["rhomboids"], "items": 1}], "expected": "d2"},
+    {"name": "a day with no targets and no match", "group": "quads", "days": [{"id": "d1", "targetMuscles": [], "items": 2}], "expected": "d1"},
+    {"name": "no days", "group": "chest", "days": [], "expected": null}
+  ]
+}

@@ -1,0 +1,156 @@
+{
+ "spec": "contract/policy.md \"Library overrides\" + docs/GYM_CONNECTION.md section 8 (User app)",
+ "library": {
+  "hidden_exercise_slugs": [
+   "bench-press",
+   "my-secret"
+  ],
+  "youtube_overrides": {
+   "lat-pulldown": "https://www.youtube.com/watch?v=abc123",
+   "squat": "https://youtu.be/xyz",
+   "deadlift": "https://evil.example.com/watch?v=1",
+   "row": "http://www.youtube.com/watch?v=1",
+   "curl": "javascript:alert(1)",
+   "press": "https://user:pw@www.youtube.com/x"
+  },
+  "machine_status": {
+   "leg-press-plate-loaded": {
+    "status": "maintenance",
+    "note": "Back in 2 days"
+   },
+   "cable-crossover": {
+    "status": "out_of_order"
+   },
+   "smith-machine": {
+    "status": "broken-weird"
+   },
+   "lat-pulldown-machine": {
+    "status": "active",
+    "note": "ignored note"
+   }
+  },
+  "extra_exercise_slugs": [
+   "gym-special-1"
+  ],
+  "hidden_setup_values": {
+   "lat-pulldown": [
+    "grip:wide",
+    "bad",
+    ":x",
+    "axis:",
+    "stance:narrow",
+    "grip:close"
+   ]
+  }
+ },
+ "hidden": [
+  {
+   "slug": "bench-press",
+   "hidden": true
+  },
+  {
+   "slug": "squat",
+   "hidden": false
+  },
+  {
+   "slug": "my-secret",
+   "hidden": false
+  },
+  {
+   "slug": "my-other",
+   "hidden": false
+  }
+ ],
+ "youtube": [
+  {
+   "slug": "lat-pulldown",
+   "url": "https://www.youtube.com/watch?v=abc123"
+  },
+  {
+   "slug": "squat",
+   "url": "https://youtu.be/xyz"
+  },
+  {
+   "slug": "deadlift",
+   "url": null
+  },
+  {
+   "slug": "row",
+   "url": null
+  },
+  {
+   "slug": "curl",
+   "url": null
+  },
+  {
+   "slug": "press",
+   "url": null
+  },
+  {
+   "slug": "nothing-here",
+   "url": null
+  }
+ ],
+ "machines": [
+  {
+   "slug": "leg-press-plate-loaded",
+   "base": "active",
+   "status": "maintenance",
+   "note": "Back in 2 days"
+  },
+  {
+   "slug": "cable-crossover",
+   "base": "active",
+   "status": "out_of_order",
+   "note": null
+  },
+  {
+   "slug": "smith-machine",
+   "base": "maintenance",
+   "status": "active",
+   "note": null
+  },
+  {
+   "slug": "lat-pulldown-machine",
+   "base": "active",
+   "status": "active",
+   "note": null
+  },
+  {
+   "slug": "not-listed",
+   "base": "maintenance",
+   "status": "maintenance",
+   "note": null
+  },
+  {
+   "slug": "not-listed-2",
+   "base": "out_of_order",
+   "status": "out_of_order",
+   "note": null
+  },
+  {
+   "slug": "not-listed-3",
+   "base": "weird",
+   "status": "active",
+   "note": null
+  }
+ ],
+ "setup": [
+  {
+   "slug": "lat-pulldown",
+   "hidden": {
+    "grip": [
+     "wide",
+     "close"
+    ],
+    "stance": [
+     "narrow"
+    ]
+   }
+  },
+  {
+   "slug": "squat",
+   "hidden": {}
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "spec": "engines.md 13b",
+ "cases": [
+  {
+   "id": "exact_variation_row_wins",
+   "description": "the exact variation row already shifted biceps (more, 0.6 -> 0.75); the setup shift skips biceps (no 0.9375); lats still gets the setup shift",
+   "exercise": "lat-pulldown",
+   "rows": [
+    [
+     "lats",
+     "p",
+     "h"
+    ],
+    [
+     "rhomboids_teres",
+     "p",
+     "m"
+    ],
+    [
+     "biceps",
+     "s",
+     "m"
+    ],
+    [
+     "mid_lower_traps",
+     "s",
+     "m"
+    ],
+    [
+     "forearms",
+     "s",
+     "l"
+    ],
+    [
+     "rear_delts",
+     "s",
+     "l"
+    ]
+   ],
+   "variation": "Underhand",
+   "variationShift": [
+    [
+     "biceps",
+     "m"
+    ]
+   ],
+   "pattern": "pulldown",
+   "setup": {
+    "grip": "supinated"
+   },
+   "table": {
+    "grip": {
+     "supinated": {
+      "pulldown": [
+       [
+        "biceps",
+        "m"
+       ],
+       [
+        "forearms",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "lats": 1,
+    "rhomboids_teres": 0.6,
+    "biceps": 0.75,
+    "mid_lower_traps": 0.6,
+    "forearms": 0.225,
+    "rear_delts": 0.3
+   }
+  }
+ ]
+}

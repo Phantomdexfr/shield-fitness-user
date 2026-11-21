@@ -1,0 +1,46 @@
+/* Exercise + machine pages (Phase 21). Tokens only. Nothing truncates, nothing bleeds. */
+.sf-ex { min-width: 0; max-width: 100%; display: flex; flex-direction: column; gap: var(--sp-3); }
+.sf-ex__h { margin: 0; font-size: var(--text-sm); color: var(--text-muted); }
+.sf-ex__block { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-ex__chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); min-width: 0; }
+.sf-ex__line { margin: 0; overflow-wrap: anywhere; }
+.sf-ex__list { margin: 0; padding-left: var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-1); overflow-wrap: anywhere; }
+.sf-ex__dots { display: inline-flex; gap: 4px; align-items: center; min-height: 24px; }
+.sf-ex__dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--gold-600); }
+.sf-ex__dot--on { background: var(--gold-300); border-color: var(--gold-300); }
+.sf-ex__machine { display: flex; flex-direction: column; gap: var(--sp-2); min-height: 44px; min-width: 0; color: inherit; text-decoration: none; }
+.sf-ex__mname { font-weight: 600; overflow-wrap: anywhere; }
+.sf-ex__machine > .sf-badge { align-self: flex-start; }
+.sf-ex__mthumb { max-width: 12rem; }
+.sf-ex__vars { display: flex; flex-direction: column; gap: var(--sp-2); margin: 0; padding: 0; list-style: none; min-width: 0; }
+.sf-ex__vars li { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-width: 0; }
+/* Phase 26: note box fills the width, resizes down only */
+.sf-ex__note { width: 100%; min-height: 88px; resize: vertical; box-sizing: border-box; }
+.sf-ex__pair { display: flex; flex-wrap: wrap; gap: var(--sp-2); min-width: 0; }
+.sf-ex__caution { border-left: 3px solid var(--gold-600); padding-left: var(--sp-3); }
+.sf-ex__gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); margin: 0; padding: 0; list-style: none; }
+.sf-ex__gbtn { display: block; width: 100%; min-height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.sf-ex__gbtn:focus-visible { outline: 2px solid var(--gold-300); outline-offset: 2px; }
+
+/* Form cue card: scroll-snap swipe */
+.sf-cue { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-cue__track { display: flex; gap: var(--sp-2); margin: 0; padding: 0; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; min-width: 0; }
+.sf-cue__track:focus-visible { outline: 2px solid var(--gold-300); outline-offset: 2px; }
+.sf-cue__slide { flex: 0 0 100%; box-sizing: border-box; scroll-snap-align: start; display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); overflow-wrap: anywhere; }
+.sf-cue__slide--mistake { border-color: var(--gold-600); }
+.sf-cue__label { font-size: var(--text-xs); color: var(--gold-300); }
+
+/* Setup picker (Phase 22) */
+.sf-setup { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; max-width: 100%; }
+.sf-setup__axis { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-setup__label { font-size: var(--text-xs); color: var(--text-muted); }
+.sf-setup__chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); min-width: 0; }
+.sf-ex__effect { color: var(--gold-300); font-size: var(--text-sm); }
+
+.sf-cx { display: flex; flex-direction: column; gap: var(--sp-4); min-width: 0; max-width: 100%; }
+.sf-cx__mrow { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); min-width: 0; }
+.sf-cx__mhead { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); min-width: 0; }
+.sf-cx__mname { font-size: var(--text-sm); color: var(--text); overflow-wrap: anywhere; min-width: 0; }
+.sf-cx__reps { display: flex; flex-wrap: wrap; gap: var(--sp-3); min-width: 0; }
+.sf-cx__actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); min-width: 0; }
+.sf-cx__error { margin: 0; color: var(--danger); font-size: var(--text-sm); overflow-wrap: anywhere; }

@@ -1,0 +1,532 @@
+exercise,slug,variation
+Barbell Back Squat,barbell-back-squat,Pause squat (2-3 s in the hole)
+Barbell Back Squat,barbell-back-squat,Tempo squat (3 s down)
+Barbell Back Squat,barbell-back-squat,Heels elevated on small plates
+Barbell Back Squat,barbell-back-squat,1.5-rep squat
+Barbell Back Squat,barbell-back-squat,Pin squat start from the safeties
+Barbell Front Squat,barbell-front-squat,Pause front squat
+Barbell Front Squat,barbell-front-squat,Wide stance
+Barbell Front Squat,barbell-front-squat,Tempo lowering
+Barbell Front Squat,barbell-front-squat,Front squat from the pins
+Barbell Overhead Press,barbell-overhead-press,Close grip
+Barbell Overhead Press,barbell-overhead-press,Strict press with no leg drive
+Barbell Overhead Press,barbell-overhead-press,Pin press from the safeties
+Barbell Overhead Press,barbell-overhead-press,Tempo lowering
+Barbell Overhead Press,barbell-overhead-press,Half-kneeling press
+Barbell Bench Press,barbell-bench-press,Pause bench (1-2 s on the chest)
+Barbell Bench Press,barbell-bench-press,Tempo 3-1-1
+Barbell Bench Press,barbell-bench-press,Spoto press (stop just above the chest)
+Barbell Bench Press,barbell-bench-press,Feet-up bench
+Barbell Bench Press,barbell-bench-press,Touch-and-go vs dead-stop
+Barbell Bench Press,barbell-bench-press,Reverse-grip
+Barbell Incline Bench Press,barbell-incline-bench-press,Pause on the chest
+Barbell Incline Bench Press,barbell-incline-bench-press,Tempo lowering
+Barbell Incline Bench Press,barbell-incline-bench-press,Reverse grip
+Barbell Incline Bench Press,barbell-incline-bench-press,Low incline angle
+Barbell Deadlift,barbell-deadlift,Paused deadlift (below the knee)
+Barbell Deadlift,barbell-deadlift,Hook grip
+Barbell Deadlift,barbell-deadlift,Mixed grip
+Barbell Deadlift,barbell-deadlift,Double overhand with straps
+Barbell Deadlift,barbell-deadlift,Elevated pull from low blocks
+Barbell Deadlift,barbell-deadlift,Dead-stop vs touch-and-go
+Barbell Deadlift,barbell-deadlift,Tempo lowering
+Barbell Deadlift,barbell-deadlift,Deficit stance
+Barbell Deadlift,barbell-deadlift,Snatch grip
+Barbell Romanian Deadlift,barbell-romanian-deadlift,Deficit RDL
+Barbell Romanian Deadlift,barbell-romanian-deadlift,Single-leg RDL
+Barbell Romanian Deadlift,barbell-romanian-deadlift,Snatch-grip RDL
+Barbell Romanian Deadlift,barbell-romanian-deadlift,Pause at the knees
+Barbell Romanian Deadlift,barbell-romanian-deadlift,Dead-stop RDL from the pins
+Barbell Romanian Deadlift,barbell-romanian-deadlift,Wide or narrow stance
+Barbell Good Morning,barbell-good-morning,Wide stance
+Barbell Good Morning,barbell-good-morning,Pause at the bottom
+Barbell Good Morning,barbell-good-morning,Narrow stance
+Barbell Good Morning,barbell-good-morning,Banded
+Barbell Bent-Over Row,barbell-bent-over-row,Dead-stop row
+Barbell Bent-Over Row,barbell-bent-over-row,Wide grip
+Barbell Bent-Over Row,barbell-bent-over-row,Narrow grip
+Barbell Bent-Over Row,barbell-bent-over-row,Torso nearly upright (Yates)
+Barbell Bent-Over Row,barbell-bent-over-row,Tempo lowering
+Barbell Biceps Curl,barbell-biceps-curl,Drag curl
+Barbell Biceps Curl,barbell-biceps-curl,Reverse curl
+Barbell Biceps Curl,barbell-biceps-curl,"21s (7 bottom, 7 top, 7 full)"
+Barbell Biceps Curl,barbell-biceps-curl,Slow lowering
+Barbell Biceps Curl,barbell-biceps-curl,Strict curl against a wall
+Barbell Hip Thrust,barbell-hip-thrust,Feet wide
+Barbell Hip Thrust,barbell-hip-thrust,Feet close
+Barbell Hip Thrust,barbell-hip-thrust,Isometric hold at the top
+Barbell Hip Thrust,barbell-hip-thrust,Tempo lowering
+Barbell Hip Thrust,barbell-hip-thrust,Staggered stance
+Barbell Shrug,barbell-shrug,Snatch grip
+Barbell Shrug,barbell-shrug,Pause at the top
+Barbell Shrug,barbell-shrug,Slow lowering
+Barbell Walking Lunge,barbell-walking-lunge,Deficit lunge
+Barbell Walking Lunge,barbell-walking-lunge,Overhead lunge
+Barbell Walking Lunge,barbell-walking-lunge,Cross-over lunge
+Barbell Walking Lunge,barbell-walking-lunge,Long stride (glutes) vs short stride (quads)
+Barbell Rack Pull,barbell-rack-pull,Below the knee
+Barbell Rack Pull,barbell-rack-pull,Above the knee
+Barbell Rack Pull,barbell-rack-pull,Paused
+Barbell Rack Pull,barbell-rack-pull,Snatch grip
+Dumbbell Bench Press,dumbbell-bench-press,Pause on the chest
+Dumbbell Bench Press,dumbbell-bench-press,Tempo 3-1-1
+Dumbbell Bench Press,dumbbell-bench-press,Rotating grip (neutral to pronated)
+Dumbbell Bench Press,dumbbell-bench-press,Feet-up
+Dumbbell Bench Press,dumbbell-bench-press,Single-arm
+Dumbbell Bench Press,dumbbell-bench-press,Squeeze press
+Incline Dumbbell Press,incline-dumbbell-press,Pause on the chest
+Incline Dumbbell Press,incline-dumbbell-press,Rotating grip
+Incline Dumbbell Press,incline-dumbbell-press,Low incline 15 degrees
+Incline Dumbbell Press,incline-dumbbell-press,Single-arm
+Incline Dumbbell Press,incline-dumbbell-press,Squeeze at the top
+Dumbbell Fly,dumbbell-fly,Pause at the stretch
+Dumbbell Fly,dumbbell-fly,Tempo lowering
+Dumbbell Fly,dumbbell-fly,Low incline 15 degrees
+Dumbbell Fly,dumbbell-fly,Single-arm
+Dumbbell Fly,dumbbell-fly,Squeeze to the top
+Dumbbell One-Arm Row,dumbbell-one-arm-row,Pause at the top
+Dumbbell One-Arm Row,dumbbell-one-arm-row,Staggered stance
+Dumbbell One-Arm Row,dumbbell-one-arm-row,Knee on the bench vs foot on the floor
+Dumbbell One-Arm Row,dumbbell-one-arm-row,Supinated grip
+Dumbbell One-Arm Row,dumbbell-one-arm-row,Row with trunk rotation
+Seated Dumbbell Shoulder Press,seated-dumbbell-shoulder-press,Half-kneeling single-arm
+Seated Dumbbell Shoulder Press,seated-dumbbell-shoulder-press,Pause at the shoulders
+Seated Dumbbell Shoulder Press,seated-dumbbell-shoulder-press,Tempo lowering
+Seated Dumbbell Shoulder Press,seated-dumbbell-shoulder-press,Bench at 75 degrees
+Seated Dumbbell Shoulder Press,seated-dumbbell-shoulder-press,Single-arm seated
+Standing Dumbbell Lateral Raise,standing-dumbbell-lateral-raise,Partial reps in the lengthened range
+Standing Dumbbell Lateral Raise,standing-dumbbell-lateral-raise,Pause at the top
+Standing Dumbbell Lateral Raise,standing-dumbbell-lateral-raise,Lean away from a post
+Standing Dumbbell Lateral Raise,standing-dumbbell-lateral-raise,Thumbs slightly up
+Standing Dumbbell Lateral Raise,standing-dumbbell-lateral-raise,Tempo lowering
+Standing Dumbbell Lateral Raise,standing-dumbbell-lateral-raise,Light drop-down sets
+Dumbbell Front Raise,dumbbell-front-raise,Incline-bench chest-supported
+Dumbbell Front Raise,dumbbell-front-raise,Plate front raise
+Dumbbell Front Raise,dumbbell-front-raise,Pause at the top
+Dumbbell Front Raise,dumbbell-front-raise,Tempo lowering
+Dumbbell Biceps Curl,dumbbell-biceps-curl,Incline seated curl
+Dumbbell Biceps Curl,dumbbell-biceps-curl,Drag curl
+Dumbbell Biceps Curl,dumbbell-biceps-curl,Waiter curl (two hands on one dumbbell)
+Dumbbell Biceps Curl,dumbbell-biceps-curl,Slow lowering
+Dumbbell Biceps Curl,dumbbell-biceps-curl,Cross-body
+Dumbbell Hammer Curl,dumbbell-hammer-curl,Incline hammer curl
+Dumbbell Hammer Curl,dumbbell-hammer-curl,Single-arm
+Dumbbell Hammer Curl,dumbbell-hammer-curl,Pause at the top
+Dumbbell Hammer Curl,dumbbell-hammer-curl,Tempo lowering
+Dumbbell Skull Crusher,dumbbell-skull-crusher,Tate press
+Dumbbell Skull Crusher,dumbbell-skull-crusher,JM press
+Dumbbell Skull Crusher,dumbbell-skull-crusher,Pullover finish
+Dumbbell Skull Crusher,dumbbell-skull-crusher,Pause at the bottom
+Seated Overhead Dumbbell Triceps Extension,seated-overhead-dumbbell-triceps-extension,Standing
+Seated Overhead Dumbbell Triceps Extension,seated-overhead-dumbbell-triceps-extension,Incline bench
+Seated Overhead Dumbbell Triceps Extension,seated-overhead-dumbbell-triceps-extension,Cross-body overhead
+Seated Overhead Dumbbell Triceps Extension,seated-overhead-dumbbell-triceps-extension,Tempo lowering
+Dumbbell Romanian Deadlift,dumbbell-romanian-deadlift,Staggered stance
+Dumbbell Romanian Deadlift,dumbbell-romanian-deadlift,Deficit
+Dumbbell Romanian Deadlift,dumbbell-romanian-deadlift,Pause at the bottom
+Dumbbell Romanian Deadlift,dumbbell-romanian-deadlift,Suitcase hold (one dumbbell)
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Deficit
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Front-foot elevated
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Rear-foot elevated
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Lateral lunge
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Cross-over lunge
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Overhead hold
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Offset load (one dumbbell)
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Tempo
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Long vs short stride
+Bulgarian Split Squat,bulgarian-split-squat,Front-foot elevated
+Bulgarian Split Squat,bulgarian-split-squat,Offset load (one dumbbell)
+Bulgarian Split Squat,bulgarian-split-squat,Tempo lowering
+Bulgarian Split Squat,bulgarian-split-squat,Torso upright (quads) vs forward lean (glutes)
+Bulgarian Split Squat,bulgarian-split-squat,Pause at the bottom
+Goblet Squat,goblet-squat,Tempo 3-1-1
+Goblet Squat,goblet-squat,Pause squat
+Goblet Squat,goblet-squat,"Cyclist squat (heels raised, narrow)"
+Goblet Squat,goblet-squat,Offset load
+Goblet Squat,goblet-squat,Plate goblet
+Goblet Squat,goblet-squat,Kettlebell bottom-up pause
+Dumbbell Farmer's Carry,dumbbell-farmers-carry,Short-step carry
+Dumbbell Farmer's Carry,dumbbell-farmers-carry,Mixed load (heavy and light)
+Dumbbell Farmer's Carry,dumbbell-farmers-carry,Backward walk
+Dumbbell Farmer's Carry,dumbbell-farmers-carry,Overhead carry
+Dumbbell Farmer's Carry,dumbbell-farmers-carry,Waiter carry
+Dumbbell Farmer's Carry,dumbbell-farmers-carry,Heavy short-distance
+Dumbbell Shrug,dumbbell-shrug,Incline chest-supported
+Dumbbell Shrug,dumbbell-shrug,Pause at the top
+Dumbbell Shrug,dumbbell-shrug,Single-arm
+Dumbbell Shrug,dumbbell-shrug,Slow lowering
+Dumbbell Wrist Curl,dumbbell-wrist-curl,Pause at the top
+Dumbbell Wrist Curl,dumbbell-wrist-curl,Behind-the-back hold
+Dumbbell Wrist Curl,dumbbell-wrist-curl,Seated on the bench
+Dumbbell Wrist Curl,dumbbell-wrist-curl,Static hold (hold at full curl)
+Kettlebell Swing,kettlebell-swing,Hand-to-hand
+Kettlebell Swing,kettlebell-swing,Dead-stop swing
+Kettlebell Swing,kettlebell-swing,Pause at the top
+Kettlebell Swing,kettlebell-swing,Heavy two-hand
+Kettlebell Swing,kettlebell-swing,Staggered stance
+Kettlebell Swing,kettlebell-swing,Single-leg
+Kettlebell Turkish Get-Up,kettlebell-turkish-get-up,Half get-up
+Kettlebell Turkish Get-Up,kettlebell-turkish-get-up,Windmill finish
+Kettlebell Turkish Get-Up,kettlebell-turkish-get-up,Weighted with a shoe on the fist
+Kettlebell Turkish Get-Up,kettlebell-turkish-get-up,Slower tempo
+Cable Fly (High to Low),cable-fly-high-to-low,Seated on bench
+Cable Fly (High to Low),cable-fly-high-to-low,Pause at the contraction
+Cable Fly (High to Low),cable-fly-high-to-low,Kneeling
+Cable Fly (High to Low),cable-fly-high-to-low,Tempo lowering
+Cable Fly (Low to High),cable-fly-low-to-high,Seated on an incline bench
+Cable Fly (Low to High),cable-fly-low-to-high,Pause
+Cable Fly (Low to High),cable-fly-low-to-high,Half-kneeling
+Seated Cable Row (Neutral Grip),seated-cable-row-neutral-grip,Pause at the chest
+Seated Cable Row (Neutral Grip),seated-cable-row-neutral-grip,Staggered stance
+Seated Cable Row (Neutral Grip),seated-cable-row-neutral-grip,V-handle close grip
+Seated Cable Row (Neutral Grip),seated-cable-row-neutral-grip,Slow lowering
+Seated Cable Row (Neutral Grip),seated-cable-row-neutral-grip,Elbows-out wide grip
+Lat Pulldown,lat-pulldown,Pause at the chest
+Lat Pulldown,lat-pulldown,Lean-back
+Lat Pulldown,lat-pulldown,Mixed grip
+Lat Pulldown,lat-pulldown,Slow lowering
+Lat Pulldown,lat-pulldown,Kneeling
+Cable Triceps Pushdown,cable-triceps-pushdown,Pause at the bottom
+Cable Triceps Pushdown,cable-triceps-pushdown,Lean forward
+Cable Triceps Pushdown,cable-triceps-pushdown,One-arm
+Cable Triceps Pushdown,cable-triceps-pushdown,Slow lowering
+Cable Triceps Pushdown,cable-triceps-pushdown,Overhand vs underhand grip
+Cable Face Pull,cable-face-pull,Half-kneeling
+Cable Face Pull,cable-face-pull,Wide hand position
+Cable Face Pull,cable-face-pull,External rotation finish
+Cable Face Pull,cable-face-pull,High vs eye-level pulley
+Cable Face Pull,cable-face-pull,Single-arm
+Cable Face Pull,cable-face-pull,Pause
+Leg Press,leg-press,Pause at the bottom
+Leg Press,leg-press,Narrow stance
+Leg Press,leg-press,Toes out
+Leg Press,leg-press,Heels elevated
+Leg Press,leg-press,Partial top-half range
+Leg Press,leg-press,Slow eccentric
+Leg Press,leg-press,Alternating single leg
+Hack Squat,hack-squat,Heels elevated
+Hack Squat,hack-squat,Pause at the bottom
+Hack Squat,hack-squat,Slow eccentric
+Hack Squat,hack-squat,Wide stance toes out
+Leg Extension,leg-extension,Toes in or out
+Leg Extension,leg-extension,Pause at the top
+Leg Extension,leg-extension,Partial reps in the lengthened range
+Leg Extension,leg-extension,Slow eccentric
+Leg Extension,leg-extension,Drop sets
+Lying Leg Curl,lying-leg-curl,Pause at the top
+Lying Leg Curl,lying-leg-curl,Slow eccentric
+Lying Leg Curl,lying-leg-curl,Hips elevated
+Lying Leg Curl,lying-leg-curl,Partial reps in the lengthened range
+Lying Leg Curl,lying-leg-curl,Toes in or out
+Hip Abduction Machine,hip-abduction-machine,Pause at the end range
+Hip Abduction Machine,hip-abduction-machine,Partial reps
+Hip Abduction Machine,hip-abduction-machine,Single-side (if the machine allows)
+Seated Calf Raise,seated-calf-raise,Pause at the stretch
+Seated Calf Raise,seated-calf-raise,Slow eccentric
+Seated Calf Raise,seated-calf-raise,Partial reps in the lengthened range
+Seated Calf Raise,seated-calf-raise,Single leg
+Back Extension,back-extension,Tempo lowering
+Back Extension,back-extension,Pause at the top
+Back Extension,back-extension,Weighted
+Back Extension,back-extension,Isometric hold
+Assisted Pull-Up,assisted-pull-up,Wide grip
+Assisted Pull-Up,assisted-pull-up,Mixed grip
+Assisted Pull-Up,assisted-pull-up,Slow eccentric
+Assisted Pull-Up,assisted-pull-up,Pause at the top
+Incline Chest Press (Machine),incline-chest-press-machine,Pause at the stretch
+Incline Chest Press (Machine),incline-chest-press-machine,Slow eccentric
+Incline Chest Press (Machine),incline-chest-press-machine,Partial reps at the top
+Seated Chest Press (Vertical Handles),seated-chest-press-vertical-handles,Pause at the stretch
+Seated Chest Press (Vertical Handles),seated-chest-press-vertical-handles,Single-arm
+Seated Chest Press (Vertical Handles),seated-chest-press-vertical-handles,Partial reps
+Pec Deck Fly,pec-deck-fly,Pause at the squeeze
+Pec Deck Fly,pec-deck-fly,Slow eccentric
+Pec Deck Fly,pec-deck-fly,Partial reps in the stretch
+Machine Shoulder Press,machine-shoulder-press,Pause at the bottom
+Machine Shoulder Press,machine-shoulder-press,Slow eccentric
+Machine Shoulder Press,machine-shoulder-press,Partial reps
+Machine Biceps Curl,machine-biceps-curl,Pause at the top
+Machine Biceps Curl,machine-biceps-curl,Partial reps in the stretch
+Push-Up,push-up,Tempo 3-1-1
+Push-Up,push-up,Pause at the bottom
+Push-Up,push-up,Eccentric-only
+Push-Up,push-up,Hands on dumbbells for deeper range
+Push-Up,push-up,Push-up plus (extra reach at the top)
+Push-Up,push-up,Single-leg raised
+Push-Up,push-up,Fingertip push-up
+Push-Up,push-up,Staggered hands
+Push-Up,push-up,Weighted with a plate on the back
+Push-Up,push-up,Resistance band across the back
+Bodyweight Squat,bodyweight-squat,Cyclist squat (heels raised)
+Bodyweight Squat,bodyweight-squat,1.5-rep squat
+Bodyweight Squat,bodyweight-squat,Heels elevated
+Bodyweight Squat,bodyweight-squat,Narrow stance
+Bodyweight Squat,bodyweight-squat,Arms overhead
+Bodyweight Squat,bodyweight-squat,Squat to a box
+Bodyweight Squat,bodyweight-squat,Single-leg squat to a box
+Glute Bridge,glute-bridge,Feet elevated
+Glute Bridge,glute-bridge,Marching bridge
+Glute Bridge,glute-bridge,Banded bridge
+Glute Bridge,glute-bridge,Eccentric-only
+Glute Bridge,glute-bridge,Long isometric hold
+Glute Bridge,glute-bridge,Shoulders on a bench
+Plank,plank,Weighted with a plate on the back
+Plank,plank,Long-lever plank
+Plank,plank,Plank with leg lift
+Plank,plank,Feet on a bench
+Plank,plank,Shoulder taps
+Plank,plank,Body saw
+Side Plank,side-plank,Hip dip
+Side Plank,side-plank,Thread-the-needle
+Side Plank,side-plank,Feet elevated
+Side Plank,side-plank,Star (arm and top leg raised)
+Side Plank,side-plank,Copenhagen version
+Dead Bug,dead-bug,Weighted
+Dead Bug,dead-bug,With a band
+Dead Bug,dead-bug,Heel slide
+Dead Bug,dead-bug,Leg lowering only
+Dead Bug,dead-bug,Slow tempo
+Dead Bug,dead-bug,Holding a ball between knees and hands
+Bird Dog,bird-dog,Bird dog row
+Bird Dog,bird-dog,Elbow-to-knee crunch
+Bird Dog,bird-dog,Band around the feet
+Bird Dog,bird-dog,Slow tempo
+Bird Dog,bird-dog,Plank bird dog
+Crunch,crunch,Feet on a bench
+Crunch,crunch,Weighted
+Crunch,crunch,Hands overhead
+Crunch,crunch,Oblique crunch
+Crunch,crunch,Slow tempo
+Bicycle Crunch,bicycle-crunch,Extended legs
+Bicycle Crunch,bicycle-crunch,Standing bicycle crunch
+Bicycle Crunch,bicycle-crunch,Weighted
+Lying Leg Raise,lying-leg-raise,Hands under the hips
+Lying Leg Raise,lying-leg-raise,Slow lowering
+Lying Leg Raise,lying-leg-raise,Single leg
+Lying Leg Raise,lying-leg-raise,Hip lift finish
+Superman,superman,Pause at the top
+Superman,superman,Arms in Y
+Superman,superman,Swimmer
+Superman,superman,Weighted with a light plate
+Burpee,burpee,Plank-jack burpee
+Burpee,burpee,Tuck-jump burpee
+Burpee,burpee,Lateral burpee
+Burpee,burpee,Half burpee
+Burpee,burpee,Burpee broad jump
+Mountain Climber,mountain-climber,Cross-body
+Mountain Climber,mountain-climber,Tempo
+Mountain Climber,mountain-climber,Wide stance
+Mountain Climber,mountain-climber,Hands on a bench
+Jump Squat,jump-squat,Tuck jump
+Jump Squat,jump-squat,Broad jump
+Jump Squat,jump-squat,Lateral jump
+Jump Squat,jump-squat,Pause at the bottom
+Jump Squat,jump-squat,Split squat jump
+Wall Sit,wall-sit,Single-leg
+Wall Sit,wall-sit,Weighted
+Wall Sit,wall-sit,March in place
+Wall Sit,wall-sit,Ball between the knees
+Bodyweight Reverse Lunge,bodyweight-reverse-lunge,Deficit
+Bodyweight Reverse Lunge,bodyweight-reverse-lunge,Knee drive
+Bodyweight Reverse Lunge,bodyweight-reverse-lunge,Pulses
+Bodyweight Reverse Lunge,bodyweight-reverse-lunge,Walking
+Bodyweight Reverse Lunge,bodyweight-reverse-lunge,Cross-body
+Cossack Squat,cossack-squat,Hold at the bottom
+Cossack Squat,cossack-squat,Assisted with a support
+Cossack Squat,cossack-squat,Weighted
+Reverse Snow Angel,reverse-snow-angel,Pause at the top
+Reverse Snow Angel,reverse-snow-angel,Light weights
+Reverse Snow Angel,reverse-snow-angel,Y arms
+Bear Crawl,bear-crawl,Lateral crawl
+Bear Crawl,bear-crawl,Slow tempo
+Bear Crawl,bear-crawl,Shoulder tap
+Bear Crawl,bear-crawl,Hands elevated
+Jumping Jacks,jumping-jacks,Squat jacks
+Jumping Jacks,jumping-jacks,Plank jacks
+Jumping Jacks,jumping-jacks,Seal jacks
+Jumping Jacks,jumping-jacks,Cross jacks
+High Knees,high-knees,A-skip
+High Knees,high-knees,Fast feet
+High Knees,high-knees,Backward
+High Knees,high-knees,Butt kicks
+Standing Calf Raise (Bodyweight),standing-calf-raise-bodyweight,Pause at the top
+Standing Calf Raise (Bodyweight),standing-calf-raise-bodyweight,Toes in or out
+Standing Calf Raise (Bodyweight),standing-calf-raise-bodyweight,Heels off a step
+Standing Calf Raise (Bodyweight),standing-calf-raise-bodyweight,Seated bent-knee version
+Pike Push-Up,pike-push-up,Hands on a box
+Pike Push-Up,pike-push-up,Tempo lowering
+Pike Push-Up,pike-push-up,Hindu push-up
+Pike Push-Up,pike-push-up,Wall handstand push-up
+Diamond Push-Up,diamond-push-up,Slow lowering
+Diamond Push-Up,diamond-push-up,Hands elevated
+Diamond Push-Up,diamond-push-up,Staggered
+Ab Wheel Rollout,ab-wheel-rollout,Wall rollout
+Ab Wheel Rollout,ab-wheel-rollout,Side rollout
+Ab Wheel Rollout,ab-wheel-rollout,Pike roll
+Soft Box Jump,soft-box-jump,Single-leg
+Soft Box Jump,soft-box-jump,Lateral jump
+Soft Box Jump,soft-box-jump,Step down vs jump down
+Soft Box Jump,soft-box-jump,Depth drop
+Box Step-Up,box-step-up,Lateral step-up
+Box Step-Up,box-step-up,Step-up to press
+Box Step-Up,box-step-up,Higher box
+Box Step-Up,box-step-up,Slow lowering
+Bench Dip,bench-dip,Feet on a second bench
+Bench Dip,bench-dip,Tempo lowering
+Bench Dip,bench-dip,Single-leg raised
+Bench Dip,bench-dip,Close-grip
+Dumbbell Thruster,dumbbell-thruster,Alternating
+Dumbbell Thruster,dumbbell-thruster,Front-rack hold
+Dumbbell Thruster,dumbbell-thruster,Single dumbbell
+Dumbbell Upright Row,dumbbell-upright-row,Wide grip
+Dumbbell Upright Row,dumbbell-upright-row,Stop at the chest
+Dumbbell Upright Row,dumbbell-upright-row,Cable or band alternatives
+Dumbbell Triceps Kickback,dumbbell-triceps-kickback,Cable version
+Dumbbell Triceps Kickback,dumbbell-triceps-kickback,Band version
+Dumbbell Triceps Kickback,dumbbell-triceps-kickback,Pause at lockout
+Dumbbell Zottman Curl,dumbbell-zottman-curl,Slow lowering
+Dumbbell Zottman Curl,dumbbell-zottman-curl,Seated
+Dumbbell Zottman Curl,dumbbell-zottman-curl,Incline bench
+Dumbbell Lateral Lunge,dumbbell-lateral-lunge,Cross-body reach
+Dumbbell Lateral Lunge,dumbbell-lateral-lunge,Deficit
+Dumbbell Lateral Lunge,dumbbell-lateral-lunge,Pause at the bottom
+Dumbbell Renegade Row,dumbbell-renegade-row,Feet wide
+Dumbbell Renegade Row,dumbbell-renegade-row,Without row (plank only)
+Dumbbell Renegade Row,dumbbell-renegade-row,Push-up between rows
+Dumbbell Side Bend,dumbbell-side-bend,Suitcase hold
+Dumbbell Side Bend,dumbbell-side-bend,Single dumbbell
+Dumbbell Side Bend,dumbbell-side-bend,Slow tempo
+Dumbbell Floor Press,dumbbell-floor-press,Pause on the floor
+Dumbbell Floor Press,dumbbell-floor-press,Alternating
+Dumbbell Floor Press,dumbbell-floor-press,Close-grip neutral
+Plate Halo,plate-halo,Standing
+Plate Halo,plate-halo,Half-kneeling
+Plate Halo,plate-halo,Slower tempo
+Plate Pinch Hold,plate-pinch-hold,Two plates
+Plate Pinch Hold,plate-pinch-hold,Thumb-only
+Plate Pinch Hold,plate-pinch-hold,Walking pinch carry
+Kettlebell Clean and Press,kettlebell-clean-and-press,Double kettlebells
+Kettlebell Clean and Press,kettlebell-clean-and-press,Tempo lowering
+Kettlebell Clean and Press,kettlebell-clean-and-press,Strict press only
+Kettlebell Halo,kettlebell-halo,Half-kneeling
+Kettlebell Halo,kettlebell-halo,Slow tempo
+Kettlebell Halo,kettlebell-halo,Heavier bell
+Kettlebell Single-Arm Row,kettlebell-single-arm-row,Staggered stance
+Kettlebell Single-Arm Row,kettlebell-single-arm-row,Pause at the top
+Kettlebell Single-Arm Row,kettlebell-single-arm-row,Gorilla-style
+Medicine Ball Russian Twist,medicine-ball-russian-twist,Weighted
+Medicine Ball Russian Twist,medicine-ball-russian-twist,Slow tempo
+Medicine Ball Russian Twist,medicine-ball-russian-twist,Pause each side
+Medicine Ball Slam,medicine-ball-slam,Single-arm
+Medicine Ball Slam,medicine-ball-slam,Side slam
+Medicine Ball Slam,medicine-ball-slam,Scoop-and-slam
+Medicine Ball Chest Pass,medicine-ball-chest-pass,Kneeling
+Medicine Ball Chest Pass,medicine-ball-chest-pass,Single-arm
+Medicine Ball Chest Pass,medicine-ball-chest-pass,Overhead pass
+Wall Ball Shot,wall-ball-shot,Lunge shot
+Wall Ball Shot,wall-ball-shot,Sit-up throw
+Wall Ball Shot,wall-ball-shot,Squat depth to a target
+Stability Ball Crunch,stability-ball-crunch,Weighted
+Stability Ball Crunch,stability-ball-crunch,Oblique crunch
+Stability Ball Crunch,stability-ball-crunch,Feet wide
+Stability Ball Hamstring Curl,stability-ball-hamstring-curl,Pause at the top
+Stability Ball Hamstring Curl,stability-ball-hamstring-curl,Tempo
+Stability Ball Hamstring Curl,stability-ball-hamstring-curl,Single-leg
+Stability Ball Plank,stability-ball-plank,Stir the pot (elbow circles)
+Stability Ball Plank,stability-ball-plank,Body saw
+Stability Ball Plank,stability-ball-plank,Single-leg
+Resistance Band Pull-Apart,resistance-band-pull-apart,Narrow grip
+Resistance Band Pull-Apart,resistance-band-pull-apart,Pause at the pull
+Resistance Band Pull-Apart,resistance-band-pull-apart,Straight-arm
+Resistance Band Biceps Curl,resistance-band-biceps-curl,Hammer grip
+Resistance Band Biceps Curl,resistance-band-biceps-curl,Pause at the top
+Resistance Band Biceps Curl,resistance-band-biceps-curl,Slow lowering
+Resistance Band Chest Press,resistance-band-chest-press,Incline anchor
+Resistance Band Chest Press,resistance-band-chest-press,Single-arm
+Resistance Band Chest Press,resistance-band-chest-press,Pause at lockout
+Suspension Row,suspension-row,Neutral grip
+Suspension Row,suspension-row,Single-arm
+Suspension Row,suspension-row,Pause at the chest
+Suspension Row,suspension-row,Underhand grip
+Suspension Chest Press,suspension-chest-press,Single-arm
+Suspension Chest Press,suspension-chest-press,Slow lowering
+Suspension Chest Press,suspension-chest-press,Archer style
+Suspension Biceps Curl,suspension-biceps-curl,Single-arm
+Suspension Biceps Curl,suspension-biceps-curl,Slow lowering
+Suspension Biceps Curl,suspension-biceps-curl,Pause at the top
+Suspension Triceps Extension,suspension-triceps-extension,Single-arm
+Suspension Triceps Extension,suspension-triceps-extension,Slow lowering
+Suspension Triceps Extension,suspension-triceps-extension,Pause at the bottom
+Suspension Hamstring Curl,suspension-hamstring-curl,Pause at the top
+Suspension Hamstring Curl,suspension-hamstring-curl,Tempo
+Suspension Hamstring Curl,suspension-hamstring-curl,Bridge hold
+EZ-Bar Curl,ez-bar-curl,Drag curl
+EZ-Bar Curl,ez-bar-curl,Reverse grip
+EZ-Bar Curl,ez-bar-curl,21s
+EZ-Bar Curl,ez-bar-curl,Preacher version
+EZ-Bar Curl,ez-bar-curl,Wall curl
+EZ-Bar Skull Crusher,ez-bar-skull-crusher,Flat bench
+EZ-Bar Skull Crusher,ez-bar-skull-crusher,Pullover finish
+EZ-Bar Skull Crusher,ez-bar-skull-crusher,Close grip
+EZ-Bar Skull Crusher,ez-bar-skull-crusher,Pause at the bottom
+EZ-Bar Reverse Curl,ez-bar-reverse-curl,Preacher version
+EZ-Bar Reverse Curl,ez-bar-reverse-curl,Slow lowering
+EZ-Bar Reverse Curl,ez-bar-reverse-curl,Cable version
+Preacher Curl (EZ Bar),preacher-curl-ez-bar,Pause at the bottom
+Preacher Curl (EZ Bar),preacher-curl-ez-bar,Slow lowering
+Preacher Curl (EZ Bar),preacher-curl-ez-bar,Partial reps in the stretch
+Barbell Wrist Curl,barbell-wrist-curl,Behind-the-back
+Barbell Wrist Curl,barbell-wrist-curl,Pause at the top
+Barbell Wrist Curl,barbell-wrist-curl,Static hold
+Smith Machine Squat,smith-machine-squat,Tempo
+Smith Machine Squat,smith-machine-squat,Pause
+Smith Machine Squat,smith-machine-squat,Heels elevated
+Smith Machine Squat,smith-machine-squat,Front squat grip
+Smith Machine Bench Press,smith-machine-bench-press,Pause on the chest
+Smith Machine Bench Press,smith-machine-bench-press,Close grip
+Smith Machine Bench Press,smith-machine-bench-press,Feet-up
+Smith Machine Shoulder Press,smith-machine-shoulder-press,Seated close grip
+Smith Machine Shoulder Press,smith-machine-shoulder-press,Behind the head only with good mobility
+Smith Machine Shoulder Press,smith-machine-shoulder-press,Pause
+Smith Machine Romanian Deadlift,smith-machine-romanian-deadlift,Single-leg
+Smith Machine Romanian Deadlift,smith-machine-romanian-deadlift,Deficit
+Smith Machine Romanian Deadlift,smith-machine-romanian-deadlift,Pause
+Smith Machine Bent-Over Row,smith-machine-bent-over-row,Underhand
+Smith Machine Bent-Over Row,smith-machine-bent-over-row,Wide
+Smith Machine Bent-Over Row,smith-machine-bent-over-row,Pause
+Smith Machine Shrug,smith-machine-shrug,Pause
+Smith Machine Shrug,smith-machine-shrug,Slow lowering
+Smith Machine Inverted Row,smith-machine-inverted-row,Feet on a bench
+Smith Machine Inverted Row,smith-machine-inverted-row,Pause at the top
+Smith Machine Inverted Row,smith-machine-inverted-row,Wide grip
+Dumbbell Hip Thrust (Bench Supported),dumbbell-hip-thrust-bench-supported,Feet wide
+Dumbbell Hip Thrust (Bench Supported),dumbbell-hip-thrust-bench-supported,Isometric hold
+Dumbbell Hip Thrust (Bench Supported),dumbbell-hip-thrust-bench-supported,Staggered
+Chest-Supported Dumbbell Row,chest-supported-dumbbell-row,Elbows wide (upper back)
+Chest-Supported Dumbbell Row,chest-supported-dumbbell-row,Elbows tucked (lats)
+Chest-Supported Dumbbell Row,chest-supported-dumbbell-row,Pause at the top
+Chest-Supported Dumbbell Row,chest-supported-dumbbell-row,Alternating
+Chest-Supported Dumbbell Rear Delt Fly,chest-supported-dumbbell-rear-delt-fly,Pause at the top
+Chest-Supported Dumbbell Rear Delt Fly,chest-supported-dumbbell-rear-delt-fly,Slow lowering
+Chest-Supported Dumbbell Rear Delt Fly,chest-supported-dumbbell-rear-delt-fly,Light partial reps
+Dumbbell Pullover,dumbbell-pullover,Cross-bench
+Dumbbell Pullover,dumbbell-pullover,Pause at the stretch
+Dumbbell Pullover,dumbbell-pullover,Single dumbbell
+Incline Dumbbell Curl,incline-dumbbell-curl,Pause at the stretch
+Incline Dumbbell Curl,incline-dumbbell-curl,Slow lowering
+Incline Dumbbell Curl,incline-dumbbell-curl,Higher bench angle
+Spider Curl,spider-curl,Slow lowering
+Spider Curl,spider-curl,Single-arm
+Spider Curl,spider-curl,Pause at the top
+Dumbbell Concentration Curl,dumbbell-concentration-curl,Standing bent-over
+Dumbbell Concentration Curl,dumbbell-concentration-curl,Slow lowering
+Dumbbell Concentration Curl,dumbbell-concentration-curl,Pause at the top
+Dumbbell Bent-Over Reverse Fly,dumbbell-bent-over-reverse-fly,Pause at the top
+Dumbbell Bent-Over Reverse Fly,dumbbell-bent-over-reverse-fly,Chest-supported
+Dumbbell Bent-Over Reverse Fly,dumbbell-bent-over-reverse-fly,Single-arm
+Dumbbell Calf Raise,dumbbell-calf-raise,Pause at the top
+Dumbbell Calf Raise,dumbbell-calf-raise,Toes elevated
+Dumbbell Calf Raise,dumbbell-calf-raise,Standing on a plate
+Barbell Standing Calf Raise,barbell-standing-calf-raise,Pause at the stretch
+Barbell Standing Calf Raise,barbell-standing-calf-raise,Slow lowering
+Barbell Standing Calf Raise,barbell-standing-calf-raise,Heels elevated

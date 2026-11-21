@@ -1,0 +1,13 @@
+name,kind,machine_name,primary_muscles,secondary_muscles,rep_min,rep_max,cues
+Pull-Up,strength,Assisted Pull-Up / Dip Machine,lats,biceps;back;forearms,5,10,"Set the assistance to zero or step off the pad and hang from the handles;Pull the chest toward the handles, lower to straight arms"
+Chin-Up,strength,Assisted Pull-Up / Dip Machine,biceps,lats;back;forearms,5,10,"Palms facing you, shoulder-width grip, assistance at zero;Pull the chin over the handles, lower to straight arms"
+Neutral-Grip Pull-Up,strength,Assisted Pull-Up / Dip Machine,lats,biceps;back;forearms,5,10,Use parallel handles if the machine has them;Pull until the hands are beside the chest
+Wide-Grip Pull-Up,strength,Assisted Pull-Up / Dip Machine,lats,back;biceps;forearms,4,8,"Hands wider than the shoulders, assistance at zero;Pull the elbows down and back"
+Negative Pull-Up,strength,Assisted Pull-Up / Dip Machine,lats,biceps;back;forearms,3,6,"Step to the top position, then lower for 3-5 seconds;Reset by stepping up, do not jump up"
+Scapular Pull-Up,strength,Assisted Pull-Up / Dip Machine,back,lats;forearms;traps,8,12,"Hang with straight arms, assistance at zero;Pull the shoulder blades down without bending the elbows"
+Parallel-Bar Dip,strength,Assisted Pull-Up / Dip Machine,triceps,chest;shoulders,5,10,"Assistance at zero, lock the elbows at the top;Lower until the upper arms are parallel to the floor"
+Pistol Squat,bodyweight,,quads,glutes;abs;hamstrings,3,6,"Stand on one leg, extend the other forward;Sit back and down under control, then stand"
+Single-Leg Hip Thrust,strength,Flat Bench,glutes,hamstrings;abs,8,12,"Upper back on the bench, one foot flat, other leg held up;Drive the hips up and pause"
+Dumbbell Step-Up,strength,Soft Plyo Box,quads,glutes;hamstrings;calves,8,12,"Whole foot on the box, dumbbells at the sides;Drive up through the front heel and lower under control"
+Dumbbell Forward Lunge,strength,Dumbbells and Rack,quads,glutes;hamstrings;abs,8,12,Step forward and lower the back knee toward the floor;Push back to the start
+Dumbbell Bulgarian Split Squat,strength,Flat Bench,quads,glutes;hamstrings;abs,8,12,"Rear foot on the bench, dumbbells at the sides;Lower straight down with the front foot flat"

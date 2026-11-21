@@ -1,0 +1,52 @@
+{
+ "note": "overload_cases: worked examples of docs/reference/PROGRESSIVE_OVERLOAD_RULES.md, numbers worked by hand. A set is [weightKg|null, reps, rpe|null, tag] (tag defaults to normal); a history lists sessions oldest first. Created in User Phase 36.",
+ "e1rm": [
+  [60, 8, 76],
+  [100, 5, 116.67],
+  [40, 13, null],
+  [80, 1, 80],
+  [0, 10, null],
+  [50, 12, 70],
+  [42.5, 10, 56.67],
+  [20, 0, null]
+ ],
+ "e1rmDisplay": [[76, 76], [116.67, 116.5], [56.67, 56.5], [53.33, 53.5], [null, null]],
+ "overload": [
+  {"id": "ex2_double_add", "opts": {"mode": "double", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[40,12,8],[40,12,8],[40,12,8]]], "expected": {"weightKg": 42.5, "reps": [8,8,8], "note": "add_weight"}},
+  {"id": "ex3_double_hold", "opts": {"mode": "double", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[40,12],[40,11],[40,10]]], "expected": {"weightKg": 40, "reps": [12,12,11], "note": "hold_reps"}},
+  {"id": "ex4_deload", "opts": {"mode": "double", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[60,10],[60,10],[60,10]],[[60,10],[60,10],[60,10]],[[60,10],[60,10],[60,10]],[[60,10],[60,10],[60,10]]], "expected": {"weightKg": 55, "reps": [8,8,8], "note": "deload"}},
+  {"id": "ex5_warmup_ignored", "opts": {"mode": "double", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[20,10,null,"warmup"],[40,10],[40,10]]], "expected": {"weightKg": 40, "reps": [11,11], "note": "hold_reps"}},
+  {"id": "double_form_flag", "opts": {"mode": "double", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[50,10],[50,8],[50,7]],[[50,10],[50,8],[50,7]]], "expected": {"weightKg": 50, "reps": [8,8,8], "note": "hold_form"}},
+  {"id": "double_high_rpe_blocks", "opts": {"mode": "double", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[40,12,10],[40,12,9],[40,12,9]]], "expected": {"weightKg": 40, "reps": [12,12,12], "note": "hold_reps"}},
+  {"id": "light_waits_for_second", "opts": {"mode": "double", "intensity": "light", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[40,12],[40,12],[40,12]]], "expected": {"weightKg": 40, "reps": [12,12,12], "note": "hold_wait"}},
+  {"id": "light_adds_after_two", "opts": {"mode": "double", "intensity": "light", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[40,12],[40,12],[40,12]],[[40,12],[40,12],[40,12]]], "expected": {"weightKg": 42.5, "reps": [8,8,8], "note": "add_weight"}},
+  {"id": "hard_two_steps", "opts": {"mode": "double", "intensity": "hard", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[100,14,7],[100,14,7],[100,14,6]]], "expected": {"weightKg": 105, "reps": [8,8,8], "note": "add_weight_2"}},
+  {"id": "hard_rpe8_one_step", "opts": {"mode": "double", "intensity": "hard", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[100,14,8],[100,14,8],[100,14,8]]], "expected": {"weightKg": 102.5, "reps": [8,8,8], "note": "add_weight"}},
+  {"id": "beast_rpe8_two_steps", "opts": {"mode": "double", "intensity": "beast", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[100,14,8],[100,14,8],[100,14,8]]], "expected": {"weightKg": 105, "reps": [8,8,8], "note": "add_weight_2"}},
+  {"id": "ten_percent_clamp", "opts": {"mode": "double", "intensity": "hard", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[40,14,7],[40,14,7],[40,14,7]]], "expected": {"weightKg": 42.5, "reps": [8,8,8], "note": "add_weight"}},
+  {"id": "step_larger_than_ten_percent", "opts": {"mode": "double", "repMin": 8, "repMax": 12, "stepKg": 2.5}, "history": [[[20,12],[20,12],[20,12]]], "expected": {"weightKg": 22.5, "reps": [8,8,8], "note": "add_weight"}},
+  {"id": "linear_add", "opts": {"mode": "linear", "repMin": 5, "repMax": 5, "stepKg": 2.5}, "history": [[[100,5],[100,5],[100,5],[100,5],[100,5]]], "expected": {"weightKg": 102.5, "reps": [5,5,5,5,5], "note": "add_weight"}},
+  {"id": "linear_missed_once_holds", "opts": {"mode": "linear", "repMin": 5, "repMax": 5, "stepKg": 2.5}, "history": [[[100,5],[100,5],[100,4],[100,4],[100,3]]], "expected": {"weightKg": 100, "reps": [5,5,5,5,5], "note": "hold"}},
+  {"id": "linear_three_misses_deload", "opts": {"mode": "linear", "repMin": 5, "repMax": 5, "stepKg": 2.5}, "history": [[[100,5],[100,5],[100,4]],[[100,5],[100,5],[100,4]],[[100,5],[100,5],[100,4]]], "expected": {"weightKg": 90, "reps": [5,5,5], "note": "deload"}},
+  {"id": "beast_needs_four_misses", "opts": {"mode": "linear", "intensity": "beast", "repMin": 5, "repMax": 5, "stepKg": 2.5}, "history": [[[100,5],[100,5],[100,4]],[[100,5],[100,5],[100,4]],[[100,5],[100,5],[100,4]]], "expected": {"weightKg": 100, "reps": [5,5,5], "note": "hold"}},
+  {"id": "bodyweight_reps_only", "opts": {"mode": "double", "repMin": 8, "repMax": 12}, "history": [[[null,10],[null,10],[null,8]]], "expected": {"weightKg": 0, "reps": [11,11,9], "note": "bodyweight"}},
+  {"id": "off", "opts": {"mode": "off", "repMin": 8, "repMax": 12}, "history": [[[40,12],[40,12]]], "expected": {"weightKg": null, "reps": [], "note": "off"}},
+  {"id": "no_history", "opts": {"mode": "double", "repMin": 8, "repMax": 12}, "history": [], "expected": {"weightKg": null, "reps": [], "note": "no_history"}},
+  {"id": "only_warmups_is_no_history", "opts": {"mode": "double", "repMin": 8, "repMax": 12}, "history": [[[20,10,null,"warmup"]]], "expected": {"weightKg": null, "reps": [], "note": "no_history"}},
+  {"id": "out_of_order", "opts": {"mode": "double", "repMin": 8, "repMax": 12, "outOfOrder": true}, "history": [[[40,12],[40,12]]], "expected": {"weightKg": null, "reps": [], "note": "out_of_order"}}
+ ],
+ "plateau": [
+  {"id": "flat_for_four", "history": [[[50,10]],[[55,10]],[[55,10]],[[55,10]],[[55,9]],[[55,10]]], "expected": true},
+  {"id": "improved_five_percent", "history": [[[50,10]],[[55,10]],[[55,10]],[[55,10]],[[60,10]],[[55,10]]], "expected": false},
+  {"id": "too_few_sessions", "history": [[[50,10]],[[55,10]],[[55,10]],[[55,10]]], "expected": false},
+  {"id": "exactly_one_percent_is_progress", "history": [[[100,1]],[[100,1]],[[100,1]],[[100,1]],[[101,1]]], "expected": false},
+  {"id": "just_under_one_percent", "history": [[[100,1]],[[100,1]],[[100,1]],[[100,1]],[[100.5,1]]], "expected": true},
+  {"id": "warmups_do_not_count", "history": [[[50,10]],[[55,10]],[[55,10]],[[55,10]],[[55,10]],[[100,10,null,"warmup"],[55,10]]], "expected": true}
+ ],
+ "stats": [
+  {"id": "ex5_warmup_excluded", "sets": [[20,10,null,"warmup"],[40,10],[40,10]], "expected": {"workingSets": 2, "volume": 800, "topWeight": 40, "totalReps": 20, "bestE1rm": 53.33}},
+  {"id": "drop_set_excluded", "sets": [[60,8],[60,8],[45,12,null,"drop"]], "expected": {"workingSets": 2, "volume": 960, "topWeight": 60, "totalReps": 16, "bestE1rm": 76}},
+  {"id": "bodyweight", "sets": [[null,10],[null,12]], "expected": {"workingSets": 2, "volume": 0, "topWeight": 0, "totalReps": 22, "bestE1rm": null}},
+  {"id": "superset_counts_empty_reps_do_not", "sets": [[30,10,null,"superset"],[30,null]], "expected": {"workingSets": 1, "volume": 300, "topWeight": 30, "totalReps": 10, "bestE1rm": 40}}
+ ]
+}

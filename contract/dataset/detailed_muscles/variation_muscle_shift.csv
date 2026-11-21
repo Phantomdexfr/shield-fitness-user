@@ -1,0 +1,313 @@
+exercise,variation,muscle_id,shift,reason
+Barbell Bench Press,Reverse-grip,upper_chest,more,Reverse grip raises clavicular pec activity (limited EMG; moderately supported)
+Barbell Bench Press,Reverse-grip,biceps,more,Supinated grip recruits the biceps more
+Barbell Incline Bench Press,Close grip,triceps,more,Narrower hands lengthen the triceps lever and reduce pec horizontal adduction
+Barbell Incline Bench Press,wide grip,triceps,less,Wider hands cut elbow-extension demand
+Barbell Incline Bench Press,Reverse grip,biceps,more,Supinated grip recruits the biceps more
+Barbell Incline Bench Press,Low incline angle,upper_chest,less,Lower bench angle moves the load toward the sternal fibres
+Barbell Incline Bench Press,Low incline angle,lower_chest,more,Lower bench angle moves the load toward the sternal fibres
+Barbell Incline Bench Press,Low incline angle,front_delts,less,Front delt share grows with bench angle
+Incline Dumbbell Press,Low incline 15 degrees,upper_chest,less,Lower bench angle moves the load toward the sternal fibres
+Incline Dumbbell Press,Low incline 15 degrees,lower_chest,more,Lower bench angle moves the load toward the sternal fibres
+Incline Dumbbell Press,Low incline 15 degrees,front_delts,less,Front delt share grows with bench angle
+Dumbbell Fly,Low incline 15 degrees,upper_chest,more,Slight incline adds clavicular fibre work vs flat (modest)
+Cable Bench Fly,Incline bench,upper_chest,more,Incline raises clavicular fibre work
+Cable Bench Fly,Incline bench,front_delts,more,Front delt share grows with bench angle
+Cable Bench Press,Incline bench,upper_chest,more,Incline raises clavicular fibre work
+Cable Bench Press,Incline bench,front_delts,more,Front delt share grows with bench angle
+Cable Fly (Low to High),Seated on an incline bench,upper_chest,more,Incline plus upward path; contested how much isolation this gives
+Stability Ball Dumbbell Chest Press,incline,upper_chest,more,Incline raises clavicular fibre work
+Resistance Band Chest Press,Incline anchor,upper_chest,more,Upward pressing path loads the clavicular fibres more
+Resistance Band Chest Press,Incline anchor,front_delts,more,Front delt share grows with an upward path
+Dumbbell Squeeze Press,incline bench,upper_chest,more,Incline raises clavicular fibre work
+Barbell Reverse-Grip Bench Press,incline,upper_chest,more,Incline plus reverse grip both favour clavicular fibres
+Barbell Reverse-Grip Bench Press,Close grip,triceps,more,Narrower hands lengthen the triceps lever
+EZ-Bar Close-Grip Bench Press,Incline,upper_chest,more,Incline raises clavicular fibre work
+EZ-Bar Close-Grip Bench Press,Incline,front_delts,more,Front delt share grows with bench angle
+Smith Machine Bench Press,Close grip,triceps,more,Narrower hands lengthen the triceps lever
+Barbell Floor Press,Close grip,triceps,more,Narrower hands lengthen the triceps lever
+Assisted Dip,Upright torso (triceps) vs forward lean (chest),lower_chest,more,Forward-lean option shifts load to the chest
+Assisted Dip,Upright torso (triceps) vs forward lean (chest),triceps,less,Forward-lean option reduces the triceps share (upright torso does the opposite)
+Push-Up,feet elevated for harder,upper_chest,more,Feet-up body angle behaves like an incline press (modest effect)
+Push-Up,feet elevated for harder,front_delts,more,Feet-up body angle behaves like an incline press
+Push-Up,Incline (hands on a bench or box) for easier,front_delts,less,Hands-up reduces load on the shoulders as well as the chest
+Medicine Ball Chest Pass,Overhead pass,front_delts,more,Overhead throw loads shoulder flexion
+Medicine Ball Chest Pass,Overhead pass,lower_chest,less,Throw path is above chest height
+Pseudo Planche Push-Up,Hands closer to the hips,front_delts,more,Greater forward lean over the hands
+Standing Dumbbell Lateral Raise,Lean away from a post,side_delts,more,More tension at the bottom of the range (contested; modest)
+Cable Face Pull,Wide hand position,rear_delts,more,Wider hands favour horizontal abduction
+Dumbbell Upright Row,Wide grip,side_delts,more,Wider grip raises lateral delt share (modest; contested)
+EZ-Bar Upright Row,Wide grip,side_delts,more,Wider grip raises lateral delt share (modest; contested)
+Smith Machine Upright Row,Wide grip,side_delts,more,Wider grip raises lateral delt share (modest; contested)
+Resistance Band Upright Row,Wide grip,side_delts,more,Wider grip raises lateral delt share (modest; contested)
+Dumbbell Rear Delt Row,Pronated grip,rear_delts,more,Pronated grip with flared elbows favours rear delts
+Barbell Overhead Press,Close grip,triceps,more,Narrower hands lengthen the triceps lever
+Barbell Overhead Press,Close grip,side_delts,less,Narrow grip reduces lateral delt contribution
+Smith Machine Shoulder Press,Seated close grip,triceps,more,Narrower hands lengthen the triceps lever
+Pike Push-Up,Feet raised for harder,front_delts,more,Steeper body angle moves more load onto the shoulders
+Barbell Bent-Over Row,Wide grip,rhomboids_teres,more,Wide grip with flared elbows favours upper back
+Barbell Bent-Over Row,Wide grip,mid_lower_traps,more,Wide grip with flared elbows favours upper back
+Barbell Bent-Over Row,Wide grip,rear_delts,more,Wide grip with flared elbows favours rear delts
+Barbell Bent-Over Row,Wide grip,lats,less,Flared elbows reduce lat share
+Barbell Bent-Over Row,Narrow grip,lats,more,Elbows stay close to the body
+Barbell Bent-Over Row,Torso nearly upright (Yates),lower_back,less,More upright torso lowers the isometric back demand
+Barbell Bent-Over Row,Torso nearly upright (Yates),upper_traps,more,More upright torso lets the traps contribute more
+Barbell Yates Row,Overhand grip,biceps,less,Pronated grip lowers biceps contribution
+Barbell Yates Row,Overhand grip,rhomboids_teres,more,Overhand grip shifts the row toward the upper back
+Smith Machine Bent-Over Row,Underhand,biceps,more,Supinated grip recruits the biceps more
+Smith Machine Bent-Over Row,Underhand,lats,more,Underhand grip keeps elbows close
+Smith Machine Bent-Over Row,Wide,rear_delts,more,Wide grip with flared elbows favours rear delts
+Smith Machine Bent-Over Row,Wide,rhomboids_teres,more,Wide grip with flared elbows favours upper back
+Smith Machine Inverted Row,Wide grip,rear_delts,more,Wide grip with flared elbows favours rear delts
+Smith Machine Inverted Row,Wide grip,mid_lower_traps,more,Wide grip with flared elbows favours upper back
+Seated Cable Row (Neutral Grip),underhand grip with straight bar for more lats,lats,more,Underhand grip keeps elbows close
+Seated Cable Row (Neutral Grip),underhand grip with straight bar for more lats,biceps,more,Supinated grip recruits the biceps more
+Seated Cable Row (Neutral Grip),Elbows-out wide grip,rear_delts,more,Elbows-out rows favour rear delts and mid traps
+Seated Cable Row (Neutral Grip),Elbows-out wide grip,mid_lower_traps,more,Elbows-out rows favour rear delts and mid traps
+Seated Cable Row (Neutral Grip),wide MAG grip,rear_delts,more,Wide grip favours rear delts and mid traps
+Seated Cable Row (Neutral Grip),V-handle close grip,lats,more,Close neutral grip keeps elbows tucked
+Chest-Supported Dumbbell Row,Elbows wide (upper back),rear_delts,more,Wide elbows favour rear delts and mid traps
+Chest-Supported Dumbbell Row,Elbows wide (upper back),mid_lower_traps,more,Wide elbows favour rear delts and mid traps
+Chest-Supported Dumbbell Row,Elbows tucked (lats),lats,more,Tucked elbows favour the lats
+Chest-Supported Dumbbell Row,Elbows tucked (lats),rear_delts,less,Tucked elbows reduce rear delt share
+Dumbbell One-Arm Row,Supinated grip,biceps,more,Supinated grip recruits the biceps more
+Suspension Row,Underhand grip,biceps,more,Supinated grip recruits the biceps more
+Suspension Row,Underhand grip,lats,more,Underhand grip keeps elbows close
+Barbell Rack Pull,Below the knee,quads,more,Lower pins add knee-extension range
+Barbell Rack Pull,Below the knee,hamstrings,more,Lower pins add hip-hinge range
+Barbell Rack Pull,Above the knee,upper_traps,more,Shorter range shifts load toward the upper back and grip
+Barbell Rack Pull,Above the knee,hamstrings,less,Shorter hinge range
+Barbell Rack Pull,Snatch grip,rhomboids_teres,more,Wide grip raises upper-back demand
+Barbell Deadlift,"Sumo stance (wider, more adductor and quad)",adductors,more,Wide stance adds hip-adduction demand
+Barbell Deadlift,"Sumo stance (wider, more adductor and quad)",quads,more,More upright torso and more knee bend
+Barbell Deadlift,"Sumo stance (wider, more adductor and quad)",lower_back,less,More upright torso lowers the back demand
+Barbell Deadlift,Deficit stance,quads,more,Deficit adds knee-extension range
+Barbell Deadlift,Snatch grip,rhomboids_teres,more,Wide grip raises upper-back demand
+Barbell Deadlift,Snatch grip,upper_traps,more,Wide grip raises upper-back demand
+Barbell Deadlift,Elevated pull from low blocks,quads,less,Shorter range shrinks knee-extension work
+Barbell Deadlift,Double overhand with straps,forearms,less,Straps take over part of the grip demand
+Smith Machine Deadlift,Sumo stance,adductors,more,Wide stance adds hip-adduction demand
+Smith Machine Deadlift,Sumo stance,quads,more,More upright torso and more knee bend
+Barbell Romanian Deadlift,Snatch-grip RDL,upper_traps,more,Wide grip raises upper-back demand
+Barbell Romanian Deadlift,Snatch-grip RDL,rhomboids_teres,more,Wide grip raises upper-back demand
+Barbell Good Morning,Seated version,lower_back,more,"Seated position fixes the hips, so the back carries the lever"
+Barbell Good Morning,Seated version,hamstrings,less,Hips are fixed
+Barbell Good Morning,Wide stance,glutes,more,Wider stance shifts load to hips (contested size of the effect)
+Dumbbell Good Morning,Seated,lower_back,more,"Seated position fixes the hips, so the back carries the lever"
+Dumbbell Good Morning,Seated,hamstrings,less,Hips are fixed
+Smith Machine Good Morning,seated,lower_back,more,"Seated position fixes the hips, so the back carries the lever"
+Smith Machine Good Morning,seated,hamstrings,less,Hips are fixed
+Back Extension,rounded upper back for more glutes,glutes,more,Rounding the upper back shifts work from erectors to glutes (coaching convention; contested)
+Back Extension,rounded upper back for more glutes,lower_back,less,Same shift
+Bird Dog,Elbow-to-knee crunch,abs,more,Adds trunk flexion
+Bird Dog,Elbow-to-knee crunch,obliques,more,Adds trunk flexion with rotation bias
+Dumbbell Renegade Row,Feet wide,obliques,less,Wider base reduces anti-rotation demand
+Lat Pulldown,Wide pronated grip,biceps,less,Pronated grip lowers biceps contribution (lat difference vs other grips is contested)
+Lat Pulldown,underhand shoulder-width grip (more biceps),biceps,more,Supinated grip recruits the biceps more
+Lat Pulldown,Lean-back,rhomboids_teres,more,Leaning back makes it more of a row (scapular retraction)
+Lat Pulldown,Lean-back,mid_lower_traps,more,Leaning back makes it more of a row
+Assisted Pull-Up,Wide grip,biceps,less,Pronated wide grip lowers biceps contribution
+Assisted Pull-Up,Neutral grip handles if available,biceps,more,Neutral grip recruits more elbow flexion than pronated
+Resistance Band Lat Pulldown,straight-arm,biceps,less,Straight arms remove most elbow-flexor work
+Barbell Biceps Curl,Reverse curl,forearms,more,Pronated grip loads brachioradialis and wrist extensors
+Barbell Biceps Curl,Reverse curl,biceps,less,Pronated grip lowers biceps contribution
+EZ-Bar Curl,Reverse grip,forearms,more,Pronated grip loads brachioradialis and wrist extensors
+EZ-Bar Curl,Reverse grip,biceps,less,Pronated grip lowers biceps contribution
+Preacher Curl (EZ Bar),reverse (pronated) grip for the forearms,forearms,more,Pronated grip loads brachioradialis and wrist extensors
+Preacher Curl (EZ Bar),reverse (pronated) grip for the forearms,biceps,less,Pronated grip lowers biceps contribution
+Dumbbell Concentration Curl,Hammer grip,forearms,more,Neutral grip shifts load to brachioradialis
+Dumbbell Concentration Curl,Hammer grip,biceps,less,Neutral grip lowers biceps contribution slightly
+Resistance Band Biceps Curl,Hammer grip,forearms,more,Neutral grip shifts load to brachioradialis
+Dumbbell Farmer's Carry,Overhead carry,front_delts,more,Arm overhead
+Dumbbell Farmer's Carry,Overhead carry,abs,more,Overhead load raises trunk bracing
+Dumbbell Farmer's Carry,Overhead carry,forearms,less,Grip demand is lower overhead
+Standing Calf Raise (Bodyweight),Seated bent-knee version,soleus,more,Bent knee slackens the gastrocnemius so soleus does more (EMG-supported)
+Standing Calf Raise (Bodyweight),Seated bent-knee version,calves,less,Bent knee slackens the gastrocnemius
+Hip Abduction Machine,Lean forward slightly for more glute,glutes,more,Leaning forward puts the hip in more flexion and loads glute max more (moderately supported)
+Leg Press,Feet high and wide (more glutes/hamstrings),glutes,more,High feet put the hip in more flexion at depth (modest EMG difference)
+Leg Press,Feet high and wide (more glutes/hamstrings),hamstrings,more,Higher feet lengthen the hamstrings more at the hip (modest)
+Leg Press,Feet high and wide (more glutes/hamstrings),adductors,more,Wide stance raises adductor magnus demand (modest)
+Leg Press,feet low (more quads),quads,more,Low feet increase knee travel and knee-extension demand
+Leg Press,feet low (more quads),glutes,less,Less hip flexion at the bottom
+Leg Press,single leg,abductors,more,Frontal-plane pelvis control on one leg
+Leg Press,Alternating single leg,abductors,more,Frontal-plane pelvis control on one leg
+Leg Press,Narrow stance,adductors,less,Narrow feet cut the adductor contribution (modest)
+Leg Press,Toes out,adductors,more,Toes-out stance raises adductor magnus demand (modest)
+Leg Press,Heels elevated,quads,more,More knee travel
+Leg Press,Heels elevated,glutes,less,Less hip flexion at the bottom
+Leg Press,Partial top-half range,glutes,less,Glute max is loaded most at deeper hip flexion
+Machine Hip Thrust,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Hack Squat,Heels elevated,quads,more,More knee travel
+Hack Squat,Heels elevated,glutes,less,Less hip flexion at the bottom
+Hack Squat,Wide stance toes out,adductors,more,Wide toes-out stance raises adductor magnus demand (modest)
+Smith Machine Squat,Heels elevated,quads,more,More knee travel
+Smith Machine Squat,Front squat grip,quads,more,Bar in front keeps the torso upright
+Smith Machine Squat,Front squat grip,lower_back,less,More upright torso lowers the erector demand
+Bulgarian Split Squat,Front-foot elevated,glutes,more,Greater hip range on the front leg
+Bulgarian Split Squat,Offset load (one dumbbell),obliques,more,Anti-lateral-flexion demand of a one-sided load
+Dumbbell Hip Thrust (Bench Supported),Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Dumbbell Walking Lunge,Reverse lunge,glutes,more,Back-step loads the front-leg hip extensors more (moderate)
+Dumbbell Walking Lunge,Deficit,glutes,more,Greater hip range on the front leg
+Dumbbell Walking Lunge,Front-foot elevated,glutes,more,Greater hip range on the front leg
+Dumbbell Walking Lunge,Lateral lunge,adductors,more,Side step lengthens and loads the adductors
+Dumbbell Walking Lunge,Cross-over lunge,abductors,more,Cross-behind step loads the glute med/min zone
+Dumbbell Walking Lunge,Overhead hold,abs,more,Overhead load increases trunk bracing
+Dumbbell Walking Lunge,goblet hold,abs,more,Front load increases trunk bracing
+Dumbbell Walking Lunge,Offset load (one dumbbell),obliques,more,Anti-lateral-flexion demand of a one-sided load
+Dumbbell Thruster,Single arm,obliques,more,Anti-lateral-flexion demand of a one-sided load
+Barbell Back Squat,Heels elevated on small plates,quads,more,More knee travel
+Barbell Back Squat,box squat,glutes,more,Sitting back shifts the load toward the hips (moderate)
+Barbell Front Squat,Wide stance,adductors,more,Wide stance raises adductor magnus demand (modest)
+Barbell Hip Thrust,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Elliptical Steady State,use handles for upper body,lats,more,Moving handles add a pulling phase
+Elliptical Steady State,use handles for upper body,triceps,more,Moving handles add a pushing phase
+Spin Bike Standing Climb,Seated climb for the same effort,glutes,less,Seated riding lowers hip-extension demand
+Spin Bike Standing Climb,Seated climb for the same effort,lats,less,No pulling on the bars
+Spin Bike Standing Sprint,Seated sprints,glutes,less,Seated riding lowers hip-extension demand
+Spin Bike Standing Sprint,Seated sprints,lats,less,No pulling on the bars
+Spin Bike Low-Cadence Seated Climb,Standing climb,glutes,more,Standing raises hip-extension demand
+Kettlebell Swing,Single arm,obliques,more,Anti-rotation demand of a one-sided load
+Kettlebell Swing,Single-leg,abductors,more,Frontal-plane pelvis control on one leg
+Goblet Squat,heel-elevated,quads,more,More knee travel
+Goblet Squat,heel-elevated,glutes,less,Less hip flexion at the bottom
+Goblet Squat,sumo stance,adductors,more,Wide toes-out stance raises adductor magnus demand (modest)
+Goblet Squat,"Cyclist squat (heels raised, narrow)",quads,more,Heels raised and narrow stance increase knee travel
+Goblet Squat,Offset load,obliques,more,Anti-lateral-flexion demand of a one-sided load
+Kettlebell Turkish Get-Up,Windmill finish,obliques,more,Adds lateral flexion under load
+Stability Ball Crunch,Oblique crunch,obliques,more,Adds a rotation-flexion component
+Ab Wheel Rollout,Kneeling from a short range,abs,less,Shorter lever lowers anti-extension demand
+Ab Wheel Rollout,standing rollout (advanced),abs,more,Longer lever raises anti-extension demand
+Ab Wheel Rollout,standing rollout (advanced),lats,more,Longer lever raises the shoulder-extension pull
+Ab Wheel Rollout,Wall rollout,abs,less,Wall limits the range
+Ab Wheel Rollout,Side rollout,obliques,more,Adds anti-lateral-flexion
+Ab Wheel Rollout,Pike roll,hip_flexors,more,Hip-flexion pike pattern
+Soft Box Jump,Single-leg,abductors,more,Frontal-plane pelvis control on one leg
+Soft Box Jump,Lateral jump,abductors,more,Frontal-plane push-off and landing
+Box Step-Up,Higher box,glutes,more,Greater hip flexion at the start
+Box Step-Up,Lateral step-up,abductors,more,Frontal-plane control on the working leg
+Box Step-Up,Step-up to press,front_delts,more,Adds an overhead press
+Bodyweight Squat,sumo stance,adductors,more,Wide toes-out stance raises adductor magnus demand (modest)
+Bodyweight Squat,Cyclist squat (heels raised),quads,more,Heels raised increase knee travel
+Bodyweight Squat,Heels elevated,quads,more,More knee travel
+Bodyweight Squat,Single-leg squat to a box,abductors,more,Frontal-plane pelvis control on one leg
+Glute Bridge,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Glute Bridge,Feet elevated,hamstrings,more,"Elevated feet increase hamstring involvement (EMG-supported, modest)"
+Glute Bridge,Banded bridge,abductors,more,Band resists hip abduction
+Glute Bridge,Shoulders on a bench,glutes,more,Greater hip range (hip-thrust position)
+Plank,On knees,abs,less,Shorter lever
+Plank,On knees,glutes,less,"Shorter lever, less hip-extension hold"
+Plank,Long-lever plank,abs,more,Longer lever raises anti-extension demand
+Plank,Plank with leg lift,glutes,more,Adds single-leg hip extension
+Plank,Shoulder taps,obliques,more,Adds anti-rotation
+Plank,Body saw,abs,more,"Longer, dynamic lever"
+Plank,Body saw,front_delts,more,Dynamic shoulder load
+Plank,Feet on a bench,front_delts,more,More body weight on the arms
+Side Plank,On knees,obliques,less,Shorter lever
+Side Plank,On knees,abductors,less,Shorter lever
+Side Plank,top leg raised,abductors,more,Adds top-leg hip abduction
+Side Plank,Hip dip,obliques,more,Adds dynamic lateral flexion
+Side Plank,Star (arm and top leg raised),abductors,more,Adds top-leg hip abduction
+Side Plank,Copenhagen version,adductors,more,Top leg supported on a bench loads the adductors
+Crunch,Oblique crunch,obliques,more,Adds a rotation-flexion component
+Crunch,Hands overhead,abs,more,Longer lever
+Bicycle Crunch,Extended legs,hip_flexors,more,Longer leg lever
+Lying Leg Raise,Hip lift finish,abs,more,Pelvic curl at the top adds trunk flexion
+Mountain Climber,Cross-body,obliques,more,Adds rotation toward the opposite elbow
+Mountain Climber,Hands on a bench,front_delts,less,Less body weight on the arms
+Burpee,Without push-up or jump for easier,lower_chest,less,Push-up removed
+Burpee,Without push-up or jump for easier,triceps,less,Push-up removed
+Burpee,Tuck-jump burpee,quads,more,Adds an explosive jump
+Barbell Walking Lunge,Reverse lunge,glutes,more,Back-step loads the front-leg hip extensors more (moderate)
+Barbell Walking Lunge,Deficit lunge,glutes,more,Greater hip range on the front leg
+Barbell Walking Lunge,Overhead lunge,abs,more,Overhead load increases trunk bracing
+Barbell Walking Lunge,front-rack hold,abs,more,Front load increases trunk bracing
+Barbell Walking Lunge,Cross-over lunge,abductors,more,Cross-behind step loads the glute med/min zone
+Wall Sit,Ball between the knees,adductors,more,Squeezing a ball loads the adductors isometrically
+Wall Sit,Single-leg,abductors,more,Frontal-plane pelvis control on one leg
+Bodyweight Reverse Lunge,Deficit,glutes,more,Greater hip range on the front leg
+Bodyweight Reverse Lunge,Cross-body,abductors,more,Cross-behind step loads the glute med/min zone
+Bodyweight Reverse Lunge,Knee drive,hip_flexors,more,Adds a knee-drive hip flexion
+Jump Squat,Broad jump,glutes,more,Horizontal jump raises hip-extension demand
+Jump Squat,Lateral jump,abductors,more,Frontal-plane push-off and landing
+Bear Crawl,Shoulder tap,obliques,more,Adds anti-rotation
+Bear Crawl,Hands elevated,front_delts,less,Less body weight on the arms
+Jumping Jacks,Step jacks for low impact,calves,less,No ankle spring
+Jumping Jacks,Squat jacks,quads,more,Adds a squat on each landing
+Jumping Jacks,Plank jacks,abs,more,Adds a plank hold
+Jumping Jacks,Seal jacks,lower_chest,more,Adds arm adduction across the chest
+High Knees,Butt kicks,hamstrings,more,Switches to knee flexion
+Dumbbell Curtsy Lunge,deficit,glutes,more,Greater hip range on the front leg
+Dumbbell Split Squat,Goblet hold,abs,more,Front load increases trunk bracing
+Dumbbell Front Squat,heel raised,quads,more,More knee travel
+Dumbbell Front Squat,Single dumbbell rack,obliques,more,Anti-lateral-flexion demand of a one-sided load
+Dumbbell Glute Bridge (Floor),Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Dumbbell Swing,Single arm,obliques,more,Anti-rotation demand of a one-sided load
+Dumbbell Swing,overhead,front_delts,more,Overhead arc loads the shoulders more
+Dumbbell Front Rack Carry,One dumbbell only,obliques,more,Anti-lateral-flexion demand of a one-sided load
+Dumbbell Weighted Sit-Up,Anchored feet,hip_flexors,more,Anchored feet let the hip flexors do more of the sit-up
+Sit-Up,Feet anchored,hip_flexors,more,Anchored feet let the hip flexors do more of the sit-up
+Barbell Sumo Deadlift,Deficit,quads,more,Longer range adds knee extension
+Barbell Zercher Squat,box squat,glutes,more,Sitting back shifts the load toward the hips (moderate)
+Barbell Overhead Squat,heels raised,quads,more,More knee travel
+Barbell Bulgarian Split Squat,Front-rack hold,abs,more,Front load increases trunk bracing
+Barbell Reverse Lunge,Front-rack hold,abs,more,Front load increases trunk bracing
+Barbell Reverse Lunge,deficit,glutes,more,Greater hip range on the front leg
+Barbell Hack Squat,Heels on plates,quads,more,More knee travel
+Barbell Hack Squat,wide stance,adductors,more,Wide stance raises adductor magnus demand (modest)
+Barbell Glute Bridge (Floor),Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Barbell Rollout,Short range,abs,less,Shorter lever lowers anti-extension demand
+Barbell Rollout,against a wall,abs,less,Wall limits the range
+Plate Goblet Squat,Heels on a small plate,quads,more,More knee travel
+Plate Front-Hold Walking Lunge,Reverse lunge,glutes,more,Back-step loads the front-leg hip extensors more (moderate)
+Plate Front-Hold Walking Lunge,overhead hold,abs,more,Overhead load increases trunk bracing
+Plate Hug Carry,pinch carry,forearms,more,Adds a pinch grip
+Smith Machine Reverse Lunge,deficit,glutes,more,Greater hip range on the front leg
+Smith Machine Hip Thrust,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Smith Machine Sumo Squat,Heel raised,quads,more,More knee travel
+Smith Machine Sumo Squat,narrow toes,adductors,less,Less toes-out lowers adductor demand
+Smith Machine Glute Bridge,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Smith Machine Glute Bridge,feet on a bench,hamstrings,more,"Elevated feet increase hamstring involvement (EMG-supported, modest)"
+Smith Machine Hack Squat,Heels raised,quads,more,More knee travel
+Kettlebell Goblet Reverse Lunge,deficit,glutes,more,Greater hip range on the front leg
+Kettlebell Goblet Pulse Squat,Heel raised,quads,more,More knee travel
+Kettlebell Double Front Squat,Single bell rack,obliques,more,Anti-lateral-flexion demand of a one-sided load
+Kettlebell Sumo Deadlift,Sumo high pull,upper_traps,more,Adds a high pull
+Kettlebell Sumo Deadlift,Sumo high pull,side_delts,more,Adds a high pull
+Kettlebell Rack Carry,double rack,obliques,less,Symmetrical load removes the lateral-flexion demand
+Kettlebell Hip Bridge Press,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Kettlebell Thruster,Single bell,obliques,more,Anti-lateral-flexion demand of a one-sided load
+Medicine Ball Slam,Side slam,obliques,more,Adds rotation and side-bend
+Medicine Ball Slam,Scoop-and-slam,glutes,more,Adds a hip-extension scoop
+Medicine Ball Lunge with Rotation,Reverse lunge,glutes,more,Back-step loads the front-leg hip extensors more (moderate)
+Stability Ball Rollout,Longer range,abs,more,Longer lever raises anti-extension demand
+Stability Ball Hip Thrust,single leg,abductors,more,Frontal-plane pelvis control on one leg
+Stability Ball Glute Bridge,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Stability Ball Prone Walkout,Longer range,abs,more,Longer lever raises anti-extension demand
+Stability Ball Prone Walkout,Longer range,front_delts,more,Longer lever raises shoulder load
+Stability Ball Russian Twist,Hold a weight,obliques,more,Added rotational load
+Resistance Band Glute Bridge,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Suspension Hip Bridge,Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Suspension Body Saw,Short range,abs,less,Shorter lever lowers anti-extension demand
+Ab Wheel Wall Rollout,Longer range,abs,more,Longer lever raises anti-extension demand
+Ab Wheel Pike Roll,Short range,abs,less,Shorter range lowers the demand
+Shoulder Tap Plank,Wide feet,obliques,less,Wider base lowers anti-rotation demand
+Narrow-Stance Squat,Heels raised,quads,more,More knee travel
+Bodyweight Hip Thrust (Bench),Single leg,abductors,more,Frontal-plane pelvis control on one leg
+Copenhagen Plank,Bent knee for easier,adductors,less,Shorter lever
+Hollow Hold,Bent knees for easier,abs,less,Shorter lever
+Hollow Hold,Bent knees for easier,hip_flexors,less,Shorter lever
+Hollow Rock,Bent knees,abs,less,Shorter lever
+Hollow Rock,Bent knees,hip_flexors,less,Shorter lever
+Boat Hold,Bent knees,hip_flexors,less,Shorter lever
+Boat Hold,Bent knees,abs,less,Shorter lever
+Bear Hold,Shoulder taps,obliques,more,Adds anti-rotation
+Windshield Wipers (Floor),Bent knees,obliques,less,Shorter lever
+Russian Twist (Bodyweight),Feet raised,hip_flexors,more,V-sit position holds the hip flexors
+Kettlebell Russian Twist,Feet raised,hip_flexors,more,V-sit position holds the hip flexors
+Dumbbell Russian Twist,Feet raised,hip_flexors,more,V-sit position holds the hip flexors
+Plate Russian Twist,Feet raised,hip_flexors,more,V-sit position holds the hip flexors
+Dumbbell Man Maker,Without push-up,lower_chest,less,Push-up removed
+Dumbbell Man Maker,with a squat clean,quads,more,Adds a squat
+Burpee Broad Jump,Without push-up,lower_chest,less,Push-up removed
+Burpee Broad Jump,Without push-up,triceps,less,Push-up removed
+Squat Thrust,Without the jump,quads,less,Jump removed

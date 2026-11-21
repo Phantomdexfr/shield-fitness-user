@@ -1,0 +1,513 @@
+slug,variation,reason,matched_rules
+ab-wheel-pike-roll,Kneeling vs standing (advanced),ambiguous_rule,sr220
+ab-wheel-rollout,Kneeling vs standing (advanced),ambiguous_rule,sr220
+ab-wheel-rollout,standing rollout (advanced),ambiguous_rule,sr220
+ab-wheel-side-rollout,Kneeling vs standing (advanced),ambiguous_rule,sr220
+ab-wheel-wall-rollout,Kneeling vs standing (advanced),ambiguous_rule,sr220
+archer-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+assisted-dip,Upright torso (triceps) vs forward lean (chest),ambiguous_rule,sr194 sr195
+assisted-dip,"Wide, medium or narrow grip",ambiguous_rule,sr058
+assisted-pull-up,"Wide, medium or narrow grip",ambiguous_rule,sr058
+balance-trainer-mountain-climber,Alternating sides,ambiguous_rule,sr226 sr232
+balance-trainer-plank,Alternating sides,ambiguous_rule,sr226 sr232
+balance-trainer-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+balance-trainer-single-leg-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+balance-trainer-single-leg-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+barbell-bench-press,"Wide, medium or close grip",ambiguous_rule,sr058
+barbell-bent-over-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+barbell-biceps-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+barbell-biceps-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+barbell-bulgarian-split-squat,Torso upright (quads) vs forward lean (glutes),ambiguous_rule,sr194 sr195
+barbell-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-deadlift,"Sumo stance (wider, more adductor and quad)",ambiguous_rule,sr075 sr076
+barbell-deadlift,conventional stance,ambiguous_rule,sr053
+barbell-deadlift,Hook grip,out_of_vocabulary_grip_or_aid,
+barbell-deadlift,Snatch grip,out_of_vocabulary_grip_or_aid,
+barbell-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-deficit-deadlift,Conventional or sumo,ambiguous_rule,sr052 sr075
+barbell-deficit-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-deficit-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-drag-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+barbell-drag-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+barbell-floor-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+barbell-front-squat,Clean grip or arms-crossed grip,out_of_vocabulary_grip_or_aid,
+barbell-good-morning,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-good-morning,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-hang-shrug,Chest-supported on an incline bench,ambiguous_rule,sr163
+barbell-hang-shrug,straps,out_of_vocabulary_grip_or_aid,
+barbell-incline-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+barbell-jefferson-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-jefferson-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-jm-press,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+barbell-jm-press,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+barbell-overhead-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+barbell-overhead-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+barbell-preacher-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+barbell-preacher-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+barbell-rack-pull,Snatch grip,out_of_vocabulary_grip_or_aid,
+barbell-rear-delt-row,"Seated, bent-over or chest-supported",ambiguous_rule,sr163
+barbell-rear-delt-row,straps,out_of_vocabulary_grip_or_aid,
+barbell-reverse-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+barbell-reverse-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+barbell-reverse-grip-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+barbell-rollout,Alternating sides,ambiguous_rule,sr226 sr232
+barbell-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-romanian-deadlift,Snatch-grip RDL,out_of_vocabulary_grip_or_aid,
+barbell-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-shrug,Chest-supported on an incline bench,ambiguous_rule,sr163
+barbell-shrug,Snatch grip,out_of_vocabulary_grip_or_aid,
+barbell-single-leg-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-single-leg-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-skull-crusher,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+barbell-skull-crusher,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+barbell-snatch-grip-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-snatch-grip-deadlift,Straps,out_of_vocabulary_grip_or_aid,
+barbell-snatch-grip-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-static-hold-deadlift-hold,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-static-hold-deadlift-hold,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-static-hold-deadlift-hold,hook grip,out_of_vocabulary_grip_or_aid,
+barbell-sumo-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+barbell-sumo-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+barbell-yates-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+barbell-yates-row,straps,out_of_vocabulary_grip_or_aid,
+barbell-z-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+barbell-z-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+battle-rope-alternating-waves,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+battle-rope-alternating-waves,38 mm or 50 mm rope,grip_or_handle_word_untagged,
+battle-rope-double-arm-slams,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+battle-rope-double-arm-slams,Different rope thickness,grip_or_handle_word_untagged,
+battle-rope-hip-toss,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+battle-rope-inward-circles,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+battle-rope-outward-circles,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+battle-rope-rainbow-slam,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+battle-rope-rainbow-slam,Light rope,grip_or_handle_word_untagged,
+battle-rope-side-to-side-waves,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+battle-rope-squat-waves,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+battle-rope-uppercut-waves,"Alternating waves, double waves, slams",ambiguous_rule,sr226 sr235
+bench-dip,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+bench-triceps-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+bicycle-crunch,Alternating sides,ambiguous_rule,sr226 sr232
+bicycle-crunch,Standing bicycle crunch,ambiguous_rule,sr220
+bird-dog,Alternating sides,ambiguous_rule,sr226 sr232
+bird-dog-row,Alternating sides,ambiguous_rule,sr226 sr232
+bodyweight-good-morning,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+bodyweight-good-morning,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+bodyweight-reverse-lunge,Alternating or one side at a time,ambiguous_rule,sr226 sr258 sr259
+bodyweight-single-leg-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+bodyweight-single-leg-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+bodyweight-split-squat,Torso upright (quads) vs forward lean (glutes),ambiguous_rule,sr194 sr195
+bodyweight-squat,Alternating sides,ambiguous_rule,sr226 sr232
+bodyweight-squat,sumo stance,ambiguous_rule,sr075 sr076
+bulgarian-split-squat,Torso upright (quads) vs forward lean (glutes),ambiguous_rule,sr194 sr195
+cable-bench-fly,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-bench-fly,Flat bench,ambiguous_rule,sr273 sr274
+cable-bench-fly,Pause with the handles together,grip_or_handle_word_untagged,
+cable-bench-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-bench-press,Flat bench,ambiguous_rule,sr273 sr274
+cable-biceps-curl,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-deadlift,Sumo stance,ambiguous_rule,sr075 sr076
+cable-external-rotation,Lying on the side (bench),ambiguous_rule,sr209 sr211
+cable-external-rotation,Standing or kneeling,ambiguous_rule,sr220
+cable-face-pull,kneeling or standing,ambiguous_rule,sr220
+cable-fly-high-to-low,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-fly-high-to-low,"Bench between the stacks, facing away (flat or incline)",ambiguous_rule,sr273 sr277
+cable-fly-high-to-low,Lean forward 15 degrees for more lower chest,ambiguous_rule,sr195 sr198
+cable-fly-low-to-high,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-fly-low-to-high,Lying flat on a bench,ambiguous_rule,sr209 sr273
+cable-fly-mid-height,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-fly-mid-height,Seated on a flat or incline bench facing away,ambiguous_rule,sr273 sr277
+cable-front-raise,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-high-curl-double-biceps,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-incline-overhead-triceps-extension,Flat bench,ambiguous_rule,sr273 sr274
+cable-internal-rotation,Lying on the side (bench),ambiguous_rule,sr209 sr211
+cable-lateral-raise,Chest-supported on an incline bench (side-lying),ambiguous_rule,sr163 sr209
+cable-lateral-raise,Lean away from the stack (more stretch),ambiguous_rule,sr195
+cable-lateral-raise,Thumb-up vs thumb-down finish,ambiguous_rule,sr013
+cable-lying-triceps-extension,Flat bench,ambiguous_rule,sr273 sr274
+cable-oblique-crunch,Standing,ambiguous_rule,sr220
+cable-rear-delt-fly,Incline bench chest-supported,ambiguous_rule,sr163
+cable-rear-delt-row,Chest-supported on an incline bench,ambiguous_rule,sr163
+cable-seated-shoulder-press,Bench back at 80-90 degrees,ambiguous_rule,sr286
+cable-side-bend,Two handles (one per side),grip_or_handle_word_untagged,
+cable-squeeze-press,Flat or incline bench,ambiguous_rule,sr273 sr277
+cable-triceps-kickback,Chest supported on an incline bench,ambiguous_rule,sr163
+cable-triceps-pushdown,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+cable-triceps-pushdown,Lean forward,ambiguous_rule,sr195 sr198
+cable-triceps-pushdown,Lean forward over the bar (more long head),ambiguous_rule,sr195 sr198
+cable-w-raise,Chest-supported on an incline bench,ambiguous_rule,sr163
+cable-y-raise,Chest-supported on an incline bench,ambiguous_rule,sr163
+cable-y-raise,Thumbs up vs thumbs back,ambiguous_rule,sr014 sr015
+chest-supported-dumbbell-lateral-raise,Lean slightly (more stretch),ambiguous_rule,sr195 sr200
+chest-supported-dumbbell-lateral-raise,"Seated, standing or chest-supported",ambiguous_rule,sr163 sr220
+chest-supported-dumbbell-lateral-raise,Thumb-up vs thumb-down,ambiguous_rule,sr013
+chest-supported-dumbbell-rear-delt-fly,"Seated, bent-over or chest-supported",ambiguous_rule,sr163
+chest-supported-dumbbell-row,Alternating,ambiguous_rule,sr226
+chest-supported-dumbbell-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+chest-supported-dumbbell-shrug,Chest-supported on an incline bench,ambiguous_rule,sr163
+chest-supported-y-raise,"Seated, standing or chest-supported on an incline bench",ambiguous_rule,sr163 sr220
+chest-supported-y-raise,Thumbs up vs thumbs back,ambiguous_rule,sr014 sr015
+close-grip-barbell-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+close-grip-push-up,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+close-grip-push-up,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+copenhagen-plank,Alternating sides,ambiguous_rule,sr226 sr232
+cross-body-mountain-climber,Alternating sides,ambiguous_rule,sr226 sr232
+crunch,Alternating sides,ambiguous_rule,sr226 sr232
+dead-bug,Alternating sides,ambiguous_rule,sr226 sr232
+decline-chest-press-machine,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+decline-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+diamond-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+dumbbell-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+dumbbell-bench-press,alternating press,ambiguous_rule,sr226 sr231
+dumbbell-bent-over-reverse-fly,Chest-supported,ambiguous_rule,sr163
+dumbbell-bent-over-reverse-fly,"Seated, bent-over or chest-supported",ambiguous_rule,sr163
+dumbbell-bent-over-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+dumbbell-bent-over-row,alternating,ambiguous_rule,sr226
+dumbbell-biceps-curl,Alternating,ambiguous_rule,sr226
+dumbbell-biceps-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+dumbbell-biceps-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+dumbbell-bulgarian-split-squat,Torso upright (quads) vs forward lean (glutes),ambiguous_rule,sr194 sr195
+dumbbell-clean-and-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+dumbbell-clean-and-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+dumbbell-clean-and-press,alternating,ambiguous_rule,sr226
+dumbbell-concentration-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+dumbbell-concentration-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+dumbbell-concentration-curl,Standing bent-over,ambiguous_rule,sr220
+dumbbell-cuban-press,Seated or standing,ambiguous_rule,sr220
+dumbbell-cuban-press,"Seated, standing or chest-supported on an incline bench",ambiguous_rule,sr163 sr220
+dumbbell-cuban-press,Thumbs up vs thumbs back,ambiguous_rule,sr014 sr015
+dumbbell-deadlift,Conventional or sumo,ambiguous_rule,sr052 sr075
+dumbbell-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+dumbbell-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+dumbbell-deficit-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+dumbbell-deficit-deadlift,Sumo or conventional,ambiguous_rule,sr073 sr075
+dumbbell-deficit-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+dumbbell-drag-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+dumbbell-drag-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+dumbbell-floor-press,Alternating,ambiguous_rule,sr226
+dumbbell-floor-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+dumbbell-fly,Flat or incline bench,ambiguous_rule,sr273 sr277
+dumbbell-fly,"Flat, 15, 30 or 45 degree bench (where a bench is used)",ambiguous_rule,sr273 sr288
+dumbbell-forward-lunge,Alternating or one side at a time,ambiguous_rule,sr226 sr258 sr259
+dumbbell-front-foot-elevated-split-squat,Torso upright (quads) vs forward lean (glutes),ambiguous_rule,sr194 sr195
+dumbbell-front-raise,Alternating vs both arms,ambiguous_rule,sr226
+dumbbell-front-raise,Incline-bench chest-supported,ambiguous_rule,sr163
+dumbbell-front-raise,alternating,ambiguous_rule,sr226
+dumbbell-good-morning,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+dumbbell-good-morning,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+dumbbell-gorilla-row,Alternating,ambiguous_rule,sr226
+dumbbell-gorilla-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+dumbbell-hammer-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+dumbbell-hammer-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+dumbbell-hammer-curl,seated or standing,ambiguous_rule,sr220
+dumbbell-hammer-curl,Cross-body hammer curl,grip_or_handle_word_untagged,
+dumbbell-hammer-curl-to-press,Alternating,ambiguous_rule,sr226
+dumbbell-hammer-curl-to-press,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+dumbbell-hammer-curl-to-press,"Seated, standing or incline bench",ambiguous_rule,sr220
+dumbbell-jm-press,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+dumbbell-jm-press,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+dumbbell-kroc-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+dumbbell-kroc-row,With wrist straps,out_of_vocabulary_grip_or_aid,
+dumbbell-one-arm-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+dumbbell-pinwheel-curl,Alternating,ambiguous_rule,sr226
+dumbbell-pinwheel-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+dumbbell-pinwheel-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+dumbbell-pullover,Flat bench across (upper back on the bench) or along the bench,ambiguous_rule,sr273 sr274
+dumbbell-pullover-crunch,Flat bench across (upper back on the bench) or along the bench,ambiguous_rule,sr273 sr274
+dumbbell-pullover-crunch,alternating,ambiguous_rule,sr226
+dumbbell-push-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+dumbbell-push-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+dumbbell-push-press,alternating,ambiguous_rule,sr226
+dumbbell-rear-delt-row,"Seated, bent-over or chest-supported",ambiguous_rule,sr163
+dumbbell-renegade-row,Alternating sides,ambiguous_rule,sr226 sr232
+dumbbell-reverse-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+dumbbell-reverse-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+dumbbell-reverse-curl,alternating,ambiguous_rule,sr226
+dumbbell-reverse-lunge-to-knee-drive,Alternating,ambiguous_rule,sr226
+dumbbell-reverse-lunge-to-knee-drive,one side at a time,ambiguous_rule,sr258 sr259
+dumbbell-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+dumbbell-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+dumbbell-scaption-raise,"Seated, standing or chest-supported on an incline bench",ambiguous_rule,sr163 sr220
+dumbbell-scaption-raise,Thumbs up or thumbs down,ambiguous_rule,sr014
+dumbbell-scaption-raise,Thumbs up vs thumbs back,ambiguous_rule,sr014 sr015
+dumbbell-shrug,Chest-supported on an incline bench,ambiguous_rule,sr163
+dumbbell-shrug,Incline chest-supported,ambiguous_rule,sr163
+dumbbell-shrug,Heavier grip with straps if available,out_of_vocabulary_grip_or_aid,
+dumbbell-side-lying-external-rotation,"Seated, standing or chest-supported on an incline bench",ambiguous_rule,sr163 sr220
+dumbbell-side-lying-external-rotation,Thumbs up vs thumbs back,ambiguous_rule,sr014 sr015
+dumbbell-single-leg-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+dumbbell-single-leg-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+dumbbell-skull-crusher,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+dumbbell-skull-crusher,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+dumbbell-split-squat,Torso upright (quads) vs forward lean (glutes),ambiguous_rule,sr194 sr195
+dumbbell-squeeze-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+dumbbell-squeeze-press,"Flat, 15 or 30 degree incline",ambiguous_rule,sr273 sr289
+dumbbell-staggered-stance-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+dumbbell-staggered-stance-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+dumbbell-step-up-to-press,one side at a time,ambiguous_rule,sr258 sr259
+dumbbell-sumo-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+dumbbell-sumo-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+dumbbell-tate-press,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+dumbbell-tate-press,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+dumbbell-thruster,Alternating,ambiguous_rule,sr226
+dumbbell-triceps-kickback,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+dumbbell-triceps-kickback,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+dumbbell-triceps-kickback,One arm supported on a bench,ambiguous_rule,sr168
+dumbbell-weighted-sit-up,Alternating sides,ambiguous_rule,sr226 sr232
+dumbbell-zottman-curl,Alternating,ambiguous_rule,sr226
+dumbbell-zottman-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+dumbbell-zottman-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+elbow-to-knee-crunch,Alternating sides,ambiguous_rule,sr226 sr232
+elliptical-intervals,Handles vs no handles (upper-body lean-in),grip_or_handle_word_untagged,
+elliptical-legs-only,Handles vs no handles (upper-body lean-in),grip_or_handle_word_untagged,
+elliptical-resistance-ramp,Handles vs no handles (upper-body lean-in),grip_or_handle_word_untagged,
+elliptical-reverse-stride,Handles vs no handles (upper-body lean-in),grip_or_handle_word_untagged,
+elliptical-steady-state,Handles vs no handles (upper-body lean-in),grip_or_handle_word_untagged,
+elliptical-steady-state,use handles for upper body,grip_or_handle_word_untagged,
+ez-bar-close-grip-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+ez-bar-curl,"Narrow, medium or wide grip on the cambers",ambiguous_rule,sr058
+ez-bar-curl,Seated or standing,ambiguous_rule,sr220
+ez-bar-curl,Inner vs outer grip,grip_or_handle_word_untagged,
+ez-bar-overhead-triceps-extension,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+ez-bar-overhead-triceps-extension,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+ez-bar-overhead-triceps-extension,Standing or seated,ambiguous_rule,sr220
+ez-bar-pullover-extension,Flat bench across (upper back on the bench) or along the bench,ambiguous_rule,sr273 sr274
+ez-bar-reverse-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+ez-bar-reverse-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+ez-bar-skull-crusher,Flat bench,ambiguous_rule,sr273 sr274
+ez-bar-skull-crusher,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+ez-bar-skull-crusher,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+foam-roller-dead-bug,Alternating sides,ambiguous_rule,sr226 sr232
+goblet-squat,sumo stance,ambiguous_rule,sr075 sr076
+half-kneeling-cable-pulldown-straight-bar,Lean back slightly,ambiguous_rule,sr195 sr196 sr197
+half-kneeling-dumbbell-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+half-kneeling-dumbbell-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+heel-slide-dead-bug,Alternating sides,ambiguous_rule,sr226 sr232
+hindu-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+hip-abduction-machine,Lean forward (more glutes),ambiguous_rule,sr195 sr198
+hip-abduction-machine,Lean forward slightly for more glute,ambiguous_rule,sr195 sr198
+hip-adduction-machine,Lean forward (more glutes),ambiguous_rule,sr195 sr198
+hollow-hold,Alternating sides,ambiguous_rule,sr226 sr232
+hollow-rock,Alternating sides,ambiguous_rule,sr226 sr232
+incline-chest-press-machine,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+incline-chest-press-machine,"Bench at 15, 30 or 45 degrees",ambiguous_rule,sr284
+incline-dumbbell-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+incline-dumbbell-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+incline-dumbbell-curl,alternating,ambiguous_rule,sr226
+incline-dumbbell-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+incline-dumbbell-press,"Bench at 15, 30 or 45 degrees",ambiguous_rule,sr284
+incline-dumbbell-press,Rotating grip,grip_or_handle_word_untagged,
+incline-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+isometric-split-squat-hold,Torso upright (quads) vs forward lean (glutes),ambiguous_rule,sr194 sr195
+kettlebell-clean-and-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+kettlebell-clean-and-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+kettlebell-gorilla-row,Alternating,ambiguous_rule,sr226
+kettlebell-gorilla-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+kettlebell-overhead-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+kettlebell-overhead-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+kettlebell-overhead-triceps-extension,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+kettlebell-overhead-triceps-extension,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+kettlebell-overhead-triceps-extension,Seated or standing,ambiguous_rule,sr220
+kettlebell-push-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+kettlebell-push-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+kettlebell-single-arm-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+kettlebell-single-leg-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+kettlebell-single-leg-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+kettlebell-sumo-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+kettlebell-sumo-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+knee-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+kneeling-single-arm-cable-pulldown,Lean back slightly,ambiguous_rule,sr195 sr196 sr197
+lat-pulldown,Lean-back,ambiguous_rule,sr195 sr196
+lat-pulldown,Slight lean-back finish,ambiguous_rule,sr195 sr196
+lying-cable-pullover,Flat bench or utility bench,ambiguous_rule,sr273 sr274
+lying-leg-raise,Alternating sides,ambiguous_rule,sr226 sr232
+machine-biceps-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+machine-biceps-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+machine-shoulder-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+machine-shoulder-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+medicine-ball-chest-pass,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-chest-pass,Seated or standing,ambiguous_rule,sr220
+medicine-ball-plank-roll,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-rotational-wall-throw,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-russian-twist,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-scoop-toss,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-side-slam,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-single-hand-push-up,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-sit-up-throw,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-slam,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-squat-to-press,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-v-up-pass,Alternating sides,ambiguous_rule,sr226 sr232
+medicine-ball-wood-chop,Alternating sides,ambiguous_rule,sr226 sr232
+mountain-climber,Alternating sides,ambiguous_rule,sr226 sr232
+overhead-pallof-press,"Standing, kneeling or half-kneeling",ambiguous_rule,sr220
+pallof-press,"Standing, kneeling or half-kneeling",ambiguous_rule,sr220
+parallel-bar-dip,Upright torso (triceps) vs forward lean (chest),ambiguous_rule,sr194 sr195
+pec-deck-fly,"Flat, 15, 30 or 45 degree bench (where a bench is used)",ambiguous_rule,sr273 sr288
+pike-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+pistol-squat-assisted,"Reduce the support (rack, wall or straps) over time",out_of_vocabulary_grip_or_aid,
+plank,Alternating sides,ambiguous_rule,sr226 sr232
+plank-jack,Alternating sides,ambiguous_rule,sr226 sr232
+plank-reach,Alternating sides,ambiguous_rule,sr226 sr232
+plank-up-down,Alternating sides,ambiguous_rule,sr226 sr232
+plate-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+plate-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+plate-front-raise,Alternating vs both arms,ambiguous_rule,sr226
+plate-front-raise,Incline bench chest-supported,ambiguous_rule,sr163
+plate-halo,Standing,ambiguous_rule,sr220
+plate-loaded-front-pulldown,"Wide, medium or narrow grip",ambiguous_rule,sr058
+plate-overhead-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+plate-overhead-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+plate-overhead-press,Standing or half-kneeling,ambiguous_rule,sr220
+plate-overhead-triceps-extension,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+plate-overhead-triceps-extension,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+plate-overhead-triceps-extension,Seated or standing,ambiguous_rule,sr220
+plate-pullover,Flat bench across (upper back on the bench) or along the bench,ambiguous_rule,sr273 sr274
+plate-pullover,Flat or incline,ambiguous_rule,sr273 sr277
+plate-sit-up,Alternating sides,ambiguous_rule,sr226 sr232
+plate-squeeze-press-svend-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+plate-squeeze-press-svend-press,"Flat, 15 or 30 degree incline",ambiguous_rule,sr273 sr289
+plate-squeeze-press-svend-press,Standing or lying,ambiguous_rule,sr209 sr220
+plyometric-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+preacher-curl-ez-bar,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+preacher-curl-ez-bar,"Seated, standing or incline bench",ambiguous_rule,sr220
+pseudo-planche-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+pull-up,Chest to the handles,grip_or_handle_word_untagged,
+push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+push-up-hold-bottom-position,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+recumbent-bike-hill-ramp,Seated vs standing,ambiguous_rule,sr220
+recumbent-bike-intervals,Seated vs standing,ambiguous_rule,sr220
+recumbent-bike-steady-ride,Seated vs standing,ambiguous_rule,sr220
+resistance-band-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+resistance-band-biceps-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+resistance-band-biceps-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+resistance-band-biceps-curl,alternating,ambiguous_rule,sr226
+resistance-band-chest-fly,"Flat, 15, 30 or 45 degree bench (where a bench is used)",ambiguous_rule,sr273 sr288
+resistance-band-chest-fly,Standing,ambiguous_rule,sr220
+resistance-band-chest-press,Standing or lying,ambiguous_rule,sr209 sr220
+resistance-band-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+resistance-band-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+resistance-band-front-raise,Alternating vs both arms,ambiguous_rule,sr226
+resistance-band-front-raise,Incline bench chest-supported,ambiguous_rule,sr163
+resistance-band-good-morning,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+resistance-band-good-morning,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+resistance-band-hammer-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+resistance-band-hammer-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+resistance-band-hammer-curl,alternating,ambiguous_rule,sr226
+resistance-band-hip-abduction,Lean forward (more glutes),ambiguous_rule,sr195 sr198
+resistance-band-hip-abduction,Standing or lying,ambiguous_rule,sr209 sr220
+resistance-band-lateral-raise,Lean slightly (more stretch),ambiguous_rule,sr195 sr200
+resistance-band-lateral-raise,"Seated, standing or chest-supported",ambiguous_rule,sr163 sr220
+resistance-band-lateral-raise,Thumb-up vs thumb-down,ambiguous_rule,sr013
+resistance-band-lateral-walk,Lean slightly (more stretch),ambiguous_rule,sr195 sr200
+resistance-band-lateral-walk,"Seated, standing or chest-supported",ambiguous_rule,sr163 sr220
+resistance-band-lateral-walk,Thumb-up vs thumb-down,ambiguous_rule,sr013
+resistance-band-overhead-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+resistance-band-overhead-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+resistance-band-overhead-triceps-extension,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+resistance-band-overhead-triceps-extension,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+resistance-band-reverse-fly,"Seated, bent-over or chest-supported",ambiguous_rule,sr163
+resistance-band-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+resistance-band-row,seated or standing,ambiguous_rule,sr220
+resistance-band-triceps-kickback,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+resistance-band-triceps-kickback,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+reverse-pec-deck-rear-delt-fly,"Seated, bent-over or chest-supported",ambiguous_rule,sr163
+reverse-plank,Alternating sides,ambiguous_rule,sr226 sr232
+rkc-plank,Alternating sides,ambiguous_rule,sr226 sr232
+scapular-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+seated-cable-row-neutral-grip,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+seated-cable-row-neutral-grip,Chest on the pad vs upright,ambiguous_rule,sr161
+seated-cable-row-neutral-grip,Elbows-out wide grip,grip_or_handle_word_untagged,
+seated-chest-press-vertical-handles,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+seated-dumbbell-shoulder-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+seated-dumbbell-shoulder-press,Bench at 75 degrees,ambiguous_rule,sr285
+seated-dumbbell-shoulder-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+seated-dumbbell-shoulder-press,standing press,ambiguous_rule,sr220
+seated-overhead-dumbbell-triceps-extension,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+seated-overhead-dumbbell-triceps-extension,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+seated-overhead-dumbbell-triceps-extension,Standing,ambiguous_rule,sr220
+shoulder-tap-plank,Alternating sides,ambiguous_rule,sr226 sr232
+side-crunch,Alternating sides,ambiguous_rule,sr226 sr232
+side-lying-leg-raise,Alternating sides,ambiguous_rule,sr226 sr232
+side-plank,Alternating sides,ambiguous_rule,sr226 sr232
+side-plank-hip-dip,Alternating sides,ambiguous_rule,sr226 sr232
+side-plank-thread-the-needle,Alternating sides,ambiguous_rule,sr226 sr232
+single-arm-dumbbell-bench-press,Flat or incline,ambiguous_rule,sr273 sr277
+single-arm-dumbbell-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+sit-up,Alternating sides,ambiguous_rule,sr226 sr232
+ski-erg-intervals,Double-arm vs alternating,ambiguous_rule,sr226
+ski-erg-intervals,Standing tall vs hinge-led pull,ambiguous_rule,sr220
+ski-erg-kneeling,Double-arm vs alternating,ambiguous_rule,sr226
+ski-erg-kneeling,Standing tall vs hinge-led pull,ambiguous_rule,sr220
+ski-erg-power-pulls,Double-arm vs alternating,ambiguous_rule,sr226
+ski-erg-power-pulls,Standing tall vs hinge-led pull,ambiguous_rule,sr220
+ski-erg-single-arm,Double-arm vs alternating,ambiguous_rule,sr226
+ski-erg-single-arm,Standing tall vs hinge-led pull,ambiguous_rule,sr220
+ski-erg-steady,Double-arm vs alternating,ambiguous_rule,sr226
+ski-erg-steady,Standing tall vs hinge-led pull,ambiguous_rule,sr220
+smith-machine-bench-press,Flat or incline bench angle,ambiguous_rule,sr273 sr277
+smith-machine-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+smith-machine-bent-over-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+smith-machine-close-grip-bench-press,Flat or incline,ambiguous_rule,sr273 sr277
+smith-machine-close-grip-bench-press,"Narrow, medium or wide grip",ambiguous_rule,sr058
+smith-machine-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+smith-machine-deadlift,Sumo stance,ambiguous_rule,sr075 sr076
+smith-machine-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+smith-machine-good-morning,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+smith-machine-good-morning,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+smith-machine-incline-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+smith-machine-inverted-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+smith-machine-romanian-deadlift,Conventional vs sumo stance,ambiguous_rule,sr054 sr075 sr076
+smith-machine-romanian-deadlift,Straps for grip-limited sets,out_of_vocabulary_grip_or_aid,
+smith-machine-shoulder-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+smith-machine-shoulder-press,Seated or standing,ambiguous_rule,sr220
+smith-machine-shoulder-press,"Seated, standing or half-kneeling",ambiguous_rule,sr220
+smith-machine-shrug,Chest-supported on an incline bench,ambiguous_rule,sr163
+smith-machine-single-arm-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+smith-machine-skull-crusher,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+smith-machine-skull-crusher,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+smith-machine-squat,Front squat grip,out_of_vocabulary_grip_or_aid,
+spider-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+spider-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+spiderman-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+spin-bike-intervals,Seated vs standing,ambiguous_rule,sr220
+spin-bike-low-cadence-seated-climb,Seated vs standing,ambiguous_rule,sr220
+spin-bike-pyramid,Seated vs standing,ambiguous_rule,sr220
+spin-bike-standing-climb,Seated vs standing,ambiguous_rule,sr220
+spin-bike-standing-sprint,Seated vs standing,ambiguous_rule,sr220
+spin-bike-steady-ride,Seated vs standing,ambiguous_rule,sr220
+spin-bike-tabata,Seated vs standing,ambiguous_rule,sr220
+stability-ball-dumbbell-fly,"Flat, 15, 30 or 45 degree bench (where a bench is used)",ambiguous_rule,sr273 sr288
+stability-ball-dumbbell-pullover,Flat bench across (upper back on the bench) or along the bench,ambiguous_rule,sr273 sr274
+staggered-hand-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+standing-bicycle-crunch,Alternating sides,ambiguous_rule,sr226 sr232
+standing-cable-chest-press,Alternating arms,ambiguous_rule,sr226 sr227 sr228
+standing-dumbbell-lateral-raise,Lean away from a post,ambiguous_rule,sr195
+standing-dumbbell-lateral-raise,Lean slightly (more stretch),ambiguous_rule,sr195 sr200
+standing-dumbbell-lateral-raise,"Seated, standing or chest-supported",ambiguous_rule,sr163 sr220
+standing-dumbbell-lateral-raise,Thumb-up vs thumb-down,ambiguous_rule,sr013
+standing-dumbbell-lateral-raise,lean slightly forward,ambiguous_rule,sr195 sr200
+standing-knee-raise,Alternating sides,ambiguous_rule,sr226 sr232
+straight-arm-pulldown,Kneeling or standing,ambiguous_rule,sr220
+suspension-biceps-curl,Alternating vs simultaneous arms,ambiguous_rule,sr226 sr233 sr234
+suspension-biceps-curl,"Seated, standing or incline bench",ambiguous_rule,sr220
+suspension-chest-fly,"Flat, 15, 30 or 45 degree bench (where a bench is used)",ambiguous_rule,sr273 sr288
+suspension-crunch,Alternating,ambiguous_rule,sr226
+suspension-push-up,Handles higher for easier,grip_or_handle_word_untagged,
+suspension-reverse-fly,"Seated, bent-over or chest-supported",ambiguous_rule,sr163
+suspension-reverse-lunge,"Seated, bent-over or chest-supported",ambiguous_rule,sr163
+suspension-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+suspension-single-arm-row,Supported on a bench (flat or incline),ambiguous_rule,sr168 sr272 sr273 sr277
+suspension-split-squat,Torso upright (quads) vs forward lean (glutes),ambiguous_rule,sr194 sr195
+suspension-triceps-extension,"Flat, incline or seated bench",ambiguous_rule,sr273 sr276
+suspension-triceps-extension,"Narrow, medium or neutral grip",ambiguous_rule,sr058
+t-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+typewriter-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+upright-bike-intervals,Seated vs standing,ambiguous_rule,sr220
+upright-bike-pyramid,Seated vs standing,ambiguous_rule,sr220
+upright-bike-steady-ride,Seated vs standing,ambiguous_rule,sr220
+upright-bike-tabata,Seated vs standing,ambiguous_rule,sr220
+wall-ball-rotational-throw,Alternating sides,ambiguous_rule,sr226 sr232
+wall-ball-shot,Alternating sides,ambiguous_rule,sr226 sr232
+wall-ball-sit-up-throw,Alternating sides,ambiguous_rule,sr226 sr232
+wall-handstand-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058
+wide-push-up,"Narrow, medium or wide hand position",ambiguous_rule,sr058

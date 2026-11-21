@@ -1,0 +1,200 @@
+name,slug,variations,movement_pattern,unilateral,beginner_friendly,injury_cautions,track_fit,difficulty,proposed_muscles
+Incline Chest Press (Machine),incline-chest-press-machine,Neutral or pronated handle grip if available; one arm at a time since arms move independently,push,no,yes,Shoulder impingement: stop if pinching at the front of the shoulder,beginner;intermediate;muscle_gain;athlete;fat_loss,1,upper_chest;front_delts
+Decline Chest Press (Machine),decline-chest-press-machine,One arm at a time since arms move independently,push,no,yes,Avoid if you have uncontrolled high blood pressure,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Seated Chest Press (Vertical Handles),seated-chest-press-vertical-handles,Neutral grip handles vs pronated grip; slow lowering,push,no,yes,Do not lock elbows hard at the top,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Pec Deck Fly,pec-deck-fly,One arm at a time; shorter range for less shoulder stretch,isolation,no,yes,Do not over-stretch behind the body: keep arms in front of shoulder line,beginner;intermediate;muscle_gain,1,
+Reverse Pec Deck (Rear Delt Fly),reverse-pec-deck-rear-delt-fly,Overhand vs neutral grip; one arm at a time,isolation,no,yes,Keep neck relaxed; do not shrug,beginner;intermediate;muscle_gain,1,rear_delts
+Lat Pulldown,lat-pulldown,Wide pronated grip; underhand shoulder-width grip (more biceps); neutral grip with a MAG handle; curved lat bar; single-arm with a D handle,pull,no,yes,Never pull the bar behind the neck,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Straight-Arm Pulldown,straight-arm-pulldown,Straight bar vs D handles; single-arm,isolation,no,no,Keep elbows nearly straight but not locked,intermediate;muscle_gain;athlete,2,
+Seated Cable Row (Neutral Grip),seated-cable-row-neutral-grip,MAG rowing handle or D handle for neutral grip; underhand grip with straight bar for more lats; single-arm with a D handle; wide MAG grip,pull,no,yes,Do not round the lower back or swing the torso,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Wide-Grip Seated Row (Upper Back),wide-grip-seated-row-upper-back,Straight bar or curved lat bar attached to the low pulley,pull,no,no,Do not shrug into the ears,intermediate;muscle_gain;athlete;fat_loss;strength,2,rear_delts
+Assisted Pull-Up,assisted-pull-up,Neutral grip handles if available; reduce assistance as you get stronger,pull,no,yes,Do not drop quickly at the bottom,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Assisted Chin-Up,assisted-chin-up,Narrow vs shoulder-width underhand grip,pull,no,yes,Elbow strain: build up volume slowly,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Assisted Dip,assisted-dip,Upright torso (triceps) vs forward lean (chest),push,no,no,Shoulder pain: reduce depth,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Cable Fly (High to Low),cable-fly-high-to-low,Single arm; vary pulley height; handle options: strap handles or D handles,isolation,no,yes,Do not let the shoulders roll forward under heavy weight,beginner;intermediate;muscle_gain,1,lower_chest
+Cable Fly (Low to High),cable-fly-low-to-high,Single arm; vary pulley height,isolation,no,yes,"Keep shoulders down, avoid shrugging",beginner;intermediate;muscle_gain,1,upper_chest;front_delts
+Standing Cable Chest Press,standing-cable-chest-press,Single-arm press; vary pulley height; handle options: strap or D handles,push,no,yes,Brace the core so the back does not arch,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Cable Lateral Raise,cable-lateral-raise,Pulley at the lowest setting; single arm; cross-body,isolation,yes,yes,Do not swing the torso,beginner;intermediate;muscle_gain,1,side_delts
+Cable Rear Delt Fly,cable-rear-delt-fly,Strap handles; single arm,isolation,no,no,Keep the neck relaxed,intermediate;muscle_gain;athlete,2,rear_delts
+Cable Face Pull,cable-face-pull,Strap handles or D handles; kneeling or standing,pull,no,yes,"Use light weight, keep ribs down",beginner;intermediate;muscle_gain;athlete;fat_loss,1,rear_delts
+Cable Triceps Pushdown,cable-triceps-pushdown,Straight bar (pronated grip); V handle (neutral); strap handle single-arm; underhand grip for the medial head,isolation,no,yes,Do not let elbows drift forward,beginner;intermediate;muscle_gain,1,
+Cable Overhead Triceps Extension,cable-overhead-triceps-extension,Single-arm; V handle or straight bar,isolation,no,no,Do not arch the lower back,intermediate;muscle_gain;athlete,2,
+Cable Biceps Curl,cable-biceps-curl,Straight bar; EZ curl bar; single-arm with a strap handle; supinated or neutral grip,isolation,no,yes,Do not lean back to lift,beginner;intermediate;muscle_gain,1,
+Kneeling Cable Crunch,kneeling-cable-crunch,Strap handles or V handle held behind the neck; vary load,core,no,no,Do not pull with the arms; avoid a heavy neck pull,intermediate;muscle_gain;athlete;fat_loss,2,hip_flexors
+Cable Woodchop,cable-woodchop,High-to-low or low-to-high; strap handle,core,yes,no,Avoid twisting through the lower back; move from the hips,intermediate;muscle_gain;athlete;fat_loss,2,
+Pallof Press,pallof-press,Half-kneeling; staggered stance,core,yes,yes,Keep hips square,beginner;intermediate;muscle_gain;fat_loss,1,
+Barbell Incline Bench Press,barbell-incline-bench-press,Close grip; wide grip,push,no,no,Use a spotter or safety catches; avoid bouncing the bar,intermediate;muscle_gain;athlete;fat_loss;strength,2,upper_chest;front_delts
+Barbell Bench Press,barbell-bench-press,"Wide, medium or close grip; paused reps",push,no,no,Use a spotter or safety catches; avoid bouncing the bar,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Close-Grip Barbell Bench Press,close-grip-barbell-bench-press,Hands slightly inside shoulder width,push,no,no,Do not go too narrow: wrists and elbows may hurt,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Preacher Curl (EZ Bar),preacher-curl-ez-bar,Underhand grip on EZ bar; reverse (pronated) grip for the forearms; single-arm with dumbbell,isolation,no,yes,Do not fully lock out at the bottom: tendon strain,beginner;intermediate;muscle_gain,1,
+Machine Shoulder Press,machine-shoulder-press,One arm at a time; neutral vs pronated grip,push,no,yes,Do not arch the lower back,beginner;intermediate;muscle_gain;athlete;fat_loss,1,front_delts;side_delts
+Machine Biceps Curl,machine-biceps-curl,One arm at a time; slow negative,isolation,no,yes,Do not fully lock the elbows hard,beginner;intermediate;muscle_gain,1,
+Plate-Loaded Front Pulldown,plate-loaded-front-pulldown,One arm at a time; neutral vs overhand grip,pull,no,yes,Do not shrug at the bottom,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Seated Calf Raise,seated-calf-raise,"Toes in, out or straight",isolation,no,yes,Do not bounce,beginner;intermediate;muscle_gain,1,
+Lying Leg Curl,lying-leg-curl,One leg at a time; toes pointed or pulled up,isolation,no,yes,Stop if the back arches or the knee pinches,beginner;intermediate;muscle_gain,1,
+Hip Abduction Machine,hip-abduction-machine,Lean forward slightly for more glute,isolation,no,yes,Use moderate weight to protect the hips,beginner;intermediate;muscle_gain,1,abductors
+Hip Adduction Machine,hip-adduction-machine,Smaller range to start,isolation,no,yes,Do not over-stretch the inner thigh at the start,beginner;intermediate;muscle_gain,1,adductors
+Leg Press,leg-press,Feet high and wide (more glutes/hamstrings); feet low (more quads); single leg,squat,no,yes,Never lock the knees at the top; do not let the lower back lift,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Leg Press Calf Raise,leg-press-calf-raise,"Toes in, out or straight; single leg",isolation,no,yes,Keep knees straight but not locked,beginner;intermediate;muscle_gain,1,
+Machine Hip Thrust,machine-hip-thrust,Single leg; pause at the top,hinge,no,yes,Do not over-arch the lower back at the top,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Hack Squat,hack-squat,Feet low (quad emphasis) or high (glute emphasis); narrow or wide stance,squat,no,yes,Do not let heels lift; avoid locking knees,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Leg Extension,leg-extension,One leg at a time; toes pointed or neutral,isolation,no,yes,Knee pain: lower the weight and reduce range,beginner;intermediate;muscle_gain,1,
+Smith Machine Squat,smith-machine-squat,Feet closer (quads) or further forward (glutes); narrow or wide stance,squat,no,yes,Set safety stops; keep heels flat,beginner;intermediate;muscle_gain;athlete;fat_loss;strength,1,
+Smith Machine Bench Press,smith-machine-bench-press,Flat or incline bench angle; wide or close grip,push,no,yes,Set safety stops at chest height,beginner;intermediate;muscle_gain;athlete;fat_loss;strength,1,upper_chest
+Smith Machine Shoulder Press,smith-machine-shoulder-press,Seated or standing; front of head,push,no,no,Set safety stops; do not arch the back,intermediate;muscle_gain;athlete;fat_loss;strength,2,front_delts
+Smith Machine Romanian Deadlift,smith-machine-romanian-deadlift,Narrower or wider stance; staggered stance,hinge,no,no,Keep the back flat,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Smith Machine Split Squat,smith-machine-split-squat,Rear foot elevated on a bench; left or right leg,lunge,yes,no,Check front knee tracks over the toes,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Smith Machine Bent-Over Row,smith-machine-bent-over-row,Overhand or underhand grip,pull,no,no,Do not round the back,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Smith Machine Standing Calf Raise,smith-machine-standing-calf-raise,"Toes in, out or straight",isolation,no,yes,Use a stable step; do not bounce,beginner;intermediate;muscle_gain,1,
+Smith Machine Shrug,smith-machine-shrug,Behind the body or in front,isolation,no,yes,Do not roll the shoulders,beginner;intermediate;muscle_gain,1,
+Back Extension,back-extension,Hold a plate across the chest; rounded upper back for more glutes; single leg,hinge,no,yes,Do not over-arch past a straight line at the top,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Dumbbell Bench Press,dumbbell-bench-press,Neutral grip; alternating press,push,no,yes,Use a spotter for heavy sets,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Incline Dumbbell Press,incline-dumbbell-press,Bench angle 15-45 degrees; neutral grip,push,no,yes,Do not use an angle steeper than 45 degrees,beginner;intermediate;muscle_gain;athlete;fat_loss,1,upper_chest;front_delts
+Dumbbell Fly,dumbbell-fly,Flat or incline bench; neutral grip,isolation,no,yes,Use a light weight: shoulder strain from overstretching,beginner;intermediate;muscle_gain,1,
+Incline Dumbbell Curl,incline-dumbbell-curl,Supinated or hammer grip; alternating,isolation,no,yes,Keep shoulders back on the bench,beginner;intermediate;muscle_gain,1,
+Chest-Supported Dumbbell Row,chest-supported-dumbbell-row,Neutral or pronated grip; single arm,pull,no,yes,Keep the head neutral,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Chest-Supported Dumbbell Rear Delt Fly,chest-supported-dumbbell-rear-delt-fly,Pronated grip; single arm,isolation,no,yes,Keep the neck relaxed,beginner;intermediate;muscle_gain,1,rear_delts
+Dumbbell Pullover,dumbbell-pullover,Across or along the bench,isolation,no,no,Do not overstretch behind the head if the shoulders feel tight,intermediate;muscle_gain;athlete,2,
+Dumbbell Skull Crusher,dumbbell-skull-crusher,Neutral grip; incline bench angle,isolation,no,no,Elbow strain: use a light weight,intermediate;muscle_gain;athlete,2,
+Dumbbell One-Arm Row,dumbbell-one-arm-row,Elbow close to or away from the body,pull,yes,yes,Keep the spine neutral,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Bulgarian Split Squat,bulgarian-split-squat,Dumbbells at the sides; goblet hold; bodyweight,lunge,yes,no,Keep front knee in line with the toes,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Dumbbell Hip Thrust (Bench Supported),dumbbell-hip-thrust-bench-supported,Single leg; pause at the top,hinge,no,yes,Do not over-arch at the top,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Seated Dumbbell Shoulder Press,seated-dumbbell-shoulder-press,Neutral grip; Arnold press; standing press,push,no,yes,Do not arch the lower back,beginner;intermediate;muscle_gain;athlete;fat_loss,1,front_delts;side_delts
+Seated Overhead Dumbbell Triceps Extension,seated-overhead-dumbbell-triceps-extension,Single arm,isolation,no,yes,Do not arch the back,beginner;intermediate;muscle_gain,1,
+Dumbbell Concentration Curl,dumbbell-concentration-curl,Hammer grip,isolation,yes,yes,Do not shrug,beginner;intermediate;muscle_gain,1,
+Dumbbell Romanian Deadlift,dumbbell-romanian-deadlift,Single leg; stiff-leg style,hinge,no,yes,Keep the spine neutral,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Dumbbell Walking Lunge,dumbbell-walking-lunge,Reverse lunge; stationary lunge; goblet hold; bodyweight,lunge,yes,no,Keep front knee in line with toes,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Standing Dumbbell Lateral Raise,standing-dumbbell-lateral-raise,Seated; one arm at a time; lean slightly forward,isolation,no,yes,Do not swing the weights,beginner;intermediate;muscle_gain,1,side_delts
+Dumbbell Front Raise,dumbbell-front-raise,Neutral grip; alternating; one arm at a time,isolation,no,yes,Avoid swinging or leaning back,beginner;intermediate;muscle_gain,1,front_delts
+Dumbbell Bent-Over Row,dumbbell-bent-over-row,Neutral or pronated grip; alternating,pull,no,no,Do not round the back,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Dumbbell Bent-Over Reverse Fly,dumbbell-bent-over-reverse-fly,Seated at the edge of a bench,isolation,no,yes,Keep the neck relaxed,beginner;intermediate;muscle_gain,1,rear_delts
+Dumbbell Biceps Curl,dumbbell-biceps-curl,Alternating; both arms together; supinating curl; seated,isolation,no,yes,Do not swing the body,beginner;intermediate;muscle_gain,1,
+Dumbbell Hammer Curl,dumbbell-hammer-curl,Cross-body hammer curl; seated or standing,isolation,no,yes,Do not swing the body,beginner;intermediate;muscle_gain,1,
+Dumbbell Shrug,dumbbell-shrug,Heavier grip with straps if available,isolation,no,yes,Do not roll the shoulders,beginner;intermediate;muscle_gain,1,
+Dumbbell Farmer's Carry,dumbbell-farmers-carry,Single-arm suitcase carry (more obliques); heavier loads,carry,no,yes,Keep the back upright,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Dumbbell Thruster,dumbbell-thruster,Single arm; lighter weights,squat,no,no,Brace the core and use light weights to learn,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+Dumbbell Calf Raise,dumbbell-calf-raise,Single leg while holding a support,isolation,no,yes,Hold on to something for balance,beginner;intermediate;muscle_gain,1,
+Dumbbell Wrist Curl,dumbbell-wrist-curl,Reverse wrist curl with palms down,isolation,no,yes,Do not use heavy weights,beginner;intermediate;muscle_gain,1,
+Barbell Back Squat,barbell-back-squat,High bar or low bar; box squat; narrow or wide stance,squat,no,no,Set the safety arms; stop if the lower back rounds,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+Barbell Front Squat,barbell-front-squat,Clean grip or arms-crossed grip,squat,no,no,Wrist or shoulder mobility needed; use safety arms,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+Barbell Overhead Press,barbell-overhead-press,Seated (needs a bench inside the cage); push press,push,no,no,Do not lean back excessively,intermediate;muscle_gain;athlete;fat_loss;strength,2,front_delts
+Barbell Rack Pull,barbell-rack-pull,Set the pins lower or higher to change range,hinge,no,no,Keep a flat back,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+Barbell Deadlift,barbell-deadlift,"Sumo stance (wider, more adductor and quad); conventional stance",hinge,no,no,Keep the back flat; start light to learn the form,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+Barbell Romanian Deadlift,barbell-romanian-deadlift,Stiff-leg style,hinge,no,no,Do not round the back,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Barbell Bent-Over Row,barbell-bent-over-row,Overhand or underhand grip; Pendlay row from the floor,pull,no,no,Do not round the back,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Barbell Biceps Curl,barbell-biceps-curl,Wide or narrow grip,isolation,no,yes,Do not lean back to lift,beginner;intermediate;muscle_gain,1,
+Barbell Hip Thrust,barbell-hip-thrust,Single leg; pause at the top,hinge,no,no,Use a pad for the hips; do not over-arch,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Barbell Shrug,barbell-shrug,Behind the back,isolation,no,yes,Do not roll the shoulders,beginner;intermediate;muscle_gain,1,
+Barbell Good Morning,barbell-good-morning,Seated version; lighter loads,hinge,no,no,Use a light weight until the hinge pattern is solid,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+EZ-Bar Curl,ez-bar-curl,Wide or narrow grip,isolation,no,yes,Do not lean back,beginner;intermediate;muscle_gain,1,
+EZ-Bar Skull Crusher,ez-bar-skull-crusher,Incline bench; overhead version,isolation,no,no,Elbow strain: use a light weight,intermediate;muscle_gain;athlete,2,
+EZ-Bar Reverse Curl,ez-bar-reverse-curl,Wide or narrow overhand grip,isolation,no,yes,Use a light weight to protect wrists,beginner;intermediate;muscle_gain,1,
+Treadmill Walk / Run,treadmill-walk-run,Steady pace; recovery walk,cardio,no,yes,Clip the safety key; hold the rails only if you feel unstable,cardio;fat_loss;beginner;intermediate,1,
+Treadmill Incline Walk,treadmill-incline-walk,Different incline percentages,cardio,no,yes,Do not lean on the console,cardio;fat_loss;beginner;intermediate,1,
+Treadmill Intervals,treadmill-intervals,Work-rest ratios such as 1:2,cardio,no,no,Use a recovery walk between hard efforts,cardio;fat_loss;athlete;intermediate,2,
+Curve Treadmill Walk / Jog,curve-treadmill-walk-jog,Steady pace,cardio,no,yes,The belt is self-powered: start slowly,cardio;fat_loss;athlete;beginner;intermediate,2,
+Curve Treadmill Sprint Intervals,curve-treadmill-sprint-intervals,Work-rest ratios such as 1:3,cardio,no,no,Warm up well; start with short sprints,cardio;fat_loss;athlete,3,
+Elliptical Steady State,elliptical-steady-state,Forward stride; use handles for upper body,cardio,no,yes,"Keep a smooth, controlled motion",cardio;fat_loss;beginner;intermediate,1,
+Elliptical Intervals,elliptical-intervals,Resistance intervals,cardio,no,no,Do not grip the handles too hard,cardio;fat_loss;athlete;intermediate,2,
+Rowing Machine Steady Row,rowing-machine-steady-row,Pace or distance targets,cardio,no,yes,Do not round the lower back,cardio;fat_loss;beginner;intermediate,1,
+Rowing Machine Intervals,rowing-machine-intervals,Work-rest ratios such as 1:1,cardio,no,no,Stop if technique breaks down,cardio;fat_loss;athlete;intermediate,2,
+Ski Erg Steady,ski-erg-steady,Steady pace,cardio,no,yes,Do not over-bend the back,cardio;fat_loss;athlete;beginner;intermediate,2,
+Ski Erg Intervals,ski-erg-intervals,Work-rest ratios such as 1:1,cardio,no,no,Stop if technique breaks down,cardio;fat_loss;athlete;intermediate,2,
+Spin Bike Steady Ride,spin-bike-steady-ride,Seated flat road; moderate resistance,cardio,no,yes,Adjust saddle and handlebars first,cardio;fat_loss;beginner;intermediate,1,
+Spin Bike Intervals,spin-bike-intervals,Sprints; resistance intervals,cardio,no,no,Warm up first,cardio;fat_loss;athlete;intermediate,2,
+Spin Bike Standing Climb,spin-bike-standing-climb,Seated climb for the same effort,cardio,no,no,Avoid at very high resistance if you are new,cardio;fat_loss;athlete;intermediate,2,
+Upright Bike Steady Ride,upright-bike-steady-ride,Steady pace,cardio,no,yes,Adjust saddle first,cardio;fat_loss;beginner;intermediate,1,
+Upright Bike Intervals,upright-bike-intervals,Resistance intervals,cardio,no,no,Warm up first,cardio;fat_loss;athlete;intermediate,2,
+Recumbent Bike Steady Ride,recumbent-bike-steady-ride,Low-impact option for beginners or recovery,cardio,no,yes,"Good if you have back or knee pain, adjust seat distance",cardio;fat_loss;beginner;intermediate,1,
+Recumbent Bike Intervals,recumbent-bike-intervals,Resistance intervals,cardio,no,yes,Warm up first,cardio;fat_loss;beginner;intermediate,1,
+Battle Rope Alternating Waves,battle-rope-alternating-waves,Both arms together; larger or smaller waves; 38 mm or 50 mm rope,cardio,no,no,Keep a neutral spine; shorten the rope length if shoulders tire,cardio;fat_loss;athlete;intermediate,2,
+Battle Rope Double-Arm Slams,battle-rope-double-arm-slams,Different rope thickness,cardio,no,no,Keep the back flat,cardio;fat_loss;athlete;intermediate,2,
+Battle Rope Side-to-Side Waves,battle-rope-side-to-side-waves,Single-arm rotation,cardio,no,no,Keep knees soft,cardio;fat_loss;athlete;intermediate,2,
+Kettlebell Swing,kettlebell-swing,Single arm; both hands,hinge,no,no,Do not squat the swing or lift with the arms,intermediate;muscle_gain;athlete;fat_loss,2,
+Goblet Squat,goblet-squat,Dumbbell goblet squat; heel-elevated; sumo stance,squat,no,yes,Keep heels flat and chest up,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Kettlebell Turkish Get-Up,kettlebell-turkish-get-up,Bodyweight practice; shoe-on-fist drill,core,yes,no,Learn each stage without weight first,intermediate;muscle_gain;athlete;fat_loss,3,
+Medicine Ball Russian Twist,medicine-ball-russian-twist,Feet on or off the floor,core,no,yes,"Keep back long, do not twist from the neck",beginner;intermediate;muscle_gain;fat_loss,1,
+Medicine Ball Slam,medicine-ball-slam,Use only balls rated for slams,cardio,no,no,Do not slam balls that are not made for slamming,intermediate;muscle_gain;athlete;fat_loss,2,
+Medicine Ball Chest Pass,medicine-ball-chest-pass,Seated or standing; staggered stance,push,no,yes,Use a solid wall and a ball that can be thrown,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Wall Ball Shot,wall-ball-shot,Different ball weights and heights,squat,no,no,Use a solid wall; keep the chest up,intermediate;muscle_gain;athlete;fat_loss,2,
+Stability Ball Crunch,stability-ball-crunch,Arms crossed or behind the head; feet wider for stability,core,no,yes,Do not pull on the neck,beginner;intermediate;muscle_gain;fat_loss,1,
+Stability Ball Hamstring Curl,stability-ball-hamstring-curl,Single leg; hip bridge hold,hinge,no,no,Keep hips lifted throughout,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Stability Ball Back Extension,stability-ball-back-extension,Arms crossed or beside the head,hinge,no,yes,Do not over-arch the back,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Balance Trainer Push-Up,balance-trainer-push-up,Dome up or flat side up,push,no,no,Check the surface is stable before each rep,intermediate;muscle_gain;athlete;fat_loss,2,
+Balance Trainer Squat,balance-trainer-squat,Dome up or dome down,squat,no,no,Hold on to something to practise balance,intermediate;muscle_gain;athlete;fat_loss,2,
+Resistance Band Pull-Apart,resistance-band-pull-apart,Overhand or underhand grip,pull,no,yes,Keep shoulders down,beginner;intermediate;muscle_gain;athlete;fat_loss,1,rear_delts
+Resistance Band Biceps Curl,resistance-band-biceps-curl,Single arm; alternating,isolation,no,yes,Check the band is not damaged,beginner;intermediate;muscle_gain,1,
+Resistance Band Chest Press,resistance-band-chest-press,Standing or lying; staggered stance,push,no,yes,Make sure the anchor is secure,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Suspension Row,suspension-row,Feet closer to the anchor (easier) or further (harder),pull,no,yes,Make sure the strap is anchored securely,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Suspension Chest Press,suspension-chest-press,Feet closer to the anchor (harder),push,no,yes,Make sure the strap is anchored securely,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Suspension Biceps Curl,suspension-biceps-curl,Feet closer to the anchor (harder),isolation,no,yes,Make sure the strap is anchored securely,beginner;intermediate;muscle_gain,1,
+Suspension Triceps Extension,suspension-triceps-extension,Feet closer to the anchor (harder),isolation,no,no,Do not let the lower back sag,intermediate;muscle_gain;athlete,2,
+Suspension Hamstring Curl,suspension-hamstring-curl,Single leg,hinge,no,no,Keep hips lifted,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Jump Rope (Steady),jump-rope-steady,Two-foot jump; alternate-foot step,cardio,no,yes,Land softly: ankle and shin strain if too high,cardio;fat_loss;beginner;intermediate,1,
+Jump Rope Intervals,jump-rope-intervals,Different work-rest ratios,cardio,no,no,Rest if form breaks down,cardio;fat_loss;athlete;intermediate,2,
+Ab Wheel Rollout,ab-wheel-rollout,Kneeling from a short range; standing rollout (advanced),core,no,no,Stop if the lower back sags,intermediate;muscle_gain;athlete;fat_loss,3,
+Soft Box Jump,soft-box-jump,Lower box height for beginners,squat,no,no,Step down instead of jumping down; use stable surface,intermediate;muscle_gain;athlete;fat_loss;strength,2,
+Box Step-Up,box-step-up,Add dumbbells; left or right leg,lunge,yes,yes,Check the box is steady; use a low box for beginners,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Bench Dip,bench-dip,Feet closer (easier) or further (harder); weight on lap,push,no,no,Shoulder pain: use a smaller range,intermediate;muscle_gain;athlete;fat_loss,2,
+Push-Up,push-up,Incline (hands on a bench or box) for easier; feet elevated for harder; wide or narrow hands,push,no,yes,Keep hips from sagging,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Diamond Push-Up,diamond-push-up,On knees; hands on a raised surface,push,no,no,Wrist or elbow pain: widen the hands,intermediate;muscle_gain;athlete;fat_loss,2,
+Pike Push-Up,pike-push-up,Feet raised for harder,push,no,no,Keep neck neutral; stop if wrists hurt,intermediate;muscle_gain;athlete;fat_loss;strength,2,front_delts
+Bodyweight Squat,bodyweight-squat,Tempo squat; pause squat; sumo stance,squat,no,yes,Keep heels flat and knees in line with the toes,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Glute Bridge,glute-bridge,Single leg; pause at the top; feet closer for hamstrings,hinge,no,yes,Do not over-arch the lower back,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Plank,plank,On knees; feet apart; forearm or high plank,core,no,yes,Stop if the lower back sags,beginner;intermediate;muscle_gain;fat_loss,1,
+Side Plank,side-plank,On knees; top leg raised,core,yes,yes,Keep the hips stacked,beginner;intermediate;muscle_gain;fat_loss,1,
+Dead Bug,dead-bug,Arms only for beginners,core,no,yes,Keep ribs down,beginner;intermediate;muscle_gain;fat_loss,1,hip_flexors
+Bird Dog,bird-dog,Hold at the top,core,yes,yes,Keep hips level,beginner;intermediate;muscle_gain;fat_loss,1,
+Crunch,crunch,Feet raised; reverse crunch,core,no,yes,Do not pull on the neck,beginner;intermediate;muscle_gain;fat_loss,1,
+Bicycle Crunch,bicycle-crunch,Slower tempo,core,yes,yes,Do not pull on the neck,beginner;intermediate;muscle_gain;fat_loss,1,
+Lying Leg Raise,lying-leg-raise,Bent knees for easier,core,no,no,Do not arch the lower back,intermediate;muscle_gain;athlete;fat_loss,2,hip_flexors
+Mountain Climber,mountain-climber,Slow or fast,cardio,no,no,Keep the hips low,cardio;fat_loss;athlete;intermediate,2,
+Burpee,burpee,Without push-up or jump for easier,cardio,no,no,Low-impact step-back version for beginners,intermediate;muscle_gain;athlete;fat_loss,3,
+Superman,superman,Alternate arm and leg,core,no,yes,Do not over-arch the lower back,beginner;intermediate;muscle_gain;fat_loss,1,
+Standing Calf Raise (Bodyweight),standing-calf-raise-bodyweight,Single leg; slow tempo,isolation,no,yes,Hold a support for balance,beginner;intermediate;muscle_gain,1,
+Plate Neck Flexion (Lying),plate-neck-flexion-lying,Hold at the top; slower tempo,isolation,no,no,"Very light weight only, no jerking. Skip if you have neck, disc or dizziness problems; get a trainer to watch the first sessions",intermediate;muscle_gain;athlete,2,neck
+Plate Neck Extension (Lying Face Down),plate-neck-extension-lying-face-down,Hold at the top; slower tempo,isolation,no,no,Very light weight only. Skip if you have neck problems; get a trainer to watch the first sessions,intermediate;muscle_gain;athlete,2,neck
+Dumbbell Neck Side Flexion (Lying on Side),dumbbell-neck-side-flexion-lying-on-side,Left and right sides; plate instead of dumbbell,isolation,yes,no,Very light weight only. Skip if you have neck problems; get a trainer to watch the first sessions,intermediate;muscle_gain;athlete,2,neck
+Neck Isometric Hold (Hand Resistance),neck-isometric-hold-hand-resistance,Four directions; short holds,isolation,no,yes,Moderate pressure only; stop if you feel dizzy or tingling,beginner;intermediate;muscle_gain,1,neck
+Dumbbell Upright Row,dumbbell-upright-row,Wider grip to ease the shoulders,pull,no,no,Stop at chest height if the shoulders pinch,intermediate;muscle_gain;athlete;fat_loss;strength,2,side_delts
+Dumbbell Triceps Kickback,dumbbell-triceps-kickback,One arm supported on a bench,isolation,yes,yes,Use a light weight,beginner;intermediate;muscle_gain,1,
+Dumbbell Zottman Curl,dumbbell-zottman-curl,Alternating,isolation,no,no,Wrist strain: use lighter weights,intermediate;muscle_gain;athlete,2,
+Dumbbell Lateral Lunge,dumbbell-lateral-lunge,Goblet hold; bodyweight,lunge,yes,no,Keep the knee in line with the toes,intermediate;muscle_gain;athlete;fat_loss;strength,2,adductors
+Dumbbell Renegade Row,dumbbell-renegade-row,Knees down for easier,pull,yes,no,Wrist strain: use flat-sided dumbbells if available,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+Dumbbell Side Bend,dumbbell-side-bend,Left and right,core,yes,yes,Do not twist,beginner;intermediate;muscle_gain;fat_loss,1,
+Dumbbell Floor Press,dumbbell-floor-press,One arm; neutral grip,push,no,yes,"The floor limits the stretch, which is easier on the shoulders",beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Plate Halo,plate-halo,Both directions; dumbbell or kettlebell instead,isolation,no,yes,Use a light plate,beginner;intermediate;muscle_gain,1,
+Plate Pinch Hold,plate-pinch-hold,One or two plates; walk with it,carry,no,yes,Start with light plates,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Barbell Walking Lunge,barbell-walking-lunge,Reverse lunge; front-rack hold,lunge,yes,no,Unrack from the cage and check the floor space first,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+Barbell Wrist Curl,barbell-wrist-curl,Reverse wrist curl with palms down,isolation,no,yes,Use a light weight,beginner;intermediate;muscle_gain,1,
+Barbell Standing Calf Raise,barbell-standing-calf-raise,"Toes in, out or straight",isolation,no,no,Do it in the cage with safety arms set,intermediate;muscle_gain;athlete,2,
+Kettlebell Clean and Press,kettlebell-clean-and-press,Left and right arm,push,yes,no,Learn the clean without weight first,intermediate;muscle_gain;athlete;fat_loss;strength,3,
+Kettlebell Halo,kettlebell-halo,Both directions,isolation,no,yes,Use a light bell,beginner;intermediate;muscle_gain,1,
+Kettlebell Single-Arm Row,kettlebell-single-arm-row,Support the free hand on a bench,pull,yes,yes,Keep the spine neutral,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Kettlebell Windmill,kettlebell-windmill,Practise without weight first,core,yes,no,Advanced: learn without weight; needs hip and shoulder mobility,intermediate;muscle_gain;athlete;fat_loss,3,
+Resistance Band Lateral Raise,resistance-band-lateral-raise,One arm at a time,isolation,no,yes,Check the band for damage,beginner;intermediate;muscle_gain,1,side_delts
+Resistance Band Triceps Pushdown,resistance-band-triceps-pushdown,One arm at a time,isolation,no,yes,Make sure the anchor is secure,beginner;intermediate;muscle_gain,1,
+Resistance Band Row,resistance-band-row,Single arm; seated or standing,pull,no,yes,Make sure the anchor is secure,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Resistance Band Face Pull,resistance-band-face-pull,One arm at a time,pull,no,yes,Make sure the anchor is secure,beginner;intermediate;muscle_gain;athlete;fat_loss,1,rear_delts
+Resistance Band Squat,resistance-band-squat,Goblet-style hold,squat,no,yes,Check the band for damage,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Resistance Band Overhead Press,resistance-band-overhead-press,One arm at a time,push,no,yes,Do not arch the back,beginner;intermediate;muscle_gain;athlete;fat_loss,1,front_delts
+Stability Ball Plank,stability-ball-plank,Small circles with the elbows,core,no,no,Stop if the lower back sags,intermediate;muscle_gain;athlete;fat_loss,2,
+Battle Rope Outward Circles,battle-rope-outward-circles,Inward circles; one arm at a time,cardio,no,no,Keep the back flat,cardio;fat_loss;athlete;intermediate,2,
+Chest-Supported Y Raise,chest-supported-y-raise,Plates or light dumbbells,isolation,no,yes,Keep the neck relaxed,beginner;intermediate;muscle_gain,1,
+Spider Curl,spider-curl,Supinated or hammer grip,isolation,no,yes,Keep chest on the pad,beginner;intermediate;muscle_gain,1,
+Cable Upright Row,cable-upright-row,Straight bar or V handle,pull,no,no,Stop at chest height if the shoulders pinch,intermediate;muscle_gain;athlete;fat_loss;strength,2,side_delts
+Cable Front Raise,cable-front-raise,One arm; straight bar,isolation,yes,yes,Do not lean back,beginner;intermediate;muscle_gain,1,front_delts
+Cable Reverse Curl,cable-reverse-curl,EZ curl bar,isolation,no,yes,Use a light weight to protect wrists,beginner;intermediate;muscle_gain,1,
+Cable Triceps Kickback,cable-triceps-kickback,Strap handle or D handle,isolation,yes,yes,Use a light weight,beginner;intermediate;muscle_gain,1,
+Standing Cable Row,standing-cable-row,Single arm; MAG handle or strap handles,pull,no,yes,Brace the core,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Smith Machine Inverted Row,smith-machine-inverted-row,Feet raised for harder; bent knees for easier,pull,no,yes,Make sure the bar is locked on the hooks,intermediate;muscle_gain;athlete;fat_loss,2,
+Wall Sit,wall-sit,Different knee angles,squat,no,yes,Stop if your knees hurt,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Bodyweight Reverse Lunge,bodyweight-reverse-lunge,Alternating or one side at a time,lunge,yes,yes,Keep the front knee over the toes,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Cossack Squat,cossack-squat,Hold a weight at the chest,squat,yes,no,Needs hip mobility; use a smaller range at first,intermediate;muscle_gain;athlete;fat_loss;strength,2,adductors
+Jump Squat,jump-squat,Smaller jump,squat,no,no,Skip if you have knee pain,intermediate;muscle_gain;athlete;fat_loss,2,
+Hollow Hold,hollow-hold,Bent knees for easier,core,no,no,Do not arch the back,intermediate;muscle_gain;athlete;fat_loss,2,
+Flutter Kicks,flutter-kicks,Slower tempo,core,no,yes,Keep the lower back down,beginner;intermediate;muscle_gain;fat_loss,1,hip_flexors
+Reverse Snow Angel,reverse-snow-angel,Slow tempo,isolation,no,yes,Do not over-arch the lower back,beginner;intermediate;muscle_gain,1,rear_delts
+Bear Crawl,bear-crawl,Backward crawl,core,no,no,Keep the hips low,intermediate;muscle_gain;athlete;fat_loss,2,
+Jumping Jacks,jumping-jacks,Step jacks for low impact,cardio,no,yes,Low-impact step version if the joints hurt,cardio;fat_loss;beginner;intermediate,1,
+High Knees,high-knees,March in place for easier,cardio,no,yes,Low-impact march if the joints hurt,cardio;fat_loss;beginner;intermediate,1,

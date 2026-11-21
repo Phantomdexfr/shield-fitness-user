@@ -1,0 +1,622 @@
+alias,canonical,kind
+bb,barbell,abbreviation
+bbs,barbell,abbreviation
+benching,bench press,abbreviation
+bp,bench press,abbreviation
+bss,bulgarian split squat,abbreviation
+bulgarian,bulgarian split squat,abbreviation
+rear foot elevated split squat,bulgarian split squat,abbreviation
+rfess,bulgarian split squat,abbreviation
+chin ups,chin up,abbreviation
+chinup,chin up,abbreviation
+chinups,chin up,abbreviation
+dead lift,deadlift,abbreviation
+dead lifts,deadlift,abbreviation
+dl,deadlift,abbreviation
+d b,dumbbell,abbreviation
+db,dumbbell,abbreviation
+dbs,dumbbell,abbreviation
+kb,kettlebell,abbreviation
+kbs,kettlebell,abbreviation
+lat pd,lat pulldown,abbreviation
+lat pull,lat pulldown,abbreviation
+lat pull down,lat pulldown,abbreviation
+lat pulldowns,lat pulldown,abbreviation
+lats pulldown,lat pulldown,abbreviation
+pulldown machine,lat pulldown,abbreviation
+military press,overhead press,abbreviation
+oh press,overhead press,abbreviation
+ohp,overhead press,abbreviation
+strict press,overhead press,abbreviation
+pull ups,pull up,abbreviation
+pullup,pull up,abbreviation
+pullups,pull up,abbreviation
+press up,push up,abbreviation
+press ups,push up,abbreviation
+push ups,push up,abbreviation
+pushup,push up,abbreviation
+pushups,push up,abbreviation
+rdf,rear delt fly,abbreviation
+rear delt flies,rear delt fly,abbreviation
+rear delt flye,rear delt fly,abbreviation
+rdl,romanian deadlift,abbreviation
+rdls,romanian deadlift,abbreviation
+romanian dl,romanian deadlift,abbreviation
+sldl,romanian deadlift,abbreviation
+stiff leg deadlift,romanian deadlift,abbreviation
+abductor,abductors,muscle
+hip abductors,abductors,muscle
+outer thigh,abductors,muscle
+outer thighs,abductors,muscle
+ab,abs,muscle
+abdominal,abs,muscle
+abdominals,abs,muscle
+belly,abs,muscle
+six pack,abs,muscle
+sixpack,abs,muscle
+stomach,abs,muscle
+adductor,adductors,muscle
+groin,adductors,muscle
+inner thigh,adductors,muscle
+inner thighs,adductors,muscle
+bi,biceps,muscle
+bicep,biceps,muscle
+bis,biceps,muscle
+calf,calves,muscle
+calfs,calves,muscle
+gastroc,calves,muscle
+gastrocnemius,calves,muscle
+pec,chest,muscle
+pecs,chest,muscle
+pectoral,chest,muscle
+pectorals,chest,muscle
+forearm,forearms,muscle
+grip strength,forearms,muscle
+wrist extensors,forearms,muscle
+wrist flexors,forearms,muscle
+anterior deltoid,front delts,muscle
+anterior delts,front delts,muscle
+front shoulder,front delts,muscle
+booty,glutes,muscle
+butt,glutes,muscle
+glute,glutes,muscle
+gluteus,glutes,muscle
+ham,hamstrings,muscle
+hammies,hamstrings,muscle
+hammy,hamstrings,muscle
+hams,hamstrings,muscle
+hip flexor,hip flexors,muscle
+iliopsoas,hip flexors,muscle
+psoas,hip flexors,muscle
+latissimus,lats,muscle
+latissimus dorsi,lats,muscle
+erector spinae,lower back,muscle
+erectors,lower back,muscle
+low back,lower back,muscle
+lumbar,lower back,muscle
+spinal erectors,lower back,muscle
+bottom of chest,lower chest,muscle
+lower pecs,lower chest,muscle
+lower traps,mid lower traps,muscle
+mid traps,mid lower traps,muscle
+middle traps,mid lower traps,muscle
+love handles,obliques,muscle
+oblique,obliques,muscle
+side abs,obliques,muscle
+front thigh,quads,muscle
+quad,quads,muscle
+quadriceps,quads,muscle
+thighs,quads,muscle
+back delts,rear delts,muscle
+posterior deltoid,rear delts,muscle
+posterior delts,rear delts,muscle
+rear delt,rear delts,muscle
+rear shoulder,rear delts,muscle
+mid back,rhomboids teres,muscle
+midback,rhomboids teres,muscle
+rhomboid,rhomboids teres,muscle
+rhomboids,rhomboids teres,muscle
+scapular zone,rhomboids teres,muscle
+teres,rhomboids teres,muscle
+shoulder stabilisers,rotator cuff,muscle
+shoulder stabilizers,rotator cuff,muscle
+boxer muscle,serratus anterior,muscle
+serratus,serratus anterior,muscle
+delt,shoulders,muscle
+deltoid,shoulders,muscle
+deltoids,shoulders,muscle
+delts,shoulders,muscle
+shoulder,shoulders,muscle
+lateral delts,side delts,muscle
+medial delts,side delts,muscle
+mid delts,side delts,muscle
+middle delts,side delts,muscle
+shin,tibialis anterior,muscle
+shins,tibialis anterior,muscle
+tib raise,tibialis anterior,muscle
+tibialis,tibialis anterior,muscle
+trap,traps,muscle
+trapezius,traps,muscle
+tri,triceps,muscle
+tris,triceps,muscle
+clavicular pec,upper chest,muscle
+top of chest,upper chest,muscle
+upper pecs,upper chest,muscle
+upper trap,upper traps,muscle
+ab roller,ab wheel,exercise
+ab rollout,ab wheel,exercise
+rollout,ab wheel,exercise
+rollouts,ab wheel,exercise
+wheel rollout,ab wheel,exercise
+assisted chin,assisted pull up,exercise
+assisted dip machine,assisted pull up,exercise
+assisted pull ups,assisted pull up,exercise
+assisted pullup,assisted pull up,exercise
+gravitron,assisted pull up,exercise
+pull up machine,assisted pull up,exercise
+45 degree back extension,back extension,exercise
+back extensions,back extension,exercise
+hyperextension,back extension,exercise
+hyperextensions,back extension,exercise
+reverse hyper,back extension,exercise
+roman chair,back extension,exercise
+battle ropes,battle rope,exercise
+rope slams,battle rope,exercise
+rope waves,battle rope,exercise
+barbell row,bent over row,exercise
+bb row,bent over row,exercise
+bent row,bent over row,exercise
+pendlay,bent over row,exercise
+pendlay row,bent over row,exercise
+arm curl,biceps curl,exercise
+bicep curl,biceps curl,exercise
+bicep curls,biceps curl,exercise
+biceps curls,biceps curl,exercise
+curls,biceps curl,exercise
+box jumps,box jump,exercise
+plyo jump,box jump,exercise
+burpees,burpee,exercise
+cable crossovers,cable crossover,exercise
+cable flies,cable crossover,exercise
+cable fly,cable crossover,exercise
+cable flyes,cable crossover,exercise
+cable machine,cable crossover,exercise
+cable station,cable crossover,exercise
+crossovers,cable crossover,exercise
+functional trainer,cable crossover,exercise
+high to low cable,cable crossover,exercise
+low to high cable,cable crossover,exercise
+pulley,cable crossover,exercise
+pulley machine,cable crossover,exercise
+calf raises,calf raise,exercise
+donkey calf raise,calf raise,exercise
+heel raise,calf raise,exercise
+heel raises,calf raise,exercise
+seated calf raise,calf raise,exercise
+standing calf raise,calf raise,exercise
+chest presses,chest press,exercise
+horizontal press,chest press,exercise
+machine press,chest press,exercise
+pec press,chest press,exercise
+cgbp,close grip bench press,exercise
+close grip bench,close grip bench press,exercise
+close grip press,close grip bench press,exercise
+narrow grip bench,close grip bench press,exercise
+ab crunch,crunch,exercise
+cable crunch,crunch,exercise
+crunches,crunch,exercise
+sit up,crunch,exercise
+sit ups,crunch,exercise
+situp,crunch,exercise
+situps,crunch,exercise
+conventional deadlift,deadlift,exercise
+deadlifts,deadlift,exercise
+hex bar deadlift,deadlift,exercise
+sumo deadlift,deadlift,exercise
+trap bar deadlift,deadlift,exercise
+decline bench,decline press,exercise
+decline presses,decline press,exercise
+lower chest press,decline press,exercise
+bar dip,dip,exercise
+chest dip,dip,exercise
+dips,dip,exercise
+parallel bar dip,dip,exercise
+triceps dip,dip,exercise
+chest flies,dumbbell fly,exercise
+chest fly,dumbbell fly,exercise
+chest flyes,dumbbell fly,exercise
+db fly,dumbbell fly,exercise
+db flyes,dumbbell fly,exercise
+dumbbell flies,dumbbell fly,exercise
+dumbbell flyes,dumbbell fly,exercise
+face pulls,face pull,exercise
+facepull,face pull,exercise
+rear delt pull,face pull,exercise
+rope face pull,face pull,exercise
+farmer carries,farmer carry,exercise
+farmer walk,farmer carry,exercise
+farmers carry,farmer carry,exercise
+farmers walk,farmer carry,exercise
+loaded carry,farmer carry,exercise
+suitcase carry,farmer carry,exercise
+anterior raise,front raise,exercise
+front delt raise,front raise,exercise
+front raises,front raise,exercise
+clean grip squat,front squat,exercise
+front squats,front squat,exercise
+goblet,goblet squat,exercise
+goblet squats,goblet squat,exercise
+good mornings,good morning,exercise
+hack machine,hack squat,exercise
+hack squats,hack squat,exercise
+hammer curls,hammer curl,exercise
+neutral grip curl,hammer curl,exercise
+rope curl,hammer curl,exercise
+abduction machine,hip abduction,exercise
+hip abductor machine,hip abduction,exercise
+outer thigh machine,hip abduction,exercise
+adduction machine,hip adduction,exercise
+adductor machine,hip adduction,exercise
+hip adductor machine,hip adduction,exercise
+inner thigh machine,hip adduction,exercise
+barbell hip thrust,hip thrust,exercise
+glute bridge,hip thrust,exercise
+glute bridges,hip thrust,exercise
+hip thrusts,hip thrust,exercise
+incline bench,incline press,exercise
+incline presses,incline press,exercise
+upper chest press,incline press,exercise
+jump squats,jump squat,exercise
+squat jump,jump squat,exercise
+squat jumps,jump squat,exercise
+kb swing,kettlebell swing,exercise
+kb swings,kettlebell swing,exercise
+kettlebell swings,kettlebell swing,exercise
+lat raise,lateral raise,exercise
+lateral raises,lateral raise,exercise
+side delt raise,lateral raise,exercise
+side lateral raise,lateral raise,exercise
+side raise,lateral raise,exercise
+side raises,lateral raise,exercise
+ham curl,leg curl,exercise
+hamstring curl,leg curl,exercise
+hamstring curls,leg curl,exercise
+leg curls,leg curl,exercise
+lying leg curl,leg curl,exercise
+prone leg curl,leg curl,exercise
+seated leg curl,leg curl,exercise
+extension machine,leg extension,exercise
+knee extension,leg extension,exercise
+leg extensions,leg extension,exercise
+quad extension,leg extension,exercise
+quad extensions,leg extension,exercise
+45 degree leg press,leg press,exercise
+leg presses,leg press,exercise
+machine leg press,leg press,exercise
+sled press,leg press,exercise
+captain chair,leg raise,exercise
+hanging leg raise,leg raise,exercise
+hanging leg raises,leg raise,exercise
+knee raise,leg raise,exercise
+knee raises,leg raise,exercise
+leg raises,leg raise,exercise
+forward lunge,lunge,exercise
+lunges,lunge,exercise
+reverse lunge,lunge,exercise
+walking lunge,lunge,exercise
+walking lunges,lunge,exercise
+ball slam,medicine ball slam,exercise
+med ball slam,medicine ball slam,exercise
+medball slam,medicine ball slam,exercise
+slam ball,medicine ball slam,exercise
+mountain climbers,mountain climber,exercise
+db row,one arm dumbbell row,exercise
+dumbbell row,one arm dumbbell row,exercise
+kroc row,one arm dumbbell row,exercise
+one arm row,one arm dumbbell row,exercise
+single arm row,one arm dumbbell row,exercise
+french curl,overhead triceps extension,exercise
+overhead extension,overhead triceps extension,exercise
+tricep overhead extension,overhead triceps extension,exercise
+triceps overhead,overhead triceps extension,exercise
+butterfly,pec deck fly,exercise
+butterfly machine,pec deck fly,exercise
+chest fly machine,pec deck fly,exercise
+fly machine,pec deck fly,exercise
+machine chest fly,pec deck fly,exercise
+machine fly,pec deck fly,exercise
+pec deck,pec deck fly,exercise
+pec fly,pec deck fly,exercise
+pec fly machine,pec deck fly,exercise
+peck deck,pec deck fly,exercise
+forearm plank,plank,exercise
+front plank,plank,exercise
+hold plank,plank,exercise
+planks,plank,exercise
+preacher bench curl,preacher curl,exercise
+preacher curls,preacher curl,exercise
+scott curl,preacher curl,exercise
+dumbbell pullover,pull over,exercise
+pullover,pull over,exercise
+pullovers,pull over,exercise
+straight arm pulldown,pull over,exercise
+rear delt fly machine,reverse pec deck,exercise
+rear delt machine,reverse pec deck,exercise
+rear fly machine,reverse pec deck,exercise
+reverse butterfly,reverse pec deck,exercise
+reverse fly machine,reverse pec deck,exercise
+reverse pec deck fly,reverse pec deck,exercise
+reverse peck deck,reverse pec deck,exercise
+russian twists,russian twist,exercise
+cable row,seated cable row,exercise
+low cable row,seated cable row,exercise
+low row,seated cable row,exercise
+machine row,seated cable row,exercise
+row machine,seated cable row,exercise
+seated row,seated cable row,exercise
+seated rowing,seated cable row,exercise
+delt press,shoulder press,exercise
+military dumbbell press,shoulder press,exercise
+seated press,shoulder press,exercise
+shoulder presses,shoulder press,exercise
+dumbbell shrugs,shrug,exercise
+shrugs,shrug,exercise
+trap raise,shrug,exercise
+french press,skull crusher,exercise
+lying triceps extension,skull crusher,exercise
+nose breaker,skull crusher,exercise
+nosebreaker,skull crusher,exercise
+skull crushers,skull crusher,exercise
+skullcrusher,skull crusher,exercise
+skullcrushers,skull crusher,exercise
+triceps extension lying,skull crusher,exercise
+smith,smith machine,exercise
+smith press,smith machine,exercise
+smith squat,smith machine,exercise
+split squats,split squat,exercise
+static lunge,split squat,exercise
+back squat,squat,exercise
+barbell squat,squat,exercise
+bb squat,squat,exercise
+high bar squat,squat,exercise
+low bar squat,squat,exercise
+squats,squat,exercise
+box step up,step up,exercise
+step ups,step up,exercise
+stepup,step up,exercise
+landmine row,t bar row,exercise
+tbar,t bar row,exercise
+tbar row,t bar row,exercise
+cable pushdown,triceps pushdown,exercise
+press down,triceps pushdown,exercise
+pressdown,triceps pushdown,exercise
+push down,triceps pushdown,exercise
+pushdowns,triceps pushdown,exercise
+rope pushdown,triceps pushdown,exercise
+tricep pushdown,triceps pushdown,exercise
+tgu,turkish get up,exercise
+turkish getup,turkish get up,exercise
+high pull,upright row,exercise
+upright rows,upright row,exercise
+wall ball shot,wall ball,exercise
+wall balls,wall ball,exercise
+wallball,wall ball,exercise
+forearm curl,wrist curl,exercise
+forearm curls,wrist curl,exercise
+reverse wrist curl,wrist curl,exercise
+wrist curls,wrist curl,exercise
+adj bench,adjustable bench,machine
+incline decline bench,adjustable bench,machine
+assist machine,assisted pull up dip machine,machine
+assisted machine,assisted pull up dip machine,machine
+dumbbell rack,dumbbells and rack,machine
+dumbbells,dumbbells and rack,machine
+free weights,dumbbells and rack,machine
+cross trainer,elliptical,machine
+elliptical trainer,elliptical,machine
+curl bar,ez bar,machine
+e z bar,ez bar,machine
+ez barbell,ez bar,machine
+ez curl bar,ez bar,machine
+foam rolling,foam roller,machine
+mobility roller,foam roller,machine
+myofascial roller,foam roller,machine
+bosu,half stability ball,machine
+bosu ball,half stability ball,machine
+dome ball,half stability ball,machine
+half ball,half stability ball,machine
+glute drive,hip thrust machine,machine
+glute machine,hip thrust machine,machine
+hip thruster,hip thrust machine,machine
+rope skipping,jump rope,machine
+skipping,jump rope,machine
+skipping rope,jump rope,machine
+speed rope,jump rope,machine
+kettle bell,kettlebells,machine
+kettlebell,kettlebells,machine
+kettlebell weights,kettlebells,machine
+deadlift platform,lifting platform,machine
+lifting plat,lifting platform,machine
+med ball,medicine ball,machine
+medball,medicine ball,machine
+barbell,olympic barbell,machine
+olympic bar,olympic barbell,machine
+power bar,olympic barbell,machine
+straight barbell,olympic barbell,machine
+power rack,power cage,machine
+squat cage,power cage,machine
+squat rack,power cage,machine
+arm blaster,preacher curl bench,machine
+preacher bench,preacher curl bench,machine
+scott bench,preacher curl bench,machine
+exercise band,resistance tubes,machine
+loop band,resistance tubes,machine
+resistance band,resistance tubes,machine
+resistance bands,resistance tubes,machine
+tube band,resistance tubes,machine
+concept2,rowing machine,machine
+erg,rowing machine,machine
+indoor rower,rowing machine,machine
+rower,rowing machine,machine
+rowing erg,rowing machine,machine
+calf machine,seated calf raise,machine
+seated calf machine,seated calf raise,machine
+ski machine,ski erg,machine
+skierg,ski erg,machine
+foam box,soft plyo box,machine
+jump box,soft plyo box,machine
+plyo box,soft plyo box,machine
+cycling,spin bike,machine
+exercise bike,spin bike,machine
+indoor cycle,spin bike,machine
+spinning bike,spin bike,machine
+stationary bike,spin bike,machine
+balance ball,stability ball,machine
+exercise ball,stability ball,machine
+gym ball,stability ball,machine
+physio ball,stability ball,machine
+swiss ball,stability ball,machine
+suspension straps,suspension trainer,machine
+trx,suspension trainer,machine
+trx straps,suspension trainer,machine
+dreadmill,treadmill,machine
+running machine,treadmill,machine
+bench seat,utility bench,machine
+weight bench,utility bench,machine
+exercise mat,yoga mat,machine
+floor mat,yoga mat,machine
+alternate,alternating,setup
+alternate arms,alternating,setup
+alternating arms,alternating,setup
+one at a time,alternating,setup
+chest on pad,chest supported,setup
+chest pad,chest supported,setup
+chest support,chest supported,setup
+prone row,chest supported,setup
+supported row,chest supported,setup
+cambered bar,curved lat bar,setup
+curved bar,curved lat bar,setup
+lat bar,curved lat bar,setup
+w bar,curved lat bar,setup
+d grip,d handle,setup
+d ring,d handle,setup
+stirrup handle,d handle,setup
+decline angle,decline,setup
+declined,decline,setup
+downward angle,decline,setup
+curl bar grip,ez bar,setup
+ez,ez bar,setup
+ez grip,ez bar,setup
+flat bench,flat,setup
+horizontal,flat,setup
+level bench,flat,setup
+half kneel,half kneeling,setup
+lunge position,half kneeling,setup
+one knee,half kneeling,setup
+incline angle,incline,setup
+inclined,incline,setup
+upward angle,incline,setup
+knees down,kneeling,setup
+on knees,kneeling,setup
+tall kneeling,kneeling,setup
+lean back,leaning,setup
+lean forward,leaning,setup
+leaning back,leaning,setup
+leaning forward,leaning,setup
+face up,lying,setup
+flat on back,lying,setup
+lie down,lying,setup
+on back,lying,setup
+supine,lying,setup
+mag attachment,mag handle,setup
+mag grip,mag handle,setup
+multi angle grip,mag handle,setup
+alternate grip,mixed,setup
+over under,mixed,setup
+over under grip,mixed,setup
+close grip,narrow,setup
+close hand,narrow,setup
+close stance,narrow,setup
+closer grip,narrow,setup
+narrow stance,narrow,setup
+hammer grip,neutral,setup
+palms in,neutral,setup
+parallel grip,neutral,setup
+semi neutral,neutral,setup
+thumbs up,neutral,setup
+arm pad,preacher,setup
+preacher pad,preacher,setup
+over hand,pronated,setup
+overhand,pronated,setup
+palms down,pronated,setup
+pronate,pronated,setup
+pull up grip,pronated,setup
+cable rope,rope,setup
+rope attachment,rope,setup
+tricep rope,rope,setup
+triceps rope,rope,setup
+sitting,seated,setup
+hip width,shoulder,setup
+medium grip,shoulder,setup
+shoulder width,shoulder,setup
+standard grip,shoulder,setup
+one arm,single arm,setup
+one handed,single arm,setup
+one side,single arm,setup
+single hand,single arm,setup
+single handed,single arm,setup
+unilateral,single arm,setup
+ball bench,stability ball,setup
+ball seat,stability ball,setup
+on a ball,stability ball,setup
+flat bar,straight bar,setup
+long bar,straight bar,setup
+straight handle,straight bar,setup
+cable strap,strap handle,setup
+strap,strap handle,setup
+strap attachment,strap handle,setup
+chin grip,supinated,setup
+palms up,supinated,setup
+reverse grip,supinated,setup
+reverse hand,supinated,setup
+supinate,supinated,setup
+under hand,supinated,setup
+underhand,supinated,setup
+close grip handle,v handle,setup
+triangle,v handle,setup
+triangle handle,v handle,setup
+v bar,v handle,setup
+vee handle,v handle,setup
+sumo stance,wide,setup
+wide grip,wide,setup
+wide hands,wide,setup
+wide stance,wide,setup
+wider grip,wide,setup
+abdomen,abdominals,spelling
+abdominales,abdominals,spelling
+bar bell,barbell,spelling
+barbel,barbell,spelling
+bicepts,biceps,spelling
+bisep,biceps,spelling
+bycep,biceps,spelling
+byceps,biceps,spelling
+dumb bell,dumbbell,spelling
+dumb bells,dumbbell,spelling
+dumbell,dumbbell,spelling
+dumbells,dumbbell,spelling
+flies,fly,spelling
+flye,fly,spelling
+flyes,fly,spelling
+flys,fly,spelling
+hamstring,hamstrings,spelling
+hamstrng,hamstrings,spelling
+hipthrust,hip thrust,spelling
+kettle bells,kettlebell,spelling
+latpulldown,lat pulldown,spelling
+laterals,lateral,spelling
+pull down,pulldown,spelling
+pulldowns,pulldown,spelling
+scull crusher,skull crusher,spelling
+tricepts,triceps,spelling
+trycep,triceps,spelling
+tryceps,triceps,spelling

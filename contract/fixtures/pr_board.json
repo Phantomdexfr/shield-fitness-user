@@ -1,0 +1,80 @@
+{
+ "note": "pr_board: buildBoard and sessionPRs on small hand-made sessions. A session is {id, startedAt, endedAt?, items:[{slug, status, setup?, sets}]}; a set is [weightKg|null, reps, rpe|null, tag]. Times are UTC; day keys are IST (all times here fall on the same IST day). Created in User Phase 37.",
+ "board": [
+  {
+   "id": "three_exercises_filters",
+   "separateByGrip": false,
+   "sessions": [
+    {"id": "s1", "startedAt": "2026-11-10T10:00:00.000Z", "endedAt": "2026-11-10T11:00:00.000Z", "items": [{"slug": "bench-press", "status": "done", "sets": [[40,10],[40,10]]}]},
+    {"id": "s2", "startedAt": "2026-11-12T10:00:00.000Z", "endedAt": "2026-11-12T11:00:00.000Z", "items": [{"slug": "bench-press", "status": "done", "sets": [[42.5,8]]}]},
+    {"id": "s3", "startedAt": "2026-11-13T10:00:00.000Z", "endedAt": "2026-11-13T11:00:00.000Z", "items": [{"slug": "squat", "status": "done", "sets": [[60,5]]}, {"slug": "deadlift", "status": "skipped", "sets": [[100,5]]}, {"slug": "row", "status": "done", "sets": [[20,10,null,"warmup"]]}]},
+    {"id": "s4", "startedAt": "2026-11-14T10:00:00.000Z", "items": [{"slug": "press", "status": "doing", "sets": [[30,8]]}]}
+   ],
+   "expected": [
+    {"key": "squat", "records": {"weight": 60, "reps": 5, "volume": 300, "e1rm": 70}, "dates": {"weight": "2026-11-13", "reps": "2026-11-13", "volume": "2026-11-13", "e1rm": "2026-11-13"}, "sessions": 1, "lastDay": "2026-11-13"},
+    {"key": "bench-press", "records": {"weight": 42.5, "reps": 10, "volume": 400, "e1rm": 53.83}, "dates": {"weight": "2026-11-12", "reps": "2026-11-10", "volume": "2026-11-10", "e1rm": "2026-11-12"}, "sessions": 2, "lastDay": "2026-11-12"}
+   ]
+  },
+  {
+   "id": "grips_shared_when_off",
+   "separateByGrip": false,
+   "sessions": [
+    {"id": "g1", "startedAt": "2026-11-10T10:00:00.000Z", "endedAt": "2026-11-10T11:00:00.000Z", "items": [{"slug": "lat-pulldown", "status": "done", "setup": {"grip": "wide"}, "sets": [[50,10]]}]},
+    {"id": "g2", "startedAt": "2026-11-12T10:00:00.000Z", "endedAt": "2026-11-12T11:00:00.000Z", "items": [{"slug": "lat-pulldown", "status": "done", "setup": {"grip": "close"}, "sets": [[45,10]]}]}
+   ],
+   "expected": [
+    {"key": "lat-pulldown", "records": {"weight": 50, "reps": 10, "volume": 500, "e1rm": 66.67}, "dates": {"weight": "2026-11-10", "reps": "2026-11-10", "volume": "2026-11-10", "e1rm": "2026-11-10"}, "sessions": 2, "lastDay": "2026-11-12"}
+   ]
+  },
+  {
+   "id": "grips_split_when_on",
+   "separateByGrip": true,
+   "sessions": [
+    {"id": "g1", "startedAt": "2026-11-10T10:00:00.000Z", "endedAt": "2026-11-10T11:00:00.000Z", "items": [{"slug": "lat-pulldown", "status": "done", "setup": {"grip": "wide"}, "sets": [[50,10]]}]},
+    {"id": "g2", "startedAt": "2026-11-12T10:00:00.000Z", "endedAt": "2026-11-12T11:00:00.000Z", "items": [{"slug": "lat-pulldown", "status": "done", "setup": {"grip": "close"}, "sets": [[45,10]]}]}
+   ],
+   "expected": [
+    {"key": "lat-pulldown#grip:close", "grip": "close", "records": {"weight": 45, "reps": 10, "volume": 450, "e1rm": 60}, "dates": {"weight": "2026-11-12", "reps": "2026-11-12", "volume": "2026-11-12", "e1rm": "2026-11-12"}, "sessions": 1, "lastDay": "2026-11-12"},
+    {"key": "lat-pulldown#grip:wide", "grip": "wide", "records": {"weight": 50, "reps": 10, "volume": 500, "e1rm": 66.67}, "dates": {"weight": "2026-11-10", "reps": "2026-11-10", "volume": "2026-11-10", "e1rm": "2026-11-10"}, "sessions": 1, "lastDay": "2026-11-10"}
+   ]
+  }
+ ],
+ "session": [
+  {
+   "id": "second_session_beats_first",
+   "of": "s2", "separateByGrip": false,
+   "sessions": [
+    {"id": "s1", "startedAt": "2026-11-10T10:00:00.000Z", "endedAt": "2026-11-10T11:00:00.000Z", "items": [{"slug": "bench-press", "status": "done", "sets": [[40,10]]}]},
+    {"id": "s2", "startedAt": "2026-11-12T10:00:00.000Z", "endedAt": "2026-11-12T11:00:00.000Z", "items": [{"slug": "bench-press", "status": "done", "sets": [[42.5,8]]}]}
+   ],
+   "expected": [{"key": "bench-press", "hits": [{"metric": "weight", "value": 42.5, "previous": 40}, {"metric": "e1rm", "value": 53.83, "previous": 53.33}]}]
+  },
+  {
+   "id": "first_session_is_baseline_later_ones_ignored",
+   "of": "s1", "separateByGrip": false,
+   "sessions": [
+    {"id": "s1", "startedAt": "2026-11-10T10:00:00.000Z", "endedAt": "2026-11-10T11:00:00.000Z", "items": [{"slug": "bench-press", "status": "done", "sets": [[40,10]]}]},
+    {"id": "s2", "startedAt": "2026-11-12T10:00:00.000Z", "endedAt": "2026-11-12T11:00:00.000Z", "items": [{"slug": "bench-press", "status": "done", "sets": [[42.5,8]]}]}
+   ],
+   "expected": []
+  },
+  {
+   "id": "open_session_judged_before_it_ends",
+   "of": "s2", "separateByGrip": false,
+   "sessions": [
+    {"id": "s1", "startedAt": "2026-11-10T10:00:00.000Z", "endedAt": "2026-11-10T11:00:00.000Z", "items": [{"slug": "bench-press", "status": "done", "sets": [[40,10]]}]},
+    {"id": "s2", "startedAt": "2026-11-12T10:00:00.000Z", "items": [{"slug": "bench-press", "status": "doing", "sets": [[40,12]]}]}
+   ],
+   "expected": [{"key": "bench-press", "hits": [{"metric": "reps", "value": 12, "previous": 10}, {"metric": "volume", "value": 480, "previous": 400}, {"metric": "e1rm", "value": 56, "previous": 53.33}]}]
+  },
+  {
+   "id": "new_grip_counts_when_other_grip_has_history",
+   "of": "g2", "separateByGrip": true,
+   "sessions": [
+    {"id": "g1", "startedAt": "2026-11-10T10:00:00.000Z", "endedAt": "2026-11-10T11:00:00.000Z", "items": [{"slug": "lat-pulldown", "status": "done", "setup": {"grip": "wide"}, "sets": [[50,10]]}]},
+    {"id": "g2", "startedAt": "2026-11-12T10:00:00.000Z", "endedAt": "2026-11-12T11:00:00.000Z", "items": [{"slug": "lat-pulldown", "status": "done", "setup": {"grip": "close"}, "sets": [[45,10]]}]}
+   ],
+   "expected": [{"key": "lat-pulldown#grip:close", "hits": [{"metric": "weight", "value": 45, "previous": null}, {"metric": "reps", "value": 10, "previous": null}, {"metric": "volume", "value": 450, "previous": null}, {"metric": "e1rm", "value": 60, "previous": null}]}]
+  }
+ ]
+}

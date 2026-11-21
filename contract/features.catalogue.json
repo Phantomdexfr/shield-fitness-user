@@ -1,0 +1,526 @@
+{
+ "contract": "1.1.0",
+ "note": "Every user-visible feature has a switch. default = value in standalone mode. adminLockable = a gym policy may force it on/off. needsConnection = hidden in standalone mode regardless of the switch.",
+ "features": [
+  {
+   "key": "muscle_lab",
+   "label": "Muscle Lab (tap a muscle)",
+   "group": "body",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "holo_atlas",
+   "label": "Body Holo Lab (3D, daily-life muscle roles)",
+   "group": "body",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "heatmap",
+   "label": "Muscle heatmap",
+   "group": "body",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "recovery_clock",
+   "label": "Muscle recovery clock",
+   "group": "body",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "injury_marks",
+   "label": "Avoid / sore area marks",
+   "group": "body",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "routine_builder",
+   "label": "Routine builder (days and splits)",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "day_builder",
+   "label": "Day builder (auto-fill, time-box)",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "flexible_session",
+   "label": "Flexible session (any order, skip, add)",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": false
+  },
+  {
+   "key": "suggestions",
+   "label": "Smart suggestions and swaps",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "warmup_suggestions",
+   "label": "Warm-up and cooldown suggestions",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "custom_exercises",
+   "label": "Custom exercises",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "supersets",
+   "label": "Supersets",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "rpe_logging",
+   "label": "RPE logging",
+   "group": "training",
+   "default": false,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "overload_suggestions",
+   "label": "Progressive overload suggestions",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "intensity_dial",
+   "label": "Intensity dial (Light to Beast)",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "tracks",
+   "label": "Training tracks",
+   "group": "training",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "youtube_links",
+   "label": "YouTube links on exercise pages",
+   "group": "library",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "machine_photos",
+   "label": "Machine photos",
+   "group": "library",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "progress_charts",
+   "label": "Progress charts",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": false
+  },
+  {
+   "key": "body_stats",
+   "label": "Body stats",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "goals",
+   "label": "Goals",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "progress_photos",
+   "label": "Progress photos (device only)",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "intake",
+   "label": "Protein and water",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "tiers",
+   "label": "Tiers and XP",
+   "group": "gamification",
+   "default": false,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "membership",
+   "label": "Membership and payments view",
+   "group": "gym",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": false
+  },
+  {
+   "key": "attendance_qr",
+   "label": "Check-in QR and attendance",
+   "group": "gym",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": false
+  },
+  {
+   "key": "inbox",
+   "label": "Announcements and inbox",
+   "group": "gym",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": false
+  },
+  {
+   "key": "requests",
+   "label": "Requests to the gym",
+   "group": "gym",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": false
+  },
+  {
+   "key": "gym_programs",
+   "label": "Programs from the gym",
+   "group": "gym",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": false
+  },
+  {
+   "key": "push",
+   "label": "Push notifications",
+   "group": "gym",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": true
+  },
+  {
+   "key": "classes",
+   "label": "Classes and PT booking",
+   "group": "later",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": true
+  },
+  {
+   "key": "store",
+   "label": "Store",
+   "group": "later",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": true
+  },
+  {
+   "key": "leaderboards",
+   "label": "Leaderboards",
+   "group": "later",
+   "default": false,
+   "needsConnection": true,
+   "adminLockable": true
+  },
+  {
+   "key": "food_log",
+   "label": "Food log",
+   "group": "later",
+   "default": false,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "setup_options",
+   "label": "Setup options (grips, handles, positions, benches)",
+   "group": "library",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "fuzzy_search",
+   "label": "Fuzzy exercise search",
+   "group": "library",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "machine_lab",
+   "label": "Machine Lab (what each machine can reach)",
+   "group": "body",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "rest_scheduler",
+   "label": "Flexible schedule and rest days",
+   "group": "routines",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "rest_suggestions",
+   "label": "Rest-day hints from the recovery clock",
+   "group": "routines",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "pr_board",
+   "label": "Personal records (weight, reps, volume)",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "barcode_scan",
+   "label": "Barcode scanner (packaged food nutrition, needs internet when used)",
+   "group": "intake",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "plan_share",
+   "label": "Share a plan by QR / link / code",
+   "group": "routines",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "ai_review_export",
+   "label": "Copy training for AI review (session, range, exercise)",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "movement_map",
+   "label": "Movement map (geometric exercise diagram)",
+   "group": "library",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "plate_calculator",
+   "label": "Plate calculator",
+   "group": "tools",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "warmup_ramp",
+   "label": "Warm-up ramp",
+   "group": "tools",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "big_number_mode",
+   "label": "Big-number gym mode",
+   "group": "tools",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "smart_rest_timer",
+   "label": "Smart rest timer",
+   "group": "tools",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "today_card",
+   "label": "Today card on Home",
+   "group": "routines",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "why_chips",
+   "label": "Why-this-exercise chips",
+   "group": "routines",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "weak_spots",
+   "label": "Weak-spot finder",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "quick_workout",
+   "label": "Workout in a pinch",
+   "group": "routines",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "equipment_mode",
+   "label": "Equipment mode (hotel/home/minimal)",
+   "group": "library",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "superset_swipe",
+   "label": "Superset swipe",
+   "group": "routines",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "machine_finder",
+   "label": "Machine finder by muscle",
+   "group": "body",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "form_cues",
+   "label": "Form cue card",
+   "group": "library",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "streaks",
+   "label": "Streaks and consistency ring",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "pr_celebration",
+   "label": "PR celebration and PR wall",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "year_review",
+   "label": "Year-in-review cards",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "muscle_of_week",
+   "label": "Muscle of the week",
+   "group": "body",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "routine_image",
+   "label": "Routine as a shareable image",
+   "group": "routines",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "muscle_badges",
+   "label": "Muscle strength badges and profile (bodyweight-relative)",
+   "group": "progress",
+   "default": true,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "cloud_backup",
+   "label": "Backup of my training data (chunks; free account when no gym)",
+   "group": "backup",
+   "default": false,
+   "needsConnection": false,
+   "adminLockable": true
+  },
+  {
+   "key": "free_account",
+   "label": "Create a free backup account (no gym needed)",
+   "group": "backup",
+   "default": false,
+   "needsConnection": false,
+   "adminLockable": false
+  },
+  {
+   "key": "auto_restore",
+   "label": "Restore my data automatically on a new device after sign-in",
+   "group": "backup",
+   "default": true,
+   "needsConnection": true,
+   "adminLockable": true
+  }
+ ]
+}

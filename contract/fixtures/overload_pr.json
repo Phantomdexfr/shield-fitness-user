@@ -1,0 +1,14 @@
+{
+ "note": "overload_pr: detectPR cases (OL 'PR kinds'). A set is [weightKg|null, reps, rpe|null, tag]. history = sessions of one exercise, current = this session. Hit order: weight, reps, e1rm, volume. Created in User Phase 36.",
+ "cases": [
+  {"id": "first_log_is_baseline", "history": [], "current": [[40,10],[40,10]], "expected": []},
+  {"id": "heavier_but_fewer_reps", "history": [[[40,10],[40,10]]], "current": [[42.5,8],[42.5,8]], "expected": [{"kind":"weight","value":42.5,"previous":40},{"kind":"e1rm","value":53.83,"previous":53.33}]},
+  {"id": "tie_is_not_a_pr", "history": [[[40,10],[40,10]]], "current": [[40,10],[40,10]], "expected": []},
+  {"id": "more_reps_same_weight", "history": [[[40,10]]], "current": [[40,11]], "expected": [{"kind":"reps","value":11,"previous":10,"weightKg":40},{"kind":"e1rm","value":54.67,"previous":53.33},{"kind":"volume","value":440,"previous":400}]},
+  {"id": "warmup_never_counts", "history": [[[40,10]]], "current": [[100,5,null,"warmup"],[40,10]], "expected": []},
+  {"id": "bodyweight_reps_only", "history": [[[null,10],[null,10]]], "current": [[null,12]], "expected": [{"kind":"reps","value":12,"previous":10,"weightKg":0}]},
+  {"id": "volume_only", "history": [[[50,6],[50,6]]], "current": [[40,10],[40,10],[40,10]], "expected": [{"kind":"volume","value":1200,"previous":600}]},
+  {"id": "best_of_several_sessions", "history": [[[40,10]],[[45,8]]], "current": [[45,9]], "expected": [{"kind":"reps","value":9,"previous":8,"weightKg":45},{"kind":"e1rm","value":58.5,"previous":57},{"kind":"volume","value":405,"previous":400}]},
+  {"id": "history_of_warmups_only_is_baseline", "history": [[[20,10,null,"warmup"]]], "current": [[40,10]], "expected": []}
+ ]
+}

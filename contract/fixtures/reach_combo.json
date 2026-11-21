@@ -1,0 +1,509 @@
+{
+ "note": "Runtime reach with two chips; computed by an independent script from the generated map and setup files. One-chip rows equal the compiled table.",
+ "cases": [
+  {
+   "machine": "cable-crossover",
+   "selection": {
+    "bench": "incline"
+   },
+   "exerciseCount": 16,
+   "rows": [
+    [
+     "biceps",
+     0.75,
+     2
+    ],
+    [
+     "forearms",
+     0.6,
+     1
+    ],
+    [
+     "front_delts",
+     0.75,
+     9
+    ],
+    [
+     "lats",
+     0.3,
+     1
+    ],
+    [
+     "lower_chest",
+     0.75,
+     5
+    ],
+    [
+     "mid_lower_traps",
+     0.6,
+     5
+    ],
+    [
+     "rear_delts",
+     1.0,
+     6
+    ],
+    [
+     "rhomboids_teres",
+     0.6,
+     2
+    ],
+    [
+     "rotator_cuff",
+     0.6,
+     5
+    ],
+    [
+     "side_delts",
+     1.0,
+     7
+    ],
+    [
+     "triceps",
+     1.0,
+     7
+    ],
+    [
+     "upper_chest",
+     0.75,
+     7
+    ],
+    [
+     "upper_traps",
+     0.6,
+     4
+    ]
+   ],
+   "muscleIds": [
+    "upper_chest",
+    "lower_chest"
+   ],
+   "exercises": [
+    [
+     "cable-bench-fly",
+     0.75,
+     {
+      "bench": "incline"
+     }
+    ],
+    [
+     "cable-bench-press",
+     0.75,
+     {
+      "bench": "incline"
+     }
+    ],
+    [
+     "cable-fly-low-to-high",
+     0.75,
+     {
+      "bench": "incline"
+     }
+    ],
+    [
+     "cable-fly-mid-height",
+     0.75,
+     {
+      "bench": "incline"
+     }
+    ],
+    [
+     "cable-squeeze-press",
+     0.6,
+     {
+      "bench": "incline"
+     }
+    ],
+    [
+     "cable-close-grip-bench-press",
+     0.38,
+     {
+      "bench": "incline"
+     }
+    ],
+    [
+     "cable-seated-shoulder-press",
+     0.3,
+     {
+      "bench": "incline"
+     }
+    ]
+   ]
+  },
+  {
+   "machine": "cable-crossover",
+   "selection": {
+    "bench": "incline",
+    "handle": "d_handle"
+   },
+   "exerciseCount": 15,
+   "rows": [
+    [
+     "biceps",
+     0.6,
+     1
+    ],
+    [
+     "front_delts",
+     0.75,
+     9
+    ],
+    [
+     "lats",
+     0.3,
+     1
+    ],
+    [
+     "lower_chest",
+     0.75,
+     5
+    ],
+    [
+     "mid_lower_traps",
+     0.6,
+     5
+    ],
+    [
+     "rear_delts",
+     1.0,
+     6
+    ],
+    [
+     "rhomboids_teres",
+     0.6,
+     2
+    ],
+    [
+     "rotator_cuff",
+     0.6,
+     5
+    ],
+    [
+     "side_delts",
+     1.0,
+     7
+    ],
+    [
+     "triceps",
+     1.0,
+     7
+    ],
+    [
+     "upper_chest",
+     0.75,
+     7
+    ],
+    [
+     "upper_traps",
+     0.6,
+     4
+    ]
+   ],
+   "muscleIds": [
+    "upper_chest",
+    "lower_chest"
+   ],
+   "exercises": [
+    [
+     "cable-bench-fly",
+     0.75,
+     {
+      "bench": "incline",
+      "handle": "d_handle"
+     }
+    ],
+    [
+     "cable-bench-press",
+     0.75,
+     {
+      "bench": "incline",
+      "handle": "d_handle"
+     }
+    ],
+    [
+     "cable-fly-low-to-high",
+     0.75,
+     {
+      "bench": "incline",
+      "handle": "d_handle"
+     }
+    ],
+    [
+     "cable-fly-mid-height",
+     0.75,
+     {
+      "bench": "incline",
+      "handle": "d_handle"
+     }
+    ],
+    [
+     "cable-squeeze-press",
+     0.6,
+     {
+      "bench": "incline",
+      "handle": "d_handle"
+     }
+    ],
+    [
+     "cable-close-grip-bench-press",
+     0.38,
+     {
+      "bench": "incline",
+      "handle": "d_handle"
+     }
+    ],
+    [
+     "cable-seated-shoulder-press",
+     0.3,
+     {
+      "bench": "incline",
+      "handle": "d_handle"
+     }
+    ]
+   ]
+  },
+  {
+   "machine": "cable-crossover",
+   "selection": {
+    "bench": "incline",
+    "handle": "rope"
+   },
+   "exerciseCount": 0,
+   "rows": [],
+   "muscleIds": [
+    "upper_chest",
+    "lower_chest"
+   ],
+   "exercises": []
+  },
+  {
+   "machine": "cable-crossover",
+   "selection": {
+    "handle": "rope"
+   },
+   "exerciseCount": 0,
+   "rows": [],
+   "muscleIds": [
+    "triceps"
+   ],
+   "exercises": []
+  },
+  {
+   "machine": "cable-crossover",
+   "selection": {},
+   "exerciseCount": 70,
+   "rows": [
+    [
+     "abductors",
+     0.6,
+     6
+    ],
+    [
+     "abs",
+     1.0,
+     10
+    ],
+    [
+     "adductors",
+     0.6,
+     6
+    ],
+    [
+     "biceps",
+     1.0,
+     18
+    ],
+    [
+     "forearms",
+     1.0,
+     15
+    ],
+    [
+     "front_delts",
+     1.0,
+     26
+    ],
+    [
+     "glutes",
+     1.0,
+     5
+    ],
+    [
+     "hamstrings",
+     1.0,
+     4
+    ],
+    [
+     "hip_flexors",
+     0.6,
+     12
+    ],
+    [
+     "lats",
+     1.0,
+     13
+    ],
+    [
+     "lower_back",
+     0.6,
+     5
+    ],
+    [
+     "lower_chest",
+     1.0,
+     12
+    ],
+    [
+     "mid_lower_traps",
+     0.6,
+     9
+    ],
+    [
+     "obliques",
+     1.0,
+     11
+    ],
+    [
+     "quads_lower",
+     0.6,
+     5
+    ],
+    [
+     "rear_delts",
+     1.0,
+     19
+    ],
+    [
+     "rhomboids_teres",
+     1.0,
+     12
+    ],
+    [
+     "rotator_cuff",
+     1.0,
+     15
+    ],
+    [
+     "serratus_anterior",
+     0.6,
+     5
+    ],
+    [
+     "side_delts",
+     1.0,
+     17
+    ],
+    [
+     "triceps",
+     1.0,
+     18
+    ],
+    [
+     "upper_chest",
+     0.6,
+     11
+    ],
+    [
+     "upper_traps",
+     1.0,
+     11
+    ]
+   ],
+   "muscleIds": [
+    "triceps"
+   ],
+   "exercises": [
+    [
+     "cable-bench-press",
+     1.0,
+     {}
+    ],
+    [
+     "cable-cross-body-triceps-extension",
+     1.0,
+     {}
+    ],
+    [
+     "cable-lying-triceps-extension",
+     1.0,
+     {}
+    ],
+    [
+     "cable-overhead-triceps-extension",
+     1.0,
+     {}
+    ],
+    [
+     "cable-triceps-kickback",
+     1.0,
+     {}
+    ],
+    [
+     "cable-triceps-pushdown",
+     1.0,
+     {}
+    ],
+    [
+     "standing-cable-chest-press",
+     1.0,
+     {}
+    ],
+    [
+     "cable-close-grip-bench-press",
+     0.6,
+     {}
+    ],
+    [
+     "cable-incline-overhead-triceps-extension",
+     0.6,
+     {}
+    ],
+    [
+     "cable-triceps-pushdown-reverse-grip",
+     0.6,
+     {}
+    ],
+    [
+     "cable-lat-prayer",
+     0.3,
+     {}
+    ],
+    [
+     "cable-seated-shoulder-press",
+     0.3,
+     {}
+    ],
+    [
+     "cable-squat-to-press",
+     0.3,
+     {}
+    ],
+    [
+     "cable-squeeze-press",
+     0.3,
+     {}
+    ],
+    [
+     "cable-standing-shoulder-press",
+     0.3,
+     {}
+    ],
+    [
+     "lying-cable-pullover",
+     0.3,
+     {}
+    ],
+    [
+     "overhead-pallof-press",
+     0.3,
+     {}
+    ],
+    [
+     "standing-straight-arm-cable-pulldown",
+     0.3,
+     {}
+    ]
+   ]
+  }
+ ]
+}

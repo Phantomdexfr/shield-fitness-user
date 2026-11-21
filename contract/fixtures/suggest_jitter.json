@@ -1,0 +1,64 @@
+{
+ "spec": "API_CONTRACTS.md P14.3",
+ "fnv1a32": [
+  {
+   "text": "",
+   "hash": 2166136261
+  },
+  {
+   "text": "a",
+   "hash": 3826002220
+  },
+  {
+   "text": "foobar",
+   "hash": 3214735720
+  }
+ ],
+ "jitter": [
+  {
+   "dayKey": "2026-11-19",
+   "slug": "barbell-bench-press",
+   "jitter": 0.1883
+  },
+  {
+   "dayKey": "2026-11-20",
+   "slug": "barbell-bench-press",
+   "jitter": 0.0892
+  },
+  {
+   "dayKey": "2026-11-19",
+   "slug": "pec-deck-fly",
+   "jitter": 0.3995
+  },
+  {
+   "dayKey": "2026-11-19",
+   "slug": "lat-pulldown",
+   "jitter": -0.3894
+  },
+  {
+   "dayKey": "2026-11-19",
+   "slug": "my-cable-curl",
+   "jitter": -0.2616
+  }
+ ],
+ "surprise": [
+  {
+   "dayKey": "2026-11-19",
+   "n": 0,
+   "length": 101,
+   "index": 68
+  },
+  {
+   "dayKey": "2026-11-19",
+   "n": 1,
+   "length": 101,
+   "index": 72
+  },
+  {
+   "dayKey": "2026-11-19",
+   "n": 2,
+   "length": 101,
+   "index": 76
+  }
+ ]
+}

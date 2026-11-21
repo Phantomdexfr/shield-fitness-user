@@ -1,0 +1,63 @@
+Exercises in source (original 199 + new 393): 592
+Mapped exercises: 592; map rows: 2749; shift rows: 312
+[0] exercises missing from map: 0 []; map exercises not in source: []
+[0b] slug mismatches vs extended CSVs: []
+[1] exercises with no primary and not mobility-only: 0 []
+    mobility-only rows (10), flagged exemption:
+     mobility-only: Foam Roller Thoracic Extension
+     mobility-only: Foam Roller Quad Roll
+     mobility-only: Foam Roller Lat Roll
+     mobility-only: Foam Roller Glute Roll
+     mobility-only: Foam Roller Calf Roll
+     mobility-only: Foam Roller Hamstring Roll
+     mobility-only: Cat-Cow
+     mobility-only: Child's Pose
+     mobility-only: 90-90 Hip Switch
+     mobility-only: World's Greatest Stretch
+[1b] exercises with >3 primary muscles: 0 []
+[2] muscle_ids not in taxonomy: []
+[3] taxonomy rows whose parent is not a core id: []
+     (neck is a proposed root with no core parent; parent_group=neck, decision needed.)
+     parent ids with no drawn region used directly as muscle_id (should be none): []
+     drawn core ids that also hold roll-up children, used directly by design (as in batch 1): ['abs', 'calves', 'glutes', 'quads']
+[4] old primary not matched by the parent of any new primary: 102
+    (a) system ids, by design not used as muscle_id: 99 (76 cardio, 23 full_body)
+        cardio/full_body rows are mapped to the muscles that do the work; their old primary has no muscle id to match.
+    (b) individual mismatches: 3
+     Barbell Rack Pull: old=back new_rollup=glutes;lower_back
+     Barbell Snatch-Grip Deadlift: old=back new_rollup=glutes;hamstrings;lower_back
+     Scapular Push-Up: old=shoulders new_rollup=back
+[5] duplicate (exercise, muscle_id) rows: 0 []
+[6] map rows: 2749; shift rows: 312 (batch 1: 124, batch 2: 188); shift rows with unmatched variation/id: 0
+     shift rows whose muscle has no map row for that exercise: batch 2 = 0; batch 1 (unchanged, pre-existing) = 9
+     duplicate shift rows: 0
+[7] counts per detailed muscle (primary / secondary / stabiliser / mobility), machines(primary):
+     lats                42 /  32 /   8 /  2   machines(primary)=18
+     biceps              26 /  55 /   8 /  0   machines(primary)=12
+     triceps             38 /  96 /   2 /  0   machines(primary)=14
+     forearms            22 /  99 /   2 /  0   machines(primary)=8
+     obliques            47 /  40 /  30 /  1   machines(primary)=13
+     hamstrings          49 / 125 /   3 /  3   machines(primary)=15
+     lower_back          18 /  11 /  96 /  2   machines(primary)=8
+     upper_chest         39 /  26 /   0 /  0   machines(primary)=16
+     lower_chest         58 /  20 /   0 /  0   machines(primary)=18
+     front_delts         59 / 143 /  19 /  0   machines(primary)=14
+     side_delts          42 /  36 /   2 /  0   machines(primary)=13
+     rear_delts          20 /  31 /   5 /  0   machines(primary)=9
+     adductors           10 /  71 /   1 /  3   machines(primary)=7
+     abductors           19 /   6 /  76 /  2   machines(primary)=5
+     hip_flexors         27 /  29 /   0 /  5   machines(primary)=9
+     neck                 4 /   0 /   0 /  0   machines(primary)=1
+     upper_traps         21 /  58 /   3 /  0   machines(primary)=9
+     mid_lower_traps     33 /  12 /   6 /  1   machines(primary)=12
+     rhomboids_teres     41 /  30 /   0 /  1   machines(primary)=16
+     quads_lower          0 /  18 /   0 /  0   machines(primary)=0
+     serratus_anterior    1 /   0 /   1 /  0   machines(primary)=0
+     rotator_cuff         7 /   9 /   7 /  0   machines(primary)=5
+     soleus               4 /  26 /   0 /  1   machines(primary)=3
+     tibialis_anterior    1 /   2 /   1 /  0   machines(primary)=0
+     parent ids (rollup primary exercises incl. children): chest=59, back=42, shoulders=100, abs=86, glutes=204, quads=147, calves=40, traps=54
+     not used as muscle_id: ['full_body', 'cardio']
+[8] rows carrying 'contested': 72 of 2749 (batch 1: 28 rows / 28 exercises; batch 2: 44 rows / 43 exercises); total exercises: 71
+[9] cardio-kind exercises: 76; without 'cardio' in any note: []; with a high-emphasis primary: []
+[10] shift rows skipped (variation strings of batch 2 exercises with no shift row): 451; see variation_shift_skipped.csv

@@ -1,0 +1,42 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "p90",
+ "describes": "90th percentile by nearest rank",
+ "cases": [
+  {
+   "values": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20
+   ],
+   "p90": 18
+  },
+  {
+   "values": [
+    3
+   ],
+   "p90": 3
+  },
+  {
+   "values": [],
+   "p90": 0
+  },
+  {
+   "values": [
+    5,
+    1,
+    9,
+    3
+   ],
+   "p90": 9
+  }
+ ]
+}

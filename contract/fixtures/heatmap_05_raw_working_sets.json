@@ -1,0 +1,79 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "rawHeat",
+ "describes": "normal, drop and superset count; warmup and skipped do not; unknown exercise is counted apart",
+ "input": {
+  "exercises": {
+   "A": {
+    "map": [
+     [
+      "m1",
+      "primary",
+      "high"
+     ],
+     [
+      "m2",
+      "secondary",
+      "medium"
+     ]
+    ]
+   }
+  },
+  "window": {
+   "from": "2026-11-16T00:00:00Z",
+   "to": "2026-11-23T00:00:00Z"
+  },
+  "sets": [
+   {
+    "ref": "A",
+    "tag": "normal",
+    "doneAt": "2026-11-17T10:00:00Z"
+   },
+   {
+    "ref": "A",
+    "tag": "normal",
+    "doneAt": "2026-11-17T10:05:00Z"
+   },
+   {
+    "ref": "A",
+    "tag": "normal",
+    "doneAt": "2026-11-17T10:10:00Z"
+   },
+   {
+    "ref": "A",
+    "tag": "warmup",
+    "doneAt": "2026-11-17T09:50:00Z"
+   },
+   {
+    "ref": "A",
+    "tag": "drop",
+    "doneAt": "2026-11-17T10:15:00Z"
+   },
+   {
+    "ref": "A",
+    "tag": "superset",
+    "doneAt": "2026-11-17T10:20:00Z"
+   },
+   {
+    "ref": "A",
+    "tag": "normal",
+    "status": "skipped",
+    "doneAt": "2026-11-17T10:25:00Z"
+   },
+   {
+    "ref": "zzz",
+    "tag": "normal",
+    "doneAt": "2026-11-17T10:30:00Z"
+   }
+  ]
+ },
+ "expect": {
+  "raw": {
+   "m1": 5,
+   "m2": 3
+  },
+  "counted": 5,
+  "unknown": 1
+ }
+}

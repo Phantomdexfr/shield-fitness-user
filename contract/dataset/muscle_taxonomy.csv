@@ -1,0 +1,27 @@
+id,name,group,status
+chest,Chest,upper,core
+back,Back,upper,core
+lats,Lats,upper,core
+shoulders,Shoulders,upper,core
+biceps,Biceps,arms,core
+triceps,Triceps,arms,core
+forearms,Forearms,arms,core
+abs,Abs,core,core
+obliques,Obliques,core,core
+glutes,Glutes,lower,core
+quads,Quads,lower,core
+hamstrings,Hamstrings,lower,core
+calves,Calves,lower,core
+lower_back,Lower Back,core,core
+traps,Traps,upper,core
+full_body,Full Body,other,core
+cardio,Cardio,other,core
+upper_chest,Upper Chest,upper,proposed
+lower_chest,Lower Chest,upper,proposed
+front_delts,Front Delts,upper,proposed
+side_delts,Side Delts,upper,proposed
+rear_delts,Rear Delts,upper,proposed
+adductors,Adductors,lower,proposed
+abductors,Abductors,lower,proposed
+hip_flexors,Hip Flexors,core,proposed
+neck,Neck,upper,proposed

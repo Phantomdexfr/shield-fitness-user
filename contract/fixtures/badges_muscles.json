@@ -1,0 +1,2806 @@
+{
+ "note": "Muscle badge scenarios (engines.md 26.5-26.6) on a small ladder set, worked by an independent script. Expected values: tiers are positions 0 (Wood) to 8 (Olympian); progress and mp rounded to 4 dp, kg to 2 dp. Only the keys listed in `expect` are checked.",
+ "data": {
+  "ladders": [
+   {
+    "ladderId": "bench",
+    "name": "Bench",
+    "kind": "barbell",
+    "bwFraction": 0,
+    "anchorM": 1.95,
+    "anchorF": 1.35,
+    "refBwM": 80,
+    "refBwF": 60,
+    "muscles": {
+     "chest": 1.0,
+     "front_delts": 0.5,
+     "triceps": 0.7
+    },
+    "source": "published"
+   },
+   {
+    "ladderId": "squat",
+    "name": "Squat",
+    "kind": "barbell",
+    "bwFraction": 0,
+    "anchorM": 2.83,
+    "anchorF": 2.26,
+    "refBwM": 80,
+    "refBwF": 60,
+    "muscles": {
+     "quads": 1.0,
+     "glutes": 0.8
+    },
+    "source": "published"
+   },
+   {
+    "ladderId": "pullup",
+    "name": "Pull-up",
+    "kind": "bodyweight",
+    "bwFraction": 1.0,
+    "anchorM": 1.3,
+    "anchorF": 0.9,
+    "refBwM": 80,
+    "refBwF": 60,
+    "muscles": {
+     "lats": 1.0,
+     "biceps": 0.6
+    },
+    "source": "estimate"
+   },
+   {
+    "ladderId": "curl",
+    "name": "Curl",
+    "kind": "barbell",
+    "bwFraction": 0,
+    "anchorM": 0.9,
+    "anchorF": 0.55,
+    "refBwM": 80,
+    "refBwF": 60,
+    "muscles": {
+     "biceps": 1.0
+    },
+    "source": "estimate"
+   },
+   {
+    "ladderId": "calf",
+    "name": "Calf raise",
+    "kind": "machine",
+    "bwFraction": 0,
+    "anchorM": 2.0,
+    "anchorF": 1.5,
+    "refBwM": 80,
+    "refBwF": 60,
+    "muscles": {
+     "calves": 1.0
+    },
+    "source": "estimate"
+   }
+  ],
+  "map": [
+   {
+    "slug": "bench-press",
+    "ladderId": "bench",
+    "factor": 1.0,
+    "loadMode": "total"
+   },
+   {
+    "slug": "incline-db-press",
+    "ladderId": "bench",
+    "factor": 0.8,
+    "loadMode": "per_hand"
+   },
+   {
+    "slug": "back-squat",
+    "ladderId": "squat",
+    "factor": 1.0,
+    "loadMode": "total"
+   },
+   {
+    "slug": "pull-up",
+    "ladderId": "pullup",
+    "factor": 1.0,
+    "loadMode": "bodyweight"
+   },
+   {
+    "slug": "curl",
+    "ladderId": "curl",
+    "factor": 1.0,
+    "loadMode": "total"
+   },
+   {
+    "slug": "calf-raise",
+    "ladderId": "calf",
+    "factor": 1.0,
+    "loadMode": "total"
+   }
+  ],
+  "tiers": [
+   {
+    "id": "wood",
+    "name": "Wood",
+    "position": 0,
+    "fraction": 0.0,
+    "experienceSets": 0
+   },
+   {
+    "id": "beginner",
+    "name": "Beginner",
+    "position": 1,
+    "fraction": 0.25,
+    "experienceSets": 10
+   },
+   {
+    "id": "bronze",
+    "name": "Bronze",
+    "position": 2,
+    "fraction": 0.4,
+    "experienceSets": 40
+   },
+   {
+    "id": "silver",
+    "name": "Silver",
+    "position": 3,
+    "fraction": 0.55,
+    "experienceSets": 120
+   },
+   {
+    "id": "gold",
+    "name": "Gold",
+    "position": 4,
+    "fraction": 0.68,
+    "experienceSets": 300
+   },
+   {
+    "id": "platinum",
+    "name": "Platinum",
+    "position": 5,
+    "fraction": 0.8,
+    "experienceSets": 650
+   },
+   {
+    "id": "diamond",
+    "name": "Diamond",
+    "position": 6,
+    "fraction": 0.9,
+    "experienceSets": 1300
+   },
+   {
+    "id": "master",
+    "name": "Master",
+    "position": 7,
+    "fraction": 0.95,
+    "experienceSets": 2500
+   },
+   {
+    "id": "olympian",
+    "name": "Olympian",
+    "position": 8,
+    "fraction": 1.0,
+    "experienceSets": 4500
+   }
+  ]
+ },
+ "cases": [
+  {
+   "name": "male 80 kg, one bench set: chest Gold 57% to Platinum, shoulders one tier lower (rank 0.5), triceps Gold",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "estimated": false,
+    "bodyweightKg": 80,
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 4,
+      "progress": 0.5655,
+      "peak": 4,
+      "best": "bench",
+      "nextKg": 124.8
+     },
+     "front_delts": {
+      "tier": 3,
+      "progress": 0.5655,
+      "peak": 3,
+      "best": "bench",
+      "nextKg": 124.8
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 4,
+      "progress": 0.5655,
+      "peak": 4,
+      "best": "bench",
+      "nextKg": 124.8
+     }
+    },
+    "groups": {
+     "chest": 4,
+     "shoulders": 3,
+     "triceps": 4,
+     "back": null,
+     "biceps": null,
+     "quads": null,
+     "glutes": null,
+     "calves": null
+    },
+    "overall": {
+     "tier": 4,
+     "provisional": true
+    },
+    "experience": {
+     "chest": {
+      "mp": 1.0,
+      "tier": 0
+     },
+     "front_delts": {
+      "mp": 0.6,
+      "tier": 0
+     },
+     "triceps": {
+      "mp": 0.6,
+      "tier": 0
+     }
+    },
+    "rusty": {
+     "chest": false,
+     "front_delts": false,
+     "triceps": false
+    },
+    "needsConfirm": 0
+   }
+  },
+  {
+   "name": "muscle with only a secondary ladder, weak lift: ranked Wood, not Unranked",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 40,
+          "reps": 3
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 1,
+      "progress": 0.2137,
+      "peak": 1,
+      "best": "bench",
+      "nextKg": 62.4
+     },
+     "front_delts": {
+      "tier": 0,
+      "progress": 0.2137,
+      "peak": 0,
+      "best": "bench",
+      "nextKg": 62.4
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 1,
+      "progress": 0.2137,
+      "peak": 1,
+      "best": "bench",
+      "nextKg": 62.4
+     }
+    }
+   }
+  },
+  {
+   "name": "a lift 400 days ago still sets the peak; today counts only the last 365 days",
+   "input": {
+    "sessions": [
+     {
+      "id": "old",
+      "day": "2025-10-06",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 140,
+          "reps": 1
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 4,
+      "progress": 0.5655,
+      "peak": 5,
+      "best": "bench",
+      "nextKg": 124.8
+     },
+     "front_delts": {
+      "tier": 3,
+      "progress": 0.5655,
+      "peak": 4,
+      "best": "bench",
+      "nextKg": 124.8
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 4,
+      "progress": 0.5655,
+      "peak": 5,
+      "best": "bench",
+      "nextKg": 124.8
+     }
+    }
+   }
+  },
+  {
+   "name": "stored peak 6 is never lowered",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    },
+    "peaks": {
+     "chest": 6
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 4,
+      "progress": 0.5655,
+      "peak": 6,
+      "best": "bench",
+      "nextKg": 124.8
+     },
+     "front_delts": {
+      "tier": 3,
+      "progress": 0.5655,
+      "peak": 3,
+      "best": "bench",
+      "nextKg": 124.8
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 4,
+      "progress": 0.5655,
+      "peak": 4,
+      "best": "bench",
+      "nextKg": 124.8
+     }
+    }
+   }
+  },
+  {
+   "name": "group median, odd count (4, 4, 3 -> 4) and even count (4, 3 -> 3, rounded down)",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "odd": [
+      "chest",
+      "triceps",
+      "front_delts"
+     ],
+     "even": [
+      "chest",
+      "front_delts"
+     ],
+     "none": [
+      "quads"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "groups": {
+     "odd": 4,
+     "even": 3,
+     "none": null
+    }
+   }
+  },
+  {
+   "name": "unspecified sex: anchors and reference bodyweight averaged, labelled Estimated",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "unspecified",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "estimated": true,
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 6,
+      "progress": 0.4731,
+      "peak": 6,
+      "best": "bench",
+      "nextKg": 119.99
+     },
+     "front_delts": {
+      "tier": 5,
+      "progress": 0.4731,
+      "peak": 5,
+      "best": "bench",
+      "nextKg": 119.99
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 6,
+      "progress": 0.4731,
+      "peak": 6,
+      "best": "bench",
+      "nextKg": 119.99
+     }
+    }
+   }
+  },
+  {
+   "name": "female, 60 kg",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 60,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 60
+     }
+    ],
+    "sex": "f",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "bodyweightKg": 60,
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 5,
+      "progress": 0.642,
+      "peak": 5,
+      "best": "bench",
+      "nextKg": 72.9
+     },
+     "front_delts": {
+      "tier": 4,
+      "progress": 0.642,
+      "peak": 4,
+      "best": "bench",
+      "nextKg": 72.9
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 5,
+      "progress": 0.642,
+      "peak": 5,
+      "best": "bench",
+      "nextKg": 72.9
+     }
+    }
+   }
+  },
+  {
+   "name": "365-day window: 364 days back counts (asOf 2026-11-10 -> 2025-11-11), 365 days back does not (2025-11-10)",
+   "input": {
+    "sessions": [
+     {
+      "id": "a",
+      "day": "2025-11-11",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "b",
+      "day": "2025-11-10",
+      "exercises": [
+       {
+        "slug": "back-squat",
+        "weights": {
+         "quads": 1.0,
+         "glutes": 0.8
+        },
+        "sets": [
+         {
+          "weightKg": 150,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 4,
+      "progress": 0.5655,
+      "peak": 4,
+      "best": "bench",
+      "nextKg": 124.8
+     },
+     "front_delts": {
+      "tier": 3,
+      "progress": 0.5655,
+      "peak": 3,
+      "best": "bench",
+      "nextKg": 124.8
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": 4,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": 4,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 4,
+      "progress": 0.5655,
+      "peak": 4,
+      "best": "bench",
+      "nextKg": 124.8
+     }
+    }
+   }
+  },
+  {
+   "name": "needs bodyweight: no body stats at all",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "needs_input",
+    "needsBodyweight": true,
+    "needsSex": false
+   }
+  },
+  {
+   "name": "needs sex: never asked",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": null,
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "needs_input",
+    "needsBodyweight": false,
+    "needsSex": true
+   }
+  },
+  {
+   "name": "needs both",
+   "input": {
+    "sessions": [],
+    "bodyStats": [],
+    "sex": null,
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "needs_input",
+    "needsBodyweight": true,
+    "needsSex": true
+   }
+  },
+  {
+   "name": "implausible set waits for a confirm and counts for nothing",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 400,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "front_delts": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     }
+    },
+    "needsConfirm": 1
+   }
+  },
+  {
+   "name": "the same set confirmed counts (capped at Olympian)",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 400,
+          "reps": 5,
+          "confirmed": true
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 8,
+      "progress": 1.0,
+      "peak": 8,
+      "best": "bench",
+      "nextKg": null
+     },
+     "front_delts": {
+      "tier": 7,
+      "progress": 0.0,
+      "peak": 7,
+      "best": "bench",
+      "nextKg": 156.0
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 8,
+      "progress": 1.0,
+      "peak": 8,
+      "best": "bench",
+      "nextKg": null
+     }
+    },
+    "needsConfirm": 0
+   }
+  },
+  {
+   "name": "per-hand dumbbell at factor 0.8 (2 x 30 kg, 8 reps -> 95 kg bench)",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "incline-db-press",
+        "weights": {
+         "chest": 0.8,
+         "front_delts": 0.9,
+         "triceps": 0.5
+        },
+        "sets": [
+         {
+          "weightKg": 30,
+          "reps": 8
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "muscles": {
+     "biceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": 3,
+      "progress": 0.4536,
+      "peak": 3,
+      "best": "bench",
+      "nextKg": 106.08
+     },
+     "front_delts": {
+      "tier": 2,
+      "progress": 0.4536,
+      "peak": 2,
+      "best": "bench",
+      "nextKg": 106.08
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": 3,
+      "progress": 0.4536,
+      "peak": 3,
+      "best": "bench",
+      "nextKg": 106.08
+     }
+    }
+   }
+  },
+  {
+   "name": "pull-up with bodyweight read on the day (70 kg in Feb), thresholds at today's 80 kg",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-02-01",
+      "exercises": [
+       {
+        "slug": "pull-up",
+        "weights": {
+         "lats": 1.0,
+         "biceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": null,
+          "reps": 8
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 70
+     },
+     {
+      "day": "2026-06-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "bodyweightKg": 80,
+    "muscles": {
+     "biceps": {
+      "tier": 5,
+      "progress": 0.5256,
+      "peak": 5,
+      "best": "pullup",
+      "nextKg": 93.6
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "front_delts": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": 5,
+      "progress": 0.5256,
+      "peak": 5,
+      "best": "pullup",
+      "nextKg": 93.6
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     }
+    }
+   }
+  },
+  {
+   "name": "pull-up with 10 kg added at 80 kg",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "pull-up",
+        "weights": {
+         "lats": 1.0,
+         "biceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 10,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "muscles": {
+     "biceps": {
+      "tier": 8,
+      "progress": 1.0,
+      "peak": 8,
+      "best": "pullup",
+      "nextKg": null
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "front_delts": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": 8,
+      "progress": 1.0,
+      "peak": 8,
+      "best": "pullup",
+      "nextKg": null
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     }
+    }
+   }
+  },
+  {
+   "name": "a session before the first body stat uses the first stat; a session after asOf is ignored",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2025-12-01",
+      "exercises": [
+       {
+        "slug": "pull-up",
+        "weights": {
+         "lats": 1.0,
+         "biceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": null,
+          "reps": 8
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "future",
+      "day": "2026-12-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 200,
+          "reps": 3
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 75
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "bodyweightKg": 75,
+    "muscles": {
+     "biceps": {
+      "tier": 7,
+      "progress": 0.0765,
+      "peak": 7,
+      "best": "pullup",
+      "nextKg": 99.6
+     },
+     "calves": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "chest": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "front_delts": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "glutes": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "lats": {
+      "tier": 7,
+      "progress": 0.0765,
+      "peak": 7,
+      "best": "pullup",
+      "nextKg": 99.6
+     },
+     "quads": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     },
+     "triceps": {
+      "tier": null,
+      "progress": null,
+      "peak": null,
+      "best": null,
+      "nextKg": null
+     }
+    }
+   }
+  },
+  {
+   "name": "experience: 12-per-muscle session cap, warm-ups and reps under 3 do not count",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "back-squat",
+        "weights": {
+         "quads": 1.0,
+         "glutes": 0.8
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       },
+       {
+        "slug": "curl",
+        "weights": {
+         "biceps": 1.0
+        },
+        "sets": [
+         {
+          "weightKg": 20,
+          "reps": 2
+         },
+         {
+          "weightKg": 20,
+          "reps": 10,
+          "tag": "warmup"
+         },
+         {
+          "weightKg": 30,
+          "reps": 3
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s2",
+      "day": "2026-11-05",
+      "exercises": [
+       {
+        "slug": "back-squat",
+        "weights": {
+         "quads": 1.0,
+         "glutes": 0.8
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         },
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "experience": {
+     "quads": {
+      "mp": 15.0,
+      "tier": 1
+     },
+     "glutes": {
+      "mp": 14.4,
+      "tier": 1
+     },
+     "biceps": {
+      "mp": 1.0,
+      "tier": 0
+     }
+    }
+   }
+  },
+  {
+   "name": "rust: more than 42 days is rusty, exactly 42 is not, warm-up only does not count as training",
+   "input": {
+    "sessions": [
+     {
+      "id": "a",
+      "day": "2026-09-29",
+      "exercises": [
+       {
+        "slug": "back-squat",
+        "weights": {
+         "quads": 1.0,
+         "glutes": 0.8
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "b",
+      "day": "2026-09-28",
+      "exercises": [
+       {
+        "slug": "curl",
+        "weights": {
+         "biceps": 1.0
+        },
+        "sets": [
+         {
+          "weightKg": 30,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "c",
+      "day": "2026-11-09",
+      "exercises": [
+       {
+        "slug": "calf-raise",
+        "weights": {
+         "calves": 1.0
+        },
+        "sets": [
+         {
+          "weightKg": 60,
+          "reps": 12,
+          "tag": "warmup"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "rusty": {
+     "biceps": true,
+     "quads": false,
+     "glutes": false
+    }
+   }
+  },
+  {
+   "name": "exactly five groups ranked (chest, shoulders, triceps, quads, glutes): overall is the median and no longer provisional",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       },
+       {
+        "slug": "back-squat",
+        "weights": {
+         "quads": 1.0,
+         "glutes": 0.8
+        },
+        "sets": [
+         {
+          "weightKg": 140,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "triceps": [
+      "triceps"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "groups": {
+     "chest": 4,
+     "shoulders": 3,
+     "triceps": 4,
+     "back": null,
+     "biceps": null,
+     "quads": 4,
+     "glutes": 4,
+     "calves": null
+    },
+    "overall": {
+     "tier": 4,
+     "provisional": false
+    }
+   }
+  },
+  {
+   "name": "four groups ranked (triceps left out of the groups): overall is provisional",
+   "input": {
+    "sessions": [
+     {
+      "id": "s1",
+      "day": "2026-11-01",
+      "exercises": [
+       {
+        "slug": "bench-press",
+        "weights": {
+         "chest": 1.0,
+         "front_delts": 0.6,
+         "triceps": 0.6
+        },
+        "sets": [
+         {
+          "weightKg": 100,
+          "reps": 5
+         }
+        ]
+       },
+       {
+        "slug": "back-squat",
+        "weights": {
+         "quads": 1.0,
+         "glutes": 0.8
+        },
+        "sets": [
+         {
+          "weightKg": 140,
+          "reps": 5
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "bodyStats": [
+     {
+      "day": "2026-01-01",
+      "kg": 80
+     }
+    ],
+    "sex": "m",
+    "asOf": "2026-11-10",
+    "groups": {
+     "chest": [
+      "chest"
+     ],
+     "shoulders": [
+      "front_delts"
+     ],
+     "back": [
+      "lats"
+     ],
+     "biceps": [
+      "biceps"
+     ],
+     "quads": [
+      "quads"
+     ],
+     "glutes": [
+      "glutes"
+     ],
+     "calves": [
+      "calves"
+     ]
+    }
+   },
+   "expect": {
+    "status": "ok",
+    "groups": {
+     "chest": 4,
+     "shoulders": 3,
+     "back": null,
+     "biceps": null,
+     "quads": 4,
+     "glutes": 4,
+     "calves": null
+    },
+    "overall": {
+     "tier": 4,
+     "provisional": true
+    }
+   }
+  }
+ ],
+ "promotions": {
+  "name": "promotions: session p2 lifts chest Silver->Gold (and shoulders, triceps), squat ranks Wood->Beginner or higher; p3 repeats p2 and promotes nothing",
+  "sessions": [
+   {
+    "id": "p1",
+    "day": "2026-10-01",
+    "exercises": [
+     {
+      "slug": "bench-press",
+      "weights": {
+       "chest": 1.0,
+       "front_delts": 0.6,
+       "triceps": 0.6
+      },
+      "sets": [
+       {
+        "weightKg": 80,
+        "reps": 5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "day": "2026-10-15",
+    "exercises": [
+     {
+      "slug": "bench-press",
+      "weights": {
+       "chest": 1.0,
+       "front_delts": 0.6,
+       "triceps": 0.6
+      },
+      "sets": [
+       {
+        "weightKg": 100,
+        "reps": 5
+       }
+      ]
+     },
+     {
+      "slug": "back-squat",
+      "weights": {
+       "quads": 1.0,
+       "glutes": 0.8
+      },
+      "sets": [
+       {
+        "weightKg": 100,
+        "reps": 5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "day": "2026-11-01",
+    "exercises": [
+     {
+      "slug": "bench-press",
+      "weights": {
+       "chest": 1.0,
+       "front_delts": 0.6,
+       "triceps": 0.6
+      },
+      "sets": [
+       {
+        "weightKg": 100,
+        "reps": 5
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "bodyStats": [
+   {
+    "day": "2026-01-01",
+    "kg": 80
+   }
+  ],
+  "sex": "m",
+  "groups": {
+   "chest": [
+    "chest"
+   ],
+   "shoulders": [
+    "front_delts"
+   ],
+   "triceps": [
+    "triceps"
+   ],
+   "back": [
+    "lats"
+   ],
+   "biceps": [
+    "biceps"
+   ],
+   "quads": [
+    "quads"
+   ],
+   "glutes": [
+    "glutes"
+   ],
+   "calves": [
+    "calves"
+   ]
+  },
+  "expect": {
+   "p1": [
+    {
+     "kind": "muscle",
+     "id": "chest",
+     "from": null,
+     "to": 3
+    },
+    {
+     "kind": "muscle",
+     "id": "front_delts",
+     "from": null,
+     "to": 2
+    },
+    {
+     "kind": "muscle",
+     "id": "triceps",
+     "from": null,
+     "to": 3
+    },
+    {
+     "kind": "group",
+     "id": "chest",
+     "from": null,
+     "to": 3
+    },
+    {
+     "kind": "group",
+     "id": "shoulders",
+     "from": null,
+     "to": 2
+    },
+    {
+     "kind": "group",
+     "id": "triceps",
+     "from": null,
+     "to": 3
+    },
+    {
+     "kind": "overall",
+     "id": "overall",
+     "from": null,
+     "to": 3
+    }
+   ],
+   "p2": [
+    {
+     "kind": "muscle",
+     "id": "chest",
+     "from": 3,
+     "to": 4
+    },
+    {
+     "kind": "muscle",
+     "id": "front_delts",
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "muscle",
+     "id": "glutes",
+     "from": null,
+     "to": 2
+    },
+    {
+     "kind": "muscle",
+     "id": "quads",
+     "from": null,
+     "to": 2
+    },
+    {
+     "kind": "muscle",
+     "id": "triceps",
+     "from": 3,
+     "to": 4
+    },
+    {
+     "kind": "group",
+     "id": "chest",
+     "from": 3,
+     "to": 4
+    },
+    {
+     "kind": "group",
+     "id": "glutes",
+     "from": null,
+     "to": 2
+    },
+    {
+     "kind": "group",
+     "id": "quads",
+     "from": null,
+     "to": 2
+    },
+    {
+     "kind": "group",
+     "id": "shoulders",
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "group",
+     "id": "triceps",
+     "from": 3,
+     "to": 4
+    }
+   ],
+   "p3": []
+  }
+ }
+}

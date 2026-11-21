@@ -1,0 +1,39 @@
+{
+ "_doc": "Plan-share test vectors (User Phase 41), generated with node:crypto, not with the app code. contract/plan-share.md sections 2-3. Plaintext stream = 1 flag byte (0 raw, 1 gzip) + JSON.",
+ "secretHex": "00112233445566778899",
+ "code": "008J-4CT4-ANK7-F24S",
+ "id": "1bb238ad8f1143f62a44b144bf6fab14",
+ "ivHex": "a0a1a2a3a4a5a6a7a8a9aaab",
+ "plaintext": "{\"schema\":\"SFPLAN1\",\"contractMajor\":1,\"createdAt\":\"2026-11-20T00:00:00.000Z\",\"from\":\"Asha\",\"note\":\"Try this for 6 weeks\",\"routine\":{\"name\":\"Push Pull Legs\",\"splitStyle\":\"ppl\",\"daysPerWeek\":3,\"weekdays\":[0,2,4],\"days\":[{\"name\":\"Push\",\"targetMuscles\":[\"chest\",\"triceps\"],\"items\":[{\"ref\":{\"kind\":\"lib\",\"slug\":\"barbell-bench-press\"},\"sets\":4,\"repMin\":6,\"repMax\":8,\"restSec\":150},{\"ref\":{\"kind\":\"custom\",\"id\":\"my-landmine-press\"},\"sets\":3,\"repMin\":8,\"repMax\":12,\"restSec\":90,\"note\":\"Slow lowering\"}]},{\"name\":\"Pull\",\"targetMuscles\":[\"lats\"],\"items\":[{\"ref\":{\"kind\":\"lib\",\"slug\":\"lat-pulldown\"},\"sets\":3,\"repMin\":8,\"repMax\":12,\"restSec\":90}]},{\"name\":\"Legs\",\"targetMuscles\":[\"quadriceps\"],\"items\":[{\"ref\":{\"kind\":\"lib\",\"slug\":\"barbell-squat\"},\"sets\":4,\"repMin\":5,\"repMax\":8,\"restSec\":180}]}],\"schedule\":{\"mode\":\"weekdays\",\"weekdays\":[0,2,4]}},\"customExercises\":[{\"name\":\"Landmine Press\",\"slug\":\"my-landmine-press\",\"kind\":\"strength\",\"machineSlug\":null,\"muscles\":[{\"id\":\"chest_upper\",\"role\":\"primary\",\"emphasis\":\"high\"},{\"id\":\"deltoid_front\",\"role\":\"secondary\",\"emphasis\":\"medium\"}],\"repMin\":8,\"repMax\":12}]}",
+ "rawCiphertextBase64": "oKGio6Slpqeoqaqrn3k6K0LjolO/2u2Tnv1Z6T1tz+nvOgoL7t9qNemHv7KqbY2Gb3t2WIZovHUf+pYaFpPYPt0lBfgJOQxkF+3DRRozVhQAcfqo+2i5MZ1XVQAB1GIQFEXvMoa2oYO+nKLS5Gv82P+LL2+InzCZcYbXSwuLtVb8V60qTrwpS7HRH9kQ/IZljZNUCBFVrtW3KDD2LGJjBN3AdiKTYk8oRtdb5uRRBhmhK4ul5jaLVD4hC9yiCoK2x5+Pd3JrSnsX+EIfruGlgyj4VBXac7doUyrQkngs8wXv2FqXEG/2THp2LLk1AGKBk53zUargo8vC+ecLvlkRMtuqOjquRM6hQtyPnZBs9/pCvWBVIFnsL1uPJ2Ic/IT5SlEaUJ+ru28rliJ0O+n6DaU1y8x8pN+WDmMoo0uQw39fECt2/vrCnfE3KKzBGzUTImCTEOWTBWOB5NKss/gbRGerRprCVSZiBt2fy7lBqtxhql1HZ7Ha9ZfrLWBrehNT6ZxCpmd613oyG7p2MydBM+ZZE7igI+sQnKqNyIuxSRItVFT8UAFBX0q3qvzEQVXcIsPF3X/UbPNUG2zFH27jAd3O3LlbW0hQ33poAARntVMC0ryQXRpd0Tbd65F1z3hqxrMbk5Fkp5eHdKO+RQgLRsjcSsG+V8wktGihMTXIWENkeNchPP7O2AUzu5PLxx+RuKrvI76Wj6XSxML7xSfMF3vwc76Yh9BiaUWMrTJAP1ONsJ/XLyl35octmLbhmZhg/o8yXabTg4oyN4EqVJgZFtP5t01Fprl8UXw9ylL5hFpd6oEGyNxjgP9T6Uk4FSTNbhsjEQxgoiZNx91I5VkfSyRPdUOJxYPevZRB0yi8JNMfDvXVRRaAaoaT48bD7V0LGAqfU5pcVh02ZwqPnbfm6L+vmln3ns408gDbNjuqMk77kL8Tua3sIMoRvuZo92xUYvkFMUnLtDot2pJueinH3HlgfAn7+ewfSwgX84SIVhWlvlKxjSC9XWS9SLAa5Scm5VlB+Lg6SSxvqh2+poGGoL3TKKXyYta6H753SyDZGjeEyZ79R17ez/3pK2adFgrIW8IyDgj0EPQFc4yRwjAJOd5MXzRB3HS7I/r+cUq7uNxgkTID+tcV9LkfMR1tJhS677byUcEfR5vpC9wzvJ4c//oDC647goUtKOlEiypKzkqZLRQPZYmb2OxAzLsmw9Dc+uqJshWPOY+T+Zwo3HuCF2SyAFsiyN9pe7Do9FYibP/c8O8Rx2PX/bq45wCAq7+4GnWuSbkPdRr+nbc7U5SzGluLDOfbyHcYF74ao/qWR1+iE2dfn99iCpuv+rg1vD9xsiVAHZTwPCOmi4sC4TYuUKbODFpfWAsrDnCDxhbh8tEB1MwAB3KRDp/mH23V02O/9dHWf+mQbc4u013hxn1FZ1hbeieYElNICaeOi8Wa4uy7QdVF7X0RZuhx4OWdo3zshuSbKczifxkbotY5K8rQ9Zye1LOHZyar8w==",
+ "gzipIvHex": "b0b1b2b3b4b5b6b7b8b9babb",
+ "gzipCiphertextBase64": "sLGys7S1tre4ubq7ksUSgZnlfsmyQLfT7v13OgeJ/L78wfBGQ+EX09Q2mmZXJMe9/dtymC/Mo8qgYmo35WF1gMoqDk0wvFY2ywUQ2CoenWo8PhPhlFbmsgEtoUSn7L7ryTKfUobbVPbbiWubJ1r7aq53JZ88kMwMA7ZgcH2lTe2nNxPS24GoBkFJuNxNpnntgk4kswZGarpni38XMIijdxDppj66D0CUrZXbZ4V+iYOsUcmgSe/YePs/l8sV6RAurq/4AwKv7XF0NcIKovngA5E43/vQpn7xsnu34xFWFYKyJw5VXpWFxbOLg86J5UPh38KHw4pchOyasUnsjTEGhvr8Y5TkZ3/hFz1MCNZGtTl7Tw9FraZWUKcawn8LhZb+kXz3zqUT9aDVpEATMDlGijg9CSjo46iY7F29jtqdv8zr3E8vyGlOL2T7PcNz2tkV2P4Os9PuhgLsl0gmoiQBs3CoZL5Sk8dshwh8Rv1fyMIhqYLHmxgRBFD1f87byVTKEGm3DAN/pYp8GoLq59L5Bt6ZZC3Rfhc03UQVuoB0zN00804EZ8Dqphx5lwicD7lscKp0bHplb3HG31q7wsPb+b1rs9EAB8OQwmtu+QxmH1GxE3WNWU3sZoJs9h4u9VAO3CoJDv7MKSKmwBd/SrvAbt9mRPIHPXHZEgBanrjZLX2Byib+QDG3FD9AewiOQljpLWEzkEmctGo+f6g=",
+ "typedVariants": [
+  "008j-4ct4-ank7-f24s",
+  "008J 4CT4 ANK7 F24S",
+  "008j4ct4ank7f24s",
+  " 008J-4CT4-ANK7-F24S "
+ ],
+ "typoMapped": {
+  "_doc": "Crockford typo mapping: I and L read as 1, O reads as 0. These typed codes must decrypt the same plan.",
+  "codes": [
+   "OO8J-4CT4-ANK7-F24S",
+   "oo8J-4CT4-ANK7-F24S"
+  ]
+ },
+ "wrongCode": "008J-4CT4-ANK7-F240",
+ "tamper": {
+  "_doc": "Flip one bit of byte N of the raw ciphertext (N counted from 0 over iv || ct || tag): decrypt must fail.",
+  "byteIndexes": [
+   0,
+   12,
+   40,
+   1128
+  ]
+ },
+ "caps": {
+  "plaintextBytes": 65536,
+  "ciphertextBytes": 49152,
+  "relayIdHexChars": 32
+ }
+}

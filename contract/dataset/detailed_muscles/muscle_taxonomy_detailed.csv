@@ -1,0 +1,35 @@
+id,name,parent_group,group,status,note,map_regions
+chest,Chest,chest,upper,core,Parent of upper_chest and lower_chest. Detailed rows use the children.,none (split into upper_chest / lower_chest; HTML AGG expands chest to both)
+back,Back,back,upper,core,Parent of rhomboids_teres and serratus_anterior.,back:1-2 on male/female back view (see rhomboids_teres)
+lats,Lats,lats,upper,core,"Leaf: one drawn region, no meaningful split on the map.",lats:1-2 (back view)
+shoulders,Shoulders,shoulders,upper,core,Parent of front/side/rear delts and rotator_cuff.,none (split into front/side/rear delts)
+biceps,Biceps,biceps,arms,core,"Leaf: one drawn region. Long/short head split not added (not drawn, evidence contested).",biceps:1-2 (front)
+triceps,Triceps,triceps,arms,core,Leaf: one drawn region. Head split not added (not drawn).,triceps:1-2 (front and back)
+forearms,Forearms,forearms,arms,core,Leaf: one drawn region. Flexor/extensor/brachioradialis/grip are described in row notes only.,forearms:1-2 (front and back)
+abs,Abs,abs,core,core,Leaf for this batch (drawn as 2 full-length regions). Upper/lower rectus not drawn. Core pending in batch 2.,abs:1-2 (front)
+obliques,Obliques,obliques,core,core,Leaf (drawn front and back). Pending in batch 2.,obliques:1-2 (front and back)
+glutes,Glutes,glutes,lower,core,Leaf = gluteus maximus region (drawn). Medius/minimus map to abductors.,glutes:1-2 (back)
+quads,Quads,quads,lower,core,Main thigh region (rectus femoris + vasti). Parent of quads_lower.,"quads:1-2 (front, main thigh)"
+hamstrings,Hamstrings,hamstrings,lower,core,Leaf: one drawn region. Biceps femoris vs semis not split.,hamstrings:1-2 (back)
+calves,Calves,calves,lower,core,Drawn calves region (gastrocnemius). Parent of soleus and tibialis_anterior.,calves:1-2 (front and back)
+lower_back,Lower Back,lower_back,core,core,Leaf: one drawn erector region.,lower_back:1-2 (back)
+traps,Traps,traps,upper,core,Parent of upper_traps and mid_lower_traps.,none (split into upper_traps / mid_lower_traps)
+full_body,Full Body,full_body,other,core,"System id, not split.",none (system id)
+cardio,Cardio,cardio,other,core,"System id, not split.",none (system id)
+upper_chest,Upper Chest,chest,upper,proposed,Clavicular pec fibres. Drawn on the map. Incline pressing raises its activity (EMG-supported).,upper_chest:1-2 (front)
+lower_chest,Lower Chest,chest,upper,proposed,"Map region covering sternal (mid) and costal (lower) pec fibres. Decline-based ""lower chest"" targeting is contested.",lower_chest:1-2 (front)
+front_delts,Front Delts,shoulders,upper,proposed,Anterior deltoid. Drawn on the map.,front_delts:1-2 (front)
+side_delts,Side Delts,shoulders,upper,proposed,Lateral deltoid. Drawn on the map.,side_delts:1-2 (front and back)
+rear_delts,Rear Delts,shoulders,upper,proposed,Posterior deltoid. Drawn on the map.,rear_delts:1-2 (back)
+adductors,Adductors,quads,lower,proposed,Inner thigh. Drawn on the map. Roll-up to quads follows the placeholder in MACHINE_DATA_NOTES.md.,adductors:1-2 (front and back)
+abductors,Abductors,glutes,lower,proposed,Outer hip: glute medius/minimus/TFL zone. Drawn on the map. Roll-up to glutes follows the placeholder in the notes.,abductors:1-2 (front and back)
+hip_flexors,Hip Flexors,abs,core,proposed,Iliopsoas / rectus femoris at the hip. No map region (HTML falls back to quads). Roll-up to abs follows the placeholder in the notes.,none (HTML FALLBACK draws it on quads)
+neck,Neck,neck,upper,proposed,Drawn as one region: flexors/extensors/lateral flexors are NOT split. Has no core parent (proposed root); needs your decision.,neck:1 (front and back)
+upper_traps,Upper Traps,traps,upper,proposed,Neck-to-shoulder slope. Drawn: traps units on the front and traps:1-2 on the back (top).,traps front:1-2; back:1-2
+mid_lower_traps,Mid & Lower Traps,traps,upper,proposed,Diamond-shaped mid-back zone. Drawn: traps:3-4 on the back. One region covers mid and lower fibres.,traps back:3-4
+rhomboids_teres,Rhomboids / Teres (Scapular Zone),back,upper,proposed,"The map's ""back"" region beside the scapula. Covers rhomboids, teres major/minor and infraspinatus as one zone. Confirm this is what you meant it to show.",back back:1-2
+quads_lower,Lower Quads (above knee),quads,lower,proposed,Lower segment of the thigh drawn separately (quads:3-4). Anatomy of this region is uncertain (VMO/VL lower fibres); VMO-specific training is contested. Used in batch 2.,quads front:3-4
+serratus_anterior,Serratus Anterior,back,upper,proposed,NOT drawn on the map. Added only because Scapular Push-Up has no honest primary otherwise. HTML needs a fallback to back.,none
+rotator_cuff,Rotator Cuff,shoulders,upper,proposed,NOT drawn on the map. Infraspinatus/teres minor/subscapularis/supraspinatus as one group. HTML needs a fallback to rear_delts.,none
+soleus,Soleus,calves,lower,proposed,NOT drawn (lies under the gastrocnemius). Needed for seated calf raises. HTML needs a fallback to calves.,none
+tibialis_anterior,Tibialis Anterior,calves,lower,proposed,NOT drawn. Needed for Tibialis Raise. HTML needs a fallback to calves.,none

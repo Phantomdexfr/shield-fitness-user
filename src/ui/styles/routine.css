@@ -1,0 +1,107 @@
+/* Routines list and setup (Phase 30). Tokens only; text wraps, nothing is truncated. */
+.sf-rt { display: flex; flex-direction: column; gap: var(--sp-4); min-width: 0; max-width: 100%; }
+.sf-rt__block { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-rt__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); min-width: 0; }
+.sf-rt__chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); min-width: 0; }
+.sf-rt__off { opacity: 0.5; }
+.sf-rt__err { margin: 0; color: var(--danger); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-rt__bar { position: sticky; bottom: 0; padding: var(--sp-3) 0; background: var(--bg-base); display: flex; flex-direction: column; min-width: 0; }
+.sf-rt__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-rt__item { display: flex; align-items: stretch; gap: var(--sp-2); min-width: 0; }
+.sf-rt__card { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1); text-align: left; }
+.sf-rt__name { font-size: var(--text-md); color: var(--text); overflow-wrap: anywhere; min-width: 0; }
+.sf-rt__meta { font-size: var(--text-xs); color: var(--text-muted); overflow-wrap: anywhere; min-width: 0; }
+.sf-rt__menu { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-rt__prev { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-rt__prev-row { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-2) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); min-width: 0; }
+.sf-rt__undo { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); padding: var(--sp-2) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); min-width: 0; }
+.sf-rt__undo-text { font-size: var(--text-sm); color: var(--text); overflow-wrap: anywhere; min-width: 0; }
+
+/* Week view and day editor (Phase 31). Tokens only; text wraps. */
+.sf-rt__h { margin: 0; font-size: var(--text-md); color: var(--text); overflow-wrap: anywhere; }
+.sf-rt__grow { flex: 1 1 8rem; }
+.sf-rt__hint { display: flex; flex-direction: column; gap: var(--sp-2); }
+.sf-rt__hint-text { margin: 0; color: var(--text); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-rt__day { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1); text-align: left; width: 100%; }
+.sf-rt__open { color: var(--gold); }
+.sf-rt__vol { display: grid; grid-template-columns: minmax(0, 7rem) minmax(0, 1fr) 2.5rem; align-items: center; gap: var(--sp-2); min-width: 0; }
+.sf-rt__vol-name { font-size: var(--text-sm); color: var(--text); overflow-wrap: anywhere; min-width: 0; }
+.sf-rt__vol-n { font-size: var(--text-sm); color: var(--text-muted); text-align: right; }
+.sf-rt__ex { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; border-radius: var(--r-md); }
+.sf-rt__ex--over { outline: 2px solid var(--gold); }
+.sf-rt__ex--drag { opacity: 0.6; }
+.sf-rt__excard { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1); text-align: left; min-width: 0; }
+.sf-rt__thumb { width: 6rem; max-width: 100%; }
+.sf-rt__ctl { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; min-width: 0; }
+.sf-rt__grip { min-width: 44px; min-height: 44px; padding: 0 var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); color: var(--text); font-size: var(--text-sm); touch-action: none; cursor: grab; }
+
+/* Scheduler (Phase 32). Tokens only; text wraps; nothing is truncated. */
+.sf-sc__stack { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-sc__card { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-sc__tiles { display: flex; flex-wrap: wrap; gap: var(--sp-2); min-width: 0; }
+.sf-sc__tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--sp-1); min-width: 3.5rem; min-height: 3.5rem; padding: var(--sp-2); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); color: var(--text); font-size: var(--text-sm); }
+.sf-sc__tile--T { border-color: var(--gold-500); }
+.sf-sc__tile--R { color: var(--text-muted); }
+.sf-sc__tile--today { outline: 2px solid var(--gold-300); outline-offset: 2px; }
+.sf-sc__tile-letter { font-weight: 700; }
+.sf-sc__tile-name { font-size: var(--text-xs); overflow-wrap: anywhere; text-align: center; }
+.sf-sc__cell { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); width: 100%; text-align: left; min-width: 0; }
+.sf-sc__date { color: var(--text-muted); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-sc__what { color: var(--text); overflow-wrap: anywhere; min-width: 0; flex: 1 1 6rem; }
+.sf-sc__today { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-sc__hint { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-base); min-width: 0; }
+
+/* Day builder, Workout in a pinch, superset swipe (Phase 33). Tokens only; text wraps. */
+.sf-db__entry { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-db__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1); padding: var(--sp-2) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); }
+.sf-db__swipe { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-2); min-width: 0; padding: var(--sp-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); touch-action: pan-y; user-select: none; }
+.sf-db__swipe-name { font-size: var(--text-lg); color: var(--text); overflow-wrap: anywhere; min-width: 0; }
+
+/* Session and Train (Phase 34). Tokens only; text wraps. The status dot is never the only signal: its label sits beside it. */
+.sf-fs__dim { opacity: 0.6; }
+.sf-fs__status { display: inline-flex; align-items: center; gap: var(--sp-2); min-width: 0; }
+.sf-fs__dot { flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--gold); box-sizing: border-box; }
+.sf-fs__dot--doing { background: var(--gold); }
+.sf-fs__dot--done { background: var(--text-muted); border-color: var(--text-muted); }
+.sf-fs__dot--skipped { border-color: var(--text-muted); border-radius: 2px; height: 2px; }
+.sf-fs__dot--later { border-color: var(--text-muted); border-style: dashed; }
+
+/* Set logger (Phase 38) */
+.sf-lg { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); }
+.sf-lg__last { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); font-size: var(--text-sm); color: var(--text-2); overflow-wrap: anywhere; min-width: 0; }
+.sf-lg__sets { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-lg__row { min-width: 0; touch-action: pan-y; }
+.sf-lg__set { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); width: 100%; min-height: 44px; padding: var(--sp-1) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg-card); color: var(--text); text-align: left; min-width: 0; }
+.sf-lg__n { flex: 0 0 auto; min-width: 1.5em; color: var(--gold-300); font-weight: 600; }
+.sf-lg__line { font-size: var(--text-md); overflow-wrap: anywhere; min-width: 0; }
+.sf-lg__entry { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-lg__pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-2); min-width: 0; }
+.sf-lg__field { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-lg__field .sf-stepper { gap: var(--sp-1); }
+.sf-lg__field .sf-stepper__value { font-size: var(--text-lg); }
+.sf-lg__grow { flex: 1 1 8rem; min-width: 0; }
+.sf-lg__rest { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-2) var(--sp-3); border: 1px solid var(--gold-600); border-radius: var(--r-md); background: var(--gold-wash); min-width: 0; }
+.sf-lg__clock { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--gold-200); }
+.sf-lg__sheet { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-lg__plates { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); min-width: 0; }
+.sf-lg__plate-line { margin: 0; font-family: var(--font-display); font-size: var(--text-lg); overflow-wrap: anywhere; }
+.sf-lg__addplate { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--sp-2); min-width: 0; }
+/* Big-number gym mode: huge type, full contrast. */
+.sf-lg--big .sf-lg { background: var(--bg-void); border-color: var(--gold-500); }
+.sf-lg--big .sf-lg__field .sf-stepper__value { font-size: var(--text-3xl); color: var(--text); }
+.sf-lg--big .sf-lg__line { font-size: var(--text-xl); }
+.sf-lg--big .sf-lg__last, .sf-lg--big .sf-lg .sf-rt__meta { font-size: var(--text-md); color: var(--text); }
+.sf-lg--big .sf-lg__pair { grid-template-columns: minmax(0, 1fr); }
+.sf-lg--big .sf-lg__clock { font-size: var(--text-3xl); }
+
+/* Plan share (Phase 42) */
+.sf-ps__qr { display: block; width: min(100%, 260px); aspect-ratio: 1; margin-inline: auto; background: var(--text); border-radius: var(--r-md); }
+.sf-ps__qr-dark { fill: var(--bg-base); }
+.sf-ps__count { margin: 0; text-align: center; font-size: var(--text-xl); font-weight: 600; color: var(--gold-300); font-variant-numeric: tabular-nums; }
+.sf-ps__code { margin: 0; text-align: center; font-size: var(--text-lg); letter-spacing: 0.08em; color: var(--text); overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.sf-ps__link { margin: 0; font-size: var(--text-xs); color: var(--text-muted); overflow-wrap: anywhere; word-break: break-all; min-width: 0; }
+.sf-ps__ok { margin: 0; color: var(--ok); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-ps__note { margin: 0; font-size: var(--text-sm); color: var(--text-2); overflow-wrap: anywhere; white-space: pre-wrap; }
+.sf-ps__prev { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-ps__scan { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-ps__video { width: 100%; max-height: 60vh; border-radius: var(--r-md); background: var(--bg-raised); object-fit: cover; }

@@ -1,0 +1,89 @@
+rule_id,kind,match_on,keywords,excludes,pattern_id,applies_to,param,confidence,note
+pr001,pattern,name,bike|spin bike|cycling,,cardio_bike,,,high,Bike machines (name contains bike or spin).
+pr002,pattern,name,ski erg,,ski_pull,,,high,
+pr003,pattern,name,rowing machine,,cardio_row,,,high,
+pr004,pattern,name,treadmill|elliptical,,cardio_run,,,medium,"Walk, run and elliptical share one stride figure."
+pr005,pattern,name,jump rope|double unders|rope skipping|boxer skip|criss cross|jump rope high knees,,jump_rope,,,high,
+pr006,pattern,name,battle rope,,battle_rope,,,high,
+pr007,pattern,name,mountain climber|spider climb,,mountain_climber,,,high,
+pr008,pattern,name,high knees|butt kicks|sprint in place,,cardio_run,,,medium,Drill drawn as a running stride.
+pr009,pattern,name,pallof,,pallof_press,,,high,
+pr010,pattern,name,woodchop|wood chop|chop|russian twist|rotational|torso rotation|windshield wipers,,rotation,,,medium,
+pr011,pattern,name,skull crusher|tate press|jm press|lying triceps extension|pullover extension,,skull_crusher,,,medium,JM press and Tate press are close cousins of the lying extension.
+pr012,pattern,name,triceps pushdown|pushdown|push down|pressdown,,triceps_pushdown,,,high,
+pr013,pattern,name,cross body triceps extension,,triceps_pushdown,,,ambiguous,Cable cross-body extension drawn as a pushdown.
+pr014,pattern,name,overhead triceps extension|overhead dumbbell triceps extension|incline overhead triceps extension,lying,overhead_triceps_extension,,,high,
+pr015,pattern,name,dip,hip dip|side plank hip dip,dip,,,high,
+pr016,pattern,name,push up,pike|handstand|scapular|wall,push_up,,,high,
+pr017,pattern,name,push up hold bottom position,,push_up,,,high,
+pr018,pattern,name,pike push up|wall handstand push up,,vertical_press,,,ambiguous,"Inverted press, drawn as an upright vertical press (simplification)."
+pr019,pattern,name,decline chest press|decline bench press|decline press,,horizontal_press,,bench_deg=-15,high,
+pr020,pattern,name,incline chest press|incline bench press|incline dumbbell press|incline press|incline barbell bench press|incline machine press,push up|curl|fly|row|triceps,horizontal_press,,bench_deg=30,high,
+pr021,pattern,name,shoulder press|overhead press|military press|push press|z press|arnold press|half kneeling dumbbell press|plate overhead press|bottoms up press|standing shoulder press|seated shoulder press|barbell push jerk,triceps,vertical_press,,,high,
+pr022,pattern,name,clean and press|clean press,,vertical_press,,,ambiguous,Multi-phase lift; only the press is drawn.
+pr023,pattern,name,bench press|chest press|floor press|squeeze press|svend press|cable press|bench fly press,shoulder|overhead|jm|incline|decline|leg|pallof|triceps,horizontal_press,,,high,
+pr024,pattern,name,reverse fly|rear delt fly|reverse pec deck|reverse butterfly|rear fly|bent over reverse fly,,rear_fly,,,high,
+pr025,pattern,name,pull apart,,rear_fly,,,medium,
+pr026,pattern,name,fly|flye|crossover|pec deck|butterfly,reverse|rear,chest_fly,,,high,
+pr027,pattern,name,lateral raise|side raise|scaption raise,,lateral_raise,,,high,
+pr028,pattern,name,front raise,,front_raise,,,high,
+pr029,pattern,name,y raise|y t w,,y_raise,,,high,
+pr030,pattern,name,face pull,,rear_fly,,,ambiguous,"Face pull drawn as a rear fly (front view, arms ending out and high)."
+pr031,pattern,name,upright row|high pull,barbell high pull|power clean,upright_row,,,high,
+pr032,pattern,name,barbell high pull,,upright_row,,,ambiguous,Explosive pull from the hips; drawn as an upright row.
+pr033,pattern,name,shrug,,shrug,,,high,
+pr034,pattern,name,straight arm pulldown|pullover|lat prayer,crunch|extension,straight_arm_pulldown,,,medium,
+pr035,pattern,name,pull up|chin up,scapular,pull_up,,,high,
+pr036,pattern,name,pulldown|pull down|lat pull,,vertical_pull,,,high,
+pr037,pattern,name,seated cable row|seated row|cable row|standing cable row|resistance band row|suspension row|inverted row|chest supported cable row|single arm high row|suspension single arm row|cable archer row,bent over|squat to row|rear delt,horizontal_row,,,high,
+pr038,pattern,name,bent over row|one arm row|single arm row|renegade row|gorilla row|kroc row|yates row|rear delt row|dumbbell row|barbell row|chest supported dumbbell row|squat to row|bird dog row|kettlebell single arm row,cable row,bent_over_row,,,medium,
+pr039,pattern,name,romanian deadlift|good morning|pull through|kettlebell swing|dumbbell swing|american swing|hip hinge|stiff leg,,hip_hinge,,,high,
+pr040,pattern,name,single leg romanian deadlift,,hip_hinge,,,high,Single-leg version shown with both legs (simplification).
+pr041,pattern,name,deadlift|rack pull|jefferson,romanian|single leg,deadlift,,,high,
+pr042,pattern,name,farmer s carry|farmers carry|suitcase carry|waiter carry|rack carry|hug carry|zercher carry|goblet carry|bottoms up carry|front rack carry,,carry,,,high,
+pr043,pattern,name,leg press,calf,leg_press,,,high,
+pr044,pattern,name,calf raise,tibialis,calf_raise,,,high,
+pr045,pattern,name,leg extension,,leg_extension,,,high,
+pr046,pattern,name,leg curl|hamstring curl,,leg_curl,,,high,
+pr047,pattern,name,hip thrust|glute bridge|frog pump|hip bridge,stability ball hamstring,hip_thrust,,,high,
+pr048,pattern,name,back extension|hyperextension,side bend,back_extension,,,high,
+pr049,pattern,name,step up|step down|lateral step up,,step_up,,,medium,
+pr050,pattern,name,jumping lunge|split jump|jump squat|box jump|broad jump|tuck jump|single leg hop|depth drop|single leg jump|star jump|plyometric push,plyometric push up,jump,,,medium,
+pr051,pattern,name,lunge|split squat|bulgarian|curtsy,lateral lunge|jumping|wave,lunge,,,high,
+pr052,pattern,name,squat,split squat|jump squat|bulgarian|squat jack|squat thrust|squat jacks|battle rope|pistol|lateral|shrimp|skater|cossack|carry,squat,,,high,
+pr053,pattern,name,pistol squat|shrimp squat|skater squat|cossack squat,,squat,,,ambiguous,Single-leg or side-step squat drawn as a two-leg squat.
+pr054,pattern,name,goblet|thruster|wall sit|sit to stand|wall ball shot|prisoner|hack squat,lunge|curl|carry,squat,,,high,
+pr055,pattern,name,curl,leg|hamstring|wrist|nordic|knee|crunch|forearm rotation|roll|press|stability ball hamstring|suspension hamstring,biceps_curl,,,high,
+pr056,pattern,name,crunch|sit up|v up|jackknife|elbow to knee|heel touch|hollow rock|pullover crunch,kneeling|standing|cable|side crunch|oblique|side,crunch,,,medium,
+pr057,pattern,name,bicycle crunch|reverse crunch,standing,crunch,,,ambiguous,Alternating leg-and-trunk action drawn as a plain crunch.
+pr058,pattern,name,leg raise|flutter kicks|scissor kicks|single leg lowering|knee tuck,,leg_raise,,,medium,
+pr059,pattern,name,plank,side plank|mountain|jack|up down|reach|roll|row|walkout|thread|hip dip|copenhagen|shoulder tap|saw,plank,,,medium,Front-on plank hold only.
+pr060,pattern,name,ab wheel rollout|barbell rollout|stability ball rollout|ab wheel wall rollout|wall rollout,pike|side,rollout,,,high,
+pr061,pattern,name,dead bug|heel slide dead bug,,dead_bug,,,high,
+pr062,pattern,name,triceps kickback,,triceps_kickback,,,high,
+pr063,pattern,name,hang power clean|power clean|kettlebell clean,,clean,,,medium,Explosive lift drawn as pull and catch.
+pr064,pattern,name,side bend,,side_bend,,,high,
+pr065,pattern,name,back extension oblique side bend,,side_bend,,,ambiguous,
+pr066,pattern,name,kneeling cable crunch|standing cable crunch,,cable_crunch,,,high,
+pr067,pattern,name,lying cable crunch|stability ball cable crunch,,crunch,,,medium,
+pr068,pattern,name,jumping jacks|jumping jack|seal jacks,,jumping_jack,,,medium,
+pr069,pattern,name,medicine ball slam|medicine ball side slam,,slam,,,medium,
+pr070,pattern,name,lateral lunge,,lateral_lunge,,,high,
+pr071,pattern,name,shoulder tap plank|plank reach|bear hold,,plank,,,low,Static torso held in a plank-like position; arm or knee movement is not drawn.
+pr072,pattern,name,suspension triceps extension,,overhead_triceps_extension,,,low,Angled-body extension drawn as an overhead extension.
+pr073,pattern,name,hamstring bridge walkout,,hip_thrust,,,low,Bridge phase only.
+pr074,pattern,name,standing knee raise,,cardio_run,,,low,Knee drive drawn as a running stride.
+pr075,pattern,name,hollow hold,,leg_raise,,,low,Static hold drawn as the raised-leg end pose.
+pr076,pattern,name,w raise,,rear_fly,,,low,W raise drawn as a rear fly.
+pr077,modifier,name,wide grip|wide|snatch grip,,,horizontal_press|vertical_pull|pull_up|horizontal_row|push_up,grip_width=wide,high,Wide grip or hand position.
+pr078,modifier,name,close grip|narrow|diamond|close,,,horizontal_press|push_up|vertical_pull|pull_up|horizontal_row,grip_width=narrow,high,Narrow grip or hand position.
+pr079,modifier,name,sumo|wide stance|cossack,,,squat|deadlift|lunge,stance_width=wide,high,Wide stance.
+pr080,modifier,name,narrow stance,,,squat|deadlift,stance_width=narrow,high,Narrow stance.
+pr081,modifier,name,seated calf raise,,,calf_raise,seated=yes,high,Seated calf raise.
+pr082,modifier,name,seated|machine shoulder press,,,vertical_press,seated=yes,medium,"Seated press: hips and knees bent about 100 degrees, torso 5 degrees back."
+pr083,modifier,name,seated chest press|vertical handles|vertical chest press,,,horizontal_press,bench_deg=80,medium,Upright seated chest press machine.
+pr084,modifier,name,standing cable chest press|standing cable press|cable chest press standing,,,horizontal_press,bench_deg=90,medium,"Standing press, torso upright."
+pr085,modifier,name,incline bench|incline dumbbell curl|incline curl,,,biceps_curl,bench_deg=60,medium,Curl on an incline bench about 60 degrees.
+pr086,modifier,name,preacher|spider curl|concentration,,,biceps_curl,bench_deg=60,low,Arm supported in front of the body; drawn with a 60 degree lean as an approximation.
+pr087,modifier,name,stability ball hamstring curl|suspension hamstring curl,,,leg_curl,torso_lean=-80,low,Supine version of a leg curl.
+pr088,modifier,name,kneeling|half kneeling,,,pallof_press|rotation,kneeling=yes,low,Kneeling stance (hips and knees bent about 90 degrees).

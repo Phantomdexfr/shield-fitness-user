@@ -1,0 +1,39 @@
+exercise_a,exercise_b,pair_type,muscles
+Barbell Bench Press,Barbell Bent-Over Row,antagonist,chest/back
+Seated Chest Press (Vertical Handles),Seated Cable Row (Neutral Grip),antagonist,chest/back
+Incline Chest Press (Machine),Plate-Loaded Front Pulldown,antagonist,chest/lats
+Dumbbell Bench Press,Chest-Supported Dumbbell Row,antagonist,chest/back
+Incline Dumbbell Press,Lat Pulldown,antagonist,chest/lats
+Push-Up,Suspension Row,antagonist,chest/back
+Pec Deck Fly,Reverse Pec Deck (Rear Delt Fly),antagonist,chest/rear shoulders
+Cable Fly (High to Low),Cable Rear Delt Fly,antagonist,chest/rear shoulders
+Standing Cable Chest Press,Seated Cable Row (Neutral Grip),antagonist,chest/back
+Machine Shoulder Press,Assisted Pull-Up,antagonist,shoulders/lats
+Barbell Overhead Press,Barbell Bent-Over Row,antagonist,shoulders/back
+Dumbbell Biceps Curl,Cable Triceps Pushdown,antagonist,biceps/triceps
+EZ-Bar Curl,EZ-Bar Skull Crusher,antagonist,biceps/triceps
+Machine Biceps Curl,Cable Overhead Triceps Extension,antagonist,biceps/triceps
+Preacher Curl (EZ Bar),Close-Grip Barbell Bench Press,antagonist,biceps/triceps
+Incline Dumbbell Curl,Seated Overhead Dumbbell Triceps Extension,antagonist,biceps/triceps
+Dumbbell Hammer Curl,Bench Dip,antagonist,biceps/triceps
+Leg Extension,Lying Leg Curl,antagonist,quads/hamstrings
+Leg Press,Dumbbell Romanian Deadlift,antagonist,quads/hamstrings
+Barbell Back Squat,Barbell Romanian Deadlift,antagonist,quads/hamstrings
+Hack Squat,Stability Ball Hamstring Curl,antagonist,quads/hamstrings
+Goblet Squat,Machine Hip Thrust,antagonist,quads/glutes+hamstrings
+Hip Abduction Machine,Hip Adduction Machine,antagonist,glutes/inner thigh
+Kneeling Cable Crunch,Back Extension,antagonist,abs/lower back
+Plank,Superman,antagonist,abs/lower back
+Dead Bug,Bird Dog,antagonist,abs/lower back
+Cable Lateral Raise,Seated Calf Raise,compatible,shoulders/calves
+Pec Deck Fly,Leg Extension,compatible,chest/quads
+Lat Pulldown,Hip Abduction Machine,compatible,lats/glutes
+Cable Triceps Pushdown,Seated Calf Raise,compatible,triceps/calves
+Dumbbell Shrug,Crunch,compatible,traps/abs
+Machine Hip Thrust,Cable Face Pull,compatible,glutes/rear shoulders
+Dumbbell Wrist Curl,Pallof Press,compatible,forearms/obliques
+Kettlebell Swing,Push-Up,compatible,glutes/chest (conditioning)
+Plate Neck Flexion (Lying),Plate Neck Extension (Lying Face Down),antagonist,neck front/back
+Dumbbell Zottman Curl,Dumbbell Triceps Kickback,antagonist,biceps/triceps
+Dumbbell Floor Press,Smith Machine Inverted Row,antagonist,chest/back
+Cable Front Raise,Chest-Supported Y Raise,antagonist,front shoulder/upper back

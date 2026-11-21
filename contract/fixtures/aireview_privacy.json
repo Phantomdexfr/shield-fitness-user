@@ -1,0 +1,33 @@
+{
+ "_doc": "Privacy rule for aiReviewText (User Phase 40): with an include flag off, its personal value never appears in the text, for any scope.",
+ "profile": {
+  "name": "Zorblax Quimby",
+  "goal": "strength",
+  "experience": "intermediate",
+  "bodyweightKg": 83.37,
+  "bodyStats": "waist 81.4 cm hip 99.2 cm"
+ },
+ "forbiddenWhenOff": {
+  "name": [
+   "Zorblax",
+   "Quimby"
+  ],
+  "bodyweight": [
+   "83.37",
+   "bodyweight=83"
+  ],
+  "bodyStats": [
+   "waist 81.4",
+   "hip 99.2",
+   "BODY STATS"
+  ]
+ },
+ "requiredWhenOn": {
+  "name": "NAME: Zorblax Quimby",
+  "bodyweight": "bodyweight=83.37 kg",
+  "bodyStats": "BODY STATS: waist 81.4 cm hip 99.2 cm"
+ },
+ "alwaysAllowed": [
+  "CONTEXT: goal=strength; experience=intermediate; units=kg"
+ ]
+}

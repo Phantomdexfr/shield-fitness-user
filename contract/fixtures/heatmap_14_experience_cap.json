@@ -1,0 +1,145 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "experience",
+ "describes": "weeks of sets per muscle: no warm-ups, reps >= 3, capped at 12 per muscle per session",
+ "input": {
+  "exercises": {
+   "A": {
+    "map": [
+     [
+      "m1",
+      "primary",
+      "high"
+     ],
+     [
+      "m2",
+      "secondary",
+      "medium"
+     ]
+    ]
+   }
+  },
+  "sets": [
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:00:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:01:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:02:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:03:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:04:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:05:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:06:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:07:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:08:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:09:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:10:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:11:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:12:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:13:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "doneAt": "2026-11-17T10:14:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 8,
+    "tag": "warmup",
+    "doneAt": "2026-11-17T09:00:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s1",
+    "reps": 2,
+    "doneAt": "2026-11-17T11:00:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s2",
+    "reps": 10,
+    "doneAt": "2026-11-19T10:00:00Z"
+   },
+   {
+    "ref": "A",
+    "sessionId": "s2",
+    "reps": 10,
+    "doneAt": "2026-11-19T10:05:00Z"
+   }
+  ]
+ },
+ "expect": {
+  "m1": 14,
+  "m2": 10.2
+ }
+}

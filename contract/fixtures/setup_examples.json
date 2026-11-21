@@ -1,0 +1,364 @@
+{
+ "spec": "engines.md 13b",
+ "cases": [
+  {
+   "id": "lat_pulldown_supinated",
+   "description": "lat-pulldown + supinated: biceps more, forearms less, lats more (capped at 1)",
+   "exercise": "lat-pulldown",
+   "rows": [
+    [
+     "lats",
+     "p",
+     "h"
+    ],
+    [
+     "rhomboids_teres",
+     "p",
+     "m"
+    ],
+    [
+     "biceps",
+     "s",
+     "m"
+    ],
+    [
+     "mid_lower_traps",
+     "s",
+     "m"
+    ],
+    [
+     "forearms",
+     "s",
+     "l"
+    ],
+    [
+     "rear_delts",
+     "s",
+     "l"
+    ]
+   ],
+   "pattern": "pulldown",
+   "setup": {
+    "grip": "supinated"
+   },
+   "table": {
+    "grip": {
+     "supinated": {
+      "pulldown": [
+       [
+        "biceps",
+        "m"
+       ],
+       [
+        "forearms",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "lats": 1,
+    "rhomboids_teres": 0.6,
+    "biceps": 0.75,
+    "mid_lower_traps": 0.6,
+    "forearms": 0.225,
+    "rear_delts": 0.3
+   }
+  },
+  {
+   "id": "lat_pulldown_wide_pronated",
+   "description": "lat-pulldown + wide + pronated: two axes stack (lats 1.5625 -> cap 1, biceps 0.6 x0.75 x0.75)",
+   "exercise": "lat-pulldown",
+   "rows": [
+    [
+     "lats",
+     "p",
+     "h"
+    ],
+    [
+     "rhomboids_teres",
+     "p",
+     "m"
+    ],
+    [
+     "biceps",
+     "s",
+     "m"
+    ],
+    [
+     "mid_lower_traps",
+     "s",
+     "m"
+    ],
+    [
+     "forearms",
+     "s",
+     "l"
+    ],
+    [
+     "rear_delts",
+     "s",
+     "l"
+    ]
+   ],
+   "pattern": "pulldown",
+   "setup": {
+    "grip": "pronated",
+    "width": "wide"
+   },
+   "table": {
+    "grip": {
+     "pronated": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    },
+    "width": {
+     "wide": {
+      "pulldown": [
+       [
+        "biceps",
+        "l"
+       ],
+       [
+        "lats",
+        "m"
+       ],
+       [
+        "mid_lower_traps",
+        "m"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "lats": 1,
+    "rhomboids_teres": 0.6,
+    "biceps": 0.3375,
+    "mid_lower_traps": 0.75,
+    "forearms": 0.3,
+    "rear_delts": 0.3
+   }
+  },
+  {
+   "id": "reverse_pec_deck_neutral",
+   "description": "reverse pec deck + neutral: rear delts more (stays 1), traps less, upper traps absent so stays absent",
+   "exercise": "reverse-pec-deck-rear-delt-fly",
+   "rows": [
+    [
+     "rear_delts",
+     "p",
+     "h"
+    ],
+    [
+     "rhomboids_teres",
+     "p",
+     "m"
+    ],
+    [
+     "mid_lower_traps",
+     "p",
+     "m"
+    ],
+    [
+     "side_delts",
+     "s",
+     "l"
+    ]
+   ],
+   "pattern": "reverse_fly",
+   "setup": {
+    "grip": "neutral"
+   },
+   "table": {
+    "grip": {
+     "neutral": {
+      "reverse_fly": [
+       [
+        "mid_lower_traps",
+        "l"
+       ],
+       [
+        "rear_delts",
+        "m"
+       ],
+       [
+        "upper_traps",
+        "l"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "rear_delts": 1,
+    "rhomboids_teres": 0.6,
+    "mid_lower_traps": 0.45,
+    "side_delts": 0.3
+   }
+  },
+  {
+   "id": "cable_row_neutral_vhandle",
+   "description": "seated cable row neutral grip + V handle: lats more twice (0.6 x1.25 x1.25), rhomboids less",
+   "exercise": "seated-cable-row-neutral-grip",
+   "rows": [
+    [
+     "rhomboids_teres",
+     "p",
+     "h"
+    ],
+    [
+     "lats",
+     "p",
+     "m"
+    ],
+    [
+     "mid_lower_traps",
+     "p",
+     "m"
+    ],
+    [
+     "biceps",
+     "s",
+     "m"
+    ],
+    [
+     "rear_delts",
+     "s",
+     "m"
+    ],
+    [
+     "forearms",
+     "s",
+     "l"
+    ],
+    [
+     "lower_back",
+     "t",
+     "m"
+    ]
+   ],
+   "pattern": "row",
+   "setup": {
+    "grip": "neutral",
+    "handle": "v_handle"
+   },
+   "table": {
+    "grip": {
+     "neutral": {
+      "row": [
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    },
+    "handle": {
+     "v_handle": {
+      "row": [
+       [
+        "lats",
+        "m"
+       ],
+       [
+        "rhomboids_teres",
+        "l"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "rhomboids_teres": 0.75,
+    "lats": 0.9375,
+    "mid_lower_traps": 0.6,
+    "biceps": 0.6,
+    "rear_delts": 0.6,
+    "forearms": 0.3,
+    "lower_back": 0.3
+   }
+  },
+  {
+   "id": "cable_row_mag_handle",
+   "description": "seated cable row + MAG handle: lats more only",
+   "exercise": "seated-cable-row-neutral-grip",
+   "rows": [
+    [
+     "rhomboids_teres",
+     "p",
+     "h"
+    ],
+    [
+     "lats",
+     "p",
+     "m"
+    ],
+    [
+     "mid_lower_traps",
+     "p",
+     "m"
+    ],
+    [
+     "biceps",
+     "s",
+     "m"
+    ],
+    [
+     "rear_delts",
+     "s",
+     "m"
+    ],
+    [
+     "forearms",
+     "s",
+     "l"
+    ],
+    [
+     "lower_back",
+     "t",
+     "m"
+    ]
+   ],
+   "pattern": "row",
+   "setup": {
+    "handle": "mag_handle"
+   },
+   "table": {
+    "handle": {
+     "mag_handle": {
+      "row": [
+       [
+        "lats",
+        "m"
+       ]
+      ]
+     }
+    }
+   },
+   "expected": {
+    "rhomboids_teres": 1,
+    "lats": 0.75,
+    "mid_lower_traps": 0.6,
+    "biceps": 0.6,
+    "rear_delts": 0.6,
+    "forearms": 0.3,
+    "lower_back": 0.3
+   }
+  }
+ ]
+}

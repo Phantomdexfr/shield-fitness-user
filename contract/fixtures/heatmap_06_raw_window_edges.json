@@ -1,0 +1,48 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "rawHeat",
+ "describes": "the period is [from, to): a set exactly at from counts, exactly at to does not",
+ "input": {
+  "exercises": {
+   "A": {
+    "map": [
+     [
+      "m1",
+      "primary",
+      "high"
+     ]
+    ]
+   }
+  },
+  "window": {
+   "from": "2026-11-16T00:00:00Z",
+   "to": "2026-11-23T00:00:00Z"
+  },
+  "sets": [
+   {
+    "ref": "A",
+    "doneAt": "2026-11-16T00:00:00Z"
+   },
+   {
+    "ref": "A",
+    "doneAt": "2026-11-22T23:59:59Z"
+   },
+   {
+    "ref": "A",
+    "doneAt": "2026-11-23T00:00:00Z"
+   },
+   {
+    "ref": "A",
+    "doneAt": "2026-11-15T23:59:59Z"
+   }
+  ]
+ },
+ "expect": {
+  "raw": {
+   "m1": 2
+  },
+  "counted": 2,
+  "unknown": 0
+ }
+}

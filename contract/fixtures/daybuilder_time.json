@@ -1,0 +1,80 @@
+{
+ "spec": "engines.md 10 (day model: sets x (45 s + rest)) and 21 (quick model: sets x (reps x 3 s + rest + 20 s))",
+ "day": [
+  {
+   "items": [
+    {
+     "sets": 3,
+     "repMax": 10,
+     "restSec": 120
+    }
+   ],
+   "seconds": 495
+  },
+  {
+   "items": [
+    {
+     "sets": 3,
+     "repMax": 15,
+     "restSec": 60
+    }
+   ],
+   "seconds": 315
+  },
+  {
+   "items": [
+    {
+     "sets": 2,
+     "repMax": 15,
+     "restSec": 30
+    },
+    {
+     "sets": 1,
+     "repMax": 12,
+     "restSec": 15
+    }
+   ],
+   "seconds": 210
+  },
+  {
+   "items": [],
+   "seconds": 0
+  }
+ ],
+ "quick": [
+  {
+   "items": [
+    {
+     "sets": 3,
+     "repMax": 12,
+     "restSec": 75
+    }
+   ],
+   "seconds": 393
+  },
+  {
+   "items": [
+    {
+     "sets": 3,
+     "repMax": 15,
+     "restSec": 45
+    }
+   ],
+   "seconds": 330
+  },
+  {
+   "items": [
+    {
+     "sets": 2,
+     "repMax": 10,
+     "restSec": 60
+    }
+   ],
+   "seconds": 220
+  },
+  {
+   "items": [],
+   "seconds": 0
+  }
+ ]
+}

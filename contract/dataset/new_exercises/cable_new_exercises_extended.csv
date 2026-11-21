@@ -1,0 +1,31 @@
+name,slug,variations,movement_pattern,unilateral,beginner_friendly,injury_cautions,track_fit,difficulty,proposed_muscles
+Lying Cable Pullover,lying-cable-pullover,Straight bar; Curved lat bar; V handle,isolation,no,yes,Keep ribs down so the lower back does not arch,beginner;intermediate;muscle_gain,1,
+Standing Straight-Arm Cable Pulldown,standing-straight-arm-cable-pulldown,Straight bar; Two D handles; Single arm,isolation,no,yes,Do not bend the elbows into a pushdown,beginner;intermediate;muscle_gain,1,
+Cable Lat Prayer,cable-lat-prayer,Straight bar; Two strap handles; Narrow vs shoulder-width grip,isolation,no,yes,"Keep the lower back neutral, do not round",beginner;intermediate;muscle_gain,1,
+Cable Single-Arm High Row,cable-single-arm-high-row,Strap handle; D handle; MAG handle,pull,yes,yes,Do not rotate the torso to cheat,beginner;intermediate;muscle_gain,1,
+Cable Archer Row,cable-archer-row,Strap handles; D handles; Split stance,pull,yes,no,Keep the extended arm slightly bent,intermediate;muscle_gain;athlete;fat_loss,2,
+Cable Squat to Row,cable-squat-to-row,V handle; MAG handle; Straight bar,pull,no,yes,Brace the core so the back stays flat,intermediate;muscle_gain;athlete;fat_loss,2,
+Cable Squat to Press,cable-squat-to-press,Strap handles; Single arm; Staggered stance,push,no,yes,Do not arch the lower back overhead,intermediate;muscle_gain;athlete;fat_loss,2,
+Cable Goblet Squat,cable-goblet-squat,V handle; MAG handle; Strap handles held together,squat,no,yes,Keep heels down and knees tracking over the toes,beginner;intermediate;muscle_gain;athlete;fat_loss,1,
+Cable Deadlift,cable-deadlift,Straight bar; EZ curl bar; Two D handles,hinge,no,yes,Keep the bar close and the back flat,intermediate;muscle_gain;athlete;fat_loss,2,
+Cable Sumo Deadlift,cable-sumo-deadlift,V handle; Straight bar; Pause off the floor,hinge,no,yes,Knees track over the toes,intermediate;muscle_gain;athlete;fat_loss,2,
+Cable Split Squat,cable-split-squat,V handle; Single D handle in the opposite hand; Rear foot elevated on a bench,lunge,yes,yes,Keep the front heel down,beginner;intermediate;muscle_gain,1,
+Cable Incline Bench Curl,cable-incline-bench-curl,"Incline angle: 30, 45 or 60 degrees; Strap handles; D handles",isolation,no,yes,Do not let the shoulders roll forward,beginner;intermediate;muscle_gain,1,
+Cable Concentration Curl,cable-concentration-curl,D handle; Strap handle; Supinated or neutral grip,isolation,yes,yes,Do not lean back to lift the weight,beginner;intermediate;muscle_gain,1,
+Cable Spider Curl,cable-spider-curl,Strap handles; D handles; Straight bar,isolation,no,no,Keep the chest on the pad and the neck relaxed,beginner;intermediate;muscle_gain,2,
+Cable Drag Curl,cable-drag-curl,Straight bar; EZ curl bar; Narrow vs shoulder-width grip,isolation,no,yes,Do not swing the torso,beginner;intermediate;muscle_gain,1,
+Cable Incline Overhead Triceps Extension,cable-incline-overhead-triceps-extension,V handle; Straight bar; EZ curl bar,isolation,no,yes,Keep ribs down and avoid flaring the elbows,beginner;intermediate;muscle_gain,1,
+Cable Triceps Pushdown (Reverse Grip),cable-triceps-pushdown-reverse-grip,Straight bar; EZ curl bar; Single arm with a D handle,isolation,no,yes,Do not let the wrists bend back,beginner;intermediate;muscle_gain,1,
+Cable Close-Grip Bench Press,cable-close-grip-bench-press,V handle; Two D handles; Straight bar,push,no,no,Keep the shoulder blades pinched back,intermediate;muscle_gain;athlete;fat_loss,2,
+Cable Squeeze Press,cable-squeeze-press,Two D handles; Strap handles; Flat or incline bench,push,no,yes,Keep the shoulders pinned back,beginner;intermediate;muscle_gain,1,upper_chest
+Cable Cuban Press,cable-cuban-press,Strap handles; D handles; Single arm,push,no,no,Use light loads and a smooth tempo,beginner;intermediate;muscle_gain,2,rear_delts
+Cable W Raise,cable-w-raise,Strap handles; D handles; Seated on a utility bench,isolation,no,yes,Keep shoulders down and away from the ears,beginner;intermediate;muscle_gain,1,rear_delts;side_delts
+Cable Seated Shoulder Press,cable-seated-shoulder-press,Strap handles; D handles; Single arm,push,no,yes,Brace the core so the back does not arch,beginner;intermediate;muscle_gain,1,front_delts
+Cable Standing Shoulder Press,cable-standing-shoulder-press,Strap handles; D handles; Single arm,push,no,yes,Do not lean back,beginner;intermediate;muscle_gain,1,front_delts
+Incline Bench Cable Rear Delt Fly,incline-bench-cable-rear-delt-fly,Strap handles; D handles; Single arm,isolation,no,yes,Keep the neck relaxed,beginner;intermediate;muscle_gain,1,rear_delts
+Chest-Supported Cable Row (Incline Bench),chest-supported-cable-row-incline-bench,Strap handles; D handles; MAG handles,pull,no,yes,"Keep the chest on the pad, no shrugging",beginner;intermediate;muscle_gain,1,
+Standing Cable Crunch,standing-cable-crunch,Straight bar; Strap handles; Single arm for oblique emphasis,core,no,yes,Do not just bend at the hips,beginner;intermediate;muscle_gain,1,
+Lying Cable Crunch,lying-cable-crunch,Strap handles; D handles; Straight bar held at the chest,core,no,yes,Keep the lower back on the mat,beginner;intermediate;muscle_gain,1,
+Cable Oblique Crunch,cable-oblique-crunch,Strap handle; D handle; Standing,core,yes,yes,"Do not rotate the torso, bend sideways",beginner;intermediate;muscle_gain,1,
+Stability Ball Cable Crunch,stability-ball-cable-crunch,Strap handles; V handle held behind the neck; Straight bar,core,no,no,Keep the feet planted and the ball steady,beginner;intermediate;muscle_gain,2,
+Stability Ball Cable Chest Fly,stability-ball-cable-chest-fly,Strap handles; D handles; Single arm,isolation,no,no,Keep hips lifted and the ball steady,intermediate;muscle_gain;athlete;fat_loss,2,

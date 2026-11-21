@@ -1,0 +1,1280 @@
+[
+  {
+    "muscleId": "sternocleidomastoid",
+    "name": "Sternocleidomastoid",
+    "group": "Neck",
+    "shape": "model",
+    "meshKeys": [
+      "Sternocleidomastoid"
+    ],
+    "taxonomyIds": [
+      "neck"
+    ],
+    "inDailyLife": [
+      "Turning your head to look over your shoulder",
+      "Tipping your ear toward your shoulder",
+      "Lifting your head off a pillow",
+      "Helping you breathe in during hard effort"
+    ],
+    "whenWeak": [
+      "Turning to check traffic may feel tiring or stiff",
+      "Lifting your head from lying down can feel harder"
+    ],
+    "quickFacts": [
+      "It runs from behind the ear to the collarbone and breastbone.",
+      "You have one on each side of the neck."
+    ],
+    "seeAlso": [
+      "trapezius_upper",
+      "levator_scapulae"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "pectoralis_major",
+    "name": "Pectoralis major (chest)",
+    "group": "Chest",
+    "shape": "model",
+    "meshKeys": [
+      "Clavicular part of pectoralis major",
+      "Sternocostal part of pectoralis major",
+      "Abdominal part of pectoralis major"
+    ],
+    "taxonomyIds": [
+      "upper_chest",
+      "lower_chest"
+    ],
+    "inDailyLife": [
+      "Pushing a door or a heavy cart forward",
+      "Pushing yourself up from the floor or a chair",
+      "Hugging someone or bringing your arms together",
+      "Throwing a ball overhand"
+    ],
+    "whenWeak": [
+      "Pushing doors or getting up from the floor may feel harder",
+      "Carrying a load in front of your chest can tire your arms sooner"
+    ],
+    "quickFacts": [
+      "It has three parts that fan out from the collarbone, breastbone and ribs.",
+      "It pulls the upper arm toward the middle of your body."
+    ],
+    "seeAlso": [
+      "pectoralis_minor",
+      "deltoid",
+      "serratus_anterior"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "pectoralis_minor",
+    "name": "Pectoralis minor",
+    "group": "Chest",
+    "shape": "model",
+    "meshKeys": [
+      "Pectoralis minor"
+    ],
+    "taxonomyIds": [],
+    "inDailyLife": [
+      "Reaching forward to grab something",
+      "Rolling your shoulders forward",
+      "Helping you breathe in deeply",
+      "Holding your shoulder blade steady as you lean on your hands"
+    ],
+    "whenWeak": [
+      "Shoulders may feel less steady when you reach forward",
+      "Deep breaths may feel a bit more effortful"
+    ],
+    "quickFacts": [
+      "It is a small, flat muscle that lies under the large chest muscle.",
+      "It connects the shoulder blade to the ribs."
+    ],
+    "seeAlso": [
+      "pectoralis_major",
+      "serratus_anterior"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "serratus_anterior",
+    "name": "Serratus anterior",
+    "group": "Core",
+    "shape": "model",
+    "meshKeys": [
+      "Serratus anterior"
+    ],
+    "taxonomyIds": [
+      "serratus_anterior"
+    ],
+    "inDailyLife": [
+      "Reaching up to a high shelf",
+      "Pushing a heavy door open with your arm out",
+      "Keeping your shoulder blade flat against your ribs",
+      "Throwing or swinging an arm forward"
+    ],
+    "whenWeak": [
+      "Lifting an arm overhead may feel less smooth",
+      "Your shoulder blade may stick out at the back when you push"
+    ],
+    "quickFacts": [
+      "It wraps around the side of the ribs like fingers.",
+      "It is often called the boxer's muscle because it helps your arm reach forward."
+    ],
+    "seeAlso": [
+      "pectoralis_minor",
+      "rhomboids",
+      "trapezius_mid_lower"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "external_oblique",
+    "name": "External oblique",
+    "group": "Core",
+    "shape": "model",
+    "meshKeys": [
+      "External oblique"
+    ],
+    "taxonomyIds": [
+      "obliques"
+    ],
+    "inDailyLife": [
+      "Twisting to reach the seat belt",
+      "Bending sideways to pick up a bag",
+      "Coughing, sneezing or laughing hard",
+      "Keeping your trunk steady while you walk"
+    ],
+    "whenWeak": [
+      "Twisting around may feel stiff or weak",
+      "Your middle may feel less steady when you carry a bag on one side"
+    ],
+    "quickFacts": [
+      "It is the largest and outermost of the side belly muscles.",
+      "Its fibres run downward and inward, like sliding your hands into front pockets."
+    ],
+    "seeAlso": [
+      "internal_oblique",
+      "rectus_abdominis",
+      "transversus_abdominis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "internal_oblique",
+    "name": "Internal oblique",
+    "group": "Core",
+    "shape": "fitted",
+    "meshKeys": [
+      "Internal oblique"
+    ],
+    "taxonomyIds": [
+      "obliques"
+    ],
+    "inDailyLife": [
+      "Twisting to look behind you in a chair",
+      "Bracing when you cough or lift a box",
+      "Bending sideways to tie a shoe",
+      "Helping you breathe out forcefully"
+    ],
+    "whenWeak": [
+      "Twisting and bracing may feel less controlled",
+      "Your trunk may feel wobbly when you carry something heavy"
+    ],
+    "quickFacts": [
+      "It lies under the external oblique with fibres running the other way.",
+      "It helps turn your trunk to the same side."
+    ],
+    "seeAlso": [
+      "external_oblique",
+      "transversus_abdominis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "rectus_abdominis",
+    "name": "Rectus abdominis (abs)",
+    "group": "Core",
+    "shape": "fitted",
+    "meshKeys": [
+      "Rectus abdominis"
+    ],
+    "taxonomyIds": [
+      "abs"
+    ],
+    "inDailyLife": [
+      "Sitting up from lying down",
+      "Bending forward to pick something up",
+      "Keeping your ribs and hips in line as you stand",
+      "Breathing out hard when you cough"
+    ],
+    "whenWeak": [
+      "Sitting up from bed may take more effort",
+      "Standing tall for long may feel tiring"
+    ],
+    "quickFacts": [
+      "It is the long muscle down the front of the belly, often called the abs.",
+      "The ridges you may see are bands of tissue that cross the muscle."
+    ],
+    "seeAlso": [
+      "external_oblique",
+      "transversus_abdominis",
+      "iliopsoas"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "transversus_abdominis",
+    "name": "Transversus abdominis",
+    "group": "Core",
+    "shape": "fitted",
+    "meshKeys": [
+      "Transversus abdominis"
+    ],
+    "taxonomyIds": [
+      "abs"
+    ],
+    "inDailyLife": [
+      "Bracing your middle before you lift a heavy bag",
+      "Coughing, sneezing or laughing",
+      "Helping hold your organs in place",
+      "Steadying your trunk as you stand up"
+    ],
+    "whenWeak": [
+      "Your middle may feel less supported when you lift",
+      "Your lower back may tire sooner when you carry things"
+    ],
+    "quickFacts": [
+      "It is the deepest belly muscle and wraps around you like a belt.",
+      "It does not move your spine much; it mostly holds your trunk steady."
+    ],
+    "seeAlso": [
+      "multifidus",
+      "internal_oblique",
+      "rectus_abdominis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "latissimus_dorsi",
+    "name": "Latissimus dorsi (lats)",
+    "group": "Back",
+    "shape": "fitted",
+    "meshKeys": [
+      "Latissimus dorsi"
+    ],
+    "taxonomyIds": [
+      "lats"
+    ],
+    "inDailyLife": [
+      "Pulling a heavy door open",
+      "Climbing a ladder",
+      "Pulling a seat belt across you",
+      "Pushing up from armrests when you stand"
+    ],
+    "whenWeak": [
+      "Pulling things toward you may feel harder",
+      "Reaching overhead may feel less strong"
+    ],
+    "quickFacts": [
+      "It is the widest muscle of the back and spans from the spine to the upper arm.",
+      "It pulls the arm down and back toward your body."
+    ],
+    "seeAlso": [
+      "teres_major",
+      "rhomboids",
+      "trapezius_mid_lower"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "multifidus",
+    "name": "Multifidus",
+    "group": "Back",
+    "shape": "fitted",
+    "meshKeys": [
+      "Multifidus"
+    ],
+    "taxonomyIds": [
+      "lower_back"
+    ],
+    "inDailyLife": [
+      "Keeping your spine steady as you walk",
+      "Standing up straight after bending",
+      "Holding your back stable when you carry bags",
+      "Sitting upright at a desk"
+    ],
+    "whenWeak": [
+      "Your back may tire quickly when you stand for long",
+      "Bending and straightening may feel less smooth"
+    ],
+    "quickFacts": [
+      "It is a deep muscle with short bundles that run along the spine.",
+      "Each bundle spans only a few bones, so it fine-tunes small spine movements."
+    ],
+    "seeAlso": [
+      "erector_spinae",
+      "transversus_abdominis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "erector_spinae",
+    "name": "Erector spinae (back extensors)",
+    "group": "Back",
+    "shape": "model",
+    "meshKeys": [
+      "Iliocostalis lumborum",
+      "Iliocostalis thoracis",
+      "Longissimus thoracis",
+      "Spinalis thoracis"
+    ],
+    "taxonomyIds": [
+      "lower_back"
+    ],
+    "inDailyLife": [
+      "Standing up straight after bending down",
+      "Lifting a child or a bag from the floor",
+      "Leaning back to look at the ceiling",
+      "Holding your trunk upright while you walk"
+    ],
+    "whenWeak": [
+      "Standing tall for a long time may feel tiring",
+      "Straightening up after bending may feel stiff or slow"
+    ],
+    "quickFacts": [
+      "It is a group of long muscles that run along both sides of the spine.",
+      "It reaches from the pelvis up toward the neck."
+    ],
+    "seeAlso": [
+      "multifidus",
+      "gluteus_maximus",
+      "hamstrings"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "trapezius_upper",
+    "name": "Trapezius, upper",
+    "group": "Back",
+    "shape": "model",
+    "meshKeys": [
+      "Descending part of trapezius"
+    ],
+    "taxonomyIds": [
+      "upper_traps"
+    ],
+    "inDailyLife": [
+      "Shrugging your shoulders",
+      "Carrying a heavy bag on your shoulder",
+      "Holding a phone between ear and shoulder",
+      "Looking up or tilting your head back"
+    ],
+    "whenWeak": [
+      "Carrying bags may tire your shoulders sooner",
+      "Lifting your shoulders may feel weak"
+    ],
+    "quickFacts": [
+      "It is the top part of the large kite-shaped muscle across the upper back.",
+      "It lifts the shoulder blade and helps tilt the head."
+    ],
+    "seeAlso": [
+      "levator_scapulae",
+      "trapezius_mid_lower",
+      "sternocleidomastoid"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "trapezius_mid_lower",
+    "name": "Trapezius, middle and lower",
+    "group": "Back",
+    "shape": "model",
+    "meshKeys": [
+      "Transverse part of trapezius",
+      "Ascending part of trapezius"
+    ],
+    "taxonomyIds": [
+      "mid_lower_traps"
+    ],
+    "inDailyLife": [
+      "Pulling your shoulders back to stand tall",
+      "Reaching overhead to a high shelf",
+      "Holding your arms out while you drive",
+      "Hanging a coat on a high hook"
+    ],
+    "whenWeak": [
+      "Your shoulders may drift forward when you sit",
+      "Lifting arms overhead may feel less smooth"
+    ],
+    "quickFacts": [
+      "These fibres pull the shoulder blade toward the spine and downward.",
+      "The lower part is shaped like a triangle pointing down the spine."
+    ],
+    "seeAlso": [
+      "trapezius_upper",
+      "rhomboids",
+      "serratus_anterior"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "rhomboids",
+    "name": "Rhomboids",
+    "group": "Back",
+    "shape": "model",
+    "meshKeys": [
+      "Rhomboid major",
+      "Rhomboid minor"
+    ],
+    "taxonomyIds": [
+      "rhomboids_teres"
+    ],
+    "inDailyLife": [
+      "Pulling your shoulder blades together",
+      "Keeping your shoulders from rolling forward",
+      "Pulling a heavy door toward you",
+      "Lowering your arm from a high shelf"
+    ],
+    "whenWeak": [
+      "Your upper back may feel rounded or tired when you sit",
+      "Pulling movements may feel less steady"
+    ],
+    "quickFacts": [
+      "They lie under the trapezius between your spine and shoulder blade.",
+      "There are two, rhomboid major and rhomboid minor."
+    ],
+    "seeAlso": [
+      "trapezius_mid_lower",
+      "latissimus_dorsi",
+      "teres_major"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "levator_scapulae",
+    "name": "Levator scapulae",
+    "group": "Back",
+    "shape": "model",
+    "meshKeys": [
+      "Levator scapulae"
+    ],
+    "taxonomyIds": [
+      "upper_traps"
+    ],
+    "inDailyLife": [
+      "Shrugging a shoulder up",
+      "Turning your head to look to the side",
+      "Tilting your head toward one shoulder",
+      "Carrying a bag on one shoulder"
+    ],
+    "whenWeak": [
+      "Your neck and shoulder may feel tight after long desk time",
+      "Turning your head may feel stiff"
+    ],
+    "quickFacts": [
+      "The name means lifter of the shoulder blade.",
+      "It runs from the top of the neck bones to the top of the shoulder blade."
+    ],
+    "seeAlso": [
+      "trapezius_upper",
+      "sternocleidomastoid"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "deltoid",
+    "name": "Deltoid (shoulder cap)",
+    "group": "Shoulders",
+    "shape": "model",
+    "meshKeys": [
+      "Clavicular part of deltoid",
+      "Acromial part of deltoid",
+      "Spinal part of deltoid"
+    ],
+    "taxonomyIds": [
+      "front_delts",
+      "side_delts",
+      "rear_delts"
+    ],
+    "inDailyLife": [
+      "Raising your arm to reach a shelf",
+      "Lifting a bag away from your body",
+      "Pushing a door open",
+      "Reaching behind you to put on a coat"
+    ],
+    "whenWeak": [
+      "Lifting your arm out to the side may feel harder",
+      "Reaching overhead may tire you sooner"
+    ],
+    "quickFacts": [
+      "It has three parts: front, side and back.",
+      "It gives the shoulder its rounded cap shape."
+    ],
+    "seeAlso": [
+      "rotator_cuff",
+      "trapezius_upper",
+      "pectoralis_major"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "rotator_cuff",
+    "name": "Rotator cuff",
+    "group": "Shoulders",
+    "shape": "model",
+    "meshKeys": [
+      "Supraspinatus",
+      "Infraspinatus",
+      "Teres minor",
+      "Subscapularis"
+    ],
+    "taxonomyIds": [
+      "rotator_cuff"
+    ],
+    "inDailyLife": [
+      "Throwing a ball",
+      "Reaching behind you to tuck in a shirt",
+      "Brushing or combing your hair",
+      "Holding your shoulder joint steady while you lift"
+    ],
+    "whenWeak": [
+      "Lifting your arm overhead may feel weak or less smooth",
+      "Reaching behind your back may feel harder"
+    ],
+    "quickFacts": [
+      "It is four small muscles that hold the arm bone in the shoulder socket.",
+      "They are supraspinatus, infraspinatus, teres minor and subscapularis."
+    ],
+    "seeAlso": [
+      "deltoid",
+      "teres_major",
+      "serratus_anterior"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "teres_major",
+    "name": "Teres major",
+    "group": "Shoulders",
+    "shape": "model",
+    "meshKeys": [
+      "Teres major"
+    ],
+    "taxonomyIds": [
+      "rhomboids_teres"
+    ],
+    "inDailyLife": [
+      "Pulling your arm down and back",
+      "Reaching back for a seat belt",
+      "Pushing yourself up from armrests",
+      "Turning your arm inward"
+    ],
+    "whenWeak": [
+      "Pulling your arm down may feel weaker",
+      "Reaching behind you may feel harder"
+    ],
+    "quickFacts": [
+      "It is sometimes called the lat's little helper.",
+      "It runs from the lower shoulder blade to the upper arm bone."
+    ],
+    "seeAlso": [
+      "latissimus_dorsi",
+      "rotator_cuff",
+      "rhomboids"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "biceps_brachii",
+    "name": "Biceps brachii",
+    "group": "Arms",
+    "shape": "model",
+    "meshKeys": [
+      "Long head of biceps brachii",
+      "Short head of biceps brachii"
+    ],
+    "taxonomyIds": [
+      "biceps"
+    ],
+    "inDailyLife": [
+      "Lifting a grocery bag",
+      "Carrying a box with bent arms",
+      "Turning a door handle or screwdriver",
+      "Bringing a cup to your mouth",
+      "Pulling a door open"
+    ],
+    "whenWeak": [
+      "Carrying bags with bent arms may tire you sooner",
+      "Turning a screwdriver may feel weaker"
+    ],
+    "quickFacts": [
+      "Biceps means two heads; it has a long head and a short head.",
+      "It bends the elbow and turns the palm up."
+    ],
+    "seeAlso": [
+      "brachialis",
+      "brachioradialis",
+      "coracobrachialis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "brachialis",
+    "name": "Brachialis",
+    "group": "Arms",
+    "shape": "model",
+    "meshKeys": [
+      "Brachialis"
+    ],
+    "taxonomyIds": [
+      "biceps"
+    ],
+    "inDailyLife": [
+      "Lifting a bag with your palm facing down",
+      "Bending your elbow to carry a box",
+      "Lowering a heavy item slowly",
+      "Holding a bag steady"
+    ],
+    "whenWeak": [
+      "Elbow bending may feel weaker with a load",
+      "Carrying shopping may tire your arms sooner"
+    ],
+    "quickFacts": [
+      "It lies under the biceps and is the main elbow bender.",
+      "It works whichever way your palm faces."
+    ],
+    "seeAlso": [
+      "biceps_brachii",
+      "brachioradialis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "coracobrachialis",
+    "name": "Coracobrachialis",
+    "group": "Arms",
+    "shape": "model",
+    "meshKeys": [
+      "Coracobrachialis"
+    ],
+    "taxonomyIds": [
+      "biceps"
+    ],
+    "inDailyLife": [
+      "Lifting your arm forward",
+      "Bringing your arm across your body",
+      "Reaching forward to pick something up",
+      "Swinging your arms when you walk"
+    ],
+    "whenWeak": [
+      "Lifting your arm forward may feel less strong",
+      "Moving your arm across your body may feel weaker"
+    ],
+    "quickFacts": [
+      "It is a small muscle on the inner upper arm.",
+      "It runs from the shoulder blade to the middle of the arm bone."
+    ],
+    "seeAlso": [
+      "biceps_brachii",
+      "pectoralis_major"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "triceps_brachii",
+    "name": "Triceps brachii",
+    "group": "Arms",
+    "shape": "model",
+    "meshKeys": [
+      "Long head of triceps brachii",
+      "Lateral head of triceps brachii",
+      "Medial head of triceps brachii"
+    ],
+    "taxonomyIds": [
+      "triceps"
+    ],
+    "inDailyLife": [
+      "Straightening your arm to push a door",
+      "Pushing yourself up from a chair",
+      "Reaching to put something on a shelf",
+      "Throwing a ball",
+      "Pushing a shopping cart"
+    ],
+    "whenWeak": [
+      "Pushing yourself up from a chair may feel harder",
+      "Reaching overhead may tire your arms"
+    ],
+    "quickFacts": [
+      "Triceps means three heads: long, lateral and medial.",
+      "It is the main muscle that straightens the elbow."
+    ],
+    "seeAlso": [
+      "deltoid",
+      "pectoralis_major"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "brachioradialis",
+    "name": "Brachioradialis",
+    "group": "Forearms",
+    "shape": "model",
+    "meshKeys": [
+      "Brachioradialis"
+    ],
+    "taxonomyIds": [
+      "forearms"
+    ],
+    "inDailyLife": [
+      "Lifting a cup with your thumb up",
+      "Hammering or stirring",
+      "Carrying a bag by a handle",
+      "Opening a jar"
+    ],
+    "whenWeak": [
+      "Lifting with a thumb-up hand may feel weaker",
+      "Stirring or hammering may tire your forearm sooner"
+    ],
+    "quickFacts": [
+      "It sits on the thumb side of the forearm.",
+      "It helps bend the elbow when your thumb points up."
+    ],
+    "seeAlso": [
+      "biceps_brachii",
+      "brachialis",
+      "forearm_extensors"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "forearm_extensors",
+    "name": "Forearm extensors (back of forearm)",
+    "group": "Forearms",
+    "shape": "model",
+    "meshKeys": [
+      "Extensor carpi radialis longus",
+      "Extensor carpi radialis brevis",
+      "Extensor digitorum",
+      "Extensor carpi ulnaris"
+    ],
+    "taxonomyIds": [
+      "forearms"
+    ],
+    "inDailyLife": [
+      "Lifting your wrist and hand back",
+      "Typing on a keyboard",
+      "Opening your fingers to let go of an object",
+      "Holding your wrist steady when you grip"
+    ],
+    "whenWeak": [
+      "Your wrist may tire when you type or grip",
+      "Letting go of objects may feel less smooth"
+    ],
+    "quickFacts": [
+      "They sit on the back of the forearm and run to the wrist and fingers.",
+      "They work with the front forearm muscles to keep the wrist steady when you grip."
+    ],
+    "seeAlso": [
+      "forearm_flexors",
+      "brachioradialis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "forearm_flexors",
+    "name": "Forearm flexors (front of forearm)",
+    "group": "Forearms",
+    "shape": "model",
+    "meshKeys": [
+      "Flexor carpi radialis",
+      "Humeral head of flexor carpi ulnaris",
+      "Ulnar head of flexor carpi ulnaris"
+    ],
+    "taxonomyIds": [
+      "forearms"
+    ],
+    "inDailyLife": [
+      "Gripping a handle or a bag",
+      "Opening a jar",
+      "Writing or using a phone",
+      "Bending your wrist toward your palm",
+      "Shaking hands"
+    ],
+    "whenWeak": [
+      "Your grip may tire sooner when you carry things",
+      "Opening jars may feel harder"
+    ],
+    "quickFacts": [
+      "They sit on the palm side of the forearm.",
+      "Their tendons run through the wrist to the fingers."
+    ],
+    "seeAlso": [
+      "forearm_extensors",
+      "pronator_teres"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "pronator_teres",
+    "name": "Pronator teres",
+    "group": "Forearms",
+    "shape": "model",
+    "meshKeys": [
+      "Humeral head of pronator teres",
+      "Ulnar head of pronator teres"
+    ],
+    "taxonomyIds": [
+      "forearms"
+    ],
+    "inDailyLife": [
+      "Turning your palm to face down",
+      "Pouring from a jug",
+      "Turning a key",
+      "Turning a door handle"
+    ],
+    "whenWeak": [
+      "Turning your palm down may feel weaker",
+      "Pouring from a heavy jug may feel awkward"
+    ],
+    "quickFacts": [
+      "Pronate means to turn the palm down.",
+      "It runs diagonally from the inner elbow across the forearm."
+    ],
+    "seeAlso": [
+      "forearm_flexors",
+      "biceps_brachii"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "gluteus_maximus",
+    "name": "Gluteus maximus",
+    "group": "Glutes",
+    "shape": "model",
+    "meshKeys": [
+      "Gluteus maximus"
+    ],
+    "taxonomyIds": [
+      "glutes"
+    ],
+    "inDailyLife": [
+      "Standing up from a chair or toilet",
+      "Climbing stairs or a steep hill",
+      "Walking uphill",
+      "Getting out of a car",
+      "Pushing off when you run"
+    ],
+    "whenWeak": [
+      "Climbing stairs may feel harder",
+      "Standing up from a low seat may take more effort"
+    ],
+    "quickFacts": [
+      "It is the largest muscle in the body.",
+      "It pushes your thigh back and turns it outward."
+    ],
+    "seeAlso": [
+      "gluteus_medius_minimus",
+      "hamstrings",
+      "erector_spinae"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "gluteus_medius_minimus",
+    "name": "Gluteus medius and minimus",
+    "group": "Glutes",
+    "shape": "model",
+    "meshKeys": [
+      "Gluteus medius",
+      "Gluteus minimus"
+    ],
+    "taxonomyIds": [
+      "abductors"
+    ],
+    "inDailyLife": [
+      "Standing on one leg while you put on trousers",
+      "Keeping your hips level as you walk",
+      "Stepping sideways",
+      "Stepping onto a curb"
+    ],
+    "whenWeak": [
+      "Balancing on one leg may feel wobbly",
+      "Your hips may sway more when you walk"
+    ],
+    "quickFacts": [
+      "They sit on the side of the hip.",
+      "Gluteus minimus lies under gluteus medius."
+    ],
+    "seeAlso": [
+      "gluteus_maximus",
+      "tensor_fasciae_latae",
+      "adductors"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "tensor_fasciae_latae",
+    "name": "Tensor fasciae latae",
+    "group": "Hip flexors",
+    "shape": "model",
+    "meshKeys": [
+      "Tensor fasciae latae"
+    ],
+    "taxonomyIds": [
+      "abductors"
+    ],
+    "inDailyLife": [
+      "Lifting your knee to step up",
+      "Stepping sideways",
+      "Swinging your leg forward while you walk",
+      "Keeping your hip steady when you stand on one leg"
+    ],
+    "whenWeak": [
+      "Stepping up may feel less smooth",
+      "The outer hip may feel tired after a long walk"
+    ],
+    "quickFacts": [
+      "It is a small muscle at the front and side of the hip.",
+      "It connects to the iliotibial band, a long strip of tissue down the outer thigh."
+    ],
+    "seeAlso": [
+      "gluteus_medius_minimus",
+      "iliopsoas",
+      "rectus_femoris"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "iliopsoas",
+    "name": "Iliopsoas (deep hip flexor)",
+    "group": "Hip flexors",
+    "shape": "model",
+    "meshKeys": [
+      "Iliacus",
+      "Psoas major"
+    ],
+    "taxonomyIds": [
+      "hip_flexors"
+    ],
+    "inDailyLife": [
+      "Lifting your knee to climb stairs",
+      "Stepping over a bump or a curb",
+      "Sitting up from lying down",
+      "Swinging your leg forward as you walk",
+      "Getting your leg into a car"
+    ],
+    "whenWeak": [
+      "Stairs may feel harder",
+      "Lifting your leg to step over things may feel heavy"
+    ],
+    "quickFacts": [
+      "It is the main hip flexor, made of two muscles: iliacus and psoas major.",
+      "It links your lower spine to your thigh bone."
+    ],
+    "seeAlso": [
+      "rectus_femoris",
+      "sartorius",
+      "rectus_abdominis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "sartorius",
+    "name": "Sartorius",
+    "group": "Hip flexors",
+    "shape": "model",
+    "meshKeys": [
+      "Sartorius"
+    ],
+    "taxonomyIds": [
+      "hip_flexors"
+    ],
+    "inDailyLife": [
+      "Crossing one leg over the other",
+      "Sitting with an ankle on the opposite knee",
+      "Lifting your knee to step up",
+      "Sitting cross-legged on the floor"
+    ],
+    "whenWeak": [
+      "Crossing your legs may feel less easy",
+      "Turning your leg outward may feel harder"
+    ],
+    "quickFacts": [
+      "It is the longest muscle in the body.",
+      "Its name comes from the Latin word for tailor, as tailors sat cross-legged."
+    ],
+    "seeAlso": [
+      "iliopsoas",
+      "adductors",
+      "rectus_femoris"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "adductors",
+    "name": "Adductors (inner thigh)",
+    "group": "Adductors",
+    "shape": "model",
+    "meshKeys": [
+      "Adductor brevis",
+      "Adductor longus",
+      "Adductor magnus",
+      "Adductor minimus",
+      "Pectineus",
+      "Gracilis"
+    ],
+    "taxonomyIds": [
+      "adductors"
+    ],
+    "inDailyLife": [
+      "Squeezing your knees together",
+      "Getting in and out of a car",
+      "Stepping sideways without wobbling",
+      "Riding a bike or a horse",
+      "Keeping your legs steady when you walk"
+    ],
+    "whenWeak": [
+      "Getting out of a car may feel awkward",
+      "Your legs may feel less steady when you step sideways"
+    ],
+    "quickFacts": [
+      "They make up the inner thigh and pull the leg toward the middle.",
+      "There are six muscles in this group, as shown here."
+    ],
+    "seeAlso": [
+      "gluteus_medius_minimus",
+      "sartorius",
+      "hamstrings"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "rectus_femoris",
+    "name": "Rectus femoris",
+    "group": "Quadriceps",
+    "shape": "model",
+    "meshKeys": [
+      "Rectus femoris"
+    ],
+    "taxonomyIds": [
+      "quads"
+    ],
+    "inDailyLife": [
+      "Kicking a ball",
+      "Lifting your knee to climb stairs",
+      "Straightening your knee as you stand",
+      "Walking up a slope"
+    ],
+    "whenWeak": [
+      "Climbing stairs may feel harder",
+      "Lifting your knee may tire you sooner"
+    ],
+    "quickFacts": [
+      "It is the only quadriceps muscle that crosses the hip.",
+      "It both bends the hip and straightens the knee."
+    ],
+    "seeAlso": [
+      "vasti",
+      "iliopsoas",
+      "tensor_fasciae_latae"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "vasti",
+    "name": "Vastus muscles (front thigh)",
+    "group": "Quadriceps",
+    "shape": "model",
+    "meshKeys": [
+      "Vastus lateralis",
+      "Vastus intermedius",
+      "Vastus medialis"
+    ],
+    "taxonomyIds": [
+      "quads",
+      "quads_lower"
+    ],
+    "inDailyLife": [
+      "Standing up from a chair",
+      "Walking down stairs or a ramp",
+      "Getting up off the floor",
+      "Crouching to pick something up"
+    ],
+    "whenWeak": [
+      "Standing up from low seats may feel harder",
+      "Walking downstairs may feel less steady"
+    ],
+    "quickFacts": [
+      "There are three: lateral, intermediate and medial.",
+      "Together with rectus femoris they form the quadriceps."
+    ],
+    "seeAlso": [
+      "rectus_femoris",
+      "gluteus_maximus"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "hamstrings",
+    "name": "Hamstrings",
+    "group": "Hamstrings",
+    "shape": "model",
+    "meshKeys": [
+      "Long head of biceps femoris",
+      "Short head of biceps femoris",
+      "Semimembranosus",
+      "Semitendinosus"
+    ],
+    "taxonomyIds": [
+      "hamstrings"
+    ],
+    "inDailyLife": [
+      "Bending your knee to put on a sock",
+      "Slowing your leg down when you walk or run",
+      "Leaning forward to pick something up",
+      "Pushing off when you walk fast"
+    ],
+    "whenWeak": [
+      "Leaning forward to pick things up may feel strained",
+      "Walking or running fast may tire your legs sooner"
+    ],
+    "quickFacts": [
+      "They run down the back of the thigh and include the biceps femoris and semimembranosus.",
+      "They bend the knee and help straighten the hip."
+    ],
+    "seeAlso": [
+      "gluteus_maximus",
+      "gastrocnemius",
+      "erector_spinae"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "gastrocnemius",
+    "name": "Gastrocnemius (calf)",
+    "group": "Calves & shins",
+    "shape": "model",
+    "meshKeys": [
+      "Medial head of gastrocnemius",
+      "Lateral head of gastrocnemius"
+    ],
+    "taxonomyIds": [
+      "calves"
+    ],
+    "inDailyLife": [
+      "Rising onto your toes to reach a shelf",
+      "Walking, running and jumping",
+      "Pushing off the pedal when you ride",
+      "Climbing stairs"
+    ],
+    "whenWeak": [
+      "Rising onto your toes may feel hard",
+      "Walking uphill may tire your calves sooner"
+    ],
+    "quickFacts": [
+      "It is the larger, rounder calf muscle you can see.",
+      "It crosses both the knee and the ankle."
+    ],
+    "seeAlso": [
+      "soleus",
+      "tibialis_anterior",
+      "hamstrings"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "soleus",
+    "name": "Soleus",
+    "group": "Calves & shins",
+    "shape": "model",
+    "meshKeys": [
+      "Soleus"
+    ],
+    "taxonomyIds": [
+      "soleus"
+    ],
+    "inDailyLife": [
+      "Standing for a long time",
+      "Walking at an easy pace",
+      "Keeping your balance as you sway",
+      "Pushing off on every step"
+    ],
+    "whenWeak": [
+      "Standing for a long time may feel tiring",
+      "Your lower legs may tire during long walks"
+    ],
+    "quickFacts": [
+      "It lies under the gastrocnemius.",
+      "It has many slow-twitch fibres, suited to long, steady work."
+    ],
+    "seeAlso": [
+      "gastrocnemius",
+      "tibialis_anterior",
+      "fibularis"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "tibialis_anterior",
+    "name": "Tibialis anterior (shin)",
+    "group": "Calves & shins",
+    "shape": "model",
+    "meshKeys": [
+      "Tibialis anterior"
+    ],
+    "taxonomyIds": [
+      "tibialis_anterior"
+    ],
+    "inDailyLife": [
+      "Lifting your toes so your foot clears the ground",
+      "Walking on your heels",
+      "Landing your foot softly as you step",
+      "Keeping your balance on uneven ground"
+    ],
+    "whenWeak": [
+      "Your toes may catch on the ground when you walk",
+      "Your foot may slap down when you step"
+    ],
+    "quickFacts": [
+      "It runs along the front of the shin.",
+      "It pulls your foot up toward your shin."
+    ],
+    "seeAlso": [
+      "soleus",
+      "fibularis",
+      "gastrocnemius"
+    ],
+    "reviewed": false
+  },
+  {
+    "muscleId": "fibularis",
+    "name": "Fibularis (outer lower leg)",
+    "group": "Calves & shins",
+    "shape": "model",
+    "meshKeys": [
+      "Fibularis longus",
+      "Fibularis brevis"
+    ],
+    "taxonomyIds": [
+      "calves"
+    ],
+    "inDailyLife": [
+      "Keeping your ankle steady on uneven ground",
+      "Turning your foot outward",
+      "Balancing on one foot",
+      "Stepping off a curb"
+    ],
+    "whenWeak": [
+      "Your ankle may feel wobbly on uneven ground",
+      "Balancing on one foot may feel harder"
+    ],
+    "quickFacts": [
+      "They run down the outer side of the lower leg.",
+      "The older name is peroneus, and you may still see it used."
+    ],
+    "seeAlso": [
+      "tibialis_anterior",
+      "gastrocnemius"
+    ],
+    "reviewed": false
+  }
+]

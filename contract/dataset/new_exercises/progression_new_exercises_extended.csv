@@ -1,0 +1,13 @@
+name,slug,variations,movement_pattern,unilateral,beginner_friendly,injury_cautions,track_fit,difficulty,proposed_muscles
+Pull-Up,pull-up,"Pronated grip (palms away); Shoulder-width, wide or narrow grip; Mixed grip",pull,no,no,Stop if the shoulders or elbows pinch,intermediate;muscle_gain;athlete;fat_loss,2,
+Chin-Up,chin-up,Supinated grip; Narrow or shoulder-width grip; Pause at the top,pull,no,no,Do not swing or kip,intermediate;muscle_gain;athlete;fat_loss,2,
+Neutral-Grip Pull-Up,neutral-grip-pull-up,Narrow or wide neutral handles; Pause at the top; Slow lowering (3 s),pull,no,no,"Keep the shoulders down, no shrugging",intermediate;muscle_gain;athlete;fat_loss,2,
+Wide-Grip Pull-Up,wide-grip-pull-up,Slightly wide vs very wide grip; Pause at the top; Slow lowering (3 s),pull,no,no,Stop if the shoulders pinch,intermediate;muscle_gain;athlete;fat_loss,3,
+Negative Pull-Up,negative-pull-up,"3 s, 5 s or 8 s lowering; Pronated or supinated grip; Pause halfway down",pull,no,yes,Control the whole descent,intermediate;muscle_gain;athlete;fat_loss,2,
+Scapular Pull-Up,scapular-pull-up,Pronated or neutral grip; Pause at the top (2 s); Active hang for time,pull,no,yes,Keep the movement small and slow,intermediate;muscle_gain;athlete,1,
+Parallel-Bar Dip,parallel-bar-dip,Upright torso (triceps) vs forward lean (chest); Narrow or wide handles; Pause at the bottom,push,no,no,Stop if the shoulders feel pinched,intermediate;muscle_gain;athlete;fat_loss,2,lower_chest
+Pistol Squat,pistol-squat,Box or bench to sit to; Counterweight held in front (goblet); Slow lowering (3 s),squat,yes,no,Progress from the assisted version first,intermediate;muscle_gain;athlete;fat_loss,3,
+Single-Leg Hip Thrust,single-leg-hip-thrust,"Bodyweight, dumbbell or barbell; Foot closer or further from the hips; Pause at the top (2 s)",hinge,yes,no,"Keep the ribs down, no back arch",intermediate;muscle_gain;athlete,2,
+Dumbbell Step-Up,dumbbell-step-up,"Low, medium or high box; Goblet hold instead of sides; Slow lowering (3 s)",lunge,yes,yes,Do not push off the back foot,intermediate;muscle_gain;athlete,1,
+Dumbbell Forward Lunge,dumbbell-forward-lunge,Short vs long stride; Alternating or one side at a time; Goblet or dumbbells at the sides,lunge,yes,yes,Keep the front heel down,intermediate;muscle_gain;athlete,1,
+Dumbbell Bulgarian Split Squat,dumbbell-bulgarian-split-squat,Torso upright (quads) vs forward lean (glutes); Goblet hold; Rear foot higher or lower,lunge,yes,no,Keep the front heel down and torso steady,intermediate;muscle_gain;athlete,2,

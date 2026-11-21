@@ -1,0 +1,272 @@
+{
+ "_note": "HAND-WORKED by the author of contract 1.1.0 (Admin Phase 49), not run by any program in either app and not reviewed by anyone else. Every expected value follows engines.md section 27 by reading. If a fixture and the spec disagree, the spec wins and the fixture is a patch release.",
+ "spec": "engines.md 27.6",
+ "rows_shape": "client_id, u (device last-change, epoch ms), x (deleted_at epoch s or null), st (status or null), e (ended_at epoch s or null), v (a payload column)",
+ "cases": [
+  {
+   "id": "m01",
+   "why": "rows only on one side are unioned",
+   "local": [
+    {
+     "client_id": "A",
+     "u": 100,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "a"
+    }
+   ],
+   "server": [
+    {
+     "client_id": "B",
+     "u": 90,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "b"
+    }
+   ],
+   "result": [
+    {
+     "client_id": "A",
+     "u": 100,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "a"
+    },
+    {
+     "client_id": "B",
+     "u": 90,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "b"
+    }
+   ]
+  },
+  {
+   "id": "m02",
+   "why": "same id, later u wins",
+   "local": [
+    {
+     "client_id": "A",
+     "u": 200,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "new"
+    }
+   ],
+   "server": [
+    {
+     "client_id": "A",
+     "u": 100,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "old"
+    }
+   ],
+   "result": [
+    {
+     "client_id": "A",
+     "u": 200,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "new"
+    }
+   ]
+  },
+  {
+   "id": "m03",
+   "why": "tombstone (x set) beats a later edit",
+   "local": [
+    {
+     "client_id": "A",
+     "u": 300,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "edited"
+    }
+   ],
+   "server": [
+    {
+     "client_id": "A",
+     "u": 100,
+     "x": 150,
+     "st": null,
+     "e": null,
+     "v": "old"
+    }
+   ],
+   "result": [
+    {
+     "client_id": "A",
+     "u": 100,
+     "x": 150,
+     "st": null,
+     "e": null,
+     "v": "old"
+    }
+   ]
+  },
+  {
+   "id": "m04",
+   "why": "final state: st 'done' with e set beats active with a later u",
+   "local": [
+    {
+     "client_id": "A",
+     "u": 500,
+     "x": null,
+     "st": "active",
+     "e": null,
+     "v": "late edit"
+    }
+   ],
+   "server": [
+    {
+     "client_id": "A",
+     "u": 400,
+     "x": null,
+     "st": "done",
+     "e": 399,
+     "v": null
+    }
+   ],
+   "result": [
+    {
+     "client_id": "A",
+     "u": 400,
+     "x": null,
+     "st": "done",
+     "e": 399,
+     "v": null
+    }
+   ]
+  },
+  {
+   "id": "m05",
+   "why": "both final: keep the one with the later u",
+   "local": [
+    {
+     "client_id": "A",
+     "u": 600,
+     "x": null,
+     "st": "done",
+     "e": 500,
+     "v": "x"
+    }
+   ],
+   "server": [
+    {
+     "client_id": "A",
+     "u": 650,
+     "x": null,
+     "st": "done",
+     "e": 500,
+     "v": "y"
+    }
+   ],
+   "result": [
+    {
+     "client_id": "A",
+     "u": 650,
+     "x": null,
+     "st": "done",
+     "e": 500,
+     "v": "y"
+    }
+   ]
+  },
+  {
+   "id": "m06",
+   "why": "equal u, different content: the larger canonical JSON string wins (so every device converges)",
+   "local": [
+    {
+     "client_id": "A",
+     "u": 700,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "apple"
+    }
+   ],
+   "server": [
+    {
+     "client_id": "A",
+     "u": 700,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "banana"
+    }
+   ],
+   "result": [
+    {
+     "client_id": "A",
+     "u": 700,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "banana"
+    }
+   ],
+   "canonical_compare": "{\"client_id\":\"A\",\"u\":700,\"x\":null,\"st\":null,\"e\":null,\"v\":\"banana\"} > {\"client_id\":\"A\",\"u\":700,\"x\":null,\"st\":null,\"e\":null,\"v\":\"apple\"} because 'b' > 'a' at the first differing character"
+  },
+  {
+   "id": "m07",
+   "why": "merge never deletes: a row only on the server stays after a local merge; a row only local stays after a pull",
+   "local": [],
+   "server": [
+    {
+     "client_id": "A",
+     "u": 10,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "s"
+    }
+   ],
+   "result": [
+    {
+     "client_id": "A",
+     "u": 10,
+     "x": null,
+     "st": null,
+     "e": null,
+     "v": "s"
+    }
+   ]
+  },
+  {
+   "id": "m08",
+   "why": "natural-key table (exercise_prefs): key is slug, later u wins",
+   "table": "exercise_prefs",
+   "key": "slug",
+   "local": [
+    {
+     "slug": "squat",
+     "u": 50,
+     "favourite": 1
+    }
+   ],
+   "server": [
+    {
+     "slug": "squat",
+     "u": 40,
+     "favourite": 0
+    }
+   ],
+   "result": [
+    {
+     "slug": "squat",
+     "u": 50,
+     "favourite": 1
+    }
+   ]
+  }
+ ]
+}

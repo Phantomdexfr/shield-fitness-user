@@ -1,0 +1,60 @@
+{
+ "_doc": "Trimming and privacy rules for aiReviewText (User Phase 40). `build` says how the test makes the history (the test owns the generator); `checks` are what the text must satisfy.",
+ "cap": 12000,
+ "trimNote": "NOTE: detail trimmed to fit",
+ "cases": [
+  {
+   "name": "exercise with 400 logged sessions",
+   "build": {
+    "kind": "exercise",
+    "sessions": 400,
+    "slug": "barbell-bench-press",
+    "lastN": 400
+   },
+   "checks": {
+    "maxChars": 12000,
+    "mustContainTrimNote": true,
+    "keepsNewestSession": true,
+    "dropsOldestSession": true,
+    "keepsSummary": true
+   }
+  },
+  {
+   "name": "range with 31 sessions",
+   "build": {
+    "kind": "range",
+    "sessions": 31
+   },
+   "checks": {
+    "maxChars": 12000,
+    "mustContainTrimNote": true,
+    "noSessionsSection": true,
+    "keepsWeeks": true,
+    "keepsTrends": true
+   }
+  },
+  {
+   "name": "range with 30 sessions keeps every session line",
+   "build": {
+    "kind": "range",
+    "sessions": 30
+   },
+   "checks": {
+    "maxChars": 12000,
+    "mustContainTrimNote": false,
+    "sessionLines": 30
+   }
+  },
+  {
+   "name": "short session is never trimmed",
+   "build": {
+    "kind": "session",
+    "sessions": 2
+   },
+   "checks": {
+    "maxChars": 12000,
+    "mustContainTrimNote": false
+   }
+  }
+ ]
+}

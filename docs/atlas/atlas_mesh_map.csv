@@ -1,0 +1,76 @@
+mesh_key,source,sides,muscleId
+Sternocleidomastoid,bodyparts3d,LM,sternocleidomastoid
+Clavicular part of pectoralis major,bodyparts3d,LR,pectoralis_major
+Sternocostal part of pectoralis major,bodyparts3d,LR,pectoralis_major
+Abdominal part of pectoralis major,bodyparts3d,LR,pectoralis_major
+Pectoralis minor,bodyparts3d,LR,pectoralis_minor
+Serratus anterior,bodyparts3d,LR,serratus_anterior
+External oblique,bodyparts3d,LR,external_oblique
+Internal oblique,fitted,LR,internal_oblique
+Rectus abdominis,fitted,LR,rectus_abdominis
+Transversus abdominis,fitted,LR,transversus_abdominis
+Latissimus dorsi,fitted,LR,latissimus_dorsi
+Multifidus,fitted,LR,multifidus
+Iliocostalis lumborum,bodyparts3d,LR,erector_spinae
+Iliocostalis thoracis,bodyparts3d,LR,erector_spinae
+Longissimus thoracis,bodyparts3d,LR,erector_spinae
+Spinalis thoracis,bodyparts3d,M,erector_spinae
+Descending part of trapezius,bodyparts3d,LR,trapezius_upper
+Transverse part of trapezius,bodyparts3d,LR,trapezius_mid_lower
+Ascending part of trapezius,bodyparts3d,LR,trapezius_mid_lower
+Rhomboid major,bodyparts3d,LR,rhomboids
+Rhomboid minor,bodyparts3d,LR,rhomboids
+Levator scapulae,bodyparts3d,LR,levator_scapulae
+Clavicular part of deltoid,bodyparts3d,LR,deltoid
+Acromial part of deltoid,bodyparts3d,LR,deltoid
+Spinal part of deltoid,bodyparts3d,LR,deltoid
+Supraspinatus,bodyparts3d,LR,rotator_cuff
+Infraspinatus,bodyparts3d,LR,rotator_cuff
+Teres minor,bodyparts3d,LR,rotator_cuff
+Subscapularis,bodyparts3d,LR,rotator_cuff
+Teres major,bodyparts3d,LR,teres_major
+Long head of biceps brachii,bodyparts3d,LR,biceps_brachii
+Short head of biceps brachii,bodyparts3d,LR,biceps_brachii
+Brachialis,bodyparts3d,LR,brachialis
+Coracobrachialis,bodyparts3d,LR,coracobrachialis
+Long head of triceps brachii,bodyparts3d,LR,triceps_brachii
+Lateral head of triceps brachii,bodyparts3d,LR,triceps_brachii
+Medial head of triceps brachii,bodyparts3d,LR,triceps_brachii
+Brachioradialis,bodyparts3d,LR,brachioradialis
+Extensor carpi radialis longus,bodyparts3d,LR,forearm_extensors
+Extensor carpi radialis brevis,bodyparts3d,LR,forearm_extensors
+Extensor digitorum,bodyparts3d,LR,forearm_extensors
+Extensor carpi ulnaris,bodyparts3d,LR,forearm_extensors
+Flexor carpi radialis,bodyparts3d,LR,forearm_flexors
+Humeral head of flexor carpi ulnaris,bodyparts3d,LR,forearm_flexors
+Ulnar head of flexor carpi ulnaris,bodyparts3d,LR,forearm_flexors
+Humeral head of pronator teres,bodyparts3d,LR,pronator_teres
+Ulnar head of pronator teres,bodyparts3d,LR,pronator_teres
+Gluteus maximus,bodyparts3d,LR,gluteus_maximus
+Gluteus medius,bodyparts3d,LR,gluteus_medius_minimus
+Gluteus minimus,bodyparts3d,LR,gluteus_medius_minimus
+Tensor fasciae latae,bodyparts3d,LR,tensor_fasciae_latae
+Iliacus,bodyparts3d,LR,iliopsoas
+Psoas major,bodyparts3d,LR,iliopsoas
+Sartorius,bodyparts3d,LR,sartorius
+Adductor brevis,bodyparts3d,LR,adductors
+Adductor longus,bodyparts3d,LR,adductors
+Adductor magnus,bodyparts3d,LR,adductors
+Adductor minimus,bodyparts3d,LR,adductors
+Pectineus,bodyparts3d,LR,adductors
+Gracilis,bodyparts3d,LR,adductors
+Rectus femoris,bodyparts3d,LR,rectus_femoris
+Vastus lateralis,bodyparts3d,LR,vasti
+Vastus intermedius,bodyparts3d,LR,vasti
+Vastus medialis,bodyparts3d,LR,vasti
+Long head of biceps femoris,bodyparts3d,LR,hamstrings
+Short head of biceps femoris,bodyparts3d,LR,hamstrings
+Semimembranosus,bodyparts3d,LR,hamstrings
+Semitendinosus,bodyparts3d,LR,hamstrings
+Medial head of gastrocnemius,bodyparts3d,LR,gastrocnemius
+Lateral head of gastrocnemius,bodyparts3d,LR,gastrocnemius
+Soleus,bodyparts3d,LR,soleus
+Tibialis anterior,bodyparts3d,LR,tibialis_anterior
+Fibularis longus,bodyparts3d,LR,fibularis
+Fibularis brevis,bodyparts3d,LR,fibularis
+Skin,shell,M,"(none: a body shell for depth, not a muscle; no content)"

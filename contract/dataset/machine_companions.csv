@@ -1,0 +1,97 @@
+machine_name,kind,value,evidence,exercise_slug,label,note
+Cable Crossover,bench,flat,data,,,named in variation rows of exercises on this machine
+Cable Crossover,bench,incline,data,,,named in variation rows of exercises on this machine
+Cable Crossover,bench,utility,data,,,named in variation rows of exercises on this machine
+Cable Crossover,bench,stability_ball,data,,,named in variation rows of exercises on this machine
+Cable Crossover,bench,preacher,data,,,named in variation rows of exercises on this machine
+Cable Crossover,bench,decline,inferred,,,a decline bench fits between the stacks; no variation row names it
+Cable Crossover,attachment,d_handle,data,,,named in variation rows of exercises on this machine
+Cable Crossover,attachment,strap,data,,,named in variation rows of exercises on this machine
+Cable Crossover,attachment,straight_bar,data,,,named in variation rows of exercises on this machine
+Cable Crossover,attachment,v_handle,data,,,named in variation rows of exercises on this machine
+Cable Crossover,attachment,ez_bar,data,,,named in variation rows of exercises on this machine
+Cable Crossover,attachment,mag_handle,data,,,named in variation rows of exercises on this machine
+Cable Crossover,attachment,curved_lat_bar,data,,,named in variation rows of exercises on this machine
+Cable Crossover,attachment,rope,inferred,,,standard cable attachments; no variation row names them (rope is a known data gap)
+Cable Crossover,attachment,stirrup,inferred,,,standard cable attachments; no variation row names them (rope is a known data gap)
+Cable Attachments,attachment,rope,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Cable Attachments,attachment,straight_bar,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Cable Attachments,attachment,ez_bar,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Cable Attachments,attachment,v_handle,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Cable Attachments,attachment,d_handle,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Cable Attachments,attachment,strap,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Cable Attachments,attachment,stirrup,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Cable Attachments,attachment,curved_lat_bar,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Cable Attachments,attachment,mag_handle,inferred,,,the attachment kit itself; no exercises are attached to it in the data
+Lat Pulldown,attachment,curved_lat_bar,data,,,named in variation rows
+Lat Pulldown,attachment,straight_bar,data,,,named in variation rows
+Lat Pulldown,attachment,d_handle,data,,,named in variation rows
+Lat Pulldown,attachment,mag_handle,data,,,named in variation rows
+Lat Pulldown,attachment,v_handle,inferred,,,common pulldown attachment; no variation row names it
+Seated Cable Row,attachment,d_handle,data,,,named in variation rows
+Seated Cable Row,attachment,mag_handle,data,,,named in variation rows
+Seated Cable Row,attachment,straight_bar,data,,,named in variation rows
+Seated Cable Row,attachment,curved_lat_bar,data,,,named in variation rows
+Seated Cable Row,attachment,v_handle,data,,,named in variation rows
+Seated Cable Row,attachment,rope,inferred,,,rope row to the face; no variation row names it
+Adjustable Bench,bench,flat,data,,,named in variation rows
+Adjustable Bench,bench,incline,data,,,named in variation rows
+Adjustable Bench,bench,decline,inferred,,,most adjustable benches fold to a decline; check the gym bench
+Flat Incline Combo Bench,bench,flat,inferred,,,no exercises are linked to this machine in the data; name says it
+Flat Incline Combo Bench,bench,incline,inferred,,,no exercises are linked to this machine in the data; name says it
+Utility Bench,bench,flat,data,,,named in variation rows
+Utility Bench,bench,incline,data,,,named in variation rows
+Flat Bench,bench,flat,data,,,named in variation rows (incline/ball rows come from exercises linked to the flat bench)
+Flat Bench,bench,incline,data,,,named in variation rows (incline/ball rows come from exercises linked to the flat bench)
+Flat Bench,bench,stability_ball,data,,,named in variation rows (incline/ball rows come from exercises linked to the flat bench)
+Olympic Flat Bench,bench,flat,data,,,named in variation rows
+Olympic Incline Bench,bench,incline,inferred,,,the bench itself is incline
+Olympic Barbell,bench,flat,data,,,named in variation rows
+Olympic Barbell,bench,incline,data,,,named in variation rows
+Olympic Barbell,bench,decline,inferred,,,barbell presses can use a decline or utility bench; no variation row names them
+Olympic Barbell,bench,utility,inferred,,,barbell presses can use a decline or utility bench; no variation row names them
+Olympic EZ Bar,bench,flat,data,,,named in variation rows
+Olympic EZ Bar,bench,incline,data,,,named in variation rows
+Olympic EZ Bar,bench,preacher,data,,,named in variation rows
+Dumbbells and Rack,bench,flat,data,,,named in variation rows
+Dumbbells and Rack,bench,incline,data,,,named in variation rows
+Dumbbells and Rack,bench,utility,inferred,,,dumbbell work on other bench types; no variation row names them
+Dumbbells and Rack,bench,decline,inferred,,,dumbbell work on other bench types; no variation row names them
+Dumbbells and Rack,bench,stability_ball,inferred,,,dumbbell work on other bench types; no variation row names them
+Dumbbells and Rack,bench,preacher,inferred,,,dumbbell work on other bench types; no variation row names them
+Smith Machine,bench,flat,data,,,named in variation rows
+Smith Machine,bench,incline,data,,,named in variation rows
+Smith Machine,bench,utility,inferred,,,a utility bench fits inside a Smith machine; no variation row names it
+Power Cage,bench,flat,inferred,,,benches are used inside the cage; no variation row names them
+Power Cage,bench,incline,inferred,,,benches are used inside the cage; no variation row names them
+Power Cage,bench,utility,inferred,,,benches are used inside the cage; no variation row names them
+Preacher Curl Bench,bench,preacher,inferred,,,the bench itself is a preacher pad
+Preacher Curl Bench,attachment,ez_bar,data,,,named in variation rows of exercises on this machine
+Preacher Curl Bench,attachment,straight_bar,data,,,named in variation rows of exercises on this machine
+Preacher Curl Bench,attachment,d_handle,data,,,named in variation rows of exercises on this machine
+Preacher Curl Bench,attachment,curved_lat_bar,data,,,named in variation rows of exercises on this machine
+Resistance Tubes,bench,flat,data,,,named in variation rows
+Resistance Tubes,bench,incline,data,,,named in variation rows
+Suspension Trainer,bench,flat,data,,,named in variation rows
+Suspension Trainer,bench,incline,data,,,named in variation rows
+Kettlebells,bench,flat,data,,,named in variation rows
+Stability Ball,bench,flat,data,,,named in variation rows
+Stability Ball,bench,incline,data,,,named in variation rows
+Pec Fly / Rear Delt Machine,mode,fly,data,pec-deck-fly,Pec deck fly,
+Pec Fly / Rear Delt Machine,mode,reverse_fly,data,reverse-pec-deck-rear-delt-fly,Reverse pec deck (rear delt fly),"separate exercise, linked as a mode of the machine"
+Lat Pulldown,mode,pulldown,data,lat-pulldown,Lat pulldown,
+Lat Pulldown,mode,straight_arm,data,straight-arm-pulldown,Straight-arm pulldown,
+Lat Pulldown,mode,grip:supinated,inferred,,Reverse (underhand) grip,setup mode of the lat pulldown
+Lat Pulldown,mode,grip:neutral,inferred,,Neutral grip,setup mode of the lat pulldown
+Lat Pulldown,mode,width:wide,inferred,,Wide grip,setup mode of the lat pulldown
+Lat Pulldown,mode,handle:mag_handle,inferred,,MAG handle,setup mode of the lat pulldown
+Seated Cable Row,mode,neutral_row,data,seated-cable-row-neutral-grip,Neutral-grip row,
+Seated Cable Row,mode,wide_row,data,wide-grip-seated-row-upper-back,Wide-grip row (upper back),
+Seated Cable Row,mode,chest_supported_row,data,chest-supported-cable-row-elbows-wide,"Chest-supported row, elbows wide",
+Hip Adductor / Abductor,mode,abduction,data,hip-abduction-machine,Hip abduction,opposite actions on one machine
+Hip Adductor / Abductor,mode,adduction,data,hip-adduction-machine,Hip adduction,opposite actions on one machine
+Back Extension,mode,extension,data,back-extension,Back extension,
+Back Extension,mode,side_bend,data,back-extension-oblique-side-bend,Oblique side bend,
+Assisted Pull-Up / Dip Machine,mode,assisted_pull_up,data,assisted-pull-up,Assisted pull-up,
+Assisted Pull-Up / Dip Machine,mode,assisted_chin_up,data,assisted-chin-up,Assisted chin-up,
+Assisted Pull-Up / Dip Machine,mode,assisted_dip,data,assisted-dip,Assisted dip,

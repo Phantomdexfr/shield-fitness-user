@@ -1,0 +1,29 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "muscleWeights",
+ "describes": "no map rows: core primary 0.6, core secondary 0.3, a core id also heats its detailed children; full_body is not a muscle",
+ "input": {
+  "ex": {
+   "primary": [
+    "chest",
+    "full_body"
+   ],
+   "secondary": [
+    "triceps"
+   ]
+  },
+  "children": {
+   "chest": [
+    "upper_chest",
+    "lower_chest"
+   ]
+  }
+ },
+ "expect": {
+  "chest": 0.6,
+  "upper_chest": 0.6,
+  "lower_chest": 0.6,
+  "triceps": 0.3
+ }
+}

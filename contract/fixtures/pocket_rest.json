@@ -1,0 +1,20 @@
+{
+ "note": "pocket_rest: restSeconds(class, reps, e1rmFraction, history) (contract/engines.md section 20), worked by hand. Defaults: isolation 60, compound 90, heavy compound (reps <= 5 or >= 85% of e1RM) 180, cardio / mobility 0. After 3 or more logged rests: the median of the last 5, clamped to 50%-150% of the default. Non-positive and non-numeric rests are not logged rests. Created in User Phase 38.",
+ "cases": [
+  {"id": "isolation", "class": "isolation", "reps": 12, "fraction": null, "history": [], "seconds": 60},
+  {"id": "compound", "class": "compound", "reps": 8, "fraction": null, "history": [], "seconds": 90},
+  {"id": "heavy_by_reps", "class": "compound", "reps": 5, "fraction": null, "history": [], "seconds": 180},
+  {"id": "heavy_by_fraction", "class": "compound", "reps": 8, "fraction": 0.9, "history": [], "seconds": 180},
+  {"id": "just_under_85", "class": "compound", "reps": 8, "fraction": 0.84, "history": [], "seconds": 90},
+  {"id": "isolation_low_reps_not_heavy", "class": "isolation", "reps": 3, "fraction": 0.95, "history": [], "seconds": 60},
+  {"id": "cardio", "class": "cardio", "reps": null, "fraction": null, "history": [60,60,60], "seconds": 0},
+  {"id": "mobility", "class": "mobility", "reps": null, "fraction": null, "history": [], "seconds": 0},
+  {"id": "two_rests_not_enough", "class": "compound", "reps": 8, "fraction": null, "history": [30,30], "seconds": 90},
+  {"id": "learns_60", "class": "compound", "reps": 8, "fraction": null, "history": [60,60,60], "seconds": 60},
+  {"id": "clamped_low", "class": "compound", "reps": 8, "fraction": null, "history": [20,20,20], "seconds": 45},
+  {"id": "clamped_high", "class": "compound", "reps": 8, "fraction": null, "history": [300,300,300], "seconds": 135},
+  {"id": "last_five_only", "class": "compound", "reps": 8, "fraction": null, "history": [30,30,120,120,120,120], "seconds": 120},
+  {"id": "even_count_median", "class": "isolation", "reps": 12, "fraction": null, "history": [100,110,120,130], "seconds": 90},
+  {"id": "bad_values_ignored", "class": "compound", "reps": 8, "fraction": null, "history": [0,-10,60,60], "seconds": 90}
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "note": "pocket_warmup: warmupSets(workingKg, class, step) (contract/engines.md section 20), worked by hand. 50% x 8, 70% x 5, 85% x 3 rounded to the step; compound only and working weight >= 40 kg; a step that rounds onto the one before or up to the working weight is dropped. Created in User Phase 38.",
+ "cases": [
+  {"id": "squat_100", "working": 100, "class": "compound", "step": 2.5, "ramp": [[50,8],[70,5],[85,3]]},
+  {"id": "at_the_floor_40", "working": 40, "class": "compound", "step": 2.5, "ramp": [[20,8],[27.5,5],[35,3]]},
+  {"id": "just_below_floor", "working": 39, "class": "compound", "step": 2.5, "ramp": []},
+  {"id": "isolation_none", "working": 100, "class": "isolation", "step": 2.5, "ramp": []},
+  {"id": "bodyweight_none", "working": 100, "class": "bodyweight", "step": 2.5, "ramp": []},
+  {"id": "cardio_none", "working": 100, "class": "cardio", "step": 2.5, "ramp": []},
+  {"id": "step_5", "working": 42.5, "class": "compound", "step": 5, "ramp": [[20,8],[30,5],[35,3]]},
+  {"id": "step_10", "working": 45, "class": "compound", "step": 10, "ramp": [[20,8],[30,5],[40,3]]},
+  {"id": "coarse_step_collapses", "working": 50, "class": "compound", "step": 25, "ramp": [[25,8]]}
+ ]
+}

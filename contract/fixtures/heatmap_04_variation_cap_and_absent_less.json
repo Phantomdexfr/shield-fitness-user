@@ -1,0 +1,30 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "applyVariation",
+ "describes": "more is capped at 1.0; less on a muscle that is not in the base adds nothing",
+ "input": {
+  "base": {
+   "x": 0.9,
+   "y": 0.6
+  },
+  "shifts": [
+   {
+    "muscle": "x",
+    "shift": "more"
+   },
+   {
+    "muscle": "y",
+    "shift": "less"
+   },
+   {
+    "muscle": "z",
+    "shift": "less"
+   }
+  ]
+ },
+ "expect": {
+  "x": 1,
+  "y": 0.45
+ }
+}

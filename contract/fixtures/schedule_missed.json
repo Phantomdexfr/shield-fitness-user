@@ -1,0 +1,419 @@
+{
+ "note": "schedule_missed: missedDays / weekCells / pointerAfter expectations (ex. 8, 13). Created in User Phase 32.",
+ "cases": [
+  {
+   "id": "ex8-missed-one",
+   "example": 8,
+   "note": "Mon 16 planned, no session, opened Tue 17",
+   "today": "2026-11-17",
+   "since": "2026-11-16",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "decided": [],
+   "expect": {
+    "dates": [
+     "2026-11-16"
+    ],
+    "inARow": 1,
+    "welcomeBack": false
+   }
+  },
+  {
+   "id": "ex8-ignored-shift",
+   "example": 8,
+   "note": "Ignored under shift: Wed shows Push (pointer 0), Fri Pull",
+   "today": "2026-11-17",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 0,
+   "cells": [
+    "R",
+    "T:Push",
+    "R",
+    "T:Pull"
+   ],
+   "count": 4,
+   "expect": {
+    "cells": [
+     "R",
+     "T:Push",
+     "R",
+     "T:Pull"
+    ]
+   }
+  },
+  {
+   "id": "ex8-skip",
+   "example": 8,
+   "note": "Skip it moves the pointer to 1: Wed Pull, Fri Legs",
+   "today": "2026-11-17",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 1,
+   "count": 4,
+   "expect": {
+    "cells": [
+     "R",
+     "T:Pull",
+     "R",
+     "T:Legs"
+    ]
+   },
+   "pointerAfterSkip": {
+    "index": 0,
+    "count": 3,
+    "pointer": 1
+   }
+  },
+  {
+   "id": "ex8-decided",
+   "example": 8,
+   "note": "A decided date never returns",
+   "today": "2026-11-17",
+   "since": "2026-11-16",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "decided": [
+    "2026-11-16"
+   ],
+   "expect": {
+    "dates": [],
+    "inARow": 1,
+    "welcomeBack": false
+   }
+  },
+  {
+   "id": "ex8-done",
+   "example": 8,
+   "note": "A date with a session is not missed",
+   "today": "2026-11-17",
+   "since": "2026-11-16",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 1,
+   "sessionDates": [
+    "2026-11-16"
+   ],
+   "decided": [],
+   "expect": {
+    "dates": [],
+    "inARow": 0,
+    "welcomeBack": false
+   }
+  },
+  {
+   "id": "ex8-three-is-not-a-break",
+   "example": 8,
+   "note": "3 planned days missed in a row: sheets, no Welcome back",
+   "today": "2026-11-23",
+   "since": "2026-11-16",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "decided": [],
+   "expect": {
+    "dates": [
+     "2026-11-16",
+     "2026-11-18",
+     "2026-11-20"
+    ],
+    "inARow": 3,
+    "welcomeBack": false
+   }
+  },
+  {
+   "id": "ex8-welcome-back",
+   "example": 8,
+   "note": "4 in a row: one Welcome back card",
+   "today": "2026-11-23",
+   "since": "2026-11-13",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "decided": [],
+   "expect": {
+    "dates": [
+     "2026-11-13",
+     "2026-11-16",
+     "2026-11-18",
+     "2026-11-20"
+    ],
+    "inARow": 4,
+    "welcomeBack": true
+   }
+  },
+  {
+   "id": "ex13-no-schedule-no-sheet",
+   "example": 13,
+   "note": "Nothing planned, nothing missed",
+   "today": "2026-11-23",
+   "since": "2026-11-01",
+   "schedule": null,
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "decided": [],
+   "expect": {
+    "dates": [],
+    "inARow": 0,
+    "welcomeBack": false
+   }
+  },
+  {
+   "id": "ex5-every-n-never-misses",
+   "example": 5,
+   "note": "Every-N has no fixed dates to miss",
+   "today": "2026-11-23",
+   "since": "2026-11-01",
+   "schedule": {
+    "mode": "every_n",
+    "n": 2
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "decided": [],
+   "expect": {
+    "dates": [],
+    "inARow": 0,
+    "welcomeBack": false
+   }
+  },
+  {
+   "id": "ex6-floating-never-misses",
+   "example": 6,
+   "note": "Floating has no fixed dates to miss",
+   "today": "2026-11-23",
+   "since": "2026-11-01",
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": []
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": []
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": []
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "decided": [],
+   "expect": {
+    "dates": [],
+    "inARow": 0,
+    "welcomeBack": false
+   }
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "weeklyP90",
+ "describes": "weekly raw per IST week, then nearest-rank p90 per muscle: weeks [3, 1] give 3",
+ "input": {
+  "exercises": {
+   "A": {
+    "map": [
+     [
+      "m1",
+      "primary",
+      "high"
+     ]
+    ]
+   }
+  },
+  "sets": [
+   {
+    "ref": "A",
+    "doneAt": "2026-11-17T10:00:00Z"
+   },
+   {
+    "ref": "A",
+    "doneAt": "2026-11-18T10:00:00Z"
+   },
+   {
+    "ref": "A",
+    "doneAt": "2026-11-22T18:29:59Z"
+   },
+   {
+    "ref": "A",
+    "doneAt": "2026-11-22T18:30:00Z"
+   }
+  ]
+ },
+ "expect": {
+  "m1": 3
+ }
+}

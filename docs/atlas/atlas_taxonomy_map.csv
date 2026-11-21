@@ -1,0 +1,35 @@
+taxonomy_id,kind,atlas_units,note
+chest,parent,pectoralis_major|pectoralis_minor,Group-level id: shown as the list header; its text comes from these units.
+back,parent,rhomboids|teres_major|serratus_anterior,Group-level id: shown as the list header; its text comes from these units.
+lats,detailed,latissimus_dorsi,
+shoulders,parent,deltoid|rotator_cuff,Group-level id: shown as the list header; its text comes from these units.
+biceps,detailed,biceps_brachii|brachialis|coracobrachialis,
+triceps,detailed,triceps_brachii,
+forearms,detailed,brachioradialis|forearm_extensors|forearm_flexors|pronator_teres,
+abs,detailed,rectus_abdominis|transversus_abdominis,
+obliques,detailed,external_oblique|internal_oblique,
+glutes,detailed,gluteus_maximus,
+quads,detailed,rectus_femoris|vasti,
+hamstrings,detailed,hamstrings,
+calves,detailed,gastrocnemius|fibularis,
+lower_back,detailed,multifidus|erector_spinae,
+traps,parent,trapezius_upper|trapezius_mid_lower,Group-level id: shown as the list header; its text comes from these units.
+full_body,no_content,,"A whole-body label for training logs, not a muscle."
+cardio,no_content,,"A kind of training, not a muscle."
+upper_chest,detailed,pectoralis_major,
+lower_chest,detailed,pectoralis_major,
+front_delts,detailed,deltoid,
+side_delts,detailed,deltoid,
+rear_delts,detailed,deltoid,
+adductors,detailed,adductors,
+abductors,detailed,gluteus_medius_minimus|tensor_fasciae_latae,
+hip_flexors,detailed,iliopsoas|sartorius,
+neck,detailed,sternocleidomastoid,
+upper_traps,detailed,trapezius_upper|levator_scapulae,
+mid_lower_traps,detailed,trapezius_mid_lower,
+rhomboids_teres,detailed,rhomboids|teres_major,
+quads_lower,detailed,vasti,
+serratus_anterior,detailed,serratus_anterior,
+rotator_cuff,detailed,rotator_cuff,
+soleus,detailed,soleus,
+tibialis_anterior,detailed,tibialis_anterior,

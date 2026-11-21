@@ -1,0 +1,158 @@
+axis,value,applies_to,muscle_id,shift,physio_review,confidence,reason
+grip,hammer,pulldown,forearms,more,yes,low,Same reasoning as neutral grip
+grip,neutral,pulldown,biceps,more,yes,low,Neutral grip tends to involve the brachioradialis and brachialis more than overhand
+grip,neutral,pulldown,forearms,more,yes,low,Neutral grip tends to involve the brachioradialis and brachialis more than overhand
+grip,pronated,pulldown,biceps,less,yes,medium,Overhand pulling tends to put more load on the lats and less on the biceps
+grip,pronated,pulldown,lats,more,yes,medium,Overhand pulling tends to put more load on the lats and less on the biceps
+grip,reverse,pulldown,biceps,more,yes,medium,Underhand pulling tends to emphasise the elbow flexors and the lower lat fibres
+grip,reverse,pulldown,forearms,less,yes,medium,Underhand pulling tends to emphasise the elbow flexors and the lower lat fibres
+grip,reverse,pulldown,lats,more,yes,medium,Underhand pulling tends to emphasise the elbow flexors and the lower lat fibres
+grip,supinated,pulldown,biceps,more,yes,medium,Underhand pulling tends to emphasise the elbow flexors and the lower lat fibres
+grip,supinated,pulldown,forearms,less,yes,medium,Underhand pulling tends to emphasise the elbow flexors and the lower lat fibres
+grip,supinated,pulldown,lats,more,yes,medium,Underhand pulling tends to emphasise the elbow flexors and the lower lat fibres
+width,narrow,pulldown,biceps,more,yes,low,A close grip tends to increase elbow flexion and reduce the wide-grip scapular work
+width,narrow,pulldown,mid_lower_traps,less,yes,low,A close grip tends to increase elbow flexion and reduce the wide-grip scapular work
+width,wide,pulldown,biceps,less,yes,medium,A wide grip tends to emphasise the outer lats and scapular depressors and shorten the elbow range
+width,wide,pulldown,lats,more,yes,medium,A wide grip tends to emphasise the outer lats and scapular depressors and shorten the elbow range
+width,wide,pulldown,mid_lower_traps,more,yes,medium,A wide grip tends to emphasise the outer lats and scapular depressors and shorten the elbow range
+position,leaning,pulldown,lats,more,yes,low,A slight backward lean tends to change the pull line towards the lower lats
+position,leaning,pulldown,mid_lower_traps,more,yes,low,A slight backward lean tends to change the pull line towards the lower lats
+grip,hammer,row,lats,more,yes,low,Neutral grip tends to keep the elbow path close to the body
+grip,neutral,row,lats,more,yes,low,Neutral grip tends to keep the elbow path close to the body
+grip,pronated,row,biceps,less,yes,medium,Overhand rows with flared elbows tend to emphasise the upper back and rear delts
+grip,pronated,row,mid_lower_traps,more,yes,medium,Overhand rows with flared elbows tend to emphasise the upper back and rear delts
+grip,pronated,row,rear_delts,more,yes,medium,Overhand rows with flared elbows tend to emphasise the upper back and rear delts
+grip,pronated,row,rhomboids_teres,more,yes,medium,Overhand rows with flared elbows tend to emphasise the upper back and rear delts
+grip,reverse,row,biceps,more,yes,medium,Underhand rows keep the elbows close and tend to emphasise lats and biceps
+grip,reverse,row,lats,more,yes,medium,Underhand rows keep the elbows close and tend to emphasise lats and biceps
+grip,reverse,row,rear_delts,less,yes,medium,Underhand rows keep the elbows close and tend to emphasise lats and biceps
+grip,supinated,row,biceps,more,yes,medium,Underhand rows keep the elbows close and tend to emphasise lats and biceps
+grip,supinated,row,lats,more,yes,medium,Underhand rows keep the elbows close and tend to emphasise lats and biceps
+grip,supinated,row,rear_delts,less,yes,medium,Underhand rows keep the elbows close and tend to emphasise lats and biceps
+width,narrow,row,lats,more,yes,medium,A close grip tends to keep the elbows tucked and emphasise the lats
+width,narrow,row,rear_delts,less,yes,medium,A close grip tends to keep the elbows tucked and emphasise the lats
+width,wide,row,lats,less,yes,medium,A wide grip or wide elbows tends to shift work to the upper back and rear delts
+width,wide,row,mid_lower_traps,more,yes,medium,A wide grip or wide elbows tends to shift work to the upper back and rear delts
+width,wide,row,rear_delts,more,yes,medium,A wide grip or wide elbows tends to shift work to the upper back and rear delts
+width,wide,row,rhomboids_teres,more,yes,medium,A wide grip or wide elbows tends to shift work to the upper back and rear delts
+handle,mag_handle,row,lats,more,yes,low,"The MAG handle gives an angled neutral grip, treated like a neutral grip"
+handle,rope,row,mid_lower_traps,more,yes,medium,A rope to the face tends to add external rotation and rear delt work
+handle,rope,row,rear_delts,more,yes,medium,A rope to the face tends to add external rotation and rear delt work
+handle,rope,row,rotator_cuff,more,yes,medium,A rope to the face tends to add external rotation and rear delt work
+handle,v_handle,row,lats,more,yes,low,A close neutral handle tends to emphasise the lats over the scapular retractors
+handle,v_handle,row,rhomboids_teres,less,yes,low,A close neutral handle tends to emphasise the lats over the scapular retractors
+position,chest_supported,row,lower_back,less,yes,medium,A chest pad removes the spinal hold and tends to isolate the upper back
+position,chest_supported,row,mid_lower_traps,more,yes,medium,A chest pad removes the spinal hold and tends to isolate the upper back
+position,chest_supported,row,rhomboids_teres,more,yes,medium,A chest pad removes the spinal hold and tends to isolate the upper back
+position,leaning,row,lower_back,more,yes,low,A bent or leaning torso tends to load the spinal erectors
+position,seated,row,lower_back,less,yes,low,Seated rows with a fixed seat load the spinal erectors less than bent-over rows
+grip,hammer,press,triceps,more,yes,low,Same as neutral grip
+grip,hammer,press,upper_chest,less,yes,low,Same as neutral grip
+grip,neutral,press,triceps,more,yes,low,Neutral grip pressing tends to shift a little work from the chest to the triceps
+grip,neutral,press,upper_chest,less,yes,low,Neutral grip pressing tends to shift a little work from the chest to the triceps
+grip,reverse,press,biceps,more,yes,low,Reverse-grip pressing tends to raise upper chest and front delt activity (limited evidence)
+grip,reverse,press,front_delts,more,yes,low,Reverse-grip pressing tends to raise upper chest and front delt activity (limited evidence)
+grip,reverse,press,upper_chest,more,yes,low,Reverse-grip pressing tends to raise upper chest and front delt activity (limited evidence)
+grip,supinated,press,biceps,more,yes,low,Reverse-grip pressing tends to raise upper chest and front delt activity (limited evidence)
+grip,supinated,press,front_delts,more,yes,low,Reverse-grip pressing tends to raise upper chest and front delt activity (limited evidence)
+grip,supinated,press,upper_chest,more,yes,low,Reverse-grip pressing tends to raise upper chest and front delt activity (limited evidence)
+width,narrow,press,front_delts,more,yes,medium,A close grip tends to move work from the chest to the triceps and front delts
+width,narrow,press,lower_chest,less,yes,medium,A close grip tends to move work from the chest to the triceps and front delts
+width,narrow,press,triceps,more,yes,medium,A close grip tends to move work from the chest to the triceps and front delts
+width,wide,press,front_delts,less,yes,medium,A wide grip tends to move work from the triceps and front delts to the chest
+width,wide,press,lower_chest,more,yes,medium,A wide grip tends to move work from the triceps and front delts to the chest
+width,wide,press,triceps,less,yes,medium,A wide grip tends to move work from the triceps and front delts to the chest
+width,wide,press,upper_chest,more,yes,medium,A wide grip tends to move work from the triceps and front delts to the chest
+position,decline,press,front_delts,less,yes,medium,"Same effect as a decline bench, for machines and cables"
+position,decline,press,lower_chest,more,yes,medium,"Same effect as a decline bench, for machines and cables"
+position,decline,press,upper_chest,less,yes,medium,"Same effect as a decline bench, for machines and cables"
+position,half_kneeling,press,abs,more,yes,low,Kneeling pressing removes leg drive and adds trunk and hip stabilisation
+position,half_kneeling,press,glutes,more,yes,low,Kneeling pressing removes leg drive and adds trunk and hip stabilisation
+position,half_kneeling,press,obliques,more,yes,low,Kneeling pressing removes leg drive and adds trunk and hip stabilisation
+position,incline,press,front_delts,more,yes,high,"Same effect as an incline bench, for machines and cables"
+position,incline,press,lower_chest,less,yes,high,"Same effect as an incline bench, for machines and cables"
+position,incline,press,upper_chest,more,yes,high,"Same effect as an incline bench, for machines and cables"
+position,kneeling,press,abs,more,yes,low,Kneeling pressing removes leg drive and adds trunk and hip stabilisation
+position,kneeling,press,glutes,more,yes,low,Kneeling pressing removes leg drive and adds trunk and hip stabilisation
+position,kneeling,press,obliques,more,yes,low,Kneeling pressing removes leg drive and adds trunk and hip stabilisation
+position,standing,press,abs,more,yes,low,Pressing standing makes the trunk work to stay upright
+position,standing,press,obliques,more,yes,low,Pressing standing makes the trunk work to stay upright
+arms,alternating,press,abs,more,yes,medium,One-sided pressing makes the trunk resist rotation and side-bend
+arms,alternating,press,obliques,more,yes,medium,One-sided pressing makes the trunk resist rotation and side-bend
+arms,single,press,abs,more,yes,medium,One-sided pressing makes the trunk resist rotation and side-bend
+arms,single,press,obliques,more,yes,medium,One-sided pressing makes the trunk resist rotation and side-bend
+bench,decline,press,front_delts,less,yes,medium,Decline pressing tends to emphasise the lower chest and spare the front delts
+bench,decline,press,lower_chest,more,yes,medium,Decline pressing tends to emphasise the lower chest and spare the front delts
+bench,decline,press,upper_chest,less,yes,medium,Decline pressing tends to emphasise the lower chest and spare the front delts
+bench,incline,press,front_delts,more,yes,high,Incline pressing tends to emphasise the clavicular chest and front delts
+bench,incline,press,lower_chest,less,yes,high,Incline pressing tends to emphasise the clavicular chest and front delts
+bench,incline,press,upper_chest,more,yes,high,Incline pressing tends to emphasise the clavicular chest and front delts
+position,decline,fly,lower_chest,more,yes,medium,"Same effect as a decline bench, for machines and cables"
+position,decline,fly,upper_chest,less,yes,medium,"Same effect as a decline bench, for machines and cables"
+position,half_kneeling,fly,abs,more,yes,low,Standing cable flyes make the trunk work to stay still
+position,half_kneeling,fly,obliques,more,yes,low,Standing cable flyes make the trunk work to stay still
+position,incline,fly,front_delts,more,yes,high,"Same effect as an incline bench, for machines and cables"
+position,incline,fly,lower_chest,less,yes,high,"Same effect as an incline bench, for machines and cables"
+position,incline,fly,upper_chest,more,yes,high,"Same effect as an incline bench, for machines and cables"
+position,kneeling,fly,abs,more,yes,low,Standing cable flyes make the trunk work to stay still
+position,kneeling,fly,obliques,more,yes,low,Standing cable flyes make the trunk work to stay still
+position,standing,fly,abs,more,yes,low,Standing cable flyes make the trunk work to stay still
+position,standing,fly,obliques,more,yes,low,Standing cable flyes make the trunk work to stay still
+arms,alternating,fly,abs,more,yes,low,One-sided cable flyes make the trunk resist rotation
+arms,alternating,fly,obliques,more,yes,low,One-sided cable flyes make the trunk resist rotation
+arms,single,fly,abs,more,yes,low,One-sided cable flyes make the trunk resist rotation
+arms,single,fly,obliques,more,yes,low,One-sided cable flyes make the trunk resist rotation
+bench,decline,fly,lower_chest,more,yes,medium,Decline flyes tend to emphasise the lower chest
+bench,decline,fly,upper_chest,less,yes,medium,Decline flyes tend to emphasise the lower chest
+bench,incline,fly,front_delts,more,yes,high,Incline flyes tend to emphasise the clavicular chest
+bench,incline,fly,lower_chest,less,yes,high,Incline flyes tend to emphasise the clavicular chest
+bench,incline,fly,upper_chest,more,yes,high,Incline flyes tend to emphasise the clavicular chest
+grip,neutral,reverse_fly,mid_lower_traps,less,yes,medium,A neutral grip tends to bias the rear delts and spare the traps
+grip,neutral,reverse_fly,rear_delts,more,yes,medium,A neutral grip tends to bias the rear delts and spare the traps
+grip,neutral,reverse_fly,upper_traps,less,yes,medium,A neutral grip tends to bias the rear delts and spare the traps
+grip,pronated,reverse_fly,mid_lower_traps,more,yes,medium,An overhand grip with the elbows out tends to bring in the mid-back
+grip,pronated,reverse_fly,rhomboids_teres,more,yes,medium,An overhand grip with the elbows out tends to bring in the mid-back
+position,chest_supported,reverse_fly,lower_back,less,yes,low,A chest pad removes the spinal hold
+position,leaning,reverse_fly,lower_back,more,yes,low,A bent-over torso tends to load the spinal erectors
+position,seated,reverse_fly,lower_back,less,yes,low,Seated versions load the spinal erectors less than bent-over versions
+grip,hammer,curl,biceps,less,yes,medium,Hammer grips tend to bring in the brachioradialis and brachialis
+grip,hammer,curl,forearms,more,yes,medium,Hammer grips tend to bring in the brachioradialis and brachialis
+grip,neutral,curl,biceps,less,yes,medium,Hammer grips tend to bring in the brachioradialis and brachialis
+grip,neutral,curl,forearms,more,yes,medium,Hammer grips tend to bring in the brachioradialis and brachialis
+grip,pronated,curl,biceps,less,yes,medium,Overhand curls tend to shift work from the biceps to the forearm extensors and brachioradialis
+grip,pronated,curl,forearms,more,yes,medium,Overhand curls tend to shift work from the biceps to the forearm extensors and brachioradialis
+handle,ez_bar,curl,forearms,less,yes,low,The EZ bar angles the wrists and tends to reduce forearm load
+handle,rope,curl,biceps,less,yes,low,A rope tends to allow a neutral grip
+handle,rope,curl,forearms,more,yes,low,A rope tends to allow a neutral grip
+position,half_kneeling,curl,abs,more,yes,low,Standing cable curls make the trunk work to stay still
+position,incline,curl,biceps,more,yes,medium,Same effect as an incline bench
+position,incline,curl,front_delts,less,yes,medium,Same effect as an incline bench
+position,kneeling,curl,abs,more,yes,low,Standing cable curls make the trunk work to stay still
+position,standing,curl,abs,more,yes,low,Standing cable curls make the trunk work to stay still
+bench,incline,curl,biceps,more,yes,medium,"Incline curls tend to start with the arm behind the body, giving more stretch and less shoulder help"
+bench,incline,curl,front_delts,less,yes,medium,"Incline curls tend to start with the arm behind the body, giving more stretch and less shoulder help"
+bench,preacher,curl,biceps,more,yes,medium,A preacher pad tends to stop shoulder and body swing
+bench,preacher,curl,front_delts,less,yes,medium,A preacher pad tends to stop shoulder and body swing
+grip,reverse,pushdown,forearms,more,yes,low,Reverse-grip pushdowns tend to load the wrist flexors more
+grip,supinated,pushdown,forearms,more,yes,low,Reverse-grip pushdowns tend to load the wrist flexors more
+handle,rope,pushdown,forearms,less,yes,low,"A rope tends to take the wrists out of it, so less forearm load"
+handle,straight_bar,pushdown,forearms,more,yes,low,A fixed straight bar tends to load the wrists and forearms more
+position,half_kneeling,pushdown,abs,more,yes,low,Standing and kneeling cable work needs trunk stability
+position,kneeling,pushdown,abs,more,yes,low,Standing and kneeling cable work needs trunk stability
+position,standing,pushdown,abs,more,yes,low,Standing and kneeling cable work needs trunk stability
+arms,alternating,pushdown,obliques,more,yes,low,One-sided cable work makes the trunk resist rotation
+arms,single,pushdown,obliques,more,yes,low,One-sided cable work makes the trunk resist rotation
+grip,neutral,raise,front_delts,less,yes,low,A thumbs-up grip tends to reduce front delt help and load the cuff
+grip,neutral,raise,rotator_cuff,more,yes,low,A thumbs-up grip tends to reduce front delt help and load the cuff
+grip,supinated,raise,front_delts,more,yes,low,Palms-up raises tend to move work towards the front delts
+grip,supinated,raise,side_delts,less,yes,low,Palms-up raises tend to move work towards the front delts
+position,chest_supported,raise,lower_back,less,yes,low,A chest pad removes the spinal hold
+position,half_kneeling,raise,abs,more,yes,low,Standing cable raises make the trunk work to stay still
+position,kneeling,raise,abs,more,yes,low,Standing cable raises make the trunk work to stay still
+position,standing,raise,abs,more,yes,low,Standing cable raises make the trunk work to stay still
+arms,alternating,raise,obliques,more,yes,low,One-sided cable raises make the trunk resist side-bend
+arms,single,raise,obliques,more,yes,low,One-sided cable raises make the trunk resist side-bend
+position,half_kneeling,any,glutes,more,yes,low,Kneeling takes the legs out of the lift and tends to add hip stabilisation
+position,kneeling,any,glutes,more,yes,low,Kneeling takes the legs out of the lift and tends to add hip stabilisation
+bench,stability_ball,any,abs,more,yes,low,An unstable surface tends to add trunk stabilisation
+bench,stability_ball,any,obliques,more,yes,low,An unstable surface tends to add trunk stabilisation

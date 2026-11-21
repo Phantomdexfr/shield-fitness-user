@@ -1,0 +1,33 @@
+{
+  "_note": "Phase 48. Worked by hand (engines.md 5; docs/HEATMAP.md neglected strip). `now` is fixed; entries say `minutesAgo` and the muscle weights of the exercise. A muscle counts as trained only at weight >= 0.6 (calves 0.5 and triceps 0.3 do not). A core id (chest) takes the latest time of its own and its children. hoursSince = minutes/60 and hoursLeft = (target - minutes)/60, both 2 dp. cardio and full_body have no clock and are absent. readyMuscles = ready or fresh leaves in taxonomy order (core ids with children left out).",
+  "now": "2026-11-20T06:00:00Z",
+  "taxonomy": [
+    {"id": "chest", "parent": "chest"}, {"id": "upper_chest", "parent": "chest"}, {"id": "lower_chest", "parent": "chest"},
+    {"id": "lats", "parent": "lats"}, {"id": "triceps", "parent": "triceps"}, {"id": "calves", "parent": "calves"},
+    {"id": "forearms", "parent": "forearms"}, {"id": "cardio", "parent": "cardio"}, {"id": "full_body", "parent": "full_body"}
+  ],
+  "entries": [
+    {"minutesAgo": 1000, "weights": {"upper_chest": 1, "triceps": 0.3}},
+    {"minutesAgo": 3000, "weights": {"lats": 0.6, "triceps": 0.6}},
+    {"minutesAgo": 100, "weights": {"calves": 0.5}},
+    {"minutesAgo": 700, "weights": {"forearms": 0.6, "cardio": 1}}
+  ],
+  "map": {
+    "chest": {"state": "fatigued", "size": "large", "minutesAgo": 1000, "hoursSince": 16.67, "hoursLeft": 55.33},
+    "upper_chest": {"state": "fatigued", "size": "large", "minutesAgo": 1000, "hoursSince": 16.67, "hoursLeft": 55.33},
+    "lower_chest": {"state": "fresh", "size": "large", "minutesAgo": null, "hoursSince": null, "hoursLeft": 0},
+    "lats": {"state": "recovering", "size": "large", "minutesAgo": 3000, "hoursSince": 50, "hoursLeft": 22},
+    "triceps": {"state": "ready", "size": "medium", "minutesAgo": 3000, "hoursSince": 50, "hoursLeft": 0},
+    "calves": {"state": "fresh", "size": "small", "minutesAgo": null, "hoursSince": null, "hoursLeft": 0},
+    "forearms": {"state": "fatigued", "size": "small", "minutesAgo": 700, "hoursSince": 11.67, "hoursLeft": 24.33}
+  },
+  "absent": ["cardio", "full_body"],
+  "ready": ["lower_chest", "triceps", "calves"],
+  "neglected": [
+    {"name": "heat on upper chest and triceps only", "raw": {"upper_chest": 3, "triceps": 1},
+     "expect": [{"id": "calves", "daysSince": null}, {"id": "lower_chest", "daysSince": null}, {"id": "lats", "daysSince": 2}, {"id": "forearms", "daysSince": 0}]},
+    {"name": "a core id with heat (custom exercise) covers its children", "raw": {"chest": 2},
+     "expect": [{"id": "calves", "daysSince": null}, {"id": "lats", "daysSince": 2}, {"id": "triceps", "daysSince": 2}, {"id": "forearms", "daysSince": 0}]},
+    {"name": "everything trained", "raw": {"upper_chest": 1, "lower_chest": 1, "lats": 1, "triceps": 1, "calves": 1, "forearms": 1}, "expect": []}
+  ]
+}

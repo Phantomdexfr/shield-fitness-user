@@ -1,0 +1,10 @@
+tier_id,name,position,fraction,experience_sets
+wood,Wood,0,0.00,0
+beginner,Beginner,1,0.25,10
+bronze,Bronze,2,0.40,40
+silver,Silver,3,0.55,120
+gold,Gold,4,0.68,300
+platinum,Platinum,5,0.80,650
+diamond,Diamond,6,0.90,1300
+master,Master,7,0.95,2500
+olympian,Olympian,8,1.00,4500

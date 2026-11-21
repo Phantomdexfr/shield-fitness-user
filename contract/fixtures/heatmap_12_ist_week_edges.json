@@ -1,0 +1,20 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "istWeekStart",
+ "describes": "weeks start on Monday IST: Sunday 23:59 IST and Monday 00:00 IST are different weeks",
+ "cases": [
+  {
+   "at": "2026-11-22T18:29:59Z",
+   "week": "2026-11-16"
+  },
+  {
+   "at": "2026-11-22T18:30:00Z",
+   "week": "2026-11-23"
+  },
+  {
+   "at": "2026-11-21T10:00:00Z",
+   "week": "2026-11-16"
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+name,kind,machine_name,primary_muscles,secondary_muscles,rep_min,rep_max,cues
+Lying Cable Pullover,strength,Cable Crossover,lats,chest;triceps;abs,10,15,Lie on a flat bench with the head toward the stack and the pulley at its lowest;Arms stay nearly straight and sweep from overhead to the thighs
+Standing Straight-Arm Cable Pulldown,strength,Cable Crossover,lats,triceps;abs,12,15,"Pulley high, hinge slightly at the hips;Push the handles down to the thighs with straight arms"
+Cable Lat Prayer,strength,Cable Crossover,lats,triceps;abs,12,15,Kneel facing the high pulley with a straight bar;Sit the hips back and press the bar toward the floor with straight arms
+Cable Single-Arm High Row,strength,Cable Crossover,back,biceps;rear_delts;lats,10,12,"Pulley at head height, step back and brace;Pull the elbow to the ribs, finish with the hand beside the chest"
+Cable Archer Row,strength,Cable Crossover,back,biceps;lats;rear_delts,8,12,Pulleys at chest height with strap or D handles;Pull one arm in while the other arm stays extended out to the side
+Cable Squat to Row,strength,Cable Crossover,back,quads;glutes;biceps,10,12,"Pulley at about knee height, hold the handle at arm's length;Squat down, then stand and row the handle to the ribs in one flow"
+Cable Squat to Press,strength,Cable Crossover,quads,glutes;shoulders;triceps,10,12,"Pulleys low with strap handles at the shoulders;Squat down, then stand and press overhead"
+Cable Goblet Squat,strength,Cable Crossover,quads,glutes;abs,10,15,"Hold a V handle at the chest, pulley at its lowest;Squat down between the hips with the chest tall"
+Cable Deadlift,strength,Cable Crossover,hamstrings,glutes;lower_back;forearms,8,12,"Pulley at its lowest with a straight bar;Hinge, grip the bar, then stand tall by driving the hips forward"
+Cable Sumo Deadlift,strength,Cable Crossover,glutes,quads;hamstrings;lower_back,8,12,"Wide stance, toes turned out, V handle between the feet;Push the floor away and stand tall"
+Cable Split Squat,strength,Cable Crossover,quads,glutes;abs,10,12,"Hold a D handle or V handle at the chest, pulley low;Lower the back knee toward the floor, front shin near vertical"
+Cable Incline Bench Curl,strength,Cable Crossover,biceps,forearms,10,15,"Set an adjustable bench to about 45 degrees with the low pulleys behind you;Let the arms hang back, curl without swinging the elbows forward"
+Cable Concentration Curl,strength,Cable Crossover,biceps,forearms,10,15,Sit on a utility bench facing the low pulley;Brace the elbow against the inner thigh and curl to the shoulder
+Cable Spider Curl,strength,Cable Crossover,biceps,forearms,10,15,"Lie chest-down on an incline bench facing the low pulleys;Arms hang straight down, curl without moving the upper arms"
+Cable Drag Curl,strength,Cable Crossover,biceps,forearms;shoulders,10,12,"Straight bar on the low pulley, elbows travel back as you curl;Bar stays in contact with the body"
+Cable Incline Overhead Triceps Extension,strength,Cable Crossover,triceps,shoulders,10,15,Sit on an incline bench facing away from the low pulley;Elbows stay pointing up as you extend overhead
+Cable Triceps Pushdown (Reverse Grip),strength,Cable Crossover,triceps,forearms,12,15,"Pulley high, underhand grip on the bar;Elbows stay at the sides as you press down"
+Cable Close-Grip Bench Press,strength,Cable Crossover,triceps,chest;shoulders,10,12,"Lie on a flat bench between the low pulleys, V handle or two D handles close together;Press up with the elbows tucked"
+Cable Squeeze Press,strength,Cable Crossover,chest,triceps;shoulders,10,15,"Lie on a flat bench between the low pulleys, handles squeezed together at the chest;Press out and keep squeezing"
+Cable Cuban Press,strength,Cable Crossover,shoulders,traps;rear_delts,10,12,"Low pulleys, strap handles, elbows at shoulder height;Rotate the forearms up, then press overhead"
+Cable W Raise,strength,Cable Crossover,shoulders,traps;rear_delts,12,15,"Low pulleys, elbows bent and tucked;Rotate and raise the hands out and up in a W shape"
+Cable Seated Shoulder Press,strength,Cable Crossover,shoulders,triceps;traps,8,12,Sit upright on a utility or upright adjustable bench between the low pulleys;Press the handles overhead without arching the back
+Cable Standing Shoulder Press,strength,Cable Crossover,shoulders,triceps;abs,8,12,"Pulleys low, handles at the shoulders, staggered stance;Press overhead and keep ribs down"
+Incline Bench Cable Rear Delt Fly,strength,Cable Crossover,shoulders,back;traps,12,15,"Lie chest-down on an incline bench facing the cable stacks, handles crossed;Open the arms wide in a reverse fly"
+Chest-Supported Cable Row (Incline Bench),strength,Cable Crossover,back,biceps;rear_delts;lats,10,12,Lie chest-down on an incline bench facing the low pulleys;Row the handles toward the hips with elbows tucked
+Standing Cable Crunch,strength,Cable Crossover,abs,obliques,12,15,"Pulley high with a straight bar or strap handles at the forehead;Round the spine down, ribs toward the pelvis"
+Lying Cable Crunch,strength,Cable Crossover,abs,obliques,12,15,"Lie on a yoga mat facing away from a low pulley, strap handles at the head;Crunch ribs to pelvis and lower slowly"
+Cable Oblique Crunch,strength,Cable Crossover,obliques,abs,12,15,"Kneel side-on to a high pulley, handle by the ear;Crunch sideways, ribs toward the hip"
+Stability Ball Cable Crunch,strength,Cable Crossover,abs,obliques,12,15,"Sit on a stability ball facing away from the high pulley, strap handles at the head;Round the spine forward and down"
+Stability Ball Cable Chest Fly,strength,Cable Crossover,chest,shoulders;abs,10,15,Lie with the upper back on a stability ball between the low pulleys;Bring handles together over the chest with soft elbows

@@ -1,0 +1,37 @@
+{
+  "_note": "Phase 48. Worked by hand from engines.md 6 (one test for exclusion and for the sore demotion; same as API_CONTRACTS P14.2). A mark meets an exercise when the marked muscle (a core id covers its children) is a primary row at medium or high, or a secondary row at high. Stabiliser and mobility rows never meet. avoid -> excluded; sore -> penalty -2; avoid beats sore. Rows are [muscle, role, emphasis] with role p/s/t/m and emphasis h/m/l.",
+  "taxonomy": [
+    {"id": "chest", "parent": "chest"}, {"id": "upper_chest", "parent": "chest"}, {"id": "lower_chest", "parent": "chest"},
+    {"id": "triceps", "parent": "triceps"}, {"id": "biceps", "parent": "biceps"}, {"id": "forearms", "parent": "forearms"}
+  ],
+  "filter": [
+    {"name": "avoid a primary child", "rows": [["upper_chest", "p", "h"], ["lower_chest", "p", "h"], ["triceps", "s", "m"]], "marks": [{"muscle": "lower_chest", "kind": "avoid"}], "excluded": true, "sore": false, "penalty": 0},
+    {"name": "avoid a core id covers its children", "rows": [["upper_chest", "p", "h"], ["triceps", "s", "m"]], "marks": [{"muscle": "chest", "kind": "avoid"}], "excluded": true, "sore": false, "penalty": 0},
+    {"name": "a secondary at medium does not meet avoid", "rows": [["upper_chest", "p", "h"], ["triceps", "s", "m"]], "marks": [{"muscle": "triceps", "kind": "avoid"}], "excluded": false, "sore": false, "penalty": 0},
+    {"name": "a secondary at high meets avoid", "rows": [["upper_chest", "p", "h"], ["triceps", "s", "h"]], "marks": [{"muscle": "triceps", "kind": "avoid"}], "excluded": true, "sore": false, "penalty": 0},
+    {"name": "sore demotes, never excludes", "rows": [["upper_chest", "p", "h"], ["triceps", "s", "m"]], "marks": [{"muscle": "chest", "kind": "sore"}], "excluded": false, "sore": true, "penalty": -2},
+    {"name": "avoid on one muscle beats sore on another", "rows": [["upper_chest", "p", "h"], ["triceps", "s", "h"]], "marks": [{"muscle": "chest", "kind": "sore"}, {"muscle": "triceps", "kind": "avoid"}], "excluded": true, "sore": false, "penalty": 0},
+    {"name": "a stabiliser row never meets a mark", "rows": [["forearms", "t", "h"], ["biceps", "p", "h"]], "marks": [{"muscle": "forearms", "kind": "avoid"}], "excluded": false, "sore": false, "penalty": 0},
+    {"name": "a mobility row never meets a mark", "rows": [["forearms", "m", "h"], ["biceps", "p", "h"]], "marks": [{"muscle": "forearms", "kind": "sore"}], "excluded": false, "sore": false, "penalty": 0},
+    {"name": "a primary at low does not meet", "rows": [["biceps", "p", "l"]], "marks": [{"muscle": "biceps", "kind": "avoid"}], "excluded": false, "sore": false, "penalty": 0},
+    {"name": "a secondary at high meets sore", "rows": [["biceps", "p", "h"], ["forearms", "s", "h"]], "marks": [{"muscle": "forearms", "kind": "sore"}], "excluded": false, "sore": true, "penalty": -2},
+    {"name": "no marks", "rows": [["upper_chest", "p", "h"]], "marks": [], "excluded": false, "sore": false, "penalty": 0}
+  ],
+  "setMark": [
+    {"name": "replace sore with avoid", "from": [{"muscle": "chest", "kind": "sore"}], "muscle": "chest", "kind": "avoid", "to": [{"muscle": "chest", "kind": "avoid"}]},
+    {"name": "add, list stays sorted by muscle", "from": [{"muscle": "chest", "kind": "sore"}], "muscle": "biceps", "kind": "sore", "to": [{"muscle": "biceps", "kind": "sore"}, {"muscle": "chest", "kind": "sore"}]},
+    {"name": "clear", "from": [{"muscle": "chest", "kind": "sore"}, {"muscle": "biceps", "kind": "avoid"}], "muscle": "chest", "kind": "clear", "to": [{"muscle": "biceps", "kind": "avoid"}]},
+    {"name": "clear a muscle with no mark", "from": [{"muscle": "chest", "kind": "sore"}], "muscle": "triceps", "kind": "clear", "to": [{"muscle": "chest", "kind": "sore"}]}
+  ],
+  "parse": [
+    {"name": "avoid wins over sore for one muscle, bad rows dropped",
+     "rows": [{"muscle": "chest", "kind": "sore"}, {"muscle": "chest", "kind": "avoid"}, {"muscle": "triceps", "kind": "maybe"}, {"muscle": 7, "kind": "avoid"}, {"muscle": "", "kind": "avoid"}, {"muscle": "biceps", "kind": "sore"}, {"kind": "sore"}],
+     "to": [{"muscle": "biceps", "kind": "sore"}, {"muscle": "chest", "kind": "avoid"}]}
+  ],
+  "markOf": [
+    {"name": "a child inherits its parent's mark", "marks": [{"muscle": "chest", "kind": "avoid"}], "muscle": "upper_chest", "kind": "avoid"},
+    {"name": "an own mark wins over the parent's", "marks": [{"muscle": "chest", "kind": "avoid"}, {"muscle": "upper_chest", "kind": "sore"}], "muscle": "upper_chest", "kind": "sore"},
+    {"name": "a parent does not take its child's mark", "marks": [{"muscle": "upper_chest", "kind": "avoid"}], "muscle": "chest", "kind": null},
+    {"name": "no mark", "marks": [{"muscle": "chest", "kind": "avoid"}], "muscle": "triceps", "kind": null}
+  ]
+}

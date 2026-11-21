@@ -1,0 +1,870 @@
+{
+ "spec": "engines.md 10, 21, 22 (Phase 33). Gaps between the first and second candidate of every slot are above the 1.0 jitter span, so the picks do not depend on the day key.",
+ "dayKey": "2026-11-19",
+ "rampNote": "Ramp up with 2 lighter sets first.",
+ "muscles": [
+  {
+   "id": "chest",
+   "parent": "chest"
+  },
+  {
+   "id": "lats",
+   "parent": "lats"
+  },
+  {
+   "id": "back",
+   "parent": "back"
+  },
+  {
+   "id": "shoulders",
+   "parent": "shoulders"
+  },
+  {
+   "id": "biceps",
+   "parent": "biceps"
+  },
+  {
+   "id": "triceps",
+   "parent": "triceps"
+  },
+  {
+   "id": "quads",
+   "parent": "quads"
+  },
+  {
+   "id": "hamstrings",
+   "parent": "hamstrings"
+  },
+  {
+   "id": "abs",
+   "parent": "abs"
+  },
+  {
+   "id": "cardio",
+   "parent": "cardio"
+  }
+ ],
+ "pool": [
+  {
+   "slug": "bench-press",
+   "name": "Bench press",
+   "category": "compound",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "olympic-barbell",
+   "rows": [
+    [
+     "chest",
+     "p",
+     "h"
+    ],
+    [
+     "triceps",
+     "s",
+     "m"
+    ]
+   ]
+  },
+  {
+   "slug": "incline-press",
+   "name": "Incline press",
+   "category": "compound",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "adjustable-bench",
+   "rows": [
+    [
+     "chest",
+     "p",
+     "m"
+    ],
+    [
+     "triceps",
+     "s",
+     "m"
+    ]
+   ]
+  },
+  {
+   "slug": "push-up",
+   "name": "Push-up",
+   "category": "compound",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "",
+   "rows": [
+    [
+     "chest",
+     "p",
+     "l"
+    ],
+    [
+     "triceps",
+     "s",
+     "m"
+    ]
+   ]
+  },
+  {
+   "slug": "overhead-press",
+   "name": "Overhead press",
+   "category": "compound",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "olympic-barbell",
+   "rows": [
+    [
+     "shoulders",
+     "p",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "dips",
+   "name": "Dips",
+   "category": "compound",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "",
+   "rows": [
+    [
+     "triceps",
+     "p",
+     "h"
+    ],
+    [
+     "chest",
+     "s",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "row",
+   "name": "Barbell row",
+   "category": "compound",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "olympic-barbell",
+   "rows": [
+    [
+     "lats",
+     "p",
+     "h"
+    ],
+    [
+     "biceps",
+     "s",
+     "m"
+    ]
+   ]
+  },
+  {
+   "slug": "squat",
+   "name": "Squat",
+   "category": "compound",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "olympic-barbell",
+   "rows": [
+    [
+     "quads",
+     "p",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "goblet-squat",
+   "name": "Goblet squat",
+   "category": "compound",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "dumbbells-and-rack",
+   "rows": [
+    [
+     "quads",
+     "p",
+     "m"
+    ]
+   ],
+   "warmup": true
+  },
+  {
+   "slug": "cable-fly",
+   "name": "Cable fly",
+   "category": "isolation",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "cable-crossover",
+   "rows": [
+    [
+     "chest",
+     "p",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "pushdown",
+   "name": "Triceps pushdown",
+   "category": "isolation",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "cable-crossover",
+   "rows": [
+    [
+     "triceps",
+     "p",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "skullcrusher",
+   "name": "Skull crusher",
+   "category": "isolation",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "olympic-barbell",
+   "rows": [
+    [
+     "triceps",
+     "p",
+     "m"
+    ]
+   ]
+  },
+  {
+   "slug": "lateral-raise",
+   "name": "Lateral raise",
+   "category": "isolation",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "dumbbells-and-rack",
+   "rows": [
+    [
+     "shoulders",
+     "p",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "straight-arm-pulldown",
+   "name": "Straight-arm pulldown",
+   "category": "isolation",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "cable-crossover",
+   "rows": [
+    [
+     "lats",
+     "p",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "leg-extension",
+   "name": "Leg extension",
+   "category": "isolation",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "leg-extension",
+   "rows": [
+    [
+     "quads",
+     "p",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "curl",
+   "name": "Biceps curl",
+   "category": "isolation",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "dumbbells-and-rack",
+   "rows": [
+    [
+     "biceps",
+     "p",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "arm-circles",
+   "name": "Arm circles",
+   "category": "warmup",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "",
+   "rows": [
+    [
+     "chest",
+     "m",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "band-pull-apart",
+   "name": "Band pull-apart",
+   "category": "warmup",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "resistance-tubes",
+   "rows": [
+    [
+     "shoulders",
+     "m",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "foam-chest-stretch",
+   "name": "Chest foam stretch",
+   "category": "recovery",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "",
+   "rows": [
+    [
+     "chest",
+     "m",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "foam-lat-roll",
+   "name": "Lat foam roll",
+   "category": "recovery",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "",
+   "rows": [
+    [
+     "lats",
+     "m",
+     "h"
+    ]
+   ]
+  },
+  {
+   "slug": "battle-rope",
+   "name": "Battle rope",
+   "category": "other",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "",
+   "rows": [
+    [
+     "cardio",
+     "p",
+     "h"
+    ]
+   ],
+   "subCategory": "conditioning"
+  },
+  {
+   "slug": "rower",
+   "name": "Rowing machine",
+   "category": "other",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "rower",
+   "rows": [
+    [
+     "cardio",
+     "p",
+     "m"
+    ]
+   ],
+   "subCategory": "cardio_machine"
+  },
+  {
+   "slug": "plank",
+   "name": "Plank",
+   "category": "other",
+   "kind": "strength",
+   "difficulty": 2,
+   "unilateral": false,
+   "beginner": true,
+   "tracks": 0,
+   "machine": "",
+   "rows": [
+    [
+     "abs",
+     "p",
+     "h"
+    ]
+   ],
+   "subCategory": "core"
+  }
+ ],
+ "day": [
+  {
+   "name": "push 45 min: every slot, cooldown held back",
+   "spec": {
+    "muscles": [
+     "chest",
+     "shoulders",
+     "triceps"
+    ],
+    "minutes": 45
+   },
+   "expect": {
+    "slots": [
+     "warmup",
+     "warmup",
+     "main",
+     "main",
+     "isolation",
+     "isolation",
+     "isolation",
+     "finisher",
+     "cooldown"
+    ],
+    "slugs": [
+     "arm-circles",
+     "band-pull-apart",
+     "bench-press",
+     "overhead-press",
+     "pushdown",
+     "cable-fly",
+     "lateral-raise",
+     "battle-rope",
+     "foam-chest-stretch"
+    ],
+    "sets": [
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     3,
+     2,
+     1
+    ],
+    "seconds": 2475,
+    "noteOn": "bench-press"
+   }
+  },
+  {
+   "name": "push 30 min: sets shrink to fit, the last isolation is dropped",
+   "spec": {
+    "muscles": [
+     "chest",
+     "shoulders",
+     "triceps"
+    ],
+    "minutes": 30
+   },
+   "expect": {
+    "slots": [
+     "warmup",
+     "main",
+     "main",
+     "isolation",
+     "isolation",
+     "cooldown"
+    ],
+    "slugs": [
+     "arm-circles",
+     "bench-press",
+     "overhead-press",
+     "pushdown",
+     "cable-fly",
+     "foam-chest-stretch"
+    ],
+    "sets": [
+     2,
+     3,
+     3,
+     3,
+     2,
+     1
+    ],
+    "seconds": 1725
+   }
+  },
+  {
+   "name": "push 20 min: one warm-up-free main + 2 isolation",
+   "spec": {
+    "muscles": [
+     "chest",
+     "shoulders",
+     "triceps"
+    ],
+    "minutes": 20
+   },
+   "expect": {
+    "slots": [
+     "main",
+     "isolation",
+     "isolation"
+    ],
+    "slugs": [
+     "bench-press",
+     "lateral-raise",
+     "pushdown"
+    ],
+    "sets": [
+     3,
+     3,
+     3
+    ],
+    "seconds": 1125
+   }
+  },
+  {
+   "name": "10 min: only what fits",
+   "spec": {
+    "muscles": [
+     "chest",
+     "shoulders",
+     "triceps"
+    ],
+    "minutes": 10
+   },
+   "expect": {
+    "slots": [
+     "main"
+    ],
+    "slugs": [
+     "bench-press"
+    ],
+    "sets": [
+     3
+    ],
+    "seconds": 495
+   }
+  },
+  {
+   "name": "bodyweight preset: only exercises with no machine or a mat",
+   "spec": {
+    "muscles": [
+     "chest",
+     "triceps"
+    ],
+    "minutes": 45,
+    "equipment": "bodyweight"
+   },
+   "expect": {
+    "allowedMachines": [
+     ""
+    ],
+    "mustInclude": [
+     "push-up",
+     "dips"
+    ],
+    "mustNotInclude": [
+     "bench-press",
+     "incline-press",
+     "cable-fly",
+     "pushdown"
+    ]
+   }
+  },
+  {
+   "name": "avoid triceps: nothing that works triceps as a main or high secondary comes back",
+   "spec": {
+    "muscles": [
+     "chest",
+     "shoulders",
+     "triceps"
+    ],
+    "minutes": 45
+   },
+   "expect": {
+    "mustNotInclude": [
+     "pushdown",
+     "skullcrusher",
+     "dips"
+    ],
+    "mustInclude": [
+     "cable-fly",
+     "lateral-raise"
+    ]
+   },
+   "ctx": {
+    "avoid": [
+     "triceps"
+    ]
+   }
+  },
+  {
+   "name": "hidden exercise is never offered",
+   "spec": {
+    "muscles": [
+     "chest",
+     "shoulders",
+     "triceps"
+    ],
+    "minutes": 45
+   },
+   "expect": {
+    "mustNotInclude": [
+     "bench-press"
+    ],
+    "mustInclude": [
+     "overhead-press"
+    ]
+   },
+   "ctx": {
+    "hidden": [
+     "bench-press"
+    ]
+   }
+  },
+  {
+   "name": "no muscles gives nothing",
+   "spec": {
+    "muscles": [],
+    "minutes": 45
+   },
+   "expect": {
+    "reason": "no_muscles",
+    "slugs": []
+   }
+  }
+ ],
+ "quick": [
+  {
+   "name": "15 min: 2 exercises, no ramp note",
+   "input": {
+    "minutes": 15,
+    "muscles": [
+     "chest",
+     "lats",
+     "quads"
+    ]
+   },
+   "expect": {
+    "slots": [
+     "main",
+     "isolation"
+    ],
+    "slugs": [
+     "bench-press",
+     "straight-arm-pulldown"
+    ],
+    "sets": [
+     3,
+     3
+    ],
+    "seconds": 723,
+    "noNote": true
+   }
+  },
+  {
+   "name": "30 min: 5 exercises, compounds first, ramp note",
+   "input": {
+    "minutes": 30,
+    "muscles": [
+     "chest",
+     "lats",
+     "quads"
+    ]
+   },
+   "expect": {
+    "slots": [
+     "main",
+     "main",
+     "isolation",
+     "isolation",
+     "isolation"
+    ],
+    "slugs": [
+     "bench-press",
+     "row",
+     "leg-extension",
+     "cable-fly",
+     "straight-arm-pulldown"
+    ],
+    "sets": [
+     3,
+     3,
+     3,
+     3,
+     3
+    ],
+    "seconds": 1776,
+    "noteOn": "bench-press"
+   }
+  },
+  {
+   "name": "15 min with a listed pair: the pair is one superset",
+   "input": {
+    "minutes": 15,
+    "muscles": [
+     "chest",
+     "lats",
+     "quads"
+    ],
+    "pairs": [
+     {
+      "a": "bench-press",
+      "b": "row",
+      "type": "antagonist"
+     }
+    ]
+   },
+   "expect": {
+    "slots": [
+     "main",
+     "main"
+    ],
+    "slugs": [
+     "bench-press",
+     "row"
+    ],
+    "sets": [
+     3,
+     3
+    ],
+    "seconds": 786,
+    "sameGroup": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "name": "avoid chest: no chest primary exercise",
+   "input": {
+    "minutes": 30,
+    "muscles": [
+     "chest",
+     "lats",
+     "quads"
+    ]
+   },
+   "ctx": {
+    "avoid": [
+     "chest"
+    ]
+   },
+   "expect": {
+    "mustNotInclude": [
+     "bench-press",
+     "incline-press",
+     "cable-fly"
+    ],
+    "mustInclude": [
+     "row"
+    ]
+   }
+  }
+ ],
+ "labels": [
+  {
+   "label": "Push",
+   "muscles": [
+    "chest",
+    "front_delts",
+    "side_delts",
+    "triceps"
+   ]
+  },
+  {
+   "label": "Full body B",
+   "muscles": [
+    "quads",
+    "hamstrings",
+    "chest",
+    "back",
+    "shoulders",
+    "abs"
+   ]
+  },
+  {
+   "label": "legs",
+   "muscles": [
+    "quads",
+    "hamstrings",
+    "glutes",
+    "calves",
+    "adductors"
+   ]
+  },
+  {
+   "label": "Mobility",
+   "muscles": []
+  },
+  {
+   "label": "Dance cardio",
+   "muscles": null
+  }
+ ]
+}

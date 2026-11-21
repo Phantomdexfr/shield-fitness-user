@@ -1,0 +1,100 @@
+/* Install gate screen and update toast. Tokens only. */
+.sf-gate {
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  justify-content: center;
+  padding: calc(var(--safe-top) + var(--sp-6)) calc(var(--safe-right) + var(--sp-4)) calc(var(--safe-bottom) + var(--sp-6)) calc(var(--safe-left) + var(--sp-4));
+}
+
+.sf-gate__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.sf-gate__lead {
+  color: var(--text-2);
+}
+
+.sf-gate__steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.sf-gate__step {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+  padding: var(--sp-3);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.sf-gate__num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-pill);
+  background: var(--gold-wash);
+  color: var(--gold-400);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.sf-gate__text {
+  min-width: 0;
+  flex: 1;
+}
+
+.sf-gate__icon {
+  flex: none;
+  color: var(--gold-400);
+}
+
+.sf-gate__qr {
+  align-self: center;
+  width: min(100%, 240px);
+  padding: var(--sp-3);
+  background: var(--text);
+  color: var(--bg-void);
+  border-radius: var(--r-md);
+}
+
+.sf-gate__qr svg {
+  width: 100%;
+  height: auto;
+}
+
+.sf-update {
+  position: fixed;
+  inset-inline: var(--sp-4);
+  bottom: calc(var(--safe-bottom) + var(--tabbar-h, 0px) + var(--sp-4));
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  max-width: 688px;
+  margin-inline: auto;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--bg-raised);
+  border: 1px solid var(--gold-500);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-card);
+}
+
+.sf-update__text {
+  flex: 1;
+  min-width: 0;
+}

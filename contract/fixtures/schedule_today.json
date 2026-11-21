@@ -1,0 +1,770 @@
+{
+ "note": "schedule_today: todayPlan expectations (kind, dayIndex, next, line, cap, due). Day targets: Push [chest, triceps], Pull [lats, biceps], Legs [quads]. Recovery scores fresh 3 / ready 2 / recovering 1 / fatigued 0. Created in User Phase 32.",
+ "cases": [
+  {
+   "id": "ex6a-no-data-train",
+   "example": 6,
+   "note": "No recovery data, 2 full days since the last session: rotation Day, no readiness line",
+   "today": "2026-11-18",
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 1,
+   "sessionDates": [
+    "2026-11-16"
+   ],
+   "recovery": {},
+   "expect": {
+    "kind": "train",
+    "dayIndex": 1,
+    "line": "rotation"
+   }
+  },
+  {
+   "id": "ex6b-no-data-too-soon",
+   "example": 6,
+   "note": "Only 1 day since the last session: not yet",
+   "today": "2026-11-17",
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 1,
+   "sessionDates": [
+    "2026-11-16"
+   ],
+   "recovery": {},
+   "expect": {
+    "kind": "rest",
+    "dayIndex": 1,
+    "line": "rotation"
+   }
+  },
+  {
+   "id": "ex6c-no-data-never",
+   "example": 6,
+   "note": "No session yet: train",
+   "today": "2026-11-17",
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "recovery": {},
+   "expect": {
+    "kind": "train",
+    "dayIndex": 0,
+    "line": "rotation"
+   }
+  },
+  {
+   "id": "ex6d-recovery-picks-legs",
+   "example": 6,
+   "note": "Push 2.0, Pull 0.5, Legs 3.0: offer Legs",
+   "today": "2026-11-18",
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "recovery": {
+    "chest": "ready",
+    "triceps": "ready",
+    "lats": "fatigued",
+    "biceps": "recovering",
+    "quads": "fresh"
+   },
+   "expect": {
+    "kind": "suggest",
+    "dayIndex": 2,
+    "line": "most_recovered"
+   },
+   "scores": [
+    2.0,
+    0.5,
+    3.0
+   ]
+  },
+  {
+   "id": "ex6e-all-recovering",
+   "example": 6,
+   "note": "Every Day below 1.0: rest is fine, best Day still offered",
+   "today": "2026-11-18",
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "recovery": {
+    "chest": "fatigued",
+    "triceps": "fatigued",
+    "lats": "recovering",
+    "biceps": "fatigued",
+    "quads": "fatigued"
+   },
+   "expect": {
+    "kind": "suggest",
+    "dayIndex": 1,
+    "line": "all_recovering"
+   }
+  },
+  {
+   "id": "ex6f-tie-rotation",
+   "example": 6,
+   "note": "Equal scores: rotation order from the pointer wins",
+   "today": "2026-11-18",
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 1,
+   "sessionDates": [],
+   "recovery": {
+    "chest": "ready",
+    "triceps": "ready",
+    "lats": "ready",
+    "biceps": "ready",
+    "quads": "ready"
+   },
+   "expect": {
+    "kind": "suggest",
+    "dayIndex": 1,
+    "line": "most_recovered"
+   }
+  },
+  {
+   "id": "ex6g-week-cap",
+   "example": 6,
+   "note": "4 sessions this week: still startable, with the cap line",
+   "today": "2026-11-20",
+   "schedule": {
+    "mode": "floating",
+    "maxPerWeek": 4,
+    "minRestDays": 1
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 1,
+   "sessionDates": [
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19"
+   ],
+   "recovery": {},
+   "expect": {
+    "kind": "suggest",
+    "dayIndex": 1,
+    "line": "rotation",
+    "cap": 4
+   }
+  },
+  {
+   "id": "ex1-rest-day-next",
+   "example": 1,
+   "note": "Thu 19 is a rest day; next Legs on Fri",
+   "today": "2026-11-19",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 2,
+   "sessionDates": [
+    "2026-11-18"
+   ],
+   "recovery": {},
+   "expect": {
+    "kind": "rest",
+    "next": {
+     "date": "2026-11-20",
+     "dayIndex": 2
+    }
+   }
+  },
+  {
+   "id": "ex5-every-n-wed",
+   "example": 5,
+   "note": "Not due: rest, next Legs on Thu",
+   "today": "2026-11-18",
+   "schedule": {
+    "mode": "every_n",
+    "n": 2
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 2,
+   "sessionDates": [
+    "2026-11-17"
+   ],
+   "recovery": {},
+   "expect": {
+    "kind": "rest",
+    "next": {
+     "date": "2026-11-19",
+     "dayIndex": 2
+    }
+   }
+  },
+  {
+   "id": "ex5-every-n-thu",
+   "example": 5,
+   "note": "Due: Legs",
+   "today": "2026-11-19",
+   "schedule": {
+    "mode": "every_n",
+    "n": 2
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 2,
+   "sessionDates": [
+    "2026-11-17"
+   ],
+   "recovery": {},
+   "expect": {
+    "kind": "train",
+    "dayIndex": 2,
+    "due": true
+   }
+  },
+  {
+   "id": "ex12-active",
+   "example": 12,
+   "note": "An A date offers active recovery, pointer untouched",
+   "today": "2026-11-18",
+   "schedule": {
+    "mode": "cycle",
+    "pattern": [
+     "T",
+     "T",
+     "A",
+     "T",
+     "M",
+     "R"
+    ],
+    "startDate": "2026-11-16"
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 2,
+   "sessionDates": [],
+   "recovery": {},
+   "expect": {
+    "kind": "active"
+   }
+  },
+  {
+   "id": "ex12-mobility",
+   "example": 12,
+   "note": "An M date offers mobility",
+   "today": "2026-11-20",
+   "schedule": {
+    "mode": "cycle",
+    "pattern": [
+     "T",
+     "T",
+     "A",
+     "T",
+     "M",
+     "R"
+    ],
+    "startDate": "2026-11-16"
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 2,
+   "sessionDates": [],
+   "recovery": {},
+   "expect": {
+    "kind": "mobility"
+   }
+  },
+  {
+   "id": "ex13-flexible-no-data",
+   "example": 13,
+   "note": "No schedule, no data: the rotation Day",
+   "today": "2026-11-18",
+   "schedule": null,
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 1,
+   "sessionDates": [],
+   "recovery": {},
+   "expect": {
+    "kind": "suggest",
+    "dayIndex": 1
+   }
+  },
+  {
+   "id": "ex13-flexible-data",
+   "example": 13,
+   "note": "No schedule with data: best readiness",
+   "today": "2026-11-18",
+   "schedule": null,
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "recovery": {
+    "chest": "ready",
+    "triceps": "ready",
+    "lats": "fatigued",
+    "biceps": "recovering",
+    "quads": "fresh"
+   },
+   "expect": {
+    "kind": "suggest",
+    "dayIndex": 2
+   }
+  },
+  {
+   "id": "ex11-rest-chosen",
+   "example": 11,
+   "note": "Rest chosen on the hint: rest date, pointer unchanged, next Day still the same",
+   "today": "2026-11-16",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "recovery": {},
+   "restChosen": true,
+   "expect": {
+    "kind": "rest",
+    "next": {
+     "date": "2026-11-18",
+     "dayIndex": 0
+    }
+   }
+  },
+  {
+   "id": "ex8-do-it-today",
+   "example": 8,
+   "note": "Shift: 'Do it today' on Tue 17 makes today a training date; Push, pointer unmoved",
+   "today": "2026-11-17",
+   "schedule": {
+    "mode": "weekdays",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "days": [
+    {
+     "id": "d0",
+     "name": "Push",
+     "targetMuscles": [
+      "chest",
+      "triceps"
+     ]
+    },
+    {
+     "id": "d1",
+     "name": "Pull",
+     "targetMuscles": [
+      "lats",
+      "biceps"
+     ]
+    },
+    {
+     "id": "d2",
+     "name": "Legs",
+     "targetMuscles": [
+      "quads"
+     ]
+    }
+   ],
+   "pointer": 0,
+   "sessionDates": [],
+   "recovery": {},
+   "overrides": {
+    "2026-11-17": "train"
+   },
+   "expect": {
+    "kind": "train",
+    "dayIndex": 0
+   }
+  }
+ ]
+}

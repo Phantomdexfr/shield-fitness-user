@@ -1,0 +1,22 @@
+{
+ "note": "pr_cases: detectPRs (contract/engines.md section 17), numbers worked by hand. A set is [weightKg|null, reps, rpe|null, tag]; history = earlier sessions of the exercise (under the same key); opts.hasOtherHistory = the exercise has results under another grip. Metrics are beaten independently; a tie is not a PR; warm-up and drop sets are ignored; weight and e1rm need a weight; volume is the biggest SINGLE set (weight x reps). Hit order: weight, reps, volume, e1rm. Created in User Phase 37.",
+ "cases": [
+  {"id": "first_log_is_baseline", "history": [], "current": [[40,10]], "expected": []},
+  {"id": "heavier_but_fewer_reps", "history": [[[40,10]]], "current": [[50,5]], "expected": [{"metric":"weight","value":50,"previous":40},{"metric":"e1rm","value":58.33,"previous":53.33}]},
+  {"id": "more_reps_lighter_weight", "history": [[[50,5]]], "current": [[30,15]], "expected": [{"metric":"reps","value":15,"previous":5},{"metric":"volume","value":450,"previous":250}]},
+  {"id": "tie_is_not_a_pr", "history": [[[40,10]]], "current": [[40,10]], "expected": []},
+  {"id": "volume_is_one_set_not_the_session", "history": [[[40,10]]], "current": [[40,8],[40,8],[40,8]], "expected": []},
+  {"id": "warmup_and_drop_ignored", "history": [[[40,10]]], "current": [[100,5,null,"warmup"],[60,10,null,"drop"],[40,10]], "expected": []},
+  {"id": "bodyweight_counts_only_reps", "history": [[[null,10]]], "current": [[null,12]], "expected": [{"metric":"reps","value":12,"previous":10}]},
+  {"id": "first_weighted_set_after_bodyweight", "history": [[[null,10]]], "current": [[20,8]], "expected": [{"metric":"weight","value":20,"previous":null},{"metric":"volume","value":160,"previous":null},{"metric":"e1rm","value":25.33,"previous":null}]},
+  {"id": "best_of_several_sessions", "history": [[[40,10]],[[60,3]]], "current": [[55,8]], "expected": [{"metric":"volume","value":440,"previous":400},{"metric":"e1rm","value":69.67,"previous":66}]},
+  {"id": "new_grip_with_history_elsewhere", "history": [], "current": [[40,10]], "opts": {"hasOtherHistory": true}, "expected": [{"metric":"weight","value":40,"previous":null},{"metric":"reps","value":10,"previous":null},{"metric":"volume","value":400,"previous":null},{"metric":"e1rm","value":53.33,"previous":null}]},
+  {"id": "empty_current", "history": [[[40,10]]], "current": [], "expected": []},
+  {"id": "over_12_reps_has_no_e1rm", "history": [[[20,10]]], "current": [[20,15]], "expected": [{"metric":"reps","value":15,"previous":10},{"metric":"volume","value":300,"previous":200}]}
+ ],
+ "records": [
+  {"id": "mixed", "sets": [[40,10],[50,5],[null,20],[20,8,null,"warmup"]], "expected": {"weight": 50, "reps": 20, "volume": 400, "e1rm": 58.33}},
+  {"id": "bodyweight_only", "sets": [[null,12],[0,15]], "expected": {"weight": null, "reps": 15, "volume": null, "e1rm": null}},
+  {"id": "nothing", "sets": [], "expected": {"weight": null, "reps": null, "volume": null, "e1rm": null}}
+ ]
+}

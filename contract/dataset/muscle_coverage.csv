@@ -1,0 +1,27 @@
+muscle_id,status,machines_primary,exercises_primary,machines_secondary,exercises_secondary,covered,note
+chest,core,14,19,7,9,yes,
+back,core,11,14,12,18,yes,
+lats,core,4,5,16,20,yes,
+shoulders,core,11,22,26,58,yes,
+biceps,core,11,14,14,18,yes,
+triceps,core,10,13,18,25,yes,
+forearms,core,4,6,16,25,yes,
+abs,core,3,10,13,40,yes,
+obliques,core,4,7,2,4,yes,
+glutes,core,5,6,22,52,yes,
+quads,core,13,22,13,24,yes,
+hamstrings,core,7,8,15,28,yes,
+calves,core,5,6,5,11,yes,
+lower_back,core,2,4,9,18,yes,
+traps,core,4,5,10,22,yes,
+full_body,core,4,7,2,2,yes,
+cardio,core,10,27,0,1,yes,
+upper_chest,proposed,5,5,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary)
+lower_chest,proposed,1,1,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary)
+front_delts,proposed,10,12,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary)
+side_delts,proposed,5,7,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary)
+rear_delts,proposed,6,9,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary)
+adductors,proposed,2,3,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary); core fallback for adduction is quads
+abductors,proposed,1,1,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary)
+hip_flexors,proposed,1,4,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary)
+neck,proposed,1,4,0,0,yes,proposed id: exercises tagged in proposed_muscles column (counted under primary); neck rows use primary id neck (proposed) and are flagged in proposed_muscles

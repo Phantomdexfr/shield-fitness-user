@@ -1,0 +1,33 @@
+/* Progress pages (Phase 53). Tokens only. */
+.sf-pg__card { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-pg__h { margin: 0; font-size: var(--text-md); color: var(--text); min-width: 0; overflow-wrap: anywhere; }
+.sf-pg__h3 { margin: var(--sp-2) 0 0; font-size: var(--text-sm); color: var(--text-muted); min-width: 0; }
+.sf-pg__week { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4); min-width: 0; }
+.sf-pg__tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 96px), 1fr)); gap: var(--sp-2); min-width: 0; }
+.sf-pg__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-pg__row { display: flex; flex-direction: column; padding: var(--sp-1) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg-raised); min-width: 0; overflow-wrap: anywhere; }
+.sf-pg__links { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-4); min-width: 0; }
+/* Body stats and goals (Phase 54) */
+.sf-pg__form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); min-width: 0; }
+.sf-pg__form--one { grid-template-columns: minmax(0, 1fr); }
+.sf-pg__err { margin: 0; color: var(--danger, var(--text)); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-pg__goalmeta { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 140px; }
+.sf-pg__goalmeta p { margin: 0; overflow-wrap: anywhere; }
+.sf-pg__marks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-1); min-width: 0; }
+.sf-pg__mark { font-size: var(--text-xs); color: var(--text-muted); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 2px var(--sp-2); overflow-wrap: anywhere; }
+.sf-pg__mark--on { color: var(--gold-300); border-color: var(--gold-500); }
+/* Protein, water and progress photos (Phase 55) */
+.sf-pg__quick { display: flex; flex-wrap: wrap; gap: var(--sp-2); min-width: 0; }
+.sf-ph__pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); min-width: 0; }
+.sf-ph__fig { margin: 0; display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-ph__img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-sm); background: var(--bg-raised); }
+.sf-ph__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); min-width: 0; }
+.sf-ph__cell { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-ph__btn { display: block; width: 100%; padding: 0; border: 2px solid var(--line); border-radius: var(--r-sm); background: none; cursor: pointer; min-height: 44px; overflow: hidden; }
+.sf-ph__btn--on { border-color: var(--gold-500); }
+/* Barcode scanner (Phase 56) */
+.sf-bc__list { margin: 0; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sf-bc__add { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; padding-top: var(--sp-3); border-top: 1px solid var(--line); }
+.sf-bc__row { display: flex; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-1) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg-raised); min-width: 0; }
+.sf-bc__row dt { margin: 0; color: var(--text-muted); min-width: 0; overflow-wrap: anywhere; }
+.sf-bc__row dd { margin: 0; color: var(--text); text-align: right; min-width: 0; overflow-wrap: anywhere; }

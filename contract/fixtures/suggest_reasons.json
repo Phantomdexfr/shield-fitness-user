@@ -1,0 +1,174 @@
+{
+ "spec": "contract/engines.md 25 and the Phase 15 rules in API_CONTRACTS.md",
+ "target": "lats",
+ "candidate": {
+  "slug": "lat-pulldown",
+  "name": "Lat Pulldown"
+ },
+ "cases": [
+  {
+   "id": "r1",
+   "description": "nothing known -> no reasons",
+   "signals": {},
+   "favourite": false,
+   "expected": []
+  },
+  {
+   "id": "r2",
+   "description": "rested 4 days and little work this week -> recovered then neglected",
+   "signals": {
+    "daysRested": {
+     "lats": 4
+    },
+    "weekSets": {
+     "lats": 2
+    }
+   },
+   "favourite": false,
+   "expected": [
+    {
+     "code": "recovered",
+     "muscle": "lats",
+     "days": 4
+    },
+    {
+     "code": "neglected",
+     "muscle": "lats"
+    }
+   ]
+  },
+  {
+   "id": "r3",
+   "description": "at most two; priority order wins (progress_ready, recovered before the rest)",
+   "signals": {
+    "progressReady": [
+     "lat-pulldown"
+    ],
+    "daysRested": {
+     "lats": 5
+    },
+    "weekSets": {
+     "lats": 0
+    },
+    "inRoutine": [
+     "lat-pulldown"
+    ]
+   },
+   "favourite": true,
+   "expected": [
+    {
+     "code": "progress_ready"
+    },
+    {
+     "code": "recovered",
+     "muscle": "lats",
+     "days": 5
+    }
+   ]
+  },
+  {
+   "id": "r4",
+   "description": "3 days rested is the minimum; 2 is not enough",
+   "signals": {
+    "daysRested": {
+     "lats": 2
+    }
+   },
+   "favourite": false,
+   "expected": []
+  },
+  {
+   "id": "r5",
+   "description": "3 sets is not neglected, 2 is",
+   "signals": {
+    "weekSets": {
+     "lats": 3
+    }
+   },
+   "favourite": false,
+   "expected": []
+  },
+  {
+   "id": "r6",
+   "description": "in routine and favourite",
+   "signals": {
+    "inRoutine": [
+     "lat-pulldown"
+    ]
+   },
+   "favourite": true,
+   "expected": [
+    {
+     "code": "in_routine"
+    },
+    {
+     "code": "favourite"
+    }
+   ]
+  },
+  {
+   "id": "r7",
+   "description": "built by you (custom or built set) before favourite",
+   "signals": {
+    "builtByYou": [
+     "lat-pulldown"
+    ]
+   },
+   "favourite": true,
+   "expected": [
+    {
+     "code": "built_by_you"
+    },
+    {
+     "code": "favourite"
+    }
+   ]
+  },
+  {
+   "id": "r8",
+   "description": "same variation",
+   "signals": {
+    "sameVariation": [
+     "lat-pulldown"
+    ]
+   },
+   "favourite": false,
+   "expected": [
+    {
+     "code": "same_variation"
+    }
+   ]
+  },
+  {
+   "id": "r9",
+   "description": "balances the week: 3 sets of 10/12/14 average 12, half is 6; 5 < 6 but not < 3 so neglected is off",
+   "signals": {
+    "weekSets": {
+     "lats": 5,
+     "chest": 10,
+     "quads": 12,
+     "biceps": 14
+    }
+   },
+   "favourite": false,
+   "expected": [
+    {
+     "code": "balances_week",
+     "muscle": "lats"
+    }
+   ]
+  },
+  {
+   "id": "r10",
+   "description": "balances needs 3 trained muscles",
+   "signals": {
+    "weekSets": {
+     "lats": 5,
+     "chest": 20
+    }
+   },
+   "favourite": false,
+   "expected": []
+  }
+ ]
+}

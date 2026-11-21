@@ -1,0 +1,31 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "applyVariation",
+ "describes": "more x1.25, less x0.75, a missing more-muscle is added at 0.3",
+ "input": {
+  "base": {
+   "upper_chest": 0.6,
+   "lats": 0.8
+  },
+  "shifts": [
+   {
+    "muscle": "upper_chest",
+    "shift": "more"
+   },
+   {
+    "muscle": "biceps",
+    "shift": "more"
+   },
+   {
+    "muscle": "lats",
+    "shift": "less"
+   }
+  ]
+ },
+ "expect": {
+  "upper_chest": 0.75,
+  "lats": 0.6,
+  "biceps": 0.3
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "fixture": "heatmap",
+ "contract": "engines.md section 2-4 and 26.6",
+ "fn": "periodWindow",
+ "describes": "IST calendar days: day = today, week = last 7 days incl. today, month = last 28; back steps whole periods",
+ "now": "2026-11-21T10:00:00Z",
+ "cases": [
+  {
+   "kind": "day",
+   "back": 0,
+   "from": "2026-11-20T18:30:00Z",
+   "to": "2026-11-21T18:30:00Z",
+   "days": 1
+  },
+  {
+   "kind": "week",
+   "back": 0,
+   "from": "2026-11-14T18:30:00Z",
+   "to": "2026-11-21T18:30:00Z",
+   "days": 7
+  },
+  {
+   "kind": "week",
+   "back": 1,
+   "from": "2026-11-07T18:30:00Z",
+   "to": "2026-11-14T18:30:00Z",
+   "days": 7
+  },
+  {
+   "kind": "month",
+   "back": 0,
+   "from": "2026-10-24T18:30:00Z",
+   "to": "2026-11-21T18:30:00Z",
+   "days": 28
+  }
+ ]
+}

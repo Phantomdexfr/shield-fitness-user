@@ -1,0 +1,31 @@
+{
+  "_note": "Phase 48. Worked by hand from contract/engines.md section 5. Target hours: large 72, medium 48, small 36 (in minutes: 4320, 2880, 2160). elapsed/target < 0.5 fatigued, < 1 recovering, < 2 ready, >= 2 fresh; never trained = fresh. `minutesAgo` is whole minutes before `now`, so every boundary is an exact integer compare. A time in the future (negative minutesAgo) counts as just trained.",
+  "cases": [
+    {"size": "large", "minutesAgo": 0, "state": "fatigued"},
+    {"size": "large", "minutesAgo": 2159, "state": "fatigued"},
+    {"size": "large", "minutesAgo": 2160, "state": "recovering"},
+    {"size": "large", "minutesAgo": 4319, "state": "recovering"},
+    {"size": "large", "minutesAgo": 4320, "state": "ready"},
+    {"size": "large", "minutesAgo": 8639, "state": "ready"},
+    {"size": "large", "minutesAgo": 8640, "state": "fresh"},
+    {"size": "large", "minutesAgo": null, "state": "fresh"},
+    {"size": "medium", "minutesAgo": 1439, "state": "fatigued"},
+    {"size": "medium", "minutesAgo": 1440, "state": "recovering"},
+    {"size": "medium", "minutesAgo": 2879, "state": "recovering"},
+    {"size": "medium", "minutesAgo": 2880, "state": "ready"},
+    {"size": "medium", "minutesAgo": 5759, "state": "ready"},
+    {"size": "medium", "minutesAgo": 5760, "state": "fresh"},
+    {"size": "small", "minutesAgo": 1079, "state": "fatigued"},
+    {"size": "small", "minutesAgo": 1080, "state": "recovering"},
+    {"size": "small", "minutesAgo": 2160, "state": "ready"},
+    {"size": "small", "minutesAgo": 4319, "state": "ready"},
+    {"size": "small", "minutesAgo": 4320, "state": "fresh"},
+    {"size": "small", "minutesAgo": -60, "state": "fatigued"}
+  ],
+  "sizes": {
+    "large": ["chest", "upper_chest", "lower_chest", "back", "lats", "rhomboids_teres", "lower_back", "quads", "quads_lower", "glutes", "hamstrings"],
+    "medium": ["shoulders", "front_delts", "side_delts", "rear_delts", "biceps", "triceps", "traps", "upper_traps", "mid_lower_traps", "abs", "obliques"],
+    "small": ["forearms", "calves", "soleus", "tibialis_anterior", "neck", "adductors", "abductors", "rotator_cuff", "hip_flexors", "serratus_anterior"],
+    "none": ["full_body", "cardio", "not_a_muscle"]
+  }
+}

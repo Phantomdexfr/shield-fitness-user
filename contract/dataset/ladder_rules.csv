@@ -1,0 +1,298 @@
+rule_id,priority,match_on,keywords,excludes,ladder_id,factor,load_mode,confidence,note
+lr001,1,slug,barbell-bench-press,,bench_press,1.00,total,high,Barbell/smith press family; single dumbbell = one load
+lr002,2,slug,barbell-incline-bench-press,,bench_press,0.85,total,high,Barbell/smith press family; single dumbbell = one load
+lr003,3,slug,barbell-reverse-grip-bench-press,,bench_press,0.90,total,high,Barbell/smith press family; single dumbbell = one load
+lr004,4,slug,barbell-floor-press,,bench_press,0.90,total,high,Barbell/smith press family; single dumbbell = one load
+lr005,5,slug,smith-machine-bench-press,,bench_press,0.95,total,high,Barbell/smith press family; single dumbbell = one load
+lr006,6,slug,single-arm-dumbbell-bench-press,,bench_press,0.38,total,medium,One dumbbell logged as a single load
+lr007,7,slug,dumbbell-bench-press,,bench_press,0.80,per_hand,medium,Dumbbell load = 2 x per-hand weight
+lr008,8,slug,incline-dumbbell-press,,bench_press,0.70,per_hand,medium,Dumbbell load = 2 x per-hand weight
+lr009,9,slug,dumbbell-floor-press,,bench_press,0.72,per_hand,medium,Dumbbell load = 2 x per-hand weight
+lr010,10,slug,dumbbell-squeeze-press,,bench_press,0.65,per_hand,medium,Dumbbell load = 2 x per-hand weight
+lr011,11,slug,stability-ball-dumbbell-chest-press,,bench_press,0.60,per_hand,medium,Dumbbell load = 2 x per-hand weight
+lr012,12,slug,incline-chest-press-machine,,machine_chest_press,0.95,total,low,Machines and cables differ between brands
+lr013,13,slug,decline-chest-press-machine,,machine_chest_press,1.00,total,low,Machines and cables differ between brands
+lr014,14,slug,seated-chest-press-vertical-handles,,machine_chest_press,1.00,total,low,Machines and cables differ between brands
+lr015,15,slug,standing-cable-chest-press,,machine_chest_press,0.60,total,low,Machines and cables differ between brands
+lr016,16,slug,cable-bench-press,,machine_chest_press,0.60,total,low,Machines and cables differ between brands
+lr017,17,slug,pec-deck-fly,,pec_fly,1.00,total,low,Cable fly logged as the stack weight
+lr018,18,slug,cable-fly-high-to-low,,pec_fly,0.55,total,low,Cable fly logged as the stack weight
+lr019,19,slug,cable-fly-low-to-high,,pec_fly,0.55,total,low,Cable fly logged as the stack weight
+lr020,20,slug,cable-fly-mid-height,,pec_fly,0.55,total,low,Cable fly logged as the stack weight
+lr021,21,slug,cable-bench-fly,,pec_fly,0.55,total,low,Cable fly logged as the stack weight
+lr022,22,slug,dumbbell-fly,,pec_fly,0.70,per_hand,low,Dumbbell fly
+lr023,23,slug,stability-ball-dumbbell-fly,,pec_fly,0.60,per_hand,low,Dumbbell fly
+lr024,24,slug,push-up,,push_up,1.00,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr025,25,slug,wide-push-up,,push_up,1.00,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr026,26,slug,decline-push-up,,push_up,0.90,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr027,27,slug,incline-push-up,,push_up,1.25,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr028,28,slug,knee-push-up,,push_up,1.60,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr029,29,slug,close-grip-push-up,,push_up,0.95,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr030,30,slug,diamond-push-up,,push_up,0.90,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr031,31,slug,balance-trainer-push-up,,push_up,0.90,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr032,32,slug,stability-ball-push-up,,push_up,0.85,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr033,33,slug,suspension-push-up,,push_up,0.85,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr034,34,slug,smith-machine-incline-push-up,,push_up,1.25,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr035,35,slug,bench-triceps-push-up,,push_up,0.95,bodyweight,medium,Harder variants have a factor below 1 (they earn more credit per rep)
+lr036,36,slug,parallel-bar-dip,,dip,1.00,bodyweight,high,Bodyweight plus added load
+lr037,37,slug,close-grip-barbell-bench-press,,close_grip_bench,1.00,total,medium,
+lr038,38,slug,ez-bar-close-grip-bench-press,,close_grip_bench,0.95,total,medium,
+lr039,39,slug,smith-machine-close-grip-bench-press,,close_grip_bench,0.95,total,medium,
+lr040,40,slug,cable-close-grip-bench-press,,close_grip_bench,0.55,total,medium,
+lr041,41,slug,pull-up,,pull_up,1.00,bodyweight,high,Bodyweight plus added load
+lr042,42,slug,wide-grip-pull-up,,pull_up,0.95,bodyweight,high,Bodyweight plus added load
+lr043,43,slug,neutral-grip-pull-up,,pull_up,1.00,bodyweight,high,Bodyweight plus added load
+lr044,44,slug,chin-up,,chin_up,1.00,bodyweight,high,Bodyweight plus added load
+lr045,45,slug,barbell-bent-over-row,,barbell_row,1.00,total,medium,Single-dumbbell/kettlebell rows log one load
+lr046,46,slug,barbell-yates-row,,barbell_row,1.05,total,medium,Single-dumbbell/kettlebell rows log one load
+lr047,47,slug,smith-machine-bent-over-row,,barbell_row,0.95,total,medium,Single-dumbbell/kettlebell rows log one load
+lr048,48,slug,barbell-rear-delt-row,,barbell_row,0.70,total,medium,Single-dumbbell/kettlebell rows log one load
+lr049,49,slug,smith-machine-single-arm-row,,barbell_row,0.60,total,medium,Single-dumbbell/kettlebell rows log one load
+lr050,50,slug,dumbbell-one-arm-row,,barbell_row,0.45,total,medium,Single-dumbbell/kettlebell rows log one load
+lr051,51,slug,dumbbell-kroc-row,,barbell_row,0.50,total,medium,Single-dumbbell/kettlebell rows log one load
+lr052,52,slug,dumbbell-gorilla-row,,barbell_row,0.45,total,medium,Single-dumbbell/kettlebell rows log one load
+lr053,53,slug,dumbbell-renegade-row,,barbell_row,0.30,total,medium,Single-dumbbell/kettlebell rows log one load
+lr054,54,slug,kettlebell-single-arm-row,,barbell_row,0.42,total,medium,Single-dumbbell/kettlebell rows log one load
+lr055,55,slug,kettlebell-gorilla-row,,barbell_row,0.42,total,medium,Single-dumbbell/kettlebell rows log one load
+lr056,56,slug,cable-single-arm-high-row,,barbell_row,0.50,total,medium,Single-dumbbell/kettlebell rows log one load
+lr057,57,slug,cable-rear-delt-row,,barbell_row,0.45,total,medium,Single-dumbbell/kettlebell rows log one load
+lr058,58,slug,cable-squat-to-row,,barbell_row,0.40,total,medium,Single-dumbbell/kettlebell rows log one load
+lr059,59,slug,dumbbell-bent-over-row,,barbell_row,0.78,per_hand,medium,Two dumbbells
+lr060,60,slug,chest-supported-dumbbell-row,,barbell_row,0.72,per_hand,medium,Two dumbbells
+lr061,61,slug,dumbbell-rear-delt-row,,barbell_row,0.55,per_hand,medium,Two dumbbells
+lr062,62,slug,lat-pulldown,,lat_pulldown,1.00,total,medium,Isolation lat variants carry a low factor
+lr063,63,slug,plate-loaded-front-pulldown,,lat_pulldown,1.00,total,medium,Isolation lat variants carry a low factor
+lr064,64,slug,half-kneeling-cable-pulldown-straight-bar,,lat_pulldown,0.75,total,medium,Isolation lat variants carry a low factor
+lr065,65,slug,kneeling-single-arm-cable-pulldown,,lat_pulldown,0.55,total,medium,Isolation lat variants carry a low factor
+lr066,66,slug,straight-arm-pulldown,,lat_pulldown,0.50,total,medium,Isolation lat variants carry a low factor
+lr067,67,slug,standing-straight-arm-cable-pulldown,,lat_pulldown,0.50,total,medium,Isolation lat variants carry a low factor
+lr068,68,slug,cable-lat-prayer,,lat_pulldown,0.45,total,medium,Isolation lat variants carry a low factor
+lr069,69,slug,lying-cable-pullover,,lat_pulldown,0.50,total,medium,Isolation lat variants carry a low factor
+lr070,70,slug,dumbbell-pullover,,lat_pulldown,0.35,total,medium,Isolation lat variants carry a low factor
+lr071,71,slug,plate-pullover,,lat_pulldown,0.35,total,medium,Isolation lat variants carry a low factor
+lr072,72,slug,stability-ball-dumbbell-pullover,,lat_pulldown,0.30,total,medium,Isolation lat variants carry a low factor
+lr073,73,slug,seated-cable-row-neutral-grip,,seated_cable_row,1.00,total,medium,
+lr074,74,slug,wide-grip-seated-row-upper-back,,seated_cable_row,0.85,total,medium,
+lr075,75,slug,standing-cable-row,,seated_cable_row,0.85,total,medium,
+lr076,76,slug,chest-supported-cable-row-elbows-wide,,seated_cable_row,0.80,total,medium,
+lr077,77,slug,chest-supported-cable-row-incline-bench,,seated_cable_row,1.00,total,medium,
+lr078,78,slug,barbell-shrug,,barbell_shrug,1.00,total,medium,
+lr079,79,slug,smith-machine-shrug,,barbell_shrug,1.00,total,medium,
+lr080,80,slug,barbell-hang-shrug,,barbell_shrug,1.00,total,medium,
+lr081,81,slug,cable-shrug,,barbell_shrug,0.60,total,medium,
+lr082,82,slug,dumbbell-shrug,,barbell_shrug,0.85,per_hand,medium,
+lr083,83,slug,chest-supported-dumbbell-shrug,,barbell_shrug,0.75,per_hand,medium,
+lr084,84,slug,cable-face-pull,,face_pull,1.00,total,medium,
+lr085,85,slug,back-extension,,back_extension,1.00,bodyweight,low,Plate held is entered as added weight
+lr086,86,slug,stability-ball-back-extension,,back_extension,1.30,bodyweight,low,Plate held is entered as added weight
+lr087,87,slug,barbell-overhead-press,,overhead_press,1.00,total,medium,Single-implement lifts log one load
+lr088,88,slug,barbell-push-jerk,,overhead_press,1.20,total,medium,Single-implement lifts log one load
+lr089,89,slug,barbell-z-press,,overhead_press,0.85,total,medium,Single-implement lifts log one load
+lr090,90,slug,smith-machine-shoulder-press,,overhead_press,0.95,total,medium,Single-implement lifts log one load
+lr091,91,slug,half-kneeling-dumbbell-press,,overhead_press,0.45,total,medium,Single-implement lifts log one load
+lr092,92,slug,plate-overhead-press,,overhead_press,0.55,total,medium,Single-implement lifts log one load
+lr093,93,slug,kettlebell-overhead-press,,overhead_press,0.45,total,medium,Single-implement lifts log one load
+lr094,94,slug,kettlebell-push-press,,overhead_press,0.50,total,medium,Single-implement lifts log one load
+lr095,95,slug,cable-seated-shoulder-press,,overhead_press,0.65,total,medium,Single-implement lifts log one load
+lr096,96,slug,cable-standing-shoulder-press,,overhead_press,0.55,total,medium,Single-implement lifts log one load
+lr097,97,slug,barbell-upright-row,,overhead_press,0.70,total,medium,Single-implement lifts log one load
+lr098,98,slug,ez-bar-upright-row,,overhead_press,0.65,total,medium,Single-implement lifts log one load
+lr099,99,slug,smith-machine-upright-row,,overhead_press,0.70,total,medium,Single-implement lifts log one load
+lr100,100,slug,cable-upright-row,,overhead_press,0.50,total,medium,Single-implement lifts log one load
+lr101,101,slug,seated-dumbbell-shoulder-press,,overhead_press,0.78,per_hand,medium,Two dumbbells
+lr102,102,slug,dumbbell-push-press,,overhead_press,0.90,per_hand,medium,Two dumbbells
+lr103,103,slug,dumbbell-upright-row,,overhead_press,0.55,per_hand,medium,Two dumbbells
+lr104,104,slug,machine-shoulder-press,,machine_shoulder_press,1.00,total,medium,
+lr105,105,slug,standing-dumbbell-lateral-raise,,lateral_raise,1.00,per_hand,medium,Two dumbbells
+lr106,106,slug,chest-supported-dumbbell-lateral-raise,,lateral_raise,0.90,per_hand,medium,Two dumbbells
+lr107,107,slug,dumbbell-scaption-raise,,lateral_raise,0.85,per_hand,medium,Two dumbbells
+lr108,108,slug,dumbbell-front-raise,,lateral_raise,1.10,per_hand,medium,Two dumbbells
+lr109,109,slug,cable-lateral-raise,,lateral_raise,0.50,total,low,One cable handle = one load
+lr110,110,slug,cable-front-raise,,lateral_raise,0.50,total,low,One cable handle = one load
+lr111,111,slug,plate-front-raise,,lateral_raise,1.10,total,low,One cable handle = one load
+lr112,112,slug,reverse-pec-deck-rear-delt-fly,,rear_delt_fly,1.00,total,low,
+lr113,113,slug,cable-rear-delt-fly,,rear_delt_fly,0.55,total,low,
+lr114,114,slug,incline-bench-cable-rear-delt-fly,,rear_delt_fly,0.50,total,low,
+lr115,115,slug,dumbbell-bent-over-reverse-fly,,rear_delt_fly,0.55,per_hand,low,Two dumbbells
+lr116,116,slug,chest-supported-dumbbell-rear-delt-fly,,rear_delt_fly,0.55,per_hand,low,Two dumbbells
+lr117,117,slug,barbell-biceps-curl,,barbell_curl,1.00,total,medium,Single implement = one load; cable = stack weight
+lr118,118,slug,ez-bar-curl,,barbell_curl,1.00,total,medium,Single implement = one load; cable = stack weight
+lr119,119,slug,barbell-drag-curl,,barbell_curl,0.95,total,medium,Single implement = one load; cable = stack weight
+lr120,120,slug,barbell-preacher-curl,,barbell_curl,0.90,total,medium,Single implement = one load; cable = stack weight
+lr121,121,slug,preacher-curl-ez-bar,,barbell_curl,0.90,total,medium,Single implement = one load; cable = stack weight
+lr122,122,slug,dumbbell-concentration-curl,,barbell_curl,0.45,total,medium,Single implement = one load; cable = stack weight
+lr123,123,slug,plate-curl,,barbell_curl,0.35,total,medium,Single implement = one load; cable = stack weight
+lr124,124,slug,cable-biceps-curl,,barbell_curl,0.75,total,medium,Single implement = one load; cable = stack weight
+lr125,125,slug,cable-hammer-curl,,barbell_curl,0.70,total,medium,Single implement = one load; cable = stack weight
+lr126,126,slug,cable-preacher-curl,,barbell_curl,0.75,total,medium,Single implement = one load; cable = stack weight
+lr127,127,slug,cable-high-curl-double-biceps,,barbell_curl,0.60,total,medium,Single implement = one load; cable = stack weight
+lr128,128,slug,cable-incline-bench-curl,,barbell_curl,0.70,total,medium,Single implement = one load; cable = stack weight
+lr129,129,slug,cable-concentration-curl,,barbell_curl,0.60,total,medium,Single implement = one load; cable = stack weight
+lr130,130,slug,cable-spider-curl,,barbell_curl,0.70,total,medium,Single implement = one load; cable = stack weight
+lr131,131,slug,cable-drag-curl,,barbell_curl,0.70,total,medium,Single implement = one load; cable = stack weight
+lr132,132,slug,cable-bayesian-curl,,barbell_curl,0.60,total,medium,Single implement = one load; cable = stack weight
+lr133,133,slug,kettlebell-goblet-curl,,barbell_curl,0.40,total,medium,Single implement = one load; cable = stack weight
+lr134,134,slug,dumbbell-biceps-curl,,barbell_curl,0.85,per_hand,medium,Two dumbbells
+lr135,135,slug,incline-dumbbell-curl,,barbell_curl,0.75,per_hand,medium,Two dumbbells
+lr136,136,slug,dumbbell-hammer-curl,,barbell_curl,0.90,per_hand,medium,Two dumbbells
+lr137,137,slug,dumbbell-drag-curl,,barbell_curl,0.80,per_hand,medium,Two dumbbells
+lr138,138,slug,dumbbell-zottman-curl,,barbell_curl,0.75,per_hand,medium,Two dumbbells
+lr139,139,slug,dumbbell-pinwheel-curl,,barbell_curl,0.85,per_hand,medium,Two dumbbells
+lr140,140,slug,spider-curl,,barbell_curl,0.75,per_hand,medium,Two dumbbells
+lr141,141,slug,machine-biceps-curl,,machine_biceps_curl,1.00,total,medium,
+lr142,142,slug,cable-triceps-pushdown,,triceps_pushdown,1.00,total,low,Cable stacks differ
+lr143,143,slug,cable-triceps-pushdown-reverse-grip,,triceps_pushdown,0.80,total,low,Cable stacks differ
+lr144,144,slug,cable-overhead-triceps-extension,,triceps_pushdown,0.75,total,low,Cable stacks differ
+lr145,145,slug,cable-incline-overhead-triceps-extension,,triceps_pushdown,0.75,total,low,Cable stacks differ
+lr146,146,slug,cable-lying-triceps-extension,,triceps_pushdown,0.80,total,low,Cable stacks differ
+lr147,147,slug,cable-cross-body-triceps-extension,,triceps_pushdown,0.60,total,low,Cable stacks differ
+lr148,148,slug,cable-triceps-kickback,,triceps_pushdown,0.35,total,low,Cable stacks differ
+lr149,149,slug,dumbbell-triceps-kickback,,triceps_pushdown,0.30,total,low,Cable stacks differ
+lr150,150,slug,ez-bar-skull-crusher,,lying_triceps_extension,1.00,total,medium,One implement held in both hands = one load
+lr151,151,slug,barbell-skull-crusher,,lying_triceps_extension,1.00,total,medium,One implement held in both hands = one load
+lr152,152,slug,smith-machine-skull-crusher,,lying_triceps_extension,1.00,total,medium,One implement held in both hands = one load
+lr153,153,slug,ez-bar-overhead-triceps-extension,,lying_triceps_extension,0.85,total,medium,One implement held in both hands = one load
+lr154,154,slug,barbell-jm-press,,lying_triceps_extension,1.10,total,medium,One implement held in both hands = one load
+lr155,155,slug,ez-bar-pullover-extension,,lying_triceps_extension,0.75,total,medium,One implement held in both hands = one load
+lr156,156,slug,seated-overhead-dumbbell-triceps-extension,,lying_triceps_extension,0.45,total,medium,One implement held in both hands = one load
+lr157,157,slug,plate-overhead-triceps-extension,,lying_triceps_extension,0.40,total,medium,One implement held in both hands = one load
+lr158,158,slug,kettlebell-overhead-triceps-extension,,lying_triceps_extension,0.40,total,medium,One implement held in both hands = one load
+lr159,159,slug,dumbbell-skull-crusher,,lying_triceps_extension,0.85,per_hand,medium,Two dumbbells
+lr160,160,slug,dumbbell-tate-press,,lying_triceps_extension,0.75,per_hand,medium,Two dumbbells
+lr161,161,slug,dumbbell-jm-press,,lying_triceps_extension,0.75,per_hand,medium,Two dumbbells
+lr162,162,slug,barbell-wrist-curl,,wrist_curl,1.00,total,medium,
+lr163,163,slug,ez-bar-wrist-curl,,wrist_curl,0.95,total,medium,
+lr164,164,slug,barbell-behind-the-back-wrist-curl,,wrist_curl,1.00,total,medium,
+lr165,165,slug,cable-wrist-curl,,wrist_curl,0.60,total,medium,
+lr166,166,slug,dumbbell-wrist-curl,,wrist_curl,0.60,per_hand,medium,Two dumbbells
+lr167,167,slug,ez-bar-reverse-curl,,reverse_curl,1.00,total,medium,
+lr168,168,slug,barbell-reverse-curl,,reverse_curl,1.00,total,medium,
+lr169,169,slug,cable-reverse-curl,,reverse_curl,0.70,total,medium,
+lr170,170,slug,dumbbell-reverse-curl,,reverse_curl,0.80,per_hand,medium,Two dumbbells
+lr171,171,slug,dumbbell-reverse-wrist-curl,,reverse_wrist_curl,1.00,per_hand,low,Two dumbbells
+lr172,172,slug,barbell-back-squat,,back_squat,1.00,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr173,173,slug,barbell-front-squat,,back_squat,0.82,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr174,174,slug,smith-machine-squat,,back_squat,0.95,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr175,175,slug,smith-machine-front-squat,,back_squat,0.78,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr176,176,slug,barbell-zercher-squat,,back_squat,0.75,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr177,177,slug,barbell-pin-squat,,back_squat,0.95,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr178,178,slug,smith-machine-sumo-squat,,back_squat,0.90,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr179,179,slug,barbell-overhead-squat,,back_squat,0.45,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr180,180,slug,barbell-hack-squat,,back_squat,0.80,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr181,181,slug,goblet-squat,,back_squat,0.38,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr182,182,slug,plate-goblet-squat,,back_squat,0.38,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr183,183,slug,kettlebell-goblet-pulse-squat,,back_squat,0.35,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr184,184,slug,cable-goblet-squat,,back_squat,0.30,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr185,185,slug,barbell-bulgarian-split-squat,,back_squat,0.55,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr186,186,slug,smith-machine-split-squat,,back_squat,0.55,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr187,187,slug,barbell-reverse-lunge,,back_squat,0.55,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr188,188,slug,barbell-walking-lunge,,back_squat,0.55,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr189,189,slug,barbell-lateral-lunge,,back_squat,0.45,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr190,190,slug,barbell-step-up,,back_squat,0.50,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr191,191,slug,smith-machine-reverse-lunge,,back_squat,0.55,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr192,192,slug,plate-front-hold-walking-lunge,,back_squat,0.30,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr193,193,slug,cable-split-squat,,back_squat,0.35,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr194,194,slug,kettlebell-goblet-reverse-lunge,,back_squat,0.30,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr195,195,slug,dumbbell-lateral-lunge,,back_squat,0.35,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr196,196,slug,dumbbell-overhead-squat,,back_squat,0.25,total,medium,Squat-pattern lifts; unilateral lifts carry a low factor
+lr197,197,slug,kettlebell-double-front-squat,,back_squat,0.60,per_hand,medium,Two dumbbells; unilateral work
+lr198,198,slug,dumbbell-front-squat,,back_squat,0.65,per_hand,medium,Two dumbbells; unilateral work
+lr199,199,slug,bulgarian-split-squat,,back_squat,0.45,per_hand,medium,Two dumbbells; unilateral work
+lr200,200,slug,dumbbell-bulgarian-split-squat,,back_squat,0.45,per_hand,medium,Two dumbbells; unilateral work
+lr201,201,slug,dumbbell-split-squat,,back_squat,0.45,per_hand,medium,Two dumbbells; unilateral work
+lr202,202,slug,dumbbell-front-foot-elevated-split-squat,,back_squat,0.45,per_hand,medium,Two dumbbells; unilateral work
+lr203,203,slug,dumbbell-walking-lunge,,back_squat,0.45,per_hand,medium,Two dumbbells; unilateral work
+lr204,204,slug,dumbbell-forward-lunge,,back_squat,0.45,per_hand,medium,Two dumbbells; unilateral work
+lr205,205,slug,dumbbell-reverse-lunge-to-knee-drive,,back_squat,0.40,per_hand,medium,Two dumbbells; unilateral work
+lr206,206,slug,dumbbell-step-up,,back_squat,0.45,per_hand,medium,Two dumbbells; unilateral work
+lr207,207,slug,dumbbell-lateral-step-up,,back_squat,0.40,per_hand,medium,Two dumbbells; unilateral work
+lr208,208,slug,dumbbell-curtsy-lunge,,back_squat,0.35,per_hand,medium,Two dumbbells; unilateral work
+lr209,209,slug,dumbbell-step-up-to-press,,back_squat,0.35,per_hand,medium,Two dumbbells; unilateral work
+lr210,210,slug,hack-squat,,hack_squat,1.00,total,medium,
+lr211,211,slug,smith-machine-hack-squat,,hack_squat,0.90,total,medium,
+lr212,212,slug,leg-press,,leg_press,1.00,total,medium,
+lr213,213,slug,leg-extension,,leg_extension,1.00,total,medium,
+lr214,214,slug,lying-leg-curl,,leg_curl,1.00,total,medium,
+lr215,215,slug,dumbbell-hamstring-curl-prone,,leg_curl,0.25,total,medium,
+lr216,216,slug,hip-abduction-machine,,hip_abduction_machine,1.00,total,medium,
+lr217,217,slug,hip-adduction-machine,,hip_adduction_machine,1.00,total,medium,
+lr218,218,slug,barbell-hip-thrust,,hip_thrust,1.00,total,medium,
+lr219,219,slug,machine-hip-thrust,,hip_thrust,0.90,total,medium,
+lr220,220,slug,smith-machine-hip-thrust,,hip_thrust,0.95,total,medium,
+lr221,221,slug,barbell-glute-bridge-floor,,hip_thrust,0.85,total,medium,
+lr222,222,slug,smith-machine-glute-bridge,,hip_thrust,0.80,total,medium,
+lr223,223,slug,dumbbell-hip-thrust-bench-supported,,hip_thrust,0.55,total,medium,
+lr224,224,slug,dumbbell-glute-bridge-floor,,hip_thrust,0.55,total,medium,
+lr225,225,slug,cable-pull-through,,cable_pull_through,1.00,total,low,
+lr226,226,slug,barbell-deadlift,,deadlift,1.00,total,medium,Pull family; single implement = one load
+lr227,227,slug,barbell-sumo-deadlift,,deadlift,1.00,total,medium,Pull family; single implement = one load
+lr228,228,slug,barbell-rack-pull,,deadlift,1.15,total,medium,Pull family; single implement = one load
+lr229,229,slug,barbell-deficit-deadlift,,deadlift,0.90,total,medium,Pull family; single implement = one load
+lr230,230,slug,barbell-snatch-grip-deadlift,,deadlift,0.88,total,medium,Pull family; single implement = one load
+lr231,231,slug,barbell-jefferson-deadlift,,deadlift,0.85,total,medium,Pull family; single implement = one load
+lr232,232,slug,smith-machine-deadlift,,deadlift,0.90,total,medium,Pull family; single implement = one load
+lr233,233,slug,dumbbell-sumo-deadlift,,deadlift,0.55,total,medium,Pull family; single implement = one load
+lr234,234,slug,kettlebell-sumo-deadlift,,deadlift,0.55,total,medium,Pull family; single implement = one load
+lr235,235,slug,cable-deadlift,,deadlift,0.60,total,medium,Pull family; single implement = one load
+lr236,236,slug,cable-sumo-deadlift,,deadlift,0.60,total,medium,Pull family; single implement = one load
+lr237,237,slug,dumbbell-deadlift,,deadlift,0.75,per_hand,medium,Two dumbbells
+lr238,238,slug,dumbbell-deficit-deadlift,,deadlift,0.70,per_hand,medium,Two dumbbells
+lr239,239,slug,barbell-romanian-deadlift,,romanian_deadlift,1.00,total,medium,
+lr240,240,slug,smith-machine-romanian-deadlift,,romanian_deadlift,0.95,total,medium,
+lr241,241,slug,cable-romanian-deadlift,,romanian_deadlift,0.55,total,medium,
+lr242,242,slug,dumbbell-single-leg-romanian-deadlift,,romanian_deadlift,0.35,total,medium,
+lr243,243,slug,barbell-single-leg-romanian-deadlift,,romanian_deadlift,0.55,total,medium,
+lr244,244,slug,kettlebell-single-leg-romanian-deadlift,,romanian_deadlift,0.35,total,medium,
+lr245,245,slug,dumbbell-romanian-deadlift,,romanian_deadlift,0.85,per_hand,medium,Two dumbbells
+lr246,246,slug,dumbbell-staggered-stance-romanian-deadlift,,romanian_deadlift,0.70,per_hand,medium,Two dumbbells
+lr247,247,slug,barbell-good-morning,,good_morning,1.00,total,low,
+lr248,248,slug,smith-machine-good-morning,,good_morning,0.95,total,low,
+lr249,249,slug,dumbbell-good-morning,,good_morning,0.60,total,low,
+lr250,250,slug,smith-machine-standing-calf-raise,,standing_calf_raise,1.00,total,medium,
+lr251,251,slug,barbell-standing-calf-raise,,standing_calf_raise,0.90,total,medium,
+lr252,252,slug,leg-press-calf-raise,,standing_calf_raise,1.00,total,medium,
+lr253,253,slug,hack-squat-calf-raise,,standing_calf_raise,0.90,total,medium,
+lr254,254,slug,dumbbell-calf-raise,,standing_calf_raise,0.50,per_hand,low,Two dumbbells
+lr255,255,slug,seated-calf-raise,,seated_calf_raise,1.00,total,medium,
+lr256,256,slug,smith-machine-seated-calf-raise,,seated_calf_raise,0.90,total,medium,
+lr257,257,slug,barbell-seated-calf-raise,,seated_calf_raise,0.90,total,medium,
+lr258,258,slug,dumbbell-seated-calf-raise,,seated_calf_raise,0.50,total,medium,
+lr259,259,slug,kneeling-cable-crunch,,cable_crunch,1.00,total,low,
+lr260,260,slug,standing-cable-crunch,,cable_crunch,0.80,total,low,
+lr261,261,slug,lying-cable-crunch,,cable_crunch,0.80,total,low,
+lr262,262,slug,stability-ball-cable-crunch,,cable_crunch,0.80,total,low,
+lr263,263,slug,dumbbell-weighted-sit-up,,cable_crunch,0.50,total,low,
+lr264,264,slug,plate-sit-up,,cable_crunch,0.50,total,low,
+lr265,265,slug,dumbbell-pullover-crunch,,cable_crunch,0.50,total,low,
+lr266,266,slug,cable-woodchop,,cable_woodchop,1.00,total,low,
+lr267,267,slug,half-kneeling-cable-chop,,cable_woodchop,1.00,total,low,
+lr268,268,slug,cable-standing-torso-rotation,,cable_woodchop,1.00,total,low,
+lr269,269,slug,cable-oblique-crunch,,cable_woodchop,0.80,total,low,
+lr270,270,slug,pallof-press,,cable_woodchop,0.60,total,low,
+lr271,271,slug,overhead-pallof-press,,cable_woodchop,0.50,total,low,
+lr272,272,slug,dumbbell-woodchop,,cable_woodchop,0.70,total,low,
+lr273,273,slug,dumbbell-russian-twist,,cable_woodchop,0.45,total,low,
+lr274,274,slug,plate-russian-twist,,cable_woodchop,0.45,total,low,
+lr275,275,slug,kettlebell-russian-twist,,cable_woodchop,0.45,total,low,
+lr276,276,slug,cable-side-bend,,side_bend,1.00,total,medium,
+lr277,277,slug,dumbbell-side-bend,,side_bend,1.00,total,medium,
+lr278,278,words,barbell bench press,assisted|band|machine|dumbbell|smith|cable|stability,bench_press,0.95,total,low,Safety net for a new barbell bench variant
+lr279,279,words,barbell back squat|barbell squat,assisted|band|machine|smith,back_squat,0.95,total,low,Safety net for a new barbell squat variant
+lr280,280,words,barbell deadlift,assisted|band|machine|smith,deadlift,0.95,total,low,Safety net for a new barbell deadlift variant
+lr281,281,words,barbell overhead press|barbell shoulder press,assisted|band|machine|smith,overhead_press,0.95,total,low,Safety net
+lr282,282,words,barbell row,assisted|band|machine|smith,barbell_row,0.95,total,low,Safety net
+lr283,283,words,barbell curl|ez bar curl,assisted|band|machine,barbell_curl,0.95,total,low,Safety net
+lr284,284,words,barbell hip thrust,assisted|band|machine|smith,hip_thrust,0.95,total,low,Safety net
+lr285,285,words,dumbbell bench press,single arm|band,bench_press,0.80,per_hand,low,Safety net
+lr286,286,words,dumbbell shoulder press,single arm|band,overhead_press,0.78,per_hand,low,Safety net
+lr287,287,words,dumbbell curl,single arm|band,barbell_curl,0.85,per_hand,low,Safety net
+lr288,288,words,lat pulldown,band|assisted,lat_pulldown,0.95,total,low,Safety net
+lr289,289,words,pull up,assisted|band|negative|scapular|jump,pull_up,1.00,bodyweight,low,Safety net
+lr290,290,words,push up,assisted|band|jump|plyo|plyometric|clap|pike|handstand|scapular|hold|hindu|planche|medicine ball|typewriter|spiderman|archer|staggered|t push|single hand,push_up,0.95,bodyweight,low,Safety net
+lr291,291,words,treadmill|elliptical|bike|spin|rowing machine|ski erg|jump rope|skipping|battle rope|jumping jack|high knees|butt kick|sprint|shadow boxing|shuffle|crab walk|seal jack|squat jack|skater jump|burpee|mountain climber|bear crawl,,none,,,high,Cardio / conditioning: no strength ladder
+lr292,292,words,carry|hold|plank|isometric|wall sit|hang,,none,,,high,Carries and holds have no reps: experience only
+lr293,293,words,jump|hop|bound|throw|slam|toss|plyo|plyometric|snatch|clean|swing|thruster|man maker|devil press,,none,,,high,Explosive or technical lifts: 1RM estimate unreliable
+lr294,294,words,foam roller|stretch|child|cat cow|world greatest|inchworm|hip switch,,none,,,high,Mobility / recovery: no ladder
+lr295,295,words,assisted,,none,,,high,Assisted lifts: assistance weight semantics not defined in v1
+lr296,296,words,band|suspension|trx|medicine ball|wall ball|stability ball|balance trainer,,none,,,high,Band / suspension / ball work: load not measurable
+lr297,297,words,neck,,none,,,high,Neck work: no group in the 11-group ladder

@@ -1,0 +1,394 @@
+name,kind,machine_name,primary_muscles,secondary_muscles,rep_min,rep_max,cues
+Dumbbell Squeeze Press,strength,Flat Bench,chest,triceps;shoulders,10,15,Press the dumbbells together the whole rep;Lower to mid-chest and keep elbows tucked
+Single-Arm Dumbbell Bench Press,strength,Adjustable Bench,chest,abs;triceps;shoulders,8,12,Free arm rests on your stomach or hip;Brace your core so you do not roll off the bench
+Plate Squeeze Press (Svend Press),strength,Olympic Barbell,chest,shoulders;triceps,12,15,Squeeze a plate between your palms;Press straight out from the chest and return
+Dumbbell Gorilla Row,strength,Dumbbells and Rack,back,lats;biceps;abs,8,12,Wide stance with a dumbbell on the floor in each hand;Row one arm at a time while staying hinged and braced
+Dumbbell Kroc Row,strength,Dumbbells and Rack,back,lats;forearms;biceps,10,20,Hand and knee braced on a flat bench;Use a little body drive and pull the elbow to the hip
+Chest-Supported Dumbbell Shrug,strength,Adjustable Bench,traps,back;forearms,10,15,Chest on a 30-45 degree bench with dumbbells hanging;Lift the shoulders straight up and pause
+Chest-Supported Dumbbell Lateral Raise,strength,Adjustable Bench,shoulders,traps,12,15,Chest on an incline bench with arms hanging;Raise the dumbbells out to the sides to shoulder height
+Dumbbell Cuban Press,strength,Dumbbells and Rack,shoulders,traps;back,10,12,Pull the elbows high then rotate the forearms up;Finish with a press overhead and reverse the path
+Dumbbell Scaption Raise,strength,Dumbbells and Rack,shoulders,traps,10,15,Raise arms at a 30 degree angle in front of the body;Thumbs up and stop at eye level
+Dumbbell Rear Delt Row,strength,Dumbbells and Rack,shoulders,back;traps;biceps,12,15,Hinge with the elbows flared wide;Pull the dumbbells to the sides of the chest
+Dumbbell Push Press,strength,Dumbbells and Rack,shoulders,triceps;quads;glutes,6,10,Dip slightly then drive the legs to start the press;Lock out overhead and control the lowering
+Half-Kneeling Dumbbell Press,strength,Dumbbells and Rack,shoulders,abs;glutes;triceps,8,12,Kneel on one knee with the same side glute tight;Press one dumbbell overhead without leaning
+Dumbbell Snatch,strength,Dumbbells and Rack,full_body,shoulders;glutes;hamstrings;back,6,10,Hinge and swing the dumbbell between the legs;Pull it overhead in one motion and lock out
+Dumbbell Clean and Press,strength,Dumbbells and Rack,full_body,shoulders;glutes;back;triceps,6,10,Clean the dumbbells to the shoulders then press overhead;Lower under control to the shoulders and then hang
+Dumbbell Hang Power Clean,strength,Dumbbells and Rack,full_body,glutes;hamstrings;traps;forearms,5,8,Start with dumbbells at the thighs;Jump and shrug then catch at the shoulders in a quarter squat
+Dumbbell Drag Curl,strength,Dumbbells and Rack,biceps,forearms;shoulders,10,12,Keep the dumbbells close to the torso;Drag the elbows slightly back as you curl
+Dumbbell Reverse Curl,strength,Dumbbells and Rack,forearms,biceps,10,15,Overhand grip and elbows by your sides;Curl up without moving the wrists
+Dumbbell Pinwheel Curl,strength,Dumbbells and Rack,biceps,forearms,10,12,Curl with the palms facing the torso;Keep elbows pinned to the sides
+Dumbbell Tate Press,strength,Flat Bench,triceps,shoulders,10,15,Lie back with dumbbells above the chest and elbows wide;Lower the weights to the chest by bending the elbows then extend
+Dumbbell JM Press,strength,Flat Bench,triceps,chest,8,12,Elbows tucked and dumbbells over the chest;Lower toward the chin and press back up
+Dumbbell Reverse Wrist Curl,strength,Utility Bench,forearms,,12,20,Rest the forearms on the thighs palms down;Lift the back of the hands using only the wrists
+Dumbbell Hammer Raise (Radial Deviation),strength,Dumbbells and Rack,forearms,,12,20,Hold a dumbbell by one end with the thumb up;Raise and lower using only the wrist
+Dumbbell Forearm Rotation (Pronation-Supination),strength,Utility Bench,forearms,,12,20,Hold the dumbbell near the end with the forearm supported;Rotate the palm up and down slowly
+Dumbbell Static Hold,strength,Dumbbells and Rack,forearms,traps;back,30,60,Hold heavy dumbbells at your sides;Stand tall with the shoulders back;Reps are seconds
+Dumbbell Lateral Step-Up,strength,Soft Plyo Box,quads,glutes;calves,8,12,Stand beside the box and step up sideways;Control the lowering and do not push off the floor leg
+Dumbbell Curtsy Lunge,strength,Dumbbells and Rack,glutes,quads,8,12,Step the foot back and across behind the front leg;Keep the hips square as you lower
+Dumbbell Split Squat,strength,Dumbbells and Rack,quads,glutes;hamstrings,8,12,Take a long stride and stay on the same spot;Lower the back knee toward the floor
+Dumbbell Front-Foot Elevated Split Squat,strength,Soft Plyo Box,glutes,quads;hamstrings,8,12,Front foot on a low box and rear foot behind you;Lower with the torso slightly forward
+Dumbbell Reverse Lunge to Knee Drive,strength,Dumbbells and Rack,quads,glutes;abs,8,12,Step back into a lunge then drive the rear knee up;Balance on the front leg before stepping again
+Dumbbell Sumo Deadlift,strength,Dumbbells and Rack,glutes,quads;hamstrings;back,8,12,Wide stance with toes out and one dumbbell between the feet;Push the floor away and stand tall
+Dumbbell Deadlift,strength,Dumbbells and Rack,hamstrings,glutes;back;forearms,8,12,Dumbbells beside your feet with a flat back;Stand up by driving the hips forward
+Dumbbell Single-Leg Romanian Deadlift,strength,Dumbbells and Rack,hamstrings,glutes;lower_back;abs,8,12,Hinge on one leg with the back leg reaching behind;Keep the hips square and the back flat
+Dumbbell Staggered-Stance Romanian Deadlift,strength,Dumbbells and Rack,hamstrings,glutes;lower_back,8,12,Back foot slightly behind and on the toes;Hinge with the front leg doing most of the work
+Dumbbell Deficit Deadlift,strength,Lifting Platform,hamstrings,glutes;quads;back,8,10,Stand on a low platform or plates;Pull from the deeper start position
+Dumbbell Front Squat,strength,Dumbbells and Rack,quads,glutes;abs;back,8,12,Rest the dumbbells on the front of the shoulders;Keep the elbows up and chest tall
+Dumbbell Glute Bridge (Floor),strength,Dumbbells and Rack,glutes,hamstrings;abs,10,15,Dumbbell resting on the hips and feet flat;Drive the hips up and squeeze
+Dumbbell Seated Calf Raise,strength,Utility Bench,calves,,12,20,Sit with dumbbells on the thighs and the balls of the feet on a plate;Lower the heels and press up through the toes
+Dumbbell Hamstring Curl (Prone),strength,Flat Bench,hamstrings,calves,10,15,Lie face down with a dumbbell held between the feet;Curl the heels toward the glutes
+Dumbbell Good Morning,strength,Dumbbells and Rack,hamstrings,lower_back;glutes,10,12,Hold one dumbbell at the chest with a soft knee;Push the hips back then stand tall
+Dumbbell Swing,strength,Dumbbells and Rack,glutes,hamstrings;lower_back;shoulders,10,20,Hold the dumbbell by the head with both hands;Snap the hips forward and let the weight float to chest height
+Dumbbell Russian Twist,strength,Dumbbells and Rack,obliques,abs,12,20,Sit leaning back with the feet down;Rotate the shoulders from side to side
+Dumbbell Windmill,strength,Dumbbells and Rack,obliques,shoulders;glutes;hamstrings,6,10,Dumbbell overhead and hips pushed to the side;Reach the free hand toward the floor and stand up
+Dumbbell Waiter Carry,strength,Dumbbells and Rack,shoulders,abs;traps;obliques,30,45,Hold one dumbbell overhead with a locked arm;Walk with short steps and keep the ribs down;Reps are seconds
+Dumbbell Front Rack Carry,strength,Dumbbells and Rack,abs,shoulders;glutes;back,30,45,Hold two dumbbells at the shoulders;Walk tall and brace the core;Reps are seconds
+Dumbbell Goblet Carry,strength,Dumbbells and Rack,abs,forearms;shoulders;glutes,30,45,Hold the dumbbell vertically at the chest;Walk tall with short steps;Reps are seconds
+Dumbbell Woodchop,strength,Dumbbells and Rack,obliques,abs;shoulders,10,12,Start by one hip with the dumbbell held with both hands;Rotate and chop across to the opposite side
+Dumbbell Man Maker,strength,Dumbbells and Rack,full_body,chest;back;quads;shoulders,6,10,Do a push-up on the dumbbells then a row to each side;Stand up and press overhead
+Dumbbell Devil Press,strength,Dumbbells and Rack,full_body,shoulders;glutes;chest,6,10,Do a burpee over the dumbbells;Swing both weights overhead in one motion
+Dumbbell Hammer Curl to Press,strength,Dumbbells and Rack,shoulders,biceps;triceps,8,12,Curl with a neutral grip then rotate and press;Lower under control
+Dumbbell Side-Lying External Rotation,strength,Flat Bench,shoulders,back,12,15,Lie on your side with the elbow against the ribs;Rotate the forearm up and lower slowly
+Dumbbell Overhead Squat,strength,Dumbbells and Rack,quads,shoulders;abs;glutes,6,10,Hold one dumbbell overhead with a locked arm;Squat with the chest up and weight stable
+Dumbbell Pullover Crunch,strength,Flat Bench,abs,lats;chest,10,15,Lie on a bench with a dumbbell held overhead;Lower back then crunch the ribs toward the pelvis
+Dumbbell Weighted Sit-Up,strength,Dumbbells and Rack,abs,,10,15,Hold a dumbbell at the chest;Sit up using the abs and not the neck
+Dumbbell Step-Up to Press,strength,Soft Plyo Box,quads,shoulders;glutes,8,12,Hold dumbbells at the shoulders;Step up and press overhead at the top
+Barbell Sumo Deadlift,strength,Lifting Platform,glutes,quads;hamstrings;back,5,8,Feet wide with toes out and hands inside the knees;Push the floor apart and keep the chest up
+Barbell Deficit Deadlift,strength,Lifting Platform,hamstrings,glutes;quads;back,5,8,Stand on a 2-5 cm platform or plates;Pull the slack out of the bar before lifting
+Barbell Single-Leg Romanian Deadlift,strength,Olympic Barbell,hamstrings,glutes;lower_back;abs,6,10,Hold the bar and hinge on one leg;Keep the hips level and the back flat
+Barbell Snatch-Grip Deadlift,strength,Lifting Platform,back,hamstrings;glutes;traps,5,8,Very wide grip with the hips lower than a normal deadlift;Keep the bar close and the chest tall
+Barbell Jefferson Deadlift,strength,Lifting Platform,glutes,hamstrings;quads,5,8,Straddle the bar with one foot ahead and one behind;Stand tall and lock the hips
+Barbell Hang Power Clean,strength,Olympic Barbell,full_body,glutes;hamstrings;traps;forearms,3,6,Start with the bar at mid-thigh;Jump and shrug then catch with the elbows fast
+Barbell Power Clean,strength,Lifting Platform,full_body,glutes;hamstrings;traps;quads,3,5,Pull from the floor with the shoulders over the bar;Finish with a jump and catch high on the shoulders
+Barbell High Pull,strength,Olympic Barbell,traps,shoulders;glutes;forearms,5,8,Pull from mid-thigh with a jump and a shrug;Lead with the elbows above the bar
+Barbell Push Jerk,strength,Power Cage,shoulders,triceps;quads;glutes,3,6,Dip and drive then press under the bar with soft knees;Lock out overhead and stand tall
+Barbell Zercher Squat,strength,Power Cage,quads,glutes;abs;back,6,10,Hold the bar in the crook of the elbows;Squat with an upright torso
+Barbell Pin Squat,strength,Power Cage,quads,glutes;hamstrings,3,6,Set the pins at the bottom of the squat;Pause fully on the pins then drive up
+Barbell Overhead Squat,strength,Power Cage,quads,shoulders;abs;glutes,3,6,Use a wide snatch grip and lock out the arms;Keep the bar over the mid-foot
+Barbell Bulgarian Split Squat,strength,Flat Bench,quads,glutes;hamstrings,6,10,Rear foot on a bench and the bar on the upper back;Drop straight down with an upright torso
+Barbell Reverse Lunge,strength,Olympic Barbell,quads,glutes;hamstrings,6,10,Step back and lower the rear knee under control;Drive through the front heel to stand
+Barbell Lateral Lunge,strength,Olympic Barbell,quads,glutes,6,10,Step wide to the side and sit back on one hip;Keep the other leg straight
+Barbell Step-Up,strength,Soft Plyo Box,quads,glutes;calves,6,10,Bar on the upper back and step onto the box;Push through the lead leg and do not bounce
+Barbell Hack Squat,strength,Olympic Barbell,quads,glutes;forearms,8,12,Bar behind the legs with the heels slightly raised;Squat down and stand tall
+Barbell Floor Press,strength,Olympic Barbell,triceps,chest;shoulders,6,10,Lie on the floor with the knees bent;Lower the elbows to the floor and press
+Barbell Reverse-Grip Bench Press,strength,Olympic Flat Bench,chest,triceps;shoulders,6,10,Use an underhand shoulder-width grip;Lower to the lower chest and press
+Barbell Z Press,strength,Olympic Barbell,shoulders,abs;triceps,6,10,Sit on the floor with the legs straight;Press the bar from the front of the shoulders without leaning
+Barbell Yates Row,strength,Olympic Barbell,back,lats;biceps;lower_back,6,10,Torso only slightly bent and an underhand grip;Pull the bar into the lower stomach
+Barbell Upright Row,strength,Olympic Barbell,shoulders,traps;biceps,8,12,Pull the bar to the chest with the elbows high;Use a medium grip and stop at the chest
+Barbell Rear Delt Row,strength,Olympic Barbell,shoulders,back;traps,10,12,Hinge with a wide overhand grip;Pull the bar to the upper chest with the elbows flared
+Barbell Drag Curl,strength,Olympic Barbell,biceps,forearms,8,12,Keep the bar against the body as it travels up;Slide the elbows slightly behind the torso
+Barbell Reverse Curl,strength,Olympic Barbell,forearms,biceps,8,12,Overhand grip at shoulder width;Keep the wrists straight
+Barbell Preacher Curl,strength,Preacher Curl Bench,biceps,forearms,8,12,Armpits on top of the pad and arms stretched;Curl without lifting the elbows
+Barbell Skull Crusher,strength,Olympic Flat Bench,triceps,shoulders,8,12,Lie flat with a shoulder-width grip;Lower the bar to the forehead and extend
+Barbell JM Press,strength,Olympic Flat Bench,triceps,chest,6,10,Close grip with the bar above the chest;Lower the bar toward the chin and press
+Barbell Seated Calf Raise,strength,Utility Bench,calves,,10,15,Place the bar across the thighs with padding;Lower the heels and press up through the toes
+Barbell Glute Bridge (Floor),strength,Olympic Barbell,glutes,hamstrings;abs,8,12,Roll the bar over the hips with a pad;Drive the hips up and squeeze
+Barbell Rollout,strength,Olympic Barbell,abs,shoulders;lower_back,6,10,Kneel and roll the loaded bar out in a straight line;Keep the ribs down and the glutes tight
+Barbell Hang Shrug,strength,Olympic Barbell,traps,forearms;back,8,12,Start with the bar at mid-thigh;Shrug straight up and hold
+Barbell Behind-the-Back Wrist Curl,strength,Olympic Barbell,forearms,,12,20,Stand with the bar held behind the legs;Curl the wrists up and lower slowly
+Barbell Static Hold (Deadlift Hold),strength,Lifting Platform,forearms,traps;back,20,40,Lift the bar and hold at the top of a deadlift;Stand tall with the shoulders back;Reps are seconds
+Barbell Zercher Carry,strength,Olympic Barbell,abs,back;forearms;glutes,20,40,Hold the bar in the crook of the elbows;Walk with a tall chest;Reps are seconds
+EZ-Bar Overhead Triceps Extension,strength,Olympic EZ Bar,triceps,shoulders,10,12,Hold the bar overhead with elbows pointing forward;Lower behind the head and extend
+EZ-Bar Pullover Extension,strength,Olympic EZ Bar,triceps,lats;chest,10,12,Lie flat and lower the bar behind the head;Extend the arms above the chest
+EZ-Bar Upright Row,strength,Olympic EZ Bar,shoulders,traps;biceps,8,12,Narrow grip on the angled sections;Pull to the chest and keep the elbows high
+EZ-Bar Close-Grip Bench Press,strength,Olympic Flat Bench,triceps,chest;shoulders,8,12,Hands on the inner angles of the bar;Lower to the lower chest with tucked elbows
+EZ-Bar Wrist Curl,strength,Utility Bench,forearms,,12,20,Rest the forearms on the thighs palms up;Let the bar roll to the fingertips and curl up
+Plate Front Raise,strength,Olympic Barbell,shoulders,traps;chest,10,15,Hold the plate at the 3 and 9 positions;Raise to eye level without leaning
+Plate Overhead Press,strength,Olympic Barbell,shoulders,triceps;abs,8,12,Hold the plate at chest height with both hands;Press overhead and lower under control
+Plate Russian Twist,strength,Olympic Barbell,obliques,abs,12,20,Hold a plate against the chest;Rotate the shoulders from side to side
+Plate Goblet Squat,strength,Olympic Barbell,quads,glutes;abs,10,15,Hold the plate against the chest with both hands;Squat down with elbows inside the knees
+Plate Overhead Triceps Extension,strength,Olympic Barbell,triceps,shoulders,10,15,Hold the plate behind the head with both hands;Extend the arms overhead
+Plate Pullover,strength,Olympic Barbell,lats,chest;triceps,10,12,Lie on a bench and hold the plate with both hands;Lower back behind the head and pull over the chest
+Plate Front-Hold Walking Lunge,strength,Olympic Barbell,quads,glutes;abs,8,12,Hold a plate at the chest;Take long steps and keep the torso tall
+Plate Hug Carry,strength,Olympic Barbell,abs,forearms;shoulders;glutes,30,45,Hug the plate against the chest;Walk with a tall posture;Reps are seconds
+Plate Sit-Up,strength,Olympic Barbell,abs,,10,15,Hold the plate on the chest with the feet planted;Curl up without pulling the neck
+Plate Curl,strength,Olympic Barbell,biceps,forearms,10,15,Hold the plate with both hands at the sides;Curl up to the chest
+Smith Machine Reverse Lunge,strength,Smith Machine,quads,glutes;hamstrings,8,12,Stand slightly in front of the bar;Step back and lower under control
+Smith Machine Hip Thrust,strength,Smith Machine,glutes,hamstrings,8,12,Upper back on a bench and the bar over the hips;Drive up and squeeze at the top
+Smith Machine Front Squat,strength,Smith Machine,quads,glutes;abs,8,12,Rest the bar on the front shoulders;Keep the elbows up and the torso tall
+Smith Machine Sumo Squat,strength,Smith Machine,glutes,quads,8,12,Wide stance with toes out;Squat straight down
+Smith Machine Upright Row,strength,Smith Machine,shoulders,traps;biceps,10,12,Hold the bar with a medium grip;Pull to chest height with the elbows high
+Smith Machine Close-Grip Bench Press,strength,Smith Machine,triceps,chest;shoulders,8,12,Hands shoulder-width on the bar;Lower with elbows tucked to the lower chest
+Smith Machine Good Morning,strength,Smith Machine,hamstrings,glutes;lower_back,8,12,Bar on the upper back with a soft knee;Hinge back and stand tall
+Smith Machine Deadlift,strength,Smith Machine,hamstrings,glutes;back;forearms,6,10,Stand with the bar over the mid-foot;Hinge down and stand up with a flat back
+Smith Machine Single-Arm Row,strength,Smith Machine,back,lats;biceps,8,12,Hinge with one hand on the bar and the other on a bench;Pull the bar to the hip
+Smith Machine Skull Crusher,strength,Smith Machine,triceps,shoulders,8,12,Lie on a flat bench under the bar;Lower the bar to the forehead and extend
+Smith Machine Glute Bridge,strength,Smith Machine,glutes,hamstrings,8,12,Lie on the floor with the bar over the hips;Drive up and squeeze
+Smith Machine Incline Push-Up,bodyweight,Smith Machine,chest,shoulders;triceps;abs,8,15,Set the bar at waist height and hands shoulder-width;Keep the body in a straight line
+Smith Machine Seated Calf Raise,strength,Smith Machine,calves,,12,20,Sit on a bench with the bar across the thighs;Raise the heels as high as possible
+Smith Machine Hack Squat,strength,Smith Machine,quads,glutes,8,12,Stand with the bar behind the legs;Squat down keeping the torso tall
+Cable Fly (Mid Height),strength,Cable Crossover,chest,shoulders,10,15,Set both pulleys at chest height;Bring the hands together in a wide hugging arc
+Cable Bench Fly,strength,Cable Crossover,chest,shoulders,10,15,Place a flat bench between the pulleys at low height;Lie back and bring the handles together over the chest
+Cable Bench Press,strength,Cable Crossover,chest,triceps;shoulders,8,12,Flat bench between the pulleys with handles at the chest;Press up and together without arching
+Kneeling Single-Arm Cable Pulldown,strength,Cable Crossover,lats,biceps;back,10,12,Kneel side-on with the pulley set high;Pull the handle to the ribs with the elbow close
+Cable Rear Delt Row,strength,Cable Crossover,shoulders,back;traps,12,15,Set the pulley at chest height with strap handles;Pull the elbows wide toward the back of the shoulders
+Cable Y Raise,strength,Cable Crossover,shoulders,traps;back,12,15,Set the pulleys low and cross the cables;Raise the arms into a Y above the head
+Cable External Rotation,strength,Cable Crossover,shoulders,back,12,15,Elbow tucked to the side at pulley height;Rotate the forearm away from the stomach
+Cable Internal Rotation,strength,Cable Crossover,shoulders,chest,12,15,Elbow tucked to the side and pulley at elbow height;Rotate the forearm toward the stomach
+Cable Lateral Raise (Behind the Back),strength,Cable Crossover,shoulders,traps,12,15,Stand with the cable passing behind the body;Raise the arm to the side up to shoulder height
+Cable Shrug,strength,Cable Crossover,traps,forearms,12,15,Stand between low pulleys holding handles at the sides;Shrug straight up and hold
+Cable Pull-Through,strength,Cable Crossover,glutes,hamstrings;lower_back,10,15,Face away from a low pulley holding a V handle between the legs;Hinge back then drive the hips forward
+Cable Romanian Deadlift,strength,Cable Crossover,hamstrings,glutes;lower_back,10,12,Straight bar on a low pulley in front of the feet;Hinge back with a flat back and stand tall
+Cable Bayesian Curl,strength,Cable Crossover,biceps,forearms,10,15,Face away from a low pulley and hold a handle behind the body;Curl with the arm slightly behind the torso
+Cable High Curl (Double Biceps),strength,Cable Crossover,biceps,forearms,10,15,Stand between the pulleys set high;Curl the handles toward the ears
+Cable Hammer Curl,strength,Cable Crossover,biceps,forearms,10,15,Use a V handle or MAG handle on the low pulley;Curl with palms facing each other
+Cable Preacher Curl,strength,Preacher Curl Bench,biceps,forearms,10,12,Set the low pulley in front of the preacher pad;Curl without lifting the elbows
+Cable Lying Triceps Extension,strength,Cable Crossover,triceps,shoulders,10,15,Lie on a flat bench with the low pulley behind the head;Extend the arms and lower the handle to the forehead
+Cable Cross-Body Triceps Extension,strength,Cable Crossover,triceps,,10,15,Use a high pulley and D handle;Extend the arm across the body
+Cable Standing Torso Rotation,strength,Cable Crossover,obliques,abs,10,12,Stand side-on to the pulley at chest height;Rotate through the torso with the arms locked
+Half-Kneeling Cable Chop,strength,Cable Crossover,obliques,abs;shoulders,10,12,Kneel on the inside knee with the pulley high;Pull the handle diagonally to the outside hip
+Overhead Pallof Press,strength,Cable Crossover,obliques,abs;shoulders,8,12,Hold the handle at the chest facing sideways to the pulley;Press overhead and resist the twist
+Cable Side Bend,strength,Cable Crossover,obliques,abs,12,15,Low pulley with the handle held on one side;Bend sideways and return
+Cable Wrist Curl,strength,Cable Crossover,forearms,,12,20,Sit with forearms on the thighs and a straight bar on a low pulley;Curl the wrists up and lower slowly
+Chest-Supported Cable Row (Elbows Wide),strength,Seated Cable Row,back,shoulders;biceps,10,15,Chest firmly against the pad;Pull the handles toward the upper chest
+Half-Kneeling Cable Pulldown (Straight Bar),strength,Cable Crossover,lats,abs;biceps,10,12,Kneel in front of the pulley and keep the torso tall;Pull the bar to the chin
+Hack Squat Calf Raise,strength,Hack Squat,calves,,12,20,Stand on the platform with the balls of the feet on the edge;Lower the heels and press up
+Back Extension Oblique Side Bend,strength,Back Extension,obliques,lower_back;glutes,10,15,Set up side-on to the pad with hips on the pad;Lower sideways and return
+Treadmill Backward Walk,cardio,Treadmill,cardio,quads;calves,,,Hold the handrails and start very slowly;Take small controlled steps
+Treadmill Hill Intervals,cardio,Treadmill,cardio,glutes;calves,,,Alternate steep incline blocks with flat recovery;Keep a steady upright posture
+Treadmill Pyramid Run,cardio,Treadmill,cardio,quads;calves,,,Build speed in steps then come back down;Stay relaxed in the shoulders
+Treadmill Fartlek,cardio,Treadmill,cardio,quads;calves,,,Mix fast and easy blocks by feel;Keep breathing controlled during the easy blocks
+Curve Treadmill Backward Walk,cardio,Curve Treadmill,cardio,quads;calves,,,Hold the handles and walk back slowly;Keep a slight lean back
+Curve Treadmill Hands-On Push,cardio,Curve Treadmill,cardio,quads;glutes,,,Hold the front handles and lean forward;Drive the legs with short strong steps
+Curve Treadmill Tabata,cardio,Curve Treadmill,cardio,quads;glutes,,,Sprint hard for 20 seconds and rest for 10 seconds;Repeat for 8 rounds
+Elliptical Reverse Stride,cardio,Elliptical Cross Trainer,cardio,hamstrings;glutes,,,Pedal backward with a tall posture;Keep the movement smooth
+Elliptical Legs Only,cardio,Elliptical Cross Trainer,cardio,quads;glutes,,,Let go of the moving handles and use the static grips;Keep the stride smooth
+Elliptical Resistance Ramp,cardio,Elliptical Cross Trainer,cardio,quads;glutes,,,Raise the resistance every 2 minutes;Keep the cadence steady
+Rowing Machine Pick Drill,cardio,Rowing Machine,cardio,back;quads,,,Row with arms only then arms and body then full slide;Keep the stroke smooth and sequenced
+Rowing Machine Pyramid Intervals,cardio,Rowing Machine,cardio,back;quads,,,Build the work blocks up then back down;Hold the same split on each block
+Rowing Machine Power Strokes,cardio,Rowing Machine,cardio,back;glutes;quads,,,Take 10 hard strokes then 10 easy;Drive hard with the legs first
+Rowing Machine Low-Rate Steady,cardio,Rowing Machine,cardio,back;quads,,,Stay at 18 to 20 strokes per minute;Focus on long and powerful strokes
+Ski Erg Single-Arm,cardio,Ski Erg,cardio,back;shoulders;abs,,,Use one arm and keep the torso still;Pull the handle down to the hip
+Ski Erg Kneeling,cardio,Ski Erg,cardio,abs;back,,,Kneel on a mat and pull from the upper back;Keep the hips high
+Ski Erg Power Pulls,cardio,Ski Erg,cardio,back;abs;shoulders,,,Take 10 powerful pulls then rest;Hinge at the hips as you pull
+Spin Bike Tabata,cardio,Spin Bike,cardio,quads;glutes,,,Sprint 20 seconds and rest 10 seconds;Repeat for 8 rounds
+Spin Bike Standing Sprint,cardio,Spin Bike,cardio,quads;glutes,,,Stand and sprint at a moderate resistance;Keep the hands light on the bars
+Spin Bike Low-Cadence Seated Climb,cardio,Spin Bike,cardio,glutes;quads,,,Use high resistance at 50-60 rpm;Keep the upper body quiet
+Spin Bike Pyramid,cardio,Spin Bike,cardio,quads;glutes,,,Raise the resistance every minute then reduce it;Keep the cadence smooth
+Upright Bike Tabata,cardio,Upright Bike,cardio,quads;glutes,,,Sprint 20 seconds and rest 10 seconds;Repeat for 8 rounds
+Upright Bike Pyramid,cardio,Upright Bike,cardio,quads;glutes,,,Build resistance up then back down;Keep the cadence smooth
+Recumbent Bike Hill Ramp,cardio,Recumbent Bike,cardio,quads;glutes,,,Raise the resistance every 2 minutes;Keep the cadence steady
+Jump Rope Double-Unders,cardio,Jump Rope,cardio,calves;shoulders,,,Spin the rope twice per jump with a wrist snap;Jump slightly higher than normal
+Jump Rope Boxer Skip,cardio,Jump Rope,cardio,calves,,,Shift your weight from foot to foot with a light bounce;Keep the jumps small
+Jump Rope High Knees,cardio,Jump Rope,cardio,calves;abs;quads,,,Drive the knees up with each skip;Keep the chest tall
+Jump Rope Criss-Cross,cardio,Jump Rope,cardio,shoulders;calves,,,Cross the arms in front on every second jump;Keep the elbows tight
+Jump Rope Side-to-Side Hop,cardio,Jump Rope,cardio,calves,,,Hop sideways over an imaginary line;Keep the feet together
+Jump Rope Single-Leg Hop,cardio,Jump Rope,cardio,calves;quads,,,Hop on one foot with the other lifted;Switch every 10 jumps
+Battle Rope Jumping Jack Waves,cardio,Battle Rope,cardio,shoulders;quads;calves,,,Jump the feet out and in while raising and lowering the arms;Make waves with each jack
+Battle Rope Squat Waves,cardio,Battle Rope,cardio,quads;glutes;shoulders,,,Hold a squat while making alternating waves;Keep the chest up
+Battle Rope Reverse Lunge Waves,cardio,Battle Rope,cardio,quads;glutes;shoulders,,,Step back into a lunge while making waves;Alternate legs every set
+Battle Rope Uppercut Waves,cardio,Battle Rope,cardio,shoulders;biceps;quads,,,Dip and drive the arms upward in a scooping motion;Alternate the arms
+Battle Rope Inward Circles,cardio,Battle Rope,cardio,shoulders;abs,,,Circle both arms toward each other;Keep the ropes moving at a steady speed
+Battle Rope Hip Toss,cardio,Battle Rope,cardio,obliques;shoulders,,,Swing the rope sideways with a hip rotation;Alternate sides
+Battle Rope Rainbow Slam,cardio,Battle Rope,cardio,shoulders;obliques,,,Lift both ropes overhead and slam to one side;Alternate sides each rep
+Kettlebell Goblet Reverse Lunge,strength,Kettlebells,quads,glutes;hamstrings,8,12,Hold the bell at the chest and step back;Keep the front knee in line
+Kettlebell Double Front Squat,strength,Kettlebells,quads,glutes;abs,8,12,Hold two bells in the rack position;Keep the elbows close to the ribs
+Kettlebell Overhead Press,strength,Kettlebells,shoulders,triceps;abs,8,12,Rack the bell against the forearm and press up;Lock out with the bicep by the ear
+Kettlebell Push Press,strength,Kettlebells,shoulders,triceps;quads,6,10,Dip with the knees and drive the legs to start the press;Lock out overhead
+Kettlebell Snatch,strength,Kettlebells,full_body,glutes;hamstrings;shoulders,6,10,Swing the bell and pull it overhead in a single smooth line;Punch through at the top
+Kettlebell Clean,strength,Kettlebells,full_body,glutes;back;forearms,6,10,Swing back and pull the bell up to the rack;Keep the bell close to the body
+Kettlebell High Pull,strength,Kettlebells,traps,shoulders;glutes,8,12,Hinge and pull the bell to chest height with the elbow high;Keep the bell close
+Kettlebell Sumo Deadlift,strength,Kettlebells,glutes,quads;hamstrings,8,12,Wide stance with the bell between the feet;Stand tall by pushing the floor apart
+Kettlebell Single-Leg Romanian Deadlift,strength,Kettlebells,hamstrings,glutes;abs,8,12,Hold the bell in the opposite hand and hinge;Keep the hips level
+Kettlebell Figure-Eight,strength,Kettlebells,abs,shoulders;glutes,10,16,Pass the bell in a figure eight between the legs;Keep the back flat
+Kettlebell Around-the-World,strength,Kettlebells,abs,shoulders;forearms,8,12,Pass the bell around the body at waist height;Switch directions each set
+Kettlebell Rack Carry,strength,Kettlebells,abs,shoulders;glutes,30,45,Hold one bell in the rack position;Walk tall with a braced core;Reps are seconds
+Kettlebell Waiter Carry,strength,Kettlebells,shoulders,abs;traps,30,45,Hold one bell overhead with a locked arm;Walk with short steps;Reps are seconds
+Kettlebell Suitcase Carry,strength,Kettlebells,obliques,forearms;abs,30,45,Hold one bell at the side;Walk tall without leaning;Reps are seconds
+Kettlebell Russian Twist,strength,Kettlebells,obliques,abs,12,20,Hold the bell at the chest and rotate;Keep the chest tall
+Kettlebell Hip Bridge Press,strength,Kettlebells,glutes,hamstrings;chest,8,12,Hold the bell above the chest while bridging;Drive the hips up and squeeze
+Kettlebell Overhead American Swing,strength,Kettlebells,glutes,hamstrings;shoulders,10,15,Swing the bell overhead from the hips;Finish with the hips fully extended
+Kettlebell Bottoms-Up Press,strength,Kettlebells,shoulders,forearms;abs,6,10,Hold the bell upside down and press up;Keep the wrist stacked
+Kettlebell Bottoms-Up Carry,strength,Kettlebells,forearms,shoulders;abs,20,40,Hold the bell upside down in the rack position;Walk slowly without letting it fall;Reps are seconds
+Kettlebell Gorilla Row,strength,Kettlebells,back,lats;biceps;abs,8,12,Wide stance with a bell on each side;Row one bell at a time
+Kettlebell Overhead Triceps Extension,strength,Kettlebells,triceps,shoulders,10,15,Hold the bell upside down by the horns with both hands;Lower behind the head and extend
+Kettlebell Goblet Curl,strength,Kettlebells,biceps,forearms,10,15,Hold the bell by the horns at the chest;Curl up under the chin
+Kettlebell Thruster,strength,Kettlebells,full_body,quads;shoulders;glutes,8,12,Squat holding the bells in the rack;Stand and press overhead in one move
+Kettlebell Goblet Pulse Squat,strength,Kettlebells,quads,glutes,12,20,Stay in the bottom half of the squat and pulse;Keep the chest tall
+Medicine Ball Rotational Wall Throw,strength,Medicine Ball,obliques,abs;shoulders;glutes,8,12,Stand side-on to the wall and rotate hard;Catch and repeat on the same side
+Medicine Ball Scoop Toss,strength,Medicine Ball,glutes,hamstrings;back;quads,6,10,Squat and heave the ball forward and up;Drive the hips forward
+Medicine Ball Side Slam,strength,Medicine Ball,obliques,abs;shoulders,8,12,Lift the ball to one side and slam it down on the other;Switch sides
+Medicine Ball Sit-Up Throw,strength,Medicine Ball,abs,shoulders,8,12,Sit up and throw the ball to a partner or wall;Catch and lower under control
+Medicine Ball V-Up Pass,strength,Medicine Ball,abs,,8,12,Reach up and pass the ball from hands to feet;Keep the legs long
+Medicine Ball Wood Chop,strength,Medicine Ball,obliques,abs;shoulders,10,12,Lift the ball from one hip to over the opposite shoulder;Rotate through the feet
+Medicine Ball Lunge with Rotation,strength,Medicine Ball,quads,obliques;glutes,8,12,Step into a lunge and rotate toward the front leg;Return the torso to centre
+Medicine Ball Squat to Press,strength,Medicine Ball,full_body,quads;shoulders;glutes,10,12,Squat with the ball at the chest;Stand and press overhead
+Medicine Ball Single-Hand Push-Up,bodyweight,Medicine Ball,chest,triceps;shoulders;abs,6,10,Place one hand on the ball and one on the floor;Lower and press with the body straight
+Medicine Ball Plank Roll,bodyweight,Medicine Ball,abs,shoulders,8,12,Hold a plank with the hands on the ball;Roll the ball forward and back
+Wall Ball Lunge Shot,strength,Wall Ball,quads,glutes;shoulders,8,12,Hold the ball at the chest and step into a lunge;Throw the ball at the wall as you stand
+Wall Ball Rotational Throw,strength,Wall Ball,obliques,abs;shoulders,8,12,Stand side-on to the wall and throw with the hips;Catch and repeat
+Wall Ball Sit-Up Throw,strength,Wall Ball,abs,shoulders,8,12,Sit up and throw the ball at the wall;Catch and lower under control
+Stability Ball Wall Squat,strength,Stability Ball,quads,glutes,10,15,Lean the ball against the wall behind the lower back;Squat down while rolling the ball
+Stability Ball Pike,bodyweight,Stability Ball,abs,shoulders,8,12,Start in plank with the shins on the ball;Roll the ball in while lifting the hips
+Stability Ball Jackknife,bodyweight,Stability Ball,abs,shoulders,8,12,Start in plank with the shins on the ball;Pull the knees to the chest
+Stability Ball Rollout,bodyweight,Stability Ball,abs,shoulders;lower_back,8,12,Kneel and roll the ball forward on the forearms;Keep the hips tucked
+Stability Ball Dumbbell Chest Press,strength,Stability Ball,chest,triceps;abs;shoulders,8,12,Upper back on the ball with the hips up;Press the dumbbells above the chest
+Stability Ball Dumbbell Fly,strength,Stability Ball,chest,shoulders;abs,10,12,Upper back on the ball and the hips up;Open the arms wide and bring them together
+Stability Ball Hip Thrust,strength,Stability Ball,glutes,hamstrings;abs,10,15,Shoulders on the ball and feet flat;Drive the hips up and squeeze
+Stability Ball Pass (Hands to Feet),bodyweight,Stability Ball,abs,shoulders,10,15,Lie down holding the ball overhead;Pass the ball between the hands and the feet
+Stability Ball Russian Twist,bodyweight,Stability Ball,obliques,abs,12,20,Shoulders on the ball and hips up;Rotate the arms and torso side to side
+Stability Ball Dead Bug,bodyweight,Stability Ball,abs,,8,12,Press the arms and knees into the ball;Extend opposite arm and leg slowly
+Stability Ball Glute Bridge,bodyweight,Stability Ball,glutes,hamstrings;abs,10,15,Lie with the heels on the ball and hips up;Lift the hips and squeeze the glutes
+Stability Ball Push-Up,bodyweight,Stability Ball,chest,shoulders;triceps;abs,6,10,Place the hands or feet on the ball in plank;Lower with the body in line
+Stability Ball Side Crunch,bodyweight,Stability Ball,obliques,abs,10,15,Lie sideways over the ball with the feet braced;Crunch up sideways
+Stability Ball Prone Y-T-W,bodyweight,Stability Ball,traps,back;shoulders,8,10,"Lie face down over the ball;Raise the arms into Y, T, and W shapes"
+Stability Ball Dumbbell Pullover,strength,Stability Ball,lats,chest;abs,10,12,Upper back on the ball and hips up;Lower the dumbbell behind the head and pull back
+Stability Ball Prone Walkout,bodyweight,Stability Ball,abs,shoulders,8,12,Walk the hands out until the ball is under the thighs;Walk back with the core braced
+Balance Trainer Reverse Lunge,bodyweight,Half Stability Ball,quads,glutes,8,12,Stand on the dome and step back off it;Return to the dome
+Balance Trainer Single-Leg Balance,bodyweight,Half Stability Ball,calves,quads;abs,20,40,Stand on one leg on the dome;Keep the hips level;Reps are seconds
+Balance Trainer Plank,bodyweight,Half Stability Ball,abs,shoulders,20,40,Place the forearms on the dome;Hold a straight body line;Reps are seconds
+Balance Trainer Mountain Climber,cardio,Half Stability Ball,cardio,abs;shoulders,,,Hands on the dome with the body straight;Drive the knees in alternately
+Balance Trainer Single-Leg Romanian Deadlift,bodyweight,Half Stability Ball,hamstrings,glutes;abs,8,12,Stand on the dome on one leg;Hinge with the back leg reaching behind
+Balance Trainer Squat to Press,bodyweight,Half Stability Ball,quads,shoulders;abs,10,12,Stand on the dome with light dumbbells;Squat and press overhead
+Resistance Band Deadlift,strength,Resistance Tubes,hamstrings,glutes;lower_back,12,15,Stand on the band and hinge with a flat back;Stand tall and squeeze the glutes
+Resistance Band Pull-Through,strength,Resistance Tubes,glutes,hamstrings,12,15,Anchor the band low and face away;Hinge back then drive the hips forward
+Resistance Band Glute Bridge,strength,Resistance Tubes,glutes,hamstrings,12,20,Place the band across the hips and anchor under the feet;Drive the hips up and squeeze
+Resistance Band Lateral Walk,strength,Resistance Tubes,glutes,,20,30,Place the band around the thighs or ankles;Take small side steps in a quarter squat;Reps are seconds
+Resistance Band Lat Pulldown,strength,Resistance Tubes,lats,biceps;back,10,15,Anchor the band high and kneel facing it;Pull the hands to the chest
+Resistance Band Chest Fly,strength,Resistance Tubes,chest,shoulders,10,15,Anchor the band behind you at chest height;Bring the hands together in front
+Resistance Band Front Raise,strength,Resistance Tubes,shoulders,traps,10,15,Stand on the band with the arms at the sides;Raise to eye level
+Resistance Band Reverse Fly,strength,Resistance Tubes,shoulders,back;traps,12,15,Anchor the band at chest height and pull back wide;Keep the elbows slightly bent
+Resistance Band Upright Row,strength,Resistance Tubes,shoulders,traps;biceps,10,15,Stand on the band and pull to the chest;Keep the elbows high
+Resistance Band Hammer Curl,strength,Resistance Tubes,biceps,forearms,12,15,Stand on the band with a neutral grip;Curl up without swinging
+Resistance Band Overhead Triceps Extension,strength,Resistance Tubes,triceps,shoulders,12,15,Anchor the band under the foot and extend overhead;Keep the elbows pointing forward
+Resistance Band Triceps Kickback,strength,Resistance Tubes,triceps,,12,15,Stand on the band and hinge;Extend the arm behind you
+Resistance Band Pallof Press,strength,Resistance Tubes,obliques,abs,10,12,Anchor the band at chest height and stand side-on;Press out and resist the rotation
+Resistance Band Woodchop,strength,Resistance Tubes,obliques,abs,10,12,Anchor the band high and pull diagonally down;Rotate through the feet
+Resistance Band Reverse Lunge,strength,Resistance Tubes,quads,glutes,10,12,Stand on the band and hold the handles at the shoulders;Step back and lower
+Resistance Band Hip Abduction,strength,Resistance Tubes,glutes,,12,15,Place the band around the thighs and stand tall;Press the leg out to the side
+Resistance Band Good Morning,strength,Resistance Tubes,hamstrings,lower_back;glutes,12,15,Stand on the band and hold it at the shoulders;Hinge back and stand tall
+Resistance Band External Rotation,strength,Resistance Tubes,shoulders,back,12,15,Anchor the band at elbow height;Rotate the forearm outward with the elbow at the side
+Resistance Band Thruster,strength,Resistance Tubes,full_body,quads;shoulders,10,15,Stand on the band and squat with the handles at the shoulders;Stand and press overhead
+Resistance Band Bench Press,strength,Resistance Tubes,chest,triceps;shoulders,10,15,Wrap the band around the bench or back and press;Keep the elbows tucked
+Suspension Face Pull,bodyweight,Suspension Trainer,shoulders,back;traps,10,15,Hold the straps and lean back;Pull the hands toward the face with the elbows high
+Suspension Y Raise,bodyweight,Suspension Trainer,shoulders,traps;back,8,12,Lean back with the arms straight;Raise the arms into a Y
+Suspension Chest Fly,bodyweight,Suspension Trainer,chest,shoulders;abs,8,12,Lean forward with the arms out wide;Bring the hands together
+Suspension Push-Up,bodyweight,Suspension Trainer,chest,triceps;abs;shoulders,6,12,Hold the handles at chest height in plank;Lower the chest to the handles
+Suspension Pike,bodyweight,Suspension Trainer,abs,shoulders,8,12,Feet in the straps in plank;Lift the hips toward the ceiling
+Suspension Knee Tuck,bodyweight,Suspension Trainer,abs,shoulders,8,12,Feet in the straps in plank;Pull the knees to the chest
+Suspension Reverse Lunge,bodyweight,Suspension Trainer,quads,glutes,8,12,Rear foot in the strap and lunge back;Keep the front knee stable
+Suspension Split Squat,bodyweight,Suspension Trainer,quads,glutes,8,12,Rear foot in the strap and lower straight down;Keep the front heel down
+Suspension Assisted Squat,bodyweight,Suspension Trainer,quads,glutes,10,15,Hold the straps and squat down;Use the arms for balance only
+Suspension Plank,bodyweight,Suspension Trainer,abs,shoulders,20,40,Feet in the straps and hold a plank;Keep the body straight;Reps are seconds
+Suspension Body Saw,bodyweight,Suspension Trainer,abs,shoulders,8,12,Forearm plank with the feet in the straps;Rock forward and back
+Suspension Hip Bridge,bodyweight,Suspension Trainer,glutes,hamstrings,10,15,Lie on the floor with the heels in the straps;Drive the hips up
+Suspension Single-Arm Row,bodyweight,Suspension Trainer,back,biceps;obliques,8,12,Hold one handle and lean back;Row while resisting the twist
+Suspension Crunch,bodyweight,Suspension Trainer,abs,shoulders,8,12,Feet in the straps in plank;Pull the knees in and round the back
+Suspension Mountain Climber,cardio,Suspension Trainer,cardio,abs;shoulders,,,Feet in the straps in plank;Drive the knees in alternately
+Suspension Reverse Fly,bodyweight,Suspension Trainer,shoulders,back;traps,10,15,Lean back with the arms out in front;Open the arms to the sides
+Soft Box Step-Down,bodyweight,Soft Plyo Box,quads,glutes,8,12,Stand on the box and lower one heel to the floor slowly;Tap and return
+Soft Box Lateral Jump,bodyweight,Soft Plyo Box,quads,glutes;calves,6,10,Stand beside the box and jump up and over sideways;Land softly
+Soft Box Depth Drop,bodyweight,Soft Plyo Box,quads,glutes;calves,5,8,Step off the box and land softly in a squat;Stick the landing
+Soft Box Single-Leg Sit-to-Stand,bodyweight,Soft Plyo Box,quads,glutes,8,12,Sit on the box on one leg;Stand up without using the arms
+Soft Box Squat,bodyweight,Soft Plyo Box,quads,glutes,10,15,Sit back until you touch the box;Stand up without rocking
+Soft Box Single-Leg Jump,bodyweight,Soft Plyo Box,quads,glutes;calves,5,8,Jump onto the box off one leg;Land softly and step down
+Ab Wheel Wall Rollout,bodyweight,Ab Wheel,abs,shoulders,8,12,Roll out toward a wall and stop before you touch it;Keep the ribs down
+Ab Wheel Side Rollout,bodyweight,Ab Wheel,obliques,abs;shoulders,6,10,Roll out diagonally to one side;Keep the hips square
+Ab Wheel Pike Roll,bodyweight,Ab Wheel,abs,shoulders,6,10,Feet on a slider or towel and hands on the wheel;Pike the hips up
+Foam Roller Thoracic Extension,bodyweight,Foam Roller,back,traps,30,60,Place the roller under the upper back with hands behind the head;Extend gently over the roller;Reps are seconds
+Foam Roller Quad Roll,bodyweight,Foam Roller,quads,,30,60,Lie face down with the roller under the thighs;Roll slowly from hip to knee;Reps are seconds
+Foam Roller Lat Roll,bodyweight,Foam Roller,lats,back,30,60,Lie on your side with the roller under the armpit;Roll slowly along the lat;Reps are seconds
+Foam Roller Glute Roll,bodyweight,Foam Roller,glutes,hamstrings,30,60,Sit on the roller and cross one ankle over the opposite knee;Roll slowly;Reps are seconds
+Foam Roller Calf Roll,bodyweight,Foam Roller,calves,,30,60,Place the roller under the calves with the hips lifted;Roll from ankle to knee;Reps are seconds
+Foam Roller Hamstring Roll,bodyweight,Foam Roller,hamstrings,glutes,30,60,Place the roller under the thighs with the hips lifted;Roll slowly;Reps are seconds
+Foam Roller Dead Bug,bodyweight,Foam Roller,abs,,8,12,Lie lengthwise on the roller with the arms and legs up;Lower opposite arm and leg slowly
+Incline Push-Up,bodyweight,,chest,shoulders;triceps;abs,10,20,Hands on a raised surface and body in a straight line;Lower the chest to the surface
+Decline Push-Up,bodyweight,,chest,shoulders;triceps;abs,8,15,Feet on a raised surface and hands on the floor;Lower the chest to the floor
+Wide Push-Up,bodyweight,,chest,shoulders;triceps,8,15,Hands wider than the shoulders;Lower with the elbows at about 45 degrees
+Close-Grip Push-Up,bodyweight,,triceps,chest;shoulders,8,15,Hands under the shoulders and elbows tucked;Lower until the chest is just above the floor
+Archer Push-Up,bodyweight,,chest,triceps;shoulders;abs,5,10,Wide hands and shift the weight to one arm;Keep the other arm straight
+Staggered-Hand Push-Up,bodyweight,,chest,triceps;shoulders;abs,8,12,One hand forward and one back;Switch the hand positions each set
+Plyometric Push-Up,bodyweight,,chest,triceps;shoulders,5,10,Push explosively so the hands leave the floor;Land softly with bent elbows
+Spiderman Push-Up,bodyweight,,chest,obliques;triceps,8,12,Bring one knee toward the elbow as you lower;Alternate sides
+Hindu Push-Up,bodyweight,,shoulders,chest;triceps;lower_back,8,12,Start in a pike then swoop the chest forward and up;Reverse the path
+Knee Push-Up,bodyweight,,chest,triceps;shoulders,8,15,Knees on the floor and a straight line from knees to head;Lower the chest to the floor
+Pseudo Planche Push-Up,bodyweight,,shoulders,chest;triceps;abs,5,10,Hands by the hips and lean forward;Lower with the elbows tucked
+T Push-Up,bodyweight,,chest,obliques;shoulders,8,12,Push up then rotate into a side plank;Alternate sides
+Scapular Push-Up,bodyweight,,shoulders,chest;back,10,15,Keep the arms straight and move only the shoulder blades;Protract then retract
+Wall Handstand Push-Up,bodyweight,,shoulders,triceps;traps,3,8,Face the wall in a handstand and lower the head to the floor;Press back up
+Wall Handstand Hold,bodyweight,,shoulders,abs;traps,20,40,Kick up and hold with the stomach to the wall;Squeeze the glutes and keep the arms straight;Reps are seconds
+Shoulder Tap Plank,bodyweight,,abs,shoulders;obliques,20,40,Tap one shoulder at a time from a high plank;Keep the hips still;Reps are seconds
+Plank Up-Down,bodyweight,,triceps,abs;shoulders,10,16,Move between forearm and high plank;Alternate the lead arm
+Push-Up Hold (Bottom Position),bodyweight,,chest,triceps;abs,10,30,Lower halfway and hold;Keep the core tight;Reps are seconds
+Typewriter Push-Up,bodyweight,,chest,triceps;shoulders,5,8,Lower and slide the body from side to side;Keep the elbows tracking
+Bench Triceps Push-Up,bodyweight,Flat Bench,triceps,chest;shoulders,8,15,Hands on a bench with elbows tucked;Lower the chest to the bench
+Pistol Squat (Assisted),bodyweight,,quads,glutes;abs,5,8,Hold a support and squat on one leg;Keep the other leg off the floor
+Shrimp Squat,bodyweight,,quads,glutes;abs,5,8,Hold the rear foot behind you and lower the knee toward the floor;Keep the torso upright
+Skater Squat,bodyweight,,quads,glutes,6,10,Stand on one leg and sweep the other leg behind;Lower the rear knee toward the floor
+Bodyweight Split Squat,bodyweight,,quads,glutes;hamstrings,10,15,Take a long stride and lower straight down;Keep the front heel down
+Isometric Split Squat Hold,bodyweight,,quads,glutes,20,40,Lower into a split squat and hold;Keep the torso tall;Reps are seconds
+Prisoner Squat,bodyweight,,quads,glutes;back,12,20,Hands behind the head and elbows wide;Squat down with the chest tall
+Narrow-Stance Squat,bodyweight,,quads,glutes,12,20,Feet closer than the shoulders;Squat down with the knees forward
+Squat Pulse,bodyweight,,quads,glutes,15,25,Stay in the bottom half and pulse;Keep the chest tall
+Squat to Calf Raise,bodyweight,,quads,calves;glutes,10,15,Squat down and rise onto the toes at the top;Control the lowering
+Deep Squat Hold,bodyweight,,quads,glutes,30,60,Sit in a deep squat with the heels down;Keep the chest tall;Reps are seconds
+Curtsy Lunge,bodyweight,,glutes,quads,10,12,Step behind and across the standing leg;Keep the hips square
+Lateral Lunge,bodyweight,,quads,glutes,10,12,Step wide to the side and sit back;Keep the other leg straight
+Forward Lunge,bodyweight,,quads,glutes;hamstrings,10,12,Step forward and lower the back knee;Push back to the start
+Bodyweight Walking Lunge,bodyweight,,quads,glutes;hamstrings,10,20,Step forward and lower the back knee;Alternate legs as you travel
+Jumping Lunge (Split Jump),bodyweight,,quads,glutes;calves,8,12,Jump and switch the legs in mid-air;Land softly into the next lunge
+Lunge Pulse,bodyweight,,quads,glutes,12,20,Stay low in the lunge and pulse;Keep the torso tall
+Reverse Lunge to Knee Drive,bodyweight,,quads,glutes;abs,8,12,Step back then drive the knee up;Balance briefly on the front leg
+Skater Hop,bodyweight,,glutes,quads,10,20,Leap sideways and land on one leg;Touch the back foot behind you
+Lateral Bound,bodyweight,,glutes,quads,8,12,Jump sideways and stick the landing;Reach across the body
+Broad Jump,bodyweight,,quads,glutes;hamstrings;calves,5,8,Swing the arms and jump forward as far as possible;Land softly with bent knees
+Tuck Jump,bodyweight,,quads,glutes;abs;calves,5,10,Jump high and pull the knees to the chest;Land softly
+Single-Leg Hop,bodyweight,,calves,quads;glutes,6,10,Hop in place on one leg;Land softly and stay balanced
+Star Jump,bodyweight,,quads,calves;shoulders,10,15,Jump with the arms and legs wide;Land softly
+Squat Thrust,bodyweight,,full_body,quads;chest;abs,10,15,Drop the hands to the floor and kick the feet back;Jump the feet back in
+Burpee Broad Jump,bodyweight,,full_body,quads;chest;glutes,6,10,Do a burpee and then a broad jump forward;Walk back to start
+Tibialis Raise (Wall),bodyweight,,calves,quads,12,20,Lean against a wall with the feet forward;Raise the toes toward the shins
+Bodyweight Hip Thrust (Bench),bodyweight,Flat Bench,glutes,hamstrings;abs,10,20,Upper back on a bench and feet flat;Drive the hips up and squeeze
+Frog Pump,bodyweight,,glutes,hamstrings,15,25,Lie with the soles together and drive the hips up;Squeeze the glutes at the top
+Donkey Kick,bodyweight,,glutes,hamstrings;abs,12,15,Start on hands and knees and kick one leg back;Squeeze the glute at the top
+Fire Hydrant,bodyweight,,glutes,,12,15,Start on hands and knees and lift one knee to the side;Keep the hips square
+Clamshell,bodyweight,,glutes,,12,20,Lie on your side with the knees bent;Open the top knee without rolling the hips
+Side-Lying Leg Raise,bodyweight,,glutes,,12,20,Lie on your side with the legs straight;Raise the top leg to hip height
+Bodyweight Good Morning,bodyweight,,hamstrings,glutes;lower_back,12,15,Hands behind the head and soft knees;Hinge back and stand tall
+Bodyweight Single-Leg Romanian Deadlift,bodyweight,,hamstrings,glutes;abs,8,12,Hinge on one leg with the other leg reaching behind;Keep the hips level
+Hamstring Bridge Walkout,bodyweight,,hamstrings,glutes;abs,6,10,Start in a bridge and walk the feet out;Walk back with control
+Single-Leg Glute Bridge March,bodyweight,,glutes,hamstrings;abs,10,16,Hold a bridge and march the knees up alternately;Keep the hips level
+Cat-Cow,bodyweight,,lower_back,abs,8,12,Round and arch the back in time with your breathing;Move through the whole spine
+Child's Pose,bodyweight,,lower_back,lats,20,40,Sit the hips back on the heels with the arms reaching forward;Breathe slowly;Reps are seconds
+90-90 Hip Switch,bodyweight,,glutes,,8,12,Sit with both knees bent at 90 degrees;Rotate the knees from side to side
+World's Greatest Stretch,bodyweight,,full_body,hamstrings,6,10,Step into a lunge and reach the arm to the ceiling;Switch sides
+Inchworm,bodyweight,,full_body,shoulders;hamstrings;abs,6,10,Walk the hands out to a plank and walk the feet in;Keep the legs as straight as possible
+Plank Jack,bodyweight,,abs,shoulders;glutes,20,40,Hold a plank and jump the feet in and out;Keep the hips level;Reps are seconds
+Plank Reach,bodyweight,,abs,shoulders;glutes,8,12,Hold a plank and reach one arm forward;Alternate arms
+Reverse Plank,bodyweight,,glutes,hamstrings;shoulders;abs,20,40,Sit with the hands behind and lift the hips;Hold a straight line;Reps are seconds
+RKC Plank,bodyweight,,abs,glutes;shoulders,10,20,Make a plank with the glutes and quads squeezed hard;Pull the elbows toward the toes;Reps are seconds
+Side Plank Hip Dip,bodyweight,,obliques,abs;glutes,10,15,Hold a side plank and lower the hip toward the floor;Lift back up
+Side Plank Thread-the-Needle,bodyweight,,obliques,shoulders;abs,8,12,Rotate the top arm under the body and open back up;Keep the hips high
+Copenhagen Plank,bodyweight,Flat Bench,quads,obliques;abs,15,30,Rest the top leg on a bench in a side plank;Lift the hips and hold;Reps are seconds
+Hollow Rock,bodyweight,,abs,,10,20,Rock back and forth in a hollow position;Keep the lower back pressed down
+V-Up,bodyweight,,abs,,8,15,Lift the arms and legs to meet in a V;Lower slowly
+Sit-Up,bodyweight,,abs,,10,20,Curl up with arms across the chest;Lower under control
+Elbow-to-Knee Crunch,bodyweight,,obliques,abs,10,20,Bring the opposite elbow to the knee;Alternate sides
+Heel Touch,bodyweight,,obliques,abs,20,30,Lie with the knees bent and reach for each heel;Alternate sides
+Side Crunch,bodyweight,,obliques,abs,12,20,Lie on your side and lift the shoulder toward the hip;Lower slowly
+Scissor Kicks,bodyweight,,abs,,20,40,Keep the legs straight and cross them alternately;Keep the lower back pressed down
+Single-Leg Lowering,bodyweight,,abs,,8,12,Lie with both legs up and lower one leg at a time;Keep the lower back down
+Heel Slide Dead Bug,bodyweight,,abs,,8,12,Lie with the knees at 90 degrees and slide one heel out;Keep the back flat
+Windshield Wipers (Floor),bodyweight,,obliques,abs,8,12,Lie with the legs straight up and rotate side to side;Keep the shoulders on the floor
+Russian Twist (Bodyweight),bodyweight,,obliques,abs,12,20,Sit leaning back and rotate side to side;Keep the chest tall
+Boat Hold,bodyweight,,abs,,15,30,Sit leaning back with the legs and chest lifted;Keep the spine long;Reps are seconds
+Crab Reach,bodyweight,,glutes,shoulders;abs,8,12,Sit in a crab position and lift the hips;Reach one arm overhead
+Crab Toe Touch,bodyweight,,abs,glutes;shoulders,10,16,Hold a crab position and touch the opposite hand to the foot;Alternate sides
+Cross-Body Mountain Climber,cardio,,cardio,abs;obliques,,,Drive each knee toward the opposite elbow;Keep the hips low
+Spider Climb,bodyweight,,abs,obliques,10,16,Bring the knee to the same-side elbow in plank;Alternate sides
+Bear Hold,bodyweight,,abs,shoulders;quads,20,40,Hold a tabletop with the knees hovering;Keep the back flat;Reps are seconds
+Standing Knee Raise,bodyweight,,abs,,12,20,Stand tall and drive one knee up;Balance briefly at the top
+Standing Bicycle Crunch,bodyweight,,obliques,abs,12,20,Hands behind the head and bring the knee to the opposite elbow;Alternate sides
+Prone Cobra Hold,bodyweight,,lower_back,glutes;traps,15,30,Lie face down and lift the chest and legs;Squeeze the shoulder blades;Reps are seconds
+Prone Y-T-W,bodyweight,,traps,shoulders;lower_back,8,10,"Lie face down and lift the arms into Y, T, and W shapes;Keep the neck neutral"
+Prone Swimmer,bodyweight,,lower_back,glutes;shoulders,20,30,Lie face down and alternate lifting opposite arm and leg;Keep the movements small
+Bird Dog Row,bodyweight,,lower_back,back;abs,8,12,Hold a bird dog and pull the elbow back;Keep the hips level
+Skater Jump,cardio,,cardio,quads;glutes,,,Leap sideways from one leg to the other;Swing the arms for balance
+Butt Kicks,cardio,,cardio,hamstrings,,,Run in place while kicking the heels to the glutes;Stay on the balls of the feet
+Shadow Boxing,cardio,,cardio,shoulders;abs,,,Throw light punches in combinations;Stay light on the feet
+Squat Jacks,cardio,,cardio,quads;glutes,,,Jump the feet wide into a squat and back;Keep the chest up
+Seal Jacks,cardio,,cardio,shoulders;chest,,,Jump the feet wide while swinging the arms out and clapping;Keep the arms straight
+Crab Walk,cardio,,cardio,triceps;glutes;abs,,,Walk on the hands and feet with the hips up;Move forward and backward
+Shadow Rope Skipping,cardio,,cardio,calves;shoulders,,,Skip as though holding a rope with small hops;Turn the wrists in small circles
+Lateral Shuffle,cardio,,cardio,quads;glutes,,,Shuffle sideways in a low athletic stance;Keep the feet from crossing
+Sprint in Place,cardio,,cardio,quads;glutes,,,Drive the knees and arms fast for short bursts;Rest between bursts

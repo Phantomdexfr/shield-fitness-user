@@ -1,0 +1,38 @@
+/* Movement map (Phase 25). Tokens only. Gold on dark, start pose faded, end pose solid. Nothing bleeds, nothing truncates. */
+.sf-mm { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; max-width: 100%; }
+.sf-mm__section { gap: var(--sp-2); }
+.sf-mm__head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); min-width: 0; }
+.sf-mm__info { box-sizing: border-box; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; color: var(--gold-300); font: inherit; font-style: italic; font-weight: 700; cursor: pointer; }
+.sf-mm__info:focus-visible, .sf-mm__mini:focus-visible, .sf-mm__chip:focus-visible, .sf-mm__nav:focus-visible { outline: 2px solid var(--gold-300); outline-offset: 2px; }
+.sf-mm__svg { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--r-md); }
+.sf-mm__svg--mini { border: 0; background: transparent; border-radius: var(--r-sm); }
+.sf-mm--mini { width: 56px; height: 56px; }
+.sf-mm__mini { box-sizing: border-box; width: 56px; height: 56px; min-width: 44px; min-height: 44px; padding: 0; border: 1px solid var(--line-strong); border-radius: var(--r-sm); background: var(--bg-raised); cursor: pointer; overflow: hidden; }
+.sf-mm__floor { stroke: var(--line-strong); stroke-width: 1.5; }
+.sf-mm__pose line, .sf-mm__pose polyline, .sf-mm__pose circle { fill: none; stroke: var(--gold-300); stroke-linecap: round; stroke-linejoin: round; }
+.sf-mm__limb { stroke-width: 7; }
+.sf-mm__trunk { stroke-width: 13; }
+.sf-mm__neck { stroke-width: 5; }
+.sf-mm__bar { stroke-width: 4; }
+.sf-mm__head { stroke-width: 4; }
+.sf-mm__pose circle.sf-mm__dot { fill: var(--bg-base); stroke: none; }
+.sf-mm__pose--start { opacity: 0.35; }
+.sf-mm__far { opacity: 0.6; }
+.sf-mm__pose--rest { opacity: 1; }
+.sf-mm__path line { stroke: var(--gold-100); stroke-width: 2; stroke-dasharray: 5 4; }
+.sf-mm__path polygon { fill: var(--gold-100); stroke: none; }
+.sf-mm__arc polyline { fill: none; stroke: var(--gold-200); stroke-width: 2; stroke-linecap: round; }
+.sf-mm__arc polygon { fill: var(--gold-200); stroke: none; }
+.sf-mm__glyph { fill: none; stroke: var(--gold-100); stroke-width: 3; stroke-linecap: round; }
+.sf-mm__glyph--thin { stroke-width: 1.5; stroke-dasharray: 3 3; }
+.sf-mm__key { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); font-size: var(--text-xs); color: var(--text-muted); }
+.sf-mm__swatch { display: inline-block; width: 14px; height: 6px; border-radius: var(--r-pill); background: var(--gold-300); }
+.sf-mm__swatch--start { opacity: 0.35; }
+.sf-mm__arcs { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-3); margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); color: var(--gold-200); min-width: 0; }
+.sf-mm__twin { margin: 0; font-size: var(--text-sm); color: var(--text-2); overflow-wrap: anywhere; }
+.sf-mm__chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: 0; padding: 0; list-style: none; min-width: 0; }
+.sf-mm__chip { box-sizing: border-box; display: inline-flex; align-items: center; min-height: 44px; padding: var(--sp-2) var(--sp-4); border-radius: var(--r-pill); border: 1px solid var(--line-strong); background: var(--bg-raised); color: var(--text-2); font-size: var(--text-sm); text-decoration: none; overflow-wrap: anywhere; }
+.sf-mm__nav-row { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); min-width: 0; }
+.sf-mm__nav { box-sizing: border-box; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line-strong); border-radius: var(--r-pill); background: var(--bg-raised); color: var(--text); font: inherit; cursor: pointer; }
+.sf-mm__nav:disabled { opacity: 0.4; cursor: default; }
+.sf-mm__nav-name { flex: 1 1 auto; min-width: 0; text-align: center; overflow-wrap: anywhere; font-weight: 600; }

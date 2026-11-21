@@ -1,0 +1,585 @@
+{
+ "_doc": "Exercise-trend cases for aiReviewText (User Phase 40). Skipped and unfinished items are left out. Hand-worked.",
+ "cases": [
+  {
+   "name": "bench, last 2 of 4",
+   "history": {
+    "sessions": [
+     {
+      "id": "so",
+      "clientId": "so",
+      "startedAt": "2026-11-02T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 70,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 70,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 70,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       }
+      ],
+      "endedAt": "2026-11-02T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "r0",
+      "clientId": "r0",
+      "startedAt": "2026-11-10T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 25,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 25,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1
+       }
+      ],
+      "endedAt": "2026-11-10T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "r1",
+      "clientId": "r1",
+      "startedAt": "2026-11-13T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 27.5,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 27.5,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1
+       }
+      ],
+      "endedAt": "2026-11-13T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "r2",
+      "clientId": "r2",
+      "startedAt": "2026-11-16T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 85,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 8
+         },
+         {
+          "weightKg": 85,
+          "reps": 4,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 9
+         }
+        ],
+        "order": 0,
+        "setup": {
+         "grip": "wide"
+        }
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 27.5,
+          "reps": 10,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 27.5,
+          "reps": 10,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1
+       }
+      ],
+      "endedAt": "2026-11-16T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "r3",
+      "clientId": "r3",
+      "startedAt": "2026-11-18T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "doing",
+        "sets": [
+         {
+          "weightKg": 90,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       }
+      ],
+      "dayName": "Push"
+     }
+    ],
+    "names": {
+     "barbell-bench-press": "Barbell Bench Press",
+     "triceps-pushdown": "Triceps Pushdown",
+     "lat-pulldown": "Lat Pulldown",
+     "pull-up": "Pull-Up",
+     "plank": "Plank",
+     "custom:c1": "My Sled Push"
+    },
+    "weights": {
+     "barbell-bench-press": {
+      "chest": 1,
+      "triceps": 0.6,
+      "front_delts": 0.6
+     },
+     "triceps-pushdown": {
+      "triceps": 1
+     }
+    },
+    "muscleNames": {
+     "chest": "Chest",
+     "triceps": "Triceps",
+     "front_delts": "Front Delts"
+    },
+    "notes": {
+     "barbell-bench-press": "Pause every rep"
+    }
+   },
+   "scope": {
+    "kind": "exercise",
+    "slug": "barbell-bench-press",
+    "lastN": 2
+   },
+   "opts": {
+    "intro": "Review my training below. Tell me what is going well, what to change, and what to try next. Keep advice practical.",
+    "units": "kg",
+    "include": {
+     "notes": true,
+     "rpe": true,
+     "setups": true,
+     "prs": true,
+     "muscles": true,
+     "bodyweight": false,
+     "name": false,
+     "bodyStats": false
+    }
+   },
+   "expected": "Review my training below. Tell me what is going well, what to change, and what to try next. Keep advice practical.\nCONTEXT: goal=unknown; experience=unknown; units=kg\nEXERCISE: Barbell Bench Press | last 2 of 4 sessions\nFri 13 Nov 2026 | 3 sets | top 82.5 kg x 5 | e1RM 96.5\nMon 16 Nov 2026 | 2 sets | top 85 kg x 5 | e1RM 99 | setup: grip: wide | RPE 8/9\nNote: Pause every rep\nSUMMARY (all 4 sessions, e1RM kg): first 81.5 (2026-11-02), best 99 (2026-11-16), latest 99 (2026-11-16)"
+  },
+  {
+   "name": "exercise never logged",
+   "history": {
+    "sessions": [
+     {
+      "id": "so",
+      "clientId": "so",
+      "startedAt": "2026-11-02T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 70,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 70,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 70,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       }
+      ],
+      "endedAt": "2026-11-02T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "r0",
+      "clientId": "r0",
+      "startedAt": "2026-11-10T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 25,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 25,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1
+       }
+      ],
+      "endedAt": "2026-11-10T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "r1",
+      "clientId": "r1",
+      "startedAt": "2026-11-13T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 27.5,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 27.5,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1
+       }
+      ],
+      "endedAt": "2026-11-13T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "r2",
+      "clientId": "r2",
+      "startedAt": "2026-11-16T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 85,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 8
+         },
+         {
+          "weightKg": 85,
+          "reps": 4,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 9
+         }
+        ],
+        "order": 0,
+        "setup": {
+         "grip": "wide"
+        }
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 27.5,
+          "reps": 10,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 27.5,
+          "reps": 10,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1
+       }
+      ],
+      "endedAt": "2026-11-16T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "r3",
+      "clientId": "r3",
+      "startedAt": "2026-11-18T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "doing",
+        "sets": [
+         {
+          "weightKg": 90,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       }
+      ],
+      "dayName": "Push"
+     }
+    ],
+    "names": {
+     "barbell-bench-press": "Barbell Bench Press",
+     "triceps-pushdown": "Triceps Pushdown",
+     "lat-pulldown": "Lat Pulldown",
+     "pull-up": "Pull-Up",
+     "plank": "Plank",
+     "custom:c1": "My Sled Push"
+    },
+    "weights": {
+     "barbell-bench-press": {
+      "chest": 1,
+      "triceps": 0.6,
+      "front_delts": 0.6
+     },
+     "triceps-pushdown": {
+      "triceps": 1
+     }
+    },
+    "muscleNames": {
+     "chest": "Chest",
+     "triceps": "Triceps",
+     "front_delts": "Front Delts"
+    },
+    "notes": {
+     "barbell-bench-press": "Pause every rep"
+    }
+   },
+   "scope": {
+    "kind": "exercise",
+    "slug": "lat-pulldown",
+    "lastN": 8
+   },
+   "opts": {
+    "intro": null,
+    "units": "kg",
+    "include": {
+     "notes": true,
+     "rpe": true,
+     "setups": true,
+     "prs": true,
+     "muscles": true,
+     "bodyweight": false,
+     "name": false,
+     "bodyStats": false
+    }
+   },
+   "expected": "CONTEXT: goal=unknown; experience=unknown; units=kg\nEXERCISE: Lat Pulldown | last 0 of 0 sessions\nNo logged sets for this exercise."
+  }
+ ]
+}

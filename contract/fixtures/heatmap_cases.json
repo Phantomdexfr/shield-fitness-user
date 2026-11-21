@@ -1,0 +1,172 @@
+{
+  "_note": "Phase 43. Worked by hand from contract/engines.md section 4. Days are IST day keys. Weekly base = max(nearest-rank p90 of weekly raw, 6); ref: day base/3, week base, month base*4, custom/all base*days/7. heat01 = raw/ref clamped, 9 dp. Band: 0 if untrained else 1 (<0.2), 2 (<0.4), 3 (<0.6), 4 (<0.8), 5. Parent = MAX heat01 of children.",
+  "taxonomy": [
+    {"id": "chest", "parent": "chest"}, {"id": "upper_chest", "parent": "chest"}, {"id": "lower_chest", "parent": "chest"},
+    {"id": "triceps", "parent": "triceps"}, {"id": "back", "parent": "back"}, {"id": "lats", "parent": "back"}
+  ],
+  "percentile90": [
+    {"values": [], "p90": 0},
+    {"values": [4], "p90": 4},
+    {"values": [3, 1, 2], "p90": 3},
+    {"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "p90": 9}
+  ],
+  "cases": [
+    {
+      "id": "single_set_day",
+      "why": "one set, day period: base 6 -> ref 2; upper_chest 1/2 = 0.5 band 3; triceps 0.3/2 = 0.15 band 1",
+      "today": "2026-11-20",
+      "period": {"kind": "day", "anchor": "2026-11-20"},
+      "entries": [{"day": "2026-11-20", "sets": 1, "weights": {"upper_chest": 1, "triceps": 0.3}}],
+      "expect": {
+        "sets": 1,
+        "muscles": {
+          "upper_chest": {"raw": 1, "ref": 2, "heat01": 0.5, "band": 3},
+          "triceps": {"raw": 0.3, "ref": 2, "heat01": 0.15, "band": 1}
+        },
+        "rolled": {"chest": {"heat01": 0.5, "band": 3}, "triceps": {"heat01": 0.15, "band": 1}}
+      }
+    },
+    {
+      "id": "empty_history",
+      "why": "no entries: nothing trained, no bands, 0 sets",
+      "today": "2026-11-20",
+      "period": {"kind": "week", "anchor": "2026-11-20"},
+      "entries": [],
+      "expect": {"sets": 0, "muscles": {}, "rolled": {}}
+    },
+    {
+      "id": "week_full",
+      "why": "10 bench sets in the week Mon 16 .. Sun 22 Nov. upper raw 10 -> base 10 (p90 of [10]) -> heat 1 band 5; lower raw 6 (base 6) -> 1 band 5; triceps raw 3, base 6 -> 0.5 band 3",
+      "today": "2026-11-20",
+      "period": {"kind": "week", "anchor": "2026-11-20"},
+      "entries": [
+        {"day": "2026-11-16", "sets": 4, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}},
+        {"day": "2026-11-18", "sets": 3, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}},
+        {"day": "2026-11-20", "sets": 3, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}}
+      ],
+      "expect": {
+        "sets": 10,
+        "muscles": {
+          "upper_chest": {"raw": 10, "ref": 10, "heat01": 1, "band": 5},
+          "lower_chest": {"raw": 6, "ref": 6, "heat01": 1, "band": 5},
+          "triceps": {"raw": 3, "ref": 6, "heat01": 0.5, "band": 3}
+        },
+        "rolled": {"chest": {"heat01": 1, "band": 5}, "triceps": {"heat01": 0.5, "band": 3}}
+      }
+    },
+    {
+      "id": "month_scaling",
+      "why": "same plus a 4-set session on Mon 2 Nov. Month raw upper 14, lower 8.4, triceps 4.2. Weekly upper [4,10] p90 = 10 -> base 10, ref 40, 0.35 band 2; lower [2.4,6] -> base 6, ref 24, 0.35 band 2; triceps [1.2,3] -> base 6, ref 24, 0.175 band 1",
+      "today": "2026-11-20",
+      "period": {"kind": "month", "anchor": "2026-11-20"},
+      "entries": [
+        {"day": "2026-11-02", "sets": 4, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}},
+        {"day": "2026-11-16", "sets": 4, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}},
+        {"day": "2026-11-18", "sets": 3, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}},
+        {"day": "2026-11-20", "sets": 3, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}}
+      ],
+      "expect": {
+        "sets": 14,
+        "muscles": {
+          "upper_chest": {"raw": 14, "ref": 40, "heat01": 0.35, "band": 2},
+          "lower_chest": {"raw": 8.4, "ref": 24, "heat01": 0.35, "band": 2},
+          "triceps": {"raw": 4.2, "ref": 24, "heat01": 0.175, "band": 1}
+        },
+        "rolled": {"chest": {"heat01": 0.35, "band": 2}, "triceps": {"heat01": 0.175, "band": 1}}
+      }
+    },
+    {
+      "id": "custom_range_scaling",
+      "why": "custom 16 .. 29 Nov (14 days), the 2 Nov session is outside. Raw upper 10, lower 6, triceps 3. Bases 10 / 6 / 6 (from the whole history, as above). ref = base x 14/7 = 20 / 12 / 12 -> 0.5 band 3, 0.5 band 3, 0.25 band 2",
+      "today": "2026-11-20",
+      "period": {"kind": "custom", "from": "2026-11-16", "to": "2026-11-29"},
+      "entries": [
+        {"day": "2026-11-02", "sets": 4, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}},
+        {"day": "2026-11-16", "sets": 4, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}},
+        {"day": "2026-11-18", "sets": 3, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}},
+        {"day": "2026-11-20", "sets": 3, "weights": {"upper_chest": 1, "lower_chest": 0.6, "triceps": 0.3}}
+      ],
+      "expect": {
+        "sets": 10,
+        "muscles": {
+          "upper_chest": {"raw": 10, "ref": 20, "heat01": 0.5, "band": 3},
+          "lower_chest": {"raw": 6, "ref": 12, "heat01": 0.5, "band": 3},
+          "triceps": {"raw": 3, "ref": 12, "heat01": 0.25, "band": 2}
+        },
+        "rolled": {"chest": {"heat01": 0.5, "band": 3}, "triceps": {"heat01": 0.25, "band": 2}}
+      }
+    },
+    {
+      "id": "variation_shift",
+      "why": "5 sets of an exercise with rows upper_chest p/m 0.6, triceps s/l 0.3; variation 'close grip' = triceps more (x1.25 = 0.375), upper_chest less (x0.75 = 0.45). Week raw: upper 5 x 0.45 = 2.25, triceps 5 x 0.375 = 1.875. Base 6, ref 6 -> 0.375 band 2, 0.3125 band 2",
+      "today": "2026-11-20",
+      "period": {"kind": "week", "anchor": "2026-11-20"},
+      "entries": [
+        {"day": "2026-11-20", "sets": 5, "rows": [["upper_chest", "p", "m"], ["triceps", "s", "l"]], "variation": "close grip", "shift": {"close grip": [["triceps", "m"], ["upper_chest", "l"]]}}
+      ],
+      "expect": {
+        "sets": 5,
+        "muscles": {
+          "upper_chest": {"raw": 2.25, "ref": 6, "heat01": 0.375, "band": 2},
+          "triceps": {"raw": 1.875, "ref": 6, "heat01": 0.3125, "band": 2}
+        },
+        "rolled": {"chest": {"heat01": 0.375, "band": 2}, "triceps": {"heat01": 0.3125, "band": 2}}
+      }
+    },
+    {
+      "id": "custom_exercise",
+      "why": "a custom exercise (long role / emphasis names): lats primary high = 1, triceps stabiliser medium = 0.6 x 0.5 = 0.3. 3 sets in the week: lats 3, triceps 0.9; base 6 -> 0.5 band 3, 0.15 band 1. lats rolls into back",
+      "today": "2026-11-20",
+      "period": {"kind": "week", "anchor": "2026-11-20"},
+      "entries": [
+        {"day": "2026-11-19", "sets": 3, "rows": [["lats", "primary", "high"], ["triceps", "stabiliser", "medium"]]}
+      ],
+      "expect": {
+        "sets": 3,
+        "muscles": {
+          "lats": {"raw": 3, "ref": 6, "heat01": 0.5, "band": 3},
+          "triceps": {"raw": 0.9, "ref": 6, "heat01": 0.15, "band": 1}
+        },
+        "rolled": {"back": {"heat01": 0.5, "band": 3}, "triceps": {"heat01": 0.15, "band": 1}}
+      }
+    },
+    {
+      "id": "heavy_history_reference",
+      "why": "ten Mondays 14 Sep .. 16 Nov with weekly upper_chest raw 10,12,...,28 (sets x weight 1). p90 = sorted[ceil(9) - 1] = 26 > 6, so the week of 12 Oct (raw 18) has ref 26: 18/26 = 0.692307692 band 4",
+      "today": "2026-11-20",
+      "period": {"kind": "week", "anchor": "2026-10-12"},
+      "entries": [
+        {"day": "2026-09-14", "sets": 10, "weights": {"upper_chest": 1}},
+        {"day": "2026-09-21", "sets": 12, "weights": {"upper_chest": 1}},
+        {"day": "2026-09-28", "sets": 14, "weights": {"upper_chest": 1}},
+        {"day": "2026-10-05", "sets": 16, "weights": {"upper_chest": 1}},
+        {"day": "2026-10-12", "sets": 18, "weights": {"upper_chest": 1}},
+        {"day": "2026-10-19", "sets": 20, "weights": {"upper_chest": 1}},
+        {"day": "2026-10-26", "sets": 22, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-02", "sets": 24, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-09", "sets": 26, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-16", "sets": 28, "weights": {"upper_chest": 1}}
+      ],
+      "expect": {
+        "sets": 18,
+        "muscles": {"upper_chest": {"raw": 18, "ref": 26, "heat01": 0.692307692, "band": 4}},
+        "rolled": {"chest": {"heat01": 0.692307692, "band": 4}}
+      }
+    },
+    {
+      "id": "all_time",
+      "why": "all time: first day 1 Oct to today 20 Nov = 51 days. Raw upper 6 + 3 = 9. Weekly [6,3] p90 = 6 -> base 6; ref = 6 x 51/7 = 43.714285714; 9 / ref = 63/306 = 0.205882353 band 2",
+      "today": "2026-11-20",
+      "period": {"kind": "all"},
+      "entries": [
+        {"day": "2026-10-01", "sets": 6, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-20", "sets": 3, "weights": {"upper_chest": 1}}
+      ],
+      "expect": {
+        "sets": 9,
+        "muscles": {"upper_chest": {"raw": 9, "ref": 43.714285714, "heat01": 0.205882353, "band": 2}},
+        "rolled": {"chest": {"heat01": 0.205882353, "band": 2}}
+      }
+    }
+  ]
+}

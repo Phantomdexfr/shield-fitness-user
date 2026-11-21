@@ -1,0 +1,661 @@
+{
+ "_doc": "Fixture for aiReviewText (engines.md section 18, User Phase 40). Expected strings are worked by hand from the spec. `history` shapes: see src/shared/aiReview.ts AiHistory. Plain text, \\n line breaks.",
+ "cases": [
+  {
+   "name": "session default options",
+   "history": {
+    "sessions": [
+     {
+      "id": "s0",
+      "clientId": "s0",
+      "startedAt": "2026-11-10T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       }
+      ],
+      "endedAt": "2026-11-10T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "s1",
+      "clientId": "s1",
+      "startedAt": "2026-11-13T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 40,
+          "reps": 8,
+          "tag": "warmup",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 8
+         },
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 8.5
+         },
+         {
+          "weightKg": 85,
+          "reps": 3,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 9
+         }
+        ],
+        "order": 0
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 25,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 25,
+          "reps": 10,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1,
+        "setup": {
+         "grip": "supinated",
+         "handle": "rope"
+        }
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "lat-pulldown"
+        },
+        "status": "skipped",
+        "sets": [],
+        "order": 2,
+        "skipReason": "busy"
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "leg-press"
+        },
+        "status": "todo",
+        "sets": [],
+        "order": 3
+       }
+      ],
+      "endedAt": "2026-11-13T05:22:00.000Z",
+      "dayName": "Push"
+     }
+    ],
+    "names": {
+     "barbell-bench-press": "Barbell Bench Press",
+     "triceps-pushdown": "Triceps Pushdown",
+     "lat-pulldown": "Lat Pulldown",
+     "pull-up": "Pull-Up",
+     "plank": "Plank",
+     "custom:c1": "My Sled Push"
+    },
+    "machines": {
+     "barbell-bench-press": "Flat Bench"
+    },
+    "weights": {
+     "barbell-bench-press": {
+      "chest": 1,
+      "triceps": 0.6,
+      "front_delts": 0.6
+     },
+     "triceps-pushdown": {
+      "triceps": 1
+     }
+    },
+    "muscleNames": {
+     "chest": "Chest",
+     "triceps": "Triceps",
+     "front_delts": "Front Delts"
+    },
+    "notes": {
+     "barbell-bench-press": "Left shoulder tight\non set 3"
+    }
+   },
+   "scope": {
+    "kind": "session",
+    "id": "s1"
+   },
+   "opts": {
+    "intro": "Review my training below. Tell me what is going well, what to change, and what to try next. Keep advice practical.",
+    "units": "kg",
+    "include": {
+     "notes": true,
+     "rpe": true,
+     "setups": true,
+     "prs": true,
+     "muscles": true,
+     "bodyweight": false,
+     "name": false,
+     "bodyStats": false
+    }
+   },
+   "expected": "Review my training below. Tell me what is going well, what to change, and what to try next. Keep advice practical.\nCONTEXT: goal=unknown; experience=unknown; units=kg\nSESSION: Fri 13 Nov 2026 | Push | 52 min | 2 exercises | 5 sets | volume 1618 kg\n1) Barbell Bench Press [machine: Flat Bench]\n   Set 1: 40 kg x 8 (warm-up) | Set 2: 80 kg x 5 (RPE 8) | Set 3: 82.5 kg x 5 (RPE 8.5) | Set 4: 85 kg x 3 (RPE 9)\n   Note: Left shoulder tight on set 3\n2) Triceps Pushdown [grip: supinated, handle: rope]\n   Set 1: 25 kg x 12 | Set 2: 25 kg x 10\n3) Lat Pulldown\n   Skipped (machine busy)\nPRS: Barbell Bench Press: weight 85 kg (80 kg); Barbell Bench Press: volume 412.5 kg (400 kg); Barbell Bench Press: e1RM 96.5 kg (93.5 kg)\nMUSCLES (share of weighted volume): triceps 44%, chest 35%, front delts 21%"
+  },
+  {
+   "name": "session lb, everything optional off, intro off",
+   "history": {
+    "sessions": [
+     {
+      "id": "s0",
+      "clientId": "s0",
+      "startedAt": "2026-11-10T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       }
+      ],
+      "endedAt": "2026-11-10T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "s1",
+      "clientId": "s1",
+      "startedAt": "2026-11-13T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 40,
+          "reps": 8,
+          "tag": "warmup",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 8
+         },
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 8.5
+         },
+         {
+          "weightKg": 85,
+          "reps": 3,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 9
+         }
+        ],
+        "order": 0
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 25,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 25,
+          "reps": 10,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1,
+        "setup": {
+         "grip": "supinated",
+         "handle": "rope"
+        }
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "lat-pulldown"
+        },
+        "status": "skipped",
+        "sets": [],
+        "order": 2,
+        "skipReason": "busy"
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "leg-press"
+        },
+        "status": "todo",
+        "sets": [],
+        "order": 3
+       }
+      ],
+      "endedAt": "2026-11-13T05:22:00.000Z",
+      "dayName": "Push"
+     }
+    ],
+    "names": {
+     "barbell-bench-press": "Barbell Bench Press",
+     "triceps-pushdown": "Triceps Pushdown",
+     "lat-pulldown": "Lat Pulldown",
+     "pull-up": "Pull-Up",
+     "plank": "Plank",
+     "custom:c1": "My Sled Push"
+    },
+    "machines": {
+     "barbell-bench-press": "Flat Bench"
+    },
+    "weights": {
+     "barbell-bench-press": {
+      "chest": 1,
+      "triceps": 0.6,
+      "front_delts": 0.6
+     },
+     "triceps-pushdown": {
+      "triceps": 1
+     }
+    },
+    "muscleNames": {
+     "chest": "Chest",
+     "triceps": "Triceps",
+     "front_delts": "Front Delts"
+    },
+    "notes": {
+     "barbell-bench-press": "Left shoulder tight\non set 3"
+    }
+   },
+   "scope": {
+    "kind": "session",
+    "id": "s1"
+   },
+   "opts": {
+    "intro": null,
+    "units": "lb",
+    "include": {
+     "notes": false,
+     "rpe": false,
+     "setups": false,
+     "prs": false,
+     "muscles": false,
+     "bodyweight": false,
+     "name": false,
+     "bodyStats": false
+    }
+   },
+   "expected": "CONTEXT: goal=unknown; experience=unknown; units=lb\nSESSION: Fri 13 Nov 2026 | Push | 52 min | 2 exercises | 5 sets | volume 3566 lb\n1) Barbell Bench Press [machine: Flat Bench]\n   Set 1: 88.18 lb x 8 (warm-up) | Set 2: 176.37 lb x 5 | Set 3: 181.88 lb x 5 | Set 4: 187.39 lb x 3\n2) Triceps Pushdown\n   Set 1: 55.12 lb x 12 | Set 2: 55.12 lb x 10\n3) Lat Pulldown\n   Skipped (machine busy)"
+  },
+  {
+   "name": "session with name, bodyweight and body stats opted in",
+   "history": {
+    "sessions": [
+     {
+      "id": "s0",
+      "clientId": "s0",
+      "startedAt": "2026-11-10T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       }
+      ],
+      "endedAt": "2026-11-10T05:30:00.000Z",
+      "dayName": "Push"
+     },
+     {
+      "id": "s1",
+      "clientId": "s1",
+      "startedAt": "2026-11-13T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "barbell-bench-press"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 40,
+          "reps": 8,
+          "tag": "warmup",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 80,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 8
+         },
+         {
+          "weightKg": 82.5,
+          "reps": 5,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 8.5
+         },
+         {
+          "weightKg": 85,
+          "reps": 3,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "rpe": 9
+         }
+        ],
+        "order": 0
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "triceps-pushdown"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 25,
+          "reps": 12,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": 25,
+          "reps": 10,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 1,
+        "setup": {
+         "grip": "supinated",
+         "handle": "rope"
+        }
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "lat-pulldown"
+        },
+        "status": "skipped",
+        "sets": [],
+        "order": 2,
+        "skipReason": "busy"
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "leg-press"
+        },
+        "status": "todo",
+        "sets": [],
+        "order": 3
+       }
+      ],
+      "endedAt": "2026-11-13T05:22:00.000Z",
+      "dayName": "Push"
+     }
+    ],
+    "names": {
+     "barbell-bench-press": "Barbell Bench Press",
+     "triceps-pushdown": "Triceps Pushdown",
+     "lat-pulldown": "Lat Pulldown",
+     "pull-up": "Pull-Up",
+     "plank": "Plank",
+     "custom:c1": "My Sled Push"
+    },
+    "machines": {
+     "barbell-bench-press": "Flat Bench"
+    },
+    "weights": {
+     "barbell-bench-press": {
+      "chest": 1,
+      "triceps": 0.6,
+      "front_delts": 0.6
+     },
+     "triceps-pushdown": {
+      "triceps": 1
+     }
+    },
+    "muscleNames": {
+     "chest": "Chest",
+     "triceps": "Triceps",
+     "front_delts": "Front Delts"
+    },
+    "notes": {
+     "barbell-bench-press": "Left shoulder tight\non set 3"
+    }
+   },
+   "scope": {
+    "kind": "session",
+    "id": "s1"
+   },
+   "opts": {
+    "intro": null,
+    "units": "kg",
+    "include": {
+     "notes": false,
+     "rpe": false,
+     "setups": false,
+     "prs": false,
+     "muscles": false,
+     "bodyweight": true,
+     "name": true,
+     "bodyStats": true
+    },
+    "profile": {
+     "name": "Asha Rao",
+     "goal": "strength",
+     "experience": "intermediate",
+     "bodyweightKg": 72.5,
+     "bodyStats": "height 170 cm"
+    }
+   },
+   "expected": "CONTEXT: goal=strength; experience=intermediate; units=kg; bodyweight=72.5 kg\nNAME: Asha Rao\nBODY STATS: height 170 cm\nSESSION: Fri 13 Nov 2026 | Push | 52 min | 2 exercises | 5 sets | volume 1618 kg\n1) Barbell Bench Press [machine: Flat Bench]\n   Set 1: 40 kg x 8 (warm-up) | Set 2: 80 kg x 5 | Set 3: 82.5 kg x 5 | Set 4: 85 kg x 3\n2) Triceps Pushdown\n   Set 1: 25 kg x 12 | Set 2: 25 kg x 10\n3) Lat Pulldown\n   Skipped (machine busy)"
+  },
+  {
+   "name": "missing values and a custom exercise",
+   "history": {
+    "sessions": [
+     {
+      "id": "m1",
+      "clientId": "m1",
+      "startedAt": "2026-11-14T04:30:00.000Z",
+      "items": [
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "pull-up"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": null,
+          "reps": 10,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         },
+         {
+          "weightKg": null,
+          "reps": 8,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 0
+       },
+       {
+        "ref": {
+         "kind": "lib",
+         "slug": "plank"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": null,
+          "reps": null,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z",
+          "seconds": 45
+         }
+        ],
+        "order": 1
+       },
+       {
+        "ref": {
+         "kind": "custom",
+         "id": "c1"
+        },
+        "status": "done",
+        "sets": [
+         {
+          "weightKg": 20,
+          "reps": null,
+          "tag": "normal",
+          "doneAt": "2026-11-13T04:40:00.000Z"
+         }
+        ],
+        "order": 2
+       }
+      ],
+      "endedAt": "2026-11-14T04:50:00.000Z"
+     }
+    ],
+    "names": {
+     "barbell-bench-press": "Barbell Bench Press",
+     "triceps-pushdown": "Triceps Pushdown",
+     "lat-pulldown": "Lat Pulldown",
+     "pull-up": "Pull-Up",
+     "plank": "Plank",
+     "custom:c1": "My Sled Push"
+    },
+    "customSlugs": {
+     "c1": "my-sled-push"
+    }
+   },
+   "scope": {
+    "kind": "session",
+    "id": "m1"
+   },
+   "opts": {
+    "intro": "Review my training below. Tell me what is going well, what to change, and what to try next. Keep advice practical.",
+    "units": "kg",
+    "include": {
+     "notes": true,
+     "rpe": true,
+     "setups": true,
+     "prs": true,
+     "muscles": true,
+     "bodyweight": false,
+     "name": false,
+     "bodyStats": false
+    }
+   },
+   "expected": "Review my training below. Tell me what is going well, what to change, and what to try next. Keep advice practical.\nCONTEXT: goal=unknown; experience=unknown; units=kg\nSESSION: Sat 14 Nov 2026 | Free workout | 20 min | 1 exercises | 2 sets | volume 0 kg\n1) Pull-Up\n   Set 1: - x 10 | Set 2: - x 8\n2) Plank\n   Set 1: - x - 45 s\n3) My Sled Push\n   Set 1: 20 kg x -\nPRS: none"
+  }
+ ]
+}

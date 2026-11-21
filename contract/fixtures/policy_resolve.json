@@ -1,0 +1,1204 @@
+{
+ "spec": "contract/policy.md \"Resolution rule\" + docs/GYM_CONNECTION.md section 5 (User app). user: null = the member has no value of their own. rule: null = key not in the catalogue.",
+ "cases": [
+  {
+   "name": "standalone, normal feature uses the catalogue default",
+   "key": "heatmap",
+   "rule": {
+    "default": true,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": null,
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": false
+   }
+  },
+  {
+   "name": "standalone, user turned it off",
+   "key": "heatmap",
+   "rule": {
+    "default": true,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": null,
+   "user": false,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  },
+  {
+   "name": "standalone, needsConnection is off",
+   "key": "membership",
+   "rule": {
+    "default": false,
+    "needsConnection": true,
+    "adminLockable": false
+   },
+   "policy": null,
+   "user": null,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  },
+  {
+   "name": "standalone, needsConnection stays off even if the user says on",
+   "key": "push",
+   "rule": {
+    "default": false,
+    "needsConnection": true,
+    "adminLockable": true
+   },
+   "policy": null,
+   "user": true,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  },
+  {
+   "name": "standalone, unknown key",
+   "key": "mystery_key",
+   "rule": null,
+   "policy": null,
+   "user": null,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  },
+  {
+   "name": "locked on beats the user",
+   "key": "heatmap",
+   "rule": {
+    "default": true,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": false,
+   "expect": {
+    "on": true,
+    "locked": true
+   }
+  },
+  {
+   "name": "locked off beats the user",
+   "key": "suggestions",
+   "rule": {
+    "default": true,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": true,
+   "expect": {
+    "on": false,
+    "locked": true
+   }
+  },
+  {
+   "name": "locked off, default was on",
+   "key": "rpe_logging",
+   "rule": {
+    "default": false,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": true,
+   "expect": {
+    "on": false,
+    "locked": true
+   }
+  },
+  {
+   "name": "not locked: the user wins (off)",
+   "key": "custom_exercises",
+   "rule": {
+    "default": true,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": false,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  },
+  {
+   "name": "not locked: the admin value is the starting value when the user has none (on over default off)",
+   "key": "tiers",
+   "rule": {
+    "default": false,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": false
+   }
+  },
+  {
+   "name": "not locked: missing from the policy uses the catalogue default",
+   "key": "rpe_logging",
+   "rule": {
+    "default": false,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  },
+  {
+   "name": "not locked: missing from the policy, default on",
+   "key": "heatmap",
+   "rule": {
+    "default": true,
+    "needsConnection": false,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": false
+   }
+  },
+  {
+   "name": "adminLockable false cannot be locked off: flexible_session",
+   "key": "flexible_session",
+   "rule": {
+    "default": true,
+    "needsConnection": false,
+    "adminLockable": false
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": false
+   }
+  },
+  {
+   "name": "adminLockable false cannot be locked off: progress_charts",
+   "key": "progress_charts",
+   "rule": {
+    "default": true,
+    "needsConnection": false,
+    "adminLockable": false
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": false
+   }
+  },
+  {
+   "name": "gym area key is on once connected even if the policy says locked off",
+   "key": "membership",
+   "rule": {
+    "default": false,
+    "needsConnection": true,
+    "adminLockable": false
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": false
+   }
+  },
+  {
+   "name": "gym area key missing from the policy is on once connected",
+   "key": "inbox",
+   "rule": {
+    "default": false,
+    "needsConnection": true,
+    "adminLockable": false
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": false
+   }
+  },
+  {
+   "name": "needsConnection + lockable: locked on wins",
+   "key": "classes",
+   "rule": {
+    "default": false,
+    "needsConnection": true,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": true
+   }
+  },
+  {
+   "name": "needsConnection + lockable: not locked uses the admin value",
+   "key": "push",
+   "rule": {
+    "default": false,
+    "needsConnection": true,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": true,
+    "locked": false
+   }
+  },
+  {
+   "name": "needsConnection + lockable: not locked, user says off",
+   "key": "push",
+   "rule": {
+    "default": false,
+    "needsConnection": true,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": false,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  },
+  {
+   "name": "needsConnection + lockable: missing from the policy uses the catalogue default (off)",
+   "key": "store",
+   "rule": {
+    "default": false,
+    "needsConnection": true,
+    "adminLockable": true
+   },
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {},
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  },
+  {
+   "name": "unknown key in the policy is ignored (no rule = off)",
+   "key": "mystery_key",
+   "rule": null,
+   "policy": {
+    "contract": "1.0.0",
+    "version": 12,
+    "published_at": "2026-11-17T10:00:00Z",
+    "gym": {
+     "name": "Shield Fitness",
+     "slug": "shield-fitness",
+     "timezone": "Asia/Kolkata"
+    },
+    "features": {
+     "custom_exercises": {
+      "enabled": true,
+      "locked": false
+     },
+     "rpe_logging": {
+      "enabled": false,
+      "locked": true
+     },
+     "suggestions": {
+      "enabled": false,
+      "locked": true
+     },
+     "heatmap": {
+      "enabled": true,
+      "locked": true
+     },
+     "flexible_session": {
+      "enabled": false,
+      "locked": true
+     },
+     "progress_charts": {
+      "enabled": false,
+      "locked": true
+     },
+     "membership": {
+      "enabled": false,
+      "locked": true
+     },
+     "push": {
+      "enabled": true,
+      "locked": false
+     },
+     "classes": {
+      "enabled": true,
+      "locked": true
+     },
+     "tiers": {
+      "enabled": true,
+      "locked": false
+     },
+     "mystery_key": {
+      "enabled": true,
+      "locked": true
+     }
+    },
+    "defaults": {},
+    "library": {
+     "hidden_exercise_slugs": [],
+     "youtube_overrides": {},
+     "machine_status": {},
+     "extra_exercise_slugs": []
+    },
+    "programs_published": [],
+    "branding": {
+     "short_name": "Shield",
+     "support_phone_display": null
+    }
+   },
+   "user": null,
+   "expect": {
+    "on": false,
+    "locked": false
+   }
+  }
+ ]
+}

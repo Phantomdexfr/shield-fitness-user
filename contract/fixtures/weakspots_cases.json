@@ -1,0 +1,132 @@
+{
+  "_about": "engines.md section 23 (weakSpots), worked by hand. Window = the last 28 days including today (2026-10-24 .. 2026-11-20 for today 2026-11-20). value = sum over entries of sets x (max weight of the group's muscles in that entry). baseline = median of groups with value > 0. weak = value < 0.4 x baseline (strict), group not marked, lowest value first, ties by group id, at most 3. Fewer than 6 sessions = not_enough.",
+  "muscles": [
+    {"id": "chest", "parent": "chest"}, {"id": "upper_chest", "parent": "chest"}, {"id": "lower_chest", "parent": "chest"},
+    {"id": "back", "parent": "back"}, {"id": "lats", "parent": "back"}, {"id": "rhomboids", "parent": "back"},
+    {"id": "shoulders", "parent": "shoulders"}, {"id": "front_delts", "parent": "shoulders"}, {"id": "rear_delts", "parent": "shoulders"},
+    {"id": "biceps", "parent": "biceps"}, {"id": "triceps", "parent": "triceps"}, {"id": "quads", "parent": "quads"}, {"id": "calves", "parent": "calves"}
+  ],
+  "cases": [
+    {
+      "name": "basic: calves untrained and shoulders light",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back", "shoulders", "biceps", "triceps", "quads", "calves"],
+      "marked": [],
+      "entries": [
+        {"day": "2026-11-18", "sets": 4, "weights": {"upper_chest": 1, "front_delts": 0.3, "triceps": 0.3}},
+        {"day": "2026-11-16", "sets": 3, "weights": {"lats": 1, "rhomboids": 0.6, "biceps": 0.6}},
+        {"day": "2026-11-14", "sets": 5, "weights": {"quads": 1}},
+        {"day": "2026-11-10", "sets": 3, "weights": {"upper_chest": 0.6, "lower_chest": 1, "triceps": 0.6}},
+        {"day": "2026-11-08", "sets": 4, "weights": {"lats": 1, "biceps": 0.3}},
+        {"day": "2026-11-05", "sets": 4, "weights": {"quads": 1}},
+        {"day": "2026-10-20", "sets": 10, "weights": {"calves": 1}}
+      ],
+      "expected": {"status": "ok", "baseline": 5, "weak": [{"group": "calves", "value": 0, "ratio": 0}, {"group": "shoulders", "value": 1.2, "ratio": 0.24}]},
+      "expectedValues": {"chest": 7, "back": 7, "shoulders": 1.2, "biceps": 3, "triceps": 3, "quads": 9}
+    },
+    {
+      "name": "five sessions is not enough",
+      "today": "2026-11-20", "sessions": 5,
+      "groups": ["chest", "back", "quads"],
+      "marked": [],
+      "entries": [{"day": "2026-11-18", "sets": 4, "weights": {"upper_chest": 1}}],
+      "expected": {"status": "not_enough", "baseline": 0, "weak": []}
+    },
+    {
+      "name": "marked groups are skipped (a child mark covers its group)",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back", "shoulders", "biceps", "triceps", "quads", "calves"],
+      "marked": ["calves", "rear_delts"],
+      "entries": [
+        {"day": "2026-11-18", "sets": 4, "weights": {"upper_chest": 1, "front_delts": 0.3, "triceps": 0.3}},
+        {"day": "2026-11-16", "sets": 3, "weights": {"lats": 1, "rhomboids": 0.6, "biceps": 0.6}},
+        {"day": "2026-11-14", "sets": 5, "weights": {"quads": 1}},
+        {"day": "2026-11-10", "sets": 3, "weights": {"upper_chest": 0.6, "lower_chest": 1, "triceps": 0.6}},
+        {"day": "2026-11-08", "sets": 4, "weights": {"lats": 1, "biceps": 0.3}},
+        {"day": "2026-11-05", "sets": 4, "weights": {"quads": 1}}
+      ],
+      "expected": {"status": "ok", "baseline": 5, "weak": []}
+    },
+    {
+      "name": "only the 3 weakest, ties by group id",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back", "shoulders", "biceps", "triceps", "quads", "calves"],
+      "marked": [],
+      "entries": [
+        {"day": "2026-11-18", "sets": 10, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-17", "sets": 10, "weights": {"lats": 1}}
+      ],
+      "expected": {"status": "ok", "baseline": 10, "weak": [{"group": "biceps", "value": 0, "ratio": 0}, {"group": "calves", "value": 0, "ratio": 0}, {"group": "quads", "value": 0, "ratio": 0}]}
+    },
+    {
+      "name": "exactly 40% of the baseline is not weak",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back", "quads", "biceps"],
+      "marked": [],
+      "entries": [
+        {"day": "2026-11-18", "sets": 10, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-17", "sets": 10, "weights": {"lats": 1}},
+        {"day": "2026-11-16", "sets": 10, "weights": {"quads": 1}},
+        {"day": "2026-11-15", "sets": 4, "weights": {"biceps": 1}}
+      ],
+      "expected": {"status": "ok", "baseline": 10, "weak": []}
+    },
+    {
+      "name": "just under 40% is weak",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back", "quads", "biceps"],
+      "marked": [],
+      "entries": [
+        {"day": "2026-11-18", "sets": 10, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-17", "sets": 10, "weights": {"lats": 1}},
+        {"day": "2026-11-16", "sets": 10, "weights": {"quads": 1}},
+        {"day": "2026-11-15", "sets": 3.9, "weights": {"biceps": 1}}
+      ],
+      "expected": {"status": "ok", "baseline": 10, "weak": [{"group": "biceps", "value": 3.9, "ratio": 0.39}]}
+    },
+    {
+      "name": "window edge: 2026-10-24 counts, 2026-10-23 does not",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back", "quads"],
+      "marked": [],
+      "entries": [
+        {"day": "2026-10-24", "sets": 6, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-01", "sets": 6, "weights": {"quads": 1}},
+        {"day": "2026-10-23", "sets": 6, "weights": {"lats": 1}}
+      ],
+      "expected": {"status": "ok", "baseline": 6, "weak": [{"group": "back", "value": 0, "ratio": 0}]}
+    },
+    {
+      "name": "no work at all in the window",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back"],
+      "marked": [],
+      "entries": [],
+      "expected": {"status": "ok", "baseline": 0, "weak": []}
+    },
+    {
+      "name": "a core id from a custom exercise counts for its own group; even count median",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back"],
+      "marked": [],
+      "entries": [
+        {"day": "2026-11-18", "sets": 5, "weights": {"chest": 0.6}},
+        {"day": "2026-11-17", "sets": 5, "weights": {"lats": 1}}
+      ],
+      "expected": {"status": "ok", "baseline": 4, "weak": []},
+      "expectedValues": {"chest": 3, "back": 5}
+    },
+    {
+      "name": "odd count median",
+      "today": "2026-11-20", "sessions": 6,
+      "groups": ["chest", "back", "quads"],
+      "marked": [],
+      "entries": [
+        {"day": "2026-11-18", "sets": 2, "weights": {"upper_chest": 1}},
+        {"day": "2026-11-17", "sets": 10, "weights": {"lats": 1}},
+        {"day": "2026-11-16", "sets": 10, "weights": {"quads": 1}}
+      ],
+      "expected": {"status": "ok", "baseline": 10, "weak": [{"group": "chest", "value": 2, "ratio": 0.2}]}
+    }
+  ]
+}

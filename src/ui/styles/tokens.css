@@ -1,0 +1,142 @@
+/* Design tokens: the ONLY file allowed to hold colour literals (guard.test.ts).
+   Spec: docs/design/DESIGN_TOKENS.md. Dark + gold. No purple/violet/indigo/magenta/pink. */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces (warm near-black, never blue-black) */
+  --bg-void: #070707;
+  --bg-base: #0d0c0a;
+  --bg-raised: #14120e;
+  --bg-card: #1a1711;
+  --bg-hover: #24201a;
+  --line: #2e2a20;
+  --line-strong: #4a4332;
+
+  /* Text */
+  --text: #f4eedc;
+  --text-2: #bdb49c;
+  --text-muted: #857d69;
+  --text-on-gold: #120f06;
+
+  /* Gold ramp (the accent) */
+  --gold-100: #f7ebc3;
+  --gold-200: #ebd58b;
+  --gold-300: #e0c06a;
+  --gold-400: #d4af37;
+  --gold-500: #b8922a;
+  --gold-600: #8f6f1e;
+  --gold-700: #6a5217;
+  --gold-metal: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  --glow-gold: 0 0 24px rgba(212, 175, 55, 0.22);
+
+  /* Semantic (muted, never neon; danger is brick, never pink) */
+  --ok: #7fb069;
+  --warn: #e0a03a;
+  --danger: #c8442f;
+  --info: #7fa6b8;
+
+  /* Rank tiers (general level tiers). Muscle badges use --tier-* below. */
+  --rank-bronze: #b0713a;
+  --rank-silver: #c0c4c8;
+  --rank-gold: #d4af37;
+  --rank-platinum: #e5e4e2;
+  --rank-diamond: #9ad7e6;
+  --rank-shield-elite: #0a0a0a; /* crest: gold-300 border + --glow-gold */
+
+  /* Muscle tier badge colours (tier name is always written, never colour alone) */
+  --tier-wood: #7a5638;
+  --tier-beginner: #a39e93;
+  --tier-bronze: #b87333;
+  --tier-silver: #c3cad3;
+  --tier-gold: #d4af37;
+  --tier-platinum: #e6e8ea;
+  --tier-diamond: #8ec5e8;
+  --tier-master: #e0883a;
+  --tier-olympian: #f7ebc3; /* plus --glow-gold and laurel mark */
+
+  /* Chart series ramp (colour-blind aware) */
+  --chart-1: #d4af37;
+  --chart-2: #f4eedc;
+  --chart-3: #7fa6b8;
+  --chart-4: #b0713a;
+  --chart-5: #7fb069;
+  --chart-6: #bdb49c;
+  --chart-grid: var(--line);
+  --chart-axis: var(--text-muted);
+
+  /* Heat ramp 0-5 (heatmap, 2D/3D body): gold only, no red/pink/purple */
+  --heat-0: var(--bg-card); /* draw with a --line hairline outline */
+  --heat-1: #4a3b14;
+  --heat-2: #8f6f1e;
+  --heat-3: #d4af37;
+  --heat-4: #ebd58b;
+  --heat-5: #f7ebc3; /* plus --glow-gold */
+  /* Compare mode: gain = heat ramp, loss = steel ramp (never red) */
+  --loss-1: #26343b;
+  --loss-2: #4a6674;
+  --loss-3: #7fa6b8;
+  --loss-4: #a9c6d3;
+  --loss-5: #d3e3ea;
+
+  /* Recovery clock + marks */
+  --rec-fatigued: #b0713a;
+  --rec-recovering: #e0a03a;
+  --rec-ready: #d4af37;
+  --rec-fresh: #f4eedc; /* ivory outline */
+  --mark-avoid-stripe: #f4eedc; /* hatched ivory stripes */
+  --mark-avoid-outline: var(--danger);
+  --mark-sore: var(--warn); /* amber hatch */
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* Spacing (4 px base). Touch target >= 44 px. */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+  --sp-9: 48px;
+  --sp-10: 64px;
+  --touch-min: 44px;
+
+  /* Shadows */
+  --sh-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 10px 30px rgba(0, 0, 0, 0.45);
+  --sh-press: 0 2px 10px rgba(0, 0, 0, 0.55) inset;
+
+  /* Overlays and soft washes (translucent fills, used by sheets, chips, badges) */
+  --scrim: rgba(0, 0, 0, 0.62);
+  --gold-wash: rgba(212, 175, 55, 0.12);
+  --ok-wash: rgba(127, 176, 105, 0.14);
+  --warn-wash: rgba(224, 160, 58, 0.14);
+  --danger-wash: rgba(200, 68, 47, 0.16);
+  --info-wash: rgba(127, 166, 184, 0.14);
+
+  /* Background vignette: very faint warm gold glow on flat near-black */
+  --bg-vignette: radial-gradient(120% 60% at 50% 0%, rgba(212, 175, 55, 0.04), transparent 70%);
+
+  /* Type */
+  --font-ui: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --text-xs: 0.75rem; /* 12 */
+  --text-sm: 0.875rem; /* 14 */
+  --text-md: 1rem; /* 16, body minimum */
+  --text-lg: 1.25rem; /* 20 */
+  --text-xl: 1.75rem; /* 28 */
+  --text-2xl: 2.5rem; /* 40 */
+  --text-3xl: 3.5rem; /* 56 */
+
+  /* Motion (base.css zeroes the durations under prefers-reduced-motion) */
+  --ease-spring: cubic-bezier(0.2, 0.9, 0.25, 1.15);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 90ms;
+  --dur-base: 180ms;
+  --dur-slow: 320ms;
+}

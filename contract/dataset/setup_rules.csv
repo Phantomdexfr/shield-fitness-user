@@ -1,0 +1,323 @@
+rule_id,keyword,axis,value,excludes,confidence,note
+sr001,hammer grip,grip,hammer,,high,hammer curl as an exercise name is not a variation row; only the grip words are tagged
+sr002,hammer handle,grip,hammer,,high,hammer curl as an exercise name is not a variation row; only the grip words are tagged
+sr003,alternated grip,grip,mixed,,high,
+sr004,mixed,grip,mixed,,high,
+sr005,mixed grip,grip,mixed,,high,
+sr006,over under grip,grip,mixed,,high,
+sr007,neutral,grip,neutral,palms facing down|palms facing up,high,semi neutral is folded into neutral (vocabulary has no semi value)
+sr008,palms facing,grip,neutral,palms facing down|palms facing up,high,semi neutral is folded into neutral (vocabulary has no semi value)
+sr009,palms facing each other,grip,neutral,palms facing down|palms facing up,high,semi neutral is folded into neutral (vocabulary has no semi value)
+sr010,palms in,grip,neutral,palms facing down|palms facing up,high,semi neutral is folded into neutral (vocabulary has no semi value)
+sr011,parallel grip,grip,neutral,palms facing down|palms facing up,high,semi neutral is folded into neutral (vocabulary has no semi value)
+sr012,semi neutral,grip,neutral,palms facing down|palms facing up,high,semi neutral is folded into neutral (vocabulary has no semi value)
+sr013,thumb up,grip,neutral,,ambiguous,thumbs-up hold is a neutral (hammer-like) grip; thumbs-back/down variants are not tagged
+sr014,thumbs up,grip,neutral,,ambiguous,thumbs-up hold is a neutral (hammer-like) grip; thumbs-back/down variants are not tagged
+sr015,thumbs up vs thumbs back,grip,neutral,,ambiguous,thumbs-up hold is a neutral (hammer-like) grip; thumbs-back/down variants are not tagged
+sr016,double overhand,grip,pronated,,high,
+sr017,overhand,grip,pronated,,high,
+sr018,palm down,grip,pronated,,high,
+sr019,palms away,grip,pronated,,high,
+sr020,palms down,grip,pronated,,high,
+sr021,palms facing down,grip,pronated,,high,
+sr022,pronated,grip,pronated,,high,
+sr023,pronated grip,grip,pronated,,high,
+sr024,prone grip,grip,pronated,,high,
+sr025,reverse grip,grip,reverse,,high,only the grip phrase; reverse stride/lunge/fly/curl are not grips
+sr026,reverse handle grip,grip,reverse,,high,only the grip phrase; reverse stride/lunge/fly/curl are not grips
+sr027,reversed grip,grip,reverse,,high,only the grip phrase; reverse stride/lunge/fly/curl are not grips
+sr028,chin up grip,grip,supinated,,high,
+sr029,palm up,grip,supinated,,high,
+sr030,palms facing up,grip,supinated,,high,
+sr031,palms up,grip,supinated,,high,
+sr032,supinated,grip,supinated,,high,
+sr033,supinated grip,grip,supinated,,high,
+sr034,under hand,grip,supinated,,high,
+sr035,underhand,grip,supinated,,high,
+sr036,close feet,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr037,close grip,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr038,close hand,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr039,close handle,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr040,close hands,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr041,close stance,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr042,closer grip,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr043,closer stance,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr044,feet close,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr045,feet narrow,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr046,narrow,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr047,narrow feet,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr048,narrow grip,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr049,narrow hand,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr050,narrow stance,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr051,narrower,width,narrow,elbows|elbow|narrow elbows|narrow back|narrow knees,high,
+sr052,conventional or sumo,width,shoulder,,ambiguous,conventional stance is about shoulder width
+sr053,conventional stance,width,shoulder,,ambiguous,conventional stance is about shoulder width
+sr054,conventional vs sumo,width,shoulder,,ambiguous,conventional stance is about shoulder width
+sr055,hip width,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr056,hip width stance,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr057,hips width,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr058,medium,width,shoulder,weight|load|resistance|tube|band|box|intensity|pace|tempo|cadence|small|large|heavy|light|height|distance|speed,ambiguous,"""medium"" next to grip/hand/stance words means shoulder width; excluded when it describes load, tube, box, pace or MAG handle size"
+sr059,medium grip,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr060,medium hand,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr061,medium hand position,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr062,medium hands,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr063,medium stance,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr064,medium width,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr065,regular grip,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr066,regular stance,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr067,shoulder width,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr068,shoulder width apart,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr069,shoulder width grip,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr070,shoulder width stance,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr071,standard grip,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr072,standard width,width,shoulder,,high,"medium, hip width and standard are folded into shoulder (vocabulary has three widths)"
+sr073,sumo or conventional,width,shoulder,,ambiguous,conventional stance is about shoulder width
+sr074,feet wide,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr075,sumo,width,wide,high pull,ambiguous,sumo stance is a wide stance
+sr076,sumo stance,width,wide,high pull,ambiguous,sumo stance is a wide stance
+sr077,wide,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr078,wide feet,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr079,wide foot,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr080,wide grip,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr081,wide hand,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr082,wide handle,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr083,wide hands,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr084,wide mag grip,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr085,wide neutral,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr086,wide pronated,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr087,wide stance,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr088,wider,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr089,wider grip,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr090,wider stance,width,wide,elbows|elbow|wide elbows|wide back|wide knees|wide row|wide swing|wide step,high,width covers grip width and stance width
+sr091,bare handle,handle,bare_handles,handles vs no handles|no handles,high,
+sr092,bare handles,handle,bare_handles,handles vs no handles|no handles,high,
+sr093,fixed handles,handle,bare_handles,handles vs no handles|no handles,high,
+sr094,machine handles,handle,bare_handles,handles vs no handles|no handles,high,
+sr095,no attachment,handle,bare_handles,handles vs no handles|no handles,high,
+sr096,plain handle,handle,bare_handles,handles vs no handles|no handles,high,
+sr097,cambered lat bar,handle,curved_lat_bar,,high,
+sr098,curved bar,handle,curved_lat_bar,,high,
+sr099,curved handle,handle,curved_lat_bar,,high,
+sr100,curved lat,handle,curved_lat_bar,,high,
+sr101,curved lat bar,handle,curved_lat_bar,,high,
+sr102,lat bar curved,handle,curved_lat_bar,,high,
+sr103,w bar,handle,curved_lat_bar,,high,
+sr104,wide curved bar,handle,curved_lat_bar,,high,
+sr105,d grip,handle,d_handle,,high,
+sr106,d handle,handle,d_handle,,high,
+sr107,d ring handle,handle,d_handle,,high,
+sr108,d shaped handle,handle,d_handle,,high,
+sr109,single d handle,handle,d_handle,,high,
+sr110,stirrup d handle,handle,d_handle,,high,
+sr111,two d handles,handle,d_handle,,high,
+sr112,cambered bar,handle,ez_bar,,high,
+sr113,e z bar,handle,ez_bar,,high,
+sr114,ez,handle,ez_bar,,high,
+sr115,ez attachment,handle,ez_bar,,high,
+sr116,ez bar,handle,ez_bar,,high,
+sr117,ez curl bar,handle,ez_bar,,high,
+sr118,ez handle,handle,ez_bar,,high,
+sr119,mag,handle,mag_handle,,high,MAG is a Jerai/Hammer-style multi-angle grip; any mention counts
+sr120,mag attachment,handle,mag_handle,,high,MAG is a Jerai/Hammer-style multi-angle grip; any mention counts
+sr121,mag grip,handle,mag_handle,,high,MAG is a Jerai/Hammer-style multi-angle grip; any mention counts
+sr122,mag handle,handle,mag_handle,,high,MAG is a Jerai/Hammer-style multi-angle grip; any mention counts
+sr123,mag handles,handle,mag_handle,,high,MAG is a Jerai/Hammer-style multi-angle grip; any mention counts
+sr124,mag rowing handle,handle,mag_handle,,high,MAG is a Jerai/Hammer-style multi-angle grip; any mention counts
+sr125,face pull rope,handle,rope,climb|climbing|jump|skip|skipping|battle|ropes waves|rope waves|jump rope|mm|thickness|light rope|heavy rope,high,"battle rope, climbing rope and jump rope rows are not cable attachments; the current data has no cable-rope variation row, which is a known gap (see REACH_GAPS.md)"
+sr126,rope,handle,rope,climb|climbing|jump|skip|skipping|battle|ropes waves|rope waves|jump rope|mm|thickness|light rope|heavy rope,high,"battle rope, climbing rope and jump rope rows are not cable attachments; the current data has no cable-rope variation row, which is a known gap (see REACH_GAPS.md)"
+sr127,rope attachment,handle,rope,climb|climbing|jump|skip|skipping|battle|ropes waves|rope waves|jump rope|mm|thickness|light rope|heavy rope,high,"battle rope, climbing rope and jump rope rows are not cable attachments; the current data has no cable-rope variation row, which is a known gap (see REACH_GAPS.md)"
+sr128,rope handle,handle,rope,climb|climbing|jump|skip|skipping|battle|ropes waves|rope waves|jump rope|mm|thickness|light rope|heavy rope,high,"battle rope, climbing rope and jump rope rows are not cable attachments; the current data has no cable-rope variation row, which is a known gap (see REACH_GAPS.md)"
+sr129,tricep rope,handle,rope,climb|climbing|jump|skip|skipping|battle|ropes waves|rope waves|jump rope|mm|thickness|light rope|heavy rope,high,"battle rope, climbing rope and jump rope rows are not cable attachments; the current data has no cable-rope variation row, which is a known gap (see REACH_GAPS.md)"
+sr130,triceps rope,handle,rope,climb|climbing|jump|skip|skipping|battle|ropes waves|rope waves|jump rope|mm|thickness|light rope|heavy rope,high,"battle rope, climbing rope and jump rope rows are not cable attachments; the current data has no cable-rope variation row, which is a known gap (see REACH_GAPS.md)"
+sr131,ankle attachment,handle,stirrup,,high,stirrup = loop for hand or foot; ankle cuff folded in because it is the same attach-and-clip pattern
+sr132,ankle cuff,handle,stirrup,,high,stirrup = loop for hand or foot; ankle cuff folded in because it is the same attach-and-clip pattern
+sr133,ankle strap,handle,stirrup,,high,stirrup = loop for hand or foot; ankle cuff folded in because it is the same attach-and-clip pattern
+sr134,stirrup,handle,stirrup,,high,stirrup = loop for hand or foot; ankle cuff folded in because it is the same attach-and-clip pattern
+sr135,stirrup attachment,handle,stirrup,,high,stirrup = loop for hand or foot; ankle cuff folded in because it is the same attach-and-clip pattern
+sr136,stirrup grip,handle,stirrup,,high,stirrup = loop for hand or foot; ankle cuff folded in because it is the same attach-and-clip pattern
+sr137,stirrup handle,handle,stirrup,,high,stirrup = loop for hand or foot; ankle cuff folded in because it is the same attach-and-clip pattern
+sr138,lat bar straight,handle,straight_bar,,high,
+sr139,long bar,handle,straight_bar,,high,
+sr140,straight bar,handle,straight_bar,,high,
+sr141,straight bar attachment,handle,straight_bar,,high,
+sr142,straight bar handle,handle,straight_bar,,high,
+sr143,straight handle,handle,straight_bar,,high,
+sr144,cable strap,handle,strap,,high,cable strap handle only; lifting straps are an aid and stay untagged
+sr145,cable strap handle,handle,strap,,high,cable strap handle only; lifting straps are an aid and stay untagged
+sr146,single strap,handle,strap,,high,cable strap handle only; lifting straps are an aid and stay untagged
+sr147,strap attachment,handle,strap,,high,cable strap handle only; lifting straps are an aid and stay untagged
+sr148,strap handle,handle,strap,,high,cable strap handle only; lifting straps are an aid and stay untagged
+sr149,strap handles,handle,strap,,high,cable strap handle only; lifting straps are an aid and stay untagged
+sr150,two straps handles,handle,strap,,high,cable strap handle only; lifting straps are an aid and stay untagged
+sr151,close grip triangle,handle,v_handle,,high,
+sr152,narrow v handle,handle,v_handle,,high,
+sr153,triangle handle,handle,v_handle,,high,
+sr154,v attachment,handle,v_handle,,high,
+sr155,v bar,handle,v_handle,,high,
+sr156,v grip handle,handle,v_handle,,high,
+sr157,v handle,handle,v_handle,,high,
+sr158,v shaped handle,handle,v_handle,,high,
+sr159,chest against pad,position,chest_supported,,ambiguous,
+sr160,chest on bench,position,chest_supported,,ambiguous,
+sr161,chest on the pad,position,chest_supported,,ambiguous,
+sr162,chest pad,position,chest_supported,,ambiguous,
+sr163,chest supported,position,chest_supported,,ambiguous,
+sr164,chest supported on incline bench,position,chest_supported,,ambiguous,
+sr165,chest supported version,position,chest_supported,,ambiguous,
+sr166,forearms on bench,position,chest_supported,,ambiguous,
+sr167,prone supported,position,chest_supported,,ambiguous,
+sr168,supported on a bench,position,chest_supported,,ambiguous,
+sr169,supported row,position,chest_supported,,ambiguous,
+sr170,decline,position,decline,decline bench|declined bench,high,
+sr171,decline angle,position,decline,decline bench|declined bench,high,
+sr172,decline position,position,decline,decline bench|declined bench,high,
+sr173,decline press,position,decline,decline bench|declined bench,high,
+sr174,decline version,position,decline,decline bench|declined bench,high,
+sr175,declined,position,decline,decline bench|declined bench,high,
+sr176,half kneel,position,half_kneeling,,high,
+sr177,half kneeling,position,half_kneeling,,high,
+sr178,half kneeling stance,position,half_kneeling,,high,
+sr179,half kneeling version,position,half_kneeling,,high,
+sr180,kneeling on one knee,position,half_kneeling,,high,
+sr181,one knee down,position,half_kneeling,,high,
+sr182,single knee kneeling,position,half_kneeling,,high,
+sr183,incline,position,incline,bench|walk|treadmill|run|sprint|intervals|percent|percentages|ramp|pyramid|anchor|plyo|push up|supported|degree|degrees|setting,high,"bench axis handles ""incline bench""; treadmill, ramp and interval incline are not a setup"
+sr184,incline angle,position,incline,bench|walk|treadmill|run|sprint|intervals|percent|percentages|ramp|pyramid|anchor|plyo|push up|supported|degree|degrees|setting,high,"bench axis handles ""incline bench""; treadmill, ramp and interval incline are not a setup"
+sr185,incline curl,position,incline,bench|walk|treadmill|run|sprint|intervals|percent|percentages|ramp|pyramid|anchor|plyo|push up|supported|degree|degrees|setting,high,"bench axis handles ""incline bench""; treadmill, ramp and interval incline are not a setup"
+sr186,incline position,position,incline,bench|walk|treadmill|run|sprint|intervals|percent|percentages|ramp|pyramid|anchor|plyo|push up|supported|degree|degrees|setting,high,"bench axis handles ""incline bench""; treadmill, ramp and interval incline are not a setup"
+sr187,incline press,position,incline,bench|walk|treadmill|run|sprint|intervals|percent|percentages|ramp|pyramid|anchor|plyo|push up|supported|degree|degrees|setting,high,"bench axis handles ""incline bench""; treadmill, ramp and interval incline are not a setup"
+sr188,incline version,position,incline,bench|walk|treadmill|run|sprint|intervals|percent|percentages|ramp|pyramid|anchor|plyo|push up|supported|degree|degrees|setting,high,"bench axis handles ""incline bench""; treadmill, ramp and interval incline are not a setup"
+sr189,inclined,position,incline,bench|walk|treadmill|run|sprint|intervals|percent|percentages|ramp|pyramid|anchor|plyo|push up|supported|degree|degrees|setting,high,"bench axis handles ""incline bench""; treadmill, ramp and interval incline are not a setup"
+sr190,kneeling,position,kneeling,half kneeling|half kneel|kneeling on one knee|half kneeling stance,high,
+sr191,kneeling version,position,kneeling,half kneeling|half kneel|kneeling on one knee|half kneeling stance,high,
+sr192,knees down,position,kneeling,half kneeling|half kneel|kneeling on one knee|half kneeling stance,high,
+sr193,tall kneeling,position,kneeling,half kneeling|half kneel|kneeling on one knee|half kneeling stance,high,
+sr194,forward lean,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr195,lean,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr196,lean back,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr197,lean back slightly,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr198,lean forward,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr199,lean in,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr200,lean slightly,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr201,leaning,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr202,leaning back,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr203,leaning forward,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr204,torso lean,position,leaning,lean in|lean muscle|lean mass|lean bulk,ambiguous,"""lean-in"" with handles is a different thing and is excluded"
+sr205,face down,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr206,face up,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr207,lie on back,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr208,lie on stomach,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr209,lying,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr210,lying down,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr211,lying on,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr212,lying version,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr213,prone,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr214,supine,position,lying,lying leg|lying leg raise|lying leg raises,ambiguous,
+sr215,seated,position,seated,road|climb|sprint|sprints,high,
+sr216,seated version,position,seated,road|climb|sprint|sprints,high,
+sr217,sitting,position,seated,road|climb|sprint|sprints,high,
+sr218,stand,position,standing,stand on|standing on|stand at|standing start|climb,ambiguous,
+sr219,stand up,position,standing,stand on|standing on|stand at|standing start|climb,ambiguous,
+sr220,standing,position,standing,stand on|standing on|stand at|standing start|climb,ambiguous,
+sr221,standing version,position,standing,stand on|standing on|stand at|standing start|climb,ambiguous,
+sr222,upright standing,position,standing,stand on|standing on|stand at|standing start|climb,ambiguous,
+sr223,alternate,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr224,alternate arms,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr225,alternate sides,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr226,alternating,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr227,alternating arm,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr228,alternating arms,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr229,alternating curls,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr230,alternating hands,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr231,alternating press,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr232,alternating sides,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr233,alternating vs simultaneous,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr234,alternating vs simultaneous arms,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr235,alternating waves,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr236,arms alternate,arms,alternating,foot|limbs|leg|crossing|crossed|alternating leg|alternating legs|alternating lunge|alternating lunges|alternating step|alternating feet|alternating knee|alternating foot|alternating skater|alternating jump|alternating stride|alternating kicks|alternating kick|alternating toe|alternating toes|alternating heel,ambiguous,"""alternating sides"" and bare ""alternating"" are ambiguous: arms on upper-body lifts, legs on lunges; the compiler also lists these in the review report"
+sr237,arms together,arms,both,both feet|both legs|both knees|both ends,high,
+sr238,bilateral,arms,both,both feet|both legs|both knees|both ends,high,
+sr239,both arms,arms,both,both feet|both legs|both knees|both ends,high,
+sr240,both hands,arms,both,both feet|both legs|both knees|both ends,high,
+sr241,both sides together,arms,both,both feet|both legs|both knees|both ends,high,
+sr242,double arm,arms,both,both feet|both legs|both knees|both ends,high,
+sr243,double handed,arms,both,both feet|both legs|both knees|both ends,high,
+sr244,double waves,arms,both,both feet|both legs|both knees|both ends,high,
+sr245,simultaneous,arms,both,both feet|both legs|both knees|both ends,high,
+sr246,simultaneous arms,arms,both,both feet|both legs|both knees|both ends,high,
+sr247,two arms,arms,both,both feet|both legs|both knees|both ends,high,
+sr248,two handed,arms,both,both feet|both legs|both knees|both ends,high,
+sr249,two hands,arms,both,both feet|both legs|both knees|both ends,high,
+sr250,left and right arm,arms,single,,high,
+sr251,left and right hand,arms,single,,high,
+sr252,left arm,arms,single,,high,
+sr253,one arm,arms,single,,high,
+sr254,one arm at a time,arms,single,,high,
+sr255,one arm supported,arms,single,,high,
+sr256,one hand,arms,single,,high,
+sr257,one handed,arms,single,,high,
+sr258,one side,arms,single,single leg|one leg|single dumbbell|single knee|leg|feet|foot,ambiguous,side/unilateral can mean a leg; excluded when a leg word is present
+sr259,one side at a time,arms,single,single leg|one leg|single dumbbell|single knee|leg|feet|foot,ambiguous,side/unilateral can mean a leg; excluded when a leg word is present
+sr260,right arm,arms,single,,high,
+sr261,single arm,arms,single,,high,
+sr262,single arm version,arms,single,,high,
+sr263,single hand,arms,single,,high,
+sr264,single handed,arms,single,,high,
+sr265,single handle,arms,single,single leg|one leg|single dumbbell|single knee|leg|feet|foot,ambiguous,side/unilateral can mean a leg; excluded when a leg word is present
+sr266,unilateral,arms,single,single leg|one leg|single dumbbell|single knee|leg|feet|foot,ambiguous,side/unilateral can mean a leg; excluded when a leg word is present
+sr267,decline bench,bench,decline,,high,
+sr268,decline bench angle,bench,decline,,high,
+sr269,decline bench press,bench,decline,,high,
+sr270,decline bench setup,bench,decline,,high,
+sr271,declined bench,bench,decline,,high,
+sr272,bench flat,bench,flat,flat back|flat feet|flat foot|flat palm|flat hand|flat surface|flat ground|flat floor|flat walk|flat belt|road|dome|side up,ambiguous,
+sr273,flat,bench,flat,flat back|flat feet|flat foot|flat palm|flat hand|flat surface|flat ground|flat floor|flat walk|flat belt|road|dome|side up,ambiguous,
+sr274,flat bench,bench,flat,flat back|flat feet|flat foot|flat palm|flat hand|flat surface|flat ground|flat floor|flat walk|flat belt|road|dome|side up,ambiguous,
+sr275,flat bench press,bench,flat,flat back|flat feet|flat foot|flat palm|flat hand|flat surface|flat ground|flat floor|flat walk|flat belt|road|dome|side up,ambiguous,
+sr276,flat incline or seated bench,bench,flat,flat back|flat feet|flat foot|flat palm|flat hand|flat surface|flat ground|flat floor|flat walk|flat belt|road|dome|side up,ambiguous,
+sr277,flat or incline,bench,flat,flat back|flat feet|flat foot|flat palm|flat hand|flat surface|flat ground|flat floor|flat walk|flat belt|road|dome|side up,ambiguous,
+sr278,15 30 or 45 degree bench,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr279,15 degree bench,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr280,30 degree bench,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr281,45 degree bench,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr282,60 degree bench,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr283,bench angle,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr284,bench at 15 30 or 45 degrees,bench,incline,,ambiguous,angled bench phrased without the word incline
+sr285,bench at 75 degrees,bench,incline,,ambiguous,angled bench phrased without the word incline
+sr286,bench back at 80 90 degrees,bench,incline,,ambiguous,angled bench phrased without the word incline
+sr287,bench incline,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr288,degree bench,bench,incline,,ambiguous,angled bench phrased without the word incline
+sr289,degree incline,bench,incline,,ambiguous,angled bench phrased without the word incline
+sr290,incline bench,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr291,incline bench angle,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr292,incline bench press,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr293,incline bench setup,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr294,incline press bench,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr295,inclined bench,bench,incline,incline walk|incline treadmill|incline run|incline sprint,high,
+sr296,bench free,bench,none,,high,
+sr297,floor press,bench,none,,high,
+sr298,no bench,bench,none,,high,
+sr299,without a bench,bench,none,,high,
+sr300,arm blaster,bench,preacher,,high,
+sr301,preacher,bench,preacher,,high,
+sr302,preacher bench,bench,preacher,,high,
+sr303,preacher curl bench,bench,preacher,,high,
+sr304,preacher pad,bench,preacher,,high,
+sr305,preacher seat,bench,preacher,,high,
+sr306,scott bench,bench,preacher,,high,
+sr307,balance ball,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr308,ball on the bench,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr309,exercise ball,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr310,gym ball,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr311,on a ball,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr312,on the ball,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr313,physio ball,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr314,stability ball,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr315,swiss ball,bench,stability_ball,medicine ball|slam ball|wall ball|med ball|ball slam|ball slams|ball toss|ball throw|ball pass|ball catch|ball over|ball chest|ball overhead|ball between|ball rotation|ball squeeze|ball hold,high,"medicine/slam/wall balls are loads, not benches"
+sr316,adjustable bench,bench,utility,,high,
+sr317,adjustable flat incline bench,bench,utility,,high,
+sr318,adjustable utility bench,bench,utility,,high,
+sr319,bench with back support,bench,utility,,high,
+sr320,seated on a utility bench,bench,utility,,high,
+sr321,utility bench,bench,utility,,high,
+sr322,utility bench seated,bench,utility,,high,

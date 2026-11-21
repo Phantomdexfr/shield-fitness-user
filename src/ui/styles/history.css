@@ -1,0 +1,33 @@
+/* Session summary, history and PR wall (Phase 39) */
+.sf-sm__stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-2); min-width: 0; }
+.sf-sm__stat { display: flex; flex-direction: column; gap: 2px; padding: var(--sp-2); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); min-width: 0; }
+.sf-sm__val { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
+.sf-sm__block { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-sm__ex { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-sm__ex-name { margin: 0; font-size: var(--text-md); font-weight: 600; overflow-wrap: anywhere; }
+.sf-sm__sets { margin: 0; color: var(--text-2); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-sm__pr { margin: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: baseline; overflow-wrap: anywhere; }
+.sf-sm__body { display: flex; justify-content: center; min-width: 0; max-width: 100%; }
+.sf-sm__actions { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+/* PR burst: a short gold flash. Static when the person prefers reduced motion. */
+.sf-sm__burst { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 2px; align-items: center; text-align: center; padding: var(--sp-4); border: 1px solid var(--gold-500); border-radius: var(--r-md); background: var(--gold-wash); min-width: 0; }
+.sf-sm__burst::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, var(--gold-300), transparent 65%); opacity: 0; animation: sf-burst 900ms ease-out 1 both; pointer-events: none; }
+.sf-sm__burst-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--gold-200); position: relative; }
+.sf-sm__burst-line, .sf-sm__burst-was { margin: 0; position: relative; overflow-wrap: anywhere; }
+@keyframes sf-burst { 0% { opacity: 0.7; transform: scale(0.2); } 100% { opacity: 0; transform: scale(1.6); } }
+@media (prefers-reduced-motion: reduce) { .sf-sm__burst::before { animation: none; opacity: 0; } }
+/* Calendar */
+.sf-hs__month { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); min-width: 0; }
+.sf-hs__month-name { margin: 0; font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; text-align: center; flex: 1 1 auto; min-width: 0; }
+.sf-hs__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; min-width: 0; }
+.sf-hs__wd { text-align: center; font-size: var(--text-xs); color: var(--text-muted); }
+.sf-hs__cell { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg-raised); color: var(--text); min-width: 0; padding: 0; }
+.sf-hs__cell[aria-pressed='true'] { border-color: var(--gold-500); background: var(--gold-wash); }
+.sf-hs__cell--blank { border: 0; background: transparent; }
+.sf-hs__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-400); }
+.sf-hs__list { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-hs__day { margin: var(--sp-2) 0 0; font-size: var(--text-sm); color: var(--text-2); }
+.sf-hs__item { display: flex; flex-direction: column; gap: 2px; width: 100%; padding: var(--sp-2) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-card); color: var(--text); text-align: left; min-width: 0; }
+.sf-hs__item-title { font-weight: 600; overflow-wrap: anywhere; }
+.sf-pr__wall { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.sf-pr__wall-row { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-2); align-items: baseline; padding: var(--sp-2) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg-raised); min-width: 0; overflow-wrap: anywhere; }

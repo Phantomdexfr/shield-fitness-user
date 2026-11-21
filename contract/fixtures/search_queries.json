@@ -1,0 +1,356 @@
+{
+ "spec": "engines.md section 14 (fuzzySearch); docs/SEARCH.md",
+ "made_by": "User Phase 20",
+ "dataset": "contract/dataset CSVs compiled by the Phase 10 compiler (search.index.json); every case is run against the real compiled index, no filters, no custom exercises",
+ "how_to_read": "`rank` is the worst position (1 = first) at which `expect.slug` (`expect.type` e = exercise, m = machine) may appear among the ranked hits. `didYouMean`, `suggestedSetup` and `expandsTo` (query tokens after alias expansion) are exact when present. `suggestedSetup.value` uses the setup vocabulary value (underscores). Expectations were chosen by reading the results, not copied blindly; a dataset or alias change may legitimately move a rank, then update the fixture with the same change in both apps.",
+ "cases": [
+  {
+   "id": "typo-1",
+   "q": "latt pulldwn",
+   "kind": "typo",
+   "expect": {
+    "type": "e",
+    "slug": "lat-pulldown",
+    "rank": 1
+   },
+   "didYouMean": "lat pulldown"
+  },
+  {
+   "id": "typo-2",
+   "q": "bench presss",
+   "kind": "typo",
+   "expect": {
+    "type": "e",
+    "slug": "barbell-bench-press",
+    "rank": 5
+   },
+   "didYouMean": "bench press"
+  },
+  {
+   "id": "typo-3",
+   "q": "skull crushr",
+   "kind": "typo",
+   "expect": {
+    "type": "e",
+    "slug": "barbell-skull-crusher",
+    "rank": 3
+   },
+   "didYouMean": "skull crusher"
+  },
+  {
+   "id": "typo-4",
+   "q": "leg pres",
+   "kind": "typo",
+   "expect": {
+    "type": "e",
+    "slug": "leg-press",
+    "rank": 1
+   }
+  },
+  {
+   "id": "typo-5",
+   "q": "dumbell curl",
+   "kind": "typo",
+   "expect": {
+    "type": "e",
+    "slug": "dumbbell-hammer-curl",
+    "rank": 12
+   }
+  },
+  {
+   "id": "alias-1",
+   "q": "lat pd",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "lat-pulldown",
+    "rank": 1
+   },
+   "expandsTo": [
+    "lat",
+    "pulldown"
+   ]
+  },
+  {
+   "id": "alias-2",
+   "q": "butterfly",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "pec-deck-fly",
+    "rank": 1
+   },
+   "expandsTo": [
+    "pec",
+    "deck",
+    "fly"
+   ]
+  },
+  {
+   "id": "alias-3",
+   "q": "rdf",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "cable-rear-delt-fly",
+    "rank": 3
+   },
+   "expandsTo": [
+    "rear",
+    "delt",
+    "fly"
+   ]
+  },
+  {
+   "id": "alias-4",
+   "q": "bb bench press",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "barbell-bench-press",
+    "rank": 1
+   },
+   "expandsTo": [
+    "barbell",
+    "bench",
+    "press"
+   ]
+  },
+  {
+   "id": "alias-5",
+   "q": "db curl",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "dumbbell-biceps-curl",
+    "rank": 5
+   },
+   "expandsTo": [
+    "dumbbell",
+    "curl"
+   ]
+  },
+  {
+   "id": "alias-6",
+   "q": "ohp",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "barbell-overhead-press",
+    "rank": 3
+   },
+   "expandsTo": [
+    "overhead",
+    "press"
+   ]
+  },
+  {
+   "id": "alias-7",
+   "q": "rdl",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "barbell-romanian-deadlift",
+    "rank": 2
+   },
+   "expandsTo": [
+    "romanian",
+    "deadlift"
+   ]
+  },
+  {
+   "id": "alias-8",
+   "q": "skullcrusher",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "barbell-skull-crusher",
+    "rank": 2
+   },
+   "expandsTo": [
+    "skull",
+    "crusher"
+   ]
+  },
+  {
+   "id": "alias-9",
+   "q": "tricep pushdown",
+   "kind": "alias",
+   "expect": {
+    "type": "e",
+    "slug": "cable-triceps-pushdown",
+    "rank": 1
+   }
+  },
+  {
+   "id": "order-1",
+   "q": "pulldown lat",
+   "kind": "word order",
+   "expect": {
+    "type": "e",
+    "slug": "lat-pulldown",
+    "rank": 1
+   }
+  },
+  {
+   "id": "order-2",
+   "q": "press bench barbell",
+   "kind": "word order",
+   "expect": {
+    "type": "e",
+    "slug": "barbell-bench-press",
+    "rank": 3
+   }
+  },
+  {
+   "id": "order-3",
+   "q": "curl ez bar",
+   "kind": "word order",
+   "expect": {
+    "type": "e",
+    "slug": "ez-bar-curl",
+    "rank": 3
+   }
+  },
+  {
+   "id": "setup-1",
+   "q": "lat pulldown reverse grip",
+   "kind": "setup word",
+   "expect": {
+    "type": "e",
+    "slug": "lat-pulldown",
+    "rank": 1
+   },
+   "suggestedSetup": {
+    "axis": "grip",
+    "value": "supinated"
+   }
+  },
+  {
+   "id": "setup-2",
+   "q": "seated cable row neutral",
+   "kind": "setup word",
+   "expect": {
+    "type": "e",
+    "slug": "seated-cable-row-neutral-grip",
+    "rank": 1
+   },
+   "suggestedSetup": {
+    "axis": "grip",
+    "value": "neutral"
+   }
+  },
+  {
+   "id": "setup-3",
+   "q": "reverse pec deck neutral",
+   "kind": "setup word",
+   "expect": {
+    "type": "e",
+    "slug": "reverse-pec-deck-rear-delt-fly",
+    "rank": 1
+   },
+   "suggestedSetup": {
+    "axis": "grip",
+    "value": "neutral"
+   }
+  },
+  {
+   "id": "setup-4",
+   "q": "lat pulldown wide grip",
+   "kind": "setup word",
+   "expect": {
+    "type": "e",
+    "slug": "lat-pulldown",
+    "rank": 1
+   },
+   "suggestedSetup": {
+    "axis": "width",
+    "value": "wide"
+   }
+  },
+  {
+   "id": "setup-5",
+   "q": "preacher curl ez",
+   "kind": "setup word",
+   "expect": {
+    "type": "e",
+    "slug": "preacher-curl-ez-bar",
+    "rank": 1
+   },
+   "suggestedSetup": {
+    "axis": "handle",
+    "value": "ez_bar"
+   }
+  },
+  {
+   "id": "machine-1",
+   "q": "pec deck",
+   "kind": "machine",
+   "expect": {
+    "type": "e",
+    "slug": "pec-deck-fly",
+    "rank": 1
+   }
+  },
+  {
+   "id": "machine-2",
+   "q": "cable crossover",
+   "kind": "machine",
+   "expect": {
+    "type": "m",
+    "slug": "cable-crossover",
+    "rank": 1
+   }
+  },
+  {
+   "id": "muscle-1",
+   "q": "rear delt",
+   "kind": "muscle",
+   "expect": {
+    "type": "e",
+    "slug": "cable-rear-delt-fly",
+    "rank": 5
+   }
+  },
+  {
+   "id": "plain-1",
+   "q": "pull up",
+   "kind": "plain",
+   "expect": {
+    "type": "e",
+    "slug": "pull-up",
+    "rank": 1
+   }
+  },
+  {
+   "id": "plain-2",
+   "q": "face pull",
+   "kind": "plain",
+   "expect": {
+    "type": "e",
+    "slug": "cable-face-pull",
+    "rank": 2
+   }
+  },
+  {
+   "id": "plain-3",
+   "q": "plank",
+   "kind": "plain",
+   "expect": {
+    "type": "e",
+    "slug": "plank",
+    "rank": 1
+   }
+  },
+  {
+   "id": "prefix-1",
+   "q": "hip thr",
+   "kind": "prefix",
+   "expect": {
+    "type": "e",
+    "slug": "barbell-hip-thrust",
+    "rank": 3
+   }
+  }
+ ]
+}
