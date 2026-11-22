@@ -37,6 +37,10 @@ html {
   text-size-adjust: 100%;
   overflow-x: clip;
   background: var(--bg-void);
+  /* Phase 82: no pinch or double-tap zoom on touch. Panning stays; the body map, atlas and charts set their own touch-action. */
+  touch-action: pan-x pan-y;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -52,6 +56,8 @@ body {
   overflow-wrap: break-word; /* text wraps, never truncates */
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
+  touch-action: pan-x pan-y;
+  overscroll-behavior: none;
 }
 
 h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd, ul, ol {
@@ -70,6 +76,20 @@ img, svg, video, canvas {
 button, input, select, textarea {
   font: inherit;
   color: inherit;
+}
+/* Phase 82: text fields are at least 16px so iOS never zooms the page on focus. */
+input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']),
+select,
+textarea {
+  font-size: max(1rem, 16px);
+}
+/* Phase 82: app chrome is not selectable (a long press selects nothing); text fields and reading text stay selectable. */
+button,
+.sf-tabbar,
+.sf-press {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 button {
   background: none;

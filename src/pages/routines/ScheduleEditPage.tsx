@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { useLocation, useRoute } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Card, Chip, Dialog, EmptyState, Field, Pressable, Stepper, SubPageHeader } from '../../ui/components';
+import { Button, Card, Chip, DatePicker, Dialog, EmptyState, Pressable, Stepper, SubPageHeader } from '../../ui/components';
 import { istDayKey, isDayKey, type DayKey } from '../../shared/dates';
 import { CYCLE_MAX, CYCLE_MIN, CYCLE_PRESETS, EVERY_N_MAX, MAX_PER_WEEK_MAX, MIN_REST_MAX, effectiveSchedule, nextTile, parseMeta, parseSettings, toggleDeloadWeek, type CycleTile, type WeekStart } from '../../shared/schedule';
 import { readSettings, saveSchedule } from '../../data/repos/schedule';
@@ -12,13 +12,9 @@ import { goBack } from '../../app/navBack';
 const MODES: Mode[] = ['weekdays', 'cycle', 'every_n', 'floating', 'ab_weeks', 'none'];
 const today = () => istDayKey(Date.now());
 
-/** A native date picker in the standard field frame (the shared Input has no `type`). */
+/** The shared calendar picker in the standard field frame. */
 function DateField({ id, label, value, onChange }: { id: string; label: string; value: string; onChange: (v: string) => void }) {
-  return (
-    <Field id={id} label={label}>
-      <input id={id} class="sf-input" type="date" value={value} onInput={(e) => onChange(e.currentTarget.value)} />
-    </Field>
-  );
+  return <DatePicker id={id} label={label} value={value} onChange={onChange} />;
 }
 
 function WeekdayChips({ value, onChange, weekStart }: { value: number[]; onChange: (v: number[]) => void; weekStart: WeekStart }) {
@@ -202,7 +198,7 @@ export default function ScheduleEditPage() {
             {deload.map((w) => (
               <li key={w} class="sf-rt__row">
                 <span class="sf-rt__grow sf-rt__meta">{w}</span>
-                <Button variant="ghost" aria-label={t('sc.deload.remove', { date: w })} onPress={() => setDeload(deload.filter((x) => x !== w))}>{t('sc.deload.unmark')}</Button>
+                <Button variant="secondary" aria-label={t('sc.deload.remove', { date: w })} onPress={() => setDeload(deload.filter((x) => x !== w))}>{t('sc.deload.unmark')}</Button>
               </li>
             ))}
           </ul>

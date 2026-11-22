@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Button, Input, Select, Sheet, showToast } from '../../ui/components';
+import { Button, Input, Select, Sheet, showToast, Row } from '../../ui/components';
 import { listRoutines } from '../../data/repos/routines';
 import { envelopeFor } from '../../data/repos/planShare';
 import { cancelShare, pollShare, startShare, type FlowEnv, type PollEnd, type StartError } from '../../data/relay/shareFlow';
@@ -80,7 +80,7 @@ export function SharePlanSheet({ open, onClose, routineId }: { open: boolean; on
               <Input label={t('ps.share.from')} hint={t('ps.share.from.hint')} {...{ value: from, maxLength: 30 }} onInput={(e) => setFrom((e.target as HTMLInputElement).value)} />
               <Input label={t('ps.share.note')} {...{ value: note, maxLength: 200 }} onInput={(e) => setNote((e.target as HTMLInputElement).value)} />
               <p class="sf-rt__meta">{t('ps.share.what')}</p>
-              <Button variant="ghost" onPress={() => { onClose(); navigate('/settings/privacy'); }}>{t('ps.share.privacy')}</Button>
+              <Row label={t('ps.share.privacy')} onPress={() => { onClose(); navigate('/settings/privacy'); }} />
               <Button disabled={!pick} onPress={() => void start()}>{t('ps.share.go')}</Button>
             </>
           )

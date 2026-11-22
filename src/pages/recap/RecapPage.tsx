@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Card, Chip, EmptyState, SubPageHeader } from '../../ui/components';
+import { Button, Card, Chip, DatePicker, EmptyState, SubPageHeader, Row } from '../../ui/components';
 import { useFeature } from '../../app/flags';
 import { istDayKey, type DayKey } from '../../shared/dates';
 import { volumeText } from '../../shared/history';
@@ -76,7 +76,7 @@ function CardBody({ kind, data }: { kind: RecapCardKind; data: RecapData }) {
         <>
           <h2 class="sf-rcp__h">{t('yr.fav')}</h2>
           <Big value={name(s.favourite.slug)} label={t('yr.fav.in', { n: s.favourite.sessions })} />
-          <Link href={`/exercise/${s.favourite.slug}`} class="sf-pr__link">{t('yr.open')}</Link>
+          <Row href={`/exercise/${s.favourite.slug}`}>{t('yr.open')}</Row>
         </>
       ) : null;
     case 'pr':
@@ -146,14 +146,8 @@ export default function RecapPage() {
       </div>
       {preset === 'custom' && (
         <div class="sf-rcp__dates">
-          <div class="sf-rt">
-            <label class="sf-lib__note" for="yr-from">{t('yr.from')}</label>
-            <input id="yr-from" type="date" class="sf-input" value={custom.from} max={custom.to} onInput={(e) => setCustom({ ...custom, from: (e.target as HTMLInputElement).value })} />
-          </div>
-          <div class="sf-rt">
-            <label class="sf-lib__note" for="yr-to">{t('yr.to')}</label>
-            <input id="yr-to" type="date" class="sf-input" value={custom.to} min={custom.from} onInput={(e) => setCustom({ ...custom, to: (e.target as HTMLInputElement).value })} />
-          </div>
+          <DatePicker label={t('yr.from')} value={custom.from} max={custom.to || undefined} onChange={(v) => setCustom({ ...custom, from: v })} />
+          <DatePicker label={t('yr.to')} value={custom.to} min={custom.from || undefined} onChange={(v) => setCustom({ ...custom, to: v })} />
         </div>
       )}
       {bad && <p class="sf-lib__note" role="alert">{t('yr.range.bad')}</p>}

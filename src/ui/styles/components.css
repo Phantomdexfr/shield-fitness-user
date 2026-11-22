@@ -30,23 +30,31 @@ html.sf-scroll-lock {
   flex: none;
 }
 
-/* Button */
+/* Button (Phase 83): four kinds only. Primary = solid gold, 48 px, no gradient, no glow, one per screen. Secondary = outline, 40 px
+   (the hit area is padded to 44). Destructive = danger outline. Navigation is a .sf-row, never bare text. */
 .sf-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--sp-2);
-  padding: var(--sp-3) var(--sp-5);
-  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-5);
+  border-radius: 10px;
   border: 1px solid transparent;
   font-weight: 600;
   text-align: center;
   min-width: 0;
+  min-height: 40px;
+}
+.sf-btn::after {
+  content: '';
+  position: absolute;
+  inset: -2px 0;
 }
 .sf-btn--lg {
-  min-height: 52px;
-  padding: var(--sp-4) var(--sp-6);
-  font-size: var(--text-lg);
+  min-height: 50px;
+  padding: var(--sp-3) var(--sp-6);
+  font-size: var(--text-md);
 }
 .sf-btn--full {
   display: flex;
@@ -57,46 +65,265 @@ html.sf-scroll-lock {
   overflow-wrap: anywhere;
 }
 .sf-btn--primary {
-  background: var(--gold-metal);
+  min-height: 48px;
+  border-radius: 12px;
+  background: var(--gold-400);
   color: var(--text-on-gold);
-  box-shadow: var(--glow-gold);
+  font-weight: 700;
 }
 .sf-btn--primary[data-pressed='true'] {
   background: var(--gold-500);
 }
 .sf-btn--secondary {
-  background: var(--bg-raised);
+  background: transparent;
   border-color: var(--line-strong);
   color: var(--text);
 }
-.sf-btn--ghost {
-  color: var(--gold-300);
-}
 .sf-btn--danger {
-  background: var(--bg-raised);
+  background: transparent;
   border-color: var(--danger);
   color: var(--danger);
 }
 
-/* IconButton */
+/* IconButton: 40 px, 1 px border, radius 12 (hit area padded to 44) */
 .sf-iconbtn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--touch-min);
-  height: var(--touch-min);
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   padding: 0;
-  border-radius: var(--r-pill);
-  color: var(--text-2);
+  border-radius: 12px;
+}
+.sf-iconbtn::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
 }
 .sf-iconbtn--secondary {
-  background: var(--bg-raised);
+  background: transparent;
   border: 1px solid var(--line-strong);
   color: var(--text);
 }
 .sf-iconbtn--primary {
-  background: var(--gold-metal);
+  background: var(--gold-400);
+  border: 1px solid var(--gold-400);
   color: var(--text-on-gold);
+}
+
+/* Row kit (Phase 83): a 52 px line in a bordered group; label left, value or chevron right. */
+.sf-rowgroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+.sf-rowgroup__label {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.sf-rowgroup__box {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-raised);
+  overflow: clip;
+}
+.sf-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: var(--sp-2) var(--sp-4);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  text-decoration: none;
+}
+.sf-rowgroup__box > .sf-row + .sf-row {
+  border-top: 1px solid var(--line);
+}
+/* a lone row (not inside a group) draws its own border */
+.sf-row:not(.sf-rowgroup__box > .sf-row) {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-raised);
+}
+.sf-row__main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px var(--sp-3);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.sf-row__label {
+  font-weight: 600;
+}
+.sf-row__hint {
+  flex-basis: 100%;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+.sf-row__value {
+  flex: none;
+  max-width: 55%;
+  color: var(--text-2);
+  font-size: var(--text-sm);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.sf-row__chev {
+  flex: none;
+  color: var(--text-muted);
+}
+.sf-row--danger,
+.sf-row--danger .sf-row__label {
+  color: var(--danger);
+}
+.sf-row:hover .sf-row__label {
+  color: var(--gold-300);
+}
+.sf-choice {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: clip;
+}
+.sf-choice__opt + .sf-choice__opt {
+  border-top: 1px solid var(--line);
+}
+.sf-choice__opt--on .sf-row__label,
+.sf-choice__opt--on .sf-row__chev {
+  color: var(--gold-400);
+}
+.sf-numrow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.sf-numrow__actions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--sp-3);
+}
+
+/* Switch: gold track when on */
+.sf-switch {
+  position: relative;
+  flex: none;
+  width: 52px;
+  min-width: 52px;
+  height: 30px;
+  min-height: 30px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--bg-card);
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+.sf-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--r-pill);
+  background: var(--text-muted);
+  transition: transform var(--dur-base) var(--ease-spring), background-color var(--dur-base) var(--ease-out);
+}
+.sf-switch--on {
+  background: var(--gold-400);
+  border-color: var(--gold-400);
+}
+.sf-switch--on .sf-switch__thumb {
+  transform: translateX(22px);
+  background: var(--text-on-gold);
+}
+
+/* Collapsible section: a bordered 48 px bar, the body opens below it */
+.sf-sec {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-raised);
+}
+.sf-sec__h {
+  margin: 0;
+  font: inherit;
+}
+.sf-sec__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: 48px;
+  padding: var(--sp-2) var(--sp-4);
+  color: var(--text);
+  text-align: left;
+  user-select: none;
+}
+.sf-sec__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.sf-sec__summary {
+  flex: none;
+  max-width: 45%;
+  color: var(--text-2);
+  font-size: var(--text-sm);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.sf-sec__chev {
+  flex: none;
+  color: var(--text-muted);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.sf-sec--open .sf-sec__chev {
+  transform: rotate(90deg);
+}
+.sf-sec__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-width: 0;
+  padding: var(--sp-2) var(--sp-4) var(--sp-4);
+  animation: sf-sec-in var(--dur-base) var(--ease-out);
+}
+@keyframes sf-sec-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.sf-sec__all {
+  align-self: flex-end;
+  min-height: 44px;
+  padding: 0 var(--sp-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: 600;
 }
 
 /* Card: fixed surface, stretches in a grid, never expands */
@@ -645,4 +872,68 @@ html.sf-scroll-lock {
 }
 .sf-subheader__right {
   flex: none;
+}
+
+/* Calendar picker (Phase 84): a field that opens a sheet. Day cells are 42px; selected day is solid gold. */
+.sf-datefield {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+.sf-datefield--empty {
+  color: var(--text-muted);
+}
+.sf-cal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+.sf-cal__selects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2);
+}
+.sf-cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+}
+.sf-cal__wd {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  padding: var(--sp-1) 0;
+}
+.sf-cal__day {
+  min-height: 42px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--text);
+  font-size: var(--text-md);
+  cursor: pointer;
+}
+.sf-cal__day--out {
+  color: var(--text-muted);
+}
+.sf-cal__day--today {
+  border-color: var(--line-strong);
+}
+.sf-cal__day--on {
+  background: var(--gold-400);
+  border-color: var(--gold-400);
+  color: var(--text-on-gold);
+  font-weight: 700;
+}
+.sf-cal__day:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.sf-cal__actions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--sp-2);
 }

@@ -5,6 +5,7 @@ import { Icon, ToastHost, cx } from '../ui/components';
 import { NotFound } from '../pages/NotFound';
 import { t } from '../i18n';
 import { UpdateToast } from '../pwa/UpdateToast';
+import { redirectExempt } from '../shared/onboarding';
 import { useFeature } from './flags';
 import { TABS, activeRoutes, type RouteDef } from './routes';
 
@@ -45,8 +46,29 @@ function Gate({ route, params }: { route: RouteDef; params: Record<string, strin
   return on ? <C params={params} /> : <NotFound />;
 }
 
+/** Phase 85: a fresh install opens /welcome once (an older install is marked done silently). Deep links that open on purpose are left alone. */
+function useFirstRun() {
+  const [location, navigate] = useLocation();
+  useEffect(() => {
+    if (redirectExempt(location)) return;
+    let live = true;
+    void import('../data/repos/onboarding')
+      .then((m) => m.decideOnboarding(Date.now()))
+      .then((d) => {
+        if (live && d === 'run') navigate('/welcome', { replace: true });
+      })
+      .catch(() => undefined);
+    return () => {
+      live = false;
+    };
+    // Decided once per visit to the app, not on every page change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+}
+
 function Pages({ routes }: { routes: RouteDef[] }) {
   const [location] = useLocation();
+  useFirstRun();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
@@ -66,6 +88,12 @@ function Pages({ routes }: { routes: RouteDef[] }) {
   );
 }
 
+/** The welcome flow is full screen: no tab bar there. */
+function TabBarUnlessWelcome({ routes }: { routes: RouteDef[] }) {
+  const [location] = useLocation();
+  return location === '/welcome' ? null : <TabBar routes={routes} />;
+}
+
 export function Shell({ base, isDev }: { base: string; isDev: boolean }) {
   const routes = activeRoutes(isDev);
   return (
@@ -74,7 +102,7 @@ export function Shell({ base, isDev }: { base: string; isDev: boolean }) {
         <main class="sf-shell__main">
           <Pages routes={routes} />
         </main>
-        <TabBar routes={routes} />
+        <TabBarUnlessWelcome routes={routes} />
         <ToastHost />
         <UpdateToast />
       </div>

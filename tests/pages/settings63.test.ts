@@ -41,7 +41,7 @@ describe('content schema', () => {
     expect(aboutIsEmpty(parseAbout({ tagline: 'Train.', description: [], contact: '', links: [] }))).toBe(false);
   });
   it('a damaged about file reads as empty, not a crash', () => {
-    expect(parseAbout({ tagline: 5 })).toEqual({ tagline: '', description: [], contact: '', links: [] });
+    expect(parseAbout({ tagline: 5 })).toEqual({ tagline: '', author: '', description: [], contact: '', links: [] });
     expect(parseAbout(null).links).toEqual([]);
   });
   it('a link without a real address is refused', () => {

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'preact/hooks';
 import { Link } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import type { LabData } from '../../data/repos/lab';
-import { Badge, Segmented } from '../../ui/components';
+import { Badge, Segmented, Row } from '../../ui/components';
 import { BodyPicker, type Sex, type View } from '../../ui/body';
 import { emphasisOf, machineWorkedRows, workedRows, type WorkedRow } from './labData';
 import { muscleName } from './LabPanel';
@@ -49,7 +49,7 @@ export function WorkedPanel({ data, sex, view, onSex, onView }: { data: LabData;
             <li key={h.slug} class="sf-lab__row">
               <button
                 type="button"
-                class="sf-lab__link sf-lab__pickbtn"
+                class="sf-row sf-lab__pickbtn"
                 aria-pressed={chosen?.slug === h.slug && chosen.kind === kind}
                 onClick={() => {
                   setChosen({ kind, slug: h.slug, name: h.name });
@@ -73,9 +73,9 @@ export function WorkedPanel({ data, sex, view, onSex, onView }: { data: LabData;
             <ul class="sf-lab__list">
               {rows.map((r) => (
                 <li key={r.muscle} class="sf-lab__row sf-lab__row--flat">
-                  <Link href={`/muscle/${r.muscle}`} class="sf-lab__link">
+                  <Row href={`/muscle/${r.muscle}`}>
                     <span class="sf-lab__name">{muscleName(r.muscle)}</span>
-                  </Link>
+                  </Row>
                   <Badge tone={r.role === 'primary' ? 'gold' : 'neutral'}>
                     {t(`lab.worked.${r.role}` as StringKey)}, {t(`lab.worked.band.${r.band}` as StringKey)}
                   </Badge>
@@ -84,9 +84,9 @@ export function WorkedPanel({ data, sex, view, onSex, onView }: { data: LabData;
             </ul>
           )}
           {chosen.kind === 'machine' && <p class="sf-lab__note">{t('lab.worked.reach')}</p>}
-          <Link href={chosen.kind === 'exercise' ? `/exercise/${chosen.slug}` : `/machine/${chosen.slug}`} class="sf-lab__link">
+          <Row href={chosen.kind === 'exercise' ? `/exercise/${chosen.slug}` : `/machine/${chosen.slug}`}>
             {t('lab.worked.open', { name: chosen.name })}
-          </Link>
+          </Row>
         </section>
       )}
     </div>

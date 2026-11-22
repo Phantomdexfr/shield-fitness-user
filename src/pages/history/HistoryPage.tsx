@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Chip, EmptyState, SubPageHeader } from '../../ui/components';
+import { Button, Chip, Collapsible, EmptyState, SubPageHeader } from '../../ui/components';
 import { loadFinished } from '../../data/repos/history';
 import { countByDay, groupByDay, monthGrid, monthOfDay, shiftMonth, summaryOf, volumeText } from '../../shared/history';
 import { formatIst, istDayKey, parseIso, type DayKey } from '../../shared/dates';
@@ -57,10 +57,11 @@ export default function HistoryPage() {
   return (
     <section class="sf-page-body sf-rt">
       {head}
+      <Collapsible id="calendar" title={t('ux.calendar')} summary={monthLabel(month)}>
       <div class="sf-hs__month">
-        <Button variant="ghost" aria-label={t('hs.prev')} onPress={() => setMonth(shiftMonth(month, -1))}>{'<'}</Button>
+        <Button variant="secondary" aria-label={t('hs.prev')} onPress={() => setMonth(shiftMonth(month, -1))}>{'<'}</Button>
         <h2 class="sf-hs__month-name" role="status">{monthLabel(month)}</h2>
-        <Button variant="ghost" aria-label={t('hs.next')} onPress={() => setMonth(shiftMonth(month, 1))}>{'>'}</Button>
+        <Button variant="secondary" aria-label={t('hs.next')} onPress={() => setMonth(shiftMonth(month, 1))}>{'>'}</Button>
       </div>
       <div class="sf-hs__grid" role="grid">
         {[0, 1, 2, 3, 4, 5, 6].map((i) => <span key={i} class="sf-hs__wd" role="columnheader">{t(`hs.wd.${i}` as StringKey)}</span>)}
@@ -82,6 +83,7 @@ export default function HistoryPage() {
           ),
         )}
       </div>
+      </Collapsible>
       {picked && (
         <div class="sf-rt__row">
           <span class="sf-rt__meta" role="status">{t('hs.showing', { day: dayLabel(picked) })}</span>

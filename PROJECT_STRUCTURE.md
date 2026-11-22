@@ -154,7 +154,16 @@ shield-fitness-user/
 - `src/ui/body/regions.ts`: GENERATED tier and views per drawn muscle
 - `src/ui/body/taxonomy.ts`: static 34-muscle taxonomy, `expand`, `parentOf`, `tierOf`, `viewsOf`, `lookup`, `FALLBACK`
 - `src/ui/body/BodyPicker.tsx`, `MuscleChips.tsx`, `index.ts`: the figure and its text twin
+- `src/ui/components/Rows.tsx` (Phase 83): `Row` (button, link or plain), `RowGroup`, `Switch`, `ChoiceRow` (4+ options, opens a sheet), `NumberRow` (stepper sheet); `src/ui/components/Collapsible.tsx`: `Collapsible` (aria-expanded section, remembered per page), `CollapseAll`; `src/data/repos/uiSections.ts`: reads and writes the remembered open/closed map (prefs row `ui:sections`); `tests/ui/buttonKit.test.tsx`: kit tests and the no-ghost guard
+- Phase 87 (no new source files): `Collapsible` sections added in the Exercise, Machine, Machine index, Machine Lab, Library, Body (`LabPanel`), Recovery, Marks, Heatmap, Progress hub, Body stats, Photos, Goals, Settings group and Backup home pages; `tests/ui/declutter2.test.ts`; `review/ux/before-87|after-87`.
+- Phase 86 (no new source files): `WeekView` got `strip` and `bare` props; `Collapsible` got `remember`; `src/ui/styles/routine.css` gained `.sf-wk__*`, `.sf-qgrid`, `.sf-sec__label`, `.sf-today__head`; `tests/ui/declutter1.test.ts`; `review/ux/before|after` (390x844 screenshots).
+- `src/shared/onboarding.ts` (Phase 85, pure): the five onboarding steps, `advance`/`back`/`finish`, `resumeStep`, `visibleSteps` (gym-member shortcuts, re-run), `firstRunDecision`, `redirectExempt`, height and feet/inches helpers, `birthStartDay`
+- `src/data/repos/onboarding.ts` (Phase 85): saved flow state (`prefs` row `onboarding:state`), `readAbout`/`readKnown`, step savers, `decideOnboarding` (first-run decision; older installs are marked done)
+- `src/pages/welcome/WelcomePage.tsx` (Phase 85): route `/welcome` (`?again=1` = re-run from Settings), no tab bar; `src/ui/styles/onboarding.css`; `tests/shared/onboarding.test.ts`, `tests/data/onboarding.test.ts`
+- `src/shared/calendar.ts` (Phase 84, pure): month lengths and leap years, `monthGrid` (42 cells, Monday first), `inRange`/`clampDay`/`fitToMonth`/`yearOptions`/`startDay`, `dayLabel`/`monthLabel`, `yearOfDay`; `src/ui/components/DatePicker.tsx`: `DatePicker` (a field that opens a sheet with Month and Year dropdowns and the day grid; `mode="month"` for month-only), `.sf-cal*` CSS in `components.css`; `tests/shared/calendar.test.ts`, `tests/ui/datePicker.test.tsx` (also the no-native-date guard)
+- `src/ui/body/useFigureSex.ts` (Phase 82): `useFigureSex()` = the profile's figure until "Switch figure" is tapped on a page; pure `figureFromProfile`, `otherFigure`
 - `src/ui/styles/body.css`: body picker + chips styles (imported by `index.css`)
+- `tests/ui/figureSex.test.tsx` (Phase 82): figure follows the profile, Switch figure link; `tests/data/relayFallback.test.ts` (Phase 82): relay falls back to the core values; `tests/app/viewportLock.test.ts` (Phase 82): zoom lock guard
 - `tests/ui/body.test.tsx`: 17 tests (data coverage, modes, keyboard, swipe, long press, mini, chips)
 - `src/pages/body/labData.ts`: Muscle Lab pure helpers (Candidate adapter, `labList`, filters, `countByMuscle`, `workedRows`, `machineFinder`)
 - `src/pages/body/LabPanel.tsx`: one muscle's list (note, filters, Surprise me, three sections, why chips, machine finder) + `useLabData`
@@ -470,6 +479,9 @@ shield-fitness-user/
 - Edited in place (Phase 68): `src/data/gym/{types,supabaseRemote,link,connection}.ts`, `src/data/repos/gymLink.ts`, `src/app/routes.ts`, `src/pages/MePage.tsx`, `src/i18n/en.ts` (`gd.*`), `src/ui/styles/settings.css` (`.sf-gdcal`), `tests/data/gymSync.test.ts` (fake remote got three stub methods)
 - `docs/OWNER_CHECKLIST_0.2.0.md` (Phase 70): owner phone checklist for the connected release (connect by QR, forced password change, offline then sync, locked feature, hidden exercise, programs, upload, disconnect). Note: `scripts/overflow-audit.mjs`, listed near the top of this file, is not in the zip; Phase 70 used a throwaway script outside the repo.
 - `docs/OWNER_CHECKLIST_1.1.0.md` (Phase 81): owner phone checklist for the recovery release (wipe and restore, offline then sync, kill mid-restore, free sign-up and reinstall, forgot password with approval, free to gym, two phones, phone look).
+- `tests/pages/about89.test.ts` (Phase 89): About author + Android install button guard.
+- `docs/OWNER_CHECKLIST_1.2.0.md` (Phase 88): owner phone checklist for the native-feel release (zoom lock, plan sharing, buttons, calendar picker, welcome flow, collapsible screens, figure follows profile, screen reader).
+- `tests/guard/release120.test.ts` (Phase 88): gate guard for 1.2.0 (version, viewport lock, no native date, no ghost, figure from profile, Collapsible use, IconButton labels, dialog role).
 
 - `src/shared/emptyCheck.ts` (Phase 73): pure restore rules: `emptyCheck` (`ok | restore_offer | block_push | different_owner`), `shouldResetCursors`, `mergeAction` (add / replace / skip, a local tombstone is final), `SHRINK_THRESHOLD` 0.3 (A-R9)
 - `src/shared/restoreMap.ts` (Phase 73): pure inverse of `toServerOps` for the restore (`localFromServer`, `addSetToSession`, `finishSession`, `FLAT_RESTORE`)

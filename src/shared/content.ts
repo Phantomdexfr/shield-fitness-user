@@ -6,6 +6,8 @@ const text = (max: number) => z.string().trim().max(max);
 
 export const aboutSchema = z.object({
   tagline: text(120),
+  /** The maker's name, shown bold under "Made by". Added in Phase 89; older files without it still parse. */
+  author: text(80).default(''),
   description: z.array(text(600).min(1)).max(12),
   contact: text(160),
   links: z.array(z.object({ label: text(60).min(1), url: z.string().trim().url().max(300) })).max(8),
@@ -38,7 +40,7 @@ export const REQUIRED_THIRD_PARTY: readonly ThirdParty[] = [
   { name: 'Barlow Condensed', licence: 'SIL OFL 1.1', url: 'https://github.com/jpt/barlow', note: '' },
 ];
 
-export const EMPTY_ABOUT: AboutContent = { tagline: '', description: [], contact: '', links: [] };
+export const EMPTY_ABOUT: AboutContent = { tagline: '', author: '', description: [], contact: '', links: [] };
 
 export function parseAbout(raw: unknown): AboutContent {
   const r = aboutSchema.safeParse(raw);
@@ -54,4 +56,4 @@ export function parseCredits(raw: unknown): CreditsContent {
 }
 
 /** True when the owner has written nothing yet: the page then shows the "owner to fill" state. */
-export const aboutIsEmpty = (a: AboutContent): boolean => a.tagline === '' && a.description.length === 0 && a.links.length === 0 && a.contact === '';
+export const aboutIsEmpty = (a: AboutContent): boolean => a.tagline === '' && a.author === '' && a.description.length === 0 && a.links.length === 0 && a.contact === '';

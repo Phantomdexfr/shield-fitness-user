@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Card, EmptyState, Input, Segmented, SubPageHeader, showToast } from '../../ui/components';
+import { Collapsible, Button, Card, EmptyState, Input, Segmented, SubPageHeader, showToast, Row } from '../../ui/components';
 import { AreaChart, LineChart, StatTile } from '../../ui/charts';
 import { MEASURES, RANGE, bmi, bmiBand, bodySeries, latestOf, parseNumber, type BodyEntry, type Measure } from '../../shared/goals';
 import { deleteEntry, loadBody, saveEntry, writeHeight, type BodyData } from '../../data/repos/body';
@@ -97,8 +97,7 @@ export default function BodyPage() {
       {b !== null && <p class="sf-rt__meta">{t(BAND_KEY[bmiBand(b)])} {t('body.bmi.note')}</p>}
       {b === null && <p class="sf-rt__meta">{t('body.bmi.need')}</p>}
 
-      <Card as="section" class="sf-pg__card">
-        <h2 class="sf-pg__h">{t('body.log.title')}</h2>
+      <Collapsible id="body-log-title" title={t('body.log.title')} defaultOpen>
         <p class="sf-lib__note">{t('body.log.note')}</p>
         <div class="sf-pg__form">
           <Input label={t('body.weight')} {...{ value: kg, inputMode: 'decimal' }} onInput={(e) => setKg((e.target as HTMLInputElement).value)} />
@@ -109,13 +108,12 @@ export default function BodyPage() {
         </div>
         {error && <p class="sf-pg__err" role="alert">{error}</p>}
         <Button onPress={save}>{t('body.save')}</Button>
-      </Card>
+      </Collapsible>
 
-      <Card as="section" class="sf-pg__card">
-        <h2 class="sf-pg__h">{t('body.height.title')}</h2>
+      <Collapsible id="body-height-title" title={t('body.height.title')}>
         <Input label={t('body.height.label')} {...{ value: height, inputMode: 'decimal' }} error={heightError} hint={t('body.height.hint')} onInput={(e) => setHeight((e.target as HTMLInputElement).value)} />
         <Button variant="secondary" onPress={saveHeight}>{t('body.height.save')}</Button>
-      </Card>
+      </Collapsible>
 
       <AreaChart title={t('body.chart.weight')} series={[{ id: 'kg', name: t('body.weight'), points: wSeries }]} unit="kg" emptyText={t('body.chart.empty')} />
       <LineChart title={t('body.chart.fat')} series={[{ id: 'fat', name: t('body.fat'), points: bodySeries(entries, 'fat') }]} unit="%" emptyText={t('body.chart.empty')} />
@@ -130,13 +128,13 @@ export default function BodyPage() {
               <li key={e.day} class="sf-pg__row">
                 <strong>{e.day}</strong>
                 <span class="sf-rt__meta">{entryText(e)}</span>
-                <Button variant="ghost" onPress={() => { deleteEntry(e.day).then(read, read); }}>{t('body.delete')}</Button>
+                <Button variant="secondary" onPress={() => { deleteEntry(e.day).then(read, read); }}>{t('body.delete')}</Button>
               </li>
             ))}
           </ul>
         </>
       )}
-      <div class="sf-pg__links"><Link href="/goals" class="sf-pr__link">{t('body.goals.link')}</Link></div>
+      <div class="sf-pg__links"><Row href="/goals">{t('body.goals.link')}</Row></div>
     </section>
   );
 }

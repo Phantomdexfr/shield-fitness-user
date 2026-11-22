@@ -71,7 +71,7 @@ export default function ScheduleSettingsPage() {
         <Stepper label={t('sc.settings.sets')} value={s.setsPct} min={40} max={100} step={5} format={(v) => t('sc.pct', { n: v })} onChange={(setsPct) => void change({ setsPct })} />
         <p class="sf-rt__meta">{t('sc.settings.loads')}</p>
         <Stepper label={t('sc.settings.loads')} value={s.loadPct} min={70} max={100} step={5} format={(v) => t('sc.pct', { n: v })} onChange={(loadPct) => void change({ loadPct })} />
-        <Button variant="ghost" disabled={deloadIsDefault(s)} onPress={() => void change({ setsPct: DEFAULT_SETS_PCT, loadPct: DEFAULT_LOAD_PCT })}>{t('sc.settings.reset')}</Button>
+        <Button variant="secondary" disabled={deloadIsDefault(s)} onPress={() => void change({ setsPct: DEFAULT_SETS_PCT, loadPct: DEFAULT_LOAD_PCT })}>{t('sc.settings.reset')}</Button>
       </div>
     </section>
   );

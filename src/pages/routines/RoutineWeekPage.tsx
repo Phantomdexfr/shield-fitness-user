@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { useLocation, useRoute } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Badge, Button, Card, Dialog, EmptyState, IconButton, Input, ProgressBar, Sheet, SubPageHeader, Toggle } from '../../ui/components';
+import { Badge, Button, Card, Collapsible, Dialog, EmptyState, IconButton, Input, ProgressBar, Sheet, SubPageHeader, Toggle } from '../../ui/components';
 import { deleteRoutine, duplicateRoutine, listRoutines, setActiveRoutine } from '../../data/repos/routines';
 import { addDay, estimateMinutes, moveDay, overloadHints, removeDay, renameRoutine, restoreDay, weeklyVolume, type OverloadHint } from '../../shared/routineEdit';
 import { newClientId } from '../../data/local';
@@ -94,7 +94,7 @@ export default function RoutineWeekPage() {
 
   return (
     <section class="sf-page-body sf-rt">
-      <SubPageHeader title={r.name} onBack={back} right={<IconButton icon="dots-three-vertical" label={t('rb.menu')} variant="ghost" onPress={() => setMenu(true)} />} />
+      <SubPageHeader title={r.name} onBack={back} right={<IconButton icon="dots-three-vertical" label={t('rb.menu')} onPress={() => setMenu(true)} />} />
       {saveError && <p class="sf-rt__err" role="alert">{t('rb.err.save')}</p>}
       {r.followed && <p class="sf-lib__note" role="status">{t('gp.readonly')}</p>}
       <Toggle checked={r.active} label={t('rb.w.active')} onChange={(on) => { if (on) void setActiveRoutine(r.id).then(refresh); }} disabled={r.active} />
@@ -102,7 +102,7 @@ export default function RoutineWeekPage() {
       {undo && (
         <div class="sf-rt__undo" role="status">
           <span class="sf-rt__undo-text">{t('rb.w.day.removed', { name: undo.day.name })}</span>
-          <Button variant="ghost" onPress={() => { const u = undo; setUndo(null); void save(restoreDay(r, u.day, u.index)); }}>{t('rb.undo')}</Button>
+          <Button variant="secondary" onPress={() => { const u = undo; setUndo(null); void save(restoreDay(r, u.day, u.index)); }}>{t('rb.undo')}</Button>
         </div>
       )}
       {lastNote && <p class="sf-rt__err" role="status">{t('rb.w.day.last')}</p>}
@@ -112,7 +112,7 @@ export default function RoutineWeekPage() {
           <p class="sf-rt__hint-text" role="status">{h.kind === 'back_to_back' ? t('rb.w.hint.b2b', { muscle: muscleLabel(h.muscle) }) : t('rb.w.hint.cap', { muscle: muscleLabel(h.muscle), n: h.sets })}</p>
           <div class="sf-rt__row">
             <Button variant="secondary" onPress={() => setDaysOpen(true)}>{t('rb.w.hint.move')}</Button>
-            <Button variant="ghost" onPress={() => setIgnored((l) => [...l, hintKey(h)])}>{t('rb.w.hint.ignore')}</Button>
+            <Button variant="secondary" onPress={() => setIgnored((l) => [...l, hintKey(h)])}>{t('rb.w.hint.ignore')}</Button>
           </div>
         </Card>
       ))}
@@ -134,12 +134,18 @@ export default function RoutineWeekPage() {
           );
         })}
       </ul>
-      <Button variant="secondary" onPress={() => setDaysOpen(true)}>{t('rb.w.days')}</Button>
+      <div class="sf-qgrid">
+        <Button variant="secondary" onPress={() => setDaysOpen(true)}>{t('rb.w.days')}</Button>
+        {shareOn && <Button variant="secondary" onPress={() => setShareOpen(true)}>{t('ps.share.title')}</Button>}
+      </div>
 
-      {schedOn && plan.ready && <WeekView routine={r} plan={plan} onRoutine={(next) => void save(next)} />}
+      {schedOn && plan.ready && (
+        <Collapsible id="plan" title={t('sc.week.title')}>
+          <WeekView bare routine={r} plan={plan} onRoutine={(next) => void save(next)} />
+        </Collapsible>
+      )}
 
-      <div class="sf-rt__block">
-        <h2 class="sf-rt__h">{t('rb.w.volume')}</h2>
+      <Collapsible id="volume" title={t('rb.w.volume')} summary={volume.length > 0 ? String(volume.length) : undefined}>
         {volume.length === 0 ? (
           <p class="sf-rt__meta">{t('rb.w.volume.empty')}</p>
         ) : (
@@ -153,13 +159,12 @@ export default function RoutineWeekPage() {
             ))}
           </ul>
         )}
-      </div>
+      </Collapsible>
 
       <Sheet open={menu} onClose={() => setMenu(false)} title={r.name}>
         <div class="sf-rt__menu">
           <Button variant="secondary" onPress={() => { setMenu(false); setRename(r.name); setRenameErr(null); }}>{t('rb.w.rename')}</Button>
           {!r.active && <Button variant="secondary" onPress={() => { setMenu(false); void setActiveRoutine(r.id).then(refresh); }}>{t('rb.menu.active')}</Button>}
-          {shareOn && <Button variant="secondary" onPress={() => { setMenu(false); setShareOpen(true); }}>{t('ps.share.title')}</Button>}
           {imageOn && <Button variant="secondary" onPress={() => { setMenu(false); setImageOpen(true); }}>{t('ri.menu')}</Button>}
           <Button variant="secondary" onPress={() => { setMenu(false); void duplicateRoutine(r.id).then((c) => c && navigate(`/routine/${c.id}`)); }}>{t('rb.menu.duplicate')}</Button>
           <Button variant="danger" onPress={() => { setMenu(false); setConfirmDel(true); }}>{t('rb.menu.delete')}</Button>
@@ -182,8 +187,8 @@ export default function RoutineWeekPage() {
             {r.days.map((d, i) => (
               <li key={d.id} class="sf-rt__item">
                 <span class="sf-rt__name sf-rt__grow">{d.name}</span>
-                <Button variant="ghost" disabled={i === 0} aria-label={`${t('rb.w.up')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i - 1))}>{t('rb.w.up')}</Button>
-                <Button variant="ghost" disabled={i === r.days.length - 1} aria-label={`${t('rb.w.down')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i + 1))}>{t('rb.w.down')}</Button>
+                <Button variant="secondary" disabled={i === 0} aria-label={`${t('rb.w.up')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i - 1))}>{t('rb.w.up')}</Button>
+                <Button variant="secondary" disabled={i === r.days.length - 1} aria-label={`${t('rb.w.down')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i + 1))}>{t('rb.w.down')}</Button>
                 <Button variant="danger" aria-label={`${t('rb.w.day.remove')}: ${d.name}`} onPress={() => askRemove(d)}>{t('rb.w.day.remove')}</Button>
               </li>
             ))}

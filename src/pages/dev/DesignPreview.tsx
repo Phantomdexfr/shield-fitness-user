@@ -28,7 +28,6 @@ export default function DesignPreview() {
       <div class="sf-preview-row">
         <Button variant="primary" icon="plus">Primary</Button>
         <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
         <IconButton icon="info" label="Info" />
       </div>
       <Button fullWidth>{t('preview.sample.long')}</Button>

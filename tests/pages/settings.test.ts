@@ -32,7 +32,7 @@ describe('settings registry', () => {
     }
   });
   it('every definition appears in some row (no orphan pref)', () => {
-    const used = new Set(GROUPS.flatMap((g) => rowsFor(g.slug)).flatMap((r) => ('pref' in r ? [r.pref] : [])));
+    const used = new Set(GROUPS.flatMap((g) => rowsFor(g.slug)).flatMap((r) => [...('pref' in r ? [r.pref] : []), ...('yearPref' in r && r.yearPref ? [r.yearPref] : [])]));
     for (const d of PREF_DEFS) expect(used.has(d.key), d.key).toBe(true);
   });
   it('every string key the summaries and values use exists', () => {

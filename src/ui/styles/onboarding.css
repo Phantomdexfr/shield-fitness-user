@@ -1,0 +1,19 @@
+/* Onboarding (Phase 85): the /welcome flow. Full screen, one question group per screen, tokens only. */
+.sf-ob { display: flex; flex-direction: column; gap: var(--sp-4); min-height: 100%; min-width: 0; max-width: 100%; }
+.sf-ob__top { display: flex; align-items: center; gap: var(--sp-3); }
+.sf-ob__spacer { flex: 0 0 40px; width: 40px; height: 40px; }
+.sf-ob__bar { flex: 1 1 auto; display: flex; gap: var(--sp-1); min-width: 0; }
+.sf-ob__seg { flex: 1 1 0; height: 4px; border-radius: 2px; background: var(--line); }
+.sf-ob__seg--on { background: var(--gold-400); }
+.sf-ob__body { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; flex: 1 1 auto; }
+.sf-ob__step { margin: 0; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+.sf-ob__h { margin: 0; font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; overflow-wrap: anywhere; }
+.sf-ob__lead, .sf-ob__note { margin: 0; color: var(--text-2); overflow-wrap: anywhere; }
+.sf-ob__note { color: var(--text-muted); font-size: 13px; }
+.sf-ob__risk { margin: 0; padding: var(--sp-3) var(--sp-4); border: 1px solid var(--line-strong); border-radius: 14px; background: var(--bg-raised); overflow-wrap: anywhere; }
+.sf-ob__err { margin: 0; color: var(--danger); overflow-wrap: anywhere; }
+.sf-ob__about { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-ob__figure { height: 250px; display: flex; justify-content: center; align-items: center; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raised); }
+.sf-ob__figure > * { max-height: 100%; max-width: 100%; }
+.sf-ob__figure .sf-body--mini .sf-body__stage { max-width: 125px; }
+.sf-ob__foot { display: flex; flex-direction: column; gap: var(--sp-2); padding-bottom: var(--sp-2); }

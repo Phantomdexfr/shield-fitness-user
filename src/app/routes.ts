@@ -77,6 +77,7 @@ const SessionViewPage = lazyPage(() => import('../pages/history/SessionViewPage'
 const ReceivePage = lazyPage(() => import('../pages/share/ReceivePage'));
 const MePage = lazyPage(() => import('../pages/MePage'));
 const SettingsHub = lazyPage(() => import('../pages/settings/SettingsHub'));
+const WelcomePage = lazyPage(() => import('../pages/welcome/WelcomePage'));
 const SettingsGroupPage = lazyPage(() => import('../pages/settings/SettingsGroupPage'));
 const PrivacyPage = lazyPage(() => import('../pages/settings/PrivacyPage'));
 const DataPage = lazyPage(() => import('../pages/settings/DataPage'));
@@ -137,6 +138,7 @@ export const ROUTES: readonly RouteDef[] = [
   { id: 'routine-day', path: '/routine/:id/day/:dayId', feature: 'routine_builder', tab: 'train', component: () => h(RoutineDayPage, {}) },
   { id: 'quick-workout', path: '/quick', feature: 'quick_workout', tab: 'train', component: () => h(QuickWorkoutPage, {}) },
   { id: 'routine-schedule', path: '/routine/:id/schedule', feature: 'rest_scheduler', tab: 'train', component: () => h(ScheduleEditPage, {}) },
+  { id: 'welcome', path: '/welcome', feature: null, component: () => h(WelcomePage, {}) },
   { id: 'settings', path: '/settings', feature: null, tab: 'me', component: () => h(SettingsHub, {}) },
   { id: 'settings-account', path: '/settings/account', feature: null, tab: 'me', component: () => h(SettingsGroupPage, {}) },
   { id: 'settings-training', path: '/settings/training', feature: null, tab: 'me', component: () => h(SettingsGroupPage, {}) },

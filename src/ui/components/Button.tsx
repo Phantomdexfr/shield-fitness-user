@@ -3,7 +3,8 @@ import { Icon, type IconName } from './Icon';
 import { Pressable, type PressableProps } from './Pressable';
 import { cx } from './util';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
+/** The only four kinds (Phase 83): primary (one per screen), secondary, destructive. Navigation is a Row; icon buttons are IconButton. */
+export type ButtonVariant = 'primary' | 'secondary' | 'danger';
 
 export interface ButtonProps extends Omit<PressableProps, 'children'> {
   variant?: ButtonVariant;
@@ -27,11 +28,11 @@ export interface IconButtonProps extends Omit<PressableProps, 'children' | 'aria
   icon: IconName;
   /** Required: icon buttons have no visible text. */
   label: string;
-  variant?: 'ghost' | 'secondary' | 'primary';
+  variant?: 'secondary' | 'primary';
   weight?: 'regular' | 'fill';
 }
 
-export function IconButton({ icon, label, variant = 'ghost', weight = 'regular', class: cls, ...rest }: IconButtonProps) {
+export function IconButton({ icon, label, variant = 'secondary', weight = 'regular', class: cls, ...rest }: IconButtonProps) {
   return (
     <Pressable {...rest} aria-label={label} class={cx('sf-iconbtn', `sf-iconbtn--${variant}`, cls)}>
       <Icon name={icon} weight={weight} size={24} />

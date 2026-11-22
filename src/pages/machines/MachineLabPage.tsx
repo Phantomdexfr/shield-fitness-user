@@ -4,7 +4,8 @@ import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
 import { loadMachineLab, type MachineLabData } from '../../data/repos/machineLab';
 import { BodyPicker, type Sex, type View } from '../../ui/body';
-import { Button, Chip, EmptyState, SubPageHeader } from '../../ui/components';
+import { useFigureSex } from '../../ui/body/useFigureSex';
+import { Collapsible, CollapseAll, Button, Chip, EmptyState, SubPageHeader, Row } from '../../ui/components';
 import { nice } from '../exercise/exerciseModel';
 import {
   chipGroups, exercisesReaching, heatFor, notReachable, reachedCount, rowsFor, selectionKeys, textTwin, toggleChip, COMPANION_AXES,
@@ -59,7 +60,7 @@ export function MachineLabView({ data }: { data: MachineLabData }) {
   const { entry, file, inputs, tax } = data;
   const [sel, setSel] = useState<Selection>({});
   const [muscle, setMuscle] = useState<string | undefined>();
-  const [sex, setSex] = useState<Sex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [shown, setShown] = useState(PAGE);
 
@@ -93,7 +94,7 @@ export function MachineLabView({ data }: { data: MachineLabData }) {
       </p>
 
       {groups.length > 0 && (
-        <section aria-label={t('ml.chips')} class="sf-ml__chips">
+        <Collapsible id="filters" title={t('ml.chips')} summary={filtered ? t('ml.clear') : undefined}>
           {groups.map((g) => (
             <div key={g.axis} class="sf-ml__group" role="group" aria-label={t(`ml.axis.${g.axis}` as StringKey)}>
               <h2 class="sf-ex__h">{t(`ml.axis.${g.axis}` as StringKey)}</h2>
@@ -107,11 +108,11 @@ export function MachineLabView({ data }: { data: MachineLabData }) {
             </div>
           ))}
           {filtered && (
-            <Button variant="ghost" onPress={() => setSel({})}>
+            <Button variant="secondary" onPress={() => setSel({})}>
               {t('ml.clear')}
             </Button>
           )}
-        </section>
+        </Collapsible>
       )}
 
       {rows.length === 0 ? (
@@ -126,8 +127,7 @@ export function MachineLabView({ data }: { data: MachineLabData }) {
       )}
 
       {muscle ? (
-        <section aria-label={t('ml.list.title', { muscle: muscleName(muscle) })} class="sf-ex__block" aria-live="polite">
-          <h2 class="sf-ex__h">{t('ml.list.title', { muscle: muscleName(muscle) })}</h2>
+        <Collapsible id="list" title={t('ml.list.title', { muscle: muscleName(muscle) })} defaultOpen>
           {list.length === 0 ? (
             <p class="sf-lab__note">{t('ml.list.none', { muscle: muscleName(muscle) })}</p>
           ) : (
@@ -135,55 +135,54 @@ export function MachineLabView({ data }: { data: MachineLabData }) {
               <ul class="sf-lib__list">
                 {list.slice(0, shown).map((e) => (
                   <li key={e.slug} class="sf-lib__row">
-                    <Link href={linkFor(e.slug, e.setup)} class="sf-lib__link">
+                    <Row href={linkFor(e.slug, e.setup)}>
                       <span class="sf-lib__name">{data.names[e.slug] ?? nice(e.slug)}</span>
                       <span class="sf-lib__meta">{selectionKeys(e.setup).length > 0 ? t('ml.list.with', { setup: setupText(e.setup) }) : t(`ml.strength.${textTwin([[muscle, e.weight, 1]])[0]?.strength ?? 'faint'}` as StringKey)}</span>
-                    </Link>
+                    </Row>
                   </li>
                 ))}
               </ul>
               {list.length > shown && (
-                <Button variant="ghost" onPress={() => setShown(shown + PAGE)}>
+                <Button variant="secondary" onPress={() => setShown(shown + PAGE)}>
                   {t('ml.list.more')}
                 </Button>
               )}
             </>
           )}
-        </section>
+        </Collapsible>
       ) : (
         rows.length > 0 && <p class="sf-lab__note">{t('ml.pick')}</p>
       )}
 
       {entry.modes.length > 0 && (
-        <section aria-label={t('ml.modes')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('ml.modes')}</h2>
+        <Collapsible id="modes" title={t('ml.modes')}>
           <ul class="sf-ex__list">
             {entry.modes.map(([value, exercise, label]) => (
               <li key={value}>{exercise ? <Link href={`/exercise/${exercise}`}>{label}</Link> : label}</li>
             ))}
           </ul>
-        </section>
+        </Collapsible>
       )}
 
-      <section aria-label={t('ml.twin.title')} class="sf-ex__block" data-hook="reach-twin">
-        <h2 class="sf-ex__h">{t('ml.twin.title')}</h2>
+      <Collapsible id="title" title={t('ml.twin.title')}>
         {twin.length === 0 ? (
-          <p class="sf-lab__note">{t('ml.none.title')}</p>
+          <p class="sf-lab__note" data-hook="reach-twin">{t('ml.none.title')}</p>
         ) : (
-          <ul class="sf-ex__list">
+          <ul class="sf-ex__list" data-hook="reach-twin">
             {twin.map((r) => (
               <li key={r.muscle}>{t('ml.twin.row', { muscle: muscleName(r.muscle), strength: t(`ml.strength.${r.strength}` as StringKey), n: r.count })}</li>
             ))}
           </ul>
         )}
-      </section>
+      </Collapsible>
 
       {missing.length > 0 && (
-        <section aria-label={t('ml.notreach')} class="sf-ex__block" data-hook="not-reachable">
-          <h2 class="sf-ex__h">{t('ml.notreach')}</h2>
-          <p class="sf-ex__line">{missing.map(muscleName).join(' · ')}</p>
-          <p class="sf-lab__note">{t('ml.notreach.note')}</p>
-        </section>
+        <div data-hook="not-reachable">
+          <Collapsible id="notreach" title={t('ml.notreach')}>
+            <p class="sf-ex__line">{missing.map(muscleName).join(' · ')}</p>
+            <p class="sf-lab__note">{t('ml.notreach.note')}</p>
+          </Collapsible>
+        </div>
       )}
     </>
   );

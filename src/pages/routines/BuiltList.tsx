@@ -24,7 +24,7 @@ export function BuiltList({ result, onShuffle, note }: { result: BuildResult; on
                   <span class="sf-rt__meta">{t('db.line', { sets: e.sets, min: e.repMin, max: e.repMax, rest: e.restSec })}</span>
                   {e.group && <Badge tone="gold">{t('rb.d.ss')}</Badge>}
                 </div>
-                <Button variant="ghost" aria-label={t('db.shuffle.aria', { name: e.name })} onPress={() => onShuffle(i)}>{t('db.shuffle')}</Button>
+                <Button variant="secondary" aria-label={t('db.shuffle.aria', { name: e.name })} onPress={() => onShuffle(i)}>{t('db.shuffle')}</Button>
               </div>
             </li>
           );

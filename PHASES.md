@@ -391,5 +391,34 @@ One session of fixes from the owner's device reports (no keys/passwords). Only l
 **Depends:** 73-80, Admin 55. **In scope:** checks once; overflow audit of the new routes; guard test; compare `contract/CHECKSUMS.txt` with the Admin zip; write `docs/OWNER_CHECKLIST_1.1.0.md` (wipe a phone and restore; finish a session offline then sync; kill the app mid-restore; free signup; reinstall and sign in; forgot password with admin approval; free to gym; two phones); bump 1.1.0. **Version:** 1.1.0. **Verify:** checklist exists; standing gaps listed honestly.
 
 ---
+## MILESTONE 11 — Native feel and a calmer UI (82-88)
+**Full plan, design spec, onboarding flow and every decision: `docs/UX_REDESIGN_PLAN.md` (identical copy in the Admin zip, whose Phases 56-59 are the admin side). Read it before any of these phases.** Docs only so far, nothing started (2026-11-22).
+**Versions:** 1.2.0 at Phase 88. **Cross-zip:** none of 82-88 needs the Admin zip; `contract/` stays untouched unless Phase 85 proves the gym must see height or date of birth (then stop and say so).
+
+## Phase 82 — Safe first pack [E]
+**Goal:** pinch-zoom off, Share visible for everyone, body figure follows the profile. **Depends:** 81. **In scope:** viewport `maximum-scale=1, user-scalable=no`; `touch-action: pan-x pan-y` and `overscroll-behavior: none` on html/body; iOS `gesturestart` block; inputs 16px+; `relayConfig()` falls back to the free-backup core functions URL and anon key; visible Share on routine cards and routine page, Receive/Scan on Train and Today; `useFigureSex()` hook used by Heatmap, Marks, Recovery, Muscle lab and every BodyPicker; the in-page Male/Female control becomes a "Switch figure" link. **Out of scope:** new relay, Edge Function or SQL changes. **Key files:** `index.html`, `src/ui/styles/base.css`, `src/main.tsx`, `src/data/relay/client.ts`, `src/pages/routines/*`, `src/pages/heatmap/HeatmapPage.tsx`, `src/pages/body/MarksPage.tsx`, `src/ui/body/BodyPicker.tsx`. **Version:** none. **Verify:** hook and fallback tests; viewport guard test; STANDING GAP: two real phones for share (the `share_*` functions were never called), iPhone for zoom.
+
+## Phase 83 — Button and control kit [E]
+**Depends:** 82. **In scope:** `docs/UX_REDESIGN_PLAN.md` section 2: four button kinds, one card style, `Row`/`RowGroup`/`ChoiceRow`/`Switch`/`NumberRow`, and the shared `Collapsible` section (aria-expanded, remembered per page, Collapse all link); remove the visible ghost style and convert its 67 call sites and the plain-link rows; guard test. **Out of scope:** screen layouts (86-87). **Verify:** component tests, guard test that no naked-text button remains.
+
+## Phase 84 — Calendar picker [E]
+**Depends:** 83. **In scope:** shared picker (section 2), pure helpers in `src/shared/`, replace the 6 native date inputs (AI review range, schedule edit, recap, heatmap) and the birth-year text; guard test against `type="date"`. **Verify:** unit tests (month lengths, leap years, min/max, Mon-first grid); one 360 px check.
+
+## Phase 85 — Onboarding [E]
+**Depends:** 83, 84. **In scope:** section 3: `/welcome` flow (name, date of birth, sex + figure preview, height, weight, units, level, backup choice with the plain risk text, optional gym QR), skippable steps, resumable, runs once, re-runnable from Settings; new profile fields saved locally and in backup/restore. **Out of scope:** changing `contract/` (stop and say so if needed). **Verify:** state tests for each step, skip, resume, gym-member shortcuts, backup round-trip of the new fields; STANDING GAP: real free signup on a phone.
+
+## Phase 86 — Declutter I: Today, Train, Routines, Routine week and day, Quick workout, Session, Session summary, History [E]
+**Depends:** 83. **In scope:** section 2 screen targets; `Collapsible` sections for everything below the first block (live workout: current exercise and set logger stay open, notes/history/setup closed); before/after screenshots at 390x844 in `review/ux/`. **Verify:** screenshots, overflow audit at 360 px.
+
+## Phase 87 — Declutter II: Library, Exercise page, Machine pages, Muscle page, Me, Settings, Body, Heatmap, Progress, Records, Goals, Gym, Backup and every remaining long page [E]
+**Depends:** 83, 86. **In scope:** `Collapsible` sections on the Exercise page and Machine pages (index, page, Lab) first, then every page that scrolls past one screen; guard test: no page renders more than 3 always-open top-level sections; fewer settings pages, dropdown rows for 4+ options, one primary action per screen; before/after screenshots. **Verify:** same as 86.
+
+## Phase 88 — GATE: release 1.2.0 [G]
+**Depends:** 82-87. **In scope:** overflow audit, a11y labels, guard tests (viewport lock, no native date, no ghost, figure from profile, collapsible sections), write `docs/OWNER_CHECKLIST_1.2.0.md`, bump 1.2.0. **Version:** 1.2.0.
+
+## Phase 89 — Android install button and About page [E]
+**Depends:** 88. **In scope:** the install screen shows one primary "Install app" button for every Android state (direct browser install dialog when the browser offered it; otherwise a toast that names the menu steps); About page restructured: app name and release, "Made by" with the maker's name in bold and email link, the story, links; `author` added to `about.json` schema (optional). **Out:** iOS flow, new install states, contract/, any other page. **Verify:** typecheck once; `tests/pages/about89.test.ts`, `tests/pages/settings63.test.ts`.
+
+---
 ## LATER (flag exists, nothing built)
 Classes/PT booking, store, leaderboards, food log + calories, Kannada/Hindi, extra muscle detail (neck split, serratus on the map), exercise video hosting, share cards, wearables. **Parked:** native wrapper (Capacitor + SQLite) for Android and iOS, see `docs/RECOVERY_PLAN.md` section 12.

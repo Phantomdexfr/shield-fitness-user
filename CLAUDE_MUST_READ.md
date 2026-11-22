@@ -1,3 +1,7 @@
+> **LIVE SINCE NOV 2026: read `LAUNCH_STATUS.md` (repo root) before anything else.** It lists what is deployed, what was tested on real devices, the launch bugs and fixes, and how to ship changes. It overrides older notes below.
+
+> **NEXT WORK (2026-11-22): Milestone 11, User app Phases 82-88.** Read `docs/UX_REDESIGN_PLAN.md` (after `LAUNCH_STATUS.md`) before doing any phase from `PHASES.md` Milestone 11. One phase per session, start at Phase 82.
+
 # CLAUDE MUST READ — Shield Fitness USER APP — Start Here, Every Session
 
 You are working on the **User app** (the member-facing PWA). A separate **Admin app** has its own zip and its own sessions. You never touch it and never need it. What the two share is the read-only `contract/` folder.

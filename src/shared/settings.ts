@@ -25,7 +25,10 @@ const OVERLOAD = 'overload:prefs';
 
 export const PREF_DEFS: readonly PrefDef[] = [
   { key: 'account.name', kind: { type: 'text', def: '', max: 30 }, store: null },
+  { key: 'account.birthDate', kind: { type: 'text', def: '', max: 10 }, store: null },
   { key: 'account.birthYear', kind: { type: 'text', def: '', max: 4 }, store: null },
+  { key: 'account.heightCm', kind: { type: 'int', def: 0, min: 0, max: 250, step: 1 }, store: null },
+  { key: 'account.heightUnit', kind: { type: 'choice', def: 'cm', options: ['cm', 'ft'] }, store: null },
   { key: 'account.level', kind: { type: 'choice', def: 'unset', options: ['unset', 'beginner', 'intermediate', 'advanced'] }, store: null },
   { key: 'training.units', kind: { type: 'choice', def: 'kg', options: ['kg', 'lb'] }, store: null },
   { key: 'training.smartRest', kind: { type: 'bool', def: true }, store: null, feature: 'smart_rest_timer' },
@@ -91,7 +94,11 @@ export type RowSpec =
   | { kind: 'toggle'; pref: string; label: string; hint?: string }
   | { kind: 'segmented'; pref: string; label: string; options: readonly { value: string; label: string }[] }
   | { kind: 'stepper'; pref: string; label: string; unit: string }
-  | { kind: 'text'; pref: string; label: string; hint?: string; birthYear?: boolean }
+  | { kind: 'text'; pref: string; label: string; hint?: string }
+  /** A number with a sane range chosen in a sheet; stored 0 = not set (Phase 85: height). */
+  | { kind: 'number'; pref: string; label: string; min: number; max: number; start: number; unit: string }
+  /** A date chosen on the calendar; `yearPref` (if set) is kept equal to its year so older code and installs still read a birth year. */
+  | { kind: 'date'; pref: string; label: string; hint?: string; yearPref?: string }
   | { kind: 'link'; label: string; to: string; hint?: string; feature?: string }
   | { kind: 'note'; text: string };
 

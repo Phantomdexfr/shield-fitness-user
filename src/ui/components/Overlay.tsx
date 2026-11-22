@@ -4,6 +4,9 @@ import { Button, IconButton } from './Button';
 import { LABELS } from './labels';
 import { cx } from './util';
 
+/** Overlays open at once (a date sheet inside another sheet): the scroll lock stays until the last one closes. */
+let openCount = 0;
+
 /** Escape closes, page scroll locks, focus moves in and is restored on close. */
 function useOverlay(open: boolean, onClose: () => void, ref: RefObject<HTMLElement>) {
   const closeRef = useRef(onClose);
@@ -18,11 +21,16 @@ function useOverlay(open: boolean, onClose: () => void, ref: RefObject<HTMLEleme
       }
     };
     document.addEventListener('keydown', onKey);
+    openCount += 1;
     document.documentElement.classList.add('sf-scroll-lock');
     ref.current?.focus();
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.documentElement.classList.remove('sf-scroll-lock');
+      openCount -= 1;
+      if (openCount <= 0) {
+        openCount = 0;
+        document.documentElement.classList.remove('sf-scroll-lock');
+      }
       previous?.focus?.();
     };
   }, [open]);

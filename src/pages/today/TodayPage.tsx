@@ -3,7 +3,9 @@ import { useEffect, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { Badge, Button, Card, EmptyState, Sheet } from '../../ui/components';
+import { relayAvailable } from '../../data/relay/client';
+import { Button, Card, EmptyState, Sheet } from '../../ui/components';
+import { SharePlanSheet } from '../share/SharePlanSheet';
 import { addDays, weekdayOfKey } from '../../shared/dates';
 import { estimateMinutes } from '../../shared/routineEdit';
 import { missedDays, pointerAfter, rankDays, recoveryPicks, restHint, todayPlan, type TodayPlan } from '../../shared/schedule';
@@ -29,6 +31,9 @@ export default function TodayPage() {
   const cardOn = useFeature('today_card');
   const schedOn = useFeature('rest_scheduler');
   const hintsOn = useFeature('rest_suggestions');
+  const shareOn = useFeature('plan_share') && relayAvailable();
+  const quickOn = useFeature('quick_workout');
+  const [shareOpen, setShareOpen] = useState(false);
 
   const read = () => activeRoutine().then((routine) => setLoad({ status: 'ready', routine }), () => setLoad({ status: 'error' }));
   useEffect(() => {
@@ -58,11 +63,23 @@ export default function TodayPage() {
   if (load.status === 'error') return <section class="sf-page-body"><h1 class="sf-page-title">{t('page.today.title')}</h1><EmptyState icon="warning" title={t('sc.today.error')} actionLabel={t('rb.error.retry')} onAction={() => void read()} /></section>;
 
   const title = <h1 class="sf-page-title">{t('page.today.title')}</h1>;
+  const head = <div class="sf-today__head">{title}<SyncChip /></div>;
+  const quickGrid = (withShare: boolean) => (
+    <div class="sf-rt__block">
+      <h2 class="sf-sec__label">{t('ux.quick')}</h2>
+      <div class="sf-qgrid">
+        {withShare && shareOn && <Button variant="secondary" onPress={() => setShareOpen(true)}>{t('ux.shareQuick')}</Button>}
+        {shareOn && <Button variant="secondary" onPress={() => navigate('/share')}>{t('ux.scanQuick')}</Button>}
+        <Button variant="secondary" onPress={() => navigate('/history')}>{t('ux.historyQuick')}</Button>
+        {quickOn && <Button variant="secondary" onPress={() => navigate('/quick')}>{t('ux.quickWorkout')}</Button>}
+      </div>
+    </div>
+  );
 
   if (!routine || !tp) {
     return (
       <section class="sf-page-body sf-sc">
-        {title}
+        {head}
         {cardOn && (
           <Card tone="gold" class="sf-sc__today">
             <p class="sf-rt__name">{t('sc.today.noroutine')}</p>
@@ -72,6 +89,7 @@ export default function TodayPage() {
             </div>
           </Card>
         )}
+        {quickGrid(false)}
       </section>
     );
   }
@@ -130,13 +148,16 @@ export default function TodayPage() {
 
   const detail = day ? (day.items.length === 0 ? t('sc.today.noitems') : t('sc.today.detail', { n: day.items.length, min: estimateMinutes(day.items) })) : '';
 
+  const train = (tp.kind === 'train' || tp.kind === 'suggest') && day !== undefined && tp.dayIndex !== undefined;
+  const restToday = () => void plan.patchState({ overrides: { ...state.overrides, [today]: 'rest' } });
+  const label = tp.deload ? t('sc.deload.banner') : t('page.today.title');
+
   return (
     <section class="sf-page-body sf-sc">
-      {title}
-      <SyncChip />
+      {head}
       {cardOn && (
         <Card tone="gold" class="sf-sc__today">
-          {tp.deload && <Badge>{t('sc.deload.banner')}</Badge>}
+          <span class="sf-sec__label">{label}</span>
           {(tp.kind === 'train' || tp.kind === 'suggest') && day && <p class="sf-rt__name">{day.name}</p>}
           {tp.kind === 'active' && <p class="sf-rt__name">{t('sc.kind.A')}</p>}
           {tp.kind === 'mobility' && <p class="sf-rt__name">{t('sc.kind.M')}</p>}
@@ -146,41 +167,49 @@ export default function TodayPage() {
           {detail && (tp.kind === 'train' || tp.kind === 'suggest') && <p class="sf-rt__meta">{detail}</p>}
           {(tp.kind === 'active' || tp.kind === 'mobility') && <p class="sf-rt__meta">{names.length > 0 ? t(tp.kind === 'active' ? 'sc.today.recovery' : 'sc.today.mobility', { names: names.join(', ') }) : t('sc.today.recovery.none')}</p>}
 
-          {hint && (
+          {/* ONE notice slot: the welcome-back note wins over the daily rest hint. */}
+          {welcome ? (
             <div class="sf-sc__hint" role="status">
-              <p class="sf-rt__hint-text">
-                {t('sc.hint.text', {
-                  muscles: hint.muscles.slice(0, MAX_NAMED).map(muscleLabel).join(', ') + (hint.muscles.length > MAX_NAMED ? ` ${t('sc.hint.more', { n: hint.muscles.length - MAX_NAMED })}` : ''),
-                })}
-              </p>
+              <p class="sf-rt__hint-text">{t('sc.welcome', { day: dayName(state.pointer % days.length) })}</p>
               <div class="sf-rt__row">
-                <Button variant="secondary" onPress={() => void finishHint()}>{t('sc.hint.train')}</Button>
-                <Button variant="secondary" onPress={() => setSwap(true)}>{t('sc.hint.swap')}</Button>
-                <Button variant="secondary" onPress={() => void finishHint({ overrides: { ...state.overrides, [today]: 'rest' } })}>{t('sc.hint.rest')}</Button>
+                <Button variant="secondary" onPress={() => { dismissWelcome(); startDay(state.pointer % days.length); }}>{t('sc.today.start')}</Button>
+                <Button variant="secondary" onPress={dismissWelcome}>{t('sc.missed.later')}</Button>
               </div>
             </div>
+          ) : (
+            hint && (
+              <div class="sf-sc__hint" role="status">
+                <p class="sf-rt__hint-text">
+                  {t('sc.hint.text', {
+                    muscles: hint.muscles.slice(0, MAX_NAMED).map(muscleLabel).join(', ') + (hint.muscles.length > MAX_NAMED ? ` ${t('sc.hint.more', { n: hint.muscles.length - MAX_NAMED })}` : ''),
+                  })}
+                </p>
+                <div class="sf-rt__row">
+                  <Button variant="secondary" onPress={() => void finishHint()}>{t('sc.hint.train')}</Button>
+                  <Button variant="secondary" onPress={() => setSwap(true)}>{t('sc.hint.swap')}</Button>
+                  <Button variant="secondary" onPress={() => void finishHint({ overrides: { ...state.overrides, [today]: 'rest' } })}>{t('sc.hint.rest')}</Button>
+                </div>
+              </div>
+            )
           )}
 
-          <div class="sf-rt__row">
-            {(tp.kind === 'train' || tp.kind === 'suggest') && tp.dayIndex !== undefined && <Button onPress={() => startDay(tp.dayIndex!)}>{t('sc.today.start')}</Button>}
-            {(tp.kind === 'active' || tp.kind === 'mobility') && <Button onPress={() => navigate('/library')}>{t('sc.today.start')}</Button>}
-            {tp.kind === 'rest' && tp.dayIndex !== undefined && <Button variant="secondary" onPress={() => startDay(tp.dayIndex!)}>{t('sc.today.another')}</Button>}
-            {(tp.kind === 'active' || tp.kind === 'mobility') && <Button variant="ghost" onPress={() => void plan.patchState({ overrides: { ...state.overrides, [today]: 'rest' } })}>{t('sc.today.skip')}</Button>}
-          </div>
+          {train && <Button onPress={() => startDay(tp.dayIndex!)}>{t('sc.today.start')}</Button>}
+          {(tp.kind === 'active' || tp.kind === 'mobility') && <Button onPress={() => navigate('/library')}>{t('sc.today.start')}</Button>}
+          {tp.kind === 'rest' && tp.dayIndex !== undefined && <Button variant="secondary" onPress={() => startDay(tp.dayIndex!)}>{t('sc.today.another')}</Button>}
+          {train && (
+            <div class="sf-qgrid">
+              <Button variant="secondary" onPress={() => setSwap(true)}>{t('ux.swapDay')}</Button>
+              <Button variant="secondary" onPress={restToday}>{t('ux.restToday')}</Button>
+            </div>
+          )}
+          {(tp.kind === 'active' || tp.kind === 'mobility') && <Button variant="secondary" onPress={restToday}>{t('sc.today.skip')}</Button>}
         </Card>
       )}
 
-      {welcome && (
-        <Card tone="raised" class="sf-sc__today">
-          <p class="sf-rt__hint-text" role="status">{t('sc.welcome', { day: dayName(state.pointer % days.length) })}</p>
-          <div class="sf-rt__row">
-            <Button onPress={() => { dismissWelcome(); startDay(state.pointer % days.length); }}>{t('sc.today.start')}</Button>
-            <Button variant="ghost" onPress={dismissWelcome}>{t('sc.missed.later')}</Button>
-          </div>
-        </Card>
-      )}
+      <WeekView strip routine={routine} plan={plan} onRoutine={(r) => setLoad({ status: 'ready', routine: r })} />
 
-      <WeekView routine={routine} plan={plan} onRoutine={(r) => setLoad({ status: 'ready', routine: r })} />
+      {quickGrid(true)}
+      {shareOn && <SharePlanSheet open={shareOpen} onClose={() => setShareOpen(false)} routineId={routine.id} />}
 
       <Sheet open={sheetDate !== undefined && missedDay !== undefined} onClose={() => sheetDate && void later(sheetDate)} title={t('sc.title')}>
         {sheetDate && missedDay && (
@@ -189,7 +218,7 @@ export default function TodayPage() {
             {sheetErr && <p class="sf-rt__err" role="alert">{t('sc.missed.error')}</p>}
             <Button variant={settings.missed === 'shift' ? 'primary' : 'secondary'} onPress={() => void doToday(sheetDate)}>{sheetErr ? t('sc.missed.retry') : t('sc.missed.today')}</Button>
             <Button variant={settings.missed === 'skip' ? 'primary' : 'secondary'} onPress={() => void decide(sheetDate, 'skip').then((ok) => ok && setSheetGone(true))}>{t('sc.missed.skip')}</Button>
-            <Button variant="ghost" onPress={() => void later(sheetDate)}>{t('sc.missed.later')}</Button>
+            <Button variant="secondary" onPress={() => void later(sheetDate)}>{t('sc.missed.later')}</Button>
           </div>
         )}
       </Sheet>

@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 import { t, type StringKey } from '../../i18n';
-import { Button, Chip, Sheet } from '../../ui/components';
+import { Button, Chip, DatePicker, Sheet } from '../../ui/components';
 import { istDayKey, type DayKey } from '../../shared/dates';
 import { rangeFor, type RangePreset } from '../../shared/aiReview';
 
@@ -23,10 +23,8 @@ export function RangeSheet({ open, onClose, onPick }: { open: boolean; onClose: 
         </div>
         {preset === 'custom' && (
           <div class="sf-rt">
-            <label class="sf-lib__note" for="ai-from">{t('ai.range.from')}</label>
-            <input id="ai-from" type="date" class="sf-input" value={custom.from} onInput={(e) => setCustom({ ...custom, from: (e.target as HTMLInputElement).value })} />
-            <label class="sf-lib__note" for="ai-to">{t('ai.range.to')}</label>
-            <input id="ai-to" type="date" class="sf-input" value={custom.to} onInput={(e) => setCustom({ ...custom, to: (e.target as HTMLInputElement).value })} />
+            <DatePicker label={t('ai.range.from')} value={custom.from} max={custom.to || undefined} onChange={(v) => setCustom({ ...custom, from: v })} />
+            <DatePicker label={t('ai.range.to')} value={custom.to} min={custom.from || undefined} onChange={(v) => setCustom({ ...custom, to: v })} />
           </div>
         )}
         {range ? <p class="sf-lib__note" role="status">{`${range.from} - ${range.to}`}</p> : <p class="sf-lib__note" role="alert">{t('ai.range.bad')}</p>}

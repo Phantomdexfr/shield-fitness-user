@@ -26,7 +26,7 @@ export function FormCueCard({ card, onDismiss }: FormCueCardProps) {
           );
         })}
       </ul>
-      <Button variant="ghost" onPress={onDismiss}>
+      <Button variant="secondary" onPress={onDismiss}>
         {t('ex.cue.dismiss')}
       </Button>
     </section>

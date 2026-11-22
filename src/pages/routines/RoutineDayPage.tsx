@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { useLocation, useRoute } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { Badge, Button, Card, Chip, EmptyState, Input, PhotoFrame, Sheet, Stepper, SubPageHeader } from '../../ui/components';
+import { Badge, Collapsible, Button, Card, Chip, EmptyState, Input, PhotoFrame, Sheet, Stepper, SubPageHeader } from '../../ui/components';
 import { BodyPicker, MuscleChips, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { SearchBox } from '../../ui/search/SearchBox';
 import { goodFor, machineThumb, refFor, searchPicks, type Pick } from '../../data/repos/routineEdit';
 import {
@@ -43,7 +44,7 @@ export default function RoutineDayPage() {
   const [nameErr, setNameErr] = useState(false);
   const [musclesOpen, setMusclesOpen] = useState(false);
   const [muscleDraft, setMuscleDraft] = useState<string[]>([]);
-  const [sex, setSex] = useState<Sex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [addOpen, setAddOpen] = useState(false);
   const [q, setQ] = useState('');
@@ -193,6 +194,12 @@ export default function RoutineDayPage() {
       {saveError && <p class="sf-rt__err" role="alert">{t('rb.err.save')}</p>}
       {routine?.followed && <p class="sf-lib__note" role="status">{t('gp.readonly')}</p>}
 
+      <div class="sf-qgrid">
+        <Button icon="plus" onPress={() => { setQ(''); setAddOpen(true); }}>{t('rb.d.add')}</Button>
+        {builderOn && <Button variant="secondary" onPress={() => setBuildOpen(true)}>{t('db.build')}</Button>}
+      </div>
+
+      <Collapsible id="name" title={t('rb.d.muscles')} summary={day.targetMuscles.length > 0 ? String(day.targetMuscles.length) : undefined}>
       <Input
         label={t('rb.d.name')}
         {...{ value: nameDraft ?? day.name, autoComplete: 'off' }}
@@ -203,20 +210,18 @@ export default function RoutineDayPage() {
       />
 
       <div class="sf-rt__block">
-        <h2 class="sf-rt__h">{t('rb.d.muscles')}</h2>
         <div class="sf-rt__chips">
           {day.targetMuscles.length === 0 ? <span class="sf-rt__meta">{t('rb.d.muscles.none')}</span> : day.targetMuscles.map((m) => <Badge key={m} tone="neutral">{muscleLabel(m)}</Badge>)}
         </div>
         <Button variant="secondary" onPress={() => { setMuscleDraft(day.targetMuscles); setMusclesOpen(true); }}>{t('rb.d.muscles.pick')}</Button>
       </div>
 
-      <Button icon="plus" onPress={() => { setQ(''); setAddOpen(true); }}>{t('rb.d.add')}</Button>
-      {builderOn && <Button variant="secondary" onPress={() => setBuildOpen(true)}>{t('db.build')}</Button>}
+      </Collapsible>
 
       {undo && (
         <div class="sf-rt__undo" role="status">
           <span class="sf-rt__undo-text">{t('rb.d.removed', { name: nameOf(undo.item) })}</span>
-          <Button variant="ghost" onPress={doUndo}>{t('rb.undo')}</Button>
+          <Button variant="secondary" onPress={doUndo}>{t('rb.undo')}</Button>
         </div>
       )}
       {items.length >= LONG_DAY_ITEMS && <p class="sf-rt__meta" role="status">{t('rb.d.long')}</p>}
@@ -237,8 +242,8 @@ export default function RoutineDayPage() {
                   {label && <Badge tone="gold">{t('rb.d.ss.badge', { g: label })}</Badge>}
                 </Card>
                 <div class="sf-rt__ctl">
-                  <Button variant="ghost" disabled={i === 0} aria-label={t('rb.d.up', { name })} onPress={() => setItems(moveItem(items, i, i - 1))}>{t('rb.w.up')}</Button>
-                  <Button variant="ghost" disabled={i === items.length - 1} aria-label={t('rb.d.down', { name })} onPress={() => setItems(moveItem(items, i, i + 1))}>{t('rb.w.down')}</Button>
+                  <Button variant="secondary" disabled={i === 0} aria-label={t('rb.d.up', { name })} onPress={() => setItems(moveItem(items, i, i - 1))}>{t('rb.w.up')}</Button>
+                  <Button variant="secondary" disabled={i === items.length - 1} aria-label={t('rb.d.down', { name })} onPress={() => setItems(moveItem(items, i, i + 1))}>{t('rb.w.down')}</Button>
                   <button type="button" class="sf-rt__grip" aria-label={t('rb.d.drag', { name })} onPointerDown={(e) => dragStart(i, e as PointerEvent)}>{t('rb.d.drag.short')}</button>
                   <Button variant="danger" aria-label={`${t('rb.d.remove')}: ${name}`} onPress={() => doRemove(i)}>{t('rb.d.remove')}</Button>
                 </div>
@@ -293,11 +298,11 @@ export default function RoutineDayPage() {
                 </div>
               )}
               {swipeOn && edit.item.ref.kind === 'lib' && <Button variant="secondary" onPress={() => setPartnerOpen(true)}>{t('db.ss.find')}</Button>}
-              {edit.item.supersetGroup && <Button variant="ghost" onPress={() => { setItems(unlinkSuperset(items, edit.index)); setEdit(null); }}>{t('rb.d.ss.unlink')}</Button>}
+              {edit.item.supersetGroup && <Button variant="secondary" onPress={() => { setItems(unlinkSuperset(items, edit.index)); setEdit(null); }}>{t('rb.d.ss.unlink')}</Button>}
             </div>
             {editErr && <p class="sf-rt__err" role="alert">{t(`rb.d.err.${editErr}` as StringKey)}</p>}
             <Button onPress={saveEdit}>{t('rb.d.save')}</Button>
-            <Button variant="ghost" onPress={() => setEdit(null)}>{t('rb.cancel')}</Button>
+            <Button variant="secondary" onPress={() => setEdit(null)}>{t('rb.cancel')}</Button>
           </div>
         )}
       </Sheet>

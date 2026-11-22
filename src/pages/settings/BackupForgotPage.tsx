@@ -3,7 +3,7 @@ import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import { freeConfig } from '../../app/freeBuild';
 import { MIN_ANSWER_CHARS, SESSIONS_BANDS, isLocked, validateForgot } from '../../shared/freeRecovery';
-import { Button, Select, SubPageHeader } from '../../ui/components';
+import { Button, DatePicker, Select, SubPageHeader } from '../../ui/components';
 import { GymInput } from './GymInput';
 
 /** R7 (/settings/backup/forgot): the facts the person remembers and the two answers. A person at the gym checks them; nothing resets by itself. */
@@ -58,8 +58,8 @@ export default function BackupForgotPage() {
       <SubPageHeader title={t('bk.fp.h')} onBack={back} />
       <p class="sf-st__para">{t('bk.fp.intro')}</p>
       <GymInput label={t('bk.fp.id')} value={who} autoComplete="username" autoCapitalize="none" onInput={(e) => setWho((e.target as HTMLInputElement).value)} />
-      <GymInput label={t('bk.fp.first')} type="month" value={first} onInput={(e) => setFirst((e.target as HTMLInputElement).value)} />
-      <GymInput label={t('bk.fp.last')} type="month" value={last} onInput={(e) => setLast((e.target as HTMLInputElement).value)} />
+      <DatePicker mode="month" label={t('bk.fp.first')} value={first} onChange={setFirst} />
+      <DatePicker mode="month" label={t('bk.fp.last')} value={last} onChange={setLast} />
       <Select label={t('bk.fp.band')} value={band} onChange={setBand} options={[{ value: '', label: t('bk.fp.pick') }, ...SESSIONS_BANDS.map((b, i) => ({ value: b as string, label: t(`bk.fp.band.${i}` as StringKey) }))]} />
       <GymInput label={t('bk.q.p1')} value={a1} autoComplete="off" maxLength={100} onInput={(e) => setA1((e.target as HTMLInputElement).value)} />
       <GymInput label={t('bk.q.p2')} value={a2} autoComplete="off" maxLength={100} onInput={(e) => setA2((e.target as HTMLInputElement).value)} />

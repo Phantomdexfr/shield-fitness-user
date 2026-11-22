@@ -49,7 +49,16 @@ async function copyLink() {
 export function InstallGate({ state }: { state: InstallState }) {
   const [, bump] = useState(0);
   useEffect(() => onPromptChange(() => bump((n) => n + 1)), []);
-  const canPrompt = state === 'android-promptable' && hasInstallPrompt();
+  const isAndroidState = state === 'android-promptable' || state === 'android-other';
+  // The browser can fire `beforeinstallprompt` after the page loaded, so the live check wins over the state read at start.
+  const canPrompt = isAndroidState && hasInstallPrompt();
+  const onInstall = async () => {
+    if (!hasInstallPrompt()) {
+      showToast(t('gate.android.menu'), { tone: 'warn', durationMs: 8000 });
+      return;
+    }
+    if (await promptInstall()) showToast(t('gate.android.installing'), { tone: 'ok', durationMs: 8000 });
+  };
 
   let title = t('gate.title');
   let lead = t('gate.lead');
@@ -73,8 +82,8 @@ export function InstallGate({ state }: { state: InstallState }) {
     <main class="sf-gate">
       <h1 class="sf-gate__title">{title}</h1>
       <p class="sf-gate__lead">{lead}</p>
-      {canPrompt && (
-        <Button variant="primary" size="lg" icon="download-simple" fullWidth onPress={() => void promptInstall()}>
+      {isAndroidState && (
+        <Button variant="primary" size="lg" icon="download-simple" fullWidth onPress={() => void onInstall()}>
           {t('gate.android.install')}
         </Button>
       )}

@@ -1,10 +1,13 @@
 export { Icon, type IconName, type IconProps } from './Icon';
 export { Pressable, type PressableProps } from './Pressable';
 export { Button, IconButton, type ButtonProps, type IconButtonProps, type ButtonVariant } from './Button';
+export { Row, RowGroup, Switch, ChoiceRow, NumberRow, type RowProps, type SwitchProps, type ChoiceRowProps, type NumberRowProps } from './Rows';
+export { Collapsible, CollapseAll, resetSectionsForTest, type CollapsibleProps } from './Collapsible';
 export { Card, type CardProps } from './Card';
 export { Chip, Badge, type ChipProps, type BadgeProps } from './Chip';
 export { Segmented, Tabs, type Option, type SegmentedProps, type TabsProps } from './Choice';
 export { Field, Input, Select, Toggle, Stepper, type FieldProps, type InputProps, type SelectProps, type ToggleProps, type StepperProps } from './Form';
+export { DatePicker, type DatePickerProps } from './DatePicker';
 export { Sheet, Dialog, type SheetProps, type DialogProps } from './Overlay';
 export { ToastHost, showToast, toastStore, type ToastItem, type ToastOptions, type ToastTone } from './Toast';
 export { Skeleton, SkeletonText, EmptyState, ProgressRing, ProgressBar, type EmptyStateProps, type ProgressRingProps } from './Feedback';

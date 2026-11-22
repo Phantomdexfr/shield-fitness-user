@@ -5,6 +5,7 @@ import { en } from '../../i18n/en';
 import { useFeature } from '../../app/flags';
 import { Button, EmptyState, Input, Segmented, Select, Stepper, SubPageHeader } from '../../ui/components';
 import { BodyPicker, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { PatternPreview } from '../../ui/movement/MovementSection';
 import { listMachines } from '../../data/repos/library';
 import { getCustom, saveCustom } from '../../data/repos/customExercises';
@@ -37,7 +38,7 @@ export default function NewExercisePage() {
   const [errors, setErrors] = useState<CustomErrors>({});
   const [machines, setMachines] = useState<Machine[]>([]);
   const [movement, setMovement] = useState<MovementData | null>(null);
-  const [sex, setSex] = useState<Sex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [saving, setSaving] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -140,7 +141,7 @@ export default function NewExercisePage() {
           <div key={m.id} class="sf-cx__mrow">
             <div class="sf-cx__mhead">
               <span class="sf-cx__mname">{muscleLabel(m.id)}</span>
-              <Button variant="ghost" onPress={() => patch({ muscles: draft.muscles.filter((x) => x.id !== m.id) }, 'muscles')}>
+              <Button variant="secondary" onPress={() => patch({ muscles: draft.muscles.filter((x) => x.id !== m.id) }, 'muscles')}>
                 {t('cx.muscle.remove', { name: muscleLabel(m.id) })}
               </Button>
             </div>

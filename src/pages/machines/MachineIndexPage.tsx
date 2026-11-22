@@ -4,7 +4,7 @@ import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
 import { loadMachineIndex, type MachineIndexData } from '../../data/repos/machineLab';
 import { machineFinder } from '../body/labData';
-import { Badge, EmptyState, Input, Segmented, Select, SubPageHeader } from '../../ui/components';
+import { Badge, Collapsible, EmptyState, Input, Segmented, Select, SubPageHeader, Row } from '../../ui/components';
 import { nice } from '../exercise/exerciseModel';
 import { indexRows, sortIndex, type IndexSort } from './machineLabModel';
 import { goBack } from '../../app/navBack';
@@ -55,7 +55,7 @@ export default function MachineIndexPage() {
       <SubPageHeader title={t('mi.title')} onBack={back} backLabel={t('mi.back')} />
 
       {finderOn && (
-        <section aria-label={t('mi.finder')} class="sf-ex__block">
+        <Collapsible id="finder" title={t('mi.finder')} summary={finderMuscle ? muscleName(finderMuscle) : undefined}>
           <Select label={t('mi.finder')} options={options} value={finderMuscle} onChange={setFinderMuscle} />
           {finderMuscle && finder.length > 0 && (
             <>
@@ -63,16 +63,16 @@ export default function MachineIndexPage() {
               <ul class="sf-lib__list">
                 {finder.map((m) => (
                   <li key={m.slug} class="sf-lib__row">
-                    <Link href={`/machines/${m.slug}/lab`} class="sf-lib__link">
+                    <Row href={`/machines/${m.slug}/lab`}>
                       <span class="sf-lib__name">{m.name}</span>
                       <span class="sf-lib__meta">{t('lab.machines.exercises', { n: m.exercises })}</span>
-                    </Link>
+                    </Row>
                   </li>
                 ))}
               </ul>
             </>
           )}
-        </section>
+        </Collapsible>
       )}
 
       <Input label={t('mi.search')} {...{ type: 'search', value: q, placeholder: t('mi.search'), autoComplete: 'off' }} onInput={(e) => setQ((e.currentTarget as HTMLInputElement).value)} />
@@ -84,14 +84,14 @@ export default function MachineIndexPage() {
         <ul class="sf-lib__list">
           {rows.map((m) => (
             <li key={m.slug} class="sf-lib__row">
-              <Link href={`/machines/${m.slug}/lab`} class="sf-lib__link">
+              <Row href={`/machines/${m.slug}/lab`}>
                 <span class="sf-lib__name">{m.name}</span>
                 <span class="sf-lib__meta">{t('mi.reaches', { n: m.reached, total: m.total })}</span>
                 <span class="sf-ex__chips">
                   <Badge>{nice(m.category)}</Badge>
                   <Badge>{m.zone ?? t('mi.nozone')}</Badge>
                 </span>
-              </Link>
+              </Row>
             </li>
           ))}
         </ul>

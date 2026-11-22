@@ -48,3 +48,9 @@ h2.sf-st__label { margin: 0; font-size: var(--text-md); }
 .sf-gdcal { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--sp-1); min-width: 0; }
 .sf-gdcal__day { display: flex; align-items: center; justify-content: center; min-height: var(--touch-min); border-radius: var(--r-md); color: var(--text-muted); font-size: var(--text-sm); }
 .sf-gdcal__day--on { background: var(--gold-400); color: var(--bg); font-weight: 600; }
+
+/* Phase 89: About page. Tokens only; wraps, never cut. */
+.sf-about__app { margin: 0; font-family: var(--font-display, inherit); font-size: var(--text-xl, 1.5rem); color: var(--gold-300); overflow-wrap: anywhere; }
+.sf-about__kicker { margin: 0; color: var(--text-muted); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.06em; }
+.sf-about__author { margin: 0; display: flex; align-items: center; gap: var(--sp-2); color: var(--text); font-size: var(--text-lg, 1.125rem); overflow-wrap: anywhere; min-width: 0; }
+.sf-about__author strong { font-weight: 700; }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Button, SubPageHeader, Toggle } from '../../ui/components';
+import { Button, SubPageHeader, Toggle, Row } from '../../ui/components';
 import { getProfile, latestBodyweight, saveProfile, type BadgeProfile } from '../../data/repos/badges';
 import { ProfileForm } from './ProfileForm';
 import { goBack } from '../../app/navBack';
@@ -38,7 +38,7 @@ export default function BadgesSettingsPage() {
       />
       <ProfileForm key={`${profile.sex}-${kg}-${tick}`} initialSex={profile.sex} initialKg={kg} firstRun={false} onDone={() => { setSaved(true); setTick(tick + 1); }} />
       {saved && <p class="sf-bd__note" role="status">{t('badge.set.saved')}</p>}
-      <Button variant="ghost" onPress={() => navigate('/profile/muscles')}>{t('badge.set.open')}</Button>
+      <Row label={t('badge.set.open')} href="/profile/muscles" />
       <p class="sf-bd__note">{t('badge.limits')}</p>
     </div>
   );

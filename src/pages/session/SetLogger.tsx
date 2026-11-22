@@ -188,8 +188,8 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
         <div class="sf-lg__rest" role="timer" aria-live="off">
           <span class="sf-lg__clock">{left > 0 ? t('lg.rest', { time: clockText(left) }) : t('lg.rest.over')}</span>
           <div class="sf-rt__row">
-            <Button variant="ghost" onPress={() => setTimer(adjustRest(timer, -15))}>{t('lg.rest.minus')}</Button>
-            <Button variant="ghost" onPress={() => setTimer(adjustRest(timer, 15))}>{t('lg.rest.plus')}</Button>
+            <Button variant="secondary" onPress={() => setTimer(adjustRest(timer, -15))}>{t('lg.rest.minus')}</Button>
+            <Button variant="secondary" onPress={() => setTimer(adjustRest(timer, 15))}>{t('lg.rest.plus')}</Button>
             <Button variant="secondary" onPress={() => setTimer(null)}>{t('lg.rest.skip')}</Button>
           </div>
         </div>
@@ -224,7 +224,7 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
                 ) : (
                   <div class="sf-rt__row">
                     <Stepper class="sf-lg__grow" label={t('lg.rpe')} value={draft.rpe} step={RPE_STEP} min={RPE_MIN} max={RPE_MAX} onChange={(v) => edit({ rpe: v })} />
-                    <Button variant="ghost" onPress={() => edit({ rpe: null })}>{t('lg.rpe.clear')}</Button>
+                    <Button variant="secondary" onPress={() => edit({ rpe: null })}>{t('lg.rpe.clear')}</Button>
                   </div>
                 )}
               </div>
@@ -236,7 +236,7 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
           <Button icon="plus" onPress={log}>{t('lg.log')}</Button>
           <div class="sf-rt__row">
             {ramp.length > 0 && item.sets.length === 0 && <Button variant="secondary" onPress={doRamp}>{t('lg.ramp')}</Button>}
-            {plateOn && <Button variant="ghost" onPress={() => setPlates(true)}>{t('lg.plates')}</Button>}
+            {plateOn && <Button variant="secondary" onPress={() => setPlates(true)}>{t('lg.plates')}</Button>}
           </div>
         </div>
       )}

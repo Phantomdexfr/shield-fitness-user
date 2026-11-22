@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
 import { useLocation, useRoute, useSearch } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Badge, Button, Card, Chip, Dialog, EmptyState, PhotoFrame, Sheet, SubPageHeader, showToast } from '../../ui/components';
+import { Badge, Button, Card, Chip, CollapseAll, Collapsible, Dialog, EmptyState, PhotoFrame, Row, Sheet, SubPageHeader, showToast } from '../../ui/components';
 import { MuscleChips } from '../../ui/body';
 import { loadAlternatives, machineOf } from '../../data/repos/alternatives';
 import type { Alternative } from '../../shared/alternatives';
@@ -230,7 +230,7 @@ export default function SessionPage() {
         <p class="sf-rt__meta">{open.dayName ?? t('fs.free')}</p>
         <Button onPress={() => navigate(`/session/${open.id}`, { replace: true })}>{t('fs.resume')}</Button>
         <Button variant="secondary" disabled={busy} onPress={() => { setBusy(true); void endAsIs(open).then(startNew).catch(() => setState({ status: 'error' })).finally(() => setBusy(false)); }}>{t('fs.startnew')}</Button>
-        <Button variant="ghost" onPress={() => navigate('/train')}>{t('rb.cancel')}</Button>
+        <Button variant="secondary" onPress={() => navigate('/train')}>{t('rb.cancel')}</Button>
       </div>
     ));
   }
@@ -356,6 +356,7 @@ export default function SessionPage() {
     </li>
   );
 
+  const sp = `session-${sess.id}`;
   const card = (it: SessionItem, idx: number, vis: number) => {
     const name = nameOf(it);
     const n = dupOf.get(idx);
@@ -364,26 +365,37 @@ export default function SessionPage() {
     const nxt = main[vis + 1];
     const open = it.status === 'todo' || it.status === 'doing';
     const slug = it.ref.kind === 'lib' ? it.ref.slug : '';
+    const dim = it.status === 'done' || it.status === 'skipped';
     return (
-      <li key={`${refId(it.ref)}-${idx}`} class={`sf-rt__ex${it.status === 'done' || it.status === 'skipped' ? ' sf-fs__dim' : ''}`}>
-        <Card class="sf-rt__excard" onPress={slug ? () => navigate(`/exercise/${slug}`) : undefined}>
-          <Thumb machine={info.get(refId(it.ref))?.machine ?? ''} name={name} />
-          <span class="sf-rt__name">{name}{n ? <Badge tone="neutral" aria-label={t('fs.dup', { n })}>{n}</Badge> : null}</span>
-          <span class="sf-rt__meta">{lines}</span>
-          <span class="sf-fs__status"><span class={`sf-fs__dot sf-fs__dot--${it.status}`} aria-hidden="true" /><span class="sf-rt__meta">{t(`fs.status.${it.status}` as StringKey)}</span></span>
-        </Card>
-        {open && !ended && <SetLogger key={`${refId(it.ref)}-${idx}`} sess={sess} idx={idx} item={it} info={linfo.get(refId(it.ref)) ?? FALLBACK_INFO} hist={lhist.get(refId(it.ref))} prefs={lprefs} onPrefs={savePrefs} commit={commit} />}
-        <div class="sf-rt__ctl">
-          {open && prev && <Button variant="ghost" aria-label={t('fs.up', { name })} onPress={() => commit(moveItem(sess, idx, prev.idx))}>{t('fs.move.up')}</Button>}
-          {open && nxt && <Button variant="ghost" aria-label={t('fs.down', { name })} onPress={() => commit(moveItem(sess, idx, nxt.idx))}>{t('fs.move.down')}</Button>}
+      <li key={`${refId(it.ref)}-${idx}`} class={`sf-rt__ex${dim ? ' sf-fs__dim' : ''}`}>
+        <Collapsible
+          id={`ex-${idx}`}
+          page={sp}
+          remember={false}
+          defaultOpen={(idx === next || it.status === 'doing') && !ended}
+          title={n ? `${name} #${n}` : name}
+          summary={dim ? t(`fs.status.${it.status}` as StringKey) : lines}
+        >
+          <div class="sf-rt__row">
+            <Thumb machine={info.get(refId(it.ref))?.machine ?? ''} name={name} />
+            <span class="sf-fs__status"><span class={`sf-fs__dot sf-fs__dot--${it.status}`} aria-hidden="true" /><span class="sf-rt__meta">{t(`fs.status.${it.status}` as StringKey)}</span></span>
+          </div>
+          {open && !ended && <SetLogger key={`${refId(it.ref)}-${idx}`} sess={sess} idx={idx} item={it} info={linfo.get(refId(it.ref)) ?? FALLBACK_INFO} hist={lhist.get(refId(it.ref))} prefs={lprefs} onPrefs={savePrefs} commit={commit} />}
           {open && <Button variant="secondary" aria-label={`${t('fs.markdone')}: ${name}`} onPress={() => change(idx, 'done')}>{t('fs.markdone')}</Button>}
-          {open && <Button variant="ghost" aria-label={`${t('fs.later')}: ${name}`} onPress={() => change(idx, 'later')}>{t('fs.later')}</Button>}
-          {open && <Button variant="ghost" aria-label={`${t('fs.swap')}: ${name}`} onPress={() => openSkip(idx, true)}>{t('fs.swap')}</Button>}
-          {open && <Button variant="ghost" aria-label={`${t('fs.skip')}: ${name}`} onPress={() => openSkip(idx)}>{t('fs.skip')}</Button>}
           {it.status === 'done' && <Button variant="secondary" aria-label={`${t('fs.reopen')}: ${name}`} onPress={() => commit(reopen(sess, idx))}>{t('fs.reopen')}</Button>}
           {it.status === 'skipped' && <Button variant="secondary" aria-label={`${t('fs.unskip')}: ${name}`} onPress={() => commit(reopen(sess, idx))}>{t('fs.unskip')}</Button>}
-          <Button variant="danger" aria-label={`${t('fs.remove')}: ${name}`} onPress={() => askRemove(idx)}>{t('fs.remove')}</Button>
-        </div>
+          <Collapsible id={`more-${idx}`} page={sp} remember={false} title={t('ux.more')}>
+            <div class="sf-rt__ctl">
+              {open && prev && <Button variant="secondary" aria-label={t('fs.up', { name })} onPress={() => commit(moveItem(sess, idx, prev.idx))}>{t('fs.move.up')}</Button>}
+              {open && nxt && <Button variant="secondary" aria-label={t('fs.down', { name })} onPress={() => commit(moveItem(sess, idx, nxt.idx))}>{t('fs.move.down')}</Button>}
+              {open && <Button variant="secondary" aria-label={`${t('fs.later')}: ${name}`} onPress={() => change(idx, 'later')}>{t('fs.later')}</Button>}
+              {open && <Button variant="secondary" aria-label={`${t('fs.swap')}: ${name}`} onPress={() => openSkip(idx, true)}>{t('fs.swap')}</Button>}
+              {open && <Button variant="secondary" aria-label={`${t('fs.skip')}: ${name}`} onPress={() => openSkip(idx)}>{t('fs.skip')}</Button>}
+              <Button variant="danger" aria-label={`${t('fs.remove')}: ${name}`} onPress={() => askRemove(idx)}>{t('fs.remove')}</Button>
+            </div>
+            {slug && <Row label={t('ux.openExercise')} href={`/exercise/${slug}`} />}
+          </Collapsible>
+        </Collapsible>
       </li>
     );
   };
@@ -403,10 +415,12 @@ export default function SessionPage() {
         {!ended && <Button onPress={openFinish}>{t('fs.finish')}</Button>}
       </div>
       {!ended && (
-        <div class="sf-rt__chips">
-          <Chip selected={lprefs.mode === 'advanced'} onPress={() => savePrefs({ ...lprefs, mode: lprefs.mode === 'advanced' ? 'simple' : 'advanced' })}>{t('lg.mode.advanced')}</Chip>
-          {bigOn && <Chip selected={lprefs.big} onPress={() => savePrefs({ ...lprefs, big: !lprefs.big })}>{t('lg.big')}</Chip>}
-        </div>
+        <Collapsible id="options" title={t('ux.loggerOptions')} summary={lprefs.mode === 'advanced' ? t('lg.mode.advanced') : undefined}>
+          <div class="sf-rt__chips">
+            <Chip selected={lprefs.mode === 'advanced'} onPress={() => savePrefs({ ...lprefs, mode: lprefs.mode === 'advanced' ? 'simple' : 'advanced' })}>{t('lg.mode.advanced')}</Chip>
+            {bigOn && <Chip selected={lprefs.big} onPress={() => savePrefs({ ...lprefs, big: !lprefs.big })}>{t('lg.big')}</Chip>}
+          </div>
+        </Collapsible>
       )}
       {saveErr && <p class="sf-rt__err" role="alert">{t('fs.err.save')}</p>}
 
@@ -420,19 +434,12 @@ export default function SessionPage() {
         </Card>
       )}
 
-      {!ended && next !== undefined && (
-        <div class="sf-rt__block">
-          <span class="sf-rt__meta">{t('fs.next')}</span>
-          <div class="sf-rt__chips"><Badge tone="gold">{nameOf(sorted[next]!)}</Badge></div>
-        </div>
-      )}
-
       {!ended && <Button icon="plus" onPress={() => { setQ(''); setPickMuscle([]); setAddOpen(true); }}>{t('fs.add')}</Button>}
 
       {undo && (
         <div class="sf-rt__undo" role="status">
           <span class="sf-rt__undo-text">{undo.text}</span>
-          <Button variant="ghost" onPress={() => commit(undo.restore(sess))}>{t('fs.undo')}</Button>
+          <Button variant="secondary" onPress={() => commit(undo.restore(sess))}>{t('fs.undo')}</Button>
         </div>
       )}
 
@@ -441,27 +448,27 @@ export default function SessionPage() {
       ) : (
         <>
           {allSet(sess) && !ended && <p class="sf-rt__meta" role="status">{t('fs.allset')}</p>}
+          <CollapseAll page={sp} />
           <ul class="sf-rt__list">{main.map((x, vis) => card(x.it, x.idx, vis))}</ul>
         </>
       )}
 
       {shelf.length > 0 && (
-        <div class="sf-rt__block">
-          <h2 class="sf-rt__h">{t('fs.later.title', { n: shelf.length })}</h2>
+        <Collapsible id="later" title={t('fs.later.title', { n: shelf.length })}>
           <ul class="sf-rt__list">
             {shelf.map(({ it, idx }) => (
               <li key={`${refId(it.ref)}-${idx}`} class="sf-rt__ex">
                 <span class="sf-rt__name">{nameOf(it)}</span>
                 <div class="sf-rt__ctl">
                   <Button variant="secondary" aria-label={`${t('fs.bring')}: ${nameOf(it)}`} onPress={() => change(idx, 'todo')}>{t('fs.bring')}</Button>
-                  <Button variant="ghost" aria-label={`${t('fs.skip')}: ${nameOf(it)}`} onPress={() => openSkip(idx)}>{t('fs.skip')}</Button>
+                  <Button variant="secondary" aria-label={`${t('fs.skip')}: ${nameOf(it)}`} onPress={() => openSkip(idx)}>{t('fs.skip')}</Button>
                   <Button variant="danger" aria-label={`${t('fs.remove')}: ${nameOf(it)}`} onPress={() => askRemove(idx)}>{t('fs.remove')}</Button>
                 </div>
               </li>
             ))}
           </ul>
           {shelf.length >= 2 && <Button variant="secondary" onPress={() => commit(bringAllBack(sess))}>{t('fs.bringall')}</Button>}
-        </div>
+        </Collapsible>
       )}
 
       <Sheet open={addOpen} onClose={() => setAddOpen(false)} title={t('fs.add')}>
@@ -527,8 +534,8 @@ export default function SessionPage() {
             </div>
           )}
           <Button variant="secondary" onPress={justSkip}>{t('fs.justskip')}</Button>
-          <Button variant="ghost" onPress={() => { closeSkip(); setQ(''); setPickMuscle([]); setAddOpen(true); }}>{t('fs.alt.search')}</Button>
-          <Button variant="ghost" onPress={closeSkip}>{t('rb.cancel')}</Button>
+          <Button variant="secondary" onPress={() => { closeSkip(); setQ(''); setPickMuscle([]); setAddOpen(true); }}>{t('fs.alt.search')}</Button>
+          <Button variant="secondary" onPress={closeSkip}>{t('rb.cancel')}</Button>
         </div>
       </Sheet>
 
@@ -554,7 +561,7 @@ export default function SessionPage() {
               <Button disabled={busy} onPress={() => void doFinish()}>{t('fs.finish.go')}</Button>
             </>
           )}
-          <Button variant="ghost" onPress={() => setFinishOpen(false)}>{t('rb.cancel')}</Button>
+          <Button variant="secondary" onPress={() => setFinishOpen(false)}>{t('rb.cancel')}</Button>
         </div>
       </Sheet>
 

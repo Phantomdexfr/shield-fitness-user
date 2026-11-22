@@ -252,7 +252,9 @@ export function BodyPicker(props: BodyPickerProps) {
     <div class={cx('sf-body', `sf-body--${size}`, zoom && 'sf-body--zoom', showScan && 'sf-body--scan', props.class)} data-mode={mode}>
       {!mini && (
         <div class="sf-body__bar">
-          <Segmented<Sex> label={t('body.sex.label')} value={sex} onChange={(s) => props.onSexChange?.(s)} options={[{ value: 'male', label: t('body.sex.male') }, { value: 'female', label: t('body.sex.female') }]} />
+          {props.onSexChange && (
+            <Button variant="secondary" onPress={() => props.onSexChange?.(sex === 'male' ? 'female' : 'male')}>{t('body.switch')}</Button>
+          )}
           <Segmented<View> label={t('body.view.label')} value={view} onChange={(v) => props.onViewChange?.(v)} options={[{ value: 'front', label: t('body.view.front') }, { value: 'back', label: t('body.view.back') }]} />
         </div>
       )}

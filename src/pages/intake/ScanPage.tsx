@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Card, Input, Segmented, SubPageHeader } from '../../ui/components';
+import { Button, Card, Input, Segmented, SubPageHeader, Row } from '../../ui/components';
 import { NUTRIENTS, hasServing, normalizeBarcode, nutrientText, type BarcodeError, type Nutrient, type Product } from '../../shared/barcode';
 import { lookupBarcode, type LookupResult } from '../../data/repos/barcode';
 import { proteinForPortion, type Portion, type PortionError } from '../../shared/intake';
@@ -126,10 +126,10 @@ function AddProtein({ product }: { product: Product }) {
       {calc.ok && <p class="sf-rt__meta" role="status">{t('bc.add.preview', { n: calc.grams })}</p>}
       <Button variant="primary" onPress={add}>{t('bc.add.button')}</Button>
       {added && <p class="sf-rt__meta" role="status">{t('bc.add.done', { n: added.n, total: total ?? added.n })}</p>}
-      {added && <Button variant="ghost" onPress={undo}>{t('bc.add.undo', { n: added.n })}</Button>}
+      {added && <Button variant="secondary" onPress={undo}>{t('bc.add.undo', { n: added.n })}</Button>}
       {msg === 'undone' && <p class="sf-rt__meta" role="status">{t('bc.add.undone', { total: total ?? 0 })}</p>}
       {msg !== null && msg !== 'undone' && <p class="sf-rt__err" role="alert">{msg}</p>}
-      <Link href="/intake" class="sf-pr__link">{t('bc.add.link')}</Link>
+      <Row href="/intake">{t('bc.add.link')}</Row>
     </div>
   );
 }

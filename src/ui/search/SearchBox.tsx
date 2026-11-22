@@ -74,7 +74,7 @@ export function SearchBox(p: SearchBoxProps) {
             ))}
           </ul>
           {p.onClearRecents && (
-            <Button variant="ghost" onPress={p.onClearRecents}>
+            <Button variant="secondary" onPress={p.onClearRecents}>
               {t('lib.recent.clear')}
             </Button>
           )}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Card, Chip, EmptyState, SubPageHeader } from '../../ui/components';
+import { Collapsible, Card, Chip, EmptyState, SubPageHeader, Row } from '../../ui/components';
 import { BarChart, HeatGrid, Ring, StatTile, type BarDatum } from '../../ui/charts';
 import { useFeature } from '../../app/flags';
 import { dayLabel } from '../../shared/chartMath';
@@ -72,38 +72,42 @@ export default function ProgressHub() {
       {streaksOn && <WeekCard data={d} onTarget={setTarget} />}
       {d.hasSessions && (
         <>
-          <BarChart title={t('prog.volume.title')} data={bars} unit="kg" emptyText={t('prog.volume.empty')} />
-          <HeatGrid title={t('prog.grid.title')} cells={d.cells} from={d.range.from} to={d.range.to} today={d.today} emptyText={t('prog.grid.empty')} />
+          <Collapsible id="volume" title={t('prog.volume.title')}>
+            <BarChart title={t('prog.volume.title')} data={bars} unit="kg" emptyText={t('prog.volume.empty')} />
+          </Collapsible>
+          <Collapsible id="grid" title={t('prog.grid.title')}>
+            <HeatGrid title={t('prog.grid.title')} cells={d.cells} from={d.range.from} to={d.range.to} today={d.today} emptyText={t('prog.grid.empty')} />
+          </Collapsible>
           {plateau.length > 0 && (
-            <Card as="section" class="sf-pg__card">
-              <h2 class="sf-pg__h">{t('prog.plateau.title')}</h2>
+            <Collapsible id="prog-plateau-title" title={t('prog.plateau.title')}>
               <p class="sf-lib__note">{t('prog.plateau.note')}</p>
               <ul class="sf-pg__list">
                 {plateau.map((r) => (
-                  <li key={r.slug}><Link href={r.href} class="sf-pr__link">{r.name}</Link></li>
+                  <li key={r.slug}><Row href={r.href}>{r.name}</Row></li>
                 ))}
               </ul>
-            </Card>
+            </Collapsible>
           )}
-          <h2 class="sf-pg__h">{t('prog.list.title')}</h2>
+          <Collapsible id="list" title={t('prog.list.title')} summary={String(d.rows.length)}>
           <ul class="sf-pg__list">
             {d.rows.map((r) => (
               <li key={r.slug} class="sf-pg__row">
-                <Link href={r.href} class="sf-pr__link">{r.name}</Link>
+                <Row href={r.href}>{r.name}</Row>
                 <span class="sf-rt__meta">{t('prog.list.meta', { n: r.sessions, date: r.lastDay })}{r.plateau ? ` · ${t('prog.list.plateau')}` : ''}</span>
               </li>
             ))}
           </ul>
+          </Collapsible>
         </>
       )}
       <div class="sf-pg__links">
-        <Link href="/progress/body" class="sf-pr__link">{t('prog.links.body')}</Link>
-        <Link href="/goals" class="sf-pr__link">{t('prog.links.goals')}</Link>
-        <Link href="/intake" class="sf-pr__link">{t('prog.links.intake')}</Link>
-        <Link href="/progress/photos" class="sf-pr__link">{t('prog.links.photos')}</Link>
-        <Link href="/progress/records" class="sf-pr__link">{t('prog.links.records')}</Link>
-        <Link href="/history" class="sf-pr__link">{t('prog.links.history')}</Link>
-        {recapOn && <Link href="/progress/recap" class="sf-pr__link">{t('yr.link')}</Link>}
+        <Row href="/progress/body">{t('prog.links.body')}</Row>
+        <Row href="/goals">{t('prog.links.goals')}</Row>
+        <Row href="/intake">{t('prog.links.intake')}</Row>
+        <Row href="/progress/photos">{t('prog.links.photos')}</Row>
+        <Row href="/progress/records">{t('prog.links.records')}</Row>
+        <Row href="/history">{t('prog.links.history')}</Row>
+        {recapOn && <Row href="/progress/recap">{t('yr.link')}</Row>}
       </div>
     </section>
   );

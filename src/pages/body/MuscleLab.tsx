@@ -5,8 +5,9 @@ import { Link } from 'wouter-preact';
 import type { LabData } from '../../data/repos/lab';
 import { t } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { EmptyState, Segmented } from '../../ui/components';
+import { EmptyState, Segmented, Row } from '../../ui/components';
 import { BodyPicker, MuscleChips, viewsOf, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { countByMuscle } from './labData';
 import { LabPanel, LoadGate, muscleName, useLabData } from './LabPanel';
 import { WorkedPanel } from './WorkedPanel';
@@ -22,7 +23,7 @@ export default function MuscleLab() {
   const atlasOn = useFeature('holo_atlas');
   const { state, reload } = useLabData();
   const [mode, setMode] = useState<Mode>('find');
-  const [sex, setSex] = useState<Sex>(SHAPE[0]);
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [sel, setSel] = useState<string | undefined>();
   const panelRef = useRef<HTMLDivElement>(null);
@@ -45,9 +46,9 @@ export default function MuscleLab() {
       <MuscleOfWeekCard />
       {(recoveryOn || marksOn || atlasOn) && (
         <div class="sf-lab__actions">
-          {recoveryOn && <Link href="/body/recovery" class="sf-lab__link">{t('rc.recovery.link')}</Link>}
-          {marksOn && <Link href="/body/marks" class="sf-lab__link">{t('rc.marks.link')}</Link>}
-          {atlasOn && <Link href="/atlas" class="sf-lab__link">{t('atlas.link')}</Link>}
+          {recoveryOn && <Row href="/body/recovery">{t('rc.recovery.link')}</Row>}
+          {marksOn && <Row href="/body/marks">{t('rc.marks.link')}</Row>}
+          {atlasOn && <Row href="/atlas">{t('atlas.link')}</Row>}
         </div>
       )}
       <Segmented<Mode>
@@ -84,9 +85,9 @@ function Explorer({ data, sex, view, sel, onSex, onView, onPick, panelRef }: { d
         {sel && (
           <>
             <LabPanel data={data} muscle={sel} view={view} onPickMuscle={onPick} onShowView={onView} />
-            <Link href={`/muscle/${sel}`} class="sf-lab__link">
+            <Row href={`/muscle/${sel}`}>
               {t('lab.open')}: {muscleName(sel)}
-            </Link>
+            </Row>
           </>
         )}
       </div>

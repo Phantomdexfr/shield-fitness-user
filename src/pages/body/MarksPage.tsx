@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, EmptyState, Sheet, SubPageHeader, showToast } from '../../ui/components';
+import { Collapsible, Button, EmptyState, Sheet, SubPageHeader, showToast } from '../../ui/components';
 import { BodyPicker, MuscleChips, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { useFeature } from '../../app/flags';
 import { loadMarks, setMuscleMark } from '../../data/repos/marks';
 import { getMuscles } from '../../dataset/loader';
@@ -22,7 +23,7 @@ export default function MarksPage() {
   const [, navigate] = useLocation();
   const on = useFeature('injury_marks');
   const [load, setLoad] = useState<Load>({ status: 'loading' });
-  const [sex, setSex] = useState<Sex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [picked, setPicked] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -81,8 +82,7 @@ export default function MarksPage() {
 
       <MuscleChips mode="marks" marks={record} onSelect={(id) => setPicked(id)} />
 
-      <section class="sf-hm__sec" aria-label={t('mk.list.title')}>
-        <h2 class="sf-hm__h">{t('mk.list.title')}</h2>
+      <Collapsible id="mk-list-title" title={t('mk.list.title')}>
         {rows.length === 0 ? (
           <p class="sf-hm__note">{t('mk.list.none')}</p>
         ) : (
@@ -95,7 +95,7 @@ export default function MarksPage() {
           </ul>
         )}
         <p class="sf-hm__note">{t('mk.respect')}</p>
-      </section>
+      </Collapsible>
 
       <Sheet open={picked !== null} onClose={() => setPicked(null)} title={picked ? name(picked) : ''}>
         {picked && (

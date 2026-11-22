@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Card, Chip, EmptyState, SubPageHeader } from '../../ui/components';
+import { Card, Chip, EmptyState, SubPageHeader, Row } from '../../ui/components';
 import { useFeature } from '../../app/flags';
 import { prWall } from '../../shared/history';
 import { loadBoard, type BoardData, type BoardRow } from '../../data/repos/records';
@@ -16,7 +16,7 @@ const LABEL: Record<PRMetric, 'pr.weight' | 'pr.reps' | 'pr.volume' | 'pr.e1rm'>
 function RecordCard({ row }: { row: BoardRow }) {
   return (
     <Card as="article" class="sf-pr__card">
-      <h2 class="sf-pr__name"><Link href={row.href} class="sf-pr__link">{row.name}</Link></h2>
+      <h2 class="sf-pr__name"><Row href={row.href}>{row.name}</Row></h2>
       <p class="sf-rt__meta">
         {row.grip ? `${t('pr.grip', { grip: row.grip })} · ` : ''}
         {t('pr.sessions', { n: String(row.sessions) })} · {t('pr.last', { date: row.lastDay })}

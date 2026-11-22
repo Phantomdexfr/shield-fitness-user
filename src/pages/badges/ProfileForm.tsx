@@ -55,7 +55,7 @@ export function ProfileForm({ initialSex, initialKg, firstRun, onDone, onSkip }:
       />
       {error && <p class="sf-bd__note sf-bd__err" role="alert">{error}</p>}
       <Button disabled={busy} onPress={save}>{t('badge.form.save')}</Button>
-      {firstRun && onSkip && <Button variant="ghost" onPress={onSkip}>{t('badge.form.skip')}</Button>}
+      {firstRun && onSkip && <Button variant="secondary" onPress={onSkip}>{t('badge.form.skip')}</Button>}
     </div>
   );
 }

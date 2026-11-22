@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Chip, EmptyState, Sheet, SubPageHeader } from '../../ui/components';
+import { Collapsible, Button, Chip, DatePicker, EmptyState, Sheet, SubPageHeader } from '../../ui/components';
 import { BodyPicker, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { useFeature } from '../../app/flags';
 import { loadHeatData, loadWeakSpots, addToRoutine, todayKey, type HeatData, type WeakSpotsData } from '../../data/repos/heatmap';
 import { compareHeat, heatMap, lastDays, type HeatMap, type Period, type PeriodKind } from '../../shared/heat';
@@ -38,10 +39,8 @@ function RangeSheet({ open, onClose, today, onPick }: { open: boolean; onClose: 
             <Chip key={n} onPress={() => onPick(lastDays(n, today))}>{t('hm.custom.last', { n })}</Chip>
           ))}
         </div>
-        <label class="sf-hm__note" for="hm-from">{t('hm.custom.from')}</label>
-        <input id="hm-from" type="date" class="sf-input sf-hm__date" value={from} onInput={(e) => setFrom((e.target as HTMLInputElement).value)} />
-        <label class="sf-hm__note" for="hm-to">{t('hm.custom.to')}</label>
-        <input id="hm-to" type="date" class="sf-input sf-hm__date" value={to} onInput={(e) => setTo((e.target as HTMLInputElement).value)} />
+        <DatePicker label={t('hm.custom.from')} value={from} max={to || undefined} today={today} onChange={setFrom} />
+        <DatePicker label={t('hm.custom.to')} value={to} min={from || undefined} today={today} onChange={setTo} />
         {!range && <p class="sf-hm__note" role="alert">{t('hm.custom.bad')}</p>}
         <Button disabled={!range} onPress={() => range && onPick(range)}>{t('hm.custom.go')}</Button>
       </div>
@@ -67,8 +66,7 @@ function WeakSpots({ data, today }: { data: HeatData; today: DayKey }) {
     else setMsg(r.reason === 'already' ? t('hm.weak.already') : t('hm.weak.noroutine'));
   };
   return (
-    <section class="sf-hm__sec" aria-label={t('hm.weak.title')}>
-      <h2 class="sf-hm__h">{t('hm.weak.title')}</h2>
+    <Collapsible id="hm-weak-title" title={t('hm.weak.title')}>
       {res.result.status === 'not_enough' && <p class="sf-hm__note">{t('hm.weak.not_enough')}</p>}
       {res.result.status === 'ok' && res.cards.length === 0 && <p class="sf-hm__note">{t('hm.weak.none')}</p>}
       {res.cards.map((c) => (
@@ -83,7 +81,7 @@ function WeakSpots({ data, today }: { data: HeatData; today: DayKey }) {
       ))}
       {res.cards.length > 0 && !res.routineName && <p class="sf-hm__note">{t('hm.weak.noroutine')}</p>}
       {msg && <p class="sf-hm__note" role="status">{msg}</p>}
-    </section>
+    </Collapsible>
   );
 }
 
@@ -99,7 +97,7 @@ export default function HeatmapPage() {
   const [anchorShift, setShift] = useState(0);
   const [rangeOpen, setRangeOpen] = useState(false);
   const [compare, setCompare] = useState(false);
-  const [sex, setSex] = useState<Sex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [picked, setPicked] = useState<string | null>(null);
   const [showAllNeg, setShowAllNeg] = useState(false);
@@ -157,9 +155,9 @@ export default function HeatmapPage() {
         ))}
       </div>
       <div class="sf-hm__nav">
-        <Button variant="ghost" aria-label={t('hm.prev')} disabled={!canPrev(period)} onPress={() => setShift(anchorShift - 1)}>{'<'}</Button>
+        <Button variant="secondary" aria-label={t('hm.prev')} disabled={!canPrev(period)} onPress={() => setShift(anchorShift - 1)}>{'<'}</Button>
         <h2 class="sf-hm__label" role="status">{periodText(period)}</h2>
-        <Button variant="ghost" aria-label={t('hm.next')} disabled={!canNext(period, today)} onPress={() => setShift(anchorShift + 1)}>{'>'}</Button>
+        <Button variant="secondary" aria-label={t('hm.next')} disabled={!canNext(period, today)} onPress={() => setShift(anchorShift + 1)}>{'>'}</Button>
       </div>
       <div class="sf-hm__chips">
         <Chip selected={compare} disabled={period.kind === 'all'} onPress={() => setCompare(!compare)}>{t('hm.compare')}</Chip>
@@ -184,8 +182,7 @@ export default function HeatmapPage() {
       {map.sets === 0 ? <p class="sf-hm__note">{t('hm.noperiod')}</p> : <p class="sf-hm__note">{t('hm.sets', { n: Math.round(map.sets * 10) / 10 })}</p>}
 
       {cmp ? (
-        <section class="sf-hm__sec" aria-label={t('hm.cmp.title')}>
-          <h2 class="sf-hm__h">{t('hm.cmp.title')}</h2>
+        <Collapsible id="hm-cmp-title" title={t('hm.cmp.title')}>
           <ul class="sf-hm__rows">
             {compareRows(cmp).map((r) => (
               <li key={r.id} class={`sf-hm__row sf-hm__row--${r.trend}`}>
@@ -194,11 +191,10 @@ export default function HeatmapPage() {
               </li>
             ))}
           </ul>
-        </section>
+        </Collapsible>
       ) : (
         rows.length > 0 && (
-          <section class="sf-hm__sec" aria-label={t('hm.list.title')}>
-            <h2 class="sf-hm__h">{t('hm.list.title')}</h2>
+          <Collapsible id="hm-list-title" title={t('hm.list.title')} defaultOpen>
             <ul class="sf-hm__rows">
               {rows.map((r) => (
                 <li key={r.id}>
@@ -209,12 +205,11 @@ export default function HeatmapPage() {
                 </li>
               ))}
             </ul>
-          </section>
+          </Collapsible>
         )
       )}
 
-      <section class="sf-hm__sec" aria-label={t('hm.neg.title')}>
-        <h2 class="sf-hm__h">{t('hm.neg.title')}</h2>
+      <Collapsible id="hm-neg-title" title={t('hm.neg.title')}>
         {neg.length === 0 ? (
           <p class="sf-hm__note">{t('hm.neg.none')}</p>
         ) : (
@@ -227,7 +222,7 @@ export default function HeatmapPage() {
           </div>
         )}
         {neg.length > 8 && !showAllNeg && <Button variant="secondary" onPress={() => setShowAllNeg(true)}>{t('hm.neg.more', { n: neg.length })}</Button>}
-      </section>
+      </Collapsible>
 
       {weakOn && <WeakSpots data={data} today={today} />}
       {badgesOn && <Button variant="secondary" onPress={() => navigate('/profile/muscles')}>{t('badge.open')}</Button>}

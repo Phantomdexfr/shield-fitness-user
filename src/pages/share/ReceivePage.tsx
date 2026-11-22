@@ -108,7 +108,7 @@ export default function ReceivePage() {
         {f.customAdded > 0 && <p class="sf-rt__meta" role="status">{t('ps.flag.custom', { n: f.customAdded })}</p>}
         <Button onPress={() => void add(false)}>{t('ps.prev.add')}</Button>
         <Button variant="secondary" onPress={() => void add(true)}>{t('ps.prev.active')}</Button>
-        <Button variant="ghost" onPress={back}>{t('ps.prev.discard')}</Button>
+        <Button variant="secondary" onPress={back}>{t('ps.prev.discard')}</Button>
       </section>
     );
   }

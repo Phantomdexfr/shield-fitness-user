@@ -8,6 +8,7 @@ import type { Routine } from '../../shared/routine';
 import { relayAvailable } from '../../data/relay/client';
 import { goBack } from '../../app/navBack';
 import { GymProgramsSection } from './GymProgramsSection';
+import { SharePlanSheet } from '../share/SharePlanSheet';
 
 type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; routines: Routine[] };
 
@@ -21,6 +22,7 @@ export default function RoutinesPage() {
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const [menu, setMenu] = useState<Routine | null>(null);
   const [confirm, setConfirm] = useState<Routine | null>(null);
+  const [shareId, setShareId] = useState<string | null>(null);
   const [undo, setUndo] = useState<Routine | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -89,13 +91,17 @@ export default function RoutinesPage() {
     <section class="sf-page-body sf-rt">
       {header}
       <Button icon="plus" onPress={() => navigate('/routine/new')}>{t('rb.new')}</Button>
-      {quick && <Button variant="secondary" onPress={() => navigate('/quick')}>{t('db.q.open')}</Button>}
-      {shareOn && <Button variant="secondary" onPress={() => navigate('/share')}>{t('ps.recv.open')}</Button>}
+      {(quick || shareOn) && (
+        <div class="sf-qgrid">
+          {quick && <Button variant="secondary" onPress={() => navigate('/quick')}>{t('db.q.open')}</Button>}
+          {shareOn && <Button variant="secondary" onPress={() => navigate('/share')}>{t('ps.recv.open')}</Button>}
+        </div>
+      )}
 
       {undo && (
         <div class="sf-rt__undo" role="status">
           <span class="sf-rt__undo-text">{t('rb.deleted', { name: undo.name })}</span>
-          <Button variant="ghost" onPress={doUndo}>{t('rb.undo')}</Button>
+          <Button variant="secondary" onPress={doUndo}>{t('rb.undo')}</Button>
         </div>
       )}
 
@@ -104,7 +110,8 @@ export default function RoutinesPage() {
       ) : (
         <ul class="sf-rt__list">
           {routines.map((r) => (
-            <li key={r.id} class="sf-rt__item">
+            <li key={r.id} class="sf-rt__entry">
+             <div class="sf-rt__item">
               <Card class="sf-rt__card" onPress={() => navigate(`/routine/${r.id}`)}>
                 <span class="sf-rt__name">{r.name}</span>
                 <span class="sf-rt__meta">
@@ -114,13 +121,17 @@ export default function RoutinesPage() {
                 </span>
                 {r.active && <Badge tone="gold" icon="check">{t('rb.active')}</Badge>}
               </Card>
-              <IconButton icon="dots-three-vertical" label={t('rb.menu')} variant="ghost" onPress={() => setMenu(r)} />
+              <IconButton icon="dots-three-vertical" label={t('rb.menu')} onPress={() => setMenu(r)} />
+             </div>
+             {shareOn && <Button variant="secondary" onPress={() => setShareId(r.id)}>{t('ps.share.title')}</Button>}
             </li>
           ))}
         </ul>
       )}
 
       <GymProgramsSection onChanged={() => void refresh()} />
+
+      {shareOn && <SharePlanSheet open={shareId !== null} onClose={() => setShareId(null)} routineId={shareId ?? undefined} />}
 
       <Sheet open={menu !== null} onClose={() => setMenu(null)} title={menu?.name ?? t('rb.menu')}>
         {menu && (

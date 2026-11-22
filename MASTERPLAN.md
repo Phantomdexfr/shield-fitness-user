@@ -23,6 +23,9 @@ A flexible, offline, premium dark-and-gold workout PWA built on a real dataset (
 ## Milestones (see PHASES.md)
 M1 Foundation (1-6) · M2 Dataset + pure core (7-15) · M3 Body picker, library, exercises (16-27) · M4 Routines + sessions (28-39) · M5 Heatmap, recovery, progress (43-55) · M6 Holo Atlas (58-60) · M7 Settings/About/Credits + gate 0.1.0 (62-64) · M8 Connect + gate 0.2.0 (65-70) · M9 1.0.0 + fix pack (71-72).
 
+## Milestone 11 (planned 2026-11-22)
+Native feel and a calmer UI: zoom lock, visible share, onboarding, calendar picker, one button system, declutter. User app Phases 82-88; plan in `docs/UX_REDESIGN_PLAN.md`. Release 1.2.0.
+
 ## Release line
 0.1.0 = complete standalone app (Phase 64). 0.2.0 = connected (Phase 70, needs Admin 9-18 deployed). 1.0.0 = Phase 71 after owner device checklists.
 

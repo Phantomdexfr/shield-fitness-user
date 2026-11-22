@@ -2,6 +2,8 @@
 // one of them, so no network request is made on import or on page load. The secret is never an argument: only the derived id and the ciphertext.
 // URL: the relay is a Supabase Edge Functions base, e.g. https://<project>.supabase.co/functions/v1 (the calls append /share_create etc.).
 
+import { freeConfig } from '../../app/freeBuild';
+
 export interface RelayConfig {
   url: string;
   anon: string;
@@ -14,12 +16,18 @@ export function setGymRelay(cfg: RelayConfig | null): void {
   gym = cfg && cfg.url ? cfg : null;
 }
 
-/** Gym relay when connected, else the build values `VITE_SHARE_RELAY_URL` / `VITE_SHARE_RELAY_ANON`, else `null` (sharing is hidden). */
+/**
+ * Gym relay when connected, else the build values `VITE_SHARE_RELAY_URL` / `VITE_SHARE_RELAY_ANON`, else (Phase 82) the core functions URL and
+ * public anon key already baked in for free backup (`VITE_CORE_FUNCTIONS_URL` / `VITE_CORE_ANON_KEY`, where the `share_*` functions live),
+ * else `null` (sharing is hidden).
+ */
 export function relayConfig(): RelayConfig | null {
   if (gym) return gym;
   const url = (import.meta.env.VITE_SHARE_RELAY_URL as string | undefined)?.trim();
-  if (!url) return null;
-  return { url, anon: ((import.meta.env.VITE_SHARE_RELAY_ANON as string | undefined) ?? '').trim() };
+  if (url) return { url, anon: ((import.meta.env.VITE_SHARE_RELAY_ANON as string | undefined) ?? '').trim() };
+  const core = freeConfig();
+  if (/^https:\/\//.test(core.functionsUrl) && core.coreAnon.length >= 8) return { url: core.functionsUrl, anon: core.coreAnon };
+  return null;
 }
 
 export const relayAvailable = (): boolean => relayConfig() !== null;

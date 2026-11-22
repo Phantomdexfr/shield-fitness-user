@@ -130,3 +130,8 @@ Spec: `docs/SYNC_SPEC.md` PHASE 74 SPEC, `docs/GYM_CONNECTION.md` PHASE 74 SPEC.
 ## Skipped / Later
 **Cut:** store/retail, food database, food log, AI/photo food recognition, sleep/steps/mood, machine photo upload in the app, wearables, geofence check-in, share cards, leaderboards, challenges, strength standards.
 **Later (flag or hook exists):** classes/PT booking, Kannada/Hindi, extra muscle detail (neck/serratus on the 2D figure), exercise video hosting, calories/supplements via the typed intake log, push.
+
+- Phase 87 (UX, no new feature id): collapsible sections on the long pages (Exercise, Machines, Library, Body, Recovery, Marks, Heatmap, Progress, Goals, Settings, Backup); settings rows with 4+ options open a sheet list.
+- Phase 86 (UX, no new feature id): Today, Train, Routines, Routine week and day, Quick workout, Session, Session summary and History declutter with collapsible sections; Today shows a week strip and a Quick grid.
+- Phase 85 (UX, no new feature id): first-run `/welcome` onboarding (name, date of birth, sex + figure, height, weight, units, level, backup choice, optional gym), re-runnable from Settings -> Account.
+- Phase 84 (UX, no new feature id): every date is chosen on one calendar picker; no native or typed date field remains (guard test `tests/ui/datePicker.test.tsx`).

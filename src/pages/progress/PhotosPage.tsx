@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Button, Card, Dialog, EmptyState, SubPageHeader, showToast } from '../../ui/components';
+import { Collapsible, Button, Card, Dialog, EmptyState, SubPageHeader, showToast } from '../../ui/components';
 import { MAX_PHOTOS, addPhoto, listPhotos, removePhoto, type ProgressPhoto } from '../../data/repos/photos';
 import { dayLabel } from '../../shared/chartMath';
 import { shrinkImage } from './photoResize';
@@ -45,16 +45,14 @@ export default function PhotosPage() {
   return (
     <section class="sf-page-body sf-rt">
       {head}
-      <Card as="section" class="sf-pg__card">
-        <h2 class="sf-pg__h">{t('photos.private.title')}</h2>
+      <Collapsible id="photos-private-title" title={t('photos.private.title')} defaultOpen>
         <p class="sf-lib__note">{t('photos.private.body')}</p>
-      </Card>
+      </Collapsible>
       <input ref={file} type="file" accept="image/*" hidden onChange={onFile} aria-label={t('photos.add')} />
       <Button disabled={busy} onPress={() => file.current?.click()}>{busy ? t('photos.busy') : t('photos.add')}</Button>
 
       {pair && (
-        <Card as="section" class="sf-pg__card">
-          <h2 class="sf-pg__h">{t('photos.compare')}</h2>
+        <Collapsible id="photos-compare" title={t('photos.compare')}>
           <div class="sf-ph__pair">
             {pair.map((p, i) => (
               <figure key={p.id} class="sf-ph__fig">
@@ -63,7 +61,7 @@ export default function PhotosPage() {
               </figure>
             ))}
           </div>
-        </Card>
+        </Collapsible>
       )}
 
       {photos.length === 0 ? (
@@ -78,7 +76,7 @@ export default function PhotosPage() {
                   <img class="sf-ph__img" src={p.data} alt={dayLabel(p.day, t, 'full')} loading="lazy" />
                 </button>
                 <span class="sf-rt__meta">{dayLabel(p.day, t, 'short')}</span>
-                <Button variant="ghost" onPress={() => setDel(p.id)}>{t('photos.delete')}</Button>
+                <Button variant="secondary" onPress={() => setDel(p.id)}>{t('photos.delete')}</Button>
               </li>
             ))}
           </ul>

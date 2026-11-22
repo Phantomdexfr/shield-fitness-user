@@ -10,6 +10,16 @@ import {
   type LabInputs, type ReachRow, type Selection,
 } from '../../src/pages/machines/machineLabModel';
 
+/** Phase 90: sections start closed (Collapsible), so open every bar before looking inside. */
+async function openAll(root: Element): Promise<void> {
+  for (let i = 0; i < 5; i++) {
+    const bars = [...root.querySelectorAll('button.sf-sec__bar[aria-expanded="false"]')] as HTMLElement[];
+    if (bars.length === 0) return;
+    await act(async () => { for (const b of bars) b.click(); });
+  }
+}
+
+
 const fx = (name: string) => JSON.parse(readFileSync(`contract/fixtures/${name}.json`, 'utf8'));
 const table = fx('reach_table');
 const combo = fx('reach_combo');
@@ -156,6 +166,7 @@ describe('Machine Lab screen (text twin, a11y)', () => {
     const root = document.createElement('div');
     document.body.appendChild(root);
     await act(() => render(<MachineLabView data={d} />, root));
+    await openAll(root);
     const twin = root.querySelector('[data-hook="reach-twin"]')!;
     expect(twin.querySelectorAll('li').length).toBe(23);
     expect(twin.textContent).toMatch(/strong|moderate|light/);

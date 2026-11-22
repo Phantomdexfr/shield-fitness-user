@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Chip, EmptyState, Segmented, SubPageHeader } from '../../ui/components';
+import { Button, Chip, Collapsible, EmptyState, Segmented, SubPageHeader } from '../../ui/components';
 import { MuscleChips } from '../../ui/body';
 import { builderCtx, loadBuilderData, refsFor, type BuilderData } from '../../data/repos/dayBuilder';
 import { listRoutines, putRoutine } from '../../data/repos/routines';
@@ -99,12 +99,11 @@ export default function QuickWorkoutPage() {
           {QUICK_MINUTES.map((m) => <Chip key={m} selected={minutes === m} onPress={() => setMinutes(m)}>{t('db.time.min', { n: m })}</Chip>)}
         </div>
       </div>
-      <div class="sf-rt__block">
-        <h2 class="sf-rt__h">{t('db.q.what')}</h2>
+      <Collapsible id="focus" title={t('db.q.what')} summary={what === 'full' ? t('db.q.full') : picked.length > 0 ? String(picked.length) : t('db.q.pick')} defaultOpen={what === 'pick' && picked.length === 0}>
         <Segmented label={t('db.q.what')} value={what} options={[{ value: 'full', label: t('db.q.full') }, { value: 'pick', label: t('db.q.pick') }]} onChange={setWhat} />
         {what === 'pick' && <MuscleChips mode="pick-many" value={picked} onChange={setPicked} />}
-      </div>
-      {data && <p class="sf-rt__meta">{t('db.equip', { name: t(`lib.equipment.${data.preset}` as StringKey) })}</p>}
+        {data && <p class="sf-rt__meta">{t('db.equip', { name: t(`lib.equipment.${data.preset}` as StringKey) })}</p>}
+      </Collapsible>
 
       {!data ? (
         <p class="sf-rt__meta" role="status">{t('db.loading')}</p>

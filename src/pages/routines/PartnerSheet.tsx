@@ -77,7 +77,7 @@ export function PartnerSheet({ open, onClose, slug, name, onPick }: {
             <Button variant="secondary" onPress={() => setI(0)}>{t('db.ss.again')}</Button>
           </>
         )}
-        <Button variant="ghost" onPress={onClose}>{t('rb.w.done')}</Button>
+        <Button variant="secondary" onPress={onClose}>{t('rb.w.done')}</Button>
       </div>
     </Sheet>
   );

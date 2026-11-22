@@ -4,7 +4,7 @@ import { t, type StringKey } from '../../i18n';
 import { loadLabData, machinePhotos, type LabData } from '../../data/repos/lab';
 import { istDayKey } from '../../shared/dates';
 import { useFeature } from '../../app/flags';
-import { Badge, Button, EmptyState, PhotoFrame, Select, Toggle } from '../../ui/components';
+import { Badge, Button, Collapsible, EmptyState, PhotoFrame, Select, Toggle, Row } from '../../ui/components';
 import { FALLBACK, parentOf, tierOf, viewsOf, type View } from '../../ui/body';
 import { activeFilterCount, filterChoices, labList, machineFinder, surpriseMe, type LabFilters, type Ranked } from './labData';
 import type { Reason } from '../../shared/suggest';
@@ -49,10 +49,10 @@ export function LoadGate({ state, reload, children }: { state: LabState; reload:
 function ExerciseRow({ r, machineName, why, unavailable }: { r: Ranked; machineName?: string; why: boolean; unavailable?: boolean }) {
   return (
     <li class="sf-lab__row">
-      <Link href={`/exercise/${r.slug}`} class="sf-lab__link">
+      <Row href={`/exercise/${r.slug}`}>
         <span class="sf-lab__name">{r.name}</span>
         {machineName && <span class="sf-lab__meta">{machineName}</span>}
-      </Link>
+      </Row>
       {unavailable && <Badge tone="warn">{t('lab.unavailable.badge')}</Badge>}
       {why && r.reasons.length > 0 && (
         <ul class="sf-lab__why" aria-label={t('lab.why.label')}>
@@ -67,16 +67,13 @@ function ExerciseRow({ r, machineName, why, unavailable }: { r: Ranked; machineN
   );
 }
 
-function Section({ title, rows, data, why, limit, onMore, unavailable }: { title: string; rows: Ranked[]; data: LabData; why: boolean; limit: number; onMore: () => void; unavailable?: boolean }) {
+function Section({ id, open, title, rows, data, why, limit, onMore, unavailable }: { id: string; open?: boolean; title: string; rows: Ranked[]; data: LabData; why: boolean; limit: number; onMore: () => void; unavailable?: boolean }) {
   const names = useMemo(() => new Map(data.machines.map((m) => [m.slug, m.name])), [data]);
   if (rows.length === 0) return null;
   const shown = rows.slice(0, limit);
   const left = rows.length - shown.length;
   return (
-    <section class="sf-lab__sec" aria-label={title}>
-      <h3 class="sf-lab__h">
-        {title} <span class="sf-lab__n">{rows.length}</span>
-      </h3>
+    <Collapsible id={id} title={title} summary={String(rows.length)} defaultOpen={open}>
       <ul class="sf-lab__list">
         {shown.map((r) => (
           <ExerciseRow key={r.slug} r={r} why={why} unavailable={unavailable} machineName={names.get(data.candidates.find((c) => c.slug === r.slug)?.machine ?? '')} />
@@ -87,7 +84,7 @@ function Section({ title, rows, data, why, limit, onMore, unavailable }: { title
           {t('lab.more.load', { n: Math.min(PAGE, left) })}
         </Button>
       )}
-    </section>
+    </Collapsible>
   );
 }
 
@@ -123,7 +120,7 @@ function FilterBar({ data, muscle, value, onChange }: { data: LabData; muscle: s
       <Toggle checked={!!value.unilateral} onChange={(v) => set('unilateral', v)} label={t('lab.filter.unilateral')} />
       <Toggle checked={!!value.beginnerFriendly} onChange={(v) => set('beginnerFriendly', v)} label={t('lab.filter.beginner')} />
       {n > 0 && (
-        <Button variant="ghost" onPress={() => onChange({})}>
+        <Button variant="secondary" onPress={() => onChange({})}>
           {t('lab.filters.clear')} ({n})
         </Button>
       )}
@@ -149,8 +146,7 @@ export function MachineFinder({ data, muscle }: { data: LabData; muscle: string 
   const list = useMemo(() => machineFinder(data.reach, muscle, data.tax, data.machines), [data, muscle]);
   if (!on) return null;
   return (
-    <section class="sf-lab__sec" aria-label={t('lab.machines.title', { muscle: muscleName(muscle) })}>
-      <h3 class="sf-lab__h">{t('lab.machines.title', { muscle: muscleName(muscle) })}</h3>
+    <Collapsible id="machines" title={t('lab.machines.title', { muscle: muscleName(muscle) })}>
       {list.length === 0 ? (
         <p class="sf-lab__note">{t('lab.machines.none')}</p>
       ) : (
@@ -166,7 +162,7 @@ export function MachineFinder({ data, muscle }: { data: LabData; muscle: string 
           ))}
         </ul>
       )}
-    </section>
+    </Collapsible>
   );
 }
 
@@ -221,7 +217,7 @@ export function LabPanel({ data, muscle, view, onPickMuscle, onShowView }: LabPa
         </Button>
       )}
       {parent !== muscle && onPickMuscle && (
-        <Button variant="ghost" onPress={() => onPickMuscle(parent)}>
+        <Button variant="secondary" onPress={() => onPickMuscle(parent)}>
           {t('lab.group.whole', { name: muscleName(parent) })}
         </Button>
       )}
@@ -255,10 +251,10 @@ export function LabPanel({ data, muscle, view, onPickMuscle, onShowView }: LabPa
         />
       ) : (
         <>
-          <Section title={t('lab.sec.suggested')} rows={list.suggested} data={data} why={why} limit={limit} onMore={more} />
-          <Section title={t('lab.sec.built')} rows={list.built} data={data} why={why} limit={limit} onMore={more} />
-          <Section title={t('lab.sec.more')} rows={list.more} data={data} why={why} limit={limit} onMore={more} />
-          <Section title={t('lab.sec.unavailable')} rows={list.unavailable} data={data} why={false} limit={limit} onMore={more} unavailable />
+          <Section id="suggested" open title={t('lab.sec.suggested')} rows={list.suggested} data={data} why={why} limit={limit} onMore={more} />
+          <Section id="built" title={t('lab.sec.built')} rows={list.built} data={data} why={why} limit={limit} onMore={more} />
+          <Section id="more" title={t('lab.sec.more')} rows={list.more} data={data} why={why} limit={limit} onMore={more} />
+          <Section id="unavailable" title={t('lab.sec.unavailable')} rows={list.unavailable} data={data} why={false} limit={limit} onMore={more} unavailable />
         </>
       )}
       <MachineFinder data={data} muscle={muscle} />

@@ -7,6 +7,7 @@
 .sf-rt__err { margin: 0; color: var(--danger); font-size: var(--text-sm); overflow-wrap: anywhere; }
 .sf-rt__bar { position: sticky; bottom: 0; padding: var(--sp-3) 0; background: var(--bg-base); display: flex; flex-direction: column; min-width: 0; }
 .sf-rt__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-rt__entry { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
 .sf-rt__item { display: flex; align-items: stretch; gap: var(--sp-2); min-width: 0; }
 .sf-rt__card { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1); text-align: left; }
 .sf-rt__name { font-size: var(--text-md); color: var(--text); overflow-wrap: anywhere; min-width: 0; }
@@ -105,3 +106,15 @@
 .sf-ps__prev { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
 .sf-ps__scan { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
 .sf-ps__video { width: 100%; max-height: 60vh; border-radius: var(--r-md); background: var(--bg-raised); object-fit: cover; }
+
+/* Phase 86: Today week strip and quick grid (docs/UX_REDESIGN_PLAN.md section 2). Tokens only. */
+.sf-wk__strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--sp-1); }
+.sf-wk__li { min-width: 0; }
+.sf-wk__cell { width: 100%; min-height: 3.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--sp-1); padding: var(--sp-1); border: 1px solid var(--line); border-radius: var(--r-md); background: transparent; color: var(--text-muted); font: inherit; font-size: var(--text-sm); }
+.sf-wk__cell--train { color: var(--text); border-color: var(--line-strong); }
+.sf-wk__cell--today { border-color: var(--gold-400); box-shadow: none; }
+.sf-wk__sym { font-weight: 700; }
+.sf-sec__label { margin: 0; font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-weight: 600; }
+.sf-qgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); }
+.sf-qgrid > * { min-width: 0; }
+.sf-today__head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; }

@@ -19,6 +19,16 @@ import { resetDb } from '../../src/data/local';
 import { imageUrls } from '../../src/dataset/loader';
 import type { ImageUrl, MapRow } from '../../src/dataset/loader';
 
+/** Phase 90: sections start closed (Collapsible), so open every bar before looking inside. */
+async function openAll(root: Element): Promise<void> {
+  for (let i = 0; i < 5; i++) {
+    const bars = [...root.querySelectorAll('button.sf-sec__bar[aria-expanded="false"]')] as HTMLElement[];
+    if (bars.length === 0) return;
+    await act(async () => { for (const b of bars) b.click(); });
+  }
+}
+
+
 describe('YouTube URL builder', () => {
   test('search url: name + "exercise form", words joined by +', () => {
     expect(youtubeSearchUrl('Lat Pulldown')).toBe('https://www.youtube.com/results?search_query=Lat+Pulldown+exercise+form');
@@ -163,6 +173,7 @@ describe('a11y', () => {
     const d = await loadExercisePage(slug);
     expect(d?.row.slug).toBe(slug);
     await mountAt(`/exercise/${slug}`, <ExercisePage />, '/exercise/:slug');
+    await openAll(root);
     expect(root.querySelectorAll('h1')).toHaveLength(1);
     for (const el of root.querySelectorAll('button, a')) expect(nameOf(el), el.outerHTML.slice(0, 80)).not.toBe('');
     for (const el of root.querySelectorAll('[role="img"]')) expect(el.getAttribute('aria-label')).toBeTruthy();

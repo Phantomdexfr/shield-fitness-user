@@ -2,8 +2,9 @@ import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation, useRoute } from 'wouter-preact';
 import { t } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { Badge, Button, Card, EmptyState, SubPageHeader, showToast } from '../../ui/components';
+import { Badge, Button, Collapsible, EmptyState, SubPageHeader, showToast, Row } from '../../ui/components';
 import { BodyPicker } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { loadSessionView, type SessionView } from '../../data/repos/history';
 import { beginRepeatOf } from '../../data/repos/sessions';
 import { summaryOf, volumeText } from '../../shared/history';
@@ -63,6 +64,7 @@ export default function SessionViewPage() {
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const [busy, setBusy] = useState(false);
   const [bodyView, setBodyView] = useState<'front' | 'back'>('front');
+  const [figureSex] = useFigureSex();
 
   const read = () => {
     setLoad({ status: 'loading' });
@@ -118,29 +120,26 @@ export default function SessionViewPage() {
         <div class="sf-sm__stat"><span class="sf-rt__meta">{t('sm.l.prs')}</span><span class="sf-sm__val">{view.prs.reduce((n, p) => n + p.hits.length, 0)}</span></div>
       </div>
 
-      <Card class="sf-sm__block">
-        <h2 class="sf-ex__h">{t('sm.prs')}</h2>
+      <Collapsible id="prs" title={t('sm.prs')} summary={String(view.prs.reduce((n, p) => n + p.hits.length, 0))}>
         {view.prs.length === 0 ? (
           <p class="sf-lib__note">{t('sm.prs.none')}</p>
         ) : (
           view.prs.map((p) => p.hits.map((h) => <p key={`${p.key}-${h.metric}`} class="sf-sm__pr"><strong>{view.names[p.ref] ?? p.slug}</strong><span>{prToastText(h)}</span></p>))
         )}
-        <Link href="/progress/records" class="sf-pr__link">{t('sm.records')}</Link>
-      </Card>
+        <Row href="/progress/records">{t('sm.records')}</Row>
+      </Collapsible>
 
-      <Card class="sf-sm__block">
-        <h2 class="sf-ex__h">{t('sm.muscles')}</h2>
+      <Collapsible id="muscles" title={t('sm.muscles')} summary={Object.keys(view.muscles).length > 0 ? String(Object.keys(view.muscles).length) : undefined}>
         {Object.keys(view.muscles).length === 0 ? (
           <p class="sf-lib__note">{t('sm.muscles.none')}</p>
         ) : (
-          <div class="sf-sm__body"><BodyPicker mode="view" size="mini" sex="male" view={bodyView} onViewChange={setBodyView} emphasis={view.muscles} /></div>
+          <div class="sf-sm__body"><BodyPicker mode="view" size="mini" sex={figureSex} view={bodyView} onViewChange={setBodyView} emphasis={view.muscles} /></div>
         )}
-      </Card>
+      </Collapsible>
 
-      <Card class="sf-sm__block">
-        <h2 class="sf-ex__h">{t('sm.exercises')}</h2>
+      <Collapsible id="exercises" title={t('sm.exercises')} summary={String(items.length)}>
         {items.map((it, i) => <ItemBlock key={`${refId(it.ref)}-${i}`} it={it} name={view.names[refId(it.ref)] ?? refId(it.ref)} />)}
-      </Card>
+      </Collapsible>
 
       <div class="sf-sm__actions">
         <Button disabled={busy} onPress={() => void repeat()}>{t('sm.repeat')}</Button>

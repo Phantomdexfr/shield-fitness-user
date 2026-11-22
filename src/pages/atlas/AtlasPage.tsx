@@ -3,6 +3,7 @@ import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import { Button, Chip, EmptyState, Input, Segmented, Sheet, SkeletonText, SubPageHeader, Toggle } from '../../ui/components';
 import { BodyPicker, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { useFeature } from '../../app/flags';
 import { ATLAS, FIRST_FRAME_MS, REGIONS, chooseRenderer, drawnIds, filterUnits, groupByRegion, isLowPower, lowPowerReasons, regionOf, rowById, sceneSettings, shouldAskBeforeDownload, unitsForRegion, type AtlasRow, type PowerEnv, type Region } from '../../atlas/logic';
 import { modelUrl, readPowerEnv, readPowerEnvSync, reducedMotion, rendererEnv } from '../../atlas/env';
@@ -32,7 +33,7 @@ export default function AtlasPage() {
   const [credits, setCredits] = useState(false);
   const [lowSetting, setLowSetting] = useState(false);
   const [power, setPower] = useState<PowerEnv>(() => readPowerEnvSync());
-  const [sex] = useState<Sex>('male');
+  const [sex] = useFigureSex();
   const [view2d, setView2d] = useState<View>('front');
   const [view3, setView3] = useState<ViewChoice>('front');
 

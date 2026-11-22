@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
 import { loadMachinePage, type MachinePageData } from '../../data/repos/exercisePage';
-import { Badge, EmptyState, PhotoFrame, Sheet, SubPageHeader } from '../../ui/components';
+import { Collapsible, CollapseAll, Badge, EmptyState, PhotoFrame, Sheet, SubPageHeader, Row } from '../../ui/components';
 import { galleryPhotos, groupMuscles, nice, statusTone, type GalleryPhoto } from './exerciseModel';
 import { muscleLabel } from './muscleLabel';
 import { exercisesRepo } from '../../data/repos/exercises';
@@ -94,9 +94,9 @@ export default function MachinePage() {
       {gymStatus.note && <p class="sf-lib__note">{gymStatus.note}</p>}
 
       {labOn && (
-        <Link href={`/machines/${machine.slug}/lab`} class="sf-lab__link">
+        <Row href={`/machines/${machine.slug}/lab`}>
           {t('mc.lab')}
-        </Link>
+        </Row>
       )}
 
       {photosOn && (
@@ -118,8 +118,7 @@ export default function MachinePage() {
       )}
 
       {movementOn && mdata && (
-        <section aria-label={t('mm.title')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('mm.title')}</h2>
+        <Collapsible id="movement" title={t('mm.title')}>
           {cur && movementFor(mdata, cur.slug) ? (
             <>
               <div class="sf-mm__nav-row">
@@ -133,51 +132,48 @@ export default function MachinePage() {
               </div>
               <p class="sf-lib__note">{t('mm.count', { n: Math.min(mi, mapped.length - 1) + 1, total: mapped.length })}</p>
               <MovementSection pattern={movementFor(mdata, cur.slug)!.pattern} param={movementFor(mdata, cur.slug)!.param} name={cur.name} machineCategory={machine.category} chips={mchips} bare />
-              <Link href={`/exercise/${cur.slug}`} class="sf-lab__link">
+              <Row href={`/exercise/${cur.slug}`}>
                 {t('mm.open')}
-              </Link>
+              </Row>
             </>
           ) : (
             <p class="sf-lib__note">{t('mm.machine.none')}</p>
           )}
-        </section>
+        </Collapsible>
       )}
 
       {machine.muscles.length > 0 && (
-        <section aria-label={t('mc.muscles')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('mc.muscles')}</h2>
+        <Collapsible id="muscles" title={t('mc.muscles')}>
           <p class="sf-ex__line">{machine.muscles.map(muscleLabel).join(' · ')}</p>
-        </section>
+        </Collapsible>
       )}
 
       {machine.cues.length > 0 && (
-        <section aria-label={t('mc.cues')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('mc.cues')}</h2>
+        <Collapsible id="cues" title={t('mc.cues')}>
           <ul class="sf-ex__list">
             {machine.cues.map((c, i) => (
               <li key={i}>{c}</li>
             ))}
           </ul>
-        </section>
+        </Collapsible>
       )}
 
-      <section aria-label={t('mc.exercises')} class="sf-ex__block">
-        <h2 class="sf-ex__h">{t('mc.exercises')}</h2>
+      <Collapsible id="exercises" title={t('mc.exercises')} defaultOpen>
         {exercises.length === 0 ? (
           <p class="sf-lib__note">{t('mc.exercises.none')}</p>
         ) : (
           <ul class="sf-lib__list">
             {exercises.map((e) => (
               <li key={e.slug} class="sf-lib__row">
-                <Link href={`/exercise/${e.slug}`} class="sf-lib__link">
+                <Row href={`/exercise/${e.slug}`}>
                   <span class="sf-lib__name">{e.name}</span>
                   <span class="sf-lib__meta">{nice(e.category)}</span>
-                </Link>
+                </Row>
               </li>
             ))}
           </ul>
         )}
-      </section>
+      </Collapsible>
 
       <Sheet open={!!open} onClose={() => setOpen(null)} title={machine.name} closeLabel={t('mc.photo.close')}>
         {open && <PhotoFrame src={open.detail} alt={open.alt} />}

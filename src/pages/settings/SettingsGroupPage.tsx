@@ -1,12 +1,14 @@
 import { useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Input, Segmented, Stepper, SubPageHeader, Toggle } from '../../ui/components';
+import { ChoiceRow, Collapsible, DatePicker, Input, NumberRow, RowGroup, Segmented, Stepper, SubPageHeader, Toggle } from '../../ui/components';
 import { resolveFeature } from '../../app/flags';
 import { usePref } from '../../data/usePref';
 import { lockedByGym } from '../../data/repos/prefs';
-import { prefDef, parseBirthYear, groupBySlug, type RowSpec } from '../../shared/settings';
+import { prefDef, groupBySlug, type RowSpec } from '../../shared/settings';
 import { goBack } from '../../app/navBack';
+import { istDayKey } from '../../shared/dates';
+import { yearOfDay } from '../../shared/calendar';
 
 const opt = (v: string) => ({ value: v, label: t(`st.v.${v}` as StringKey) });
 const opts = (...vs: string[]) => vs.map(opt);
@@ -17,8 +19,11 @@ export function rowsFor(slug: string): RowSpec[] {
     case 'account':
       return [
         { kind: 'text', pref: 'account.name', label: t('st.account.name'), hint: t('st.account.name.hint') },
-        { kind: 'text', pref: 'account.birthYear', label: t('st.account.year'), hint: t('st.account.year.hint'), birthYear: true },
+        { kind: 'date', pref: 'account.birthDate', label: t('st.account.birth'), hint: t('st.account.birth.hint'), yearPref: 'account.birthYear' },
+        { kind: 'number', pref: 'account.heightCm', label: t('st.account.height'), min: 100, max: 250, start: 170, unit: 'cm' },
+        { kind: 'segmented', pref: 'account.heightUnit', label: t('st.account.heightUnit'), options: opts('cm', 'ft') },
         { kind: 'segmented', pref: 'account.level', label: t('st.account.level'), options: opts('unset', 'beginner', 'intermediate', 'advanced') },
+        { kind: 'link', label: t('st.account.setup'), to: '/welcome?again=1' },
         { kind: 'link', label: t('st.account.badges'), to: '/profile/muscles', feature: 'muscle_badges' },
         { kind: 'link', label: t('st.account.body'), to: '/progress/body', feature: 'body_stats' },
       ];
@@ -85,6 +90,13 @@ function ToggleRow({ spec }: { spec: Extract<RowSpec, { kind: 'toggle' }> }) {
 function SegRow({ spec }: { spec: Extract<RowSpec, { kind: 'segmented' }> }) {
   const [v, set] = usePref<string>(spec.pref);
   if (lockedByGym(spec.pref)) return <Locked label={spec.label} shown={spec.options.find((o) => o.value === v)?.label ?? ''} />;
+  if (spec.options.length >= 4) {
+    return (
+      <RowGroup>
+        <ChoiceRow label={spec.label} value={v} options={spec.options} onChange={(n) => void set(n)} />
+      </RowGroup>
+    );
+  }
   return (
     <div class="sf-st__row">
       <span class="sf-st__label">{spec.label}</span>
@@ -106,21 +118,22 @@ function StepRow({ spec }: { spec: Extract<RowSpec, { kind: 'stepper' }> }) {
   );
 }
 
+/** A number chosen in a sheet (never typed). 0 is stored for "not set" and shows as such until a value is chosen. */
+function NumberPrefRow({ spec }: { spec: Extract<RowSpec, { kind: 'number' }> }) {
+  const [v, set] = usePref<number>(spec.pref);
+  return (
+    <RowGroup>
+      <NumberRow label={spec.label} value={v || spec.start} min={spec.min} max={spec.max} format={(n) => `${n} ${spec.unit}`} empty={v ? undefined : t('ob.about.unset')} onChange={(n) => void set(n)} />
+    </RowGroup>
+  );
+}
+
 function TextRow({ spec }: { spec: Extract<RowSpec, { kind: 'text' }> }) {
   const [stored, set, ready] = usePref<string>(spec.pref);
   const [draft, setDraft] = useState<string | null>(null);
-  const [error, setError] = useState('');
   const shown = draft ?? stored;
   const save = () => {
     if (draft === null) return;
-    if (spec.birthYear) {
-      const r = parseBirthYear(draft);
-      if (!r.ok) {
-        setError(t('st.account.year.err'));
-        return;
-      }
-    }
-    setError('');
     void set(draft).then(() => setDraft(null));
   };
   return (
@@ -128,11 +141,26 @@ function TextRow({ spec }: { spec: Extract<RowSpec, { kind: 'text' }> }) {
       <Input
         label={spec.label}
         hint={spec.hint}
-        error={error || undefined}
-        {...{ value: ready ? shown : '', inputMode: spec.birthYear ? 'numeric' : 'text', maxLength: spec.birthYear ? 4 : 30, autoComplete: 'off' }}
+        {...{ value: ready ? shown : '', inputMode: 'text', maxLength: 30, autoComplete: 'off' }}
         onInput={(e) => setDraft((e.target as HTMLInputElement).value)}
         onBlur={save}
       />
+    </div>
+  );
+}
+
+/** A date chosen on the calendar (no typing). Also keeps the older birth-year pref equal to its year. */
+function DateRow({ spec }: { spec: Extract<RowSpec, { kind: 'date' }> }) {
+  const [stored, set, ready] = usePref<string>(spec.pref);
+  const [year, setYear] = usePref<string>(spec.yearPref ?? spec.pref);
+  const pick = (v: string) => {
+    void set(v);
+    if (spec.yearPref) void setYear(yearOfDay(v));
+  };
+  const hint = !stored && spec.yearPref && year ? t('st.account.birth.old', { y: year }) : spec.hint;
+  return (
+    <div class="sf-st__row">
+      <DatePicker label={spec.label} hint={hint} value={ready ? stored : ''} min="1900-01-01" max={istDayKey(Date.now())} yearFrom={1900} yearTo={Number(istDayKey(Date.now()).slice(0, 4))} clearable onChange={pick} />
     </div>
   );
 }
@@ -147,6 +175,10 @@ function Row({ spec }: { spec: RowSpec }) {
       return <StepRow spec={spec} />;
     case 'text':
       return <TextRow spec={spec} />;
+    case 'number':
+      return <NumberPrefRow spec={spec} />;
+    case 'date':
+      return <DateRow spec={spec} />;
     case 'note':
       return <p class="sf-st__hint">{spec.text}</p>;
     case 'link':
@@ -166,12 +198,21 @@ export default function SettingsGroupPage() {
   const [path, navigate] = useLocation();
   const slug = path.split('/').filter(Boolean).pop() ?? '';
   if (!groupBySlug(slug)) return null;
+  const rows = rowsFor(slug);
+  const links = rows.filter((r) => r.kind === 'link' && (!r.feature || resolveFeature(r.feature)));
   return (
     <section class="sf-page-body sf-st">
       <SubPageHeader title={t(`st.g.${slug}` as StringKey)} onBack={() => goBack(navigate, '/settings')} />
-      {rowsFor(slug).map((r, i) => (
+      {rows.filter((r) => r.kind !== 'link').map((r, i) => (
         <Row key={i} spec={r} />
       ))}
+      {links.length > 0 && (
+        <Collapsible id="links" title={t('ux.shortcuts')} summary={String(links.length)}>
+          {links.map((r, i) => (
+            <Row key={i} spec={r} />
+          ))}
+        </Collapsible>
+      )}
     </section>
   );
 }

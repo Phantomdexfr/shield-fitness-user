@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { Link } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Card } from '../../ui/components';
+import { Card, Row } from '../../ui/components';
 import { useFeature } from '../../app/flags';
 import { istDayKey } from '../../shared/dates';
 import { muscleOfWeek } from '../../shared/recap';
@@ -30,7 +30,7 @@ export function MuscleOfWeekCard() {
       <h2 class="sf-pg__h">{t('mw.title')}</h2>
       <p class="sf-mw__name">{shown.name}</p>
       <p class="sf-lib__note">{t('mw.fact', { fact: shown.fact })}</p>
-      {atlasOn && <Link href="/atlas" class="sf-lab__link">{t('mw.more')}</Link>}
+      {atlasOn && <Row href="/atlas">{t('mw.more')}</Row>}
     </Card>
   );
 }

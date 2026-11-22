@@ -4,7 +4,7 @@ import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
 import { freeConfig, freeBuildReady } from '../../app/freeBuild';
 import { backupHomeView, type BackupHomeView, type FreeAccountRec } from '../../shared/freeAccount';
-import { Button, SubPageHeader } from '../../ui/components';
+import { Collapsible, Button, SubPageHeader } from '../../ui/components';
 import { readMode } from '../../data/gym/backupMeta';
 import { liveRowCount } from '../../data/gym/restore';
 import { BackupLine } from './BackupLine';
@@ -115,8 +115,10 @@ export default function BackupHomePage() {
             </>
           )}
           <Button disabled={busy} onPress={() => void now()}>{t('bk.now')}</Button>
-          <Button variant="secondary" onPress={() => navigate('/settings/backup/restore')}>{t('bk.restore')}</Button>
-          <Button variant="secondary" onPress={() => navigate('/settings/backup/delete')}>{t('bk.del.go')}</Button>
+          <Collapsible id="more" title={t('ux.more')}>
+            <Button variant="secondary" onPress={() => navigate('/settings/backup/restore')}>{t('bk.restore')}</Button>
+            <Button variant="danger" onPress={() => navigate('/settings/backup/delete')}>{t('bk.del.go')}</Button>
+          </Collapsible>
         </>
       )}
       {view?.kind === 'connected' && (

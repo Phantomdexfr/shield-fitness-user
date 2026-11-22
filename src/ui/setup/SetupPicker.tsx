@@ -33,7 +33,7 @@ export function SetupPicker({ offer, value, onChange, class: cls }: SetupPickerP
         </div>
       ))}
       {!isDefaultSetup(value) && (
-        <Button variant="ghost" onPress={() => onChange({})}>
+        <Button variant="secondary" onPress={() => onChange({})}>
           {t('setup.reset')}
         </Button>
       )}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Button, Card, EmptyState, Segmented, SubPageHeader, showToast } from '../../ui/components';
+import { Button, Card, EmptyState, Segmented, SubPageHeader, showToast, Row } from '../../ui/components';
 import { BarChart, Ring, type BarDatum } from '../../ui/charts';
 import { dayLabel } from '../../shared/chartMath';
 import { GLASS_ML, PROTEIN_FACTORS, QUICK_PROTEIN, WATER_TARGET_ML, dayTotal, glasses, intakeSeries, lastEntry, proteinTarget, share } from '../../shared/intake';
@@ -58,7 +58,7 @@ export default function IntakePage() {
             {target !== null && <p class="sf-rt__meta">{t('intake.protein.how', { kg: String(kg), f: String(factor) })}</p>}
           </div>
         </div>
-        {target === null && <p class="sf-rt__meta">{t('intake.protein.need')} <Link href="/progress/body" class="sf-pr__link">{t('prog.links.body')}</Link></p>}
+        {target === null && <><p class="sf-rt__meta">{t('intake.protein.need')}</p><Row href="/progress/body" label={t('prog.links.body')} /></>}
         <div class="sf-pg__quick" role="group" aria-label={t('intake.protein.quick')}>
           {QUICK_PROTEIN.map((g) => <Button key={g} variant="secondary" onPress={() => add('protein', g)}>{`+${g} g`}</Button>)}
         </div>
@@ -78,7 +78,7 @@ export default function IntakePage() {
       </Card>
 
       {scanOn && <Button variant="secondary" onPress={() => navigate('/intake/scan')}>{t('intake.scan.link')}</Button>}
-      {last && <Button variant="ghost" onPress={undo}>{undoText(last.kind, last.amount)}</Button>}
+      {last && <Button variant="secondary" onPress={undo}>{undoText(last.kind, last.amount)}</Button>}
 
       <Segmented label={t('intake.span')} value={span} onChange={setSpan} options={[{ value: '7', label: t('intake.span.7') }, { value: '30', label: t('intake.span.30') }]} />
       <BarChart title={t('intake.chart.protein')} data={bars('protein')} unit="g" {...(target !== null ? { target } : {})} emptyText={t('intake.chart.empty')} />

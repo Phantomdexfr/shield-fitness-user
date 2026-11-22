@@ -122,7 +122,7 @@ export function DayBuilderSheet({ open, onClose, day, onApply }: {
             </>
           )
         )}
-        <Button variant="ghost" onPress={onClose}>{t('rb.cancel')}</Button>
+        <Button variant="secondary" onPress={onClose}>{t('rb.cancel')}</Button>
       </div>
     </Sheet>
   );

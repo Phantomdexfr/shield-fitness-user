@@ -9,7 +9,7 @@ import { goTos, hiddenSlugs, type Personal } from '../../shared/personal';
 import { clearRecentSearches, forgetSearch, getEquipmentPreset, getRecentSearches, listMachines, rememberSearch, setEquipmentPreset } from '../../data/repos/library';
 import type { ExerciseRow, Machine } from '../../dataset/loader';
 import { EQUIPMENT_PRESETS, type EquipmentPreset } from '../../shared/equipment';
-import { Badge, Button, Chip, EmptyState, PhotoFrame, Select, Sheet, Tabs, Toggle } from '../../ui/components';
+import { Collapsible, CollapseAll, Badge, Button, Chip, EmptyState, PhotoFrame, Select, Sheet, Tabs, Toggle, Row } from '../../ui/components';
 import { SearchBox } from '../../ui/search/SearchBox';
 import {
   countBy, filterMachines, machineCategories, parseLibraryUrl, refineExercises, serializeLibraryUrl, sheetFilterCount,
@@ -179,30 +179,32 @@ export default function LibraryPage() {
       />
 
       {state.tab === 'exercises' && cats.length > 0 && (
-        <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.category')}>
-          <Chip selected={!state.category} onPress={() => patch({ category: undefined, sub: undefined })}>
-            {t('lib.category.all')}
-          </Chip>
-          {cats.map((c) => (
-            <Chip key={c.value} selected={state.category === c.value} onPress={() => patch({ category: c.value, sub: undefined })}>
-              {nice(c.value)} {c.n}
+        <Collapsible id="cats" title={t('lib.category')} summary={state.category ? nice(state.category) : undefined}>
+          <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.category')}>
+            <Chip selected={!state.category} onPress={() => patch({ category: undefined, sub: undefined })}>
+              {t('lib.category.all')}
             </Chip>
-          ))}
-        </div>
-      )}
-      {state.tab === 'exercises' && subs.length > 1 && (
-        <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.sub')}>
-          {subs.map((c) => (
-            <Chip key={c.value} selected={state.sub === c.value} onPress={() => patch({ sub: state.sub === c.value ? undefined : c.value })}>
-              {nice(c.value)} {c.n}
-            </Chip>
-          ))}
-        </div>
+            {cats.map((c) => (
+              <Chip key={c.value} selected={state.category === c.value} onPress={() => patch({ category: c.value, sub: undefined })}>
+                {nice(c.value)} {c.n}
+              </Chip>
+            ))}
+          </div>
+          {subs.length > 1 && (
+          <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.sub')}>
+            {subs.map((c) => (
+              <Chip key={c.value} selected={state.sub === c.value} onPress={() => patch({ sub: state.sub === c.value ? undefined : c.value })}>
+                {nice(c.value)} {c.n}
+              </Chip>
+            ))}
+          </div>
+          )}
+        </Collapsible>
       )}
       {state.tab === 'machines' && machineLabOn && (
-        <Link href="/machines" class="sf-lab__link">
+        <Row href="/machines">
           {t('mi.title')}: {t('mi.finder')}
-        </Link>
+        </Row>
       )}
       {state.tab === 'machines' && mcats.length > 1 && (
         <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.category')}>
@@ -218,18 +220,17 @@ export default function LibraryPage() {
       )}
 
       {state.tab === 'exercises' && !showHidden && state.q === '' && mine.length > 0 && (
-        <section aria-label={t('lib.gotos')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('lib.gotos')}</h2>
+        <Collapsible id="gotos" title={t('lib.gotos')}>
           <ul class="sf-lib__list">
             {mine.map((g) => (
               <li key={g.slug} class="sf-lib__row">
-                <Link href={`/exercise/${g.slug}`} class="sf-lib__link">
+                <Row href={`/exercise/${g.slug}`}>
                   <span class="sf-lib__name">{g.name}</span>
-                </Link>
+                </Row>
               </li>
             ))}
           </ul>
-        </section>
+        </Collapsible>
       )}
       {state.tab === 'exercises' && (hidden.size > 0 || showHidden) && (
         <Button variant="secondary" onPress={() => setShowHidden(!showHidden)}>
@@ -252,13 +253,13 @@ export default function LibraryPage() {
               <ul class="sf-lib__list">
                 {results.slice(0, shown).map((r) => (
                   <li key={r.slug} class="sf-lib__row">
-                    <Link href={`/exercise/${r.slug}`} class="sf-lib__link">
+                    <Row href={`/exercise/${r.slug}`}>
                       <span class="sf-lib__name">{r.name}</span>
                       <span class="sf-lib__meta">
                         {r.custom ? t('lib.custom') : nice(r.category)}
                         {r.machine ? ` · ${machineName(r.machine)}` : ''}
                       </span>
-                    </Link>
+                    </Row>
                   </li>
                 ))}
               </ul>
@@ -309,7 +310,7 @@ export default function LibraryPage() {
           <Toggle checked={!!state.unilateral} onChange={(v) => patch({ unilateral: v || undefined })} label={t('lab.filter.unilateral')} />
           <div class="sf-lib__sheetbtns">
             {nFilters > 0 && (
-              <Button variant="ghost" onPress={() => go({ ...state, kind: undefined, difficulty: undefined, machine: undefined, beginner: undefined, unilateral: undefined })}>
+              <Button variant="secondary" onPress={() => go({ ...state, kind: undefined, difficulty: undefined, machine: undefined, beginner: undefined, unilateral: undefined })}>
                 {t('lib.filters.clear')}
               </Button>
             )}

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Card, EmptyState, Input, Select, Sheet, SubPageHeader } from '../../ui/components';
+import { Collapsible, Button, Card, DatePicker, EmptyState, Input, Select, Sheet, SubPageHeader, Row } from '../../ui/components';
 import { Ring } from '../../ui/charts';
 import { GOAL_KINDS, RANGE, goalProblem, milestones, parseNumber, toCelebrate, type Goal, type GoalKind, type GoalProblem } from '../../shared/goals';
 import { createGoal, deleteGoal, loadGoals, markAchieved, type GoalRow, type GoalsData } from '../../data/repos/body';
@@ -48,7 +48,7 @@ function GoalCard({ row, onDelete }: { row: GoalRow; onDelete: (id: string) => v
           ))}
         </ul>
       )}
-      <Button variant="ghost" onPress={() => onDelete(g.id)}>{t('goal.delete')}</Button>
+      <Button variant="secondary" onPress={() => onDelete(g.id)}>{t('goal.delete')}</Button>
     </Card>
   );
 }
@@ -126,17 +126,16 @@ export default function GoalsPage() {
       {d.rows.length === 0 && <EmptyState icon="barbell" title={t('goal.empty.title')} hint={t('goal.empty.body')} />}
       <div class="sf-rt__list">{active.map((r) => <GoalCard key={r.goal.id} row={r} onDelete={(id) => { deleteGoal(id).then(read, read); }} />)}</div>
       {done.length > 0 && (
-        <>
-          <h2 class="sf-pg__h">{t('goal.done.title')}</h2>
+        <Collapsible id="done" title={t('goal.done.title')} summary={String(done.length)}>
           <div class="sf-rt__list">{done.map((r) => <GoalCard key={r.goal.id} row={r} onDelete={(id) => { deleteGoal(id).then(read, read); }} />)}</div>
-        </>
+        </Collapsible>
       )}
-      <div class="sf-pg__links"><Link href="/progress/body" class="sf-pr__link">{t('goal.body.link')}</Link></div>
+      <div class="sf-pg__links"><Row href="/progress/body">{t('goal.body.link')}</Row></div>
 
       <Sheet open={open} onClose={() => setOpen(false)} title={t('goal.new')}>
         <div class="sf-pg__form sf-pg__form--one">
           <Select label={t('goal.kind')} value={kind} options={kindOptions} onChange={(v) => { setKind(v); setError(''); }} />
-          {needReading && <p class="sf-lib__note">{t('goal.need.reading')} <Link href="/progress/body" class="sf-pr__link">{t('goal.body.link')}</Link></p>}
+          {needReading && <><p class="sf-lib__note">{t('goal.need.reading')}</p><Row href="/progress/body" label={t('goal.body.link')} /></>}
           {kind === 'lift' && (
             d.lifts.length === 0 ? <p class="sf-lib__note">{t('goal.need.lift')}</p> : (
               <Select label={t('goal.lift')} value={lift} options={[{ value: '', label: t('goal.lift.pick') }, ...d.lifts.map((l) => ({ value: l.slug, label: l.name }))]} onChange={setLift} />
@@ -147,7 +146,7 @@ export default function GoalsPage() {
           ) : (
             <Input label={`${t('goal.target')}${unitOf(kind) ? ` (${unitOf(kind)})` : ''}`} {...{ value: target, inputMode: 'decimal' }} onInput={(e) => setTarget((e.target as HTMLInputElement).value)} />
           )}
-          <Input label={kind === 'event' ? t('goal.event.date') : t('goal.deadline')} {...{ type: 'date', value: deadline }} onInput={(e) => setDeadline((e.target as HTMLInputElement).value)} />
+          <DatePicker label={kind === 'event' ? t('goal.event.date') : t('goal.deadline')} value={deadline} clearable onChange={setDeadline} />
           {error && <p class="sf-pg__err" role="alert">{error}</p>}
           <Button onPress={submit}>{t('goal.save')}</Button>
         </div>

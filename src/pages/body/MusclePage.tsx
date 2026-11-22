@@ -3,6 +3,7 @@ import { useLocation, useParams } from 'wouter-preact';
 import { t } from '../../i18n';
 import { EmptyState, SubPageHeader } from '../../ui/components';
 import { BodyPicker, isMuscle, viewsOf, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { LabPanel, LoadGate, muscleName, useLabData } from './LabPanel';
 import { goBack } from '../../app/navBack';
 
@@ -12,7 +13,7 @@ export default function MusclePage() {
   const [, navigate] = useLocation();
   const { state, reload } = useLabData();
   const known = isMuscle(id);
-  const [sex, setSex] = useState<Sex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>((known ? viewsOf(id)[0] : undefined) ?? 'front');
   return (
     <section class="sf-page-body sf-lab">

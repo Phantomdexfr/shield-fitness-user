@@ -5,8 +5,9 @@ import { useFeature } from '../../app/flags';
 import { setFavourite, setHidden, setNote } from '../../data/repos/personal';
 import { EMPTY_PERSONAL, NOTE_MAX, type Personal } from '../../shared/personal';
 import { dismissCue, loadExercisePage, policyYoutubeFor, setChosenSetup, setChosenVariation, type ExercisePageData } from '../../data/repos/exercisePage';
-import { Badge, Button, Chip, Dialog, EmptyState, PhotoFrame, SubPageHeader } from '../../ui/components';
+import { Collapsible, CollapseAll, Badge, Button, Chip, Dialog, EmptyState, PhotoFrame, SubPageHeader, Row } from '../../ui/components';
 import { BodyPicker, viewsOf, isMuscle, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { FormCueCard } from './FormCueCard';
 import { SetupPicker } from '../../ui/setup/SetupPicker';
 import { addedBySetup, cleanSetup, offeredAxes, setupEffect, setupFromSearch, setupWeights } from './setupModel';
@@ -49,7 +50,7 @@ export default function ExercisePage() {
   const search = useSearch();
   const [setup, setSetup] = useState<Setup>({});
   const [state, setState] = useState<State>({ status: 'loading' });
-  const [sex, setSex] = useState<Sex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [variation, setVariation] = useState<string | undefined>();
   const [cueGone, setCueGone] = useState(false);
@@ -186,6 +187,7 @@ export default function ExercisePage() {
         {row.beginner && <Badge tone="ok">{t('ex.chip.beginner')}</Badge>}
       </div>
 
+      <CollapseAll />
       <div class="sf-ex__pair" role="group" aria-label={t('ex.mine')}>
         <Chip selected={personal.favourite} onPress={toggleFavourite}>
           {personal.favourite ? t('ex.fav.remove') : t('ex.fav.add')}
@@ -221,6 +223,7 @@ export default function ExercisePage() {
 
       {movementOn && movement === null && <p class="sf-lib__note">{t('mm.unmapped')}</p>}
       {movementOn && movement && (
+        <Collapsible id="movement" title={t('mm.title')}>
         <MovementSection
           pattern={movement.pattern}
           param={movement.param}
@@ -230,10 +233,10 @@ export default function ExercisePage() {
           {...(machine ? { machineCategory: machine.category } : {})}
           chips={chipMuscles(shown?.chosen ?? {}, groups.primary.map((m) => m.id), shown?.added ?? []).map((id) => ({ id, label: muscleLabel(id) }))}
         />
+        </Collapsible>
       )}
 
-      <section aria-label={t('ex.muscles')} class="sf-ex__block">
-        <h2 class="sf-ex__h">{t('ex.muscles')}</h2>
+      <Collapsible id="muscles" title={t('ex.muscles')} defaultOpen>
         <BodyPicker mode="view" size="compact" sex={sex} view={view} onSexChange={setSex} onViewChange={setView} emphasis={emphasis} />
         {(['primary', 'secondary', 'stabiliser'] as RoleGroup[]).map(
           (g) =>
@@ -251,10 +254,9 @@ export default function ExercisePage() {
             ),
         )}
         {hasContested(groups) && <p class="sf-lib__note">{t('ex.evidence')}</p>}
-      </section>
+      </Collapsible>
 
-      <section aria-label={t('ex.machine')} class="sf-ex__block">
-        <h2 class="sf-ex__h">{t('ex.machine')}</h2>
+      <Collapsible id="machine" title={t('ex.machine')}>
         {machine ? (
           <Link href={`/machine/${machine.slug}`} class="sf-ex__machine">
             {photosOn && <PhotoFrame src={photo} alt={t('lib.machine.photo', { name: machine.name })} class="sf-ex__mthumb" />}
@@ -264,11 +266,10 @@ export default function ExercisePage() {
         ) : (
           <p class="sf-ex__line">{t('ex.machine.none')}</p>
         )}
-      </section>
+      </Collapsible>
 
       {setupOn && offeredAxes(data.setupOffer).length > 0 && (
-        <section aria-label={t('setup.title')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('setup.title')}</h2>
+        <Collapsible id="title" title={t('setup.title')}>
           <p class="sf-lib__note">{t('setup.hint')}</p>
           <SetupPicker offer={data.setupOffer} value={setup} onChange={changeSetup} />
           <p class="sf-ex__line sf-ex__effect" role="status">
@@ -279,12 +280,11 @@ export default function ExercisePage() {
                 ].filter(Boolean).join('. ')
               : t('setup.effect.none')}
           </p>
-        </section>
+        </Collapsible>
       )}
 
       {detail.variations.length > 0 && (
-        <section aria-label={t('ex.variations')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('ex.variations')}</h2>
+        <Collapsible id="variations" title={t('ex.variations')}>
           <p class="sf-lib__note">{t('ex.variations.hint')}</p>
           <ul class="sf-ex__vars">
             {detail.variations.map((v) => {
@@ -299,7 +299,7 @@ export default function ExercisePage() {
               );
             })}
           </ul>
-        </section>
+        </Collapsible>
       )}
 
       {(data.easier || data.harder) && (
@@ -310,8 +310,7 @@ export default function ExercisePage() {
       )}
 
       {(detail.cues.length > 0 || reps) && (
-        <section aria-label={t('ex.howto')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('ex.howto')}</h2>
+        <Collapsible id="howto" title={t('ex.howto')}>
           {reps && <p class="sf-ex__line">{t('ex.reps', { range: reps })}</p>}
           {detail.cues.length > 0 && (
             <ul class="sf-ex__list">
@@ -320,19 +319,18 @@ export default function ExercisePage() {
               ))}
             </ul>
           )}
-        </section>
+        </Collapsible>
       )}
 
       {detail.cautions && (
-        <section aria-label={t('ex.cautions')} class="sf-ex__block sf-ex__caution">
-          <h2 class="sf-ex__h">{t('ex.cautions')}</h2>
+        <Collapsible id="cautions" title={t('ex.cautions')}>
           <p class="sf-ex__line">{detail.cautions}</p>
-        </section>
+        </Collapsible>
       )}
 
       {youtubeOn && (
         <div class="sf-ex__block">
-          <a class="sf-btn sf-btn--primary sf-btn--md sf-btn--full" href={yt} target="_blank" rel="noopener noreferrer">
+          <a class="sf-btn sf-btn--secondary sf-btn--md sf-btn--full" href={yt} target="_blank" rel="noopener noreferrer">
             <span class="sf-btn__label">{t('ex.watch')}</span>
           </a>
           <p class="sf-lib__note">{t('ex.watch.note')}</p>
@@ -340,23 +338,21 @@ export default function ExercisePage() {
       )}
 
       {data.substitutes.length > 0 && (
-        <section aria-label={t('ex.substitutes')} class="sf-ex__block">
-          <h2 class="sf-ex__h">{t('ex.substitutes')}</h2>
+        <Collapsible id="substitutes" title={t('ex.substitutes')}>
           <ul class="sf-lib__list">
             {data.substitutes.map((s) => (
               <li key={s.slug} class="sf-lib__row">
-                <Link href={`/exercise/${s.slug}`} class="sf-lib__link">
+                <Row href={`/exercise/${s.slug}`}>
                   <span class="sf-lib__name">{s.name}</span>
                   <span class="sf-lib__meta">{nice(s.category)}</span>
-                </Link>
+                </Row>
               </li>
             ))}
           </ul>
-        </section>
+        </Collapsible>
       )}
 
-      <section aria-label={t('ex.note')} class="sf-ex__block">
-        <h2 class="sf-ex__h">{t('ex.note')}</h2>
+      <Collapsible id="note" title={t('ex.note')}>
         <textarea
           class="sf-input sf-ex__note"
           rows={3}
@@ -372,13 +368,12 @@ export default function ExercisePage() {
         <p class="sf-lib__note" role="status">
           {noteMsg === 'error' ? t('ex.note.error') : noteMsg === 'saved' ? t('ex.note.saved') : t('ex.note.hint')}
         </p>
-      </section>
+      </Collapsible>
 
-      <section aria-label={t('ex.history')} class="sf-ex__block" data-hook="exercise-history">
-        <h2 class="sf-ex__h">{t('ex.history')}</h2>
+      <Collapsible id="history" title={t('ex.history')}>
         <p class="sf-lib__note">{t('ex.history.none')}</p>
         {aiOn && <Button variant="secondary" onPress={() => setAiOpen(true)}>{t('ai.btn.lift')}</Button>}
-      </section>
+      </Collapsible>
       {aiOn && <AiReviewSheet open={aiOpen} onClose={() => setAiOpen(false)} scope={{ kind: 'exercise', slug, lastN: 8 }} title={t('ai.title.lift')} />}
     </section>
   );

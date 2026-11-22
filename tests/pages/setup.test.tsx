@@ -18,6 +18,16 @@ import { getSetupOptions, getVariationShift } from '../../src/dataset/loader';
 import { resetDb } from '../../src/data/local';
 import type { Setup } from '../../src/shared/setup';
 
+/** Phase 90: sections start closed (Collapsible), so open every bar before looking inside. */
+async function openAll(root: Element): Promise<void> {
+  for (let i = 0; i < 5; i++) {
+    const bars = [...root.querySelectorAll('button.sf-sec__bar[aria-expanded="false"]')] as HTMLElement[];
+    if (bars.length === 0) return;
+    await act(async () => { for (const b of bars) b.click(); });
+  }
+}
+
+
 let data: SetupData;
 beforeEach(async () => {
   (globalThis as { indexedDB: IDBFactory }).indexedDB = new IDBFactory();
@@ -145,7 +155,8 @@ describe('SetupPicker a11y', () => {
 describe('exercise page + setup', () => {
   test('choosing underhand shows the effect, is remembered, and loads back', async () => {
     await mountAt('/exercise/lat-pulldown', <ExercisePage />, '/exercise/:slug');
-    const sec = root.querySelector('section[aria-label="Setup"]')!;
+    await openAll(root);
+    const sec = root.querySelector('.sf-ex__effect')!.closest('section')!;
     expect(sec).not.toBeNull();
     expect(sec.querySelector('.sf-ex__effect')?.textContent).toContain('Nothing shifts');
     await act(async () => ([...sec.querySelectorAll('button')].find((b) => b.textContent?.includes('Supinated')) as HTMLButtonElement).click());

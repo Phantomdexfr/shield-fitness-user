@@ -134,7 +134,7 @@ export function AiReviewSheet({ open, onClose, scope, title }: { open: boolean; 
                   value={prefs.intro}
                   onInput={(e) => save({ ...prefs, intro: (e.target as HTMLTextAreaElement).value })}
                 />
-                {prefs.intro !== DEFAULT_INTRO && <Button variant="ghost" onPress={() => save({ ...prefs, intro: DEFAULT_INTRO })}>{t('ai.intro.reset')}</Button>}
+                {prefs.intro !== DEFAULT_INTRO && <Button variant="secondary" onPress={() => save({ ...prefs, intro: DEFAULT_INTRO })}>{t('ai.intro.reset')}</Button>}
               </>
             )}
             <p class="sf-lib__note">{t('ai.disclaimer')}</p>

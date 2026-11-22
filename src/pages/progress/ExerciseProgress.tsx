@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation, useParams } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Card, EmptyState, Segmented, SubPageHeader } from '../../ui/components';
+import { Card, EmptyState, Segmented, SubPageHeader, Row } from '../../ui/components';
 import { LineChart, StatTile } from '../../ui/charts';
 import { metricPoints, type ExerciseMetric } from '../../shared/progressSeries';
 import { loadExercise, type ExerciseData } from '../../data/repos/progress';
@@ -33,7 +33,7 @@ export default function ExerciseProgress() {
       <section class="sf-page-body sf-rt">
         {head}
         <EmptyState icon="barbell" title={t('prog.ex.empty.title')} hint={t('prog.ex.empty.body')} />
-        <Link href={`/exercise/${d.slug}`} class="sf-pr__link">{t('prog.ex.open')}</Link>
+        <Row href={`/exercise/${d.slug}`}>{t('prog.ex.open')}</Row>
       </section>
     );
   }
@@ -60,7 +60,7 @@ export default function ExerciseProgress() {
       </div>
       {d.plateau && <Card as="section" class="sf-pg__card"><p class="sf-lib__note">{t('prog.ex.plateau')}</p></Card>}
       <p class="sf-lib__note">{t('prog.ex.note')}</p>
-      <Link href={`/exercise/${d.slug}`} class="sf-pr__link">{t('prog.ex.open')}</Link>
+      <Row href={`/exercise/${d.slug}`}>{t('prog.ex.open')}</Row>
     </section>
   );
 }

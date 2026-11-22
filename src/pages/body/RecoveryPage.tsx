@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, EmptyState, Sheet, SubPageHeader } from '../../ui/components';
+import { Collapsible, Button, EmptyState, Sheet, SubPageHeader } from '../../ui/components';
 import { BodyPicker, type Sex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { useFeature } from '../../app/flags';
 import { loadRecovery, type RecoveryData } from '../../data/repos/recovery';
 import { BALANCE_MIN } from '../../shared/recovery';
@@ -29,7 +30,7 @@ export default function RecoveryPage() {
   const [, navigate] = useLocation();
   const marksOn = useFeature('injury_marks');
   const [load, setLoad] = useState<Load>({ status: 'loading' });
-  const [sex, setSex] = useState<Sex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [picked, setPicked] = useState<string | null>(null);
 
@@ -69,8 +70,7 @@ export default function RecoveryPage() {
         ))}
       </div>
 
-      <section class="sf-hm__sec" aria-label={t('rc.ready.title')}>
-        <h2 class="sf-hm__h">{t('rc.ready.title')}</h2>
+      <Collapsible id="rc-ready-title" title={t('rc.ready.title')} defaultOpen>
         {ready.length === 0 ? (
           <p class="sf-hm__note">{t('rc.ready.none')}</p>
         ) : (
@@ -84,10 +84,9 @@ export default function RecoveryPage() {
             <Button variant="secondary" onPress={() => navigate('/train')}>{t('rc.ready.go')}</Button>
           </>
         )}
-      </section>
+      </Collapsible>
 
-      <section class="sf-hm__sec" aria-label={t('rc.bal.title')}>
-        <h2 class="sf-hm__h">{t('rc.bal.title')}</h2>
+      <Collapsible id="rc-bal-title" title={t('rc.bal.title')}>
         <p class="sf-hm__note">{t('rc.bal.hint')}</p>
         <ul class="sf-hm__rows">
           {lines.map((l) => (
@@ -101,10 +100,9 @@ export default function RecoveryPage() {
           ))}
         </ul>
         <p class="sf-hm__note">{t('rc.bal.min', { n: BALANCE_MIN })}</p>
-      </section>
+      </Collapsible>
 
-      <section class="sf-hm__sec" aria-label={t('rc.list.title')}>
-        <h2 class="sf-hm__h">{t('rc.list.title')}</h2>
+      <Collapsible id="rc-list-title" title={t('rc.list.title')}>
         <ul class="sf-hm__rows">
           {rows.map((r) => (
             <li key={r.id}>
@@ -115,7 +113,7 @@ export default function RecoveryPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Collapsible>
 
       {marksOn && <Button variant="secondary" onPress={() => navigate('/body/marks')}>{t('rc.marks.link')}</Button>}
 

@@ -49,7 +49,7 @@ export function GymProgramsSection({ onChanged }: { onChanged: () => void }) {
                 <Button onPress={() => run(() => programActions.follow(p.slug))}>{t('gp.follow')}</Button>
               )}
               <Button variant="secondary" onPress={() => run(() => programActions.copy(p.slug), t('gp.copied'))}>{t('gp.copy')}</Button>
-              {!followed && <Button variant="ghost" onPress={() => run(() => programActions.ignore(p.slug, true))}>{t('gp.ignore')}</Button>}
+              {!followed && <Button variant="secondary" onPress={() => run(() => programActions.ignore(p.slug, true))}>{t('gp.ignore')}</Button>}
             </Card>
           </li>
         ))}
@@ -77,7 +77,7 @@ export function GymProgramsSection({ onChanged }: { onChanged: () => void }) {
               <li key={p.slug} class="sf-rt__item">
                 <Card class="sf-rt__card">
                   <span class="sf-rt__name">{p.name}</span>
-                  <Button variant="ghost" onPress={() => run(() => programActions.ignore(p.slug, false))}>{t('gp.unignore')}</Button>
+                  <Button variant="secondary" onPress={() => run(() => programActions.ignore(p.slug, false))}>{t('gp.unignore')}</Button>
                 </Card>
               </li>
             ))}

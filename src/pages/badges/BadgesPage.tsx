@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, EmptyState, ProgressBar, Sheet, SubPageHeader } from '../../ui/components';
+import { Button, EmptyState, ProgressBar, Sheet, SubPageHeader, Row } from '../../ui/components';
 import { BodyPicker, type Sex as FigureSex, type View } from '../../ui/body';
+import { useFigureSex } from '../../ui/body/useFigureSex';
 import { confirmSets, getProfile, loadBadgeState, saveProfile, type BadgeState } from '../../data/repos/badges';
 import { BADGE_GROUPS, type BadgeResult, type MuscleBadge } from '../../shared/badges';
 import { dayLabel } from '../history/dayText';
@@ -82,7 +83,7 @@ function MuscleSheet({ state, result, id, onClose, onWeak }: { state: BadgeState
 export default function BadgesPage() {
   const [, navigate] = useLocation();
   const [load, setLoad] = useState<Load>({ status: 'loading' });
-  const [sex, setSex] = useState<FigureSex>('male');
+  const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [picked, setPicked] = useState<string | null>(null);
 
@@ -134,7 +135,7 @@ export default function BadgesPage() {
   return (
     <div class="sf-bd">
       {head}
-      <Button variant="ghost" onPress={() => navigate('/settings/badges')}>{t('badge.settings')}</Button>
+      <Row label={t('badge.settings')} href="/settings/badges" />
 
       <section class="sf-bd__card" aria-label={t('badge.overall.title')}>
         <Crest tier={result.overall.tier} size="lg" hideName />
