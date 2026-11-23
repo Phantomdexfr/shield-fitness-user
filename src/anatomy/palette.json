@@ -1,0 +1,26 @@
+{
+  "systems": [
+    { "id": "skeletal", "name": "Skeleton", "color": "#f1ead0" },
+    { "id": "muscular", "name": "Muscular", "color": "#ff4a5e" },
+    { "id": "arterial", "name": "Arterial", "color": "#ff9a3c" },
+    { "id": "venous", "name": "Venous", "color": "#4d7dff" },
+    { "id": "nervous", "name": "Nervous", "color": "#ffe94d" },
+    { "id": "digestive", "name": "Digestive", "color": "#7dff9a" },
+    { "id": "respiratory", "name": "Respiratory", "color": "#5ff2ff" },
+    { "id": "urinary", "name": "Urinary", "color": "#c58bff" },
+    { "id": "reproductive", "name": "Reproductive", "color": "#ff7ad9" },
+    { "id": "lymphatic", "name": "Lymphatic", "color": "#a6ffe0" },
+    { "id": "endocrine", "name": "Endocrine", "color": "#ffb0ff" },
+    { "id": "integumentary", "name": "Skin", "color": "#9fb6c4" },
+    { "id": "connective", "name": "Connective", "color": "#d0d8ff" },
+    { "id": "sensory", "name": "Sensory", "color": "#ffffff" },
+    { "id": "cardiac", "name": "Cardiac", "color": "#ff2a55" }
+  ],
+  "themes": {
+    "gold": { "light": 0, "g1": "#2a2310", "g2": "#0d0c0a", "acc": "#d4af37" },
+    "holo": { "light": 0, "g1": "#073049", "g2": "#02070d", "acc": "#00e5ff" },
+    "midnight": { "light": 0, "g1": "#06121a", "g2": "#000000", "acc": "#00e5ff" },
+    "white": { "light": 1, "g1": "#ffffff", "g2": "#e4ecf1", "acc": "#0a7ea4" },
+    "grey": { "light": 1, "g1": "#eef2f5", "g2": "#cfd7dd", "acc": "#3a6a80" }
+  }
+}

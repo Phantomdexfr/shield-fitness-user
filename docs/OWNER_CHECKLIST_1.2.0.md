@@ -59,3 +59,7 @@ Written in Phase 88 (gate). **Nothing here was run by Claude on a phone, on iOS 
 ## What Phase 88 did and did not check
 Did: typecheck once (clean); `tests/guard/release120.test.ts` (version, viewport lock, no native date, no ghost, figure from profile, collapsible sections, icon-button labels, sheet dialog role) and `tests/guard.test.ts`.
 Did NOT: full suite, build, Lighthouse, any phone, iOS Safari, any real server, a fresh browser overflow audit (the 360 px checks of Phases 83-87 stand; nothing visual changed in this phase).
+
+## Phase 91: Anatomy View
+- [ ] Body > Muscle Lab > Anatomy View loads (first time about 9 MB) and tapping a part opens its Info.
+- [ ] Holo Lab (/atlas): tapping a muscle keeps the info sheet open.

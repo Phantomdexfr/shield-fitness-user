@@ -1,0 +1,26 @@
+/* Phase 91: /anatomy (Anatomy View). Tokens only; nothing bleeds at 360 px; text wraps, never truncates. */
+.sf-anat { display: flex; flex-direction: column; gap: var(--sp-4); min-width: 0; max-width: 100%; }
+.sf-anat__note { margin: 0; color: var(--text-muted); overflow-wrap: anywhere; }
+.sf-anat__h { margin: 0; font: inherit; font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
+.sf-anat__row { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
+.sf-anat__ask { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-anat__stage { position: relative; box-sizing: border-box; width: 100%; height: clamp(320px, 56dvh, 560px); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; touch-action: none; }
+.sf-anat__stage--off { display: none; }
+.sf-anat__host { position: absolute; inset: 0; touch-action: none; }
+.sf-anat__loading { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: var(--sp-3); padding: var(--sp-4); background: var(--bg-void); }
+.sf-anat__count { position: absolute; top: var(--sp-2); left: var(--sp-3); font-size: var(--text-xs); color: var(--text-2); pointer-events: none; }
+.sf-anat__sel { position: absolute; left: var(--sp-2); right: var(--sp-2); bottom: var(--sp-2); display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); padding: var(--sp-2) var(--sp-3); border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--bg-card); }
+.sf-anat__selname { display: flex; flex-direction: column; flex: 1 1 140px; min-width: 0; }
+.sf-anat__selname b { color: var(--text); overflow-wrap: anywhere; }
+.sf-anat__selname span { color: var(--text-2); font-size: var(--text-xs); overflow-wrap: anywhere; }
+.sf-anat__panel { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+.sf-anat__chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.sf-anat__dot { display: inline-block; width: 9px; height: 9px; margin-right: var(--sp-2); border-radius: 50%; background: currentColor; flex: none; }
+.sf-anat__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--r-md); }
+.sf-anat__list li + li { border-top: 1px solid var(--line); }
+.sf-anat__item { display: flex; align-items: center; width: 100%; min-height: 44px; padding: var(--sp-2) var(--sp-3); background: transparent; border: 0; color: var(--text); font: inherit; text-align: left; overflow-wrap: anywhere; cursor: pointer; }
+.sf-anat__info { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.sf-anat__text { margin: 0; color: var(--text); line-height: 1.55; overflow-wrap: anywhere; }
+.sf-anat__meta { margin: 0; color: var(--text-2); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.sf-anat__range { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); min-height: 52px; padding: 0 var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); }
+.sf-anat__range input { width: 55%; accent-color: var(--gold-400); min-height: 44px; touch-action: pan-x; }

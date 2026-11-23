@@ -49,6 +49,7 @@ export default function MuscleLab() {
           {recoveryOn && <Row href="/body/recovery">{t('rc.recovery.link')}</Row>}
           {marksOn && <Row href="/body/marks">{t('rc.marks.link')}</Row>}
           {atlasOn && <Row href="/atlas">{t('atlas.link')}</Row>}
+          {atlasOn && <Row href="/anatomy">{t('atlas.anatomyLink')}</Row>}
         </div>
       )}
       <Segmented<Mode>

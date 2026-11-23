@@ -20,9 +20,9 @@ precacheAndRoute(self.__WB_MANIFEST);
 // Every slug route works offline: any navigation is answered with the precached app shell.
 registerRoute(new NavigationRoute(createHandlerBoundToURL(`${base}index.html`)));
 
-// Big static files (machine photos, atlas model) are cached on demand, never precached.
+// Big static files (machine photos, atlas model, anatomy model) are cached on demand, never precached.
 registerRoute(
-  ({ url }) => url.pathname.startsWith(`${base}machines/`) || url.pathname.startsWith(`${base}atlas/`),
+  ({ url }) => url.pathname.startsWith(`${base}machines/`) || url.pathname.startsWith(`${base}atlas/`) || url.pathname.startsWith(`${base}anatomy/`),
   new CacheFirst({ cacheName: 'sf-large-assets' }),
 );
 

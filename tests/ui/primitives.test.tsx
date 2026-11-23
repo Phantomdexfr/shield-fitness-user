@@ -156,8 +156,15 @@ describe('overlays and toasts', () => {
     expect(onClose).not.toHaveBeenCalled();
     key(document.body, 'Escape');
     expect(onClose).toHaveBeenCalledTimes(1);
+    // Phase 91: the follow-up click of the tap that opened the sheet must not close it.
+    const t0 = performance.now();
+    const nowSpy = vi.spyOn(performance, 'now').mockReturnValue(t0 + 5);
+    click(q('.sf-overlay'));
+    expect(onClose).toHaveBeenCalledTimes(1);
+    nowSpy.mockReturnValue(t0 + 2000);
     click(q('.sf-overlay'));
     expect(onClose).toHaveBeenCalledTimes(2);
+    nowSpy.mockRestore();
     click(q('[aria-label=Close]'));
     expect(onClose).toHaveBeenCalledTimes(3);
     mount(<Sheet open={false} onClose={onClose} title="Pick" />);

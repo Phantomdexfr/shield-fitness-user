@@ -45,6 +45,7 @@ const RecoveryPage = lazyPage(() => import('../pages/body/RecoveryPage'));
 const MarksPage = lazyPage(() => import('../pages/body/MarksPage'));
 const HeatmapPage = lazyPage(() => import('../pages/heatmap/HeatmapPage'));
 const AtlasPage = lazyPage(() => import('../pages/atlas/AtlasPage'));
+const AnatomyPage = lazyPage(() => import('../pages/anatomy/AnatomyPage'));
 const BadgesPage = lazyPage(() => import('../pages/badges/BadgesPage'));
 const BadgesSettingsPage = lazyPage(() => import('../pages/badges/BadgesSettingsPage'));
 const LibraryPage = lazyPage(() => import('../pages/library/LibraryPage'));
@@ -192,6 +193,7 @@ export const ROUTES: readonly RouteDef[] = [
   { id: 'body-recovery', path: '/body/recovery', feature: 'recovery_clock', tab: 'body', component: () => h(RecoveryPage, {}) },
   { id: 'body-marks', path: '/body/marks', feature: 'injury_marks', tab: 'body', component: () => h(MarksPage, {}) },
   { id: 'atlas', path: '/atlas', feature: 'holo_atlas', tab: 'body', component: () => h(AtlasPage, {}) },
+  { id: 'anatomy', path: '/anatomy', feature: 'holo_atlas', tab: 'body', component: () => h(AnatomyPage, {}) },
   { id: 'heatmap', path: '/heatmap', feature: 'heatmap', tab: 'body', component: () => h(HeatmapPage, {}) },
   { id: 'muscle-badges', path: '/profile/muscles', feature: 'muscle_badges', tab: 'me', component: () => h(BadgesPage, {}) },
   { id: 'settings-badges', path: '/settings/badges', feature: 'muscle_badges', tab: 'me', component: () => h(BadgesSettingsPage, {}) },

@@ -37,6 +37,8 @@ function useOverlay(open: boolean, onClose: () => void, ref: RefObject<HTMLEleme
 }
 
 const DISMISS_DRAG_PX = 80;
+/** A sheet opened by a tap (a 3D body, a map) gets the browser's follow-up click on its backdrop a moment later: ignore backdrop clicks for this long after opening. */
+export const BACKDROP_GUARD_MS = 450;
 
 export interface SheetProps {
   open: boolean;
@@ -52,6 +54,10 @@ export function Sheet({ open, onClose, title, closeLabel = LABELS.close, childre
   const titleId = useId();
   const [dy, setDy] = useState(0);
   const start = useRef<number | null>(null);
+  const openedAt = useRef(0);
+  const wasOpen = useRef(false);
+  if (open && !wasOpen.current) openedAt.current = performance.now();
+  wasOpen.current = open;
   useOverlay(open, onClose, ref);
   if (!open) return null;
 
@@ -70,7 +76,7 @@ export function Sheet({ open, onClose, title, closeLabel = LABELS.close, childre
   };
 
   return (
-    <div class="sf-overlay sf-overlay--sheet" onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div class="sf-overlay sf-overlay--sheet" onClick={(e) => e.target === e.currentTarget && performance.now() - openedAt.current > BACKDROP_GUARD_MS && onClose()}>
       <div
         ref={ref}
         class={cx('sf-sheet', dy > 0 && 'sf-sheet--dragging')}
