@@ -2,14 +2,15 @@ import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation, useRoute } from 'wouter-preact';
 import { t } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { Badge, Button, Collapsible, EmptyState, SubPageHeader, showToast, Row } from '../../ui/components';
+import { Badge, Button, Collapsible, Dialog, EmptyState, SubPageHeader, showToast, Row } from '../../ui/components';
 import { BodyPicker } from '../../ui/body';
 import { useFigureSex } from '../../ui/body/useFigureSex';
 import { loadSessionView, type SessionView } from '../../data/repos/history';
-import { beginRepeatOf } from '../../data/repos/sessions';
+import { beginRepeatOf, deleteSession, putSession } from '../../data/repos/sessions';
+import { SessionEditor } from './SessionEditor';
 import { summaryOf, volumeText } from '../../shared/history';
 import { formatIst, parseIso } from '../../shared/dates';
-import { refId, type SessionItem } from '../../shared/session';
+import { refId, type Session, type SessionItem } from '../../shared/session';
 import { prToastText, recordText } from '../progress/prText';
 import { AiReviewSheet } from '../aiReview/AiReviewSheet';
 import { PromotionBanner } from '../badges/PromotionBanner';
@@ -63,6 +64,9 @@ export default function SessionViewPage() {
   const [aiOpen, setAiOpen] = useState(false);
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const [busy, setBusy] = useState(false);
+  const [draft, setDraft] = useState<Session | null>(null);
+  const [draftNames, setDraftNames] = useState<Record<string, string>>({});
+  const [askDelete, setAskDelete] = useState(false);
   const [figureSex] = useFigureSex();
 
   const read = () => {
@@ -90,6 +94,34 @@ export default function SessionViewPage() {
   const st = summaryOf(s, view.bodyKg);
   const items = [...s.items].sort((a, b) => a.order - b.order);
   const start = parseIso(s.startedAt);
+  const startEdit = () => {
+    setDraft(structuredClone(s));
+    setDraftNames(view.names);
+  };
+  const save = async () => {
+    if (!draft || busy) return;
+    setBusy(true);
+    try {
+      await putSession(draft);
+      setDraft(null);
+      showToast(t('ed.saved'));
+      read();
+    } catch {
+      showToast(t('ed.saveFail'), { tone: 'danger' });
+    } finally {
+      setBusy(false);
+    }
+  };
+  const remove = async () => {
+    setAskDelete(false);
+    try {
+      await deleteSession(s.id);
+      showToast(t('ed.deleted'));
+      goBack(navigate, '/history');
+    } catch {
+      showToast(t('ed.saveFail'), { tone: 'danger' });
+    }
+  };
   const repeat = async () => {
     if (busy) return;
     setBusy(true);
@@ -139,15 +171,32 @@ export default function SessionViewPage() {
         )}
       </Collapsible>
 
-      <Collapsible id="exercises" title={t('sm.exercises')} summary={String(items.length)}>
-        {items.map((it, i) => <ItemBlock key={`${refId(it.ref)}-${i}`} it={it} name={view.names[refId(it.ref)] ?? refId(it.ref)} />)}
-      </Collapsible>
+      {draft ? (
+        <>
+          <SessionEditor draft={draft} names={draftNames} onChange={(n, nm) => { setDraft(n); if (nm) setDraftNames(nm); }} />
+          <div class="sf-sm__actions">
+            <div class="sf-qgrid">
+              <Button variant="secondary" onPress={() => setDraft(null)}>{t('ed.cancel')}</Button>
+              <Button disabled={busy} onPress={() => void save()}>{t('ed.save')}</Button>
+            </div>
+            <Button variant="danger" onPress={() => setAskDelete(true)}>{t('ed.delete')}</Button>
+          </div>
+        </>
+      ) : (
+        <>
+          <Collapsible id="exercises" title={t('sm.exercises')} summary={String(items.length)}>
+            {items.map((it, i) => <ItemBlock key={`${refId(it.ref)}-${i}`} it={it} name={view.names[refId(it.ref)] ?? refId(it.ref)} />)}
+          </Collapsible>
+          <Button variant="secondary" onPress={startEdit}>{t('ed.edit')}</Button>
+        </>
+      )}
+      <Dialog open={askDelete} title={t('ed.delete.title')} message={t('ed.delete.msg')} confirmLabel={t('ed.delete')} danger onConfirm={() => void remove()} onCancel={() => setAskDelete(false)} />
 
-      <div class="sf-sm__actions">
+      {!draft && <div class="sf-sm__actions">
         <Button disabled={busy} onPress={() => void repeat()}>{t('sm.repeat')}</Button>
         {aiOn && <Button variant="secondary" onPress={() => setAiOpen(true)}>{t('ai.btn.copy')}</Button>}
         <Button variant="secondary" onPress={back}>{isSummary ? t('sm.done') : t('sm.back')}</Button>
-      </div>
+      </div>}
       {aiOn && <AiReviewSheet open={aiOpen} onClose={() => setAiOpen(false)} scope={{ kind: 'session', id: s.id }} />}
     </section>
   );
