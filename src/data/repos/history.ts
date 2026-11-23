@@ -1,6 +1,7 @@
 // History data (Phase 39): the finished-session list and everything one session screen needs. Read-only. Screens ask here only.
 
 import { listSessions, getSession } from './sessions';
+import { readBodyKg } from './body';
 import { exercisesRepo, listCustomExercises } from './exercises';
 import { prsForSession } from './records';
 import { finishedSessions, musclesHit, summaryOf, type MapRowLike } from '../../shared/history';
@@ -18,6 +19,8 @@ export interface SessionView {
   prs: SessionPR[];
   /** Muscles trained (working sets only) for the mini body. */
   muscles: Record<string, 'primary' | 'secondary'>;
+  /** Body weight used for assisted exercises (70 when unset). */
+  bodyKg: number;
 }
 
 /** One session with names, the PRs it set (judged against sessions before it) and the muscles it trained. Undefined if it does not exist. */
@@ -36,7 +39,7 @@ export async function loadSessionView(id: string): Promise<SessionView | undefin
     }),
   );
   const prs = session.endedAt ? await prsForSession(session).catch(() => []) : [];
-  return { session, names, prs, muscles: musclesHit(rows) };
+  return { session, names, prs, muscles: musclesHit(rows), bodyKg: await readBodyKg().catch(() => 70) };
 }
 
 const summaryOfItem = (it: Session['items'][number]): boolean => summaryOf({ id: '', clientId: '', startedAt: '', items: [it] }).workingSets > 0;

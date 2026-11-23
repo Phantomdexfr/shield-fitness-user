@@ -3,6 +3,7 @@
 
 import { addDays, istDayKey, isDayKey, istWeekStartKey, parseIso, weekdayOfKey, type DayKey } from './dates';
 import { e1rm, e1rmDisplay } from './engine/oneRm';
+import { effectiveSets } from './history';
 import { isWorking, sessionStats, type EngineSet } from './engine/sessionStats';
 import { sessionPRs } from './pr';
 import { refId, type Session, type SessionItem, type SetLog, type SkipReason } from './session';
@@ -68,6 +69,8 @@ export interface AiHistory {
   notes?: Readonly<Record<string, string>>;
   /** Custom exercise id -> slug. */
   customSlugs?: Readonly<Record<string, string>>;
+  /** Body weight for assisted exercises (lift = bodyweight minus assist); 70 kg when unset. */
+  bodyKg?: number;
 }
 
 // ---------- ranges ----------
@@ -257,7 +260,7 @@ const valueText = (metric: string, v: number, unit: AiUnit): string =>
 const metricLabel = (metric: string): string => (metric === 'e1rm' ? 'e1RM' : metric);
 
 function sessionText(s: Session, h: AiHistory, o: AiReviewOptions): string {
-  const st = sessionStatsOf(s);
+  const st = sessionStatsOf(s, h.bodyKg);
   const items = [...s.items].sort((a, b) => a.order - b.order);
   const day = dayOfSession(s);
   const head = [
@@ -287,8 +290,8 @@ function sessionText(s: Session, h: AiHistory, o: AiReviewOptions): string {
   return assemble({ head, detail, tail, dropFrom: 'end' });
 }
 
-function sessionStatsOf(s: Session) {
-  const all = s.items.flatMap((it) => it.sets as EngineSet[]);
+function sessionStatsOf(s: Session, bodyKg?: number) {
+  const all = s.items.flatMap((it) => effectiveSets(it, bodyKg));
   const st = sessionStats(all);
   return { ...st, exercises: s.items.filter((it) => sessionStats(it.sets as EngineSet[]).workingSets > 0).length };
 }
@@ -324,7 +327,7 @@ function trendsOf(sessions: readonly Session[], h: AiHistory): TrendRow[] {
 
 function rangeText(from: DayKey, to: DayKey, h: AiHistory, o: AiReviewOptions): string {
   const inRange = h.sessions.filter((s) => s.endedAt && dayOfSession(s) >= from && dayOfSession(s) <= to).sort(byStart);
-  const stats = inRange.map(sessionStatsOf);
+  const stats = inRange.map((x) => sessionStatsOf(x, h.bodyKg));
   const totalSets = stats.reduce((a, x) => a + x.workingSets, 0);
   const totalVol = stats.reduce((a, x) => a + x.volume, 0);
   const head = [...headerLines(o), `RANGE: ${from} to ${to} | ${inRange.length} sessions | ${totalSets} sets | volume ${volumeOf(totalVol, o.units)} ${o.units}`];

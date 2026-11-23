@@ -8,6 +8,8 @@
 .sf-sm__sets { margin: 0; color: var(--text-2); font-size: var(--text-sm); overflow-wrap: anywhere; }
 .sf-sm__pr { margin: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: baseline; overflow-wrap: anywhere; }
 .sf-sm__body { display: flex; justify-content: center; min-width: 0; max-width: 100%; }
+.sf-sm__body--pair { gap: var(--sp-2); }
+.sf-sm__body--pair > * { flex: 1 1 0; min-width: 0; max-width: 50%; }
 .sf-sm__actions { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
 /* PR burst: a short gold flash. Static when the person prefers reduced motion. */
 .sf-sm__burst { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 2px; align-items: center; text-align: center; padding: var(--sp-4); border: 1px solid var(--gold-500); border-radius: var(--r-md); background: var(--gold-wash); min-width: 0; }

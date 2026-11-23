@@ -28,6 +28,12 @@ export async function loadEntries(): Promise<BodyEntry[]> {
   return parseEntries(await bodyStatsRepo.list().catch(() => []));
 }
 
+/** Latest logged body weight in kg; 70 when the user never set one. */
+export async function readBodyKg(): Promise<number> {
+  const kg = latestOf(await loadEntries(), 'kg');
+  return kg !== null && kg > 0 ? kg : 70;
+}
+
 export interface BodyData {
   entries: BodyEntry[];
   heightCm: number | null;

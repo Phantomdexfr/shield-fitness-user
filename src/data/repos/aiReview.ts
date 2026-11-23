@@ -7,6 +7,7 @@ import { exercisesRepo, listCustomExercises } from './exercises';
 import { loadPersonal } from './personal';
 import { finishedSessions } from '../../shared/history';
 import { refId } from '../../shared/session';
+import { readBodyKg } from './body';
 import { rowsToWeights, type MapRowTuple } from '../../shared/weights';
 import { DEFAULT_INCLUDE, DEFAULT_INTRO, type AiHistory, type AiInclude, type AiUnit } from '../../shared/aiReview';
 
@@ -86,5 +87,5 @@ export async function loadAiHistory(labelOf: (muscleId: string) => string): Prom
       if (note && note.trim()) notes[key] = note;
     }),
   );
-  return { sessions, names, machines, weights, muscleNames, notes, customSlugs };
+  return { sessions, names, machines, weights, muscleNames, notes, customSlugs, bodyKg: await readBodyKg().catch(() => 70) };
 }

@@ -160,3 +160,15 @@ describe('prWall', () => {
     expect(prWall([])).toEqual([]);
   });
 });
+
+describe('assisted exercises', () => {
+  const s = sess('as', '2026-11-20T06:00:00.000Z', [item('assisted-pull-up', [w(20, 10), w(null, 5)])], '2026-11-20T06:30:00.000Z');
+  it('lift = bodyweight minus assist; no assist = full bodyweight; default 70 kg', () => {
+    expect(summaryOf(s).volume).toBe(50 * 10 + 70 * 5);
+    expect(summaryOf(s, 80).volume).toBe(60 * 10 + 80 * 5);
+  });
+  it('never below 0 and other exercises are untouched', () => {
+    expect(summaryOf(sess('b', '2026-11-20T06:00:00.000Z', [item('assisted-dip', [w(90, 10)])])).volume).toBe(0);
+    expect(summaryOf(sess('c', '2026-11-20T06:00:00.000Z', [item('bench-press', [w(60, 10)])]), 99).volume).toBe(600);
+  });
+});

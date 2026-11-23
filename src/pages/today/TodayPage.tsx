@@ -148,7 +148,9 @@ export default function TodayPage() {
 
   const detail = day ? (day.items.length === 0 ? t('sc.today.noitems') : t('sc.today.detail', { n: day.items.length, min: estimateMinutes(day.items) })) : '';
 
-  const train = (tp.kind === 'train' || tp.kind === 'suggest') && day !== undefined && tp.dayIndex !== undefined;
+  // A workout finished today: the card says so instead of jumping to the next day.
+  const doneToday = plan.sessionDates.includes(today) && state.overrides[today] !== 'train';
+  const train = !doneToday && (tp.kind === 'train' || tp.kind === 'suggest') && day !== undefined && tp.dayIndex !== undefined;
   const restToday = () => void plan.patchState({ overrides: { ...state.overrides, [today]: 'rest' } });
   const label = tp.deload ? t('sc.deload.banner') : t('page.today.title');
 
@@ -158,17 +160,20 @@ export default function TodayPage() {
       {cardOn && (
         <Card tone="gold" class="sf-sc__today">
           <span class="sf-sec__label">{label}</span>
-          {(tp.kind === 'train' || tp.kind === 'suggest') && day && <p class="sf-rt__name">{day.name}</p>}
-          {tp.kind === 'active' && <p class="sf-rt__name">{t('sc.kind.A')}</p>}
-          {tp.kind === 'mobility' && <p class="sf-rt__name">{t('sc.kind.M')}</p>}
-          {tp.kind === 'rest' && <p class="sf-rt__name">{t('sc.kind.R')}</p>}
-          {line && <p class="sf-rt__meta" role="status">{line}</p>}
-          {tp.cap !== undefined && <p class="sf-rt__meta" role="status">{t('sc.cap', { n: tp.cap })}</p>}
-          {detail && (tp.kind === 'train' || tp.kind === 'suggest') && <p class="sf-rt__meta">{detail}</p>}
-          {(tp.kind === 'active' || tp.kind === 'mobility') && <p class="sf-rt__meta">{names.length > 0 ? t(tp.kind === 'active' ? 'sc.today.recovery' : 'sc.today.mobility', { names: names.join(', ') }) : t('sc.today.recovery.none')}</p>}
+          {doneToday && <p class="sf-rt__name">{t('sc.done.name')}</p>}
+          {doneToday && <p class="sf-rt__meta" role="status">{t('sc.done.line')}</p>}
+          {doneToday && <Button variant="secondary" onPress={() => (tp.dayIndex !== undefined ? startDay(tp.dayIndex) : navigate('/session/new?free=1'))}>{t('sc.done.again')}</Button>}
+          {!doneToday && (tp.kind === 'train' || tp.kind === 'suggest') && day && <p class="sf-rt__name">{day.name}</p>}
+          {!doneToday && tp.kind === 'active' && <p class="sf-rt__name">{t('sc.kind.A')}</p>}
+          {!doneToday && tp.kind === 'mobility' && <p class="sf-rt__name">{t('sc.kind.M')}</p>}
+          {!doneToday && tp.kind === 'rest' && <p class="sf-rt__name">{t('sc.kind.R')}</p>}
+          {!doneToday && line && <p class="sf-rt__meta" role="status">{line}</p>}
+          {!doneToday && tp.cap !== undefined && <p class="sf-rt__meta" role="status">{t('sc.cap', { n: tp.cap })}</p>}
+          {!doneToday && detail && (tp.kind === 'train' || tp.kind === 'suggest') && <p class="sf-rt__meta">{detail}</p>}
+          {!doneToday && (tp.kind === 'active' || tp.kind === 'mobility') && <p class="sf-rt__meta">{names.length > 0 ? t(tp.kind === 'active' ? 'sc.today.recovery' : 'sc.today.mobility', { names: names.join(', ') }) : t('sc.today.recovery.none')}</p>}
 
           {/* ONE notice slot: the welcome-back note wins over the daily rest hint. */}
-          {welcome ? (
+          {doneToday ? null : welcome ? (
             <div class="sf-sc__hint" role="status">
               <p class="sf-rt__hint-text">{t('sc.welcome', { day: dayName(state.pointer % days.length) })}</p>
               <div class="sf-rt__row">
@@ -194,15 +199,15 @@ export default function TodayPage() {
           )}
 
           {train && <Button onPress={() => startDay(tp.dayIndex!)}>{t('sc.today.start')}</Button>}
-          {(tp.kind === 'active' || tp.kind === 'mobility') && <Button onPress={() => navigate('/library')}>{t('sc.today.start')}</Button>}
-          {tp.kind === 'rest' && tp.dayIndex !== undefined && <Button variant="secondary" onPress={() => startDay(tp.dayIndex!)}>{t('sc.today.another')}</Button>}
+          {!doneToday && (tp.kind === 'active' || tp.kind === 'mobility') && <Button onPress={() => navigate('/library')}>{t('sc.today.start')}</Button>}
+          {!doneToday && tp.kind === 'rest' && tp.dayIndex !== undefined && <Button variant="secondary" onPress={() => startDay(tp.dayIndex!)}>{t('sc.today.another')}</Button>}
           {train && (
             <div class="sf-qgrid">
               <Button variant="secondary" onPress={() => setSwap(true)}>{t('ux.swapDay')}</Button>
               <Button variant="secondary" onPress={restToday}>{t('ux.restToday')}</Button>
             </div>
           )}
-          {(tp.kind === 'active' || tp.kind === 'mobility') && <Button variant="secondary" onPress={restToday}>{t('sc.today.skip')}</Button>}
+          {!doneToday && (tp.kind === 'active' || tp.kind === 'mobility') && <Button variant="secondary" onPress={restToday}>{t('sc.today.skip')}</Button>}
         </Card>
       )}
 

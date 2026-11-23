@@ -63,7 +63,6 @@ export default function SessionViewPage() {
   const [aiOpen, setAiOpen] = useState(false);
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const [busy, setBusy] = useState(false);
-  const [bodyView, setBodyView] = useState<'front' | 'back'>('front');
   const [figureSex] = useFigureSex();
 
   const read = () => {
@@ -88,7 +87,7 @@ export default function SessionViewPage() {
 
   const { view } = load;
   const s = view.session;
-  const st = summaryOf(s);
+  const st = summaryOf(s, view.bodyKg);
   const items = [...s.items].sort((a, b) => a.order - b.order);
   const start = parseIso(s.startedAt);
   const repeat = async () => {
@@ -133,7 +132,10 @@ export default function SessionViewPage() {
         {Object.keys(view.muscles).length === 0 ? (
           <p class="sf-lib__note">{t('sm.muscles.none')}</p>
         ) : (
-          <div class="sf-sm__body"><BodyPicker mode="view" size="mini" sex={figureSex} view={bodyView} onViewChange={setBodyView} emphasis={view.muscles} /></div>
+          <div class="sf-sm__body sf-sm__body--pair">
+            <BodyPicker mode="view" size="mini" sex={figureSex} view="front" emphasis={view.muscles} />
+            <BodyPicker mode="view" size="mini" sex={figureSex} view="back" emphasis={view.muscles} />
+          </div>
         )}
       </Collapsible>
 

@@ -24,8 +24,21 @@ export interface SummaryStats {
 }
 
 /** What the summary and a history entry show about one session. Warm-ups never count (the stats engine drops them). */
-export function summaryOf(s: Session): SummaryStats {
-  const all: EngineSet[] = s.items.flatMap((it) => it.sets as EngineSet[]);
+export const DEFAULT_BODY_KG = 70;
+
+/** An assisted machine logs the help, not the load: what you lift is bodyweight minus the assist (never below 0). A bodyweight-only set lifts bodyweight. */
+export function isAssistedRef(ref: Session['items'][number]['ref']): boolean {
+  return ref.kind === 'lib' && ref.slug.startsWith('assisted-');
+}
+
+export function effectiveSets(it: Session['items'][number], bodyKg: number = DEFAULT_BODY_KG): EngineSet[] {
+  const bw = bodyKg > 0 && Number.isFinite(bodyKg) ? bodyKg : DEFAULT_BODY_KG;
+  if (!isAssistedRef(it.ref)) return it.sets as EngineSet[];
+  return it.sets.map((x) => ({ ...x, weightKg: Math.max(0, bw - (x.weightKg != null && x.weightKg > 0 ? x.weightKg : 0)) }));
+}
+
+export function summaryOf(s: Session, bodyKg: number = DEFAULT_BODY_KG): SummaryStats {
+  const all: EngineSet[] = s.items.flatMap((it) => effectiveSets(it, bodyKg));
   const st = sessionStats(all);
   const start = Date.parse(s.startedAt);
   const end = s.endedAt ? Date.parse(s.endedAt) : start;

@@ -3,6 +3,7 @@ import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import { Button, Chip, Collapsible, EmptyState, SubPageHeader } from '../../ui/components';
 import { loadFinished } from '../../data/repos/history';
+import { readBodyKg } from '../../data/repos/body';
 import { countByDay, groupByDay, monthGrid, monthOfDay, shiftMonth, summaryOf, volumeText } from '../../shared/history';
 import { formatIst, istDayKey, parseIso, type DayKey } from '../../shared/dates';
 import type { Session } from '../../shared/session';
@@ -14,8 +15,8 @@ import { goBack } from '../../app/navBack';
 
 type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; sessions: Session[] };
 
-function Entry({ s, onOpen }: { s: Session; onOpen: () => void }) {
-  const st = summaryOf(s);
+function Entry({ s, bodyKg, onOpen }: { s: Session; bodyKg: number; onOpen: () => void }) {
+  const st = summaryOf(s, bodyKg);
   const at = parseIso(s.startedAt);
   return (
     <button type="button" class="sf-hs__item" onClick={onOpen}>
@@ -30,6 +31,8 @@ function Entry({ s, onOpen }: { s: Session; onOpen: () => void }) {
 export default function HistoryPage() {
   const [, navigate] = useLocation();
   const [load, setLoad] = useState<Load>({ status: 'loading' });
+  const [bodyKg, setBodyKg] = useState(70);
+  useEffect(() => { void readBodyKg().then(setBodyKg).catch(() => undefined); }, []);
   const [month, setMonth] = useState(() => monthOfDay(istDayKey(Date.now())));
   const [picked, setPicked] = useState<DayKey | null>(null);
   const aiOn = useFeature('ai_review_export');
@@ -96,7 +99,7 @@ export default function HistoryPage() {
         {shown.map((g) => (
           <div key={g.day} class="sf-hs__list">
             <h3 class="sf-hs__day">{dayLabel(g.day)}</h3>
-            {g.sessions.map((s) => <Entry key={s.id} s={s} onOpen={() => navigate(`/history/${s.id}`)} />)}
+            {g.sessions.map((s) => <Entry key={s.id} s={s} bodyKg={bodyKg} onOpen={() => navigate(`/history/${s.id}`)} />)}
           </div>
         ))}
       </div>
