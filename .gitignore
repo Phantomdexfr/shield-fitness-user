@@ -5,3 +5,18 @@ dist/
 .env
 .env.*
 coverage/
+
+# Local-only docs/screenshots (kept locally, untracked from repo)
+API_CONTRACTS.md
+CLAUDE_MUST_READ.md
+DEPENDENCY_VERSIONS.md
+GITHUB_UPDATE_PUSH.md
+LAUNCH_STATUS.md
+MASTERPLAN.md
+PHASES.md
+PHASE_STATUS.md
+PROJECT_STRUCTURE.md
+docs/
+contract/**/*.md
+disc.png
+home.png
