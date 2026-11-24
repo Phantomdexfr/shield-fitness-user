@@ -20,7 +20,11 @@ export function WeekView({ routine, plan, onRoutine, strip, bare }: { routine: R
   if (routine.days.length === 0) return null;
   const s = input.schedule;
 
-  const cells = weekCells(input, 7);
+  // A workout finished today already moved the pointer on; show today as done and keep the days after it in order.
+  const doneToday = (input.sessionDates ?? []).includes(input.today);
+  const n = routine.days.length;
+  const cells = weekCells(doneToday ? { ...input, pointer: (((input.pointer - 1) % n) + n) % n } : input, 7);
+  const isDone = (c: WeekCell) => doneToday && c.today;
   const missed = (c: WeekCell) => c.missed === true;
   const kindText = (c: WeekCell) => {
     if (c.kind === 'T' && c.dayIndex !== undefined) return routine.days[c.dayIndex]?.name ?? '';
@@ -69,10 +73,10 @@ export function WeekView({ routine, plan, onRoutine, strip, bare }: { routine: R
       {s && strip && (
         <ul class="sf-wk__strip">
           {cells.map((c) => {
-            const sym = c.kind === 'T' && c.dayIndex !== undefined ? String(c.dayIndex + 1) : c.kind === 'open' || c.kind === 'none' ? '-' : c.kind;
+            const sym = isDone(c) ? '✓' : c.kind === 'T' && c.dayIndex !== undefined ? String(c.dayIndex + 1) : c.kind === 'open' || c.kind === 'none' ? '-' : c.kind;
             return (
               <li key={c.date} class="sf-wk__li">
-                <button type="button" class={`sf-wk__cell${c.today ? ' sf-wk__cell--today' : ''}${c.kind === 'T' ? ' sf-wk__cell--train' : ''}`} aria-label={`${dayLabel(c.date)}${c.today ? ` · ${t('sc.today.mark')}` : ''} ${kindText(c)}`.trim()} onClick={() => setPicked(c)}>
+                <button type="button" class={`sf-wk__cell${c.today ? ' sf-wk__cell--today' : ''}${c.kind === 'T' ? ' sf-wk__cell--train' : ''}${isDone(c) ? ' sf-wk__cell--done' : ''}`} aria-label={`${dayLabel(c.date)}${c.today ? ` · ${t('sc.today.mark')}` : ''} ${isDone(c) ? t('sc.done.name') : kindText(c)}`.trim()} onClick={() => setPicked(c)}>
                   <span class="sf-wk__wd">{t(`rb.wd.${weekdayOfKey(c.date)}` as StringKey)}</span>
                   <span class="sf-wk__sym">{sym}</span>
                 </button>

@@ -859,6 +859,7 @@ export const en = {
   'fs.startnew': 'Start new anyway',
   'fs.starting': 'Starting...',
   'fs.dup': 'Number {n} of this exercise',
+  'fs.train.next': 'Next up',
   'fs.train.suggested': 'Suggested',
   'fs.train.start': 'Start {day}',
   'fs.train.other': 'Pick another day',

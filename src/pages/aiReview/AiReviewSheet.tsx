@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { t } from '../../i18n';
 import { Button, Segmented, Sheet, Toggle, showToast } from '../../ui/components';
-import { aiReviewText, DEFAULT_INTRO, type AiHistory, type AiScope, type AiUnit } from '../../shared/aiReview';
-import { getAiPrefs, loadAiHistory, parsePrefs, setAiPrefs, type AiPrefs } from '../../data/repos/aiReview';
+import { aiReviewText, DEFAULT_INTRO, type AiHistory, type AiProfile, type AiScope, type AiUnit } from '../../shared/aiReview';
+import { getAiPrefs, loadAiHistory, loadAiProfile, parsePrefs, setAiPrefs, type AiPrefs } from '../../data/repos/aiReview';
 import { muscleLabel } from '../exercise/muscleLabel';
 import { browserCopyEnv, canShare, copyWithFallback } from './copyText';
 
@@ -10,13 +10,14 @@ type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; his
 
 /**
  * The preview: the exact text, editable, with the options that shape it. Built on the phone from stored workouts; the app
- * never sends it anywhere. Name, bodyweight and body stats are off every time the sheet opens.
+ * never sends it anywhere. Name, bodyweight and body stats are filled from your profile and switched on when known; you can switch any off.
  */
 export function AiReviewSheet({ open, onClose, scope, title }: { open: boolean; onClose: () => void; scope: AiScope; title?: string }) {
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const [personal, setPersonal] = useState({ name: false, bodyweight: false, bodyStats: false });
   const [values, setValues] = useState({ name: '', bodyweight: '', bodyStats: '' });
   const [override, setOverride] = useState<string | null>(null);
+  const [auto, setAuto] = useState<AiProfile>({});
   const [msg, setMsg] = useState('');
   const area = useRef<HTMLTextAreaElement>(null);
 
@@ -33,7 +34,15 @@ export function AiReviewSheet({ open, onClose, scope, title }: { open: boolean; 
     setValues({ name: '', bodyweight: '', bodyStats: '' });
     setOverride(null);
     setMsg('');
+    setAuto({});
     read();
+    // Fill name, bodyweight and body stats from what the app already knows, and switch them on when there is a value.
+    void loadAiProfile().then((p) => {
+      setAuto(p);
+      const bwText = p.bodyweightKg ? String(p.bodyweightKg) : '';
+      setValues({ name: p.name ?? '', bodyweight: bwText, bodyStats: p.bodyStats ?? '' });
+      setPersonal({ name: !!p.name, bodyweight: !!bwText, bodyStats: !!p.bodyStats });
+    }, () => undefined);
   }, [open]);
 
   const prefs = load.status === 'ready' ? load.prefs : parsePrefs(null);
@@ -44,7 +53,7 @@ export function AiReviewSheet({ open, onClose, scope, title }: { open: boolean; 
       intro: prefs.intro,
       units: prefs.units,
       include: { ...prefs.include, ...personal },
-      profile: { name: values.name, bodyweightKg: Number.isFinite(bw) && bw > 0 ? bw : null, bodyStats: values.bodyStats },
+      profile: { goal: auto.goal, experience: auto.experience, name: values.name, bodyweightKg: Number.isFinite(bw) && bw > 0 ? bw : null, bodyStats: values.bodyStats },
     });
   }, [load, scope.kind, JSON.stringify(scope), JSON.stringify(prefs), personal, values]);
   // A change of option or scope rebuilds the text; edits are dropped (the sheet says so).

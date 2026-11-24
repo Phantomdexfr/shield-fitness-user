@@ -7,6 +7,7 @@ import { Badge, Button, Card, Collapsible, EmptyState, Row, RowGroup } from '../
 import { activeRoutine, readState } from '../../data/repos/schedule';
 import { listSessions } from '../../data/repos/sessions';
 import { estimateMinutes } from '../../shared/routineEdit';
+import { istDayKey } from '../../shared/dates';
 import { doneHoursAgo, lastFinished, openSession, type Session } from '../../shared/session';
 import type { Routine } from '../../shared/routine';
 
@@ -34,6 +35,8 @@ export default function TrainPage() {
   const { routine, sessions } = load;
   const open = openSession(sessions);
   const last = lastFinished(sessions);
+  const todayKey = istDayKey(Date.now());
+  const doneToday = sessions.filter((x) => x.endedAt && istDayKey(Date.parse(x.startedAt)) === todayKey).sort((a, b) => b.startedAt.localeCompare(a.startedAt))[0];
   const days = routine?.days ?? [];
   const suggested = days.length > 0 ? load.pointer % days.length : -1;
   const now = Date.now();
@@ -49,9 +52,9 @@ export default function TrainPage() {
         <span class="sf-rt__name">{d.name}</span>
         <span class="sf-rt__meta">{`${d.items.length} · ${estimateMinutes(d.items)} min`}</span>
         {ago(d.id) && <span class="sf-rt__meta">{ago(d.id)}</span>}
-        {i === suggested && <Badge tone="gold">{t('fs.train.suggested')}</Badge>}
+        {i === suggested && <Badge tone="gold">{doneToday ? t('fs.train.next') : t('fs.train.suggested')}</Badge>}
       </div>
-      <Button variant={i === suggested && !open ? 'primary' : 'secondary'} aria-label={t('fs.train.start', { day: d.name })} onPress={() => start(d.id)}>{t('fs.train.start', { day: d.name })}</Button>
+      <Button variant={i === suggested && !open && !doneToday ? 'primary' : 'secondary'} aria-label={t('fs.train.start', { day: d.name })} onPress={() => start(d.id)}>{t('fs.train.start', { day: d.name })}</Button>
     </li>
   );
 
@@ -62,6 +65,13 @@ export default function TrainPage() {
         <Card tone="gold" class="sf-rt__hint">
           <p class="sf-rt__hint-text">{t('fs.progress.title')}{open.dayName ? `: ${open.dayName}` : ''}</p>
           <Button onPress={() => navigate(`/session/${open.id}`)}>{t('fs.resume')}</Button>
+        </Card>
+      )}
+
+      {doneToday && !open && (
+        <Card tone="gold" class="sf-rt__hint" data-hook="train-done">
+          <p class="sf-rt__hint-text">{t('sc.done.name')}{doneToday.dayName ? `: ${doneToday.dayName}` : ''}</p>
+          <p class="sf-rt__meta">{t('sc.done.line')}</p>
         </Card>
       )}
 

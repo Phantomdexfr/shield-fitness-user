@@ -149,7 +149,7 @@ export default function TodayPage() {
   const detail = day ? (day.items.length === 0 ? t('sc.today.noitems') : t('sc.today.detail', { n: day.items.length, min: estimateMinutes(day.items) })) : '';
 
   // A workout finished today: the card says so instead of jumping to the next day.
-  const doneToday = plan.sessionDates.includes(today) && state.overrides[today] !== 'train';
+  const doneToday = plan.sessionDates.includes(today);
   const train = !doneToday && (tp.kind === 'train' || tp.kind === 'suggest') && day !== undefined && tp.dayIndex !== undefined;
   const restToday = () => void plan.patchState({ overrides: { ...state.overrides, [today]: 'rest' } });
   const label = tp.deload ? t('sc.deload.banner') : t('page.today.title');

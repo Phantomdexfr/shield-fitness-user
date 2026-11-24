@@ -49,6 +49,37 @@ export interface AiReviewOptions {
   profile?: AiProfile;
 }
 
+/** Plain-words goal line from the person's open goals (up to 3), for the CONTEXT line. */
+export function goalsText(
+  rows: readonly { kind: string; title?: string; target: number; deadline?: string; liftName?: string; reached: boolean }[],
+): string {
+  const parts: string[] = [];
+  for (const r of rows) {
+    if (r.reached || parts.length >= 3) continue;
+    const by = r.deadline ? ` by ${r.deadline}` : '';
+    if (r.kind === 'weight') parts.push(`body weight ${r.target} kg${by}`);
+    else if (r.kind === 'body_fat') parts.push(`body fat ${r.target}%${by}`);
+    else if (r.kind === 'lift') parts.push(`${r.liftName ?? 'a lift'} estimated 1RM ${r.target} kg${by}`);
+    else if (r.kind === 'attendance') parts.push(`log ${r.target} sessions${by}`);
+    else if (r.kind === 'event') parts.push(`${r.title ?? 'an event'}${by}`);
+  }
+  return parts.join('; ');
+}
+
+/** "male, 27 years, 175 cm" from what the app already holds; empty when nothing is known. */
+export function bodyStatsText(v: { sex: string | null; birthDate: string; heightCm: number; today: string }): string {
+  const out: string[] = [];
+  if (v.sex === 'm') out.push('male');
+  else if (v.sex === 'f') out.push('female');
+  const y = Number(v.birthDate.slice(0, 4));
+  if (y > 1900) {
+    const before = v.today.slice(5) < v.birthDate.slice(5) ? 1 : 0;
+    out.push(`${Number(v.today.slice(0, 4)) - y - before} years`);
+  }
+  if (v.heightCm > 0) out.push(`${Math.round(v.heightCm)} cm`);
+  return out.join(', ');
+}
+
 export const DEFAULT_INCLUDE: AiInclude = { notes: true, rpe: true, setups: true, prs: true, muscles: true, bodyweight: false, name: false, bodyStats: false };
 export const DEFAULT_OPTIONS: AiReviewOptions = { intro: DEFAULT_INTRO, units: 'kg', include: DEFAULT_INCLUDE };
 

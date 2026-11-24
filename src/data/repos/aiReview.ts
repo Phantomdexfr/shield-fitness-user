@@ -7,9 +7,12 @@ import { exercisesRepo, listCustomExercises } from './exercises';
 import { loadPersonal } from './personal';
 import { finishedSessions } from '../../shared/history';
 import { refId } from '../../shared/session';
-import { readBodyKg } from './body';
+import { loadGoals, readBodyKg } from './body';
+import { readAbout } from './onboarding';
+import { latestBodyweight } from './badges';
+import { istDayKey } from '../../shared/dates';
 import { rowsToWeights, type MapRowTuple } from '../../shared/weights';
-import { DEFAULT_INCLUDE, DEFAULT_INTRO, type AiHistory, type AiInclude, type AiUnit } from '../../shared/aiReview';
+import { bodyStatsText, goalsText, type AiProfile, DEFAULT_INCLUDE, DEFAULT_INTRO, type AiHistory, type AiInclude, type AiUnit } from '../../shared/aiReview';
 
 /** What is remembered between uses. The three personal options (name, bodyweight, body stats) are never remembered: off every time. */
 export interface AiPrefs {
@@ -88,4 +91,18 @@ export async function loadAiHistory(labelOf: (muscleId: string) => string): Prom
     }),
   );
   return { sessions, names, machines, weights, muscleNames, notes, customSlugs, bodyKg: await readBodyKg().catch(() => 70) };
+}
+
+/** What the app already knows about the person, to fill the review sheet: name, bodyweight, goal, level, body stats. */
+export async function loadAiProfile(): Promise<AiProfile> {
+  const [about, goals] = await Promise.all([readAbout().catch(() => null), loadGoals().catch(() => null)]);
+  const kg = await latestBodyweight().catch(() => null);
+  const today = istDayKey(Date.now());
+  return {
+    name: about?.name ?? '',
+    goal: goals ? goalsText(goals.rows.map((r) => ({ kind: r.goal.kind, title: r.goal.title, target: r.goal.target, deadline: r.goal.deadline, liftName: r.liftName, reached: r.progress.reached }))) : '',
+    experience: about && about.level !== 'unset' ? about.level : '',
+    bodyweightKg: kg != null && kg > 0 ? kg : null,
+    bodyStats: about ? bodyStatsText({ sex: about.sex, birthDate: about.birthDate, heightCm: about.heightCm, today }) : '',
+  };
 }

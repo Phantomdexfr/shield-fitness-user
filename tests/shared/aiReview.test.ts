@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { AI_MAX_CHARS, AI_TRIM_NOTE, DEFAULT_INTRO, DEFAULT_OPTIONS, aiReviewText, rangeFor, type AiHistory, type AiInclude, type AiReviewOptions, type AiScope } from '../../src/shared/aiReview';
+import { AI_MAX_CHARS, bodyStatsText, goalsText, AI_TRIM_NOTE, DEFAULT_INTRO, DEFAULT_OPTIONS, aiReviewText, rangeFor, type AiHistory, type AiInclude, type AiReviewOptions, type AiScope } from '../../src/shared/aiReview';
 import { addDays } from '../../src/shared/dates';
 import type { Session } from '../../src/shared/session';
 import { copyWithFallback } from '../../src/pages/aiReview/copyText';
@@ -227,5 +227,23 @@ describe('copy with fallback', () => {
 
   it('no clipboard, no area, no legacy copy -> selected (nothing crashes)', async () => {
     expect(await copyWithFallback('hi', {})).toBe('selected');
+  });
+});
+
+describe('auto-filled profile text', () => {
+  it('goalsText names open goals only, at most 3', () => {
+    const rows = [
+      { kind: 'weight', target: 75, deadline: '2026-12-31', reached: false },
+      { kind: 'lift', target: 100, liftName: 'Bench press', reached: false },
+      { kind: 'body_fat', target: 12, reached: true },
+      { kind: 'attendance', target: 20, reached: false },
+      { kind: 'event', title: 'Marathon', target: 0, reached: false },
+    ];
+    expect(goalsText(rows)).toBe('body weight 75 kg by 2026-12-31; Bench press estimated 1RM 100 kg; log 20 sessions');
+    expect(goalsText([])).toBe('');
+  });
+  it('bodyStatsText joins what is known', () => {
+    expect(bodyStatsText({ sex: 'm', birthDate: '1998-03-12', heightCm: 175, today: '2026-11-24' })).toBe('male, 28 years, 175 cm');
+    expect(bodyStatsText({ sex: null, birthDate: '', heightCm: 0, today: '2026-11-24' })).toBe('');
   });
 });
