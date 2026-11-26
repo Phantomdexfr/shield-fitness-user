@@ -31,9 +31,20 @@ describe('guard: real files', () => {
   });
 
   test('no colour literals outside tokens.css, no forbidden hues, no truncation, no CDN', () => {
-    const found = scannedFiles().flatMap((f) =>
-      checkSource(relative(ROOT, f).replace(/\\/g, '/'), readFileSync(f, 'utf8')),
-    );
+    // Phase 111: index.html cannot read CSS variables, so it may repeat the page colour (the --bg-base token, checked below) for the
+    // theme-color meta and the first-paint splash, and `#000` as an alpha mask (a mask has no colour). Nothing else.
+    const baseHex = /--bg-base:\s*(#[0-9a-f]{6})/i.exec(readFileSync(join(ROOT, 'src/ui/styles/tokens.css'), 'utf8'))?.[1];
+    expect(baseHex).toBeTruthy();
+    const forHtml = (raw: string) =>
+      raw
+        .split('\n')
+        .map((l) => (l.includes('mask-image') ? l.replace(/#000\b/g, 'black') : l).split(baseHex!).join('var(--bg-base)'))
+        .join('\n');
+    const found = scannedFiles().flatMap((f) => {
+      const rel = relative(ROOT, f).replace(/\\/g, '/');
+      const raw = readFileSync(f, 'utf8');
+      return checkSource(rel, rel === 'index.html' ? forHtml(raw) : raw);
+    });
     expect(found.map((v) => `${v.file}:${v.line} [${v.rule}] ${v.snippet}`)).toEqual([]);
   });
 });

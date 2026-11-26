@@ -25,3 +25,24 @@ export async function saveSections(map: Record<string, boolean>): Promise<void> 
     /* defaults next time */
   }
 }
+
+// Phase 106: Body page layout, one device row `ui:body-layout` = 'figure' | 'list'. Figure first is the Premium default; anything unknown reads as figure.
+const BODY_ROW = 'ui:body-layout';
+export type BodyLayout = 'figure' | 'list';
+export const parseBodyLayout = (v: unknown): BodyLayout => (v === 'list' ? 'list' : 'figure');
+
+export async function loadBodyLayout(): Promise<BodyLayout> {
+  try {
+    return parseBodyLayout((await prefsRepo.get(BODY_ROW))?.value);
+  } catch {
+    return 'figure';
+  }
+}
+
+export async function saveBodyLayout(v: BodyLayout): Promise<void> {
+  try {
+    await prefsRepo.put({ client_id: BODY_ROW, value: v });
+  } catch {
+    /* default next time */
+  }
+}

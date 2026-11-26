@@ -1,6 +1,7 @@
 import { Link } from 'wouter-preact';
 import { t, type StringKey } from '../i18n';
-import { Icon, type IconName } from '../ui/components';
+import { Icon, PageIcon, type IconName } from '../ui/components';
+import { useUx } from '../ui/useUx';
 import { resolveFeature } from '../app/flags';
 
 interface MeLink {
@@ -26,21 +27,42 @@ export const ME_LINKS: readonly MeLink[] = [
   { to: '/settings', key: 'me.settings', icon: 'info', feature: null },
 ];
 
+/** Premium layout: the list is cut into three groups where these rows start (no labels, just space between groups). */
+const GROUP_STARTS: ReadonlySet<string> = new Set(['/goals', '/gym']);
+
+export function splitMeGroups<T extends { to: string }>(links: readonly T[]): T[][] {
+  const out: T[][] = [];
+  for (const l of links) {
+    if (out.length === 0 || GROUP_STARTS.has(l.to)) out.push([]);
+    out[out.length - 1]!.push(l);
+  }
+  return out;
+}
+
 export default function MePage() {
+  const premium = useUx('layout') === 'premium';
+  const shown = ME_LINKS.filter((l) => (l.anyOf ? l.anyOf.some((k) => resolveFeature(k)) : l.feature === null || resolveFeature(l.feature)));
+  const item = (l: MeLink) => (
+    <li key={l.to}>
+      <Link href={l.to} class="sf-st__group">
+        <PageIcon id={l.key} classic={l.icon} />
+        <span class="sf-st__text"><span class="sf-st__name">{t(l.key)}</span></span>
+        <span class="sf-st__caret" aria-hidden="true"><Icon name="caret-right" /></span>
+      </Link>
+    </li>
+  );
   return (
     <section class="sf-page-body sf-st">
       <h1 class="sf-st__title">{t('page.me.title')}</h1>
-      <ul class="sf-st__list">
-        {ME_LINKS.filter((l) => (l.anyOf ? l.anyOf.some((k) => resolveFeature(k)) : l.feature === null || resolveFeature(l.feature))).map((l) => (
-          <li key={l.to}>
-            <Link href={l.to} class="sf-st__group">
-              <span class="sf-st__icon" aria-hidden="true"><Icon name={l.icon} /></span>
-              <span class="sf-st__text"><span class="sf-st__name">{t(l.key)}</span></span>
-              <span class="sf-st__caret" aria-hidden="true"><Icon name="caret-right" /></span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {premium ? (
+        <div class="sf-groups">
+          {splitMeGroups(shown).map((g) => (
+            <ul key={g[0]!.to} class="sf-st__list">{g.map(item)}</ul>
+          ))}
+        </div>
+      ) : (
+        <ul class="sf-st__list">{shown.map(item)}</ul>
+      )}
     </section>
   );
 }

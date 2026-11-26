@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
-import { Collapsible, Card, Chip, EmptyState, SubPageHeader, Row } from '../../ui/components';
-import { BarChart, HeatGrid, Ring, StatTile, type BarDatum } from '../../ui/charts';
+import { Collapsible, Card, Chip, EmptyState, PullToRefresh, SubPageHeader, Row } from '../../ui/components';
+import { useUx } from '../../ui/useUx';
+import { BarChart, HeatGrid, LineChart, Ring, StatTile, type BarDatum } from '../../ui/charts';
 import { useFeature } from '../../app/flags';
 import { dayLabel } from '../../shared/chartMath';
 import { loadHub, writeOwnTarget, type HubData } from '../../data/repos/progress';
 import { goBack } from '../../app/navBack';
+import { syncNow } from '../../data/repos/gymLink';
 
 type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; data: HubData };
 
@@ -49,12 +51,15 @@ export default function ProgressHub() {
   const [, navigate] = useLocation();
   const streaksOn = useFeature('streaks');
   const recapOn = useFeature('year_review');
+  const premium = useUx('layout') === 'premium';
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const read = () => {
     setLoad({ status: 'loading' });
     loadHub().then((data) => setLoad({ status: 'ready', data }), () => setLoad({ status: 'error' }));
   };
   useEffect(read, []);
+  // Pull to refresh (Phase 104): sync when connected (a standalone phone skips at once), then re-read in place so nothing flashes back to "loading".
+  const refresh = () => Promise.allSettled([syncNow('manual'), loadHub().then((data) => setLoad({ status: 'ready', data }))]);
   const setTarget = (n: number | null) => {
     writeOwnTarget(n).then(read, read);
   };
@@ -65,15 +70,34 @@ export default function ProgressHub() {
   const d = load.data;
   const bars: BarDatum[] = d.weeks.map((w, i) => ({ x: dayLabel(w.weekStart, t, 'short'), y: w.volume, label: dayLabel(w.weekStart, t, 'full'), highlight: i === d.topWeek }));
   const plateau = d.rows.filter((r) => r.plateau);
+  const totalSessions = d.weeks.reduce((n, w) => n + w.sessions, 0);
+  const totalVolume = d.weeks.reduce((n, w) => n + w.volume, 0);
   return (
+    <PullToRefresh onRefresh={refresh}>
     <section class="sf-page-body sf-rt">
       {head}
+      {premium && d.hasSessions && (
+        <div class="sf-pg__hero" data-hook="pg-hero">
+          <StatTile label={t('prog.hero.workouts')} value={totalSessions} large />
+          <StatTile label={t('prog.hero.volume')} value={Math.round(totalVolume)} unit="kg" large />
+        </div>
+      )}
       {!d.hasSessions && <EmptyState icon="barbell" title={t('prog.empty.title')} hint={t('prog.empty.body')} />}
       {streaksOn && <WeekCard data={d} onTarget={setTarget} />}
       {d.hasSessions && (
         <>
           <Collapsible id="volume" title={t('prog.volume.title')}>
-            <BarChart title={t('prog.volume.title')} data={bars} unit="kg" emptyText={t('prog.volume.empty')} />
+            {premium ? (
+              <LineChart
+                title={t('prog.volume.title')}
+                series={[{ id: 'volume', name: t('prog.volume.title'), points: d.weeks.map((w) => ({ x: w.weekStart, y: w.volume, label: dayLabel(w.weekStart, t, 'full') })) }]}
+                zeroBased
+                unit="kg"
+                emptyText={t('prog.volume.empty')}
+              />
+            ) : (
+              <BarChart title={t('prog.volume.title')} data={bars} unit="kg" emptyText={t('prog.volume.empty')} />
+            )}
           </Collapsible>
           <Collapsible id="grid" title={t('prog.grid.title')}>
             <HeatGrid title={t('prog.grid.title')} cells={d.cells} from={d.range.from} to={d.range.to} today={d.today} emptyText={t('prog.grid.empty')} />
@@ -110,5 +134,6 @@ export default function ProgressHub() {
         {recapOn && <Row href="/progress/recap">{t('yr.link')}</Row>}
       </div>
     </section>
+    </PullToRefresh>
   );
 }

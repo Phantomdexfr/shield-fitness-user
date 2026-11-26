@@ -1,0 +1,57 @@
+/* Premium onboarding and launch polish (Phase 108). /welcome under ux.surfaces / ux.motion / ux.controls. Tokens only; spacing on the 8-point grid
+   (--sp-2 / --sp-4 / --sp-6 / --sp-8 and the 4 px half-step). Classic CSS (styles/onboarding.css) is untouched. */
+
+/* Gold text selection (Premium surfaces). */
+:root[data-ux-surfaces='premium'] ::selection {
+  background: var(--gold-wash);
+  color: var(--gold-200);
+}
+
+/* The page: a little more air, the footer buttons stay reachable above the home bar. */
+:root[data-ux-surfaces='premium'] .sf-ob {
+  gap: var(--sp-6);
+}
+:root[data-ux-surfaces='premium'] .sf-ob__body {
+  gap: var(--sp-4);
+}
+:root[data-ux-surfaces='premium'] .sf-ob__foot {
+  gap: var(--sp-2);
+  padding-bottom: calc(var(--safe-bottom) + var(--sp-2));
+}
+
+/* Progress: rounded gold segments that fill with a soft ease. */
+:root[data-ux-surfaces='premium'] .sf-ob__seg {
+  height: var(--sp-1);
+  border-radius: var(--sp-1);
+  transition: background-color var(--dur-slow) var(--ease-out);
+}
+:root[data-ux-surfaces='premium'] .sf-ob__seg--on {
+  background: var(--gold-metal);
+}
+:root[data-ux-surfaces='premium'] .sf-ob__step {
+  letter-spacing: 0.08em;
+  color: var(--gold-400);
+}
+:root[data-ux-surfaces='premium'] .sf-ob__h {
+  line-height: 1.15;
+}
+
+/* Cards: the figure and the risk note sit on a raised surface like the rest of Premium. */
+:root[data-ux-surfaces='premium'] .sf-ob__figure,
+:root[data-ux-surfaces='premium'] .sf-ob__risk {
+  border-color: var(--line);
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-1);
+}
+
+/* Each step glides in (the body is keyed by the step, so it replays on Continue / Back). */
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-motion='premium']:not([data-motion='reduced']) .sf-ob__body {
+    animation: sf-ob-in var(--dur-slow) var(--ease-out) backwards;
+  }
+}
+@keyframes sf-ob-in {
+  from { opacity: 0; transform: translateY(var(--sp-4)); }
+  to { opacity: 1; transform: none; }
+}

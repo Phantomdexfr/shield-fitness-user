@@ -1,0 +1,8 @@
+/* Scrollbar audit (Phase 96): the global themed scrollbar (base.css) already covers the page, sheets, drawers, the body frame and the
+   cue strip. The one swipe strip that hides its bar, the recap track, gets the same slim gold bar in Premium. */
+:root[data-ux-surfaces='premium'] .sf-rcp__track {
+  scrollbar-width: thin;
+}
+:root[data-ux-surfaces='premium'] .sf-rcp__track::-webkit-scrollbar {
+  display: block;
+}

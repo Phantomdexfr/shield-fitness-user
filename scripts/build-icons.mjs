@@ -3,7 +3,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ICONS = ['barbell', 'caret-left', 'caret-right', 'check', 'image', 'info', 'magnifying-glass', 'minus', 'plus', 'warning', 'x', 'house', 'person-simple', 'books', 'user-circle', 'export', 'plus-square', 'dots-three-vertical', 'copy', 'device-mobile', 'download-simple'];
+const ICONS = ['barbell', 'caret-left', 'caret-right', 'check', 'image', 'info', 'magnifying-glass', 'minus', 'plus', 'warning', 'x', 'house', 'person-simple', 'books', 'user-circle', 'export', 'plus-square', 'dots-three-vertical', 'copy', 'device-mobile', 'download-simple',
+  // Phase 98: premium set (the first 21 above are the classic set and stay first)
+  'clock-counter-clockwise', 'target', 'bell', 'chart-line-up', 'trophy', 'sparkle', 'calendar-star', 'camera', 'drop', 'medal', 'buildings', 'sliders-horizontal', 'gear', 'list-checks', 'palette', 'shield-check', 'hand-heart', 'heart', 'star', 'fire', 'timer', 'play', 'pause', 'stop', 'arrow-left', 'arrow-right', 'arrows-clockwise', 'trash', 'pencil-simple', 'share-network', 'bookmark-simple', 'lock', 'lock-open', 'qr-code', 'calendar-blank', 'calendar-check', 'envelope-simple', 'chat-circle', 'megaphone', 'ruler', 'scales', 'lightning', 'mountains', 'pulse', 'chart-bar', 'list', 'funnel', 'sort-ascending', 'eye', 'eye-slash', 'moon', 'sun', 'wifi-slash', 'cloud-arrow-up', 'cloud-check', 'arrow-counter-clockwise', 'swap', 'dots-three', 'sneaker', 'heartbeat', 'first-aid', 'plus-circle', 'minus-circle', 'check-circle', 'x-circle', 'warning-circle', 'question', 'lifebuoy', 'key', 'bed', 'fork-knife', 'identification-card', 'database', 'plugs-connected', 'cloud-arrow-down', 'chat-circle-text'];
 
 const root = join(process.cwd(), 'node_modules/@phosphor-icons/core/assets');
 const inner = (file) => {

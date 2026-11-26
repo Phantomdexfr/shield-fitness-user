@@ -48,6 +48,7 @@ function MuscleSheet({ state, result, id, onClose, onWeak }: { state: BadgeState
               {m.best?.best && (
                 <p class="sf-bd__note">{t('badge.sheet.best', { lift: ladderName(m.best.ladderId), e1rm: Math.round(m.best.best.e1rm), day: dayLabel(m.best.best.day) })}</p>
               )}
+              {m.held && <p class="sf-bd__note">{t(`badge.held.${m.held}`)}</p>}
               {m.peak != null && m.peak > (m.tier ?? 0) && <p class="sf-bd__note">{t('badge.sheet.peak', { tier: tierName(m.peak) })}</p>}
             </>
           )}
@@ -56,7 +57,7 @@ function MuscleSheet({ state, result, id, onClose, onWeak }: { state: BadgeState
             <>
               <h3 class="sf-bd__h">{t('badge.exp.title')}</h3>
               <ProgressBar value={exp.progress} label={t('badge.exp.aria', { muscle: muscleName(id) })} />
-              <p class="sf-bd__note">{exp.toNext > 0 ? t('badge.exp.line', { tier: tierName(exp.tier), n: Math.ceil(exp.toNext), next: tierName(exp.tier + 1) }) : t('badge.exp.top', { tier: tierName(exp.tier) })}</p>
+              <p class="sf-bd__note">{exp.toNext > 0 ? t(Math.ceil(exp.toNext) === 1 ? 'badge.exp.line_one' : 'badge.exp.line', { tier: tierName(exp.tier), n: Math.ceil(exp.toNext), next: tierName(exp.tier + 1) }) : t('badge.exp.top', { tier: tierName(exp.tier) })}</p>
             </>
           )}
           {m.candidates.length > 0 && (

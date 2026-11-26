@@ -1,0 +1,85 @@
+/* Premium screens I (Phase 105, ux.layout): Me, Settings, Library and Train as inset-grouped lists. Tokens only. Classic rules stay untouched. */
+
+/* Me and Settings hub: groups of rows in ONE container with hairlines, no box per row. */
+:root[data-ux-layout='premium'] .sf-groups { display: flex; flex-direction: column; gap: var(--sp-4); min-width: 0; }
+:root[data-ux-layout='premium'] .sf-st__list,
+:root[data-ux-layout='premium'] .sf-lib__list {
+  gap: 0;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-1);
+  overflow: clip;
+}
+:root[data-ux-layout='premium'] .sf-st__group {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+:root[data-ux-layout='premium'] .sf-st__list > li + li > .sf-st__group,
+:root[data-ux-layout='premium'] .sf-lib__list > li + li {
+  border-top: 1px solid var(--line);
+}
+:root[data-ux-layout='premium'] .sf-st__list .sf-row,
+:root[data-ux-layout='premium'] .sf-lib__list .sf-row {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+:root[data-ux-layout='premium'] .sf-lib__row {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+/* Settings group pages: consecutive setting rows share ONE container. */
+:root[data-ux-layout='premium'] .sf-st__stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-1);
+  overflow: clip;
+}
+:root[data-ux-layout='premium'] .sf-st__stack > * + * { border-top: 1px solid var(--line); }
+:root[data-ux-layout='premium'] .sf-st__stack .sf-st__row,
+:root[data-ux-layout='premium'] .sf-st__stack .sf-rowgroup__box {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+:root[data-ux-layout='premium'] .sf-st__stack .sf-toggle,
+:root[data-ux-layout='premium'] .sf-st__stack .sf-st__row { padding-left: var(--sp-4); padding-right: var(--sp-4); }
+
+/* Library machines: elevated cards with the 4:3 photo (the frame and its gold-outline placeholder already exist). */
+:root[data-ux-layout='premium'] .sf-lib__mcard {
+  border-color: transparent;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-1);
+}
+
+/* Train: the hero card holds the next workout; the row groups below it are inset-grouped. */
+:root[data-ux-layout='premium'] .sf-tr__hero { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
+:root[data-ux-layout='premium'] .sf-tr__hero .sf-rt__item { flex-direction: column; align-items: stretch; }
+
+/* Premium screens II (Phase 106, ux.layout): Body figure first, Exercise figure on top, Progress hero grid. Tokens only. */
+:root[data-ux-layout='premium'] .sf-lab__hero,
+:root[data-ux-layout='premium'] .sf-ex__hero {
+  min-width: 0;
+  padding: var(--sp-3);
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-1);
+}
+:root[data-ux-layout='premium'] .sf-ex__actions { min-width: 0; }
+/* One chip shape on the Exercise page: every tag the same height, wrapping, never wider than the page. */
+:root[data-ux-layout='premium'] .sf-ex__chips > * { min-height: 28px; display: inline-flex; align-items: center; }
+/* The machine photo keeps its 4:3 frame (gold outline placeholder) at a readable width. */
+:root[data-ux-layout='premium'] .sf-ex__mthumb { width: 100%; max-width: 16rem; aspect-ratio: 4 / 3; }
+/* Progress: the ring and the streak tile sit side by side in an even 2-up grid, tiles aligned. */
+:root[data-ux-layout='premium'] .sf-pg__week { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; justify-items: center; gap: var(--sp-3); }
+:root[data-ux-layout='premium'] .sf-pg__hero { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); min-width: 0; }
+:root[data-ux-layout='premium'] .sf-pg__hero > * { min-width: 0; }

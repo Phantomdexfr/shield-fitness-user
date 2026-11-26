@@ -16,4 +16,6 @@
 @import './recap.css';
 @import './settings.css';
 @import './onboarding.css';
+@import './view.css';
+@import './premium/index.css';
 @tailwind utilities;

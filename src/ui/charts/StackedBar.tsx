@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import { t } from '../../i18n';
 import { fmtNum, safe, stackLayout, summaryFor2, type StackPartIn } from '../../shared/chartMath';
 import { tick } from '../components/haptics';
-import { prefersReducedMotion } from '../components/motion';
+import { useFx } from '../components/Feedback';
 import { ChartBoundary, ChartFrame, useChartId, type ChartBase, type LegendItem } from './ChartFrame';
 import { useWidth } from './useScrub';
 
@@ -22,7 +22,7 @@ function StackBase(props: StackedBarProps) {
   const mode = props.mode ?? 'absolute';
   const id = useChartId();
   const fmt = props.format ?? fmtNum;
-  const animate = props.animate !== false && !prefersReducedMotion();
+  const animate = useFx('stack:' + title, props.animate !== false, !!loading);
   const [sel, setSel] = useState<{ r: number; s: number } | null>(null);
   const [boxRef, W] = useWidth<HTMLDivElement>();
   const vertical = props.orientation === 'vertical' && props.rows.length <= MAX_VERTICAL;

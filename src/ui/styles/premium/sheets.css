@@ -1,0 +1,71 @@
+/* Premium sheets (Phase 102, ux.sheets): fading scrim, spring up, a bigger grab handle, finger-follow (the component sets the transform),
+   medium and large stops, lifted above the soft keyboard. Tokens only. Classic sheet CSS (components.css) is untouched.
+   The calendar sheet (DatePicker) uses the same Sheet, so it gets the scrim and handle and keeps its own structure. */
+:root[data-ux-sheets='premium'] .sf-overlay--sheet {
+  background: transparent;
+  padding-bottom: var(--sheet-kb, 0px);
+}
+:root[data-ux-sheets='premium'] .sf-overlay--sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+  opacity: var(--scrim-o, 1);
+  pointer-events: none;
+}
+:root[data-ux-sheets='premium'] .sf-sheet--premium {
+  position: relative;
+  max-height: calc(var(--sheet-cap, 90dvh) - var(--sheet-kb, 0px));
+  box-shadow: var(--sh-3);
+  animation: none;
+  transition: transform var(--dur-slow) var(--ease-spring), max-height var(--dur-slow) var(--ease-spring);
+  will-change: transform;
+}
+:root[data-ux-sheets='premium'] .sf-sheet--medium {
+  --sheet-cap: 55dvh;
+}
+:root[data-ux-sheets='premium'] .sf-sheet--large {
+  --sheet-cap: 90dvh;
+}
+:root[data-ux-sheets='premium'] .sf-sheet--premium.sf-sheet--dragging {
+  transition: none;
+}
+:root[data-ux-sheets='premium'] .sf-sheet--premium .sf-sheet__grip {
+  padding: var(--sp-3) 0 var(--sp-2);
+  min-height: 28px;
+}
+:root[data-ux-sheets='premium'] .sf-sheet--premium .sf-sheet__handle {
+  width: 44px;
+  height: 5px;
+  background: var(--text-muted);
+}
+:root[data-ux-sheets='premium'] .sf-overlay--leaving .sf-sheet--premium {
+  transition: transform var(--dur-base) ease-in;
+}
+/* Motion only when allowed (the Motion setting and prefers-reduced-motion win): otherwise sheets just appear and go. */
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-sheets='premium']:not([data-motion='reduced']) .sf-overlay--sheet::before {
+    animation: sf-scrim-in var(--dur-base) ease-out;
+  }
+  :root[data-ux-sheets='premium']:not([data-motion='reduced']) .sf-sheet--premium {
+    animation: sf-sheet-spring var(--dur-slow) var(--ease-spring);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-ux-sheets='premium'] .sf-sheet--premium {
+    transition: none;
+  }
+}
+:root[data-ux-sheets='premium'][data-motion='reduced'] .sf-sheet--premium {
+  transition: none;
+}
+@keyframes sf-scrim-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes sf-sheet-spring {
+  from {
+    transform: translateY(100%);
+  }
+}

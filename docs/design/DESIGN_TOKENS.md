@@ -59,3 +59,16 @@ Tokens are in `src/ui/styles/tokens.css`. Fonts picked: **Inter Variable** (UI) 
 
 ## Muscle tier badge colours (added 2026-11-19; tokens only, no purple/violet/magenta/pink)
 `--tier-wood #7A5638` · `--tier-beginner #A39E93` · `--tier-bronze #B87333` · `--tier-silver #C3CAD3` · `--tier-gold #D4AF37` · `--tier-platinum #E6E8EA` · `--tier-diamond #8EC5E8` (ice blue) · `--tier-master #E0883A` (ember) · `--tier-olympian #F7EBC3` with a gold glow and laurel mark. Badges are crests (shield shape) with the tier name always written (never colour alone). Rusty muscles are desaturated with a small "rusty" tag. Reduced-motion: promotion is a static highlight.
+
+> **Depth rule approved 2026-11-26 (Milestone 12, see `docs/UI_PREMIUM_PLAN.md`), implemented in Phase 96:** new depth tokens (shadow levels, top highlight, hero wash 18%, tile tint) are added to `tokens.css` only. Added in Phase 96 (premium CSS only; classic never reads them):
+>
+> | Token | Value | Use |
+> |---|---|---|
+> | `--sh-1` | two soft black layers (1px/2px and 2px/6px) | rows, chips |
+> | `--sh-2` | two soft black layers (2px/4px and 8px/20px) | cards, tab bar |
+> | `--sh-3` | two soft black layers (4px/8px and 16px/40px) | sheets, popovers |
+> | `--hl-top` | inset 1px warm-white line at 6% | top highlight of a raised surface |
+> | `--hero-wash` | gold 212,175,55 at 18% | the ONE hero wash per screen |
+> | `--tile-tint` | gold 212,175,55 at 10% | tinted 32px icon tiles |
+>
+> Values live in `src/ui/styles/tokens.css` only; no hex outside it.

@@ -92,7 +92,8 @@ foreach ($f in "approve-pending","assign-shard","bulk-import","change-password",
 **Debugging a function**: errors are deliberately swallowed (no personal data in logs). Use project A > Logs > API Gateway to see which request failed (that is how bugs 2 to 5 were found). A browser CORS error on a function usually means the function crashed on start, not a real CORS problem.
 
 ## 7. Open items and warnings
-- **NEXT WORK (planned 2026-11-22): see section 8.** Do not start it until the owner says which phase.
+- **NEXT WORK (planned 2026-11-26): see section 9 (Milestone 12 "Premium UI", Phases 96-111).** Older: see section 8.
+- **Earlier NEXT WORK (planned 2026-11-22): see section 8.** Do not start it until the owner says which phase.
 - Owner still to do: iPhone/Safari test, both `OWNER_CHECKLIST_1.1.0.md` lists, a second real phone. Treat the whole system as a **beta** until done.
 - Public repo means public forever, including old commits. Machine photos in `public/machines/` are public. BodyParts3D licence note on the Credits page is unresolved.
 - One unexplained log line: a single `GET /rest/v1/gym_settings` 401 "permission denied" on project A shortly after launch (the phone connect itself works). If connecting ever fails again, check it first.
@@ -107,3 +108,10 @@ Why: the owner's first live feedback was (1) no visible Share/Copy workout by QR
 Order: 82 (zoom lock, share fix, figure follows profile) > 83 (button kit) > 84 (calendar) > 85 (onboarding) > 86-87 (declutter) > 88 (gate). Admin 56-59 follow the same order and can run in parallel with the member side.
 Shipping is unchanged (section 6). No Edge Function redeploy and no SQL are expected for this milestone. If a phase wants `contract/` changed, stop and tell the owner first.
 Owner talk rules from section 1 still apply: ONE step per message, short, plain English, PowerShell, never ask for a secret.
+
+## 9. Next: Milestone 12 "Premium UI" (planned 2026-11-26, nothing built yet)
+Plan, verdict tables, Style System and risks: `docs/UI_PREMIUM_PLAN.md`. Read it before any phase of this milestone. User app only, Phases 96-111, one phase per session, release 1.3.0 at the gate (Phase 111). Next phase: 96.
+What it is: a modern premium iPhone/Android look (depth, correct icons, frosted tab bar, large titles, wheel pickers, real motion). **Premium becomes the default for everyone; Classic (the exact 1.2.0 look) is kept; both are switchable in Settings -> Appearance -> Interface style and from each page's own "View" sheet.** Nothing from the present UI is removed.
+Blocked: the Today screen has no owner verdict yet. Phase 109 is a decision phase (docs only); Phase 110 (build Today) waits for it.
+Not verified (needs the owner's real phones): wheels under a thumb, frosted-blur speed on low-end Android, vibration, iPhone Safari, swipe-back, install splash.
+Shipping is unchanged (section 6). No Edge Function redeploy and no SQL are expected. Owner talk rules from section 1 still apply: ONE step per message, short, plain English, PowerShell, never ask for a secret.

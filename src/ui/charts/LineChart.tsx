@@ -4,7 +4,7 @@ import {
   seriesStats, summaryFor, timeBase, type PreparedPoint, type RawPoint,
 } from '../../shared/chartMath';
 import { addDays } from '../../shared/dates';
-import { prefersReducedMotion } from '../components/motion';
+import { useFx } from '../components/Feedback';
 import { ChartBoundary, ChartFrame, useChartId, type ChartBase, type LegendItem } from './ChartFrame';
 import { useScrub, useWidth } from './useScrub';
 
@@ -50,7 +50,7 @@ function LineBase(props: Inner) {
   const [boxRef, W] = useWidth<HTMLDivElement>();
   const series = allSeries.slice(0, MAX_SERIES);
   const fmt = format ?? fmtNum;
-  const animate = props.animate !== false && !prefersReducedMotion();
+  const animate = useFx('line:' + title, props.animate !== false, !!loading);
 
   const base = timeBase(series.map((s) => s.points));
   const prepared = series.map((s) => preparePoints(s.points, base));

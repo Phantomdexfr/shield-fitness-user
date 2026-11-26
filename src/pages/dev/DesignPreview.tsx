@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import { Avatar, Badge, Button, Card, Chip, Dialog, EmptyState, Field, IconButton, Input, PhotoFrame, ProgressBar, ProgressRing, Segmented, Select, Sheet, Skeleton, SkeletonText, Stepper, Tabs, Toggle, showToast } from '../../ui/components';
+import { ActionMenu, Avatar, Icon, Badge, Button, Card, Chip, Dialog, EmptyState, Field, IconButton, Input, PhotoFrame, PrMark, ProgressBar, ProgressRing, Segmented, Select, SetCheck, Sheet, Skeleton, SkeletonText, Stepper, Tabs, Toggle, showToast } from '../../ui/components';
 import { t } from '../../i18n';
 import ChartPreview from './ChartPreview';
 import { BodyPicker, MuscleChips, type BodyMode, type Sex, type View } from '../../ui/body';
@@ -7,11 +7,15 @@ import { BodyPicker, MuscleChips, type BodyMode, type Sex, type View } from '../
 /** Developer-only preview of every primitive. Registered only in dev builds. */
 export default function DesignPreview() {
   const [seg, setSeg] = useState<'a' | 'b' | 'c'>('a');
+  const [replay, setReplay] = useState(0);
   const [tab, setTab] = useState<'one' | 'two'>('one');
   const [sel, setSel] = useState('x');
   const [on, setOn] = useState(true);
   const [n, setN] = useState(60);
   const [chip, setChip] = useState(true);
+  const [fl, setFl] = useState('');
+  const [fs, setFs] = useState('bench');
+  const [seg4, setSeg4] = useState('b');
   const [sheet, setSheet] = useState(false);
   const [dlg, setDlg] = useState(false);
   const [bmode, setBmode] = useState<BodyMode>('pick-many');
@@ -31,6 +35,27 @@ export default function DesignPreview() {
         <IconButton icon="info" label="Info" />
       </div>
       <Button fullWidth>{t('preview.sample.long')}</Button>
+
+      <h2 class="sf-preview-h">Phase 100: button kinds x states (default, pressed, disabled, loading)</h2>
+      {(['primary', 'secondary', 'danger'] as const).map((v) => (
+        <div class="sf-preview-row" key={v} data-kind={v}>
+          <Button variant={v}>{v}</Button>
+          <button type="button" class={`sf-press sf-btn sf-btn--${v} sf-btn--md`} data-pressed="true"><span class="sf-btn__label">{v}</span></button>
+          <Button variant={v} disabled>{v}</Button>
+          <Button variant={v} loading>{v}</Button>
+        </div>
+      ))}
+      <div class="sf-preview-row" data-kind="icon">
+        <IconButton icon="info" label="Default" />
+        <button type="button" class="sf-press sf-iconbtn sf-iconbtn--secondary" data-pressed="true" aria-label="Pressed"><Icon name="info" size={24} /></button>
+        <IconButton icon="info" label="Disabled" disabled />
+        <IconButton icon="info" label="Loading" loading />
+      </div>
+      <h2 class="sf-preview-h">Phase 100: action menu, floating label, search with Cancel</h2>
+      <ActionMenu primary={{ label: 'Add to routine', onPress: () => undefined }} items={[{ label: 'Add to go-tos', onPress: () => undefined }, { label: 'Never show', onPress: () => undefined }, { label: 'Got it, do not show again', onPress: () => undefined }]} />
+      <Input label="Exercise name" {...{ value: fl }} onInput={(e) => setFl((e.currentTarget as HTMLInputElement).value)} />
+      <Input label="Search" {...{ type: 'search', placeholder: 'Search exercises', value: fs }} onInput={(e) => setFs((e.currentTarget as HTMLInputElement).value)} onCancel={() => setFs('')} />
+      <Segmented label="Four options" options={[{ value: 'a', label: 'One' }, { value: 'b', label: 'Two' }, { value: 'c', label: 'Three' }, { value: 'd', label: 'Four' }]} value={seg4} onChange={setSeg4} />
 
       <h2 class="sf-preview-h">{t('preview.chips')}</h2>
       <div class="sf-preview-row">
@@ -81,6 +106,13 @@ export default function DesignPreview() {
         marks={{ side_delts: 'avoid', calves: 'sore' }}
       />
       <MuscleChips mode={bmode} value={bval} onChange={setBval} heat={{ chest: 4, upper_chest: 5, biceps: 2, quads: 3, lats: 1 }} recovery={{ chest: 'fatigued', quads: 'recovering', biceps: 'ready', abs: 'fresh' }} marks={{ side_delts: 'avoid', calves: 'sore' }} />
+
+      <h2 class="sf-preview-h">Phase 104: set check and PR moment (Replay plays them again)</h2>
+      <div class="sf-preview-row">
+        <span class="sf-lg__set" style={{ position: 'relative', minWidth: '4rem' }} key={`c${replay}`}><span class="sf-lg__n">3</span><SetCheck /></span>
+        <PrMark replay={replay} />
+        <Button variant="secondary" onPress={() => setReplay((n) => n + 1)}>Replay</Button>
+      </div>
 
       <h2 class="sf-preview-h">{t('preview.feedback')}</h2>
       <div class="sf-preview-row">

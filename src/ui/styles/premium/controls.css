@@ -1,0 +1,225 @@
+/* Premium controls (Phase 100, ux.controls): sliding segmented, switch, one chip shape, floating-label inputs, search Cancel,
+   button states (default / pressed / disabled / loading) and the "..." action menu. Tokens only. Classic rules in components.css are untouched.
+   Slides, springs and the spinner only run when motion is allowed (the Motion setting and prefers-reduced-motion win). */
+
+/* Segmented: one gold thumb slides under the chosen option. */
+:root[data-ux-controls='premium'] .sf-seg {
+  position: relative;
+  background: var(--bg-raised);
+  border-color: var(--line);
+  box-shadow: var(--sh-press);
+}
+:root[data-ux-controls='premium'] .sf-seg__thumb {
+  position: absolute;
+  top: var(--sp-1);
+  bottom: var(--sp-1);
+  left: var(--sp-1);
+  width: calc((100% - 2 * var(--sp-1) - (var(--seg-n, 2) - 1) * var(--sp-1)) / var(--seg-n, 2));
+  transform: translateX(calc(var(--seg-i, 0) * (100% + var(--sp-1))));
+  border-radius: var(--r-sm);
+  background: var(--gold-wash);
+  box-shadow: var(--hl-top), inset 0 0 0 1px var(--gold-600);
+  pointer-events: none;
+}
+:root[data-ux-controls='premium'] .sf-seg__item {
+  position: relative;
+  z-index: 1;
+}
+:root[data-ux-controls='premium'] .sf-seg__item--on {
+  background: transparent;
+  box-shadow: none;
+  color: var(--gold-200);
+}
+
+/* Switch: solid gold when on, bigger spring thumb. Covers the Toggle and the Switch row control. */
+:root[data-ux-controls='premium'] .sf-toggle--on .sf-toggle__track {
+  background: var(--gold-400);
+  border-color: var(--gold-400);
+}
+:root[data-ux-controls='premium'] .sf-toggle--on .sf-toggle__thumb {
+  background: var(--text-on-gold);
+}
+:root[data-ux-controls='premium'] .sf-toggle__thumb,
+:root[data-ux-controls='premium'] .sf-switch__thumb {
+  box-shadow: var(--sh-1);
+}
+
+/* ONE chip shape: pill, same height always; selected = gold outline + wash, no glyph. */
+:root[data-ux-controls='premium'] .sf-chip {
+  min-height: var(--touch-min); /* Phase 111 audit: 36 px was under the 44 px tap rule (Classic chips are 44) */
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+}
+:root[data-ux-controls='premium'] .sf-chip--on {
+  border-color: var(--gold-400);
+  background: var(--gold-wash);
+  color: var(--gold-200);
+}
+
+/* Inputs: gold focus ring on every input; floating label on .sf-field--float. 16 px text is kept (iOS does not zoom). */
+:root[data-ux-controls='premium'] .sf-input {
+  background: var(--bg-card);
+}
+:root[data-ux-controls='premium'] .sf-input:focus {
+  outline: none;
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px var(--gold-wash);
+}
+:root[data-ux-controls='premium'] .sf-field--float {
+  position: relative;
+}
+:root[data-ux-controls='premium'] .sf-field--float .sf-input {
+  min-height: 56px;
+  padding-top: var(--sp-5);
+}
+:root[data-ux-controls='premium'] .sf-field--float .sf-field__label {
+  position: absolute;
+  z-index: 1;
+  top: var(--sp-4);
+  left: var(--sp-3);
+  right: var(--sp-3);
+  color: var(--text-muted);
+  font-size: var(--text-md);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  transform-origin: left top;
+}
+:root[data-ux-controls='premium'] .sf-field--float:has(.sf-input:focus) .sf-field__label,
+:root[data-ux-controls='premium'] .sf-field--float:has(.sf-input:not(:placeholder-shown)) .sf-field__label {
+  top: var(--sp-2);
+  color: var(--gold-300);
+  font-size: var(--text-xs);
+}
+
+/* Search with Cancel: the Cancel text button sits inside the field, only while there is text. */
+:root[data-ux-controls='premium'] .sf-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+:root[data-ux-controls='premium'] .sf-input--cancel {
+  padding-right: calc(var(--sp-8) + var(--sp-8));
+}
+:root[data-ux-controls='premium'] .sf-input__cancel {
+  position: absolute;
+  top: 50%;
+  right: var(--sp-2);
+  transform: translateY(-50%);
+  min-height: var(--touch-min);
+  padding: 0 var(--sp-2);
+  color: var(--gold-300);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* Buttons: default / pressed / disabled / loading for primary, secondary, danger and icon. */
+:root[data-ux-controls='premium'] .sf-btn--primary {
+  box-shadow: var(--hl-top), var(--sh-1);
+}
+:root[data-ux-controls='premium'] .sf-btn--primary[data-pressed='true'] {
+  background: var(--gold-500);
+  box-shadow: var(--sh-press);
+}
+:root[data-ux-controls='premium'] .sf-btn--secondary,
+:root[data-ux-controls='premium'] .sf-iconbtn--secondary {
+  background: var(--bg-card);
+  border-color: var(--line-strong);
+  box-shadow: var(--hl-top);
+}
+:root[data-ux-controls='premium'] .sf-btn--danger {
+  background: var(--bg-card);
+}
+:root[data-ux-controls='premium'] .sf-btn:disabled,
+:root[data-ux-controls='premium'] .sf-iconbtn:disabled {
+  opacity: 0.45;
+  box-shadow: none;
+}
+/* Loading keeps full colour (it is busy, not unavailable) and shows a ring spinner. */
+:root[data-ux-controls='premium'] .sf-btn--loading:disabled,
+:root[data-ux-controls='premium'] .sf-iconbtn--loading:disabled {
+  opacity: 0.85;
+}
+:root[data-ux-controls='premium'] .sf-btn--loading::before,
+:root[data-ux-controls='premium'] .sf-iconbtn--loading::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  flex: none;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+:root[data-ux-controls='premium'] .sf-iconbtn--loading::before {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: var(--bg-card);
+  box-shadow: 0 0 0 5px var(--bg-card);
+}
+:root[data-ux-controls='premium'] .sf-iconbtn--loading .sf-icon {
+  opacity: 0;
+}
+
+/* Action menu: one primary + a "..." popover. */
+:root[data-ux-controls='premium'] .sf-actionmenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+:root[data-ux-controls='premium'] .sf-actionmenu > .sf-btn {
+  flex: 1 1 auto;
+}
+:root[data-ux-controls='premium'] .sf-actionmenu__pop {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + var(--sp-1));
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
+  max-width: 100%;
+  padding: var(--sp-1);
+  border-radius: var(--r-md);
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-3);
+}
+:root[data-ux-controls='premium'] .sf-actionmenu__item {
+  display: flex;
+  align-items: center;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  text-align: left;
+}
+:root[data-ux-controls='premium'] .sf-actionmenu__item--danger {
+  color: var(--danger);
+}
+:root[data-ux-controls='premium'] .sf-actionmenu__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-controls='premium']:not([data-motion='reduced']) .sf-seg__thumb {
+    transition: transform var(--dur-slow) var(--ease-spring);
+  }
+  :root[data-ux-controls='premium']:not([data-motion='reduced']) .sf-toggle__thumb {
+    transition: transform var(--dur-slow) var(--ease-spring), background-color var(--dur-base) var(--ease-out);
+  }
+  :root[data-ux-controls='premium']:not([data-motion='reduced']) .sf-field--float .sf-field__label {
+    transition: top var(--dur-base) var(--ease-out), font-size var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+  }
+  :root[data-ux-controls='premium']:not([data-motion='reduced']) .sf-btn--loading::before,
+  :root[data-ux-controls='premium']:not([data-motion='reduced']) .sf-iconbtn--loading::before {
+    animation: sf-spin 700ms linear infinite;
+  }
+}
+
+@keyframes sf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,6 +1,6 @@
 import { t } from '../../i18n';
 import { compact, finiteOr, fmtNum, labelIndices, labelStride, labelWidth, niceScale, safe, scaleLinear, spacedLabelIndices, summaryFor } from '../../shared/chartMath';
-import { prefersReducedMotion } from '../components/motion';
+import { useFx } from '../components/Feedback';
 import { ChartBoundary, ChartFrame, useChartId, type ChartBase } from './ChartFrame';
 import { useScrub, useWidth } from './useScrub';
 
@@ -28,7 +28,7 @@ function BarBase(props: BarChartProps) {
   const id = useChartId();
   const [boxRef, W] = useWidth<HTMLDivElement>();
   const fmt = format ?? fmtNum;
-  const animate = props.animate !== false && !prefersReducedMotion();
+  const animate = useFx('bar:' + title, props.animate !== false, !!loading);
   // zero-based; negative or non-finite values are clamped to 0
   const data = props.data.slice(-MAX_BARS).map((d) => ({ ...d, y: Math.max(0, finiteOr(d.y) ?? 0) }));
   const tgt = target !== undefined && Number.isFinite(target) ? target : undefined;

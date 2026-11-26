@@ -6,6 +6,8 @@ export const LABELS = {
   decrease: 'Decrease',
   dismiss: 'Dismiss',
   cancel: 'Cancel',
+  moreActions: 'More actions',
+  loading: 'Loading',
   confirm: 'Confirm',
   dragToDismiss: 'Drag down to close',
 } as const;

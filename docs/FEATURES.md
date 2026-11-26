@@ -135,3 +135,17 @@ Spec: `docs/SYNC_SPEC.md` PHASE 74 SPEC, `docs/GYM_CONNECTION.md` PHASE 74 SPEC.
 - Phase 86 (UX, no new feature id): Today, Train, Routines, Routine week and day, Quick workout, Session, Session summary and History declutter with collapsible sections; Today shows a week strip and a Quick grid.
 - Phase 85 (UX, no new feature id): first-run `/welcome` onboarding (name, date of birth, sex + figure, height, weight, units, level, backup choice, optional gym), re-runnable from Settings -> Account.
 - Phase 84 (UX, no new feature id): every date is chosen on one calendar picker; no native or typed date field remains (guard test `tests/ui/datePicker.test.tsx`).
+
+## Milestone 12 "Premium UI" feature ids (planned 2026-11-26, all unticked; plan: `docs/UI_PREMIUM_PLAN.md`)
+| ID | Feature | Phase | Mode |
+|---|---|---|---|
+| U-UX-01 | [x] Interface style master (Premium default / Classic / Custom) + `appearance:ux` prefs, early apply, Settings switches, Depth tokens, scrollbar audit | 96 | SA |
+| U-UX-02 | [x] `ux.surfaces`: 3 elevations, inset-grouped lists, gold hero card | 97 | SA |
+| U-UX-03 | [x] `ux.icons`: ~80 correct Phosphor icons + tinted tiles (classic 21-icon set kept) | 98 | SA |
+| U-UX-04 | [x] `ux.tabbar` frosted bar with sliding indicator and `ux.headers` large-title collapse | 99 | SA |
+| U-UX-05 | [x] `ux.controls`: sliding segmented, switch, unified chips, floating-label inputs, search with Cancel, button states, "..." action menu | 100 | SA |
+| U-UX-06 | [x] `ux.wheels`: wheel picker for weight, reps, height, rest (+ "Use steppers instead"; logger Wheels/Steppers switch) | 101, 107 | SA | (101 done: wheel, height and rest rows; weight and reps in the logger: 107-a)
+| U-UX-07 | [x] `ux.sheets`: fading scrim, finger-follow, rubber-band, detents (calendar sheet unchanged) | 102 | SA |
+| U-UX-08 | [x] `ux.motion`: directional page transitions, swipe-back, shared element, count-up, draw-in, shimmer, PR moment, pull-to-refresh | 103, 104 | SA | (103 done: push / pop slide, shared title, back swipe; 104 done: count-up and draw-in once per view, set tick, PR mark, gold skeleton, pull-to-refresh on Today and Progress, press feedback)
+| U-UX-09 | [x] `ux.layout`: figure-first Body, new Exercise / Progress / Train / Me / Library layouts, Today (after the owner's verdict) with per-page "View" switches | 105, 106, 107, 108, 110 | SA |
+| U-UX-10 | [x] Classic style kept and provably intact (classic-integrity guard test; release 1.3.0 gate) | 96, 111 | SA |

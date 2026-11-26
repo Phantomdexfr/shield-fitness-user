@@ -11,7 +11,7 @@ import { dayOfSession } from '../../shared/history';
 import { istDayKey, type DayKey } from '../../shared/dates';
 import { roundKg } from '../../shared/units';
 import {
-  computeBadges, groupsOf, parseBadgeData, withCore, sessionPromotions,
+  BADGE_CALIBRATION, computeBadges, groupsOf, parseBadgeData, withCore, sessionPromotions,
   type BadgeData, type BadgeInput, type BadgeResult, type BadgeSession, type NeedsInput, type Promotion, type Sex,
 } from '../../shared/badges';
 import { parseSetupData, setupWeights } from '../../pages/exercise/setupModel';
@@ -33,9 +33,11 @@ export interface BadgeProfile {
   peaks: Record<string, number>;
   /** Implausible sets the person confirmed, `<sessionId>:<exerciseIndex>:<setIndex>`. */
   confirmed: string[];
+  /** Calibration the stored peaks were made under. An older one (or none) means the peaks are dropped and rebuilt under the current rules. */
+  calibration: number;
 }
 
-export const EMPTY_PROFILE: BadgeProfile = { sex: null, skipped: false, peaks: {}, confirmed: [] };
+export const EMPTY_PROFILE: BadgeProfile = { sex: null, skipped: false, peaks: {}, confirmed: [], calibration: BADGE_CALIBRATION };
 
 export function parseProfile(v: unknown): BadgeProfile {
   const o = (v && typeof v === 'object' ? v : {}) as Record<string, unknown>;
@@ -45,7 +47,8 @@ export function parseProfile(v: unknown): BadgeProfile {
     for (const [k, n] of Object.entries(o.peaks as Record<string, unknown>)) if (typeof n === 'number' && n >= 0 && n <= 8) peaks[k] = n;
   }
   const confirmed = Array.isArray(o.confirmed) ? o.confirmed.filter((x): x is string => typeof x === 'string') : [];
-  return { sex, skipped: o.skipped === true, peaks, confirmed };
+  const calibration = typeof o.calibration === 'number' ? o.calibration : 0;
+  return { sex, skipped: o.skipped === true, peaks, confirmed, calibration };
 }
 
 export async function getProfile(): Promise<BadgeProfile> {
@@ -155,13 +158,19 @@ async function buildInput(profile: BadgeProfile, asOf: DayKey): Promise<{ data: 
   const sessions = await loadSessions(new Set(profile.confirmed));
   const bodyStats = await loadBodyStats();
   const groups = groupsOf(muscles.map((m) => ({ id: m.id, parentGroup: GROUP_OF_PARENT[m.parent] ?? m.parent })));
-  const input: BadgeInput = { sessions, bodyStats, sex: profile.sex, asOf, peaks: profile.peaks, groups };
+  // strict = calibration v2 rules (repeat from Gold, estimate cap, experience lead, soft high reps).
+  const input: BadgeInput = { sessions, bodyStats, sex: profile.sex, asOf, peaks: profile.peaks, groups, strict: true };
   return { data, input, bodyStats, sessionCount: sessions.length };
 }
 
 /** Everything the badge screens need. Peaks that rose are written back. */
 export async function loadBadgeState(asOf: DayKey = istDayKey(Date.now())): Promise<BadgeState | null> {
-  const profile = await getProfile();
+  let profile = await getProfile();
+  // Peaks from an older calibration were earned under easier rules: drop them once and rebuild them under the current ones.
+  if (profile.calibration !== BADGE_CALIBRATION) {
+    profile = { ...profile, peaks: {}, calibration: BADGE_CALIBRATION };
+    await saveProfile(profile).catch(() => undefined);
+  }
   const built = await buildInput(profile, asOf);
   if (!built) return null;
   const result = computeBadges(built.data, built.input);

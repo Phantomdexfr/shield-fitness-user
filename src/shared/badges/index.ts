@@ -19,6 +19,7 @@ export * from './ladders';
 export * from './thresholds';
 export * from './tiers';
 export * from './experience';
+export * from './calibration';
 
 /** Strength only looks at the last 365 days (the asOf day and the 364 before it). Peak and experience are never windowed. */
 export const WINDOW_DAYS = 365;
@@ -64,6 +65,12 @@ export interface BadgeInput {
   groups: Readonly<Record<string, readonly string[]>>;
   /** Muscles to rank; default = every muscle a ladder names. */
   muscles?: readonly string[];
+  /**
+   * Calibration v2 rules (calibration.ts): from Gold up a lift must repeat in a second session, estimated ladders stop at
+   * Diamond, strength leads experience by 3 tiers at most, reps above 12 count a third. The app turns this on; the
+   * contract tests leave it off.
+   */
+  strict?: boolean;
 }
 
 export interface NeedsInput {
@@ -144,8 +151,16 @@ export function computeBadges(data: BadgeData, input: BadgeInput): BadgeResult |
     .sort((a, b) => (a.s.day < b.s.day ? -1 : a.s.day > b.s.day ? 1 : a.i - b.i))
     .map((x) => x.s);
 
-  const window = new Map<string, BestSet>();
-  const allTime = new Map<string, BestSet>();
+  // Best set per ladder and session, so the second-best session (the strict repeat rule) is a different day's work.
+  const winBy = new Map<string, Map<string, BestSet>>();
+  const allBy = new Map<string, Map<string, BestSet>>();
+  const bump = (store: Map<string, Map<string, BestSet>>, ladderId: string, rec: BestSet) => {
+    let m = store.get(ladderId);
+    if (!m) store.set(ladderId, (m = new Map()));
+    const cur = m.get(rec.sessionId);
+    if (!cur || rec.e1rm > cur.e1rm) m.set(rec.sessionId, rec);
+  };
+  const strict = input.strict === true;
   const needsConfirm: ConfirmSet[] = [];
   for (const s of sessions) {
     const inWindow = daysBetween(s.day, asOf) < WINDOW_DAYS;
@@ -159,24 +174,40 @@ export function computeBadges(data: BadgeData, input: BadgeInput): BadgeResult |
         const load = loadFor(map.loadMode, ladder.bwFraction, sessionBw, set.weightKg);
         if (load == null) return;
         const reps = repsFor(ladder.ladderId, set.reps, set.seconds);
-        const b = benchmarkE1RM(load, reps, map.factor, maxRepsOf(ladder.ladderId));
+        const b = benchmarkE1RM(load, reps, map.factor, maxRepsOf(ladder.ladderId), strict);
         if (b == null) return;
         if (isImplausible(b, sessionBw) && !set.confirmed) {
           needsConfirm.push({ sessionId: s.id, slug: ex.slug, exerciseIndex, setIndex, ladderId: ladder.ladderId, benchmarkE1rm: b, bodyweightKg: sessionBw });
           return;
         }
         const rec: BestSet = { e1rm: b, day: s.day, slug: ex.slug, weightKg: set.weightKg ?? null, reps: reps as number, sessionId: s.id };
-        const a = allTime.get(ladder.ladderId);
-        if (!a || b > a.e1rm) allTime.set(ladder.ladderId, rec);
-        if (inWindow) {
-          const w = window.get(ladder.ladderId);
-          if (!w || b > w.e1rm) window.set(ladder.ladderId, rec);
-        }
+        bump(allBy, ladder.ladderId, rec);
+        if (inWindow) bump(winBy, ladder.ladderId, rec);
       });
     });
   }
+  // Top session = the best set (earliest wins a tie, as before); second = the next session's best e1RM.
+  const topTwo = (store: Map<string, Map<string, BestSet>>) => {
+    const best = new Map<string, BestSet>();
+    const second = new Map<string, number>();
+    for (const [id, m] of store) {
+      const sorted = [...m.values()].sort((a, b) => b.e1rm - a.e1rm);
+      best.set(id, sorted[0]!);
+      if (sorted.length > 1) second.set(id, sorted[1]!.e1rm);
+    }
+    return { best, second };
+  };
+  const { best: window, second: windowSecond } = topTwo(winBy);
+  const { best: allTime, second: allSecond } = topTwo(allBy);
 
-  const ctx: TierContext = { idx, tiers: data.tiers, sex, bw, window, allTime, peaks: input.peaks ?? {} };
+  // Experience first: the strict rules cap strength by it.
+  const mp = experienceMp(sessions);
+  const expMuscles: Record<string, Experience> = {};
+  for (const [m, v] of Object.entries(mp)) expMuscles[m] = experienceOf(v, data.tiers);
+  const expTier: Record<string, number> = {};
+  for (const [m, e] of Object.entries(expMuscles)) expTier[m] = e.tier;
+
+  const ctx: TierContext = { idx, tiers: data.tiers, sex, bw, window, allTime, peaks: input.peaks ?? {}, strict, windowSecond, allSecond, expTier };
   const cache = new Map<string, number[]>();
   const muscleIds = input.muscles ?? idx.muscleIds;
   const muscles: Record<string, MuscleBadge> = {};
@@ -190,9 +221,6 @@ export function computeBadges(data: BadgeData, input: BadgeInput): BadgeResult |
   for (const [g, b] of Object.entries(groups)) if (b.peak != null) peaks[`group:${g}`] = Math.max(peaks[`group:${g}`] ?? 0, b.peak);
 
   // Experience and rust: whole history up to asOf, no window.
-  const mp = experienceMp(sessions);
-  const expMuscles: Record<string, Experience> = {};
-  for (const [m, v] of Object.entries(mp)) expMuscles[m] = experienceOf(v, data.tiers);
   const expGroups: Record<string, number | null> = {};
   for (const [g, members] of Object.entries(input.groups)) expGroups[g] = medianExperienceTier(members, expMuscles);
   const expOverall = (() => {

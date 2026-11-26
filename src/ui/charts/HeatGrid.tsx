@@ -3,7 +3,7 @@ import { t } from '../../i18n';
 import { dayLabel, fmtNum, heatLayout, safe, summaryFor2, thinMonthLabels, type HeatCellIn, type HeatMode } from '../../shared/chartMath';
 import type { DayKey } from '../../shared/dates';
 import { tick } from '../components/haptics';
-import { prefersReducedMotion } from '../components/motion';
+import { useFx } from '../components/Feedback';
 import { ChartBoundary, ChartFrame, useChartId, type ChartBase } from './ChartFrame';
 import { useWidth } from './useScrub';
 import type { StringKey } from '../../i18n/en';
@@ -30,7 +30,7 @@ function HeatBase(props: HeatGridProps) {
   const id = useChartId();
   const [boxRef, boxW] = useWidth<HTMLDivElement>();
   const fmt = props.format ?? fmtNum;
-  const animate = props.animate !== false && !prefersReducedMotion();
+  const animate = useFx('heat:' + title, props.animate !== false, !!loading);
   const layout = heatLayout(cells, from, to, props.mode ?? 'sessions');
   const [active, setActive] = useState<number | null>(null);
   const timer = useRef(0);

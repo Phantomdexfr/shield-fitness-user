@@ -100,6 +100,8 @@ export type RowSpec =
   /** A date chosen on the calendar; `yearPref` (if set) is kept equal to its year so older code and installs still read a birth year. */
   | { kind: 'date'; pref: string; label: string; hint?: string; yearPref?: string }
   | { kind: 'link'; label: string; to: string; hint?: string; feature?: string }
+  /** Phase 96: the Interface style block (master Premium / Classic / Custom + nine switches). Stored in `appearance:ux`, not a pref. */
+  | { kind: 'ux' }
   | { kind: 'note'; text: string };
 
 export interface GroupDef {

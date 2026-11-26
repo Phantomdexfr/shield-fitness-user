@@ -1,7 +1,7 @@
 import type { ComponentChildren } from 'preact';
 import { t } from '../../i18n';
 import { fmtNum, ringFraction, safe, summaryFor2 } from '../../shared/chartMath';
-import { prefersReducedMotion } from '../components/motion';
+import { useFx } from '../components/Feedback';
 import { ChartBoundary, ChartFrame, useChartId, type ChartBase } from './ChartFrame';
 
 export interface RingProps extends ChartBase {
@@ -19,7 +19,7 @@ function RingBase(props: RingProps) {
   const id = useChartId();
   const size = Math.max(40, Math.min(240, Number.isFinite(props.size) ? (props.size as number) : 72));
   const stroke = Math.max(3, Math.min(size / 4, Number.isFinite(props.stroke) ? (props.stroke as number) : Math.round((size * 7) / 72)));
-  const animate = props.animate !== false && !prefersReducedMotion();
+  const animate = useFx('ring:' + title, props.animate !== false, !!loading);
   const fmt = props.format ?? fmtNum;
   const f = ringFraction(value, max);
   const sec = secondary ? ringFraction(secondary.value, secondary.max ?? max) : null;

@@ -1,6 +1,6 @@
 import { t } from '../../i18n';
 import { fmtNum, gaugeFraction, safe, summaryFor2 } from '../../shared/chartMath';
-import { prefersReducedMotion } from '../components/motion';
+import { useFx } from '../components/Feedback';
 import { ChartBoundary, ChartFrame, useChartId, type ChartBase } from './ChartFrame';
 
 export interface GaugeProps extends ChartBase {
@@ -20,7 +20,7 @@ function GaugeBase(props: GaugeProps) {
   const { title, value, min, max, loading, emptyText, action } = props;
   const id = useChartId();
   const fmt = props.format ?? fmtNum;
-  const animate = props.animate !== false && !prefersReducedMotion();
+  const animate = useFx('gauge:' + title, props.animate !== false, !!loading);
   const stroke = Math.max(4, Math.min(24, Number.isFinite(props.stroke) ? (props.stroke as number) : 10));
   const g = gaugeFraction(value, min, max, props.marks);
   const cx = W / 2;

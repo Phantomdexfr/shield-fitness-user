@@ -1,0 +1,227 @@
+/* Premium navigation motion (Phase 103, ux.motion): pages slide in with the direction of travel, a shared title grows from the library row
+   into the exercise page, the back swipe moves the page with the finger. Tokens only. The classic fade-up (shell.css `sf-page-in`) stays for
+   everything that has no direction (tab switches, first page) and for Classic. The Motion setting and prefers-reduced-motion always win. */
+:root[data-ux-motion='premium'] .sf-shell__main {
+  touch-action: pan-y;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-motion='premium']:not([data-motion='reduced']) .sf-page[data-dir='push'] {
+    animation: sf-nav-push var(--dur-slow) var(--ease-out) backwards;
+  }
+  :root[data-ux-motion='premium']:not([data-motion='reduced']) .sf-page[data-dir='pop'] {
+    animation: sf-nav-pop var(--dur-slow) var(--ease-out) backwards;
+  }
+  :root[data-ux-motion='premium']:not([data-motion='reduced'])::view-transition-group(sf-ex-title) {
+    animation-duration: var(--dur-slow);
+    animation-timing-function: var(--ease-spring);
+  }
+  :root[data-ux-motion='premium']:not([data-motion='reduced'])::view-transition-old(root),
+  :root[data-ux-motion='premium']:not([data-motion='reduced'])::view-transition-new(root) {
+    animation-duration: var(--dur-base);
+  }
+}
+/* The finger or a View Transition already drew this change: no second animation on top. */
+:root[data-ux-motion='premium'] .sf-page[data-dir='swipe'],
+:root[data-ux-motion='premium'] .sf-page[data-dir='vt'] {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-ux-motion='premium'] .sf-page {
+    animation: none;
+  }
+}
+:root[data-ux-motion='premium'][data-motion='reduced'] .sf-page {
+  animation: none;
+}
+@keyframes sf-nav-push {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+}
+@keyframes sf-nav-pop {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+}
+
+/* Premium feedback motion (Phase 104, ux.motion): press, set-complete tick, PR mark, gold skeleton, pull-to-refresh. Tokens only, nothing loops
+   except the skeleton shimmer and the refresh spinner (both only while something is loading). The Motion setting and prefers-reduced-motion win. */
+
+/* Press: a link row has no pointer handler, so :active gives the same answer as [data-pressed]; release springs back. */
+:root[data-ux-motion='premium'] .sf-press {
+  transition: transform var(--dur-base) var(--ease-spring), background-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+:root[data-ux-motion='premium'] a.sf-press:active {
+  transform: scale(0.97);
+  background-color: var(--bg-hover);
+  box-shadow: var(--sh-press);
+}
+/* Reduced motion keeps the background answer and drops the scale. */
+@media (prefers-reduced-motion: reduce) {
+  :root[data-ux-motion='premium'] .sf-press[data-pressed='true'],
+  :root[data-ux-motion='premium'] a.sf-press:active {
+    transform: none;
+  }
+}
+:root[data-ux-motion='premium'][data-motion='reduced'] .sf-press[data-pressed='true'],
+:root[data-ux-motion='premium'][data-motion='reduced'] a.sf-press:active {
+  transform: none;
+}
+
+/* Set-complete: a gold tick draws itself on the set just logged, the row flashes a gold wash once, then the tick fades. */
+:root[data-ux-motion='premium'] .sf-lg__set {
+  position: relative;
+}
+:root[data-ux-motion='premium'] .sf-lg__set:has(.sf-fx-check) {
+  padding-inline-end: calc(var(--sp-3) + 32px);
+  animation: sf-fx-flash 900ms var(--ease-out) backwards;
+}
+:root[data-ux-motion='premium'] .sf-fx-check {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: var(--sp-3);
+  margin-block: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gold-wash);
+  color: var(--gold-300);
+  animation: sf-fx-pop var(--dur-slow) var(--ease-spring) backwards, sf-fx-out var(--dur-slow) var(--ease-out) 1600ms forwards;
+}
+:root[data-ux-motion='premium'] .sf-fx-check path {
+  stroke: currentColor;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: sf-ch-draw var(--dur-slow) var(--ease-out) 80ms backwards;
+}
+
+/* PR moment: a small gold mark, one soft glow, once. No confetti. */
+:root[data-ux-motion='premium'] .sf-fx-pr {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  min-height: 1.5rem;
+  padding: 0 var(--sp-2);
+  border: 1px solid var(--gold-400);
+  border-radius: var(--r-sm);
+  background: var(--gold-wash);
+  color: var(--gold-300);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+:root[data-ux-motion='premium'] .sf-fx-pr--glow {
+  animation: sf-fx-glow 1200ms var(--ease-out) 1 backwards;
+}
+
+/* Gold skeleton: waits 150 ms (a faster load never flashes grey blocks), then a slow gold shimmer while it is still loading. */
+:root[data-ux-motion='premium'] .sf-skeleton {
+  background: linear-gradient(90deg, var(--bg-raised) 0%, var(--gold-wash) 45%, var(--tile-tint) 55%, var(--bg-raised) 100%);
+  background-size: 200% 100%;
+  animation: sf-shimmer 1.6s linear infinite, sf-fx-show 1ms linear 150ms backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-ux-motion='premium'] .sf-skeleton {
+    animation: none;
+  }
+}
+:root[data-ux-motion='premium'][data-motion='reduced'] .sf-skeleton {
+  animation: none;
+}
+
+/* Pull to refresh: the page follows the finger (a transform only WHILE pulling, so sticky and fixed children are untouched at rest), a pill says what happens. */
+:root[data-ux-motion='premium'] .sf-ptr {
+  position: relative;
+}
+:root[data-ux-motion='premium'] .sf-ptr[data-state='pulling'] .sf-ptr__body,
+:root[data-ux-motion='premium'] .sf-ptr[data-state='ready'] .sf-ptr__body,
+:root[data-ux-motion='premium'] .sf-ptr[data-state='busy'] .sf-ptr__body,
+:root[data-ux-motion='premium'] .sf-ptr[data-state='done'] .sf-ptr__body {
+  transform: translateY(var(--ptr-y, 0px));
+}
+:root[data-ux-motion='premium'] .sf-ptr[data-state='busy'] .sf-ptr__body,
+:root[data-ux-motion='premium'] .sf-ptr[data-state='done'] .sf-ptr__body {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+:root[data-ux-motion='premium'] .sf-ptr__pill {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  margin-inline: auto;
+  width: max-content;
+  max-width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--bg-raised);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  opacity: 0;
+  transform: translateY(calc(var(--ptr-y, 0px) / 2 - 50%));
+  pointer-events: none;
+}
+:root[data-ux-motion='premium'] .sf-ptr[data-state='pulling'] .sf-ptr__pill,
+:root[data-ux-motion='premium'] .sf-ptr[data-state='ready'] .sf-ptr__pill,
+:root[data-ux-motion='premium'] .sf-ptr[data-state='busy'] .sf-ptr__pill,
+:root[data-ux-motion='premium'] .sf-ptr[data-state='done'] .sf-ptr__pill {
+  opacity: 1;
+}
+:root[data-ux-motion='premium'] .sf-ptr[data-state='ready'] .sf-ptr__pill {
+  border-color: var(--gold-400);
+  color: var(--gold-300);
+}
+:root[data-ux-motion='premium'] .sf-ptr__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-400);
+  border-top-color: transparent;
+}
+:root[data-ux-motion='premium'] .sf-ptr[data-state='busy'] .sf-ptr__dot {
+  animation: sf-spin 800ms linear infinite;
+}
+
+@keyframes sf-fx-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+@keyframes sf-fx-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes sf-fx-flash {
+  from {
+    background-color: var(--gold-wash);
+  }
+}
+@keyframes sf-fx-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.06);
+    box-shadow: var(--glow-gold);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes sf-fx-show {
+  from {
+    opacity: 0;
+  }
+}

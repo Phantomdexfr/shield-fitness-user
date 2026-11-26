@@ -3,6 +3,7 @@ import type { ComponentChildren } from 'preact';
 import { useLocation, useRoute, useSearch } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import { Badge, Button, Card, Chip, CollapseAll, Collapsible, Dialog, EmptyState, PhotoFrame, Row, Sheet, SubPageHeader, showToast } from '../../ui/components';
+import { useUx } from '../../ui/useUx';
 import { MuscleChips } from '../../ui/body';
 import { loadAlternatives, machineOf } from '../../data/repos/alternatives';
 import type { Alternative } from '../../shared/alternatives';
@@ -60,6 +61,7 @@ export default function SessionPage() {
   const [undo, setUndo] = useState<Undo | null>(null);
   const [now, setNow] = useState(() => Date.now());
   const [finishOpen, setFinishOpen] = useState(false);
+  const sumOn = useUx('layout') === 'premium';
   const [keep, setKeep] = useState<'drop' | 'keep'>('drop');
   const [confirmRemove, setConfirmRemove] = useState<number | null>(null);
   const [confirmDiscard, setConfirmDiscard] = useState(false);
@@ -400,6 +402,10 @@ export default function SessionPage() {
     );
   };
 
+  // Phase 107-b: the finish sheet starts with a short summary of what was logged (Premium, ux.layout). Counts only: the volume rules (assisted, timed) are not touched.
+  const sumSets = sess.items.reduce((n, it) => n + it.sets.length, 0);
+  const sumMoves = sess.items.filter((it) => it.sets.length > 0).length;
+  const sumReps = sess.items.reduce((n, it) => n + it.sets.reduce((m, x) => m + (x.reps ?? 0), 0), 0);
   const openFinish = () => {
     setKeep('drop');
     setFinishOpen(true);
@@ -549,6 +555,14 @@ export default function SessionPage() {
             </>
           ) : (
             <>
+              {sumOn && (
+                <dl class="sf-fin" aria-label={t('lg.sum.title')}>
+                  <div class="sf-fin__cell"><dt>{t('lg.sum.time')}</dt><dd>{t('fs.elapsed', { n: Math.floor(elapsedSec(sess, now) / 60) })}</dd></div>
+                  <div class="sf-fin__cell"><dt>{t('lg.sum.moves')}</dt><dd>{sumMoves}</dd></div>
+                  <div class="sf-fin__cell"><dt>{t('lg.sum.sets')}</dt><dd>{sumSets}</dd></div>
+                  <div class="sf-fin__cell"><dt>{t('lg.sum.reps')}</dt><dd>{sumReps}</dd></div>
+                </dl>
+              )}
               {notDone > 0 && (
                 <>
                   <p class="sf-rt__meta">{t('fs.notdone', { n: notDone, parts: parts.join(', ') })}</p>

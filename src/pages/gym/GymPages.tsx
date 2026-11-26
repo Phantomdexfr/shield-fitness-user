@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, Icon, SubPageHeader } from '../../ui/components';
+import { Button, Icon, PageIcon, SubPageHeader } from '../../ui/components';
 import { QrSvg } from '../share/qr';
 import { istDayKey } from '../../shared/dates';
 import {
@@ -61,12 +61,12 @@ function Updated({ at }: { at: number | null }) {
 export function GymHomePage() {
   const [, navigate] = useLocation();
   const [busy, setBusy] = useState(false);
-  const rows: { to: string; key: StringKey; icon: 'check' | 'info' | 'plus-square' | 'user-circle'; feature: string }[] = [
-    { to: '/gym/membership', key: 'gd.mem', icon: 'user-circle', feature: 'membership' },
-    { to: '/gym/qr', key: 'gd.qr', icon: 'check', feature: 'attendance_qr' },
-    { to: '/gym/attendance', key: 'gd.att', icon: 'check', feature: 'attendance_qr' },
-    { to: '/gym/inbox', key: 'gd.inbox', icon: 'info', feature: 'inbox' },
-    { to: '/gym/requests', key: 'gd.req', icon: 'plus-square', feature: 'requests' },
+  const rows: { to: string; key: StringKey; icon: 'check' | 'info' | 'plus-square' | 'user-circle'; feature: string; id: string }[] = [
+    { to: '/gym/membership', key: 'gd.mem', id: 'gym.membership', icon: 'user-circle', feature: 'membership' },
+    { to: '/gym/qr', key: 'gd.qr', id: 'gym.qr', icon: 'check', feature: 'attendance_qr' },
+    { to: '/gym/attendance', key: 'gd.att', id: 'gym.attendance', icon: 'check', feature: 'attendance_qr' },
+    { to: '/gym/inbox', key: 'gd.inbox', id: 'gym.inbox', icon: 'info', feature: 'inbox' },
+    { to: '/gym/requests', key: 'gd.req', id: 'gym.requests', icon: 'plus-square', feature: 'requests' },
   ];
   return (
     <GymFrame title={t('gd.title')} back="/me">
@@ -81,7 +81,7 @@ export function GymHomePage() {
             <ul class="sf-st__list">
               <li>
                 <a href="/gym/restore" class="sf-st__group" onClick={(e) => { e.preventDefault(); navigate('/gym/restore'); }}>
-                  <span class="sf-st__icon" aria-hidden="true"><Icon name="info" /></span>
+                  <PageIcon id="gym.restore" classic="info" />
                   <span class="sf-st__text"><span class="sf-st__name">{t('rs.row')}</span><span class="sf-st__hint">{t('rs.row.hint')}</span></span>
                   <span class="sf-st__caret" aria-hidden="true"><Icon name="caret-right" /></span>
                 </a>
@@ -92,7 +92,7 @@ export function GymHomePage() {
             {rows.filter((r) => resolveFeature(r.feature)).map((r) => (
               <li key={r.to}>
                 <a href={r.to} class="sf-st__group" onClick={(e) => { e.preventDefault(); navigate(r.to); }}>
-                  <span class="sf-st__icon" aria-hidden="true"><Icon name={r.icon} /></span>
+                  <PageIcon id={r.id} classic={r.icon} />
                   <span class="sf-st__text">
                     <span class="sf-st__name">{t(r.key)}</span>
                     {r.to === '/gym/inbox' && unreadCount(d.inbox) > 0 && <span class="sf-st__hint">{t('gd.unread', { n: unreadCount(d.inbox) })}</span>}

@@ -1,0 +1,47 @@
+/* Premium tab bar (Phase 99, ux.tabbar): frosted bar, sliding gold indicator, spring on tap.
+   The solid background is the FALLBACK; the frosted look only applies inside a backdrop-filter feature query. Classic bar in shell.css is untouched. */
+:root[data-ux-tabbar='premium'] .sf-tabbar {
+  background: var(--bg-raised);
+  border-top-color: var(--line);
+  box-shadow: var(--hl-top);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root[data-ux-tabbar='premium'] .sf-tabbar {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: saturate(160%) blur(18px);
+    backdrop-filter: saturate(160%) blur(18px);
+  }
+}
+
+/* Sliding gold indicator: one 28 px pill on the top edge, moved with --tab-i (0-based) across --tab-n equal columns. */
+:root[data-ux-tabbar='premium'] .sf-tabbar__ind {
+  position: absolute;
+  top: 0;
+  left: var(--safe-left);
+  width: calc((100% - var(--safe-left) - var(--safe-right)) / var(--tab-n, 5));
+  height: 3px;
+  transform: translateX(calc(var(--tab-i, 0) * 100%));
+  pointer-events: none;
+}
+:root[data-ux-tabbar='premium'] .sf-tabbar__ind::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin-inline: auto;
+  border-radius: 0 0 3px 3px;
+  background: var(--gold-400);
+}
+
+/* Spring on tap + slide, only when motion is allowed (the Motion setting and prefers-reduced-motion win). */
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-tabbar='premium']:not([data-motion='reduced']) .sf-tabbar__ind {
+    transition: transform var(--dur-slow) var(--ease-spring);
+  }
+  :root[data-ux-tabbar='premium']:not([data-motion='reduced']) .sf-tabbar__item .sf-icon {
+    transition: transform var(--dur-base) var(--ease-spring);
+  }
+  :root[data-ux-tabbar='premium']:not([data-motion='reduced']) .sf-tabbar__item:active .sf-icon {
+    transform: scale(0.86);
+  }
+}

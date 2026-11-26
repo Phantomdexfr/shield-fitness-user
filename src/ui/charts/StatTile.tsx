@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { t } from '../../i18n';
 import { countUpValue, deltaInfo, fmtNum, summaryFor2 } from '../../shared/chartMath';
-import { prefersReducedMotion } from '../components/motion';
+import { useFx } from '../components/Feedback';
 import { Sparkline } from './Sparkline';
 
 export interface StatTileProps {
@@ -19,20 +19,23 @@ export interface StatTileProps {
 
 const COUNT_MS = 600;
 
-/** Counts a number up once on mount (final frame = exact `format(value)`); a text value is shown as it is. */
-function useCountUp(value: number | string, on: boolean): number | null {
+/** Counts a number up once per view (final frame = exact `format(value)`); a text value is shown as it is. Phase 104: a later change of the
+ *  number (a refresh, a re-read) is shown at once and never counts again; Premium also obeys the in-app Motion setting. */
+function useCountUp(value: number | string, on: boolean, label: string): number | null {
   const target = typeof value === 'number' && Number.isFinite(value) ? value : null;
-  const run = on && target !== null && !prefersReducedMotion() && typeof requestAnimationFrame === 'function';
-  const [shown, setShown] = useState<number | null>(target === null ? null : run ? 0 : target);
+  const play = useFx(`count:${label}`, on && target !== null && typeof requestAnimationFrame === 'function', target === null);
+  const done = useRef(false);
+  const [shown, setShown] = useState<number | null>(target === null ? null : play ? 0 : target);
   useEffect(() => {
     if (target === null) {
       setShown(null);
       return;
     }
-    if (!run) {
+    if (!play || done.current) {
       setShown(target);
       return;
     }
+    done.current = true;
     let raf = 0;
     let start = 0;
     const step = (ts: number) => {
@@ -43,15 +46,13 @@ function useCountUp(value: number | string, on: boolean): number | null {
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-    // once per first reveal: a later change of the number is shown at once
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [target]);
+  }, [target, play]);
   return shown;
 }
 
 export function StatTile({ label, value, unit, format, delta, spark, countUp = true, large, href }: StatTileProps) {
   const fmt = format ?? fmtNum;
-  const shown = useCountUp(value, countUp);
+  const shown = useCountUp(value, countUp, label);
   const isNum = typeof value === 'number';
   const finalText = isNum ? (Number.isFinite(value) ? fmt(value) : '–') : String(value);
   const text = isNum ? (shown === null ? '–' : fmt(shown)) : finalText;

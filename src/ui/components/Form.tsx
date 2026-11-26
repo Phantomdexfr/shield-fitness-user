@@ -1,5 +1,6 @@
 import type { ComponentChildren, JSX } from 'preact';
 import { useId } from 'preact/hooks';
+import { useUx } from '../useUx';
 import { IconButton } from './Button';
 import { LABELS } from './labels';
 import { Pressable } from './Pressable';
@@ -10,13 +11,14 @@ export interface FieldProps {
   label: string;
   hint?: string;
   error?: string;
+  class?: string;
   children?: ComponentChildren;
 }
 
 /** Label + control + hint/error. Text wraps. */
-export function Field({ id, label, hint, error, children }: FieldProps) {
+export function Field({ id, label, hint, error, class: cls, children }: FieldProps) {
   return (
-    <div class={cx('sf-field', error && 'sf-field--error')}>
+    <div class={cx('sf-field', error && 'sf-field--error', cls)}>
       <label class="sf-field__label" for={id}>
         {label}
       </label>
@@ -41,20 +43,43 @@ export type InputProps = Omit<JSX.HTMLAttributes<HTMLInputElement>, 'class' | 'c
   hint?: string;
   error?: string;
   class?: string;
+  /** Premium search: a Cancel button inside the field while it has text. Calls this to clear. */
+  onCancel?: () => void;
+  cancelLabel?: string;
 };
 
-export function Input({ label, hint, error, id, class: cls, ...rest }: InputProps) {
+/** Premium (ux.controls): the label floats up inside the field (only when there is no placeholder and it is not a search box); gold focus ring; 16 px text kept for iOS. */
+export function Input({ label, hint, error, id, class: cls, onCancel, cancelLabel = LABELS.cancel, ...rest }: InputProps) {
   const auto = useId();
+  const premium = useUx('controls') === 'premium';
   const fid = typeof id === 'string' ? id : auto;
+  const attrs = rest as { placeholder?: string; type?: string; value?: unknown };
+  const float = premium && !attrs.placeholder && attrs.type !== 'search';
+  const withCancel = premium && onCancel !== undefined;
+  const input = (
+    <input
+      {...rest}
+      {...(float ? { placeholder: ' ' } : {})}
+      id={fid}
+      class={cx('sf-input', withCancel && 'sf-input--cancel', cls)}
+      aria-invalid={error ? 'true' : undefined}
+      aria-describedby={error || hint ? `${fid}-msg` : undefined}
+    />
+  );
   return (
-    <Field id={fid} label={label} hint={hint} error={error}>
-      <input
-        {...rest}
-        id={fid}
-        class={cx('sf-input', cls)}
-        aria-invalid={error ? 'true' : undefined}
-        aria-describedby={error || hint ? `${fid}-msg` : undefined}
-      />
+    <Field id={fid} label={label} hint={hint} error={error} class={float ? 'sf-field--float' : undefined}>
+      {withCancel ? (
+        <div class="sf-input-wrap">
+          {input}
+          {String(attrs.value ?? '') !== '' && (
+            <button type="button" class="sf-input__cancel" onClick={onCancel}>
+              {cancelLabel}
+            </button>
+          )}
+        </div>
+      ) : (
+        input
+      )}
     </Field>
   );
 }

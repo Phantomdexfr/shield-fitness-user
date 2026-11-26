@@ -1,6 +1,7 @@
 // Allometric thresholds, per-set benchmark e1RM, tier index (engines.md 26.3, 26.4). Pure.
 
 import { anchorFor, type Ladder, type LoadMode, type Sex, type TierDef } from './ladders';
+import { taperedReps } from './calibration';
 
 /** Allometric exponent (NSCA, configurable constant). */
 export const ALLOMETRIC_EXPONENT = 0.67;
@@ -51,11 +52,12 @@ export function loadFor(mode: LoadMode, bwFraction: number, bw: number, weightKg
   return mode === 'per_hand' ? 2 * w : w;
 }
 
-/** benchmarkE1RM = Epley(load, reps) / factor. Reps 1-12 only by default (13 and above, 0, or no reps -> null); core ladders pass a higher cap. Not rounded. */
-export function benchmarkE1RM(load: number, reps: number | null | undefined, factor: number, maxReps = 12): number | null {
+/** benchmarkE1RM = Epley(load, reps) / factor. Reps 1-12 only by default (13 and above, 0, or no reps -> null); core ladders pass a higher cap. Not rounded; `taper` softens reps above 12 (strict mode). */
+export function benchmarkE1RM(load: number, reps: number | null | undefined, factor: number, maxReps = 12, taper = false): number | null {
   if (reps == null || !Number.isInteger(reps) || reps < 1 || reps > maxReps || !(factor > 0) || !(load > 0)) return null;
   // Epley, reps 1 = the load itself. Kept unrounded (engine/oneRm rounds to 2 dp) so a threshold is never missed by rounding.
-  const raw = reps === 1 ? load : load * (1 + reps / 30);
+  // `taper` (calibration v2): reps beyond 12 count a third each, so 30 reps no longer doubles the load.
+  const raw = reps === 1 ? load : load * (1 + (taper ? taperedReps(reps) : reps) / 30);
   return raw / factor;
 }
 

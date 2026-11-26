@@ -2,10 +2,12 @@
 import { render, type ComponentChild } from 'preact';
 import { act } from 'preact/test-utils';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
+import { resetPlayed } from '../../src/ui/components/motion';
 import { AreaChart, BarChart, LineChart, Sparkline, type Series } from '../../src/ui/charts';
 
 let root: HTMLElement;
 beforeEach(() => {
+  resetPlayed(); // Phase 104: first-reveal motion is once per view; each test is its own view
   document.body.innerHTML = '';
   root = document.createElement('div');
   document.body.appendChild(root);

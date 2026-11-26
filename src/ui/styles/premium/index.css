@@ -1,0 +1,15 @@
+/* Premium style (Milestone 12). Every rule here is scoped under :root[data-ux-<key]='premium'. Tokens only: no colour literals,
+   no truncation, no hue 250-350 (tests/guard/premium.test.ts). Classic CSS elsewhere is frozen. Later phases add files and import them here. */
+@import './scrollbars.css';
+@import './surfaces.css';
+@import './icons.css';
+@import './shell.css';
+@import './headers.css';
+@import './controls.css';
+@import './wheel.css';
+@import './sheets.css';
+@import './motion.css';
+@import './screens.css';
+@import './logger.css';
+@import './onboarding.css';
+@import './today.css';

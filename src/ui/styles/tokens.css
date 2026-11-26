@@ -111,6 +111,20 @@
   --sh-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 10px 30px rgba(0, 0, 0, 0.45);
   --sh-press: 0 2px 10px rgba(0, 0, 0, 0.55) inset;
 
+  /* Depth (Phase 96): used by premium CSS only (src/ui/styles/premium/*). Soft layered shadows, a faint warm 1px top highlight,
+     ONE gold hero wash per screen (18%), a tinted icon tile. Gold only; classic ignores these. */
+  --sh-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.25);
+  --sh-2: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(0, 0, 0, 0.35);
+  --sh-3: 0 4px 8px rgba(0, 0, 0, 0.4), 0 16px 40px rgba(0, 0, 0, 0.5);
+  --hl-top: inset 0 1px 0 rgba(244, 238, 220, 0.06);
+  --hero-wash: rgba(212, 175, 55, 0.18);
+  --tile-tint: rgba(212, 175, 55, 0.1);
+  /* Phase 110: the liquid-gold Start button (premium only): a curved metal gradient, a bright top edge, a darker lower edge, a drifting sheen. */
+  --gold-liquid: linear-gradient(180deg, var(--gold-100) 0%, var(--gold-200) 22%, var(--gold-400) 55%, var(--gold-500) 100%);
+  --gold-edge: inset 0 1px 0 rgba(255, 250, 230, 0.6), inset 0 -3px 6px rgba(106, 82, 23, 0.55);
+  --sheen: linear-gradient(105deg, transparent 30%, rgba(255, 250, 230, 0.55) 50%, transparent 70%);
+  --glass-bg: rgba(20, 18, 14, 0.72); /* Phase 99: --bg-raised at 72%, the frosted tab bar / header (only used inside a backdrop-filter feature query) */
+
   /* Overlays and soft washes (translucent fills, used by sheets, chips, badges) */
   --scrim: rgba(0, 0, 0, 0.62);
   --gold-wash: rgba(212, 175, 55, 0.12);

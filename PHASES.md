@@ -420,5 +420,147 @@ One session of fixes from the owner's device reports (no keys/passwords). Only l
 **Depends:** 88. **In scope:** the install screen shows one primary "Install app" button for every Android state (direct browser install dialog when the browser offered it; otherwise a toast that names the menu steps); About page restructured: app name and release, "Made by" with the maker's name in bold and email link, the story, links; `author` added to `about.json` schema (optional). **Out:** iOS flow, new install states, contract/, any other page. **Verify:** typecheck once; `tests/pages/about89.test.ts`, `tests/pages/settings63.test.ts`.
 
 ---
+## MILESTONE 12 — Premium UI: Premium by default, Classic kept, switch anywhere (96-111)
+**Full plan, verdict tables, the Style System and risks: `docs/UI_PREMIUM_PLAN.md`. Read it before any phase of this milestone. Classic (the 1.2.0 look and behaviour) must NEVER be removed.** Planned 2026-11-26, docs only, nothing started. Member app only: the Admin app and `contract/` are untouched; no Edge Function redeploy, no SQL.
+**Versions:** 1.3.0 at Phase 111 (stays 1.2.0 until then). **Rules for every phase:** add the premium version beside the classic one behind its `ux.*` switch (never replace); classic CSS is frozen, premium CSS goes in `src/ui/styles/premium/*.css` scoped under `:root[data-ux-<key]='premium'`, tokens only; structural differences read `useUx('<key>')`, the classic path stays in place; `ux.motion` loses to the Motion setting and `prefers-reduced-motion`; screenshots of touched screens in BOTH styles at 390x844 and 360x800, saved OUTSIDE the project folder. **Standing gaps recorded by EVERY phase (never claimed):** real phone, iPhone Safari, vibration, frosted-blur cost on low-end Android, how wheels feel under a thumb. Order may change only if a dependency forces it (log why). Phase 110 is BLOCKED until Phase 109 is done.
+
+## Phase 96 — Style system + Depth foundation [E]
+**Goal:** the switches, the default, the early apply and the depth tokens exist, so every later phase only adds a premium variant. **Depends:** 95.
+**Key files:** `src/app/appearance.ts`, `index.html`, `src/pages/settings/SettingsGroupPage.tsx` (Appearance group), `src/ui/styles/tokens.css`, `src/ui/styles/premium/` (new), `tests/guard/`.
+**Do:** (1) prefs row `appearance:ux` = master (`premium|classic|custom`) + the nine switches `ux.surfaces`, `ux.icons`, `ux.tabbar`, `ux.headers`, `ux.controls`, `ux.wheels`, `ux.sheets`, `ux.motion`, `ux.layout`; default Premium for everyone including existing installs; device-only (not in the cloud backup), included in the backup FILE. (2) `useUx('<key>')` hook + `data-ux-<key>="premium|classic"` root attributes from `applyAppearance`, and a tiny inline script in `index.html` that applies them before first paint (record the storage source as an [A], see the plan section 3.3). (3) Settings -> Appearance -> "Interface style": master 3-way segmented control (Premium / Classic / Custom, Custom shown automatically on a mix) and a bordered group of nine switches each with a one-line plain description; changes apply instantly; strings via `t()`. (4) Depth tokens in `tokens.css` only (shadow levels 1-3, 1px top highlight, hero wash 18%, tile tint) and an empty `premium/index.css` imported once. (5) Scrollbar audit: page, sheets, drawers, horizontal rows and swipe strips (for example `.sf-rcp__track` hides its bar); list what differs from `base.css`, fix only by adding premium-scoped or shared token-based rules, never by editing a classic rule. (6) Write the full Depth rule into `docs/design/UI_RULES.md` and `DESIGN_TOKENS.md` (replacing the one-line pointer). (7) Guard tests: no hex outside tokens / no `text-overflow` / `line-clamp` / no hue 250-350 in `premium/*.css`; classic-integrity list (selectors, classes, component paths; later phases append); every `ux.*` key has a Settings row and a default.
+**Verify:** typecheck once; named tests only: the new guard test, `tests/guard.test.ts`, a prefs/appearance unit test (default Premium, master vs switches, Custom detection), the Settings appearance page test. Screenshots of Settings -> Appearance in both styles.
+**Standing gaps to record:** the five M12 gaps; scrollbars were audited by code and CSS only, not on a phone; the early-apply flash is not proven on a real phone.
+**Owner check:** open Settings -> Appearance; flip Premium / Classic and see the master row react; mix two switches and see Custom; reopen the app and see no wrong-style flash.
+
+## Phase 97 — Surfaces and grouped lists [E]
+**Goal:** depth: 3 elevations, inset-grouped lists, the gold hero card (A1, A2). **Depends:** 96.
+**Key files:** `src/ui/components/Card.tsx`, `src/ui/components/Rows.tsx`, `src/ui/styles/premium/surfaces.css` (new), `src/ui/styles/tokens.css`, `tests/guard/`.
+**Do:** under `ux.surfaces` only: elevation 1/2/3 card styles (soft layered shadow + 1px top highlight); an inset-grouped `RowGroup` variant (one container, hairline dividers, no box per row, kills box-in-a-box); a `HeroCard` component (faint gold radial wash + thin gold gradient border, ONE per screen, gold-only); classic card and row code left as is. Append the touched classic selectors to the classic-integrity list.
+**Verify:** component tests for `RowGroup` and `HeroCard` in both states; guard tests from Phase 96 stay green; screenshots in both styles.
+**Standing gaps to record:** the five M12 gaps; shadow look on an OLED phone not judged.
+**Owner check:** compare one list page in Premium and Classic; check the gold card is subtle, not loud.
+
+## Phase 98 — Icons [E]
+**Goal:** about 80 correct Phosphor icons in tinted tiles (A3). **Depends:** 96.
+**Key files:** `src/ui/icons/generated.ts`, `src/ui/components/Icon.tsx`, `src/ui/icons/premiumMap.ts` (new), `src/ui/styles/premium/icons.css` (new), the Me and Settings row definitions, `tests/`.
+**Do:** grow `generated.ts` from 21 to about 80 inlined Phosphor icons (regular + fill, no emoji, no icon font, no CDN); a premium mapping table beside the UNTOUCHED classic mapping that fixes the wrong icons: History, Goals, Reminders (checkmark), Progress (dumbbell), Personal records (plus-square), Year in review (generic image), Settings (info), Food and water (plus), Muscle badges and Gym (same user-circle), Simple/Advanced (search); 32px tinted rounded tiles on Me/Settings (tile tint token); the full icon grid as an owner-visible page or screenshot. `ux.icons` OFF = the current 21-icon set and mapping.
+**Verify:** test that every mapped name exists, that classic mapping is byte-for-byte the old one, and that the premium table has no duplicate meaning for two different pages; screenshots of Me and Settings in both styles.
+**Standing gaps to record:** the five M12 gaps; bundle size growth not measured by a build (no build here); icon meaning judged by the owner, not tested.
+**Owner check:** look at the icon grid and Me/Settings; say any icon that still feels wrong.
+
+## Phase 99 — Tab bar and headers [E]
+**Goal:** frosted tab bar and large-title headers (A4, A5). **Depends:** 96, 97.
+**Key files:** `src/app/Shell.tsx` (tab bar), `src/ui/components/SubPageHeader.tsx`, `src/ui/styles/shell.css` (read only), `src/ui/styles/premium/shell.css` (new), `src/ui/styles/premium/headers.css` (new), `tests/`.
+**Do:** `ux.tabbar`: frosted bar (`backdrop-filter` with a solid fallback via `@supports`), sliding gold indicator, filled icon when active, spring on tap; classic solid bar with hairline kept. `ux.headers`: large title that collapses to a small frosted bar on scroll, plus a back-button variant for sub-pages; classic fixed 28px title kept. Safe-area insets honoured; no layout shift on collapse.
+**Verify:** component tests for both states; a test that the fallback rule exists; screenshots at top of page and scrolled, both styles, 390x844 and 360x800.
+**Standing gaps to record:** the five M12 gaps (the blur cost one is the main one here); scroll collapse smoothness not felt on a phone.
+**Owner check:** scroll a long page; watch the title collapse; tap tabs; if it feels slow on your phone, turn Tab bar and Headers off in Settings and tell me.
+
+## Phase 100 — Controls kit [E]
+**Goal:** the app's controls feel native (B1, B2, B4, B6, B7). **Depends:** 96, 97.
+**Key files:** `src/ui/components/Choice.tsx`, `Chip.tsx`, `Form.tsx`, `Button.tsx`, `Rows.tsx`, `src/ui/styles/premium/controls.css` (new).
+**Do:** under `ux.controls`: segmented with a sliding gold thumb (4+ options becomes a value row that opens a sheet list); switch with gold on state and a spring thumb; ONE chip shape (selected = gold outline + wash, no OS checkbox glyph); floating-label inputs with a gold focus ring (16px+ text kept for iOS); search with Cancel; button kinds primary/secondary/danger/icon each in default, pressed, disabled, loading; an action menu = one primary + a "..." popover (Add to go-tos, Never show, Got it do not show again). Classic components stay as is.
+**Verify:** component tests for each control in both states, including keyboard and aria; guard test still green; a states page or screenshots of the four button kinds in all four states.
+**Standing gaps to record:** the five M12 gaps; focus ring and floating label with a real soft keyboard not checked.
+**Owner check:** try a segmented row, a switch, a chip, a text field, search and the "..." menu in both styles.
+
+## Phase 101 — Wheel picker [E]
+**Goal:** one reusable wheel (B3). **Depends:** 96, 100.
+**Key files:** `src/ui/components/WheelPicker.tsx` (new), `src/shared/wheel.ts` (new, pure: value lists, step rules, snapping), `src/ui/components/Rows.tsx` (`NumberRow`), `src/ui/styles/premium/wheel.css` (new), `src/data/repos/` (read weight steps only), `tests/`.
+**Do:** a wheel with scroll-snap, a tick feel, selected value in gold between two thin gold lines; used for weight, reps, height and rest seconds; value lists come from existing rules (weight steps and units: never invented, see "Awaiting from owner"; stop and say if a step table is missing); every number field that opens a wheel gets a small "Use steppers instead" link (`ux.wheels`); steppers and sheet rows stay as Classic. The calendar sheet is NOT touched.
+**Verify:** pure tests for value lists, kg/lb, snapping and clamping; component test for keyboard and aria (spinbutton role) access; guard test.
+**Standing gaps to record:** the five M12 gaps (wheels under a thumb is the main one); haptic tick on Android not tried.
+**Owner check:** open a height row and a rest-time row; scroll with your thumb; say if it is too fast, too slow, or mis-taps.
+
+## Phase 102 — Sheets [E]
+**Goal:** sheets that feel native (B5 minus the calendar). **Depends:** 96, 100.
+**Key files:** `src/ui/components/Overlay.tsx`, `src/ui/components/motion.ts`, `src/ui/styles/premium/sheets.css` (new), `tests/`.
+**Do:** under `ux.sheets`: fading scrim, spring up, grab handle, finger-follow drag with velocity, rubber-band at the top, medium and large detents, keyboard-aware bottom padding (`dvh`, visual viewport). **The calendar sheet (`DatePicker.tsx`) keeps its Month/Year dropdowns above the day grid, Clear and Done: its structure is not touched; it only gets the shared scrim and handle.** Reduced motion: instant sheets.
+**Verify:** component tests for open/close, drag-to-dismiss threshold, detent choice and reduced motion; a test that `DatePicker` still renders the two dropdowns, Clear and Done.
+**Standing gaps to record:** the five M12 gaps; finger-follow and velocity feel, soft-keyboard behaviour on iPhone Safari, rubber-band on real touch.
+**Owner check:** open three different sheets and drag them; open the date picker and confirm it looks the same as before.
+
+## Phase 103 — Motion I: navigation [E]
+**Goal:** pages move with direction (C1 part, swipe-back, shared element). **Depends:** 96, 99.
+**Key files:** `src/app/` (router/shell transition), `src/ui/components/motion.ts`, `src/ui/styles/premium/motion.css` (new), `src/pages/library/`, `src/pages/exercise/`, `tests/`.
+**Do:** under `ux.motion`: directional push/pop between pages (View Transitions API with a plain CSS fallback, no flash when unsupported); swipe-from-left-edge back that follows the finger and cancels on a short pull; shared-element transition from a library row to the exercise page (photo or figure); classic 8px fade-up kept. The Motion (Full/Reduced) setting and `prefers-reduced-motion` always win. Browser back stays the source of truth.
+**Verify:** tests for the direction rule (push vs pop), the fallback path and reduced motion; guard test.
+**Standing gaps to record:** the five M12 gaps; swipe-back versus the iOS edge-swipe and Android gesture back not tried on a phone; View Transitions support differs by browser.
+**Owner check:** open an exercise from the library and go back with the swipe and with the button; try with Motion set to Reduced.
+
+## Phase 104 — Motion II: feedback [E]
+**Goal:** the app answers every action (C2-C7). **Depends:** 96, 103.
+**Key files:** `src/ui/components/motion.ts`, `src/ui/components/Pressable.tsx`, `src/ui/charts/`, `src/ui/styles/premium/motion.css`, `src/ui/components/Feedback.tsx`, `tests/`.
+**Do:** under `ux.motion`: audit and apply count-up (stat tiles, XP, volume) and draw-in (rings, lines), once per view, never looping; set-complete check; a restrained gold PR moment (no confetti); gold skeleton shimmer for anything over 150 ms; pull-to-refresh on data pages with the sync pill; press feedback rules (scale 0.97 + background shift; Android 8 ms vibration through the existing haptics switch; iPhone visual only).
+**Verify:** tests for count-up/draw-in off under reduced motion, one-time rule, pull threshold; guard test still green.
+**Standing gaps to record:** the five M12 gaps; pull-to-refresh against the browser's own pull on iPhone Safari; 8 ms vibration not felt.
+**Owner check:** finish a set, open Progress, pull down on a data page, hit a PR (or the preview of it); say if anything is too much.
+
+## Phase 105 — Screens I: Me and Settings, Library, Train [E]
+**Goal:** grouped lists with tiles, the library list, a Train tab that is no longer blank (D6, D7, D8). **Depends:** 97, 98, 100, 104.
+**Key files:** `src/pages/MePage.tsx`, `src/pages/settings/SettingsHub.tsx` and `SettingsGroupPage.tsx`, `src/pages/library/`, `src/pages/session/TrainPage.tsx`, `src/ui/styles/premium/screens.css` (new), `tests/pages/`.
+**Do:** under `ux.layout` (+ `ux.surfaces`, `ux.icons`, `ux.controls`): Me and Settings as inset-grouped lists with icon tiles and the new controls instead of 4-way segmented rows; Library as an inset-grouped list with filter chips, search with Cancel and machine photo thumbs (4:3 frame, gold-outline placeholder); Train = next workout, routines, history preview and other ways to train. Each page gets a "View" entry in its "..." menu or header with the switches relevant to it (Layout, Look). Existing `Collapsible` bars keep working.
+**Verify:** page tests in both styles for the three pages (rows present, View sheet flips the layout); the existing page tests stay green; screenshots in both styles.
+**Standing gaps to record:** the five M12 gaps; Train preview content depends on the owner's own data on a phone.
+**Owner check:** walk Me, Settings, Library and Train in Premium, then use each page's View sheet to go back to Classic.
+
+## Phase 106 — Screens II: Body, Exercise page, Progress [E]
+**Goal:** figure-first Body, a cleaner Exercise page, a better Progress (D2, D4, D5). **Depends:** 97, 100, 102, 104.
+**Key files:** `src/pages/body/`, `src/pages/exercise/`, `src/pages/progress/`, `src/ui/body/figures` (the repo's real figures), `src/ui/charts/`, `src/ui/styles/premium/screens.css`.
+**Do:** under `ux.layout`: **Body** figure first using the REPO's real figures (not a hand-drawn one), tap a muscle opens a half-height sheet, Front/Back toggle, links in a compact row below; "Layout: Figure first / List first" in the page's View sheet (list first = today's page). **Exercise page:** figure up top, one primary + "..." menu, unified tag chips, existing `Collapsible` bars kept, 4:3 photo frame with gold-outline placeholder. **Progress:** count-up hero numbers, a proper 2-up grid (Streak tile aligned), scrubbable line chart (touch-and-drag readout). Every list stays paired with the figure (not colour alone).
+**Verify:** page tests in both styles for the three pages; the BodyPicker tests stay green; screenshots in both styles.
+**Standing gaps to record:** the five M12 gaps; scrubbing on a real touchscreen; figure tap targets on small phones.
+**Owner check:** tap muscles on Body, open an exercise, scrub the Progress chart; switch each page to Classic and back.
+
+## Phase 107 — Workout logger [E] (pre-split: 107-a, 107-b)
+**Goal:** logging a set is one-thumb and satisfying (D3). **Depends:** 101, 102, 104, 106.
+**Key files:** `src/pages/session/`, `src/ui/components/WheelPicker.tsx`, `src/ui/components/Overlay.tsx`, `src/ui/styles/premium/logger.css` (new), `src/shared/` (read only), `tests/pages/`.
+**Do (107-a):** wheels for BOTH weight and reps as the main input replacing the plus/minus steppers (steppers stay as the Classic option); sticky exercise header; "Weight and reps input: Wheels / Steppers" in the page's View sheet (`ux.wheels`); autosave per set unchanged. **Do (107-b):** swipe to delete/duplicate set rows (with undo); rest-timer docking animation; finish summary sheet; set-complete check from Phase 104 reused. Autosave, assisted-volume and timed-hold logic (Phases 92-93) are NOT changed; stop and say if they conflict.
+**Verify:** page tests for logging with wheels and with steppers (same saved values), swipe actions with undo, summary sheet; existing session tests stay green.
+**Standing gaps to record:** the five M12 gaps (wheels under a thumb during a real workout is the main one); sweaty-thumb swipe reliability; rest-timer behaviour with the screen off.
+**Owner check:** log a full workout with wheels, then flip to Steppers and log another; compare the two summaries.
+
+## Phase 108 — Onboarding polish + launch polish [E]
+**Goal:** the first minute and the install feel premium (D9, E). **Depends:** 100, 101, 102.
+**Key files:** `src/pages/welcome/WelcomePage.tsx`, `src/ui/styles/onboarding.css` (read only), `src/ui/styles/premium/onboarding.css` (new), `public/icons/`, `index.html`, the manifest block in `vite.config.ts`.
+**Do:** "About you": segmented with a real selected state, Date of birth / Height / Weight rows that open sheets (the existing calendar sheet and the wheels); splash screen, app icon, theme and status-bar colour, gold text selection, 8-point grid pass on touched CSS. App icon and logo files: use what the owner supplied; if none, keep the placeholders and say so (never invent a logo).
+**Verify:** onboarding state tests stay green; guard tests; screenshots in both styles.
+**Standing gaps to record:** the five M12 gaps; install splash and status-bar colour on a real Android and iPhone.
+**Owner check:** reinstall the app, watch the splash, walk `/welcome` in both styles.
+
+## Phase 109 — Today decision [D]
+**Goal:** the owner decides what the Today screen becomes (D1). DOCS ONLY: no code, no typecheck, no tests. **Depends:** 97, 99, 105.
+**Key files:** `docs/UI_PREMIUM_PLAN.md`, `PHASES.md`, `PHASE_STATUS.md` (and a mock or screenshot of today's Today screen, if one can be made).
+**Do:** show the D1 proposal (date label + small sync pill; workout hero card with ring, exercise count, Start workout primary, Swap day + Rest today secondary; 7-cell week strip with today in gold outline; "Next up" first 3 exercises with a mini body figure; Quick 2x2 grid; empty state with gold figure, one line, one primary button) next to today's 1.2.0 Today screen; ask the owner for a verdict per part (keep, change, drop); record it in the plan; fill in the exact scope of Phase 110; mark 110 unblocked.
+**Verify:** the plan has a "Today verdict" section and Phase 110 lists exactly what to build.
+**Standing gaps to record:** the five M12 gaps; the proposal is not approved until the owner says so.
+**Owner check:** answer the verdict questions (this is the only thing blocking Phase 110).
+
+## Phase 110 — Today [E] (DONE 2026-11-27)
+**Goal:** build exactly the verdict in `docs/UI_PREMIUM_PLAN.md` section 2.3 ("Today verdict"). **Depends:** 109 (DONE), 97, 100, 104.
+**Key files:** `src/pages/today/TodayPage.tsx`, `src/ui/styles/premium/screens.css` (or a new `premium/today.css` imported from `premium/index.css`), `src/ui/components/` (`HeroCard` from Phase 97, `ViewSheet`), `src/pages/routines/WeekView.tsx` (style only), `tests/pages/` or `tests/app/`.
+**Do (exactly this, all under `ux.layout`; Classic Today stays byte-for-byte as is):**
+1. **Top:** a small date label (IST, e.g. "Thursday, 26 Nov") and the sync pill on one line above the hero; the large title keeps working with the Phase 99 header.
+2. **Hero card** (`HeroCard`): a progress ring (exercises with sets logged / exercises planned in an open session of today; full when "Workout for today completed"; hidden on rest / mobility / active kinds) [A-P109.2], "N exercises" with the existing minutes estimate, the **liquid-gold Start workout button** (spec in plan 2.3.1), then Swap day and Rest today as two smaller secondary buttons. All existing lines (label, day name, notice, hint, deload banner, done-today text) keep their strings and their conditions.
+3. **Week strip:** restyle the existing `WeekView strip`: 7 equal cells, today with a gold outline, done days with a gold dot. No logic change.
+4. **Next up:** NEW block for train / suggest days (not rest, mobility, active, or done-today): the first 3 exercises of today's workout, each row a small body figure of the muscle it trains (the existing mini `BodyPicker`), the name and sets x reps; a tap opens `/exercise/<slug>`; "+N more" when there are more. Reads the day already loaded; no new data layer.
+5. **Quick:** 2x2 grid of icon tiles (Share, Scan, History, Quick workout), each still gated by its own feature flag (hidden tiles leave no gap).
+6. **Empty state (no routine):** a gold body figure, ONE line (the existing "Make a routine, or just start" string), ONE primary button "Make a routine"; "Just start" becomes a small text link under it.
+7. **View:** a "View" entry on Today (Layout / Look, `ViewSheet`) so the Classic Today can be chosen from the page itself.
+8. New strings in `src/i18n/en.ts`; icons from the existing set; tokens only, no truncation, nothing wider than 360 px.
+**Out:** any change to the plan engine, schedule logic, session logic or notices; streaks, calories or new stats; new routes; the Classic Today.
+**Verify:** Today page tests in both styles (hero, ring on and off, Next up count and hidden cases, Quick tiles with flags off, empty state, View switch), the existing Today tests stay green; typecheck once; one 360 px browser check of Today with a plan, without a plan, and after a finished workout.
+**Standing gaps to record:** the five M12 gaps; the liquid-gold look and the sheen on a real phone (brightness, battery); the ring meaning [A-P109.2] until the owner sees it.
+**Owner check:** open Today in Premium and Classic, with a plan, without a plan, and after a finished workout; say if the Start button is shiny enough.
+
+## Phase 111 — GATE: release 1.3.0 [G] (DONE 2026-11-27)
+**Goal:** ship Premium as the default with Classic intact. **Depends:** 96-110 (110 may be recorded as dropped if the owner dropped Today).
+**Key files:** `package.json`, `package-lock.json`, `docs/OWNER_CHECKLIST_1.3.0.md` (new), `tests/guard/`, `PHASE_STATUS.md`.
+**Do:** overflow audit in BOTH styles at 320/360/390/414/430 (the Phase 70 method); tap targets (44 px); a11y labels on new controls; the guard tests; the classic-integrity check against the final list; write `docs/OWNER_CHECKLIST_1.3.0.md` (iPhone and Android: wheels under a thumb, frosted blur speed, vibration, swipe-back, install splash, switching Premium/Classic live, upgrade from 1.2.0 lands on Premium); bump version to 1.3.0 (`package.json` and the two spots in `package-lock.json`).
+**Verify:** typecheck once; guard tests; the checklist exists; standing gaps listed honestly; version 1.3.0.
+**Standing gaps to record:** every M12 gap still open after the owner checklist.
+**Owner check:** run `docs/OWNER_CHECKLIST_1.3.0.md` on an iPhone and an Android phone.
+
+---
 ## LATER (flag exists, nothing built)
 Classes/PT booking, store, leaderboards, food log + calories, Kannada/Hindi, extra muscle detail (neck split, serratus on the map), exercise video hosting, share cards, wearables. **Parked:** native wrapper (Capacitor + SQLite) for Android and iOS, see `docs/RECOVERY_PLAN.md` section 12.

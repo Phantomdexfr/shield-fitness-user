@@ -45,9 +45,10 @@ describe('core ladders', () => {
 });
 
 describe('high reps', () => {
-  it('60 kg x 16 kneeling cable crunch now ranks abs (it used to be skipped above 12 reps)', () => {
+  it('60 kg x 16 kneeling cable crunch ranks abs (it used to be skipped above 12 reps) but, with calibration v2, only a mid tier', () => {
     const r = run('kneeling-cable-crunch', { weightKg: 60, reps: 16 });
-    expect(r.muscles.abs!.tier).toBeGreaterThanOrEqual(5);
+    expect(r.muscles.abs!.tier).toBeGreaterThanOrEqual(2);
+    expect(r.muscles.abs!.tier).toBeLessThanOrEqual(4);
   });
   it('only core ladders get the 30-rep cap; others keep 12', () => {
     expect(maxRepsOf('cable_crunch')).toBe(30);

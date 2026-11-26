@@ -1,5 +1,7 @@
 > **LIVE SINCE NOV 2026: read `LAUNCH_STATUS.md` (repo root) before anything else.** It lists what is deployed, what was tested on real devices, the launch bugs and fixes, and how to ship changes. It overrides older notes below.
 
+> **PLANNED (2026-11-26): Milestone 12 "Premium UI", User app Phases 96-111 (docs only so far, nothing built).** Read `docs/UI_PREMIUM_PLAN.md` before any phase of this milestone. **Classic (the 1.2.0 look) must NEVER be removed:** every phase adds the premium version beside it behind a `ux.*` switch. Phases 96-111 DONE (111 = the 1.3.0 gate, 2026-11-27): Milestone 12 is complete; the owner runs `docs/OWNER_CHECKLIST_1.3.0.md`. No next phase is planned.
+
 > **NEXT WORK (2026-11-22): Milestone 11, User app Phases 82-88.** Read `docs/UX_REDESIGN_PLAN.md` (after `LAUNCH_STATUS.md`) before doing any phase from `PHASES.md` Milestone 11. One phase per session, start at Phase 82.
 
 # CLAUDE MUST READ — Shield Fitness USER APP — Start Here, Every Session
@@ -69,6 +71,7 @@ Browser (installed PWA)
 - If a phase is bigger than it looks, split it (NN-a / NN-b), log it, finish the first half.
 
 ## SESSION EFFICIENCY PROTOCOL
+- **Browser check (screens):** read `docs/BROWSER_CHECK.md` first. It has the exact way past the install gate and onboarding, so the check takes one script run, not a debugging loop.
 - Do not unzip the whole archive; `unzip archive.zip "path"` or `unzip -p`. Do not `unzip -l` everything; the layout is in `PROJECT_STRUCTURE.md`. `node_modules` is never in the zip.
 - Mandatory minimum reading: this file, `PHASE_STATUS.md` (Current state + your row), your phase entry. Other docs only for the sections your phase names. **Do not read any skill `.md` files.**
 - **The `contract/` folder is read-only here** unless the phase is a contract phase (it says so). It is identical in both apps' zips. Never edit it alone.

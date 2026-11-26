@@ -1,0 +1,11 @@
+/* Premium icons (Phase 98, ux.icons): a 32 px tinted rounded tile behind the row icon. */
+:root[data-ux-icons='premium'] .sf-tile {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--tile-tint);
+  color: var(--gold-300);
+}

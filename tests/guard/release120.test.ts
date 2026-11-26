@@ -19,11 +19,10 @@ const read = (p: string) => readFileSync(join(ROOT, p), 'utf8');
 const hits = (re: RegExp) => SRC.filter((f) => re.test(readFileSync(f, 'utf8'))).map(rel);
 
 describe('release 1.2.0 gate', () => {
-  it('version is 1.2.0 in package.json and the lock file', () => {
-    expect(JSON.parse(read('package.json')).version).toBe('1.2.0');
-    const lock = JSON.parse(read('package-lock.json'));
-    expect(lock.version).toBe('1.2.0');
-    expect(lock.packages[''].version).toBe('1.2.0');
+  it('version is at least 1.2.0 (Phase 111 moved it to 1.3.0; release130.test.ts pins that)', () => {
+    const atLeast = (v: string) => { const [a = 0, b = 0] = v.split('.').map(Number); return a > 1 || (a === 1 && b >= 2); };
+    expect(atLeast(JSON.parse(read('package.json')).version)).toBe(true);
+    expect(atLeast(JSON.parse(read('package-lock.json')).version)).toBe(true);
   });
 
   it('viewport lock: no pinch zoom', () => {

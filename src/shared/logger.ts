@@ -197,6 +197,15 @@ export function swipeAction(dx: number, dy: number, threshold = SWIPE_PX): 'dele
   return dx < 0 ? 'delete' : 'duplicate';
 }
 
+/** Phase 107-b: how far a set row follows the finger while it is swiped (px, clamped both ways) and which action the release would run.
+ *  Pure. A mostly vertical drag (a scroll) follows nothing. */
+export const SWIPE_FOLLOW_MAX = 96;
+export function swipeFollow(dx: number, dy: number, threshold = SWIPE_PX): { x: number; action: 'delete' | 'duplicate' | null } {
+  if (Math.abs(dx) < 8 || Math.abs(dx) < Math.abs(dy) * 1.5) return { x: 0, action: null };
+  const x = Math.max(-SWIPE_FOLLOW_MAX, Math.min(SWIPE_FOLLOW_MAX, dx));
+  return { x, action: swipeAction(dx, dy, threshold) };
+}
+
 // ---------- stored preferences ----------
 
 export interface LoggerPrefs {

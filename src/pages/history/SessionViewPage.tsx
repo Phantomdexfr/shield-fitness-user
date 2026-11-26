@@ -2,7 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation, useRoute, useSearch } from 'wouter-preact';
 import { t } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { Badge, Button, Collapsible, Dialog, EmptyState, SubPageHeader, showToast, Row } from '../../ui/components';
+import { Badge, Button, Collapsible, Dialog, EmptyState, PrMark, SubPageHeader, showToast, Row } from '../../ui/components';
 import { BodyPicker } from '../../ui/body';
 import { useFigureSex } from '../../ui/body/useFigureSex';
 import { loadSessionView, type SessionView } from '../../data/repos/history';
@@ -160,7 +160,7 @@ export default function SessionViewPage() {
         {view.prs.length === 0 ? (
           <p class="sf-lib__note">{t('sm.prs.none')}</p>
         ) : (
-          view.prs.map((p) => p.hits.map((h) => <p key={`${p.key}-${h.metric}`} class="sf-sm__pr"><strong>{view.names[p.ref] ?? p.slug}</strong><span>{prToastText(h)}</span></p>))
+          view.prs.map((p) => p.hits.map((h) => <p key={`${p.key}-${h.metric}`} class="sf-sm__pr"><PrMark /><strong>{view.names[p.ref] ?? p.slug}</strong><span>{prToastText(h)}</span></p>))
         )}
         <Row href="/progress/records">{t('sm.records')}</Row>
       </Collapsible>

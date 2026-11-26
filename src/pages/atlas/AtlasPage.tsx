@@ -163,6 +163,7 @@ export default function AtlasPage() {
       {phase.kind === 'ready' && (
         <Segmented<ViewChoice>
           label={t('atlas.views')}
+          keepSegments
           value={view3}
           options={(['front', 'back', 'side', 'reset'] as const).map((v) => ({ value: v, label: t(`atlas.view.${v}` as StringKey) }))}
           onChange={(v) => view3d(v)}

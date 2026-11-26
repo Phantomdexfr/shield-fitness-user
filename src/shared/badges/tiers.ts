@@ -2,6 +2,7 @@
 
 import type { Ladder, LadderIndex, Sex, TierDef } from './ladders';
 import { ladderThresholds, tierIndex } from './thresholds';
+import { ESTIMATE_TIER_CAP, EXPERIENCE_LEAD, GATE_FROM_TIER } from './calibration';
 
 /** Best benchmark e1RM of one ladder, with the set that made it. */
 export interface BestSet {
@@ -36,6 +37,8 @@ export interface MuscleBadge {
   peak: number | null;
   /** Ladder that gave the tier. */
   best: LadderResult | null;
+  /** Strict mode only: what is holding the tier below what the best lift alone would give. null = nothing. */
+  held?: 'evidence' | 'estimate' | 'experience' | null;
   /** Every ladder that ranks this muscle (rank weight >= 0.3), strongest rank weight first. */
   candidates: LadderResult[];
   /** What the next tier asks of the best ladder (benchmark e1RM, kg and x bodyweight at the current bodyweight). */
@@ -88,6 +91,30 @@ export interface TierContext {
   /** All-time bests per ladder id (for the peak). */
   allTime: ReadonlyMap<string, BestSet>;
   peaks: Readonly<Record<string, number>>;
+  /** Calibration v2 rules (evidence gate, estimate cap, experience cap). Off = the contract's plain rules. */
+  strict?: boolean;
+  /** Strict: e1RM of the second-best session per ladder (window / all-time). Missing = no second session. */
+  windowSecond?: ReadonlyMap<string, number>;
+  allSecond?: ReadonlyMap<string, number>;
+  /** Strict: experience tier per muscle id (missing = 0). */
+  expTier?: Readonly<Record<string, number>>;
+}
+
+/**
+ * Tier position of a benchmark under the strict rules. From Gold up the lift has to be repeated in a second session (the
+ * second-best session sets the ceiling; with none the ceiling is just below Gold), and estimated ladders stop at Diamond.
+ */
+export function gatedIndex(value: number, second: number | undefined, th: readonly number[], ladder: Ladder, strict: boolean): { index: number; held: 'evidence' | 'estimate' | null } {
+  let idx = tierIndex(value, th);
+  if (!strict) return { index: idx, held: null };
+  let held: 'evidence' | 'estimate' | null = null;
+  if (idx >= GATE_FROM_TIER) {
+    const ceiling = Math.max(second == null ? 0 : tierIndex(second, th), GATE_FROM_TIER - 1e-6);
+    if (ceiling < idx) { idx = ceiling; held = 'evidence'; }
+  }
+  const cap = ESTIMATE_TIER_CAP + 1 - 1e-6;
+  if (ladder.source === 'estimate' && idx > cap) { idx = cap; held = 'estimate'; }
+  return { index: idx, held };
 }
 
 function thresholdsFor(cache: Map<string, number[]>, ctx: TierContext, l: Ladder): number[] {
@@ -101,20 +128,36 @@ function thresholdsFor(cache: Map<string, number[]>, ctx: TierContext, l: Ladder
 
 export function muscleBadge(muscleId: string, ctx: TierContext, cache: Map<string, number[]> = new Map()): MuscleBadge {
   const list = [...ctx.idx.laddersFor(muscleId)].sort((a, b) => b.rankWeight - a.rankWeight);
+  const strict = ctx.strict === true;
+  // Strict: a muscle's strength tier leads its experience tier by 3 at most (a first log can never be Olympian).
+  const expCap = strict ? (ctx.expTier?.[muscleId] ?? 0) + EXPERIENCE_LEAD + 1 - 1e-6 : Infinity;
   const candidates: LadderResult[] = [];
   let top: LadderResult | null = null;
+  let topHeld: MuscleBadge['held'] = null;
   let peakIdx = -1;
   for (const { ladder, rankWeight } of list) {
     const th = thresholdsFor(cache, ctx, ladder);
     const best = ctx.window.get(ladder.ladderId) ?? null;
-    const index = best ? tierIndex(best.e1rm, th) : null;
-    const effective = index == null ? null : effectiveIndex(index, rankWeight);
+    let index: number | null = null;
+    let effective: number | null = null;
+    let held: MuscleBadge['held'] = null;
+    if (best) {
+      const g = gatedIndex(best.e1rm, ctx.windowSecond?.get(ladder.ladderId), th, ladder, strict);
+      index = g.index;
+      effective = effectiveIndex(index, rankWeight);
+      held = g.held;
+      if (effective > expCap) { effective = expCap; held = 'experience'; }
+    }
     const r: LadderResult = { ladderId: ladder.ladderId, name: ladder.name, rankWeight, best, index, effective };
     candidates.push(r);
     // Best candidate: highest effective index; a tie goes to the higher rank weight, then the earlier entry.
-    if (effective != null && (top == null || effective > top.effective! + 1e-12)) top = r;
+    if (effective != null && (top == null || effective > top.effective! + 1e-12)) { top = r; topHeld = held; }
     const all = ctx.allTime.get(ladder.ladderId);
-    if (all) peakIdx = Math.max(peakIdx, Math.floor(effectiveIndex(tierIndex(all.e1rm, th), rankWeight) + 1e-12));
+    if (all) {
+      let pe = effectiveIndex(gatedIndex(all.e1rm, ctx.allSecond?.get(ladder.ladderId), th, ladder, strict).index, rankWeight);
+      if (pe > expCap) pe = expCap;
+      peakIdx = Math.max(peakIdx, Math.floor(pe + 1e-12));
+    }
   }
   const maxTier = ctx.tiers.length - 1;
   const tier = top ? Math.min(maxTier, Math.floor(top.effective! + 1e-12)) : null;
@@ -135,7 +178,7 @@ export function muscleBadge(muscleId: string, ctx: TierContext, cache: Map<strin
     }
   }
   const suggest = tier == null ? list.map((c) => c.ladder.ladderId).slice(0, 3) : [];
-  return { id: muscleId, ranked: tier != null, tier, progress, peak, best: top, candidates, next, suggest };
+  return { id: muscleId, ranked: tier != null, tier, progress, peak, best: top, held: tier == null ? null : topHeld, candidates, next, suggest };
 }
 
 export function groupBadge(

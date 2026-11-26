@@ -5,7 +5,8 @@ import { useFeature } from '../../app/flags';
 import { setFavourite, setHidden, setNote } from '../../data/repos/personal';
 import { EMPTY_PERSONAL, NOTE_MAX, type Personal } from '../../shared/personal';
 import { dismissCue, loadExercisePage, policyYoutubeFor, setChosenSetup, setChosenVariation, type ExercisePageData } from '../../data/repos/exercisePage';
-import { Collapsible, CollapseAll, Badge, Button, Chip, Dialog, EmptyState, PhotoFrame, SubPageHeader, Row } from '../../ui/components';
+import { ActionMenu, Collapsible, CollapseAll, Badge, Button, Chip, Dialog, EmptyState, PhotoFrame, SubPageHeader, Row } from '../../ui/components';
+import { useUx } from '../../ui/useUx';
 import { BodyPicker, viewsOf, isMuscle, type Sex, type View } from '../../ui/body';
 import { useFigureSex } from '../../ui/body/useFigureSex';
 import { FormCueCard } from './FormCueCard';
@@ -60,6 +61,7 @@ export default function ExercisePage() {
   const [noteMsg, setNoteMsg] = useState<'' | 'saved' | 'error'>('');
   const [confirmDelete, setConfirmDelete] = useState(false);
   const customOn = useFeature('custom_exercises');
+  const premium = useUx('layout') === 'premium';
 
   useEffect(() => {
     let live = true;
@@ -187,17 +189,39 @@ export default function ExercisePage() {
         {row.beginner && <Badge tone="ok">{t('ex.chip.beginner')}</Badge>}
       </div>
 
+      {premium && (
+        <div class="sf-ex__hero" data-hook="ex-figure">
+          <BodyPicker mode="view" size="compact" sex={sex} view={view} onSexChange={setSex} onViewChange={setView} emphasis={emphasis} />
+        </div>
+      )}
       <CollapseAll />
-      <div class="sf-ex__pair" role="group" aria-label={t('ex.mine')}>
-        <Chip selected={personal.favourite} onPress={toggleFavourite}>
-          {personal.favourite ? t('ex.fav.remove') : t('ex.fav.add')}
-        </Chip>
-        <Button variant="secondary" onPress={toggleHidden}>
-          {personal.hidden ? t('ex.unhide') : t('ex.hide')}
-        </Button>
-      </div>
+      {premium ? (
+        <div class="sf-ex__actions" role="group" aria-label={t('ex.mine')}>
+          <ActionMenu
+            primary={{ label: personal.favourite ? t('ex.fav.remove') : t('ex.fav.add'), onPress: toggleFavourite }}
+            items={[
+              { label: personal.hidden ? t('ex.unhide') : t('ex.hide'), onPress: toggleHidden },
+              ...(row.custom && customOn
+                ? [
+                    { label: t('cx.edit'), onPress: () => navigate(`/exercise/${row.slug}/edit`) },
+                    { label: t('cx.delete'), onPress: () => setConfirmDelete(true), danger: true },
+                  ]
+                : []),
+            ]}
+          />
+        </div>
+      ) : (
+        <div class="sf-ex__pair" role="group" aria-label={t('ex.mine')}>
+          <Chip selected={personal.favourite} onPress={toggleFavourite}>
+            {personal.favourite ? t('ex.fav.remove') : t('ex.fav.add')}
+          </Chip>
+          <Button variant="secondary" onPress={toggleHidden}>
+            {personal.hidden ? t('ex.unhide') : t('ex.hide')}
+          </Button>
+        </div>
+      )}
       {personal.hidden && <p class="sf-lib__note" role="status">{t('ex.hidden.note')}</p>}
-      {row.custom && customOn && (
+      {!premium && row.custom && customOn && (
         <div class="sf-ex__pair" role="group" aria-label={t('ex.custom')}>
           <Button variant="secondary" onPress={() => navigate(`/exercise/${row.slug}/edit`)}>
             {t('cx.edit')}
@@ -237,7 +261,7 @@ export default function ExercisePage() {
       )}
 
       <Collapsible id="muscles" title={t('ex.muscles')} defaultOpen>
-        <BodyPicker mode="view" size="compact" sex={sex} view={view} onSexChange={setSex} onViewChange={setView} emphasis={emphasis} />
+        {!premium && <BodyPicker mode="view" size="compact" sex={sex} view={view} onSexChange={setSex} onViewChange={setView} emphasis={emphasis} />}
         {(['primary', 'secondary', 'stabiliser'] as RoleGroup[]).map(
           (g) =>
             groups[g].length > 0 && (

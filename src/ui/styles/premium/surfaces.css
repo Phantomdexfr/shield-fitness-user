@@ -1,0 +1,56 @@
+/* Premium surfaces (Phase 97, ux.surfaces): three elevations, inset-grouped lists, the gold hero card.
+   Soft layered shadow + 1px top highlight from tokens. Classic rules in components.css are untouched. */
+
+/* Cards: elevation 2 is the default look; e1 and e3 are opt-in through the Card `elevation` prop. */
+:root[data-ux-surfaces='premium'] .sf-card {
+  border-color: transparent;
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-2);
+}
+:root[data-ux-surfaces='premium'] .sf-card--card {
+  background: var(--bg-hover);
+}
+:root[data-ux-surfaces='premium'] .sf-card--gold {
+  border-color: var(--gold-600);
+  box-shadow: var(--hl-top), var(--sh-2);
+}
+:root[data-ux-surfaces='premium'] .sf-card--e1 {
+  box-shadow: var(--hl-top), var(--sh-1);
+}
+:root[data-ux-surfaces='premium'] .sf-card--e3 {
+  box-shadow: var(--hl-top), var(--sh-3);
+}
+
+/* Inset-grouped list: ONE container, hairline dividers between rows, no box per row. */
+:root[data-ux-surfaces='premium'] .sf-rowgroup__box {
+  border-color: transparent;
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-1);
+}
+:root[data-ux-surfaces='premium'] .sf-rowgroup__box > .sf-row {
+  background: transparent;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Gold hero card: faint gold radial wash + thin gold gradient border. ONE per screen. */
+:root[data-ux-surfaces='premium'] .sf-hero {
+  display: block;
+  min-width: 0;
+  border: 1px solid transparent;
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(120% 90% at 0% 0%, var(--hero-wash), transparent 70%) padding-box,
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(135deg, var(--gold-300), var(--gold-600)) border-box;
+  box-shadow: var(--hl-top), var(--sh-2);
+  color: var(--text);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+:root[data-ux-surfaces='premium'] .sf-hero--padded {
+  padding: var(--sp-4);
+}

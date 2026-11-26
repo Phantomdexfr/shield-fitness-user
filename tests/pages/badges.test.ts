@@ -35,9 +35,10 @@ describe('badgesModel', () => {
 
 describe('profile and bodyweight parsing', () => {
   it('parseProfile never assumes sex and drops bad peaks', () => {
-    expect(parseProfile(undefined)).toEqual({ sex: null, skipped: false, peaks: {}, confirmed: [] });
+    expect(parseProfile(undefined)).toEqual({ sex: null, skipped: false, peaks: {}, confirmed: [], calibration: 0 });
     const p = parseProfile({ sex: 'f', skipped: true, peaks: { biceps: 4, bad: 9, x: 'y' }, confirmed: ['a:1:1', 7] });
-    expect(p).toEqual({ sex: 'f', skipped: true, peaks: { biceps: 4 }, confirmed: ['a:1:1'] });
+    expect(p).toEqual({ sex: 'f', skipped: true, peaks: { biceps: 4 }, confirmed: ['a:1:1'], calibration: 0 });
+    expect(parseProfile({ calibration: 2 }).calibration).toBe(2);
     expect(parseProfile({ sex: 'robot' }).sex).toBeNull();
   });
   it('parseBodyweight accepts 25 to 400 kg, comma or dot, else null', () => {

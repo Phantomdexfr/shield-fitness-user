@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { Badge, Button, Chip, Pressable, Sheet, Stepper, showToast } from '../../ui/components';
+import { Badge, Button, Chip, Pressable, SetCheck, Sheet, Stepper, WheelPicker, showToast } from '../../ui/components';
+import { useUx } from '../../ui/useUx';
+import { loggerWheel } from '../../shared/wheel';
 import type { LoggerInfo, ItemHistory } from '../../data/repos/logger';
 import { bestE1rm } from '../../shared/engine/sessionStats';
 import { e1rm } from '../../shared/engine/oneRm';
 import {
-  EMPTY_CARDIO, MAX_KG, MAX_REPS, RPE_MAX, RPE_MIN, RPE_STEP, TAGS, addRamp, addSet, cardioFromDraft, deleteSet, duplicateSet, editSet, initialDraft, lastTime, restoreSet, setFromDraft, swipeAction, weightStep,
+  EMPTY_CARDIO, MAX_KG, MAX_REPS, RPE_MAX, RPE_MIN, RPE_STEP, TAGS, addRamp, addSet, cardioFromDraft, deleteSet, duplicateSet, editSet, initialDraft, lastTime, restoreSet, setFromDraft, swipeAction, swipeFollow, weightStep,
   type CardioDraft, type Draft, type LoggerPrefs, type SetTag,
 } from '../../shared/logger';
 import { actualRest, adjustRest, clockText, defaultRest, remainingRest, restSeconds, startRest, warmupSets, type RestTimer } from '../../shared/pocket';
@@ -29,6 +31,18 @@ interface Props {
   onPrefs: (p: LoggerPrefs) => void;
   commit: (next: Session, u?: Undo) => void;
 }
+
+/** Put a swiped row back (the CSS springs it). */
+const rowReset = (el: HTMLElement): void => {
+  el.style.removeProperty('--sw-x');
+  delete el.dataset.swipe;
+  delete el.dataset.ready;
+};
+
+/** 1 at the start of a rest, 0 when it is over (feeds the thin bar on the docked timer). */
+const restProgress = (timer: RestTimer, now: number): number => {
+  return Math.max(0, Math.min(1, remainingRest(timer, now) / Math.max(1, timer.seconds)));
+};
 
 const kg = (n: number | null | undefined): string => `${n ?? 0} kg`;
 
@@ -54,6 +68,10 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
   const plateOn = useFeature('plate_calculator');
   const smartOn = useFeature('smart_rest_timer');
   const adv = prefs.mode === 'advanced';
+  // Phase 107-a: weight and reps are wheels in Premium (ux.wheels); Classic and "Steppers" keep the plus / minus pair. Same draft, same saved values.
+  const wheels = useUx('wheels') === 'premium';
+  // Phase 107-b: under ux.layout Premium a set row follows the finger and shows what the release will do; Classic keeps the bare swipe.
+  const follow = useUx('layout') === 'premium';
   const step = weightStep(info.stepKg);
   const last = lastTime(hist?.results ?? [], hist?.suggestion);
   const sug = hist?.suggestion ?? null;
@@ -65,6 +83,8 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
   const [timer, setTimer] = useState<RestTimer | null>(null);
   const [now, setNow] = useState(() => Date.now());
   const [editAt, setEditAt] = useState<number | null>(null);
+  // Phase 104: the set logged a moment ago gets a drawn tick (Premium only; SetCheck draws nothing in Classic or with Motion Reduced).
+  const [fresh, setFresh] = useState<string | null>(null);
   const [plates, setPlates] = useState(false);
   const buzzed = useRef(false);
   const press = useRef<{ x: number; y: number } | null>(null);
@@ -115,10 +135,12 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
     const rest = actualRest(timer, at);
     if (info.cardio) {
       commit(addSet(sess, idx, cardioFromDraft(cardio, iso)));
+      setFresh(iso);
       setTimer(null);
       return;
     }
     commit(addSet(sess, idx, setFromDraft(draft, iso, rest)));
+    setFresh(iso);
     touched.current = true;
     const secs = draft.tag === 'warmup' ? 0 : restFor(draft);
     setNow(at);
@@ -130,6 +152,7 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
     const iso = new Date(at).toISOString();
     const rest = actualRest(timer, at);
     commit(addSet(sess, idx, timedFromDraft({ seconds, weightKg }, iso, rest)));
+    setFresh(iso);
     touched.current = true;
     const secsRest = restFor({ ...draft, reps: 10 });
     setNow(at);
@@ -150,7 +173,9 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
   };
   const dup = (i: number) => {
     const at = i + 1;
-    commit(duplicateSet(sess, idx, i, new Date().toISOString()), { text: t('lg.copied', { n: i + 1 }), restore: (cur) => deleteSet(cur, idx, at).session });
+    const iso = new Date().toISOString();
+    setFresh(iso);
+    commit(duplicateSet(sess, idx, i, iso), { text: t('lg.copied', { n: i + 1 }), restore: (cur) => deleteSet(cur, idx, at).session });
   };
 
   const bw = info.cls === 'bodyweight' || (draft.weightKg === 0 && last !== null && last.weightKg === 0);
@@ -179,17 +204,30 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
               <li
                 key={`${s.doneAt}-${i}`}
                 class="sf-lg__row"
+                data-label-del={t('lg.del')}
+                data-label-dup={t('lg.dup')}
                 onPointerDown={(e) => { swiped.current = false; press.current = { x: e.clientX, y: e.clientY }; }}
+                onPointerMove={(e) => {
+                  const p = press.current;
+                  if (!follow || !p) return;
+                  const f = swipeFollow(e.clientX - p.x, e.clientY - p.y);
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.setProperty('--sw-x', `${f.x}px`);
+                  el.dataset.swipe = f.x === 0 ? '' : f.x < 0 ? 'delete' : 'duplicate';
+                  el.dataset.ready = f.action ? 'yes' : '';
+                }}
                 onPointerUp={(e) => {
                   const p = press.current;
                   press.current = null;
+                  rowReset(e.currentTarget as HTMLElement);
                   const a = p ? swipeAction(e.clientX - p.x, e.clientY - p.y) : null;
                   if (a) { swiped.current = true; a === 'delete' ? del(i) : dup(i); }
                 }}
-                onPointerCancel={() => { press.current = null; }}
+                onPointerCancel={(e) => { press.current = null; rowReset(e.currentTarget as HTMLElement); }}
               >
                 <Pressable class="sf-lg__set" aria-label={t('lg.edit.aria', { n: i + 1, line: setLine(s) })} onPress={() => { if (swiped.current) { swiped.current = false; return; } setEditAt(i); }}>
                   <span class="sf-lg__n">{i + 1}</span>
+                  {s.doneAt === fresh && <SetCheck />}
                   <span class="sf-lg__line">{setLine(s)}</span>
                   {s.tag !== 'normal' && <Badge tone="neutral">{t(`lg.tag.${s.tag}` as StringKey)}</Badge>}
                   {s.rpe != null && <span class="sf-rt__meta">{t('lg.rpe.n', { n: s.rpe })}</span>}
@@ -202,7 +240,7 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
       )}
 
       {timer && (
-        <div class="sf-lg__rest" role="timer" aria-live="off">
+        <div class="sf-lg__rest" role="timer" aria-live="off" style={timer ? { '--rest-p': String(restProgress(timer, now)) } : undefined}>
           <span class="sf-lg__clock">{left > 0 ? t('lg.rest', { time: clockText(left) }) : t('lg.rest.over')}</span>
           <div class="sf-rt__row">
             <Button variant="secondary" onPress={() => setTimer(adjustRest(timer, -15))}>{t('lg.rest.minus')}</Button>
@@ -224,14 +262,22 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
         </div>
       ) : (
         <div class="sf-lg__entry">
-          <div class="sf-lg__pair">
+          <div class={`sf-lg__pair${wheels ? ' sf-lg__pair--wheels' : ''}`}>
             <div class="sf-lg__field">
               <span class="sf-rt__meta">{t('lg.weight')}</span>
-              <Stepper label={t('lg.weight')} value={draft.weightKg} step={step} min={0} max={MAX_KG} format={(v) => (v === 0 && bw ? t('lg.bw') : String(v))} onChange={(v) => edit({ weightKg: v })} />
+              {wheels ? (
+                <WheelPicker class="sf-lg__wheel" label={t('lg.weight')} {...loggerWheel(draft.weightKg, step, MAX_KG, 'weight')} format={(v) => (v === 0 && bw ? t('lg.bw') : String(v))} onChange={(v) => edit({ weightKg: v })} />
+              ) : (
+                <Stepper label={t('lg.weight')} value={draft.weightKg} step={step} min={0} max={MAX_KG} format={(v) => (v === 0 && bw ? t('lg.bw') : String(v))} onChange={(v) => edit({ weightKg: v })} />
+              )}
             </div>
             <div class="sf-lg__field">
               <span class="sf-rt__meta">{t('lg.reps')}</span>
-              <Stepper label={t('lg.reps')} value={draft.reps} step={1} min={0} max={MAX_REPS} onChange={(v) => edit({ reps: v })} />
+              {wheels ? (
+                <WheelPicker class="sf-lg__wheel" label={t('lg.reps')} {...loggerWheel(draft.reps, 1, MAX_REPS, 'reps')} onChange={(v) => edit({ reps: v })} />
+              ) : (
+                <Stepper label={t('lg.reps')} value={draft.reps} step={1} min={0} max={MAX_REPS} onChange={(v) => edit({ reps: v })} />
+              )}
             </div>
           </div>
           {adv && (

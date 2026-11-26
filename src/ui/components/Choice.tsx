@@ -1,5 +1,7 @@
 import type { JSX } from 'preact';
+import { useUx } from '../useUx';
 import { Pressable } from './Pressable';
+import { ChoiceRow } from './Rows';
 import { cx } from './util';
 
 export interface Option<T extends string> {
@@ -23,10 +25,16 @@ export interface SegmentedProps<T extends string> {
   onChange: (value: T) => void;
   label?: string;
   class?: string;
+  /** Premium only: keep 4+ options as segments (for view switches that are actions, not a stored value). */
+  keepSegments?: boolean;
 }
 
-/** Few mutually exclusive choices, equal width, labels wrap. */
-export function Segmented<T extends string>({ options, value, onChange, label, class: cls }: SegmentedProps<T>) {
+/** Few mutually exclusive choices, equal width, labels wrap. Premium (ux.controls): a sliding gold thumb; 4 or more options become a value row that opens a sheet list. */
+export function Segmented<T extends string>({ options, value, onChange, label, class: cls, keepSegments }: SegmentedProps<T>) {
+  const ux = useUx('controls');
+  const premium = ux === 'premium';
+  if (premium && options.length >= 4 && !keepSegments) return <ChoiceRow label={label ?? ''} value={value} options={options} onChange={onChange} />;
+  const index = options.findIndex((o) => o.value === value);
   return (
     <div
       class={cx('sf-seg', cls)}
@@ -34,6 +42,7 @@ export function Segmented<T extends string>({ options, value, onChange, label, c
       aria-label={label}
       onKeyDown={(e) => onArrows(e, options, value, onChange)}
     >
+      {premium && index >= 0 && <span class="sf-seg__thumb" aria-hidden="true" style={`--seg-i:${index};--seg-n:${options.length}`} />}
       {options.map((o) => (
         <Pressable
           key={o.value}

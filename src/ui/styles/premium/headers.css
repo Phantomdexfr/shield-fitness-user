@@ -1,0 +1,126 @@
+/* Premium headers (Phase 99, ux.headers). Sub-pages: a sticky bar (gold back button + small title that fades in) above a large title that
+   scrolls away with the page. Top-level pages: their existing h1 stays and a small frosted bar (.sf-collapsebar, from the shell) shows it
+   once it has scrolled away. Nothing changes size on collapse (only paint), so no layout shift. Solid fallback first, frost inside the feature query.
+   The classic 28 px / 20 px titles in components.css and shell.css are untouched. */
+
+:root[data-ux-headers='premium'] .sf-subheader--large {
+  display: contents;
+}
+:root[data-ux-headers='premium'] .sf-subheader__bar {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: calc(var(--safe-top) + 52px);
+  padding-top: var(--safe-top);
+}
+/* First thing on the page: pull the bar up into the page's top padding so the bar can sit flush at the top edge. */
+:root[data-ux-headers='premium'] .sf-subheader--large:first-child > .sf-subheader__bar {
+  margin-top: calc(-1 * (var(--safe-top) + var(--sp-4)));
+  min-height: calc(var(--safe-top) + var(--sp-4) + 52px);
+  padding-top: calc(var(--safe-top) + var(--sp-4));
+}
+:root[data-ux-headers='premium'] .sf-subheader__bar .sf-iconbtn {
+  color: var(--gold-300);
+}
+/* The frosted backing: full bleed to the page edges (the shell's side padding), hidden until collapsed. */
+:root[data-ux-headers='premium'] .sf-subheader__bar::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * (var(--sp-4) + var(--safe-left)));
+  right: calc(-1 * (var(--sp-4) + var(--safe-right)));
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+}
+:root[data-ux-headers='premium'] .sf-subheader--large.is-collapsed .sf-subheader__bar::before {
+  opacity: 1;
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root[data-ux-headers='premium'] .sf-subheader__bar::before,
+  :root[data-ux-headers='premium'] .sf-collapsebar {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: saturate(160%) blur(18px);
+    backdrop-filter: saturate(160%) blur(18px);
+  }
+}
+
+/* Small title: text comes from data-title so the page text exists once (the large h1). It wraps, never cuts. */
+:root[data-ux-headers='premium'] .sf-subheader__small {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  opacity: 0;
+}
+:root[data-ux-headers='premium'] .sf-subheader__small::after {
+  content: attr(data-title);
+}
+:root[data-ux-headers='premium'] .sf-subheader--large.is-collapsed .sf-subheader__small {
+  opacity: 1;
+}
+:root[data-ux-headers='premium'] .sf-subheader--large .sf-subheader__right {
+  margin-inline-start: auto;
+}
+
+/* Large title: the page's own h1 on sub-pages. */
+:root[data-ux-headers='premium'] .sf-subheader--large > .sf-subheader__title {
+  flex: none;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.12;
+  margin-top: calc(-1 * var(--sp-3));
+  padding-inline: var(--sp-2);
+}
+
+/* Top-level pages: a little more presence on the large title. */
+:root[data-ux-headers='premium'] .sf-page-title,
+:root[data-ux-headers='premium'] .sf-st__title {
+  font-weight: 700;
+}
+
+/* The shell's small bar for top-level pages: out of flow, hidden until the large title is gone. */
+:root[data-ux-headers='premium'] .sf-collapsebar {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(var(--safe-top) + 44px);
+  padding: var(--safe-top) calc(var(--safe-right) + var(--sp-4)) 0 calc(var(--safe-left) + var(--sp-4));
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+:root[data-ux-headers='premium'] .sf-collapsebar::after {
+  content: attr(data-title);
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+:root[data-ux-headers='premium'] .sf-collapsebar.is-on {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-headers='premium']:not([data-motion='reduced']) .sf-subheader__small,
+  :root[data-ux-headers='premium']:not([data-motion='reduced']) .sf-subheader__bar::before,
+  :root[data-ux-headers='premium']:not([data-motion='reduced']) .sf-collapsebar {
+    transition: opacity var(--dur-base) var(--ease-out), visibility var(--dur-base) var(--ease-out);
+  }
+}

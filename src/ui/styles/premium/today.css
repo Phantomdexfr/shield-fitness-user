@@ -1,0 +1,292 @@
+/* Premium Today (Phase 110, ux.layout): date line, hero card with ring and the liquid-gold Start button, week strip, Next up, Quick tiles, empty state.
+   Tokens only. Classic Today is not touched (the classic classes are not restyled here). */
+:root[data-ux-layout='premium'] .sf-today__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-today__date {
+  color: var(--text-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Hero card */
+:root[data-ux-layout='premium'] .sf-today-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-today-hero__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-today-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex: 1 1 0;
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-today-hero__sec {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-2);
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-today-hero__sec .sf-btn {
+  min-height: var(--touch-min);
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--text-sm);
+}
+
+/* Progress ring */
+:root[data-ux-layout='premium'] .sf-ring {
+  position: relative;
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  display: inline-grid;
+  place-items: center;
+}
+:root[data-ux-layout='premium'] .sf-ring > svg {
+  position: absolute;
+  inset: 0;
+}
+:root[data-ux-layout='premium'] .sf-ring__track {
+  stroke: var(--line-strong);
+}
+:root[data-ux-layout='premium'] .sf-ring__bar {
+  stroke: var(--gold-400);
+}
+:root[data-ux-layout='premium'] .sf-ring__txt {
+  position: relative;
+  color: var(--gold-300);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  display: inline-grid;
+  place-items: center;
+}
+
+/* Liquid-gold Start workout: a curved metal pill. Look only (no canvas, no blobs), so it costs no bundle and little battery. */
+:root[data-ux-layout='premium'] .sf-start {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  min-height: 56px;
+  border: 0;
+  border-radius: var(--r-lg);
+  background: var(--gold-liquid);
+  color: var(--text-on-gold);
+  font-size: var(--text-md);
+  font-weight: 800;
+  box-shadow: var(--gold-edge), 0 6px 22px var(--hero-wash), var(--sh-1);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+:root[data-ux-layout='premium'] .sf-start .sf-btn__label {
+  position: relative;
+  z-index: 1;
+}
+:root[data-ux-layout='premium'] .sf-start::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 -60%;
+  width: 60%;
+  background: var(--sheen);
+  pointer-events: none;
+  opacity: 0;
+}
+:root[data-ux-layout='premium'] .sf-start[data-pressed='true'] {
+  background: var(--gold-liquid);
+  transform: scale(0.98);
+  box-shadow: var(--gold-edge), var(--sh-press);
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-layout='premium'][data-ux-motion='premium']:not([data-motion='reduced']) .sf-start::before {
+    opacity: 1;
+    animation: sf-start-sheen 6s var(--ease-out) infinite;
+  }
+  :root[data-ux-layout='premium'][data-ux-motion='premium']:not([data-motion='reduced']) .sf-start[data-pressed='true']::before {
+    animation: sf-start-jump var(--dur-slow) var(--ease-out) 1;
+  }
+}
+@keyframes sf-start-sheen {
+  0% { transform: translateX(0); }
+  40%, 100% { transform: translateX(420%); }
+}
+@keyframes sf-start-jump {
+  from { transform: translateX(0); }
+  to { transform: translateX(420%); }
+}
+
+/* Week strip: 7 equal cells, today outlined in gold, a done day shows a gold dot (the tick text stays for screen readers via the button label). */
+:root[data-ux-layout='premium'] .sf-wk__strip {
+  gap: var(--sp-2);
+}
+:root[data-ux-layout='premium'] .sf-wk__cell {
+  background: var(--bg-card);
+  border-color: var(--line);
+  box-shadow: var(--hl-top);
+}
+:root[data-ux-layout='premium'] .sf-wk__cell--today {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 1px var(--gold-400);
+}
+:root[data-ux-layout='premium'] .sf-wk__cell--done .sf-wk__sym {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-400);
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Next up */
+:root[data-ux-layout='premium'] .sf-nextup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-nextup__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-1);
+  overflow: clip;
+}
+:root[data-ux-layout='premium'] .sf-nextup__list > li + li {
+  border-top: 1px solid var(--line);
+}
+:root[data-ux-layout='premium'] .sf-nextup__row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: 56px;
+  padding: var(--sp-2) var(--sp-3);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+}
+:root[data-ux-layout='premium'] .sf-nextup__fig {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-md);
+  background: var(--tile-tint);
+  overflow: hidden;
+}
+:root[data-ux-layout='premium'] .sf-nextup__fig svg {
+  width: 100%;
+  height: 100%;
+}
+:root[data-ux-layout='premium'] .sf-nextup__txt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  flex: 1 1 0;
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-nextup__name {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+:root[data-ux-layout='premium'] .sf-nextup__meta {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Quick: 2x2 icon tiles (a hidden tile leaves no gap: the grid flows) */
+:root[data-ux-layout='premium'] .sf-qtiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-2);
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-qtile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-width: 0;
+  min-height: 76px;
+  padding: var(--sp-3);
+  border: 0;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--hl-top), var(--sh-1);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+}
+:root[data-ux-layout='premium'] .sf-qtile:active {
+  box-shadow: var(--sh-press);
+}
+:root[data-ux-layout='premium'] .sf-qtile__ico {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-md);
+  background: var(--tile-tint);
+  color: var(--gold-300);
+}
+:root[data-ux-layout='premium'] .sf-qtile__lbl {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Empty state: a gold figure, one line, one primary button, "Just start" as a small text link */
+:root[data-ux-layout='premium'] .sf-today-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  text-align: center;
+  min-width: 0;
+}
+:root[data-ux-layout='premium'] .sf-today-empty__fig {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 140px;
+  overflow: hidden;
+}
+:root[data-ux-layout='premium'] .sf-today-empty__fig svg {
+  width: 100%;
+  height: 100%;
+}
+:root[data-ux-layout='premium'] .sf-today__link {
+  min-height: var(--touch-min);
+  padding: 0 var(--sp-3);
+  border: 0;
+  background: transparent;
+  color: var(--gold-300);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: underline;
+}

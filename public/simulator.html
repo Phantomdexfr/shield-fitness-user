@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Shields - Phone Simulator</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{margin:0;min-height:100vh;background:#1a1a1a;color:#ddd;font:14px system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;gap:12px;padding:16px;box-sizing:border-box}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center}
+select,button{background:#2b2b2b;color:#eee;border:1px solid #444;border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
+.phone{background:#000;border-radius:44px;padding:14px;box-shadow:0 0 0 3px #3a3a3a,0 20px 60px #000;position:relative}
+.phone iframe{display:block;border:0;border-radius:32px;background:#0d0c0a}
+.notch{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:90px;height:20px;background:#000;border-radius:12px;z-index:2;pointer-events:none}
+</style></head><body>
+<div class="bar">
+<select id="dev">
+<option value="360x800">Android small 360x800</option>
+<option value="390x844" selected>iPhone 14 390x844</option>
+<option value="412x915">Pixel 7 412x915</option>
+<option value="430x932">iPhone Pro Max 430x932</option>
+</select>
+<button id="rot">Rotate</button><button id="rel">Reload</button><button id="reset">Reset app data</button>
+<span id="hint">Dev server: install gate bypassed</span>
+</div>
+<div class="phone"><div class="notch"></div><iframe id="f" src="/?bypass-gate"></iframe></div>
+<script>
+const f=document.getElementById('f'),dev=document.getElementById('dev');let land=false;
+function size(){let [w,h]=dev.value.split('x').map(Number);if(land)[w,h]=[h,w];f.style.width=w+'px';f.style.height=Math.min(h,innerHeight-110)+'px'}
+dev.onchange=size;rot.onclick=()=>{land=!land;size()};rel.onclick=()=>f.contentWindow.location.reload();
+reset.onclick=async()=>{if(!confirm('Wipe all app data in this simulator?'))return;
+ const dbs=indexedDB.databases?await indexedDB.databases():[];dbs.forEach(d=>indexedDB.deleteDatabase(d.name));localStorage.clear();f.contentWindow.location.reload()};
+size();addEventListener('resize',size);
+</script></body></html>

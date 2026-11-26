@@ -6,9 +6,11 @@ import { resolveFeature } from '../../app/flags';
 import { usePref } from '../../data/usePref';
 import { lockedByGym } from '../../data/repos/prefs';
 import { prefDef, groupBySlug, type RowSpec } from '../../shared/settings';
+import { useUx } from '../../ui/useUx';
 import { goBack } from '../../app/navBack';
 import { istDayKey } from '../../shared/dates';
 import { yearOfDay } from '../../shared/calendar';
+import { InterfaceStyle } from './InterfaceStyle';
 
 const opt = (v: string) => ({ value: v, label: t(`st.v.${v}` as StringKey) });
 const opts = (...vs: string[]) => vs.map(opt);
@@ -57,6 +59,7 @@ export function rowsFor(slug: string): RowSpec[] {
       ];
     case 'appearance':
       return [
+        { kind: 'ux' },
         { kind: 'note', text: t('st.appearance.theme') },
         { kind: 'segmented', pref: 'appearance.motion', label: t('st.appearance.motion'), options: opts('full', 'reduced') },
         { kind: 'toggle', pref: 'appearance.haptics', label: t('st.appearance.haptics'), hint: t('st.appearance.haptics.hint') },
@@ -108,8 +111,17 @@ function SegRow({ spec }: { spec: Extract<RowSpec, { kind: 'segmented' }> }) {
 function StepRow({ spec }: { spec: Extract<RowSpec, { kind: 'stepper' }> }) {
   const [v, set] = usePref<number>(spec.pref);
   const k = prefDef(spec.pref)?.kind;
+  const wheels = useUx('wheels') === 'premium';
   if (lockedByGym(spec.pref)) return <Locked label={spec.label} shown={`${v} ${spec.unit}`} />;
   if (!k || k.type !== 'int') return null;
+  // Phase 101: with wheels on, the stepper becomes a row that opens a wheel (rest seconds); Classic keeps the stepper.
+  if (wheels) {
+    return (
+      <RowGroup>
+        <NumberRow label={spec.label} value={v} min={k.min} max={k.max} step={k.step} format={(n) => `${n} ${spec.unit}`} onChange={(n) => void set(n)} />
+      </RowGroup>
+    );
+  }
   return (
     <div class="sf-st__row">
       <span class="sf-st__label">{spec.label}</span>
@@ -179,6 +191,8 @@ function Row({ spec }: { spec: RowSpec }) {
       return <NumberPrefRow spec={spec} />;
     case 'date':
       return <DateRow spec={spec} />;
+    case 'ux':
+      return <InterfaceStyle />;
     case 'note':
       return <p class="sf-st__hint">{spec.text}</p>;
     case 'link':
@@ -193,19 +207,45 @@ function Row({ spec }: { spec: RowSpec }) {
   }
 }
 
+/** Rows that sit together in one container in the premium layout. Notes, the interface-style block and links break a run. */
+const STACKABLE: ReadonlySet<RowSpec['kind']> = new Set(['toggle', 'segmented', 'stepper', 'text', 'number', 'date']);
+
+export function runsOf(rows: readonly RowSpec[]): { stack: boolean; rows: RowSpec[] }[] {
+  const out: { stack: boolean; rows: RowSpec[] }[] = [];
+  for (const r of rows) {
+    const stack = STACKABLE.has(r.kind);
+    const last = out[out.length - 1];
+    if (stack && last?.stack) last.rows.push(r);
+    else out.push({ stack, rows: [r] });
+  }
+  return out;
+}
+
 /** /settings/<group>: its rows, one page, nothing expands in place. The group is the last part of the address. */
 export default function SettingsGroupPage() {
   const [path, navigate] = useLocation();
+  const premium = useUx('layout') === 'premium';
   const slug = path.split('/').filter(Boolean).pop() ?? '';
   if (!groupBySlug(slug)) return null;
   const rows = rowsFor(slug);
   const links = rows.filter((r) => r.kind === 'link' && (!r.feature || resolveFeature(r.feature)));
+  const plain = rows.filter((r) => r.kind !== 'link');
   return (
     <section class="sf-page-body sf-st">
       <SubPageHeader title={t(`st.g.${slug}` as StringKey)} onBack={() => goBack(navigate, '/settings')} />
-      {rows.filter((r) => r.kind !== 'link').map((r, i) => (
-        <Row key={i} spec={r} />
-      ))}
+      {premium
+        ? runsOf(plain).map((run, i) =>
+            run.stack ? (
+              <div key={i} class="sf-st__stack">
+                {run.rows.map((r, j) => (
+                  <Row key={j} spec={r} />
+                ))}
+              </div>
+            ) : (
+              run.rows.map((r, j) => <Row key={`${i}-${j}`} spec={r} />)
+            ),
+          )
+        : plain.map((r, i) => <Row key={i} spec={r} />)}
       {links.length > 0 && (
         <Collapsible id="links" title={t('ux.shortcuts')} summary={String(links.length)}>
           {links.map((r, i) => (

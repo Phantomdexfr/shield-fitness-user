@@ -1,0 +1,124 @@
+/* Premium workout logger (Phase 107, 107-a). Wheels follow ux.wheels (the component renders them; wheel.css styles them), the sticky exercise
+   header follows ux.layout. Tokens only, no truncation. Classic markup and CSS are untouched. */
+:root[data-ux-wheels='premium'] .sf-lg__pair--wheels {
+  gap: var(--sp-3);
+}
+:root[data-ux-wheels='premium'] .sf-lg--big .sf-lg__pair--wheels,
+:root[data-ux-wheels='premium'] .sf-lg__pair--wheels {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+:root[data-ux-wheels='premium'] .sf-lg__wheel {
+  min-width: 0;
+}
+
+/* The exercise bar of an OPEN exercise stays at the top while its sets scroll (it sticks inside its own section, so the next exercise pushes it away). */
+:root[data-ux-layout='premium'] .sf-rt__ex > .sf-sec--open > .sf-sec__h {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg-base);
+}
+:root[data-ux-layout='premium'][data-ux-headers='premium'] .sf-rt__ex > .sf-sec--open > .sf-sec__h {
+  top: calc(var(--safe-top) + 52px);
+}
+
+/* ---- Phase 107-b: swipe rows, docked rest timer, finish summary (Premium, tokens only) ---- */
+/* A set row follows the finger; the action it will run shows behind it (delete on the right edge, copy on the left). */
+:root[data-ux-layout='premium'] .sf-lg__row {
+  position: relative;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+:root[data-ux-layout='premium'] .sf-lg__row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--sp-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+:root[data-ux-layout='premium'] .sf-lg__row[data-swipe='delete']::before {
+  content: attr(data-label-del);
+  justify-content: flex-end;
+  background: var(--danger-wash);
+  color: var(--text);
+  opacity: 1;
+}
+:root[data-ux-layout='premium'] .sf-lg__row[data-swipe='duplicate']::before {
+  content: attr(data-label-dup);
+  justify-content: flex-start;
+  background: var(--gold-wash);
+  color: var(--gold-200);
+  opacity: 1;
+}
+:root[data-ux-layout='premium'] .sf-lg__row[data-ready='yes'][data-swipe='delete']::before { background: var(--danger); }
+:root[data-ux-layout='premium'] .sf-lg__row[data-ready='yes'][data-swipe='duplicate']::before { background: var(--gold-600); color: var(--text); }
+:root[data-ux-layout='premium'] .sf-lg__row > .sf-lg__set {
+  position: relative;
+  transform: translateX(var(--sw-x, 0px));
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+:root[data-ux-layout='premium'] .sf-lg__row[data-swipe] > .sf-lg__set { transition: none; }
+
+/* The Undo bar slides up when a set is deleted or copied. */
+:root[data-ux-layout='premium'] .sf-rt__undo {
+  border-color: var(--gold-600);
+  background: var(--bg-raised);
+  box-shadow: var(--sh-2);
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-motion='premium'][data-ux-layout='premium']:not([data-motion='reduced']) .sf-rt__undo {
+    animation: sf-lg-dock var(--dur-slow) var(--ease-spring) backwards;
+  }
+}
+
+/* The rest timer docks: it rises out of the Log button and then stays in view above the tab bar while its exercise is on screen,
+   with a thin bar that shrinks as the rest runs down. */
+:root[data-ux-layout='premium'] .sf-lg__rest {
+  position: sticky;
+  bottom: calc(var(--tabbar-h) + var(--safe-bottom) + var(--sp-2));
+  z-index: 6;
+  overflow: hidden;
+  background: var(--bg-raised);
+  box-shadow: var(--sh-2);
+}
+:root[data-ux-layout='premium'] .sf-lg__rest::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: calc(var(--rest-p, 0) * 100%);
+  background: var(--gold-500);
+  transition: width 500ms linear;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-ux-motion='premium'][data-ux-layout='premium']:not([data-motion='reduced']) .sf-lg__rest {
+    animation: sf-lg-dock var(--dur-slow) var(--ease-spring) backwards;
+  }
+}
+@keyframes sf-lg-dock {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Finish summary: four numbers in a row of cells; nothing truncates, cells wrap on a narrow phone. */
+:root[data-ux-layout='premium'] .sf-fin {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-2);
+  margin: 0;
+}
+:root[data-ux-layout='premium'] .sf-fin__cell {
+  min-width: 0;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--bg-card);
+}
+:root[data-ux-layout='premium'] .sf-fin__cell dt { font-size: var(--text-xs); color: var(--text-muted); overflow-wrap: anywhere; }
+:root[data-ux-layout='premium'] .sf-fin__cell dd { margin: 0; font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--gold-200); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }

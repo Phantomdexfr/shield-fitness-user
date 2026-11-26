@@ -5,10 +5,15 @@ import { useState } from 'preact/hooks';
 import { Link } from 'wouter-preact';
 import { t } from '../../i18n';
 import { Icon } from './Icon';
+import { currentUx } from '../useUx';
+import { tick } from './haptics';
 import { Pressable } from './Pressable';
 import { Sheet } from './Overlay';
 import { Stepper } from './Form';
 import { Button } from './Button';
+import { WheelPicker } from './WheelPicker';
+import { useUx } from '../useUx';
+import { setUxSwitch } from '../../data/repos/ux';
 import { cx } from './util';
 
 export interface RowProps {
@@ -48,7 +53,7 @@ export function Row({ label, hint, value, href, onPress, trailing, chevron, dang
   const klass = cx('sf-row', danger && 'sf-row--danger', cls);
   if (href !== undefined) {
     return (
-      <Link href={href} class={cx(klass, 'sf-press')} aria-label={rest['aria-label']}>
+      <Link href={href} class={cx(klass, 'sf-press')} aria-label={rest['aria-label']} onClick={() => { if (currentUx('motion') === 'premium') tick(); }}>
         {body}
       </Link>
     );
@@ -145,8 +150,10 @@ export interface NumberRowProps {
   empty?: string;
 }
 
-/** A number with a sane range: a row showing it; a tap opens a sheet with a stepper (never a free text box). The change applies on Done. */
+/** A number with a sane range: a row showing it; a tap opens a sheet with a wheel (Premium, `ux.wheels`) or a stepper (Classic, or after
+ *  "Use steppers instead"), never a free text box. The change applies on Done. */
 export function NumberRow({ label, value, onChange, min, max, step = 1, format = String, title, disabled, empty }: NumberRowProps) {
+  const wheels = useUx('wheels') === 'premium';
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState(value);
   const show = () => {
@@ -158,11 +165,16 @@ export function NumberRow({ label, value, onChange, min, max, step = 1, format =
       <Row label={label} value={empty ?? format(value)} onPress={show} disabled={disabled} aria-label={`${label}: ${empty ?? format(value)}`} />
       <Sheet open={open} onClose={() => setOpen(false)} title={title ?? label}>
         <div class="sf-numrow">
-          <Stepper label={label} value={draft} onChange={setDraft} min={min} max={max} step={step} format={format} />
+          {wheels ? (
+            <WheelPicker label={label} value={draft} onChange={setDraft} min={min} max={max} step={step} format={format} />
+          ) : (
+            <Stepper label={label} value={draft} onChange={setDraft} min={min} max={max} step={step} format={format} />
+          )}
           <div class="sf-numrow__actions">
             <Button variant="secondary" onPress={() => setOpen(false)}>{t('ui.cancel')}</Button>
             <Button onPress={() => { onChange(draft); setOpen(false); }}>{t('ui.done')}</Button>
           </div>
+          {wheels && <Button variant="secondary" onPress={() => void setUxSwitch('wheels', false)}>{t('wheel.useSteppers')}</Button>}
         </div>
       </Sheet>
     </>

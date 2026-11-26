@@ -118,7 +118,7 @@ export default function WelcomePage() {
         </div>
       </header>
 
-      <div class="sf-ob__body">
+      <div class="sf-ob__body" key={step}>
         <p class="sf-ob__step">{t('ob.step', { n: index, of: total })}</p>
         <h1 class="sf-ob__h">{t(`ob.${step}.h` as StringKey)}</h1>
         <p class="sf-ob__lead">{step === 'finish' && known.gym ? t('ob.finish.gym.lead') : t(`ob.${step}.lead` as StringKey)}</p>

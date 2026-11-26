@@ -38,6 +38,8 @@ export function SearchBox(p: SearchBoxProps) {
           {...searchAttrs}
           {...{ value: p.value, placeholder: p.placeholder }}
           onInput={(e) => p.onInput((e.currentTarget as HTMLInputElement).value)}
+          onCancel={() => p.onInput('')}
+          cancelLabel={t('cx.cancel')}
           onBlur={p.onCommit}
           onKeyDown={(e) => e.key === 'Enter' && p.onCommit?.()}
         />

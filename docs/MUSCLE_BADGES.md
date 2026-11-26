@@ -99,3 +99,52 @@ The published anchors were re-checked against the abstract record of van den Hoe
 8. Group membership (parent_group) and calves having only two ladders.
 9. Machine and cable ladders are treated like free-weight ladders despite brand differences.
 10. Reps 1-12 for e1RM, the 4.0 x BW plausibility cap.
+
+---
+
+# Calibration v2 (Phase 112): tiers that mean something
+
+**Why.** A single 100 kg x 1 kneeling cable crunch made Abs Olympian, with Experience still at Wood. Three causes:
+1. The estimated ladders' Olympian anchors were guesses, often a third to a half of a real elite lift (cable crunch Olympian was 1.3 x BW; public elite gym standards are about 1.6 to 2.2 x BW).
+2. One set in the last year could crown a muscle: no repeat, no training history.
+3. Epley doubles the load at 30 reps, so high-rep core sets read as huge maxes.
+
+**What changed** (code: `src/shared/badges/calibration.ts`; contract files untouched):
+- **Anchors.** 33 ladders re-anchored so Olympian is about the Elite row of public gym standards (Strength Level, FitnessVolt), where the published squat/bench/deadlift anchors already sit. Squat, bench, deadlift and their derived ladders are unchanged, as are pull-up, chin-up, dip, push-up, back extension, leg press, lat pulldown, seated row and the curls (they already matched). Applied through `withCore`, idempotent.
+- **Repeat rule (strict).** From Gold up, the benchmark must be reached in two different workouts. One workout is capped just under Gold.
+- **Estimate cap (strict).** Ladders whose source is `estimate` stop at Diamond. Only published or derived lifts reach Master or Olympian.
+- **Experience lead (strict).** A muscle's strength tier is at most 3 tiers above its experience tier (Wood experience: Silver; Platinum needs 40 weighted sets, Diamond 120, Master 300, Olympian 650).
+- **Soft high reps (strict).** Reps above 12 count a third each in the e1RM (30 reps = 18 effective).
+- **Peaks reset once.** `BADGE_CALIBRATION = 2`; the stored profile's peaks are dropped and rebuilt when its calibration is older.
+- **UI.** The muscle sheet says when a tier is held (`badge.held.*`); "1 more set" is singular; the limits note is rewritten.
+- `BadgeInput.strict` switches the new rules on; the app always passes `strict: true`. Pure contract tests keep it off.
+
+**Olympian kg, before -> after** (male 80 kg / female 60 kg):
+
+| Ladder | Male before | Male after | Female before | Female after |
+|---|---|---|---|---|
+| Kneeling cable crunch | 104 | 152 | 54 | 96 |
+| Cable woodchop | 64 | 92 | 33 | 48 |
+| Hack squat | 192 | 240 | 114 | 144 |
+| Leg extension | 128 | 184 | 72 | 114 |
+| Leg curl | 80 | 128 | 45 | 75 |
+| Hip abduction | 144 | 208 | 96 | 132 |
+| Hip adduction | 144 | 192 | 90 | 120 |
+| Cable pull-through | 104 | 140 | 66 | 84 |
+| Standing calf raise | 192 | 256 | 102 | 138 |
+| Seated calf raise | 112 | 224 | 60 | 126 |
+| Barbell shrug | 208 | 264 | 114 | 144 |
+| Face pull | 72 | 96 | 36 | 54 |
+| Machine shoulder press | 96 | 112 | 51 | 60 |
+| Lateral raise (both hands) | 52 | 68 | 27 | 36 |
+| Rear-delt fly | 72 | 92 | 36 | 48 |
+| Machine chest press | 128 | 152 | 66 | 81 |
+| Pec deck / cable fly | 80 | 112 | 42 | 60 |
+| Triceps pushdown | 104 | 116 | 54 | 60 |
+| Skull crusher | 76 | 84 | 36 | 42 |
+| Wrist curl | 80 | 120 | 39 | 66 |
+| Reverse curl | 64 | 72 | 30 | 36 |
+| Reverse wrist curl | 36 | 48 | 18 | 24 |
+| Core ladders (crunch, sit-up, leg raise, ab wheel, plank, side plank) | new in Phase 94 | 100 to 136 | | 63 to 84 |
+
+**Honest limits.** Public tables are self-logged and noisy (cable stacks, wrist work), so those anchors take the cautious end; every re-anchored ladder is still an estimate and is capped at Diamond. Women's anchors keep the contract's lower ratio of the men's. Cable stack weight is not corrected for pulley ratio. The tier fractions (25, 40, 55, 68, 80, 90, 95, 100 percent of the anchor) are unchanged.

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { Link, useLocation, useSearch } from 'wouter-preact';
+import { sharedNavigate } from '../../app/pageMotion';
 import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
 import { exercisesRepo } from '../../data/repos/exercises';
@@ -40,6 +41,14 @@ function MachineThumb({ slug, name }: { slug: string; name: string }) {
  *  All state lives in the URL query (`?tab=&q=&cat=&sub=&kind=&diff=&beginner=1&uni=1&machine=&mcat=`). */
 export default function LibraryPage() {
   const [, navigate] = useLocation();
+  /** Phase 103 (ux.motion): a plain tap on an exercise row grows its name into the page title (View Transitions). Anywhere else, or with a modified click, the normal link runs. */
+  const openShared = (e: MouseEvent, to: string) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.defaultPrevented) return;
+    if (sharedNavigate(e.currentTarget as HTMLElement, () => navigate(to))) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
   const search = useSearch();
   const state = useMemo(() => parseLibraryUrl(search), [search]);
   const equipmentOn = useFeature('equipment_mode');
@@ -223,7 +232,7 @@ export default function LibraryPage() {
         <Collapsible id="gotos" title={t('lib.gotos')}>
           <ul class="sf-lib__list">
             {mine.map((g) => (
-              <li key={g.slug} class="sf-lib__row">
+              <li key={g.slug} class="sf-lib__row" onClickCapture={(e) => openShared(e, `/exercise/${g.slug}`)}>
                 <Row href={`/exercise/${g.slug}`}>
                   <span class="sf-lib__name">{g.name}</span>
                 </Row>
@@ -252,7 +261,7 @@ export default function LibraryPage() {
             <>
               <ul class="sf-lib__list">
                 {results.slice(0, shown).map((r) => (
-                  <li key={r.slug} class="sf-lib__row">
+                  <li key={r.slug} class="sf-lib__row" onClickCapture={(e) => openShared(e, `/exercise/${r.slug}`)}>
                     <Row href={`/exercise/${r.slug}`}>
                       <span class="sf-lib__name">{r.name}</span>
                       <span class="sf-lib__meta">

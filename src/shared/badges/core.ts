@@ -5,6 +5,7 @@
 
 import type { Ladder, LadderMapRow } from './ladders';
 import type { BadgeData } from './index';
+import { recalibrate } from './calibration';
 
 /** Reps a strength set may have, by ladder. Every other ladder keeps the contract's 12. */
 export const DEFAULT_MAX_REPS = 12;
@@ -53,13 +54,14 @@ export function repsFor(ladderId: string, reps: number | null | undefined, secon
   return null;
 }
 
-/** The parsed badge data with the core ladders and their exercises appended (ids already present are left alone). */
+/** The parsed badge data with the core ladders and their exercises appended (ids already present are left alone), then calibrated (calibration.ts). */
 export function withCore(data: BadgeData): BadgeData {
   const have = new Set(data.ladders.map((l) => l.ladderId));
   const mapped = new Set(data.map.map((m) => m.slug));
-  return {
+  // Calibration v2: the anchors in calibration.ts replace the contract's guessed ones (and the core rows' first guesses).
+  return recalibrate({
     ...data,
     ladders: [...data.ladders, ...CORE_LADDERS.filter((l) => !have.has(l.ladderId))],
     map: [...data.map, ...CORE_MAP.filter((m) => !mapped.has(m.slug))],
-  };
+  });
 }

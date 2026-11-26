@@ -3,7 +3,8 @@ import { useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
 import { useFeature } from '../../app/flags';
 import { relayAvailable } from '../../data/relay/client';
-import { Badge, Button, Card, Collapsible, EmptyState, Row, RowGroup } from '../../ui/components';
+import { Badge, Button, Card, Collapsible, EmptyState, HeroCard, Row, RowGroup } from '../../ui/components';
+import { useUx } from '../../ui/useUx';
 import { activeRoutine, readState } from '../../data/repos/schedule';
 import { listSessions } from '../../data/repos/sessions';
 import { estimateMinutes } from '../../shared/routineEdit';
@@ -18,6 +19,7 @@ export default function TrainPage() {
   const [, navigate] = useLocation();
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const shareOn = useFeature('plan_share') && relayAvailable();
+  const premium = useUx('layout') === 'premium';
 
   const read = () => {
     setLoad({ status: 'loading' });
@@ -58,6 +60,12 @@ export default function TrainPage() {
     </li>
   );
 
+  const lastRow = last ? (
+    <RowGroup label={t('tr.last')}>
+      <Row label={last.dayName || t('fs.train.free')} value={istDayKey(Date.parse(last.startedAt))} href="/history" />
+    </RowGroup>
+  ) : null;
+
   return (
     <section class="sf-page-body sf-rt">
       {title}
@@ -75,30 +83,73 @@ export default function TrainPage() {
         </Card>
       )}
 
-      {routine && days.length > 0 ? (
-        <div class="sf-rt__block">
-          <h2 class="sf-sec__label">{routine.name}</h2>
-          <ul class="sf-rt__list">{days.map((d, i) => (i === suggested ? dayItem(d, i) : null))}</ul>
-          {days.length > 1 && (
+      {premium ? (
+        <>
+          {/* Premium layout: ONE hero card holds what to do next (a free session when there is no routine), so the tab is never blank. */}
+          {!open && !doneToday && (
+            <HeroCard class="sf-tr__hero">
+              {routine && days.length > 0 ? (
+                <>
+                  <h2 class="sf-sec__label">{routine.name}</h2>
+                  <ul class="sf-rt__list">{days.map((d, i) => (i === suggested ? dayItem(d, i) : null))}</ul>
+                </>
+              ) : (
+                <>
+                  <p class="sf-rt__meta">{t('fs.train.none')}</p>
+                  <Button onPress={() => navigate('/session/new?free=1')}>{t('fs.train.free')}</Button>
+                </>
+              )}
+            </HeroCard>
+          )}
+          {(open || doneToday) && routine && days.length > 0 && (
+            <div class="sf-rt__block">
+              <h2 class="sf-sec__label">{routine.name}</h2>
+              <ul class="sf-rt__list">{days.map((d, i) => (i === suggested ? dayItem(d, i) : null))}</ul>
+            </div>
+          )}
+          {routine && days.length > 1 && (
             <Collapsible id="days" title={t('ux.days')} summary={String(days.length - 1)}>
               <ul class="sf-rt__list">{days.map((d, i) => (i === suggested ? null : dayItem(d, i)))}</ul>
             </Collapsible>
           )}
-        </div>
+          {lastRow}
+          <RowGroup label={t('tr.ways')}>
+            {routine && days.length > 0 && <Row label={t('fs.train.free')} onPress={() => navigate('/session/new?free=1')} />}
+            {last && <Row label={t('fs.train.repeat')} onPress={() => navigate('/session/new?repeat=1')} />}
+            {shareOn && <Row label={t('ps.recv.open')} onPress={() => navigate('/share')} />}
+            <Row label={t('fs.train.routines')} href="/routines" />
+            <Row label={t('fs.train.history')} href="/history" />
+            <Row label={t('fs.train.progress')} href="/progress" />
+          </RowGroup>
+        </>
       ) : (
-        <p class="sf-rt__meta">{t('fs.train.none')}</p>
-      )}
+        <>
+          {routine && days.length > 0 ? (
+            <div class="sf-rt__block">
+              <h2 class="sf-sec__label">{routine.name}</h2>
+              <ul class="sf-rt__list">{days.map((d, i) => (i === suggested ? dayItem(d, i) : null))}</ul>
+              {days.length > 1 && (
+                <Collapsible id="days" title={t('ux.days')} summary={String(days.length - 1)}>
+                  <ul class="sf-rt__list">{days.map((d, i) => (i === suggested ? null : dayItem(d, i)))}</ul>
+                </Collapsible>
+              )}
+            </div>
+          ) : (
+            <p class="sf-rt__meta">{t('fs.train.none')}</p>
+          )}
 
-      <Collapsible id="ways" title={t('ux.otherWays')}>
-        <Button variant="secondary" onPress={() => navigate('/session/new?free=1')}>{t('fs.train.free')}</Button>
-        {last && <Button variant="secondary" onPress={() => navigate('/session/new?repeat=1')}>{t('fs.train.repeat')}</Button>}
-        {shareOn && <Button variant="secondary" onPress={() => navigate('/share')}>{t('ps.recv.open')}</Button>}
-      </Collapsible>
-      <RowGroup>
-        <Row label={t('fs.train.routines')} href="/routines" />
-        <Row label={t('fs.train.history')} href="/history" />
-        <Row label={t('fs.train.progress')} href="/progress" />
-      </RowGroup>
+          <Collapsible id="ways" title={t('ux.otherWays')}>
+            <Button variant="secondary" onPress={() => navigate('/session/new?free=1')}>{t('fs.train.free')}</Button>
+            {last && <Button variant="secondary" onPress={() => navigate('/session/new?repeat=1')}>{t('fs.train.repeat')}</Button>}
+            {shareOn && <Button variant="secondary" onPress={() => navigate('/share')}>{t('ps.recv.open')}</Button>}
+          </Collapsible>
+          <RowGroup>
+            <Row label={t('fs.train.routines')} href="/routines" />
+            <Row label={t('fs.train.history')} href="/history" />
+            <Row label={t('fs.train.progress')} href="/progress" />
+          </RowGroup>
+        </>
+      )}
     </section>
   );
 }

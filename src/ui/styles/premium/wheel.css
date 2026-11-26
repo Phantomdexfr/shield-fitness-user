@@ -1,0 +1,56 @@
+/* Premium wheel picker (Phase 101, ux.wheels): scroll-snap list, the chosen line in gold between two thin gold lines.
+   Tokens only. The list is `--wheel-rows` lines tall (set by the component with `--wheel-item`); padding lets the first and last line reach the middle. */
+:root[data-ux-wheels='premium'] .sf-wheel {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r-md);
+  background: var(--bg-raised);
+  box-shadow: var(--sh-press);
+  overflow: hidden;
+}
+:root[data-ux-wheels='premium'] .sf-wheel__list {
+  box-sizing: border-box;
+  height: calc(var(--wheel-item) * var(--wheel-rows));
+  padding: calc(var(--wheel-item) * (var(--wheel-rows) - 1) / 2) 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-type: y mandatory;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  outline: none;
+}
+:root[data-ux-wheels='premium'] .sf-wheel__list::-webkit-scrollbar {
+  display: none;
+}
+:root[data-ux-wheels='premium'] .sf-wheel__list:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--gold-400);
+}
+:root[data-ux-wheels='premium'] .sf-wheel__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--wheel-item);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  color: var(--text-2);
+  font-size: var(--text-lg);
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  cursor: pointer;
+}
+:root[data-ux-wheels='premium'] .sf-wheel__item--on {
+  color: var(--gold-200);
+  font-weight: 700;
+}
+/* The two thin gold lines around the middle line; the lines above and below fade toward the edges. */
+:root[data-ux-wheels='premium'] .sf-wheel__band {
+  position: absolute;
+  left: var(--sp-4);
+  right: var(--sp-4);
+  top: calc(var(--wheel-item) * (var(--wheel-rows) - 1) / 2);
+  height: var(--wheel-item);
+  border-top: 1px solid var(--gold-600);
+  border-bottom: 1px solid var(--gold-600);
+  pointer-events: none;
+}
