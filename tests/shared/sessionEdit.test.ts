@@ -49,3 +49,13 @@ describe('sessionEdit', () => {
     expect(summaryOf(n).minutes).toBe(45);
   });
 });
+
+describe('editing seconds', () => {
+  it('seconds of a hold can be changed and are capped at an hour', () => {
+    const s = { id: 'x', startedAt: '2026-11-25T08:00:00.000Z', items: [{ kind: 'exercise', ref: { slug: 'plank' }, sets: [{ weightKg: null, reps: null, seconds: 30, tag: 'normal' }] }] } as never;
+    const a = editSet(s, 0, 0, { seconds: 75 }) as never as { items: Array<{ sets: Array<{ seconds: number }> }> };
+    expect(a.items[0]!.sets[0]!.seconds).toBe(75);
+    const b = editSet(s, 0, 0, { seconds: 99999 }) as never as typeof a;
+    expect(b.items[0]!.sets[0]!.seconds).toBe(3600);
+  });
+});

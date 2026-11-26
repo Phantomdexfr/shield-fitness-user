@@ -7,6 +7,7 @@ import { classOf, type ExerciseClass } from '../../shared/pocket';
 import { DEFAULT_LOGGER_PREFS, resultsFor, restHistory, sanitizePrefs, type LoggerPrefs } from '../../shared/logger';
 import { overload, type Intensity, type OverloadMode, type OverloadResult } from '../../shared/engine/overload';
 import type { ExerciseResult } from '../../shared/engine/sessionStats';
+import { isTimedSlug } from '../../shared/timed';
 import { refId, type ItemRef, type Session } from '../../shared/session';
 import { exercisesRepo, listCustomExercises } from './exercises';
 import { listSessions } from './sessions';
@@ -14,6 +15,8 @@ import { listSessions } from './sessions';
 export interface LoggerInfo {
   cls: ExerciseClass;
   cardio: boolean;
+  /** Logged as a time (plank, hold, carry), not reps. */
+  timed: boolean;
   repMin: number;
   repMax: number;
   /** Machine weight step, or null (then 2.5 kg). */
@@ -22,7 +25,7 @@ export interface LoggerInfo {
   outOfOrder: boolean;
 }
 
-const FALLBACK: LoggerInfo = { cls: 'isolation', cardio: false, repMin: 8, repMax: 12, stepKg: null, outOfOrder: false };
+const FALLBACK: LoggerInfo = { cls: 'isolation', cardio: false, timed: false, repMin: 8, repMax: 12, stepKg: null, outOfOrder: false };
 
 /** Class, rep range and weight step for each distinct exercise. A missing exercise gets the fallback (never throws). */
 export async function loadLoggerInfo(refs: readonly ItemRef[]): Promise<Map<string, LoggerInfo>> {
@@ -40,6 +43,7 @@ export async function loadLoggerInfo(refs: readonly ItemRef[]): Promise<Map<stri
           return void out.set(key, {
             cls: c.kind === 'cardio' ? 'cardio' : c.kind === 'bodyweight' ? 'bodyweight' : 'isolation',
             cardio: c.kind === 'cardio',
+            timed: false,
             repMin: c.repMin,
             repMax: c.repMax,
             stepKg: machine?.stepKg ?? null,
@@ -53,6 +57,7 @@ export async function loadLoggerInfo(refs: readonly ItemRef[]): Promise<Map<stri
         out.set(key, {
           cls,
           cardio: cls === 'cardio',
+          timed: cls !== 'cardio' && isTimedSlug(ref.slug),
           repMin: full.detail.repMin ?? FALLBACK.repMin,
           repMax: full.detail.repMax ?? FALLBACK.repMax,
           stepKg: machine?.stepKg ?? null,

@@ -228,13 +228,80 @@ export interface PlanInput {
   decided?: readonly string[];
 }
 
-const ctxOf = (i: PlanInput): PlanContext => ({
+/** The plan context from the user's own choices only (no automatic shifts). */
+const userCtxOf = (i: PlanInput): PlanContext => ({
   today: i.today,
   ...(i.weekStart ? { weekStart: i.weekStart } : {}),
   ...(i.meta ? { meta: i.meta } : {}),
   ...(i.sessionDates ? { sessionDates: i.sessionDates } : {}),
   ...(i.overrides ? { overrides: i.overrides } : {}),
 });
+
+/** Modes with fixed dates, where a rest date can be given up so the training days slide forward. */
+const isFixed = (s: Schedule | undefined): boolean => !!s && (s.mode === 'weekdays' || s.mode === 'cycle' || s.mode === 'ab_weeks');
+/** How far ahead to look for a rest date to give up. */
+export const SHIFT_AHEAD = 14;
+
+/** First rest date ('R') from `from` on, looking `SHIFT_AHEAD` days ahead. */
+function firstRest(s: Schedule | undefined, from: DayKey, ctx: PlanContext): DayKey | undefined {
+  for (let n = 0; n < SHIFT_AHEAD; n++) {
+    const d = addDays(from, n);
+    if (kindOn(s, d, ctx) === 'R') return d;
+  }
+  return undefined;
+}
+
+/**
+ * Planned training dates nobody logged count as rest, and the plan slides forward: each one uses up the next rest date
+ * (Mon to Fri trained, Thursday missed: Saturday becomes a training day). Worked out from the sessions every time, so logging
+ * the missed day later (or editing a date) puts the plan back. Not applied after a long break (the Welcome back card handles that),
+ * to dates the user already decided about, or to "every N", floating and no-plan schedules.
+ */
+export function autoShifts(i: PlanInput): Record<string, 'train'> {
+  const s = i.schedule;
+  if (!isFixed(s) || !i.sessionDates) return {}; // without the list of logged sessions nothing can be called missed
+  const base = userCtxOf(i);
+  const since = i.meta?.savedOn ?? addDays(i.today, -14);
+  const lo = since > addDays(i.today, -14) ? since : addDays(i.today, -14);
+  const done = new Set(i.sessionDates ?? []);
+  const decided = new Set(i.decided ?? []);
+  let streak = 0;
+  for (let d = addDays(i.today, -1); d >= lo; d = addDays(d, -1)) {
+    if (kindOn(s, d, base) !== 'T') continue;
+    if (done.has(d)) break;
+    streak++;
+  }
+  if (streak > BREAK_AFTER) return {};
+  const out: Record<string, 'train'> = {};
+  for (let d = lo; d < i.today; d = addDays(d, 1)) {
+    // Only days the plan really asked for count; a make-up date nobody used just goes away (no chain reaction).
+    if (kindOn(s, d, base) !== 'T' || done.has(d) || decided.has(d)) continue;
+    const ctx: PlanContext = { ...base, overrides: { ...out, ...(i.overrides ?? {}) } };
+    const target = firstRest(s, addDays(d, 1), ctx);
+    if (!target) break;
+    out[target] = 'train';
+  }
+  return out;
+}
+
+const ctxOf = (i: PlanInput): PlanContext => {
+  const c = userCtxOf(i);
+  const auto = autoShifts(i);
+  return Object.keys(auto).length === 0 ? c : { ...c, overrides: { ...auto, ...(i.overrides ?? {}) } };
+};
+
+/**
+ * The choices to store when the user rests on `date`: that date becomes a rest day and the next rest date becomes a training
+ * day, so no training day is lost (1 2 3 4 5 r r becomes 1 2 3 r 4 5 r). With no rest date left, the days just move later.
+ */
+export function restShift(i: PlanInput, date: DayKey): Record<string, 'rest' | 'train'> {
+  const out: Record<string, 'rest' | 'train'> = { [date]: 'rest' };
+  if (!isFixed(i.schedule)) return out;
+  const ctx: PlanContext = { ...ctxOf(i), overrides: { ...ctxOf(i).overrides, [date]: 'rest' } };
+  const target = firstRest(i.schedule, addDays(date, 1), ctx);
+  if (target) out[target] = 'train';
+  return out;
+}
 
 /** The next `count` dates from today (ex. 2: the Days rotate across training dates, not weekdays). Floating shows `open`. */
 export function weekCells(i: PlanInput, count = 7): WeekCell[] {
@@ -280,7 +347,7 @@ export function missedDays(i: PlanInput, since: DayKey): MissedResult {
   const none: MissedResult = { dates: [], inARow: 0, welcomeBack: false };
   const s = i.schedule;
   if (!s || s.mode === 'every_n' || s.mode === 'floating') return none;
-  const ctx = ctxOf(i);
+  const ctx = userCtxOf(i);
   const done = new Set(i.sessionDates ?? []);
   const decided = new Set(i.decided ?? []);
   const lo = since > addDays(i.today, -14) ? since : addDays(i.today, -14);

@@ -8,6 +8,7 @@ import {
 import {
   experienceMp, experienceOf, lastTrained, medianExperienceTier, rustOf, type ExpExercise, type Experience, type Rust,
 } from './experience';
+import { maxRepsOf, repsFor } from './core';
 import { benchmarkE1RM, isImplausible, ladderThresholds, loadFor } from './thresholds';
 import {
   groupBadge, muscleBadge, overallBadge,
@@ -25,6 +26,8 @@ export const WINDOW_DAYS = 365;
 export interface BadgeSet {
   weightKg: number | null | undefined;
   reps: number | null | undefined;
+  /** Seconds of a timed set (plank, hold); counts as reps on a time-based ladder. */
+  seconds?: number | null | undefined;
   tag?: 'normal' | 'warmup' | 'drop' | 'superset';
   /** The person confirmed an implausible set ("is this right?"), so it counts. */
   confirmed?: boolean;
@@ -119,6 +122,8 @@ function bodyweightAt(stats: readonly BodyStat[], day: DayKey): number {
   return kg;
 }
 
+export { withCore } from './core';
+
 export function computeBadges(data: BadgeData, input: BadgeInput): BadgeResult | NeedsInput {
   const stats = input.bodyStats
     .filter((s) => Number.isFinite(s.kg) && s.kg > 0)
@@ -153,13 +158,14 @@ export function computeBadges(data: BadgeData, input: BadgeInput): BadgeResult |
         if (set.tag === 'warmup') return;
         const load = loadFor(map.loadMode, ladder.bwFraction, sessionBw, set.weightKg);
         if (load == null) return;
-        const b = benchmarkE1RM(load, set.reps, map.factor);
+        const reps = repsFor(ladder.ladderId, set.reps, set.seconds);
+        const b = benchmarkE1RM(load, reps, map.factor, maxRepsOf(ladder.ladderId));
         if (b == null) return;
         if (isImplausible(b, sessionBw) && !set.confirmed) {
           needsConfirm.push({ sessionId: s.id, slug: ex.slug, exerciseIndex, setIndex, ladderId: ladder.ladderId, benchmarkE1rm: b, bodyweightKg: sessionBw });
           return;
         }
-        const rec: BestSet = { e1rm: b, day: s.day, slug: ex.slug, weightKg: set.weightKg ?? null, reps: set.reps as number, sessionId: s.id };
+        const rec: BestSet = { e1rm: b, day: s.day, slug: ex.slug, weightKg: set.weightKg ?? null, reps: reps as number, sessionId: s.id };
         const a = allTime.get(ladder.ladderId);
         if (!a || b > a.e1rm) allTime.set(ladder.ladderId, rec);
         if (inWindow) {

@@ -11,7 +11,7 @@ import { dayOfSession } from '../../shared/history';
 import { istDayKey, type DayKey } from '../../shared/dates';
 import { roundKg } from '../../shared/units';
 import {
-  computeBadges, groupsOf, parseBadgeData, sessionPromotions,
+  computeBadges, groupsOf, parseBadgeData, withCore, sessionPromotions,
   type BadgeData, type BadgeInput, type BadgeResult, type BadgeSession, type NeedsInput, type Promotion, type Sex,
 } from '../../shared/badges';
 import { parseSetupData, setupWeights } from '../../pages/exercise/setupModel';
@@ -129,7 +129,7 @@ async function loadSessions(confirmed: ReadonlySet<string>): Promise<BadgeSessio
       exercises.push({
         slug,
         weights,
-        sets: it.sets.map((st, k) => ({ weightKg: st.weightKg, reps: st.reps, tag: st.tag, confirmed: confirmed.has(`${s.id}:${idx}:${k}`) })),
+        sets: it.sets.map((st, k) => ({ weightKg: st.weightKg, reps: st.reps, seconds: st.seconds ?? null, tag: st.tag, confirmed: confirmed.has(`${s.id}:${idx}:${k}`) })),
       });
     }
     out.push({ id: s.id, day: dayOfSession(s), exercises });
@@ -149,8 +149,9 @@ export interface BadgeState {
 
 async function buildInput(profile: BadgeProfile, asOf: DayKey): Promise<{ data: BadgeData; input: BadgeInput; bodyStats: BodyweightRow[]; sessionCount: number } | null> {
   const [raw, { muscles }] = await Promise.all([getBadges().catch(() => null), getMuscles()]);
-  const data = parseBadgeData(raw);
-  if (!data) return null;
+  const parsed = parseBadgeData(raw);
+  if (!parsed) return null;
+  const data = withCore(parsed);
   const sessions = await loadSessions(new Set(profile.confirmed));
   const bodyStats = await loadBodyStats();
   const groups = groupsOf(muscles.map((m) => ({ id: m.id, parentGroup: GROUP_OF_PARENT[m.parent] ?? m.parent })));

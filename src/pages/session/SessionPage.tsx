@@ -32,7 +32,7 @@ type State =
 type Undo = { text: string; restore: (cur: Session) => Session };
 const UNDO_MS = 6000;
 const REASONS: readonly SkipReason[] = ['busy', 'pain', 'no_time', 'too_hard', 'other'];
-const FALLBACK_INFO: LoggerInfo = { cls: 'isolation', cardio: false, repMin: 8, repMax: 12, stepKg: null, outOfOrder: false };
+const FALLBACK_INFO: LoggerInfo = { cls: 'isolation', cardio: false, timed: false, repMin: 8, repMax: 12, stepKg: null, outOfOrder: false };
 type Alts = { status: 'idle' } | { status: 'loading' } | { status: 'error' } | { status: 'ready'; list: Alternative[] };
 
 function Thumb({ machine, name }: { machine: string; name: string }) {

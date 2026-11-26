@@ -82,6 +82,7 @@
 .sf-lg__field .sf-stepper__value { font-size: var(--text-lg); }
 .sf-lg__grow { flex: 1 1 8rem; min-width: 0; }
 .sf-lg__rest { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-2) var(--sp-3); border: 1px solid var(--gold-600); border-radius: var(--r-md); background: var(--gold-wash); min-width: 0; }
+.sf-lg__clock-n { font-variant-numeric: tabular-nums; font-size: var(--text-3xl); line-height: 1; }
 .sf-lg__clock { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--gold-200); }
 .sf-lg__sheet { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; }
 .sf-lg__plates { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); min-width: 0; }

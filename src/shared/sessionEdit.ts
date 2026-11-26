@@ -25,7 +25,7 @@ function mapItem(s: Session, index: number, f: (it: SessionItem) => SessionItem)
 
 const clamp = (n: number, lo: number, hi: number): number => Math.min(hi, Math.max(lo, n));
 
-export type SetPatch = Partial<Pick<SetLog, 'weightKg' | 'reps' | 'tag'>>;
+export type SetPatch = Partial<Pick<SetLog, 'weightKg' | 'reps' | 'seconds' | 'tag'>>;
 
 /** Changes one set. Weight 0 or less means bodyweight (null); reps are whole numbers 0 to 999. */
 export function editSet(s: Session, itemIndex: number, setIndex: number, patch: SetPatch): Session {
@@ -39,6 +39,7 @@ export function editSet(s: Session, itemIndex: number, setIndex: number, patch: 
         next.weightKg = w > 0 ? Math.round(clamp(w, 0, MAX_KG) * 100) / 100 : null;
       }
       if (patch.reps != null) next.reps = clamp(Math.round(patch.reps), 0, MAX_REPS);
+      if (patch.seconds != null) next.seconds = clamp(Math.round(patch.seconds), 0, 3600);
       if (patch.tag) next.tag = patch.tag;
       return next;
     }),

@@ -15,6 +15,13 @@ export function figureTiers(result: BadgeResult): Record<string, number> {
   return out;
 }
 
+/** Muscles that have any experience, with their experience tier, for the body figure (Experience layer). */
+export function experienceTiers(result: BadgeResult): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const [id, e] of Object.entries(result.experience.muscles)) if (e.mp > 0) out[id] = e.tier;
+  return out;
+}
+
 /** Ranked muscles, highest tier first, then name order of id. The text twin of the body figure. */
 export function rankedRows(result: BadgeResult): MuscleBadge[] {
   return Object.values(result.muscles)

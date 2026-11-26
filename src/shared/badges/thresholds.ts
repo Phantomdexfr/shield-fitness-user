@@ -51,9 +51,9 @@ export function loadFor(mode: LoadMode, bwFraction: number, bw: number, weightKg
   return mode === 'per_hand' ? 2 * w : w;
 }
 
-/** benchmarkE1RM = Epley(load, reps) / factor. Reps 1-12 only (13 and above, 0, or no reps -> null). Not rounded. */
-export function benchmarkE1RM(load: number, reps: number | null | undefined, factor: number): number | null {
-  if (reps == null || !Number.isInteger(reps) || reps < 1 || reps > 12 || !(factor > 0) || !(load > 0)) return null;
+/** benchmarkE1RM = Epley(load, reps) / factor. Reps 1-12 only by default (13 and above, 0, or no reps -> null); core ladders pass a higher cap. Not rounded. */
+export function benchmarkE1RM(load: number, reps: number | null | undefined, factor: number, maxReps = 12): number | null {
+  if (reps == null || !Number.isInteger(reps) || reps < 1 || reps > maxReps || !(factor > 0) || !(load > 0)) return null;
   // Epley, reps 1 = the load itself. Kept unrounded (engine/oneRm rounds to 2 dp) so a threshold is never missed by rounding.
   const raw = reps === 1 ? load : load * (1 + reps / 30);
   return raw / factor;

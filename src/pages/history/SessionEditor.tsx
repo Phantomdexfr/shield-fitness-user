@@ -5,6 +5,7 @@ import { SearchBox } from '../../ui/search/SearchBox';
 import { refFor, searchPicks, type Pick } from '../../data/repos/routineEdit';
 import { addItem, refId, type Session } from '../../shared/session';
 import { setLine } from '../session/SetLogger';
+import { clockSeconds } from '../../shared/timed';
 import { addSetTo, duplicateSet, editSet, removeExercise, removeSetAt, timesOf, withTimes, MAX_KG, MAX_REPS } from '../../shared/sessionEdit';
 
 export interface SessionEditorProps {
@@ -102,7 +103,11 @@ export function SessionEditor({ draft, names, onChange }: SessionEditorProps) {
         {editing && pick && (
           <div class="sf-lg__sheet sf-sm__big" data-hook="edit-sheet">
             <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.weight')}</span><Stepper label={t('lg.weight')} value={editing.weightKg ?? 0} step={2.5} min={0} max={MAX_KG} onChange={(v) => onChange(editSet(draft, pick.i, pick.j, { weightKg: v }))} /></div>
-            <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.reps')}</span><Stepper label={t('lg.reps')} value={editing.reps ?? 0} step={1} min={0} max={MAX_REPS} onChange={(v) => onChange(editSet(draft, pick.i, pick.j, { reps: v }))} /></div>
+            {editing.reps == null && editing.seconds != null ? (
+              <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.hold.sec')}</span><Stepper label={t('lg.hold.sec')} value={editing.seconds} step={5} min={0} max={3600} format={clockSeconds} onChange={(v) => onChange(editSet(draft, pick.i, pick.j, { seconds: v }))} /></div>
+            ) : (
+              <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.reps')}</span><Stepper label={t('lg.reps')} value={editing.reps ?? 0} step={1} min={0} max={MAX_REPS} onChange={(v) => onChange(editSet(draft, pick.i, pick.j, { reps: v }))} /></div>
+            )}
             <div class="sf-rt__chips" role="group" aria-label={t('lg.tag')}>
               {TAGS.map((g) => <Chip key={g} selected={editing.tag === g} onPress={() => onChange(editSet(draft, pick.i, pick.j, { tag: g }))}>{t(`lg.tag.${g}` as StringKey)}</Chip>)}
             </div>

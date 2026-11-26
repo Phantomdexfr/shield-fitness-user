@@ -13,6 +13,8 @@ import { actualRest, adjustRest, clockText, defaultRest, remainingRest, restSeco
 import type { Session, SessionItem, SetLog } from '../../shared/session';
 import { buzz, keepAwake, letSleep } from './device';
 import { PlateSheet } from './PlateSheet';
+import { HoldTimerBlock } from './HoldTimer';
+import { clockSeconds, timedFromDraft } from '../../shared/timed';
 
 type Undo = { text: string; restore: (cur: Session) => Session };
 
@@ -32,6 +34,10 @@ const kg = (n: number | null | undefined): string => `${n ?? 0} kg`;
 
 /** One set row as text: "60 kg x 10", "12 reps" (bodyweight) or the cardio parts. */
 export function setLine(s: SetLog): string {
+  if (s.seconds !== undefined && s.reps == null && !s.distanceM && !s.incline && !s.calories && s.seconds < 600) {
+    const time = s.seconds < 60 ? t('lg.c.clock', { n: clockSeconds(s.seconds) }) : t('lg.c.clockm', { n: clockSeconds(s.seconds) });
+    return s.weightKg ? `${kg(s.weightKg)} · ${time}` : time;
+  }
   if (s.seconds !== undefined && s.reps == null) {
     const parts = [t('lg.c.min', { n: Math.round((s.seconds / 60) * 10) / 10 })];
     if (s.distanceM) parts.push(t('lg.c.km', { n: Math.round(s.distanceM / 10) / 100 }));
@@ -119,7 +125,18 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
     setTimer(secs > 0 ? startRest(at, secs) : null);
   };
 
-  const ramp = rampOn && !info.cardio ? warmupSets(draft.weightKg, info.cls, step) : [];
+  const logTimed = (seconds: number, weightKg: number) => {
+    const at = Date.now();
+    const iso = new Date(at).toISOString();
+    const rest = actualRest(timer, at);
+    commit(addSet(sess, idx, timedFromDraft({ seconds, weightKg }, iso, rest)));
+    touched.current = true;
+    const secsRest = restFor({ ...draft, reps: 10 });
+    setNow(at);
+    setTimer(secsRest > 0 ? startRest(at, secsRest) : null);
+  };
+
+  const ramp = rampOn && !info.cardio && !info.timed ? warmupSets(draft.weightKg, info.cls, step) : [];
   const doRamp = () => {
     if (ramp.length === 0) return;
     commit(addRamp(sess, idx, ramp, new Date().toISOString()));
@@ -149,7 +166,7 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
         </p>
       )}
 
-      {sug && sug.weightKg != null && !info.cardio && !sameAsSug && (
+      {sug && sug.weightKg != null && !info.cardio && !info.timed && !sameAsSug && (
         <Chip onPress={() => edit({ weightKg: sug.weightKg ?? 0, reps: sug.reps[0] ?? draft.reps })}>
           {sug.weightKg > 0 ? t('lg.try', { weight: kg(sug.weightKg), reps: sug.reps[0] ?? draft.reps }) : t('lg.try.bw', { reps: sug.reps[0] ?? draft.reps })}
         </Chip>
@@ -195,7 +212,9 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
         </div>
       )}
 
-      {info.cardio ? (
+      {info.timed ? (
+        <HoldTimerBlock repMin={item.plan?.repMin ?? info.repMin} repMax={item.plan?.repMax ?? info.repMax} stepKg={step} onLog={logTimed} />
+      ) : info.cardio ? (
         <div class="sf-lg__entry">
           <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.c.minutes')}</span><Stepper label={t('lg.c.minutes')} value={cardio.minutes} step={1} min={0} max={600} onChange={(v) => setCardio({ ...cardio, minutes: v })} /></div>
           <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.c.distance')}</span><Stepper label={t('lg.c.distance')} value={cardio.distanceKm} step={0.1} min={0} max={500} onChange={(v) => setCardio({ ...cardio, distanceKm: v })} /></div>
@@ -247,7 +266,14 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
         {editing && editAt !== null && (
           <div class="sf-lg__sheet">
             {editing.seconds !== undefined && editing.reps == null ? (
-              <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.c.minutes')}</span><Stepper label={t('lg.c.minutes')} value={Math.round(editing.seconds / 6) / 10} step={1} min={0} max={600} onChange={(v) => commit(editSet(sess, idx, editAt, { seconds: Math.round(v * 60) }))} /></div>
+              info.timed ? (
+                <>
+                  <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.hold.edit')}</span><Stepper label={t('lg.hold.edit')} value={editing.seconds} step={5} min={0} max={3600} format={clockSeconds} onChange={(v) => commit(editSet(sess, idx, editAt, { seconds: Math.round(v) }))} /></div>
+                  <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.hold.weight')}</span><Stepper label={t('lg.hold.weight')} value={editing.weightKg ?? 0} step={step} min={0} max={MAX_KG} format={(v) => (v === 0 ? t('lg.bw') : String(v))} onChange={(v) => commit(editSet(sess, idx, editAt, { weightKg: v > 0 ? v : null }))} /></div>
+                </>
+              ) : (
+                <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.c.minutes')}</span><Stepper label={t('lg.c.minutes')} value={Math.round(editing.seconds / 6) / 10} step={1} min={0} max={600} onChange={(v) => commit(editSet(sess, idx, editAt, { seconds: Math.round(v * 60) }))} /></div>
+              )
             ) : (
               <>
                 <div class="sf-lg__field"><span class="sf-rt__meta">{t('lg.weight')}</span><Stepper label={t('lg.weight')} value={editing.weightKg ?? 0} step={step} min={0} max={MAX_KG} onChange={(v) => commit(editSet(sess, idx, editAt, { weightKg: v > 0 ? v : null }))} /></div>

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Button, EmptyState, ProgressBar, Sheet, SubPageHeader, Row } from '../../ui/components';
+import { Button, Chip, EmptyState, ProgressBar, Sheet, SubPageHeader, Row } from '../../ui/components';
 import { BodyPicker, type Sex as FigureSex, type View } from '../../ui/body';
 import { useFigureSex } from '../../ui/body/useFigureSex';
 import { confirmSets, getProfile, loadBadgeState, saveProfile, type BadgeState } from '../../data/repos/badges';
@@ -9,7 +9,7 @@ import { BADGE_GROUPS, type BadgeResult, type MuscleBadge } from '../../shared/b
 import { dayLabel } from '../history/dayText';
 import { Crest } from './Crest';
 import { ProfileForm } from './ProfileForm';
-import { TIER_IDS, confirmKeys, figureTiers, pct, rankedRows, round1, round2, strongestWeakest, tierClass, unrankedCount } from './badgesModel';
+import { TIER_IDS, confirmKeys, experienceTiers, figureTiers, pct, rankedRows, round1, round2, strongestWeakest, tierClass, unrankedCount } from './badgesModel';
 import { goBack } from '../../app/navBack';
 
 type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; state: BadgeState };
@@ -86,6 +86,7 @@ export default function BadgesPage() {
   const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [picked, setPicked] = useState<string | null>(null);
+  const [layer, setLayer] = useState<'strength' | 'experience'>('strength');
 
   const read = () => {
     setLoad({ status: 'loading' });
@@ -95,7 +96,7 @@ export default function BadgesPage() {
 
   const state = load.status === 'ready' ? load.state : null;
   const result = state && state.result.status === 'ok' ? state.result : null;
-  const tiers = useMemo(() => (result ? figureTiers(result) : {}), [result]);
+  const tiers = useMemo(() => (result ? (layer === 'experience' ? experienceTiers(result) : figureTiers(result)) : {}), [result, layer]);
   const rows = useMemo(() => (result ? rankedRows(result) : []), [result]);
 
   const head = <SubPageHeader title={t('page.badges.title')} onBack={() => goBack(navigate, '/body')} backLabel={t('sm.back')} />;
@@ -149,6 +150,10 @@ export default function BadgesPage() {
 
       {noneRanked && <EmptyState title={t('badge.empty.title')} hint={t('badge.empty.hint')} actionLabel={t('badge.empty.go')} onAction={() => navigate('/train')} />}
 
+      <div class="sf-rt__chips" role="group" aria-label={t('badge.layer.aria')}>
+        <Chip selected={layer === 'strength'} onPress={() => setLayer('strength')}>{t('badge.layer.strength')}</Chip>
+        <Chip selected={layer === 'experience'} onPress={() => setLayer('experience')}>{t('badge.layer.experience')}</Chip>
+      </div>
       <BodyPicker mode="heat" sex={sex} view={view} onSexChange={setSex} onViewChange={setView} onSelect={(id) => setPicked(id)} tier={tiers} />
       <div class="sf-bd__legend" role="group" aria-label={t('badge.legend')}>
         {TIER_IDS.map((n) => (

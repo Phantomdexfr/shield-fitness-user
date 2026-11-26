@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'preact/hooks';
-import { Link, useLocation, useRoute } from 'wouter-preact';
+import { Link, useLocation, useRoute, useSearch } from 'wouter-preact';
 import { t } from '../../i18n';
 import { useFeature } from '../../app/flags';
 import { Badge, Button, Collapsible, Dialog, EmptyState, SubPageHeader, showToast, Row } from '../../ui/components';
@@ -58,6 +58,7 @@ export default function SessionViewPage() {
   const [, hp] = useRoute('/history/:id');
   const id = (isSummary ? sp?.id : hp?.id) ?? '';
   const [, navigate] = useLocation();
+  const wantsEdit = new URLSearchParams(useSearch()).get('edit') === '1';
   const celebrate = useFeature('pr_celebration');
   const aiOn = useFeature('ai_review_export');
   const badgesOn = useFeature('muscle_badges');
@@ -76,6 +77,10 @@ export default function SessionViewPage() {
         if (!view) return setLoad({ status: 'missing' });
         if (!view.session.endedAt) return navigate(`/session/${id}`, { replace: true });
         setLoad({ status: 'ready', view });
+        if (wantsEdit) {
+          setDraft(structuredClone(view.session));
+          setDraftNames(view.names);
+        }
       },
       () => setLoad({ status: 'error' }),
     );

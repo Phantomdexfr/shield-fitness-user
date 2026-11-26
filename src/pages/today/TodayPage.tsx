@@ -8,7 +8,7 @@ import { Button, Card, EmptyState, Sheet } from '../../ui/components';
 import { SharePlanSheet } from '../share/SharePlanSheet';
 import { addDays, weekdayOfKey } from '../../shared/dates';
 import { estimateMinutes } from '../../shared/routineEdit';
-import { missedDays, pointerAfter, rankDays, recoveryPicks, restHint, todayPlan, type TodayPlan } from '../../shared/schedule';
+import { missedDays, rankDays, recoveryPicks, restHint, restShift, todayPlan, type TodayPlan } from '../../shared/schedule';
 import { activeRoutine } from '../../data/repos/schedule';
 import { getExerciseIndex } from '../../dataset/loader';
 import { muscleLabel } from '../exercise/muscleLabel';
@@ -26,8 +26,6 @@ export default function TodayPage() {
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const [swap, setSwap] = useState(false);
   const [names, setNames] = useState<string[]>([]);
-  const [sheetErr, setSheetErr] = useState(false);
-  const [sheetGone, setSheetGone] = useState(false);
   const cardOn = useFeature('today_card');
   const schedOn = useFeature('rest_scheduler');
   const hintsOn = useFeature('rest_suggestions');
@@ -99,29 +97,10 @@ export default function TodayPage() {
   const dayName = (i: number | undefined) => (i === undefined ? '' : days[i]?.name ?? '');
   const day = tp.dayIndex !== undefined ? days[tp.dayIndex] : undefined;
 
-  // SC3 missed-day sheet (one per open) or the Welcome back card.
-  const missed = schedOn && !sheetGone ? missedDays(effective, input.meta?.savedOn ?? addDays(today, -14)) : { dates: [], inARow: 0, welcomeBack: false };
+  // Unlogged planned days count as rest and the plan slides forward by itself (autoShifts); only a long break shows the Welcome back card.
+  const missed = schedOn ? missedDays(effective, input.meta?.savedOn ?? addDays(today, -14)) : { dates: [], inARow: 0, welcomeBack: false };
   const welcome = missed.welcomeBack && state.welcomeDone !== today;
-  const sheetDate = !missed.welcomeBack ? missed.dates[0] : undefined;
-  const missedDay = days.length > 0 ? days[state.pointer % days.length] : undefined;
 
-  const decide = async (date: string, how: 'shift' | 'skip') => {
-    const patch = {
-      decided: [...state.decided, date],
-      ...(how === 'skip' ? { pointer: pointerAfter(state.pointer % Math.max(1, days.length), days.length) } : {}),
-    };
-    const ok = await plan.patchState(patch);
-    setSheetErr(!ok);
-    return ok;
-  };
-  const doToday = async (date: string) => {
-    const ok = await plan.patchState({ decided: [...state.decided, date], overrides: { ...state.overrides, [today]: 'train' } });
-    setSheetErr(!ok);
-  };
-  const later = async (date: string) => {
-    if (!(await decide(date, settings.missed))) return;
-    setSheetGone(true);
-  };
   const dismissWelcome = () => void plan.patchState({ welcomeDone: today, decided: [...state.decided, ...missed.dates] });
 
   // SC4 hint: once per day, never on A/M/rest, hidden without recovery data.
@@ -151,7 +130,8 @@ export default function TodayPage() {
   // A workout finished today: the card says so instead of jumping to the next day.
   const doneToday = plan.sessionDates.includes(today);
   const train = !doneToday && (tp.kind === 'train' || tp.kind === 'suggest') && day !== undefined && tp.dayIndex !== undefined;
-  const restToday = () => void plan.patchState({ overrides: { ...state.overrides, [today]: 'rest' } });
+  const restOverrides = () => ({ ...state.overrides, ...restShift(effective, today) });
+  const restToday = () => void plan.patchState({ overrides: restOverrides() });
   const label = tp.deload ? t('sc.deload.banner') : t('page.today.title');
 
   return (
@@ -192,7 +172,7 @@ export default function TodayPage() {
                 <div class="sf-rt__row">
                   <Button variant="secondary" onPress={() => void finishHint()}>{t('sc.hint.train')}</Button>
                   <Button variant="secondary" onPress={() => setSwap(true)}>{t('sc.hint.swap')}</Button>
-                  <Button variant="secondary" onPress={() => void finishHint({ overrides: { ...state.overrides, [today]: 'rest' } })}>{t('sc.hint.rest')}</Button>
+                  <Button variant="secondary" onPress={() => void finishHint({ overrides: restOverrides() })}>{t('sc.hint.rest')}</Button>
                 </div>
               </div>
             )
@@ -216,23 +196,11 @@ export default function TodayPage() {
       {quickGrid(true)}
       {shareOn && <SharePlanSheet open={shareOpen} onClose={() => setShareOpen(false)} routineId={routine.id} />}
 
-      <Sheet open={sheetDate !== undefined && missedDay !== undefined} onClose={() => sheetDate && void later(sheetDate)} title={t('sc.title')}>
-        {sheetDate && missedDay && (
-          <div class="sf-sc__stack">
-            <p class="sf-rt__hint-text" role="status">{t('sc.missed.text', { day: missedDay.name, weekday: wk(sheetDate) })}</p>
-            {sheetErr && <p class="sf-rt__err" role="alert">{t('sc.missed.error')}</p>}
-            <Button variant={settings.missed === 'shift' ? 'primary' : 'secondary'} onPress={() => void doToday(sheetDate)}>{sheetErr ? t('sc.missed.retry') : t('sc.missed.today')}</Button>
-            <Button variant={settings.missed === 'skip' ? 'primary' : 'secondary'} onPress={() => void decide(sheetDate, 'skip').then((ok) => ok && setSheetGone(true))}>{t('sc.missed.skip')}</Button>
-            <Button variant="secondary" onPress={() => void later(sheetDate)}>{t('sc.missed.later')}</Button>
-          </div>
-        )}
-      </Sheet>
-
       <Sheet open={swap} onClose={() => setSwap(false)} title={t('sc.swap.title')}>
         {others.length === 0 ? (
           <div class="sf-sc__stack">
             <p class="sf-rt__meta">{t('sc.hint.only')}</p>
-            <Button variant="secondary" onPress={() => { setSwap(false); void finishHint({ overrides: { ...state.overrides, [today]: 'rest' } }); }}>{t('sc.hint.rest')}</Button>
+            <Button variant="secondary" onPress={() => { setSwap(false); void finishHint({ overrides: restOverrides() }); }}>{t('sc.hint.rest')}</Button>
           </div>
         ) : (
           <ul class="sf-rt__list">

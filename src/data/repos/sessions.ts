@@ -3,6 +3,7 @@
 
 import { newClientId, prefsRepo, sessionsRepo } from '../local';
 import { pointerAfter } from '../../shared/schedule';
+import { dayKeyStart, istDayKey, type DayKey } from '../../shared/dates';
 import { finish, lastFinished, openSession, repeatOf, startFree, startFromDay, withLeftovers, type ItemRef, type Session } from '../../shared/session';
 import { getRoutine } from './routines';
 import { readState, writeState } from './schedule';
@@ -100,4 +101,30 @@ export async function finishSession(s: Session, keep: 'drop' | 'keep', nowMs = D
 /** "Start new anyway": ends the old session as it is (no pointer move, no summary); it stays in History. */
 export async function endAsIs(s: Session, nowMs = Date.now()): Promise<void> {
   await putSession(finish(s, nowMs, 'drop').session);
+}
+
+/**
+ * Logs a workout on a past day you forgot to log: a finished session on `date` (18:00 to 19:00 IST until you edit the times)
+ * with the Day's exercises and no sets yet, for you to fill in. The rotation moves on past that Day, but only when the date
+ * is not before a workout already logged (an older day filled in late must not undo newer progress).
+ */
+export async function beginPast(routineId: string, dayId: string, date: DayKey): Promise<Session | undefined> {
+  const routine = await getRoutine(routineId);
+  const day = routine?.days.find((d) => d.id === dayId);
+  if (!routine || !day) return undefined;
+  const startMs = dayKeyStart(date) + 18 * 3600e3;
+  const base = startFromDay(day, routine.id, newClientId(), startMs);
+  const s: Session = { ...base, items: base.items.map((it) => ({ ...it, status: 'done' as const })), endedAt: new Date(startMs + 3600e3).toISOString() };
+  const others = await listSessions();
+  const newest = others.filter((o) => o.endedAt && o.routineId === routine.id).map((o) => istDayKey(Date.parse(o.startedAt))).sort().pop();
+  await putSession(s);
+  if (!newest || date >= newest) {
+    try {
+      const at = routine.days.findIndex((d) => d.id === dayId);
+      if (at >= 0) await writeState(routine.id, { ...(await readState(routine.id)), pointer: pointerAfter(at, routine.days.length) });
+    } catch {
+      /* the session itself is saved */
+    }
+  }
+  return s;
 }

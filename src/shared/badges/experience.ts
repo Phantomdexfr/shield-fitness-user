@@ -7,6 +7,8 @@ import { tierIndex } from './thresholds';
 
 export interface ExpSet {
   reps: number | null | undefined;
+  /** Seconds of a timed set; a hold of at least 10 s counts as one set. */
+  seconds?: number | null | undefined;
   tag?: 'normal' | 'warmup' | 'drop' | 'superset';
 }
 
@@ -25,6 +27,8 @@ export interface ExpSession {
 export const EXP_SESSION_CAP = 12;
 /** Sets with fewer reps than this do not count toward experience. */
 export const EXP_MIN_REPS = 3;
+/** A timed set (plank, hold) this long or longer counts as one set. */
+export const EXP_MIN_SECONDS = 10;
 /** Untrained for more than this many days shows "rusty". */
 export const RUST_DAYS = 42;
 /** A muscle counts as trained by an exercise when its weight is at least this. */
@@ -48,7 +52,9 @@ export function experienceMp(sessions: readonly ExpSession[]): Record<string, nu
       let n = 0;
       for (const set of ex.sets) {
         if (set.tag === 'warmup') continue;
-        if (set.reps == null || !(set.reps >= EXP_MIN_REPS)) continue;
+        const rep = set.reps != null && set.reps >= EXP_MIN_REPS;
+        const hold = (set.reps == null || set.reps <= 0) && set.seconds != null && set.seconds >= EXP_MIN_SECONDS;
+        if (!rep && !hold) continue;
         n++;
       }
       if (n === 0) continue;

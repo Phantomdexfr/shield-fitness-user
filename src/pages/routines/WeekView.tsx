@@ -3,9 +3,10 @@ import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
 import { Badge, Button, Card, Collapsible, Sheet } from '../../ui/components';
 import { weekdayOfKey } from '../../shared/dates';
-import { cycleTiles, toggleDeloadWeek, weekCells, type WeekCell } from '../../shared/schedule';
+import { cycleTiles, restShift, toggleDeloadWeek, weekCells, type WeekCell } from '../../shared/schedule';
 import { saveSchedule } from '../../data/repos/schedule';
 import type { Routine } from '../../shared/routine';
+import { PastDays } from './PastDays';
 import type { PlanData } from './usePlan';
 
 const dayLabel = (date: string) => `${t(`rb.wd.${weekdayOfKey(date)}` as StringKey)} ${Number(date.slice(8))}`;
@@ -16,6 +17,7 @@ export function WeekView({ routine, plan, onRoutine, strip, bare }: { routine: R
   const [, navigate] = useLocation();
   const [picked, setPicked] = useState<WeekCell | null>(null);
   const [err, setErr] = useState(false);
+  const [pastOpen, setPastOpen] = useState(false);
   const { input } = plan;
   if (routine.days.length === 0) return null;
   const s = input.schedule;
@@ -35,7 +37,8 @@ export function WeekView({ routine, plan, onRoutine, strip, bare }: { routine: R
 
   const setOverride = async (date: string, v: 'rest' | 'train' | null) => {
     const overrides = { ...plan.state.overrides };
-    if (v) overrides[date] = v;
+    if (v === 'rest') Object.assign(overrides, restShift(input, date));
+    else if (v) overrides[date] = v;
     else delete overrides[date];
     const ok = await plan.patchState({ overrides });
     setErr(!ok);
@@ -111,6 +114,8 @@ export function WeekView({ routine, plan, onRoutine, strip, bare }: { routine: R
         {s && <Button variant="secondary" onPress={() => void toggleDeload()}>{deloadNow ? t('sc.deload.unmark') : t('sc.deload.mark')}</Button>}
       </div>
       )}
+      {s && <Button variant="secondary" onPress={() => setPastOpen(true)}>{t('past.open')}</Button>}
+      <PastDays routine={routine} plan={plan} open={pastOpen} onClose={() => setPastOpen(false)} />
       {err && <p class="sf-rt__err" role="alert">{t('sc.err.save')}</p>}
 
       <Sheet open={picked !== null} onClose={() => setPicked(null)} title={picked ? dayLabel(picked.date) : ''}>
