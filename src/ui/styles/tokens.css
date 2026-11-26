@@ -16,6 +16,7 @@
   --text: #f4eedc;
   --text-2: #bdb49c;
   --text-muted: #857d69;
+  --text-muted-tidy: #968d78; /* Phase 113: used as --text-muted only under ux.tidy; 5.43:1 on --bg-card, 4.92:1 on --bg-hover */
   --text-on-gold: #120f06;
 
   /* Gold ramp (the accent) */

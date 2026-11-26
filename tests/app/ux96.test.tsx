@@ -38,7 +38,7 @@ describe('pure rules (src/shared/ux.ts)', () => {
   });
   test('mirror round trip, one char per key in order; odd text = premium', () => {
     const mixed = withSwitch(DEFAULT_SWITCHES, 'icons', false);
-    expect(toMirror(mixed)).toBe('101111111');
+    expect(toMirror(mixed)).toBe('1011111111');
     expect(fromMirror(toMirror(mixed))).toEqual(mixed);
     expect(fromMirror(null)).toEqual(DEFAULT_SWITCHES);
     expect(fromMirror('0')).toEqual({ ...DEFAULT_SWITCHES, surfaces: false });
@@ -56,16 +56,16 @@ describe('storage and root attributes', () => {
     const s = await readUx();
     expect(s.wheels).toBe(false);
     expect(masterOf(s)).toBe('custom');
-    expect(localStorage.getItem('sf.ux')).toBe('111110111');
+    expect(localStorage.getItem('sf.ux')).toBe('1111101111');
     await setUxMaster('classic');
     expect(masterOf(await readUx())).toBe('classic');
-    expect(localStorage.getItem('sf.ux')).toBe('000000000');
+    expect(localStorage.getItem('sf.ux')).toBe('0000000000');
   });
-  test('applyUx sets data-ux-<key> for all nine keys', () => {
+  test('applyUx sets data-ux-<key> for all ten keys', () => {
     applyUx(withSwitch(DEFAULT_SWITCHES, 'tabbar', false));
     const root = document.documentElement;
     for (const k of UX_KEYS) expect(root.getAttribute(`data-ux-${k}`)).toBe(k === 'tabbar' ? 'classic' : 'premium');
-    expect(UX_KEYS).toHaveLength(9);
+    expect(UX_KEYS).toHaveLength(10);
   });
 });
 
@@ -73,7 +73,8 @@ describe('Settings -> Appearance -> Interface style', () => {
   test('the Appearance group carries the Interface style block', () => {
     expect(rowsFor('appearance').some((r) => r.kind === 'ux')).toBe(true);
   });
-  test('renders Premium + nine switches; Classic flips all; one switch shows Custom; applies instantly', async () => {
+  test('renders Premium (rows hidden by Tidy) and ten switches under Custom; Classic flips all; one switch shows Custom; applies instantly', async () => {
+    await setUxMaster('premium'); // an earlier test left a Classic row behind
     const host = document.createElement('div');
     document.body.appendChild(host);
     await act(async () => { render(<InterfaceStyle />, host); });
@@ -81,7 +82,11 @@ describe('Settings -> Appearance -> Interface style', () => {
     const switches = () => [...host.querySelectorAll('[role="switch"]')] as HTMLElement[];
     expect(radios().map((r) => r.textContent)).toEqual(['Premium', 'Classic', 'Custom']);
     expect(radios()[0]?.getAttribute('aria-checked')).toBe('true');
-    expect(switches()).toHaveLength(9);
+    expect(switches()).toHaveLength(0); // Tidy layout ON: per-feature rows only under Custom
+    await act(async () => { radios()[2]?.click(); });
+    await act(async () => { await new Promise((r) => setTimeout(r, 20)); });
+    expect(radios()[2]?.getAttribute('aria-checked')).toBe('true');
+    expect(switches()).toHaveLength(10);
     expect(switches().every((s) => s.getAttribute('aria-checked') === 'true')).toBe(true);
 
     await act(async () => { radios()[1]?.click(); });

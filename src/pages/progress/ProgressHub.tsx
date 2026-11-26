@@ -52,6 +52,7 @@ export default function ProgressHub() {
   const streaksOn = useFeature('streaks');
   const recapOn = useFeature('year_review');
   const premium = useUx('layout') === 'premium';
+  const tidy = useUx('tidy') === 'premium';
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const read = () => {
     setLoad({ status: 'loading' });
@@ -82,7 +83,7 @@ export default function ProgressHub() {
           <StatTile label={t('prog.hero.volume')} value={Math.round(totalVolume)} unit="kg" large />
         </div>
       )}
-      {!d.hasSessions && <EmptyState icon="barbell" title={t('prog.empty.title')} hint={t('prog.empty.body')} />}
+      {!d.hasSessions && (tidy ? <div class="sf-pg__empty"><EmptyState icon="barbell" title={t('prog.empty.title')} hint={t('prog.empty.body')} /></div> : <EmptyState icon="barbell" title={t('prog.empty.title')} hint={t('prog.empty.body')} />)}
       {streaksOn && <WeekCard data={d} onTarget={setTarget} />}
       {d.hasSessions && (
         <>

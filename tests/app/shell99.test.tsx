@@ -11,7 +11,7 @@ import { CollapsedTitleBar, TabBar } from '../../src/app/Shell';
 import { activeRoutes } from '../../src/app/routes';
 import { SubPageHeader } from '../../src/ui/components';
 import { applyUx } from '../../src/app/appearance';
-import { DEFAULT_SWITCHES, allSwitches } from '../../src/shared/ux';
+import { DEFAULT_SWITCHES, allSwitches, withSwitch } from '../../src/shared/ux';
 
 const host = document.createElement('div');
 document.body.appendChild(host);
@@ -62,7 +62,7 @@ describe('tab bar', () => {
 describe('sub-page header', () => {
   const header = <SubPageHeader title="Bench press" onBack={() => undefined} backLabel="Back" right={<button type="button">R</button>} />;
   test('premium: sticky bar + one large h1; the small title is CSS-only, so the text exists once', async () => {
-    applyUx(DEFAULT_SWITCHES);
+    applyUx(withSwitch(DEFAULT_SWITCHES, 'tidy', false));
     await act(async () => { render(header, host); });
     const el = host.querySelector('header') as HTMLElement;
     expect(el.className).toContain('sf-subheader--large');
@@ -72,8 +72,17 @@ describe('sub-page header', () => {
     expect(host.textContent?.split('Bench press').length).toBe(2);
     expect(el.querySelector('.sf-subheader__small')?.getAttribute('data-title')).toBe('Bench press');
   });
-  test('premium: collapses after scrolling and expands again at the top', async () => {
+  test('tidy layout: back button, title and action in ONE header row, title once', async () => {
     applyUx(DEFAULT_SWITCHES);
+    await act(async () => { render(header, host); });
+    const el = host.querySelector('header') as HTMLElement;
+    expect(el.className).toContain('sf-subheader--tidy');
+    expect(el.querySelector(':scope > button[aria-label="Back"]')).not.toBeNull();
+    expect(el.querySelectorAll(':scope > h1')).toHaveLength(1);
+    expect(host.textContent?.split('Bench press').length).toBe(2);
+  });
+  test('premium: collapses after scrolling and expands again at the top', async () => {
+    applyUx(withSwitch(DEFAULT_SWITCHES, 'tidy', false));
     await act(async () => { render(header, host); });
     const el = host.querySelector('header') as HTMLElement;
     expect(el.className).not.toContain('is-collapsed');

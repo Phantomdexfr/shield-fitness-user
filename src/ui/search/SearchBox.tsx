@@ -26,6 +26,8 @@ export interface SearchBoxProps {
   onClearRecents?: () => void;
   /** Extra control beside the input (the library puts its Filters button here). */
   actions?: ComponentChildren;
+  /** Phase 113 (Tidy layout): no visible "Search" label above the box (aria-label stays). */
+  hideLabel?: boolean;
 }
 
 export function SearchBox(p: SearchBoxProps) {
@@ -35,6 +37,7 @@ export function SearchBox(p: SearchBoxProps) {
       <div class="sf-lib__searchrow">
         <Input
           label={t('lib.search')}
+          {...(p.hideLabel ? { hideLabel: true } : {})}
           {...searchAttrs}
           {...{ value: p.value, placeholder: p.placeholder }}
           onInput={(e) => p.onInput((e.currentTarget as HTMLInputElement).value)}

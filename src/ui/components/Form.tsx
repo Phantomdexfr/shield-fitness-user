@@ -12,16 +12,20 @@ export interface FieldProps {
   hint?: string;
   error?: string;
   class?: string;
+  /** Phase 113 (Tidy layout): omit the visible label; the control keeps it as aria-label. */
+  hideLabel?: boolean;
   children?: ComponentChildren;
 }
 
 /** Label + control + hint/error. Text wraps. */
-export function Field({ id, label, hint, error, class: cls, children }: FieldProps) {
+export function Field({ id, label, hint, error, class: cls, hideLabel, children }: FieldProps) {
   return (
     <div class={cx('sf-field', error && 'sf-field--error', cls)}>
-      <label class="sf-field__label" for={id}>
-        {label}
-      </label>
+      {!hideLabel && (
+        <label class="sf-field__label" for={id}>
+          {label}
+        </label>
+      )}
       {children}
       {error ? (
         <p class="sf-field__error" id={`${id}-msg`} role="alert">
@@ -46,10 +50,12 @@ export type InputProps = Omit<JSX.HTMLAttributes<HTMLInputElement>, 'class' | 'c
   /** Premium search: a Cancel button inside the field while it has text. Calls this to clear. */
   onCancel?: () => void;
   cancelLabel?: string;
+  /** Phase 113 (Tidy layout): no visible label above the box (aria-label keeps it). */
+  hideLabel?: boolean;
 };
 
 /** Premium (ux.controls): the label floats up inside the field (only when there is no placeholder and it is not a search box); gold focus ring; 16 px text kept for iOS. */
-export function Input({ label, hint, error, id, class: cls, onCancel, cancelLabel = LABELS.cancel, ...rest }: InputProps) {
+export function Input({ label, hint, error, id, class: cls, onCancel, cancelLabel = LABELS.cancel, hideLabel, ...rest }: InputProps) {
   const auto = useId();
   const premium = useUx('controls') === 'premium';
   const fid = typeof id === 'string' ? id : auto;
@@ -61,13 +67,14 @@ export function Input({ label, hint, error, id, class: cls, onCancel, cancelLabe
       {...rest}
       {...(float ? { placeholder: ' ' } : {})}
       id={fid}
+      {...(hideLabel ? { 'aria-label': label } : {})}
       class={cx('sf-input', withCancel && 'sf-input--cancel', cls)}
       aria-invalid={error ? 'true' : undefined}
       aria-describedby={error || hint ? `${fid}-msg` : undefined}
     />
   );
   return (
-    <Field id={fid} label={label} hint={hint} error={error} class={float ? 'sf-field--float' : undefined}>
+    <Field id={fid} label={label} hint={hint} error={error} hideLabel={hideLabel} class={float ? 'sf-field--float' : undefined}>
       {withCancel ? (
         <div class="sf-input-wrap">
           {input}

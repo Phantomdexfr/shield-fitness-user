@@ -1,8 +1,9 @@
 // Phase 96: the Interface style switches (Premium / Classic / Custom). Pure: no DOM, no storage.
 // Premium = every switch on (the default for everyone). Classic = every switch off = the 1.2.0 look. Custom = a mix.
+// Phase 113 appended a tenth switch, `tidy` (Tidy layout), LAST. An older 9-character mirror has no 10th character: that reads as ON.
 // Stored in the device prefs row `appearance:ux` and mirrored (as one short string) in localStorage so index.html can apply it before first paint.
 
-export const UX_KEYS = ['surfaces', 'icons', 'tabbar', 'headers', 'controls', 'wheels', 'sheets', 'motion', 'layout'] as const;
+export const UX_KEYS = ['surfaces', 'icons', 'tabbar', 'headers', 'controls', 'wheels', 'sheets', 'motion', 'layout', 'tidy'] as const;
 export type UxKey = (typeof UX_KEYS)[number];
 export type UxStyle = 'premium' | 'classic';
 export type UxMaster = UxStyle | 'custom';

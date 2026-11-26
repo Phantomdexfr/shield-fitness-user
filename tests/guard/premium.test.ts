@@ -34,8 +34,8 @@ describe('premium CSS rules', () => {
 });
 
 describe('every ux key has a Settings row, a default and a string', () => {
-  test('nine keys, all default on', () => {
-    expect(UX_KEYS).toEqual(['surfaces', 'icons', 'tabbar', 'headers', 'controls', 'wheels', 'sheets', 'motion', 'layout']);
+  test('ten keys (tidy last), all default on', () => {
+    expect(UX_KEYS).toEqual(['surfaces', 'icons', 'tabbar', 'headers', 'controls', 'wheels', 'sheets', 'motion', 'layout', 'tidy']);
     for (const k of UX_KEYS) expect(DEFAULT_SWITCHES[k], k).toBe(true);
   });
   test('the Appearance group renders the Interface style block, which has a label and hint per key', () => {
@@ -117,5 +117,27 @@ describe('classic integrity', () => {
       const text = readFileSync(join(ROOT, c.file), 'utf8');
       for (const s of c.mustContain) expect(text, `${c.file} lacks ${s}`).toContain(s);
     }
+  });
+});
+
+// Phase 113: the tenth switch, Tidy layout.
+describe('tidy layout switch (Phase 113)', () => {
+  test('tidy is the LAST key, on by default, and an old 9-character mirror reads it as ON', async () => {
+    const { fromMirror, toMirror, allSwitches, masterOf } = await import('../../src/shared/ux');
+    expect(UX_KEYS[UX_KEYS.length - 1]).toBe('tidy');
+    expect(fromMirror('111111111').tidy).toBe(true);
+    expect(fromMirror('1111111110').tidy).toBe(false);
+    expect(toMirror(allSwitches(false))).toBe('0000000000');
+    expect(masterOf(allSwitches(false))).toBe('classic');
+    expect(masterOf(allSwitches(true))).toBe('premium');
+  });
+  test('tidy.css exists, is imported once and only uses the tidy scope or the tabbar/headers scope together with it', () => {
+    expect(readFileSync(join(ROOT, 'src/ui/styles/premium/index.css'), 'utf8').match(/tidy\.css/g)).toHaveLength(1);
+    const css = readFileSync(join(PREMIUM_DIR, 'tidy.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+    for (const m of css.matchAll(/(^|\})\s*([^{}]+)\{/g)) for (const part of (m[2] as string).split(',')) expect(part.trim()).toMatch(/^:root\[data-ux-tidy='premium'\]/);
+  });
+  test('the Tidy layout row has its strings', () => {
+    expect(en['ux.sw.tidy']).toBe('Tidy layout');
+    expect(en['ux.sw.tidy.hint']).toBeTruthy();
   });
 });

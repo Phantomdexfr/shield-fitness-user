@@ -1,0 +1,134 @@
+/* Tidy layout (Phase 113, ux.tidy): less height spent on controls, one-line sub-page headers, no repeated labels.
+   Every rule is scoped under :root[data-ux-tidy='premium'] (tests/guard/premium.test.ts). Tokens only, no truncation.
+   With the switch off none of this applies and the screens are exactly the Phase 112 look. */
+
+/* 1. Body figure: Switch figure and Front/Back on ONE compact row. */
+:root[data-ux-tidy='premium'] .sf-body__bar--tidy {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+:root[data-ux-tidy='premium'] .sf-body__bar--tidy .sf-seg {
+  min-width: 0;
+}
+
+/* 2. Sub-page header: back button and title on one line, button flush with the content edge. */
+:root[data-ux-tidy='premium'] .sf-subheader--tidy {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0;
+  margin-inline-start: calc(-1 * var(--sp-1));
+}
+:root[data-ux-tidy='premium'] .sf-subheader--tidy .sf-subheader__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+:root[data-ux-tidy='premium'] .sf-subheader--tidy .sf-iconbtn {
+  color: var(--gold-300);
+}
+
+/* 3. Library: search + Filters on one row, equipment chips on one scrolling row, New exercise beside the count. */
+:root[data-ux-tidy='premium'] .sf-lib__searchrow {
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+:root[data-ux-tidy='premium'] .sf-lib__searchrow > :first-child {
+  flex: 1 1 0;
+}
+:root[data-ux-tidy='premium'] .sf-lib__searchrow > .sf-btn {
+  flex: none;
+}
+:root[data-ux-tidy='premium'] .sf-lib__equip {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: var(--sp-1);
+}
+:root[data-ux-tidy='premium'] .sf-lib__equip > .sf-chip {
+  flex: none;
+}
+:root[data-ux-tidy='premium'] .sf-lib__equip > .sf-lib__note {
+  flex: none;
+  align-self: center;
+}
+:root[data-ux-tidy='premium'] .sf-lib__countrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+:root[data-ux-tidy='premium'] .sf-lib__sheetcat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+/* 7. Library rows: meta text under the title, not beside it. */
+:root[data-ux-tidy='premium'] .sf-lib__row .sf-row__main {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+:root[data-ux-tidy='premium'] .sf-lib__row .sf-lib__name {
+  flex: none;
+  max-width: 100%;
+}
+
+/* 5. One name per ring: the card title stays, the ring's own caption goes (it stays as the ring's accessible name). */
+:root[data-ux-tidy='premium'] .sf-pg__week .sf-ch-title {
+  display: none;
+}
+
+/* 8. Stat tiles: equal height, values lined up on the bottom; Streak tile no longer a tall empty box. */
+:root[data-ux-tidy='premium'] .sf-pg__tiles {
+  align-items: stretch;
+}
+:root[data-ux-tidy='premium'] .sf-pg__tiles > .sf-ch-stat {
+  justify-content: space-between;
+}
+:root[data-ux-tidy='premium'] .sf-pg__week > .sf-ch-stat {
+  align-self: center;
+  justify-content: center;
+}
+/* An odd last field takes the whole row (the lone Thigh field). */
+:root[data-ux-tidy='premium'] .sf-pg__form > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+/* Progress hub empty hero: shorter, so "This week" shows sooner. */
+:root[data-ux-tidy='premium'] .sf-pg__empty .sf-empty {
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+}
+:root[data-ux-tidy='premium'] .sf-pg__empty .sf-empty__icon {
+  padding: var(--sp-2);
+}
+
+/* 9. Tab bar: the gold marker sits fully inside the bar; list content fades out above the bar. */
+:root[data-ux-tidy='premium'][data-ux-tabbar='premium'] .sf-tabbar__ind {
+  top: 3px;
+}
+:root[data-ux-tidy='premium'][data-ux-tabbar='premium'] .sf-tabbar__ind::after {
+  border-radius: 3px;
+}
+:root[data-ux-tidy='premium'] .sf-tabbar::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 100%;
+  height: var(--sp-4);
+  background: linear-gradient(to top, var(--bg-base), transparent);
+  pointer-events: none;
+}
+
+/* 10. Captions: --text-muted measured 4.37:1 on --bg-card and 3.96:1 on --bg-hover. The tidy token is a small step lighter. */
+:root[data-ux-tidy='premium'] {
+  --text-muted: var(--text-muted-tidy);
+}

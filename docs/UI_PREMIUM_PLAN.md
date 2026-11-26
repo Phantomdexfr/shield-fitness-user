@@ -94,6 +94,7 @@ Master row (3-way segmented): **Premium (default)** / **Classic** / **Custom**.
 | `ux.sheets` | fading scrim, finger-follow, detents, rubber-band | current sheet |
 | `ux.motion` | directional page transitions, swipe-back, count-up, draw-in, shimmer, PR moment | current 8px fade-up |
 | `ux.layout` | Body figure-first, new Exercise/Progress/Train layouts | current page layouts |
+| `ux.tidy` | (Phase 113, tenth switch, separate from Premium, default ON) Tidier layout: one-line sub-page headers, compact figure controls, shorter Library controls, no repeated labels | the Phase 112 look |
 
 The existing `Motion` (Full/Reduced) setting and `prefers-reduced-motion` ALWAYS win over `ux.motion`. The existing Appearance rows (Motion, Haptics, Density) stay as they are.
 

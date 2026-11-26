@@ -1,4 +1,4 @@
-// Phase 96: Settings -> Appearance -> Interface style. The master row (Premium / Classic / Custom) and the nine switches.
+// Phase 96: Settings -> Appearance -> Interface style. The master row (Premium / Classic / Custom) and the switches (ten since Phase 113).
 // Changes apply at once (applyUx follows onUxChange); nothing reloads.
 import { useEffect, useState } from 'preact/hooks';
 import { t, type StringKey } from '../../i18n';
@@ -19,7 +19,16 @@ export function InterfaceStyle() {
       off();
     };
   }, []);
-  const master = masterOf(sw);
+  // Phase 113 (Tidy layout ON): the per-feature rows show only under Custom. Choosing Custom while every switch is on changes no switch, so it is remembered here.
+  const [customOpen, setCustomOpen] = useState(false);
+  const tidy = sw.tidy;
+  const mixed = masterOf(sw) === 'custom';
+  const master: UxMaster = tidy && customOpen ? 'custom' : masterOf(sw);
+  const showRows = !tidy || mixed || customOpen;
+  const pickMaster = (m: UxMaster) => {
+    setCustomOpen(m === 'custom');
+    void setUxMaster(m);
+  };
   return (
     <>
       <div class="sf-st__row">
@@ -28,15 +37,17 @@ export function InterfaceStyle() {
           label={t('ux.master')}
           value={master}
           options={MASTERS.map((m) => ({ value: m, label: t(`ux.m.${m}` as StringKey) }))}
-          onChange={(m) => void setUxMaster(m)}
+          onChange={tidy ? pickMaster : (m) => void setUxMaster(m)}
         />
         <p class="sf-st__hint">{t(master === 'custom' ? 'ux.custom.hint' : 'ux.hint')}</p>
       </div>
-      <RowGroup label={t('ux.title')}>
-        {UX_KEYS.map((k) => (
-          <Toggle key={k} checked={sw[k]} onChange={(on) => void setUxSwitch(k, on)} label={t(`ux.sw.${k}` as StringKey)} hint={t(`ux.sw.${k}.hint` as StringKey)} />
-        ))}
-      </RowGroup>
+      {showRows && (
+        <RowGroup {...(tidy ? {} : { label: t('ux.title') })}>
+          {UX_KEYS.map((k) => (
+            <Toggle key={k} checked={sw[k]} onChange={(on) => void setUxSwitch(k, on)} label={t(`ux.sw.${k}` as StringKey)} hint={t(`ux.sw.${k}.hint` as StringKey)} />
+          ))}
+        </RowGroup>
+      )}
     </>
   );
 }

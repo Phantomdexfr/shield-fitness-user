@@ -8,6 +8,7 @@ import { Badge, Collapsible, EmptyState, Input, Segmented, Select, SubPageHeader
 import { nice } from '../exercise/exerciseModel';
 import { indexRows, sortIndex, type IndexSort } from './machineLabModel';
 import { goBack } from '../../app/navBack';
+import { useUx } from '../../ui/useUx';
 
 type State = { status: 'loading' } | { status: 'error' } | { status: 'ready'; data: MachineIndexData };
 
@@ -23,6 +24,7 @@ export default function MachineIndexPage() {
   const [sort, setSort] = useState<IndexSort>('reach');
   const [q, setQ] = useState('');
   const [finderMuscle, setFinderMuscle] = useState('');
+  const tidy = useUx('tidy') === 'premium'; // Phase 113: no repeated search label, a short sort name, no "No zone" chip
   const back = () => goBack(navigate, '/library?tab=machines');
 
   useEffect(() => {
@@ -75,8 +77,8 @@ export default function MachineIndexPage() {
         </Collapsible>
       )}
 
-      <Input label={t('mi.search')} {...{ type: 'search', value: q, placeholder: t('mi.search'), autoComplete: 'off' }} onInput={(e) => setQ((e.currentTarget as HTMLInputElement).value)} />
-      <Segmented label={t('mi.sort')} value={sort} onChange={(v: IndexSort) => setSort(v)} options={SORTS.map((s) => ({ value: s, label: t(`mi.sort.${s}` as StringKey) }))} />
+      <Input label={t('mi.search')} hideLabel={tidy} {...{ type: 'search', value: q, placeholder: t('mi.search'), autoComplete: 'off' }} onInput={(e) => setQ((e.currentTarget as HTMLInputElement).value)} />
+      <Segmented label={t('mi.sort')} value={sort} onChange={(v: IndexSort) => setSort(v)} options={SORTS.map((s) => ({ value: s, label: t(s === 'reach' && tidy ? 'mi.sort.reach.short' : (`mi.sort.${s}` as StringKey)) }))} />
 
       {rows.length === 0 ? (
         <p class="sf-lib__note" role="status">{t('mi.none')}</p>
@@ -89,7 +91,7 @@ export default function MachineIndexPage() {
                 <span class="sf-lib__meta">{t('mi.reaches', { n: m.reached, total: m.total })}</span>
                 <span class="sf-ex__chips">
                   <Badge>{nice(m.category)}</Badge>
-                  <Badge>{m.zone ?? t('mi.nozone')}</Badge>
+                  {(m.zone || !tidy) && <Badge>{m.zone ?? t('mi.nozone')}</Badge>}
                 </span>
               </Row>
             </li>

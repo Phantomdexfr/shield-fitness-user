@@ -39,9 +39,23 @@ function PremiumHeader({ title, onBack, backLabel = LABELS.back, right }: SubPag
   );
 }
 
+/** Tidy layout (ux.tidy): one line, back button then the title (wraps), optional trailing action. Same structure under Classic and Premium headers. */
+function TidyHeader({ title, onBack, backLabel = LABELS.back, right }: SubPageHeaderProps) {
+  return (
+    <header class="sf-subheader sf-subheader--tidy">
+      <IconButton icon="caret-left" label={backLabel} onPress={onBack} />
+      <h1 class="sf-subheader__title">{title}</h1>
+      {right && <div class="sf-subheader__right">{right}</div>}
+    </header>
+  );
+}
+
 /** Back + title for settings sub-pages (a list of groups, each its own page). The title wraps. Classic = fixed small title; Premium = large title that collapses. */
 export function SubPageHeader(props: SubPageHeaderProps) {
   const ux = useUx('headers');
+  const tidy = useUx('tidy') === 'premium';
+  // Phase 113 (ux.tidy): back button and title on ONE line, title starting right after the button (CSS in premium/tidy.css).
+  if (tidy) return <TidyHeader {...props} />;
   if (ux === 'premium') return <PremiumHeader {...props} />;
   const { title, onBack, backLabel = LABELS.back, right } = props;
   return (

@@ -12,6 +12,7 @@ import type { ExerciseRow, Machine } from '../../dataset/loader';
 import { EQUIPMENT_PRESETS, type EquipmentPreset } from '../../shared/equipment';
 import { Collapsible, CollapseAll, Badge, Button, Chip, EmptyState, PhotoFrame, Select, Sheet, Tabs, Toggle, Row } from '../../ui/components';
 import { SearchBox } from '../../ui/search/SearchBox';
+import { useUx } from '../../ui/useUx';
 import {
   countBy, filterMachines, machineCategories, parseLibraryUrl, refineExercises, serializeLibraryUrl, sheetFilterCount,
   type LibraryState, type LibraryTab,
@@ -129,8 +130,35 @@ export default function LibraryPage() {
       : count === 1 ? t('lib.count.machines.one') : t('lib.count.machines', { n: count });
   const filtered = sheetFilterCount(state) + (state.category ? 1 : 0) + (state.sub ? 1 : 0) + (state.mcat ? 1 : 0) > 0 || state.q !== '';
   const nFilters = sheetFilterCount(state);
+  const tidy = useUx('tidy') === 'premium';
+  const nShown = tidy ? nFilters + (state.category ? 1 : 0) + (state.sub ? 1 : 0) : nFilters;
 
   const sheetMachines = useMemo(() => (machines ?? []).filter((m) => m.slug === state.machine || filterMachines([m], { tab: 'machines', q: '' }, effective).length > 0), [machines, state.machine, effective]);
+
+  // Phase 113: the same category chips, shown inline (Tidy off, inside the Category row) or inside the Filters sheet (Tidy on).
+  const catGroups = (
+    <>
+    <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.category')}>
+      <Chip selected={!state.category} onPress={() => patch({ category: undefined, sub: undefined })}>
+        {t('lib.category.all')}
+      </Chip>
+      {cats.map((c) => (
+        <Chip key={c.value} selected={state.category === c.value} onPress={() => patch({ category: c.value, sub: undefined })}>
+          {nice(c.value)} {c.n}
+        </Chip>
+      ))}
+    </div>
+    {subs.length > 1 && (
+    <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.sub')}>
+      {subs.map((c) => (
+        <Chip key={c.value} selected={state.sub === c.value} onPress={() => patch({ sub: state.sub === c.value ? undefined : c.value })}>
+          {nice(c.value)} {c.n}
+        </Chip>
+      ))}
+    </div>
+    )}
+    </>
+  );
 
   return (
     <section class="sf-page-body sf-lib">
@@ -156,6 +184,7 @@ export default function LibraryPage() {
       <SearchBox
         value={state.q}
         placeholder={state.tab === 'exercises' ? t('lib.search.exercises') : t('lib.search.machines')}
+        hideLabel={tidy}
         onInput={(q) => patch({ q })}
         onCommit={remember}
         didYouMean={state.tab === 'exercises' ? hint.didYouMean : undefined}
@@ -175,9 +204,9 @@ export default function LibraryPage() {
             <>
               <Button variant="secondary" onPress={() => setSheet(true)}>
                 {t('lib.filters')}
-                {nFilters > 0 ? ` (${nFilters})` : ''}
+                {nShown > 0 ? ` (${nShown})` : ''}
               </Button>
-              {customOn && (
+              {customOn && !tidy && (
                 <Button variant="secondary" onPress={() => navigate('/library/new')}>
                   {t('cx.new')}
                 </Button>
@@ -187,27 +216,9 @@ export default function LibraryPage() {
         }
       />
 
-      {state.tab === 'exercises' && cats.length > 0 && (
+      {state.tab === 'exercises' && cats.length > 0 && !tidy && (
         <Collapsible id="cats" title={t('lib.category')} summary={state.category ? nice(state.category) : undefined}>
-          <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.category')}>
-            <Chip selected={!state.category} onPress={() => patch({ category: undefined, sub: undefined })}>
-              {t('lib.category.all')}
-            </Chip>
-            {cats.map((c) => (
-              <Chip key={c.value} selected={state.category === c.value} onPress={() => patch({ category: c.value, sub: undefined })}>
-                {nice(c.value)} {c.n}
-              </Chip>
-            ))}
-          </div>
-          {subs.length > 1 && (
-          <div class="sf-lib__chipgroup" role="group" aria-label={t('lib.sub')}>
-            {subs.map((c) => (
-              <Chip key={c.value} selected={state.sub === c.value} onPress={() => patch({ sub: state.sub === c.value ? undefined : c.value })}>
-                {nice(c.value)} {c.n}
-              </Chip>
-            ))}
-          </div>
-          )}
+          {catGroups}
         </Collapsible>
       )}
       {state.tab === 'machines' && machineLabOn && (
@@ -254,7 +265,14 @@ export default function LibraryPage() {
         <p class="sf-lib__note" role="status">{t('lib.loading')}</p>
       ) : (
         <>
-          <p class="sf-lib__count" role="status" aria-live="polite">{countText}</p>
+          {tidy && state.tab === 'exercises' && customOn ? (
+            <div class="sf-lib__countrow">
+              <p class="sf-lib__count" role="status" aria-live="polite">{countText}</p>
+              <Button variant="secondary" onPress={() => navigate('/library/new')}>{t('cx.new')}</Button>
+            </div>
+          ) : (
+            <p class="sf-lib__count" role="status" aria-live="polite">{countText}</p>
+          )}
           {count === 0 ? (
             <EmptyState icon="magnifying-glass" title={t('lib.empty.title')} hint={t('lib.empty.hint')} actionLabel={filtered ? t('lib.empty.clear') : undefined} onAction={clearFilters} />
           ) : state.tab === 'exercises' ? (
@@ -297,6 +315,12 @@ export default function LibraryPage() {
 
       <Sheet open={sheet} onClose={() => setSheet(false)} title={t('lib.filters.title')}>
         <div class="sf-lib__sheet">
+          {tidy && cats.length > 0 && (
+            <div class="sf-lib__sheetcat">
+              <h3 class="sf-lib__h">{t('lib.category')}</h3>
+              {catGroups}
+            </div>
+          )}
           <Select
             label={t('lab.filter.kind')}
             value={state.kind ?? ANY}
@@ -318,8 +342,8 @@ export default function LibraryPage() {
           <Toggle checked={!!state.beginner} onChange={(v) => patch({ beginner: v || undefined })} label={t('lab.filter.beginner')} />
           <Toggle checked={!!state.unilateral} onChange={(v) => patch({ unilateral: v || undefined })} label={t('lab.filter.unilateral')} />
           <div class="sf-lib__sheetbtns">
-            {nFilters > 0 && (
-              <Button variant="secondary" onPress={() => go({ ...state, kind: undefined, difficulty: undefined, machine: undefined, beginner: undefined, unilateral: undefined })}>
+            {nShown > 0 && (
+              <Button variant="secondary" onPress={() => go({ ...state, ...(tidy ? { category: undefined, sub: undefined } : {}), kind: undefined, difficulty: undefined, machine: undefined, beginner: undefined, unilateral: undefined })}>
                 {t('lib.filters.clear')}
               </Button>
             )}

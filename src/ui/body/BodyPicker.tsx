@@ -5,6 +5,7 @@ import type { StringKey } from '../../i18n';
 import { Button } from '../components/Button';
 import { Segmented } from '../components/Choice';
 import { cx } from '../components/util';
+import { useUx } from '../useUx';
 import { tick } from '../components/haptics';
 import { loadFigure, peekFigure, type Figure, type Sex, type Unit, type View } from './figures';
 import { FALLBACK, expand, lookup, parentOf, type MuscleId } from './taxonomy';
@@ -87,6 +88,7 @@ function stateWords(id: MuscleId, cls: string, p: BodyPickerProps): string[] {
 export function BodyPicker(props: BodyPickerProps) {
   const { mode, sex, view, size = 'full', showScan = false } = props;
   const mini = size === 'mini';
+  const tidy = useUx('tidy') === 'premium'; // Phase 113: Switch figure and Front/Back on one compact row (CSS in premium/tidy.css)
   const picking = mode === 'pick-one' || mode === 'pick-many';
   const [fig, setFig] = useState<Figure | undefined>(() => peekFigure(sex, view));
   const [zoom, setZoom] = useState(false);
@@ -251,7 +253,7 @@ export function BodyPicker(props: BodyPickerProps) {
   return (
     <div class={cx('sf-body', `sf-body--${size}`, zoom && 'sf-body--zoom', showScan && 'sf-body--scan', props.class)} data-mode={mode}>
       {!mini && (
-        <div class="sf-body__bar">
+        <div class={tidy ? 'sf-body__bar sf-body__bar--tidy' : 'sf-body__bar'}>
           {props.onSexChange && (
             <Button variant="secondary" onPress={() => props.onSexChange?.(sex === 'male' ? 'female' : 'male')}>{t('body.switch')}</Button>
           )}

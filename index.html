@@ -22,7 +22,7 @@
     <script>
       /* Interface style, applied before first paint. Key order must equal UX_KEYS in src/shared/ux.ts (guard-tested). Missing = premium. */
       try {
-        var k = ['surfaces', 'icons', 'tabbar', 'headers', 'controls', 'wheels', 'sheets', 'motion', 'layout'];
+        var k = ['surfaces', 'icons', 'tabbar', 'headers', 'controls', 'wheels', 'sheets', 'motion', 'layout', 'tidy'];
         var m = localStorage.getItem('sf.ux') || '';
         for (var i = 0; i < k.length; i++) document.documentElement.setAttribute('data-ux-' + k[i], m.charAt(i) === '0' ? 'classic' : 'premium');
       } catch (e) {}
