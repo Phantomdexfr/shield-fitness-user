@@ -17,17 +17,37 @@ type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; sta
 const muscleName = (id: string): string => t(`muscle.${id}` as StringKey);
 const tierName = (n: number | null): string => (n == null ? t('badge.unranked') : t(`badge.tier.${n}` as StringKey));
 
-function MuscleSheet({ state, result, id, onClose, onWeak }: { state: BadgeState; result: BadgeResult; id: string | null; onClose: () => void; onWeak: () => void }) {
+type Layer = 'strength' | 'experience';
+
+function MuscleSheet({ state, result, id, layer, onClose, onWeak }: { state: BadgeState; result: BadgeResult; id: string | null; layer: Layer; onClose: () => void; onWeak: () => void }) {
   const m: MuscleBadge | undefined = id ? result.muscles[id] : undefined;
   const ladderName = (lid: string): string => state.data.ladders.find((l) => l.ladderId === lid)?.name ?? lid;
   const exp = id ? result.experience.muscles[id] : undefined;
   const rust = id ? result.rust[id] : undefined;
+  const expFirst = layer === 'experience';
+  // A detailed muscle has its own meter; a group id (back, chest...) has only the group tier (median of its trained muscles).
+  const groupExp = id ? result.experience.groups[id] : undefined;
+  const expTier = exp && exp.mp > 0 ? exp.tier : groupExp ?? null;
+  const expBody = exp && (
+    <>
+      <ProgressBar value={exp.progress} label={t('badge.exp.aria', { muscle: id ? muscleName(id) : '' })} />
+      <p class="sf-bd__note">{exp.toNext > 0 ? t(Math.ceil(exp.toNext) === 1 ? 'badge.exp.line_one' : 'badge.exp.line', { tier: tierName(exp.tier), n: Math.ceil(exp.toNext), next: tierName(exp.tier + 1) }) : t('badge.exp.top', { tier: tierName(exp.tier) })}</p>
+    </>
+  );
   return (
     <Sheet open={id !== null} onClose={onClose} title={id ? muscleName(id) : ''}>
       {id && m && (
         <div class="sf-bd">
-          <Crest tier={m.tier} size="lg" hideName />
-          <p class="sf-bd__line">{t('badge.sheet.line', { muscle: muscleName(id), tier: tierName(m.tier) })}</p>
+          <Crest tier={expFirst ? expTier : m.tier} size="lg" hideName />
+          <p class="sf-bd__line">{expFirst ? t('badge.exp.sheet.line', { muscle: muscleName(id), tier: tierName(expTier) }) : t('badge.sheet.line', { muscle: muscleName(id), tier: tierName(m.tier) })}</p>
+          {expFirst && (
+            <>
+              {expTier == null ? <p class="sf-bd__note">{t('badge.exp.sheet.none')}</p> : exp && exp.mp > 0 ? expBody : <p class="sf-bd__note">{t('badge.exp.sheet.group')}</p>}
+              <p class="sf-bd__note">{t('badge.exp.sheet.explain')}</p>
+              <h3 class="sf-bd__h">{t('badge.layer.strength')}</h3>
+              <p class="sf-bd__line">{t('badge.sheet.line', { muscle: muscleName(id), tier: tierName(m.tier) })}</p>
+            </>
+          )}
           {result.estimated && m.tier != null && <p class="sf-bd__note">{t('badge.estimated.short')}</p>}
           {m.tier == null ? (
             <>
@@ -53,11 +73,10 @@ function MuscleSheet({ state, result, id, onClose, onWeak }: { state: BadgeState
             </>
           )}
           {rust?.rusty && rust.daysSince != null && <p class="sf-bd__rust" role="status">{t('badge.sheet.rusty', { n: rust.daysSince })}</p>}
-          {exp && (
+          {exp && !expFirst && (
             <>
               <h3 class="sf-bd__h">{t('badge.exp.title')}</h3>
-              <ProgressBar value={exp.progress} label={t('badge.exp.aria', { muscle: muscleName(id) })} />
-              <p class="sf-bd__note">{exp.toNext > 0 ? t(Math.ceil(exp.toNext) === 1 ? 'badge.exp.line_one' : 'badge.exp.line', { tier: tierName(exp.tier), n: Math.ceil(exp.toNext), next: tierName(exp.tier + 1) }) : t('badge.exp.top', { tier: tierName(exp.tier) })}</p>
+              {expBody}
             </>
           )}
           {m.candidates.length > 0 && (
@@ -87,7 +106,7 @@ export default function BadgesPage() {
   const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
   const [picked, setPicked] = useState<string | null>(null);
-  const [layer, setLayer] = useState<'strength' | 'experience'>('strength');
+  const [layer, setLayer] = useState<Layer>('strength');
 
   const read = () => {
     setLoad({ status: 'loading' });
@@ -140,13 +159,24 @@ export default function BadgesPage() {
       <Row label={t('badge.settings')} href="/settings/badges" />
 
       <section class="sf-bd__card" aria-label={t('badge.overall.title')}>
-        <Crest tier={result.overall.tier} size="lg" hideName />
-        <div class="sf-bd__card-text">
-          <strong>{t('badge.overall.line', { tier: tierName(result.overall.tier) })}</strong>
-          {result.overall.tier != null && result.overall.provisional && <span class="sf-bd__note">{t('badge.overall.provisional', { n: result.overall.rankedGroups })}</span>}
-          <span class="sf-bd__note">{t('badge.at_bw', { kg: round1(result.bodyweightKg) })}</span>
-          {result.estimated && <span class="sf-bd__est">{t('badge.estimated')}</span>}
-        </div>
+        {layer === 'experience' ? (
+          <>
+            <Crest tier={result.experience.overall} size="lg" hideName />
+            <div class="sf-bd__card-text">
+              <strong>{result.experience.overall == null ? t('badge.exp.none') : t('badge.exp.overall', { tier: tierName(result.experience.overall) })}</strong>
+            </div>
+          </>
+        ) : (
+          <>
+            <Crest tier={result.overall.tier} size="lg" hideName />
+            <div class="sf-bd__card-text">
+              <strong>{t('badge.overall.line', { tier: tierName(result.overall.tier) })}</strong>
+              {result.overall.tier != null && result.overall.provisional && <span class="sf-bd__note">{t('badge.overall.provisional', { n: result.overall.rankedGroups })}</span>}
+              <span class="sf-bd__note">{t('badge.at_bw', { kg: round1(result.bodyweightKg) })}</span>
+              {result.estimated && <span class="sf-bd__est">{t('badge.estimated')}</span>}
+            </div>
+          </>
+        )}
       </section>
 
       {noneRanked && <EmptyState title={t('badge.empty.title')} hint={t('badge.empty.hint')} actionLabel={t('badge.empty.go')} onAction={() => navigate('/train')} />}
@@ -155,6 +185,7 @@ export default function BadgesPage() {
         <Chip selected={layer === 'strength'} onPress={() => setLayer('strength')}>{t('badge.layer.strength')}</Chip>
         <Chip selected={layer === 'experience'} onPress={() => setLayer('experience')}>{t('badge.layer.experience')}</Chip>
       </div>
+      <p class="sf-bd__note sf-bd__layer-desc" aria-live="polite">{t(layer === 'experience' ? 'badge.layer.desc.experience' : 'badge.layer.desc.strength')}</p>
       <BodyPicker mode="heat" sex={sex} view={view} onSexChange={setSex} onViewChange={setView} onSelect={(id) => setPicked(id)} tier={tiers} />
       <div class="sf-bd__legend" role="group" aria-label={t('badge.legend')}>
         {TIER_IDS.map((n) => (
@@ -223,7 +254,7 @@ export default function BadgesPage() {
 
       <p class="sf-bd__note">{t('badge.limits')}</p>
 
-      <MuscleSheet state={state} result={result} id={picked} onClose={() => setPicked(null)} onWeak={() => { const id = picked; setPicked(null); if (id) navigate(`/muscle/${id}`); }} />
+      <MuscleSheet state={state} result={result} id={picked} layer={layer} onClose={() => setPicked(null)} onWeak={() => { const id = picked; setPicked(null); if (id) navigate(`/muscle/${id}`); }} />
     </div>
   );
 }
