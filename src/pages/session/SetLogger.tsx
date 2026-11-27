@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { t, type StringKey } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { Badge, Button, Chip, Pressable, SetCheck, Sheet, Stepper, WheelPicker, showToast } from '../../ui/components';
+import { Badge, Button, Chip, Pressable, SetCheck, Sheet, Stepper, WheelPicker, logged, showToast } from '../../ui/components';
 import { useUx } from '../../ui/useUx';
 import { loggerWheel } from '../../shared/wheel';
 import type { LoggerInfo, ItemHistory } from '../../data/repos/logger';
@@ -134,11 +134,13 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
     const iso = new Date(at).toISOString();
     const rest = actualRest(timer, at);
     if (info.cardio) {
+      logged();
       commit(addSet(sess, idx, cardioFromDraft(cardio, iso)));
       setFresh(iso);
       setTimer(null);
       return;
     }
+    logged(); // Phase 114: a short buzz (Android) so the set is felt as logged
     commit(addSet(sess, idx, setFromDraft(draft, iso, rest)));
     setFresh(iso);
     touched.current = true;
@@ -151,6 +153,7 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
     const at = Date.now();
     const iso = new Date(at).toISOString();
     const rest = actualRest(timer, at);
+    logged();
     commit(addSet(sess, idx, timedFromDraft({ seconds, weightKg }, iso, rest)));
     setFresh(iso);
     touched.current = true;
@@ -175,6 +178,7 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
     const at = i + 1;
     const iso = new Date().toISOString();
     setFresh(iso);
+    logged();
     commit(duplicateSet(sess, idx, i, iso), { text: t('lg.copied', { n: i + 1 }), restore: (cur) => deleteSet(cur, idx, at).session });
   };
 

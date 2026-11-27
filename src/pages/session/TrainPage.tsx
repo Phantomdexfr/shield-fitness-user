@@ -3,7 +3,8 @@ import { useLocation } from 'wouter-preact';
 import { t } from '../../i18n';
 import { useFeature } from '../../app/flags';
 import { relayAvailable } from '../../data/relay/client';
-import { Badge, Button, Card, Collapsible, EmptyState, HeroCard, Row, RowGroup } from '../../ui/components';
+import { Badge, Button, Card, Collapsible, EmptyState, HeroCard, Row, RowGroup, Segmented } from '../../ui/components';
+import { setUxSwitch } from '../../data/repos/ux';
 import { useUx } from '../../ui/useUx';
 import { activeRoutine, readState } from '../../data/repos/schedule';
 import { listSessions } from '../../data/repos/sessions';
@@ -12,7 +13,7 @@ import { istDayKey } from '../../shared/dates';
 import { doneHoursAgo, lastFinished, openSession, type Session } from '../../shared/session';
 import type { Routine } from '../../shared/routine';
 
-type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; routine?: Routine; pointer: number; sessions: Session[] };
+type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; routine?: Routine; pointer: number; sessions: Session[]; picks?: Record<string, string> };
 
 /** `/train`: resume an open workout, start today's suggested day, any other day, a free session or the last one again. */
 export default function TrainPage() {
@@ -24,7 +25,10 @@ export default function TrainPage() {
   const read = () => {
     setLoad({ status: 'loading' });
     Promise.all([listSessions(), activeRoutine()]).then(
-      async ([sessions, routine]) => setLoad({ status: 'ready', sessions, routine, pointer: routine ? (await readState(routine.id)).pointer : 0 }),
+      async ([sessions, routine]) => {
+        const st = routine ? await readState(routine.id) : undefined;
+        setLoad({ status: 'ready', sessions, routine, pointer: st ? st.pointer : 0, ...(st?.dayPicks ? { picks: st.dayPicks } : {}) });
+      },
       () => setLoad({ status: 'error' }),
     );
   };
@@ -40,7 +44,9 @@ export default function TrainPage() {
   const todayKey = istDayKey(Date.now());
   const doneToday = sessions.filter((x) => x.endedAt && istDayKey(Date.parse(x.startedAt)) === todayKey).sort((a, b) => b.startedAt.localeCompare(a.startedAt))[0];
   const days = routine?.days ?? [];
-  const suggested = days.length > 0 ? load.pointer % days.length : -1;
+  // Phase 114: a Day picked for today (Week view -> a date -> "Do this Day") is the suggested one.
+  const pickedIx = days.findIndex((d) => d.id === load.picks?.[todayKey]);
+  const suggested = days.length > 0 ? (pickedIx >= 0 ? pickedIx : load.pointer % days.length) : -1;
   const now = Date.now();
   const start = (dayId: string) => navigate(`/session/new?routine=${routine!.id}&day=${dayId}`);
   const ago = (dayId: string) => {
@@ -150,6 +156,28 @@ export default function TrainPage() {
           </RowGroup>
         </>
       )}
+      <LoggerChoice />
     </section>
+  );
+}
+
+/** Phase 114 (ux.tidy): pick the set logger right on the Train page: wheels or the + / - pair. Same switch as Settings -> Appearance -> Wheel pickers. */
+function LoggerChoice() {
+  const tidy = useUx('tidy') === 'premium';
+  const wheels = useUx('wheels') === 'premium';
+  if (!tidy) return null;
+  return (
+    <div class="sf-rt__logger">
+      <h2 class="sf-sec__label">{t('tr.logger')}</h2>
+      <Segmented
+        label={t('tr.logger')}
+        value={wheels ? 'wheel' : 'steps'}
+        options={[
+          { value: 'wheel', label: t('tr.logger.wheel') },
+          { value: 'steps', label: t('tr.logger.steps') },
+        ]}
+        onChange={(v) => void setUxSwitch('wheels', v === 'wheel')}
+      />
+    </div>
   );
 }

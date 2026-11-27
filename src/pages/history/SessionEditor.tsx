@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import { t, type StringKey } from '../../i18n';
+import { useUx } from '../../ui/useUx';
 import { Badge, Button, Chip, Collapsible, DatePicker, Pressable, Sheet, Stepper } from '../../ui/components';
 import { SearchBox } from '../../ui/search/SearchBox';
 import { refFor, searchPicks, type Pick } from '../../data/repos/routineEdit';
@@ -21,6 +22,7 @@ const pad = (n: number): string => String(n).padStart(2, '0');
 /** Edit a finished workout in a draft: nothing is saved until the page's Save. */
 export function SessionEditor({ draft, names, onChange }: SessionEditorProps) {
   const [adding, setAdding] = useState(false);
+  const tidy = useUx('tidy') === 'premium';
   const [pick, setPick] = useState<{ i: number; j: number } | null>(null);
   const [q, setQ] = useState('');
   const [found, setFound] = useState<Pick[]>([]);
@@ -51,7 +53,7 @@ export function SessionEditor({ draft, names, onChange }: SessionEditorProps) {
 
   return (
     <div class="sf-sm__edit" data-hook="session-editor">
-      <Collapsible id="ed-when" title={t('ed.when')} summary={whenText} remember={false}>
+      <Collapsible id="ed-when" title={t('ed.when')} summary={whenText} remember={false} defaultOpen={tidy}>
         <DatePicker label={t('ed.date')} value={tm.day} onChange={(v) => v && setTime({ day: v })} />
         <div class="sf-sm__row"><span class="sf-rt__meta sf-sm__lab">{t('ed.start')}</span>
           <Stepper label={t('ed.hour')} value={tm.hour} min={0} max={23} format={pad} onChange={(v) => setTime({ hour: v })} />

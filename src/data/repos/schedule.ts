@@ -29,6 +29,8 @@ export interface PlanState {
   pointer: number;
   /** Per-date choices: `rest` = chosen rest day, `train` = "move here". */
   overrides: Record<string, 'rest' | 'train'>;
+  /** Phase 114: "on this date do this Day" (date -> Day id). Only the named date is affected, so it is a this-week-only change. */
+  dayPicks: Record<string, string>;
   /** Missed dates the user decided about (they never come back). */
   decided: string[];
   /** Days on which the rest-day hint was already answered (it shows once per day). */
@@ -37,7 +39,7 @@ export interface PlanState {
   welcomeDone?: string;
 }
 
-export const EMPTY_STATE: PlanState = { pointer: 0, overrides: {}, decided: [], hintDone: [] };
+export const EMPTY_STATE: PlanState = { pointer: 0, overrides: {}, dayPicks: {}, decided: [], hintDone: [] };
 
 export function parseState(raw: unknown): PlanState {
   const r = (raw && typeof raw === 'object' ? raw : {}) as Record<string, unknown>;
@@ -45,10 +47,15 @@ export function parseState(raw: unknown): PlanState {
   if (r.overrides && typeof r.overrides === 'object') {
     for (const [k, v] of Object.entries(r.overrides as Record<string, unknown>)) if (v === 'rest' || v === 'train') overrides[k] = v;
   }
+  const dayPicks: Record<string, string> = {};
+  if (r.dayPicks && typeof r.dayPicks === 'object') {
+    for (const [k, v] of Object.entries(r.dayPicks as Record<string, unknown>)) if (typeof v === 'string' && v) dayPicks[k] = v;
+  }
   const strs = (x: unknown): string[] => (Array.isArray(x) ? x.filter((v): v is string => typeof v === 'string') : []);
   return {
     pointer: typeof r.pointer === 'number' && Number.isInteger(r.pointer) && r.pointer >= 0 ? r.pointer : 0,
     overrides,
+    dayPicks,
     decided: strs(r.decided),
     hintDone: strs(r.hintDone),
     ...(typeof r.welcomeDone === 'string' ? { welcomeDone: r.welcomeDone } : {}),

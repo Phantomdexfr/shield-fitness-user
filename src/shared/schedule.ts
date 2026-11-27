@@ -226,6 +226,8 @@ export interface PlanInput {
   overrides?: Readonly<Record<string, 'rest' | 'train'>>;
   /** Missed dates the user already decided about (and so never come back). */
   decided?: readonly string[];
+  /** Phase 114: "on this date do THIS Day" (date -> Day id), this week only: a pick only matters for the date it names. Additive; absent = the rotation as before. */
+  dayPicks?: Readonly<Record<string, string>>;
 }
 
 /** The plan context from the user's own choices only (no automatic shifts). */
@@ -312,7 +314,15 @@ export function weekCells(i: PlanInput, count = 7): WeekCell[] {
     const date = addDays(i.today, n);
     const kind = kindOn(i.schedule, date, ctx);
     const cell: WeekCell = { date, kind, today: n === 0, deload: isDeloadWeek(i.meta, date, i.weekStart) };
-    if (kind === 'T' && i.days.length > 0) cell.dayIndex = mod(i.pointer + k++, i.days.length);
+    const pickId = i.dayPicks?.[date];
+    const pickIx = pickId === undefined || i.overrides?.[date] === 'rest' ? -1 : i.days.findIndex((d) => d.id === pickId); // a chosen rest on that date wins
+    if (pickIx >= 0) {
+      // Phase 114: the person chose this date's Day. A date that was already a training date keeps its place in the rotation (so the
+      // other dates keep their Days); a date turned into a training date by the pick is an extra and moves nothing else.
+      cell.kind = 'T';
+      cell.dayIndex = pickIx;
+      if (kind === 'T') k++;
+    } else if (kind === 'T' && i.days.length > 0) cell.dayIndex = mod(i.pointer + k++, i.days.length);
     cells.push(cell);
   }
   return cells;
@@ -447,6 +457,11 @@ export function todayPlan(input: TodayInput): TodayPlan {
   if (i.days.length === 0) return { kind: 'no_days', deload };
   const s = i.schedule;
   const base = { deload };
+
+  // Phase 114: a Day the person picked for today wins over the rotation in every mode (a rest chosen on the hint still wins over it).
+  const pickToday = input.restChosen ? undefined : i.dayPicks?.[i.today];
+  const pickIx = pickToday === undefined ? -1 : i.days.findIndex((d) => d.id === pickToday);
+  if (pickIx >= 0) return { kind: 'train', dayIndex: pickIx, ...base };
 
   if (!s || (s.mode === 'weekdays' && s.weekdays.length === 0)) {
     // ex. 13: "No plan today. Here is a good one." Best readiness when data exists, else the rotation.

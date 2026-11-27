@@ -150,3 +150,4 @@ Spec: `docs/SYNC_SPEC.md` PHASE 74 SPEC, `docs/GYM_CONNECTION.md` PHASE 74 SPEC.
 | U-UX-09 | [x] `ux.layout`: figure-first Body, new Exercise / Progress / Train / Me / Library layouts, Today (after the owner's verdict) with per-page "View" switches | 105, 106, 107, 108, 110 | SA |
 | U-UX-10 | [x] Classic style kept and provably intact (classic-integrity guard test; release 1.3.0 gate) | 96, 111 | SA |
 | U-UX-11 | [x] `ux.tidy` "Tidy layout": tenth, separate, default-ON switch (one-line sub-page header, compact figure controls, Library controls, no repeated labels, equal stat tiles, Appearance rows only under Custom, tab bar marker, caption contrast) | 113 | SA |
+| U-UX-12 | [x] Plan day picker (this week only), Body collapsible list + link chips, slidable chip rows, wheel tap-to-arm, logged() buzz, Train logger choice, History Change date | 114 | SA |

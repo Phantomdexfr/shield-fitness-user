@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks';
 import { useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { Badge, Button, Card, Collapsible, Sheet } from '../../ui/components';
+import { Badge, Button, Card, Chip, Collapsible, Sheet } from '../../ui/components';
 import { weekdayOfKey } from '../../shared/dates';
 import { cycleTiles, restShift, toggleDeloadWeek, weekCells, type WeekCell } from '../../shared/schedule';
 import { saveSchedule } from '../../data/repos/schedule';
@@ -41,6 +41,25 @@ export function WeekView({ routine, plan, onRoutine, strip, bare }: { routine: R
     else if (v) overrides[date] = v;
     else delete overrides[date];
     const ok = await plan.patchState({ overrides });
+    setErr(!ok);
+    if (ok) setPicked(null);
+  };
+
+  // Phase 114: "do THIS Day on this date" (this week only: the pick names one date and the rotation is untouched). The day's earlier
+  // rest / move choice is replaced; "Back to the plan" removes both.
+  const pickDay = async (date: string, dayId: string) => {
+    const overrides = { ...plan.state.overrides };
+    delete overrides[date]; // a chosen rest or "move here" on this date is replaced by the pick; the pick alone makes it a training date
+    const ok = await plan.patchState({ overrides, dayPicks: { ...plan.state.dayPicks, [date]: dayId } });
+    setErr(!ok);
+    if (ok) setPicked(null);
+  };
+  const clearPick = async (date: string) => {
+    const dayPicks = { ...plan.state.dayPicks };
+    delete dayPicks[date];
+    const overrides = { ...plan.state.overrides };
+    delete overrides[date];
+    const ok = await plan.patchState({ overrides, dayPicks });
     setErr(!ok);
     if (ok) setPicked(null);
   };
@@ -127,7 +146,15 @@ export function WeekView({ routine, plan, onRoutine, strip, bare }: { routine: R
             )}
             {picked.kind !== 'T' && <Button variant="secondary" onPress={() => void setOverride(picked.date, 'train')}>{t('sc.date.move')}</Button>}
             {picked.kind !== 'R' && <Button variant="secondary" onPress={() => void setOverride(picked.date, 'rest')}>{t('sc.date.rest')}</Button>}
-            {plan.state.overrides[picked.date] && <Button variant="secondary" onPress={() => void setOverride(picked.date, null)}>{t('sc.date.clear')}</Button>}
+            {plan.state.overrides[picked.date] && !plan.state.dayPicks[picked.date] && <Button variant="secondary" onPress={() => void setOverride(picked.date, null)}>{t('sc.date.clear')}</Button>}
+            <h3 class="sf-sec__label">{t('sc.pick.title')}</h3>
+            <div class="sf-rt__chips" role="group" aria-label={t('sc.pick.title')}>
+              {routine.days.map((d, i) => (
+                <Chip key={d.id} selected={picked.dayIndex === i} onPress={() => void pickDay(picked.date, d.id)}>{d.name}</Chip>
+              ))}
+            </div>
+            <p class="sf-lib__note">{t('sc.pick.hint')}</p>
+            {plan.state.dayPicks[picked.date] && <Button variant="secondary" onPress={() => void clearPick(picked.date)}>{t('sc.pick.clear')}</Button>}
           </div>
         )}
       </Sheet>

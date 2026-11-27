@@ -114,6 +114,23 @@ describe('Today with a plan', () => {
     expect(host.querySelector('.sf-view')).toBeNull(); // no View button on pages; the switch is in Settings -> Appearance
   });
 
+  test('Premium: "+2 more" is a button; it expands to all 5 rows and "Less" collapses back to 3', async () => {
+    premium();
+    await mount();
+    const more = btn('+2 more');
+    expect(more).toBeTruthy();
+    expect(more?.getAttribute('aria-expanded')).toBe('false');
+    await act(async () => { more?.click(); });
+    await settle();
+    expect(host.querySelectorAll('.sf-nextup__row').length).toBe(5);
+    const less = btn('Less');
+    expect(less?.getAttribute('aria-expanded')).toBe('true');
+    await act(async () => { less?.click(); });
+    await settle();
+    expect(host.querySelectorAll('.sf-nextup__row').length).toBe(3);
+    expect(btn('+2 more')).toBeTruthy();
+  });
+
   test('Classic: byte-for-byte the old card, no ring, no Next up, no liquid Start, the old Quick buttons', async () => {
     classic();
     await mount();

@@ -109,3 +109,18 @@ describe('wheel CSS', () => {
     expect(css).not.toMatch(/ellipsis|line-clamp/);
   });
 });
+
+// Phase 114: with Tidy layout ON a wheel is idle (the page scrolls through it) until a tap arms it; OFF = as before.
+describe('WheelPicker arming (ux.tidy)', () => {
+  test('idle at first, a tap arms it, Tidy off has no idle state', async () => {
+    applyUx(DEFAULT_SWITCHES);
+    await mount(<WheelPicker label="Rest" value={10} min={0} max={20} onChange={() => {}} />);
+    expect(q('.sf-wheel').className).toContain('sf-wheel--idle');
+    await act(async () => { (host.querySelectorAll('.sf-wheel__item')[12] as HTMLElement).click(); });
+    expect(q('.sf-wheel').className).toContain('sf-wheel--armed');
+    expect(q('.sf-wheel').className).not.toContain('sf-wheel--idle');
+    applyUx({ ...DEFAULT_SWITCHES, tidy: false });
+    await mount(<WheelPicker label="Rest" value={10} min={0} max={20} onChange={() => {}} />);
+    expect(q('.sf-wheel').className).not.toMatch(/sf-wheel--(idle|armed)/);
+  });
+});

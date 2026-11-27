@@ -132,3 +132,43 @@
 :root[data-ux-tidy='premium'] {
   --text-muted: var(--text-muted-tidy);
 }
+
+/* Wheel pickers (Phase 114): idle = the page scrolls through the wheel; a tap arms it (gold ring) so it spins. */
+:root[data-ux-tidy='premium'][data-ux-wheels='premium'] .sf-wheel--idle .sf-wheel__list {
+  overflow-y: hidden;
+}
+:root[data-ux-tidy='premium'][data-ux-wheels='premium'] .sf-wheel--armed {
+  border-radius: var(--r-md);
+  box-shadow: 0 0 0 1px var(--gold-400);
+}
+
+/* Slidable rows (Phase 114): choice chips that used to wrap onto several rows become ONE sideways-scrolling row, like the Library equipment chips. */
+:root[data-ux-tidy='premium'] .sf-rt__chips,
+:root[data-ux-tidy='premium'] .sf-anat__chips,
+:root[data-ux-tidy='premium'] .sf-atlas__chips,
+:root[data-ux-tidy='premium'] .sf-hm__chips,
+:root[data-ux-tidy='premium'] .sf-setup__chips,
+:root[data-ux-tidy='premium'] .sf-mm__chips,
+:root[data-ux-tidy='premium'] .sf-st__chips,
+:root[data-ux-tidy='premium'] .sf-lib__chips,
+:root[data-ux-tidy='premium'] .sf-lib__chipgroup,
+:root[data-ux-tidy='premium'] .sf-ex__chips {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding-bottom: var(--sp-1);
+  overscroll-behavior-x: contain;
+}
+:root[data-ux-tidy='premium'] .sf-rt__chips > *,
+:root[data-ux-tidy='premium'] .sf-anat__chips > *,
+:root[data-ux-tidy='premium'] .sf-atlas__chips > *,
+:root[data-ux-tidy='premium'] .sf-hm__chips > *,
+:root[data-ux-tidy='premium'] .sf-setup__chips > *,
+:root[data-ux-tidy='premium'] .sf-mm__chips > *,
+:root[data-ux-tidy='premium'] .sf-st__chips > *,
+:root[data-ux-tidy='premium'] .sf-lib__chips > *,
+:root[data-ux-tidy='premium'] .sf-lib__chipgroup > *,
+:root[data-ux-tidy='premium'] .sf-ex__chips > * {
+  flex: none;
+}

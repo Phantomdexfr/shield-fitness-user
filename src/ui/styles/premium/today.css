@@ -217,6 +217,20 @@
   font-size: var(--text-sm);
 }
 
+/* Next up: More / Less toggle (a real button, 44 px tall, gold text) */
+:root[data-ux-layout='premium'] .sf-nextup__more {
+  align-self: flex-start;
+  min-height: var(--touch-min);
+  padding: 0 var(--sp-3);
+  border: 0;
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--gold-400);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
 /* Quick: 2x2 icon tiles (a hidden tile leaves no gap: the grid flows) */
 :root[data-ux-layout='premium'] .sf-qtiles {
   display: grid;

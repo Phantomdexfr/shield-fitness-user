@@ -5,7 +5,8 @@ import { Link } from 'wouter-preact';
 import type { LabData } from '../../data/repos/lab';
 import { t } from '../../i18n';
 import { useFeature } from '../../app/flags';
-import { EmptyState, Segmented, Row, RowGroup, Sheet } from '../../ui/components';
+import { useLocation } from 'wouter-preact';
+import { Chip, Collapsible, EmptyState, Segmented, Row, RowGroup, Sheet } from '../../ui/components';
 import { useUx } from '../../ui/useUx';
 import { loadBodyLayout, type BodyLayout } from '../../data/repos/uiSections';
 import { BodyPicker, MuscleChips, viewsOf, type Sex, type View } from '../../ui/body';
@@ -24,6 +25,8 @@ export default function MuscleLab() {
   const marksOn = useFeature('injury_marks');
   const atlasOn = useFeature('holo_atlas');
   const { state, reload } = useLabData();
+  const [, navigate] = useLocation();
+  const tidy = useUx('tidy') === 'premium';
   const [mode, setMode] = useState<Mode>('find');
   const [sex, setSex] = useFigureSex();
   const [view, setView] = useState<View>('front');
@@ -48,8 +51,14 @@ export default function MuscleLab() {
     if (sel && !figureFirst) panelRef.current?.scrollIntoView?.({ block: 'start', behavior: 'smooth' });
   }, [sel, figureFirst]);
 
-  const links =
-    recoveryOn || marksOn || atlasOn ? (
+  // Phase 114 (ux.tidy): the same four links as ONE sideways-scrolling chip row right under the mode switch, so they are never buried below the figure.
+  const linkChips = [
+    recoveryOn && { href: '/body/recovery', label: t('rc.recovery.link') },
+    marksOn && { href: '/body/marks', label: t('rc.marks.link') },
+    atlasOn && { href: '/atlas', label: t('atlas.link') },
+    atlasOn && { href: '/anatomy', label: t('atlas.anatomyLink') },
+  ].filter((x): x is { href: string; label: string } => !!x);
+  const links = tidy ? null : recoveryOn || marksOn || atlasOn ? (
       figureFirst ? (
         <RowGroup>
           {recoveryOn && <Row href="/body/recovery">{t('rc.recovery.link')}</Row>}
@@ -81,6 +90,13 @@ export default function MuscleLab() {
           { value: 'worked', label: t('lab.mode.worked') },
         ]}
       />
+      {tidy && linkChips.length > 0 && (
+        <div class="sf-rt__chips" role="group" aria-label={t('lab.links.label')}>
+          {linkChips.map((c) => (
+            <Chip key={c.href} onPress={() => navigate(c.href)}>{c.label}</Chip>
+          ))}
+        </div>
+      )}
       <LoadGate state={state} reload={reload}>
         {(data) =>
           mode === 'worked' ? (
@@ -103,13 +119,21 @@ export default function MuscleLab() {
 
 function Explorer({ figureFirst, data, sex, view, sel, onSex, onView, onPick, panelRef }: { figureFirst: boolean; data: LabData; sex: Sex; view: View; sel?: string; onSex: (s: Sex) => void; onView: (v: View) => void; onPick: (id: string | undefined) => void; panelRef: Ref<HTMLDivElement> }) {
   const counts = useMemo(() => countByMuscle(data.candidates, data.tax.ids, data.tax), [data]);
+  const tidy = useUx('tidy') === 'premium'; // Phase 114: the muscle and group list folds away so Recovery, 3D body and the rest are reachable without scrolling
+  const chips = <MuscleChips mode="pick-one" value={sel ? [sel] : []} onChange={(ids) => onPick(ids[0])} counts={counts} />;
   return (
     <>
       <p class="sf-lab__note">{t('lab.hint')}</p>
       <div class={figureFirst ? 'sf-lab__hero' : undefined}>
       <BodyPicker mode="pick-one" sex={sex} view={view} onSexChange={onSex} onViewChange={onView} value={sel ? [sel] : []} onChange={(ids) => onPick(ids[0])} />
       </div>
-      <MuscleChips mode="pick-one" value={sel ? [sel] : []} onChange={(ids) => onPick(ids[0])} counts={counts} />
+      {tidy ? (
+        <Collapsible id="lab-muscles" title={t('lab.muscles.title')} summary={sel ? muscleName(sel) : undefined}>
+          {chips}
+        </Collapsible>
+      ) : (
+        chips
+      )}
       {figureFirst ? (
         <Sheet open={!!sel} onClose={() => onPick(undefined)} title={sel ? muscleName(sel) : ''} detent="medium">
           {sel && (

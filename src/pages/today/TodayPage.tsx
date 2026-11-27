@@ -81,7 +81,8 @@ interface NextRow { key: string; name: string; slug: string | undefined; muscle:
 function NextUp({ items, onOpen }: { items: RoutineItem[]; onOpen: (slug: string) => void }) {
   const [rows, setRows] = useState<NextRow[]>([]);
   const [sex] = useFigureSex();
-  const first = items.slice(0, MAX_NEXT);
+  const [open, setOpen] = useState(false);
+  const first = open ? items : items.slice(0, MAX_NEXT);
   const sig = first.map((i) => (i.ref.kind === 'lib' ? i.ref.slug : i.ref.id)).join('|');
   useEffect(() => {
     let live = true;
@@ -128,7 +129,11 @@ function NextUp({ items, onOpen }: { items: RoutineItem[]; onOpen: (slug: string
           );
         })}
       </ul>
-      {more > 0 && <p class="sf-rt__meta">{t('tp.more', { n: more })}</p>}
+      {more > 0 && (
+        <button type="button" class="sf-nextup__more" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+          {open ? t('tp.less') : t('tp.more', { n: more })}
+        </button>
+      )}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { Link, useLocation, useRoute, useSearch } from 'wouter-preact';
 import { t } from '../../i18n';
+import { useUx } from '../../ui/useUx';
 import { useFeature } from '../../app/flags';
 import { Badge, Button, Collapsible, Dialog, EmptyState, PrMark, SubPageHeader, showToast, Row } from '../../ui/components';
 import { BodyPicker } from '../../ui/body';
@@ -68,6 +69,7 @@ export default function SessionViewPage() {
   const [draft, setDraft] = useState<Session | null>(null);
   const [draftNames, setDraftNames] = useState<Record<string, string>>({});
   const [askDelete, setAskDelete] = useState(false);
+  const tidy = useUx('tidy') === 'premium'; // Phase 114: a direct "Change date" button; the same editor, "When" already open
   const [figureSex] = useFigureSex();
 
   const read = () => {
@@ -193,6 +195,7 @@ export default function SessionViewPage() {
             {items.map((it, i) => <ItemBlock key={`${refId(it.ref)}-${i}`} it={it} name={view.names[refId(it.ref)] ?? refId(it.ref)} />)}
           </Collapsible>
           <Button variant="secondary" onPress={startEdit}>{t('ed.edit')}</Button>
+          {tidy && <Button variant="secondary" onPress={startEdit}>{t('ed.changeDate')}</Button>}
         </>
       )}
       <Dialog open={askDelete} title={t('ed.delete.title')} message={t('ed.delete.msg')} confirmLabel={t('ed.delete')} danger onConfirm={() => void remove()} onCancel={() => setAskDelete(false)} />

@@ -19,6 +19,6 @@ export { Avatar, initialsOf, type AvatarProps } from './Avatar';
 export { PhotoFrame, type PhotoFrameProps } from './PhotoFrame';
 export { SubPageHeader, type SubPageHeaderProps } from './SubPageHeader';
 export { prefersReducedMotion, dur, staggerDelay, DUR, MAX_STAGGERED_ITEMS } from './motion';
-export { tick, canVibrate, setHapticsEnabled, TICK_MS } from './haptics';
+export { tick, logged, canVibrate, setHapticsEnabled, TICK_MS, LOGGED_MS } from './haptics';
 export { LABELS } from './labels';
 export { cx } from './util';

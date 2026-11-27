@@ -91,6 +91,27 @@ button,
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
+/* Owner request (Phase 114 fix): nothing in the app is selectable, so a long press never opens the browser's copy / Google lookup / analyze bubble.
+   Only real text fields keep selection (typing, caret and paste need it). */
+html,
+body,
+body * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+input,
+textarea,
+[contenteditable='true'],
+[contenteditable='true'] * {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+img,
+svg {
+  -webkit-user-drag: none;
+}
 button {
   background: none;
   border: 0;

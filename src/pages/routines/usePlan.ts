@@ -57,6 +57,7 @@ export function usePlan(routine: Routine | undefined): PlanData {
     meta,
     sessionDates,
     overrides: state.overrides,
+    dayPicks: state.dayPicks,
     decided: state.decided,
   };
 

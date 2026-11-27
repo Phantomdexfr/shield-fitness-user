@@ -20,3 +20,14 @@ export function tick(): void {
     /* some browsers throw without a user gesture: ignore */
   }
 }
+
+/** Phase 114: a firmer buzz (Android) when a set or rep is logged. Follows Settings -> Appearance -> Haptics; a no-op on iPhone. */
+export const LOGGED_MS = 35;
+export function logged(): void {
+  if (!enabled || !canVibrate()) return;
+  try {
+    navigator.vibrate(LOGGED_MS);
+  } catch {
+    /* needs a user gesture in some browsers */
+  }
+}
