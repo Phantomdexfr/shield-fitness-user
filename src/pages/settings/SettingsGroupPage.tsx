@@ -1,7 +1,9 @@
 import { useState } from 'preact/hooks';
 import { Link, useLocation } from 'wouter-preact';
 import { t, type StringKey } from '../../i18n';
-import { ChoiceRow, Collapsible, DatePicker, Input, NumberRow, RowGroup, Segmented, Stepper, SubPageHeader, Toggle } from '../../ui/components';
+import { ChoiceRow, Collapsible, DatePicker, Input, NumberRow, RowGroup, Row as KitRow, Segmented, Stepper, SubPageHeader, Switch, Toggle, showToast } from '../../ui/components';
+import { requestStart } from '../../app/tourStore';
+import { setTipsOn, useTipsOn } from '../../app/tipsStore';
 import { resolveFeature } from '../../app/flags';
 import { usePref } from '../../data/usePref';
 import { lockedByGym } from '../../data/repos/prefs';
@@ -64,6 +66,8 @@ export function rowsFor(slug: string): RowSpec[] {
         { kind: 'segmented', pref: 'appearance.motion', label: t('st.appearance.motion'), options: opts('full', 'reduced') },
         { kind: 'toggle', pref: 'appearance.haptics', label: t('st.appearance.haptics'), hint: t('st.appearance.haptics.hint') },
         { kind: 'segmented', pref: 'appearance.density', label: t('st.appearance.density'), options: opts('comfortable', 'compact') },
+        { kind: 'tour' },
+        { kind: 'tips' },
       ];
     default:
       return [
@@ -177,6 +181,30 @@ function DateRow({ spec }: { spec: Extract<RowSpec, { kind: 'date' }> }) {
   );
 }
 
+/** Phase 116: "Start walkthrough". Starts the guided tour from step 1 (also after it was done or skipped), but never on top of an open workout. */
+function TourRow() {
+  const press = () => {
+    void requestStart().then((r) => {
+      if (r === 'busy') showToast(t('tour.row.busy'));
+    });
+  };
+  return (
+    <RowGroup>
+      <KitRow label={t('tour.row.label')} hint={t('tour.row.hint')} onPress={press} data-tour="tour-row" />
+    </RowGroup>
+  );
+}
+
+/** Phase 117: the app-wide page-tips switch (the "i" button on each main page). */
+function TipsRow() {
+  const on = useTipsOn() === true;
+  return (
+    <RowGroup>
+      <KitRow label={t('tips.switch')} hint={t('tips.row.hint')} trailing={<Switch checked={on} onChange={(v) => void setTipsOn(v)} label={t('tips.switch')} />} data-tour="tips-row" />
+    </RowGroup>
+  );
+}
+
 function Row({ spec }: { spec: RowSpec }) {
   switch (spec.kind) {
     case 'toggle':
@@ -193,6 +221,10 @@ function Row({ spec }: { spec: RowSpec }) {
       return <DateRow spec={spec} />;
     case 'ux':
       return <InterfaceStyle />;
+    case 'tour':
+      return <TourRow />;
+    case 'tips':
+      return <TipsRow />;
     case 'note':
       return <p class="sf-st__hint">{spec.text}</p>;
     case 'link':

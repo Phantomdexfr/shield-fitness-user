@@ -81,8 +81,7 @@ interface NextRow { key: string; name: string; slug: string | undefined; muscle:
 function NextUp({ items, onOpen }: { items: RoutineItem[]; onOpen: (slug: string) => void }) {
   const [rows, setRows] = useState<NextRow[]>([]);
   const [sex] = useFigureSex();
-  const [open, setOpen] = useState(false);
-  const first = open ? items : items.slice(0, MAX_NEXT);
+  const first = items.slice(0, MAX_NEXT);
   const sig = first.map((i) => (i.ref.kind === 'lib' ? i.ref.slug : i.ref.id)).join('|');
   useEffect(() => {
     let live = true;
@@ -129,11 +128,7 @@ function NextUp({ items, onOpen }: { items: RoutineItem[]; onOpen: (slug: string
           );
         })}
       </ul>
-      {more > 0 && (
-        <button type="button" class="sf-nextup__more" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-          {open ? t('tp.less') : t('tp.more', { n: more })}
-        </button>
-      )}
+      {more > 0 && <p class="sf-rt__meta">{t('tp.more', { n: more })}</p>}
     </div>
   );
 }
@@ -225,7 +220,7 @@ export default function TodayPage() {
         <section class="sf-page-body sf-sc">
           {premiumHead}
           {cardOn && (
-            <HeroCard class="sf-today-empty">
+            <HeroCard class="sf-today-empty" data-tour="today-card">
               <span class="sf-today-empty__fig" aria-hidden="true">
                 <BodyPicker mode="view" size="mini" sex={sex} view="front" emphasis={ALL_GOLD} />
               </span>
@@ -242,7 +237,7 @@ export default function TodayPage() {
       <section class="sf-page-body sf-sc">
         {head}
         {cardOn && (
-          <Card tone="gold" class="sf-sc__today">
+          <Card tone="gold" class="sf-sc__today" data-tour="today-card">
             <p class="sf-rt__name">{t('sc.today.noroutine')}</p>
             <div class="sf-rt__row">
               <Button onPress={() => navigate('/routine/new')}>{t('sc.today.makeroutine')}</Button>
@@ -376,7 +371,7 @@ export default function TodayPage() {
     <section class="sf-page-body sf-sc">
       {premium ? premiumHead : head}
       {cardOn && premium && (
-        <HeroCard class="sf-today-hero">
+        <HeroCard class="sf-today-hero" data-tour="today-card">
           <div class="sf-today-hero__top">
             <div class="sf-today-hero__text">
               <span class="sf-sec__label">{label}</span>
@@ -389,7 +384,7 @@ export default function TodayPage() {
         </HeroCard>
       )}
       {cardOn && !premium && (
-        <Card tone="gold" class="sf-sc__today">
+        <Card tone="gold" class="sf-sc__today" data-tour="today-card">
           <span class="sf-sec__label">{label}</span>
           {lines}
 

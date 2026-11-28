@@ -265,7 +265,7 @@ export function SetLogger({ sess, idx, item, info, hist, prefs, onPrefs, commit 
           <Button icon="plus" onPress={log}>{t('lg.log.cardio')}</Button>
         </div>
       ) : (
-        <div class="sf-lg__entry">
+        <div class="sf-lg__entry" data-tour="logger-entry">
           <div class={`sf-lg__pair${wheels ? ' sf-lg__pair--wheels' : ''}`}>
             <div class="sf-lg__field">
               <span class="sf-rt__meta">{t('lg.weight')}</span>

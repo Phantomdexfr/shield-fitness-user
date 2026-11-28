@@ -1,9 +1,11 @@
 import { t, type StringKey } from '../../i18n';
-import { Badge, Button } from '../../ui/components';
+import { Badge, Button, IconButton } from '../../ui/components';
+import { useUx } from '../../ui/useUx';
 import type { BuildResult } from '../../shared/dayBuilder';
 
 /** The exercises a builder made, grouped by slot, each with a Shuffle button. Used by the day builder sheet and Workout in a pinch. */
 export function BuiltList({ result, onShuffle, note }: { result: BuildResult; onShuffle: (index: number) => void; note?: string | null }) {
+  const tidy = useUx('tidy') === 'premium'; // Phase 115: Shuffle is one small icon button per row
   const used = Math.ceil(result.seconds / 60);
   const box = Math.round(result.limitSec / 60);
   let last = '';
@@ -24,7 +26,11 @@ export function BuiltList({ result, onShuffle, note }: { result: BuildResult; on
                   <span class="sf-rt__meta">{t('db.line', { sets: e.sets, min: e.repMin, max: e.repMax, rest: e.restSec })}</span>
                   {e.group && <Badge tone="gold">{t('rb.d.ss')}</Badge>}
                 </div>
-                <Button variant="secondary" aria-label={t('db.shuffle.aria', { name: e.name })} onPress={() => onShuffle(i)}>{t('db.shuffle')}</Button>
+                {tidy ? (
+                  <IconButton icon="swap" variant="secondary" label={t('db.shuffle.aria', { name: e.name })} onPress={() => onShuffle(i)} />
+                ) : (
+                  <Button variant="secondary" aria-label={t('db.shuffle.aria', { name: e.name })} onPress={() => onShuffle(i)}>{t('db.shuffle')}</Button>
+                )}
               </div>
             </li>
           );

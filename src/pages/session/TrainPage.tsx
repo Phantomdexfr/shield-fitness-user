@@ -21,6 +21,7 @@ export default function TrainPage() {
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const shareOn = useFeature('plan_share') && relayAvailable();
   const premium = useUx('layout') === 'premium';
+  const tidy = useUx('tidy') === 'premium'; // Phase 115: one short visible "Start" on every day row (the accessible name keeps the day)
 
   const read = () => {
     setLoad({ status: 'loading' });
@@ -62,7 +63,7 @@ export default function TrainPage() {
         {ago(d.id) && <span class="sf-rt__meta">{ago(d.id)}</span>}
         {i === suggested && <Badge tone="gold">{doneToday ? t('fs.train.next') : t('fs.train.suggested')}</Badge>}
       </div>
-      <Button variant={i === suggested && !open && !doneToday ? 'primary' : 'secondary'} aria-label={t('fs.train.start', { day: d.name })} onPress={() => start(d.id)}>{t('fs.train.start', { day: d.name })}</Button>
+      <Button variant={i === suggested && !open && !doneToday ? 'primary' : 'secondary'} aria-label={t('fs.train.start', { day: d.name })} data-tour={i === suggested ? 'train-start' : undefined} onPress={() => start(d.id)}>{tidy ? t('fs.train.start.short') : t('fs.train.start', { day: d.name })}</Button>
     </li>
   );
 
@@ -102,7 +103,7 @@ export default function TrainPage() {
               ) : (
                 <>
                   <p class="sf-rt__meta">{t('fs.train.none')}</p>
-                  <Button onPress={() => navigate('/session/new?free=1')}>{t('fs.train.free')}</Button>
+                  <Button data-tour="train-start" onPress={() => navigate('/session/new?free=1')}>{t('fs.train.free')}</Button>
                 </>
               )}
             </HeroCard>
@@ -119,7 +120,7 @@ export default function TrainPage() {
             </Collapsible>
           )}
           {lastRow}
-          <RowGroup label={t('tr.ways')}>
+          <RowGroup label={t('tr.ways')} data-tour="train-ways">
             {routine && days.length > 0 && <Row label={t('fs.train.free')} onPress={() => navigate('/session/new?free=1')} />}
             {last && <Row label={t('fs.train.repeat')} onPress={() => navigate('/session/new?repeat=1')} />}
             {shareOn && <Row label={t('ps.recv.open')} onPress={() => navigate('/share')} />}
@@ -149,7 +150,7 @@ export default function TrainPage() {
             {last && <Button variant="secondary" onPress={() => navigate('/session/new?repeat=1')}>{t('fs.train.repeat')}</Button>}
             {shareOn && <Button variant="secondary" onPress={() => navigate('/share')}>{t('ps.recv.open')}</Button>}
           </Collapsible>
-          <RowGroup>
+          <RowGroup data-tour="train-ways">
             <Row label={t('fs.train.routines')} href="/routines" />
             <Row label={t('fs.train.history')} href="/history" />
             <Row label={t('fs.train.progress')} href="/progress" />

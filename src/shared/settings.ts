@@ -102,6 +102,10 @@ export type RowSpec =
   | { kind: 'link'; label: string; to: string; hint?: string; feature?: string }
   /** Phase 96: the Interface style block (master Premium / Classic / Custom + nine switches). Stored in `appearance:ux`, not a pref. */
   | { kind: 'ux' }
+  /** Phase 116: the "Start walkthrough" row (starts the guided tour; stores nothing in prefs). */
+  | { kind: 'tour' }
+  /** Phase 117: the "Show page tips" switch (app-wide; stored in prefs row `tips`). */
+  | { kind: 'tips' }
   | { kind: 'note'; text: string };
 
 export interface GroupDef {

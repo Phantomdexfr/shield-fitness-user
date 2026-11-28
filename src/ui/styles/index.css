@@ -18,4 +18,6 @@
 @import './onboarding.css';
 @import './view.css';
 @import './premium/index.css';
+@import './tour.css';
+@import './pagetip.css';
 @tailwind utilities;

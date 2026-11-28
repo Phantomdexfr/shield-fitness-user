@@ -33,6 +33,8 @@ export interface RowProps {
   disabled?: boolean;
   class?: string;
   'aria-label'?: string;
+  /** Phase 116: marks this row as a guided-walkthrough target (an attribute only). */
+  'data-tour'?: string;
   children?: ComponentChildren;
 }
 
@@ -53,25 +55,25 @@ export function Row({ label, hint, value, href, onPress, trailing, chevron, dang
   const klass = cx('sf-row', danger && 'sf-row--danger', cls);
   if (href !== undefined) {
     return (
-      <Link href={href} class={cx(klass, 'sf-press')} aria-label={rest['aria-label']} onClick={() => { if (currentUx('motion') === 'premium') tick(); }}>
+      <Link href={href} class={cx(klass, 'sf-press')} aria-label={rest['aria-label']} data-tour={rest['data-tour']} onClick={() => { if (currentUx('motion') === 'premium') tick(); }}>
         {body}
       </Link>
     );
   }
   if (onPress) {
     return (
-      <Pressable class={klass} onPress={onPress} disabled={disabled} aria-label={rest['aria-label']}>
+      <Pressable class={klass} onPress={onPress} disabled={disabled} aria-label={rest['aria-label']} data-tour={rest['data-tour']}>
         {body}
       </Pressable>
     );
   }
-  return <div class={klass}>{body}</div>;
+  return <div class={klass} data-tour={rest['data-tour']}>{body}</div>;
 }
 
 /** Rows share one bordered group (radius 14-16, 1 px line, hairlines between rows). An optional 12 px uppercase section label sits above. */
-export function RowGroup({ label, class: cls, children }: { label?: string; class?: string; children?: ComponentChildren }) {
+export function RowGroup({ label, class: cls, children, 'data-tour': tour }: { label?: string; class?: string; children?: ComponentChildren; 'data-tour'?: string }) {
   return (
-    <div class={cx('sf-rowgroup', cls)}>
+    <div class={cx('sf-rowgroup', cls)} data-tour={tour}>
       {label && <p class="sf-rowgroup__label">{label}</p>}
       <div class="sf-rowgroup__box">{children}</div>
     </div>

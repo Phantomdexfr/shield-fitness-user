@@ -9,18 +9,20 @@ export interface HeroCardProps {
   as?: 'div' | 'section' | 'article';
   padded?: boolean;
   class?: string;
+  /** Phase 116: guided-walkthrough target (an attribute only). */
+  'data-tour'?: string;
   children?: ComponentChildren;
 }
 
-export function HeroCard({ as = 'section', padded = true, class: cls, children }: HeroCardProps) {
+export function HeroCard({ as = 'section', padded = true, class: cls, children, 'data-tour': tour }: HeroCardProps) {
   const style = useUx('surfaces');
   if (style === 'classic') {
     return (
-      <Card as={as} tone="gold" padded={padded} class={cls}>
+      <Card as={as} tone="gold" padded={padded} class={cls} data-tour={tour}>
         {children}
       </Card>
     );
   }
   const Tag = as as 'div';
-  return <Tag class={cx('sf-hero', padded && 'sf-hero--padded', cls)}>{children}</Tag>;
+  return <Tag class={cx('sf-hero', padded && 'sf-hero--padded', cls)} data-tour={tour}>{children}</Tag>;
 }

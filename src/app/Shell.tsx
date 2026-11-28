@@ -8,6 +8,8 @@ import { useUx } from '../ui/useUx';
 import { NotFound } from '../pages/NotFound';
 import { t } from '../i18n';
 import { UpdateToast } from '../pwa/UpdateToast';
+import { Tour } from '../ui/components/Tour';
+import { PageTip } from '../ui/components/PageTip';
 import { redirectExempt } from '../shared/onboarding';
 import { useFeature } from './flags';
 import { TABS, activeRoutes, type RouteDef } from './routes';
@@ -39,7 +41,7 @@ export function TabBar({ routes }: { routes: RouteDef[] }) {
       {/* Premium (ux.tabbar): a gold indicator that slides to the active tab. Classic renders no indicator. */}
       {ux === 'premium' && index >= 0 && <span class="sf-tabbar__ind" aria-hidden="true" style={`--tab-i:${index};--tab-n:${TABS.length}`} />}
       {TABS.map((tab) => (
-        <Link key={tab.id} href={tab.path} replace class={cx('sf-tabbar__item', active === tab.id && 'is-active')} aria-current={active === tab.id ? 'page' : undefined}>
+        <Link key={tab.id} href={tab.path} replace class={cx('sf-tabbar__item', active === tab.id && 'is-active')} aria-current={active === tab.id ? 'page' : undefined} data-tour={`tab-${tab.id}`}>
           <Icon name={tab.icon} weight={active === tab.id ? 'fill' : 'regular'} size={24} />
           <span class="sf-tabbar__label">{t(tab.labelKey)}</span>
         </Link>
@@ -137,6 +139,8 @@ export function Shell({ base, isDev }: { base: string; isDev: boolean }) {
         <TabBarUnlessWelcome routes={routes} />
         <ToastHost />
         <UpdateToast />
+        <PageTip />
+        <Tour />
       </div>
     </Router>
   );

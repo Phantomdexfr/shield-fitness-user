@@ -11,19 +11,21 @@ export interface CardProps {
   /** Makes the whole card a button (detail = a page or a sheet, never in-place expansion). */
   onPress?: (e: Event) => void;
   class?: string;
+  /** Phase 116: guided-walkthrough target (an attribute only). */
+  'data-tour'?: string;
   children?: ComponentChildren;
 }
 
 /** A fixed surface. Cards never expand, collapse or flip: they show their whole content. */
-export function Card({ as = 'div', tone = 'raised', elevation, padded = true, onPress, class: cls, children }: CardProps) {
+export function Card({ as = 'div', tone = 'raised', elevation, padded = true, onPress, class: cls, children, 'data-tour': tour }: CardProps) {
   const klass = cx('sf-card', `sf-card--${tone}`, padded && 'sf-card--padded', elevation && `sf-card--e${elevation}`, cls);
   if (onPress) {
     return (
-      <Pressable class={cx(klass, 'sf-card--press')} onPress={onPress}>
+      <Pressable class={cx(klass, 'sf-card--press')} onPress={onPress} data-tour={tour}>
         {children}
       </Pressable>
     );
   }
   const Tag = as as 'div';
-  return <Tag class={klass}>{children}</Tag>;
+  return <Tag class={klass} data-tour={tour}>{children}</Tag>;
 }

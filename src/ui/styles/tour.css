@@ -1,0 +1,122 @@
+/* Phase 116: guided walkthrough overlay (src/ui/components/Tour.tsx). Tokens only. Sits above the tab bar (20), sheets (50), toasts (60) and the update bar (70). */
+.sf-tour {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Reads the safe-area insets as padding (a hidden probe; never painted). */
+.sf-tour__probe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  padding: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);
+}
+
+/* Invisible panels around the hole: they stop taps on the dimmed page. The dimming itself is the spotlight's shadow. */
+.sf-tour__panel {
+  position: fixed;
+  pointer-events: auto;
+  background: transparent;
+}
+
+/* The bright cut-out: a gold ring and a huge shadow that dims everything outside it. */
+.sf-tour__spot {
+  position: fixed;
+  pointer-events: none;
+  border-radius: var(--r-md);
+  box-shadow: 0 0 0 2px var(--gold-400), 0 0 0 100vmax var(--scrim);
+  transition: top var(--dur-base) var(--ease-out), left var(--dur-base) var(--ease-out), width var(--dur-base) var(--ease-out), height var(--dur-base) var(--ease-out);
+}
+
+/* No target: the whole screen is dimmed. */
+.sf-tour__full {
+  position: fixed;
+  inset: 0;
+  pointer-events: auto;
+  background: var(--scrim);
+}
+
+.sf-tour__card {
+  position: fixed;
+  box-sizing: border-box;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-3);
+  outline: none;
+  animation: sf-tour-in var(--dur-base) var(--ease-out);
+}
+
+.sf-tour__card:focus-visible {
+  box-shadow: var(--sh-3), 0 0 0 2px var(--gold-400);
+}
+
+.sf-tour__count {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.sf-tour__title {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.25;
+  color: var(--gold-300);
+}
+
+.sf-tour__body {
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: 1.45;
+  color: var(--text-2);
+}
+
+.sf-tour__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.sf-tour__row > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.sf-tour__row:first-of-type {
+  margin-top: var(--sp-2);
+}
+
+@keyframes sf-tour-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Reduced motion (the OS setting or Settings -> Appearance): no animated moves, no fade. */
+@media (prefers-reduced-motion: reduce) {
+  .sf-tour__spot { transition: none; }
+  .sf-tour__card { animation: none; }
+}
+
+:root[data-motion='reduced'] .sf-tour__spot { transition: none; }
+:root[data-motion='reduced'] .sf-tour__card { animation: none; }
+
+/* Buttons in the card are at least 44 px tall (the kit's secondary button is 42 px). */
+.sf-tour__card .sf-btn {
+  min-height: 44px;
+}
+
+/* One wrapper for the dim layer (aria-hidden), so the card keeps its place in the tree when the spotlight comes and goes. */
+.sf-tour__dim {
+  display: contents;
+}

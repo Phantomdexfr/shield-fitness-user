@@ -418,7 +418,7 @@ export default function SessionPage() {
       {header(sess.dayName ?? t('fs.free'))}
       <div class="sf-rt__row">
         <span class="sf-rt__meta" role="status">{t('fs.elapsed', { n: Math.floor(elapsedSec(sess, now) / 60) })}</span>
-        {!ended && <Button onPress={openFinish}>{t('fs.finish')}</Button>}
+        {!ended && <Button data-tour="session-finish" onPress={openFinish}>{t('fs.finish')}</Button>}
       </div>
       {!ended && (
         <Collapsible id="options" title={t('ux.loggerOptions')} summary={lprefs.mode === 'advanced' ? t('lg.mode.advanced') : undefined}>
@@ -440,7 +440,7 @@ export default function SessionPage() {
         </Card>
       )}
 
-      {!ended && <Button icon="plus" onPress={() => { setQ(''); setPickMuscle([]); setAddOpen(true); }}>{t('fs.add')}</Button>}
+      {!ended && <Button icon="plus" data-tour="session-add" onPress={() => { setQ(''); setPickMuscle([]); setAddOpen(true); }}>{t('fs.add')}</Button>}
 
       {undo && (
         <div class="sf-rt__undo" role="status">

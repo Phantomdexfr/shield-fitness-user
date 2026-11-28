@@ -34,7 +34,7 @@ export function SearchBox(p: SearchBoxProps) {
   const recents = p.recents ?? [];
   return (
     <>
-      <div class="sf-lib__searchrow">
+      <div class="sf-lib__searchrow" data-tour="library-search">
         <Input
           label={t('lib.search')}
           {...(p.hideLabel ? { hideLabel: true } : {})}

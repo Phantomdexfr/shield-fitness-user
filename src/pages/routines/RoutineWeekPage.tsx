@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { useLocation, useRoute } from 'wouter-preact';
 import { t } from '../../i18n';
 import { Badge, Button, Card, Collapsible, Dialog, EmptyState, IconButton, Input, ProgressBar, Sheet, SubPageHeader, Toggle } from '../../ui/components';
+import { useUx } from '../../ui/useUx';
 import { deleteRoutine, duplicateRoutine, listRoutines, setActiveRoutine } from '../../data/repos/routines';
 import { addDay, estimateMinutes, moveDay, overloadHints, removeDay, renameRoutine, restoreDay, weeklyVolume, type OverloadHint } from '../../shared/routineEdit';
 import { newClientId } from '../../data/local';
@@ -36,6 +37,7 @@ export default function RoutineWeekPage() {
   const [rename, setRename] = useState<string | null>(null);
   const [renameErr, setRenameErr] = useState<string | null>(null);
   const [daysOpen, setDaysOpen] = useState(false);
+  const tidy = useUx('tidy') === 'premium'; // Phase 115: Up / Down / Remove as three small icon buttons
   const [confirmDay, setConfirmDay] = useState<RoutineDay | null>(null);
   const [confirmDel, setConfirmDel] = useState(false);
   const [ignored, setIgnored] = useState<string[]>([]);
@@ -187,9 +189,19 @@ export default function RoutineWeekPage() {
             {r.days.map((d, i) => (
               <li key={d.id} class="sf-rt__item">
                 <span class="sf-rt__name sf-rt__grow">{d.name}</span>
-                <Button variant="secondary" disabled={i === 0} aria-label={`${t('rb.w.up')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i - 1))}>{t('rb.w.up')}</Button>
-                <Button variant="secondary" disabled={i === r.days.length - 1} aria-label={`${t('rb.w.down')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i + 1))}>{t('rb.w.down')}</Button>
-                <Button variant="danger" aria-label={`${t('rb.w.day.remove')}: ${d.name}`} onPress={() => askRemove(d)}>{t('rb.w.day.remove')}</Button>
+                {tidy ? (
+                  <>
+                    <Button class="sf-rt__mini" variant="secondary" disabled={i === 0} aria-label={`${t('rb.w.up')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i - 1))}>↑</Button>
+                    <Button class="sf-rt__mini" variant="secondary" disabled={i === r.days.length - 1} aria-label={`${t('rb.w.down')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i + 1))}>↓</Button>
+                    <IconButton class="sf-rt__danger" icon="trash" variant="secondary" label={`${t('rb.w.day.remove')}: ${d.name}`} onPress={() => askRemove(d)} />
+                  </>
+                ) : (
+                  <>
+                    <Button variant="secondary" disabled={i === 0} aria-label={`${t('rb.w.up')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i - 1))}>{t('rb.w.up')}</Button>
+                    <Button variant="secondary" disabled={i === r.days.length - 1} aria-label={`${t('rb.w.down')}: ${d.name}`} onPress={() => void save(moveDay(r, i, i + 1))}>{t('rb.w.down')}</Button>
+                    <Button variant="danger" aria-label={`${t('rb.w.day.remove')}: ${d.name}`} onPress={() => askRemove(d)}>{t('rb.w.day.remove')}</Button>
+                  </>
+                )}
               </li>
             ))}
           </ul>

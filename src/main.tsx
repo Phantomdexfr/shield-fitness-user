@@ -10,12 +10,6 @@ captureInstallPrompt();
 // Phase 82: iOS Safari ignores `user-scalable=no`; stop its pinch gesture events (once, non-passive so preventDefault counts).
 for (const type of ['gesturestart', 'gesturechange', 'gestureend']) document.addEventListener(type, (e) => e.preventDefault(), { passive: false });
 
-// Long-press menu (copy / Google lookup / image actions) is off everywhere except real text fields.
-document.addEventListener('contextmenu', (e) => {
-  const el = e.target instanceof Element ? e.target : null;
-  if (!el?.closest('input, textarea, [contenteditable="true"]')) e.preventDefault();
-});
-
 // Dev builds only: `?bypass-gate` skips the install gate (the branch is removed from production builds).
 const bypass = import.meta.env.DEV && new URLSearchParams(location.search).has('bypass-gate');
 // The worker registers in the browser tab too: Android only offers install when one is active.

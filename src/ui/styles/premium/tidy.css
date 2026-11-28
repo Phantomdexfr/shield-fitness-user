@@ -172,3 +172,74 @@
 :root[data-ux-tidy='premium'] .sf-ex__chips > * {
   flex: none;
 }
+
+/* Uniform list rows (Phase 115): [title + detail] on the left, ONE fixed-size action on the right, thin dividers, no box inside a box. */
+:root[data-ux-tidy='premium'] .sf-rt__item {
+  align-items: center;
+  gap: var(--sp-3);
+  padding-block: var(--sp-2);
+}
+:root[data-ux-tidy='premium'] li.sf-rt__item:not(:last-child) {
+  border-bottom: 1px solid var(--line);
+}
+:root[data-ux-tidy='premium'] .sf-db__entry:not(:last-child) {
+  border-bottom: 1px solid var(--line);
+}
+:root[data-ux-tidy='premium'] .sf-rt__item > .sf-db__text,
+:root[data-ux-tidy='premium'] .sf-rt__item > .sf-card {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+/* The action never changes width with its label and never breaks a word. */
+:root[data-ux-tidy='premium'] .sf-rt__item > .sf-btn {
+  flex: none;
+  min-width: var(--sp-8);
+  max-width: 45%;
+  padding-inline: var(--sp-3);
+  white-space: nowrap;
+  word-break: keep-all;
+  hyphens: none;
+}
+:root[data-ux-tidy='premium'] .sf-rt__item > .sf-iconbtn {
+  flex: none;
+}
+:root[data-ux-tidy='premium'] .sf-rt__item > .sf-btn.sf-rt__mini {
+  min-width: 44px;
+  padding-inline: 0;
+  font-size: var(--text-lg);
+}
+:root[data-ux-tidy='premium'] .sf-rt__item > .sf-iconbtn.sf-rt__danger {
+  color: var(--danger);
+}
+
+/* Slidable rows: no scrollbar line under them and a soft fade at the right edge so a cut-off chip reads as "more this way". */
+:root[data-ux-tidy='premium'] .sf-lib__equip,
+:root[data-ux-tidy='premium'] .sf-rt__chips,
+:root[data-ux-tidy='premium'] .sf-anat__chips,
+:root[data-ux-tidy='premium'] .sf-atlas__chips,
+:root[data-ux-tidy='premium'] .sf-hm__chips,
+:root[data-ux-tidy='premium'] .sf-setup__chips,
+:root[data-ux-tidy='premium'] .sf-mm__chips,
+:root[data-ux-tidy='premium'] .sf-st__chips,
+:root[data-ux-tidy='premium'] .sf-lib__chips,
+:root[data-ux-tidy='premium'] .sf-lib__chipgroup,
+:root[data-ux-tidy='premium'] .sf-ex__chips {
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, black calc(100% - var(--sp-6)), transparent);
+  mask-image: linear-gradient(to right, black calc(100% - var(--sp-6)), transparent);
+}
+:root[data-ux-tidy='premium'] .sf-lib__equip::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-rt__chips::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-anat__chips::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-atlas__chips::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-hm__chips::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-setup__chips::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-mm__chips::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-st__chips::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-lib__chips::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-lib__chipgroup::-webkit-scrollbar,
+:root[data-ux-tidy='premium'] .sf-ex__chips::-webkit-scrollbar {
+  display: none;
+}

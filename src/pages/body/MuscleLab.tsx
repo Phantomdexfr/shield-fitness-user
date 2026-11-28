@@ -78,7 +78,7 @@ export default function MuscleLab() {
   if (!on) return <EmptyState icon="info" title={t('lab.off.title')} hint={t('lab.off.hint')} />;
   return (
     <section class="sf-page-body sf-lab">
-      <h1 class="sf-page-title">{t('page.body.title')}</h1>
+      <h1 class="sf-page-title" data-tour="body-title">{t('page.body.title')}</h1>
       {!figureFirst && <MuscleOfWeekCard />}
       {!figureFirst && links}
       <Segmented<Mode>

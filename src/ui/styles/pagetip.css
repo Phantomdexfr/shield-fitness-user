@@ -1,0 +1,38 @@
+/* Phase 117: page-tip "i" button. Fixed bottom right, above the tab bar (20) and below sheets (50), toasts (60) and the walkthrough (100). Tokens only. */
+.sf-pagetip {
+  position: fixed;
+  z-index: 30;
+  right: calc(var(--safe-right) + var(--sp-3));
+  bottom: calc(var(--tabbar-h) + var(--safe-bottom) + var(--sp-3));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  color: var(--gold-300);
+  box-shadow: var(--sh-2);
+}
+
+.sf-pagetip__body {
+  margin: 0 0 var(--sp-4);
+  font-size: var(--text-md);
+  line-height: 1.45;
+  color: var(--text-2);
+}
+
+.sf-pagetip__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  min-height: 44px;
+}
+
+.sf-pagetip__label {
+  font-size: var(--text-md);
+  color: var(--text);
+}

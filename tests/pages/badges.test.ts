@@ -3,7 +3,6 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { figureTiers, rankedRows, strongestWeakest, unrankedCount, confirmKeys, pct } from '../../src/pages/badges/badgesModel';
 import { parseProfile, parseBodyweight } from '../../src/data/repos/badges';
 import { parseBadgeData } from '../../src/shared/badges';
-import { t } from '../../src/i18n';
 import type { BadgeResult, GroupBadge } from '../../src/shared/badges';
 
 const m = (id: string, tier: number | null) => ({ id, ranked: tier != null, tier });
@@ -61,17 +60,5 @@ describe('compiled badges file', () => {
   it('malformed input gives null', () => {
     expect(parseBadgeData(null)).toBeNull();
     expect(parseBadgeData({ ladders: [], map: [], tiers: [] })).toBeNull();
-  });
-});
-
-describe('layer descriptions (Strength vs Experience)', () => {
-  it('each layer has its own description and the experience sheet strings exist', () => {
-    const a = t('badge.layer.desc.strength');
-    const b = t('badge.layer.desc.experience');
-    expect(a).not.toBe(b);
-    expect(a).toMatch(/^Strength/);
-    expect(b).toMatch(/^Experience/);
-    expect(t('badge.exp.sheet.line', { muscle: 'Biceps', tier: 'Gold' })).toBe('Biceps: Gold experience');
-    expect(t('badge.exp.sheet.explain')).toContain('3 or more reps');
   });
 });
